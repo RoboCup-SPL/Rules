@@ -368,7 +368,7 @@ is completely inside the goal area\footnote{The goal line is part of
 the field.}. The restart after the goal shall adopt the same
 rules as the kick-off.
 
-Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (even if unintentional - see also Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is accidental contact with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded.
+Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (even if unintentional - see also Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is accidental contact with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
 
 \subsection{Applying Penalties}
 See Section~\ref{sec:penalty_procedure}.
@@ -391,7 +391,7 @@ located inside their own side of the field. Only one field player
 of the attacking team can walk to positions between the center line
 and the middle of their side. He may put his leg(s) on the
 center circle line, but no leg may be inside the circle line. The
-other field players (one of attacking team, three of the defending team)
+other field players (one of attacking team, two of the defending team)
 have to be located behind the middle of their side (none of their
 legs are allowed to be in front of the middle line), and their feet must be outside the penalty area.
 In contrast, the feet of the goal keeper must be \emph{inside}
@@ -470,7 +470,7 @@ Standard penalty kicks are taken against the opponent goal (\ie a
 red robot will attack the blue goal). For a penalty shootout, see
 Section~\ref{sec:penalty_shoot-out}.
 
-The ball is placed on the penalty spot, at the end of the field closest to the goal being defended. The attacking robot is positioned at the center of the field, facing the ball.\emph{Rick: centre of the field will stop 'lining it up' kind of issues, but may be slightly slow?}. The goal keeper is placed with its feet on the
+The ball is placed on the penalty spot, at the end of the field closest to the goal being defended. The attacking robot is positioned at the center of the field, facing the ball. The goal keeper is placed with its feet on the
 goal line and in the center of the goal.
 
 Neither robot shall move their legs before the penalty kick starts. Movements of the
@@ -504,7 +504,7 @@ A penalty kick shoot-out is used to determine the outcome of a tied
 game when an outcome is required (for example, during quarter or semi finals).
 The penalty kick shoot-out will initially consist of five
 penalty shots \emph{per} team. At the conclusion of these shots the
-team who has scored the most goals will be declared the winner. Note
+team that has scored the most goals will be declared the winner. Note
 that a winner can be declared before the conclusion of the penalty
 shoot-out if a team can no longer win, for example, a team requires 3 goals
 to win but only has 2 attempts remaining. If the two teams still
@@ -520,7 +520,7 @@ there is no result (that is, each team has scored the same number of goals), the
 
 The time limit for sudden death penalty shots is two minutes.
 
-These attempts will be timed (that is, for a goal scored, how long did it take to score the goal) and measured (that is, if a goal is not scored, what is the shortest distance between the ball and the goal line segment between the goal posts) by the referee. After these attempts, the game decision will be made as follows:
+These attempts will be timed (that is, for a goal scored, how long did it take to score the goal) and measured (that is, if a goal is not scored, what is the shortest distance between the ball and the goal line segment between the goal posts, achieved at any time during the penalty shot) by the referee. After these attempts, the game decision will be made as follows:
 \begin{enumerate}
   \item {If only one team scores a goal, that team wins.}
   \item {If both teams score a goal, then if one team is timed to have scored at least 2 seconds faster than the other team, the faster team wins. Otherwise, the sudden death shoot-out is repeated.}
@@ -528,10 +528,10 @@ These attempts will be timed (that is, for a goal scored, how long did it take t
   \item {If neither team has touched the ball during the shoot-out, the referee will toss a coin to decide the game.}
 \end{enumerate}
 
-\subsection{Throw-in}
+\subsection{Throw-in}\label{sec:throw_in}
 
 A ball is considered to have left the field when there is no part of the ball
-over the boundary line  (\ie the line itself is in).
+over the outside of the boundary line  (\ie the line itself is in).
 If the ball leaves the field it will be replaced on the field by an
 assistant referee. There is \emph{no} stoppage in play.
 
@@ -846,7 +846,7 @@ held the ball.
 
 If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be removed as per the standard removal penalty. A robot which is unable to autonomously stand up within 20 seconds after a fall will be removed and subject to the standard penalty. The goal keeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. In all other cases, the robot should be programmed to attempt to remain upright - that is, supported by its feet.
 
-A Robot that has ceased activity for 10seconds will be removed by the referees, and subject either to the standard penalty. A robot is active if it performs at least one of the following:
+A Robot that has ceased activity for 10seconds will be removed by the referees and subject to the standard penalty. A robot is active if it performs at least one of the following:
 \begin{enumerate}
   \item {The robot walks in any direction, or turns.}
   \item {The robot searches for the ball, or is looking at the ball.}
@@ -898,15 +898,13 @@ A Robot that has ceased activity for 10seconds will be removed by the referees, 
 \subsection{Player Pushing}
 \label{sec:player_pushing}
 
-\emph{This rule will be discussed, clarified and finalised at RoboCup.}
+Except for the situations described below in Section \ref{sec:not_pushing}, no player should move in a direction that causes contact with another robot where, in the opinion of the referee, the contacting robot (or robots) should reasonably have been able to perceive the impeding robot, and avoid contact. Robots will be expected to be capable of looking in the direction they are moving, and perceiving nearby obstacles in the direction of their movement. Pushing with the arms is not permitted, however, a robot may use its arms for balance as part of its normal gait. Accidental contact with the hands or arms will not normally be penalized, unless it is in a position where the referee decides the robot should have been able to perceive likely contact.  Two robots may be penalized for pushing from the one incident, for example, if they collide front to front whilst both are moving.
 
-No player should move in a direction that causes contact with another robot where, in the opinion of the referee, the contacting robot (or robots) should reasonably have been able to perceive the impeding robot, and avoid contact. Robots will be expected to be capable of looking in the direction they are moving, and perceiving nearby obstacles in the direction of their movement. Pushing with the arms is not permitted, however, a robot may use its arms for balance as part of its normal gait. Accidental contact with the hands or arms will not normally be penalized, unless it is in a position where the referee decides the robot should have been able to perceive likely contact.  Two robots may be penalized for pushing from the one incident, for example, if they collide front to front whilst both are moving.
-
-\subsubsection{Situations where pushing does not apply}
+\subsubsection{Situations where pushing does not apply}\label{sec:not_pushing}
 
 A stationary robot cannot be penalized for pushing.
 
-A robot will not be penalized for pushing whilst attempting to kick the ball, provided that the ball is close enough to the robot for the attempted kick to be legitimate.
+A robot will not be penalized for pushing whilst attempting to kick the ball, provided that the ball is close enough to the robot, that in the opinion of the referee the attempted kick could contact the ball.
 
 The goal keeper, whilst in its own penalty area, and either moving to the ball or looking at the ball, will not be penalized for pushing.
 
@@ -1014,7 +1012,7 @@ decision shall be against the infringing robot.
 
  Note:  The intent of the obstruction rule is to stop people
  implementing code that deliberately attempts to obstruct opponent
- robots. 
+ robots.
 
  \begin{figure}[t]
  \centerline{\includegraphics[height=5cm]{figs/obstruction}}
