@@ -54,6 +54,7 @@
 
 \newcommand{\TotalWidth}{{5.4m }}
 \newcommand{\TotalLength}{{7.4m }}
+\newcommand{\KickOffAutoTime}{{45 seconds }}
 
 \begin{document}
 
@@ -121,11 +122,15 @@ All robot-visible lines on the soccer field (side lines, end
 lines, halfway line, centre circle, corner arcs and the lines surrounding the
 penalty areas) are 50~mm in width. The centre circle has an outside diameter of 1250~mm.
 
-The throw-in lines and corner kick points are not robot visible. The throw-in lines will be marked on the field using a
-thin black or dotted line. The two throw in lines will each be 4m long; parallel to the side lines; and 400mm in from the outside of the side lines.
+%The throw-in lines and corner kick points are not robot visible. The throw-in lines will be marked on the field using a
+%thin black or dotted line. The two throw in lines will each be 4m long; parallel to the side lines; and 400mm in from the outside of the side lines.
 
+%RHM 27/4/09
+\emph{There are two other sets of unmarked field positions.
+(i) throw-in locations (see Section \ref{sec:throw_in}): these are two lines, each 4m long, centered lengthwise with respect to the field, and parallel and 400mm from the to the outside lines.
+(ii) corner kick locations (see Section \ref{sec:throw_in}: 
 The four corner kick points (not shown in the diagram) are located 400mm towards the centreline from each penalty box corner.
-
+}
 \subsection{Field Colors}
 
 The colors of the soccer field are shown in
@@ -186,13 +191,13 @@ robots. These logos must be at least 50\% white by area.
 A computer will be provided by the event organizers for the purpose
 of sending GameController messages to the robots.
 
-\subsection{Teams}
+%\subsection{Teams}
 
 \subsection{Goal Keeper}
 \label{sec:goal_keeper}
 
 The goal keeper is the only player that is allowed to stay within
-the penalty area of its own team and to touch the ball with its arms/hands. It always has the jersey number
+the penalty area of its own team and to touch the ball with its arms/hands whilst within the penalty area. It always has the jersey number
 ``1''.
 
 \subsection{Field Players}
@@ -204,7 +209,7 @@ The two field players robots have the jersey numbers ``2'' and ``3''.
 \subsection{Team Markers}
 
 Red and blue colored plastic parts manufactured by Aldebaran Robotics will be used as team markers. All markers
-must be attached to each robot playing in a game (\cf Figure~\ref{fig:nao_markers}). Teams may play without the colored markers on the feet and on the shoulders.
+must be attached to each robot playing in a game (\cf Figure~\ref{fig:nao_markers}).
 
 \begin{figure}[b]
 \centerline{\begin{tabular}{lll}
@@ -255,7 +260,7 @@ reached through the access points provided by the event organizers.
 In addition, the access points will be secured by different SSIDs
 and WEP-keys. Two of the access points will be connected to PCs
 running GameController. A third access point is used for practise.
-It is connected to a hub with one port for each team. Teams must
+It is connected to a switch with one port for each team. Teams must
 bring their own ethernet cables.
 
 Each team will get a range of IP-addresses that can be used both for
@@ -400,9 +405,9 @@ the penalty area.
 \textbf{If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but
 the penalty is manual placement by the assistant referees.}
 
-The robots have a maximum of 30 seconds to reach their positions.
+The robots have a maximum of \KickOffAutoTime to reach their positions.
 If all the robots have reached legal positions and have stopped, or
-if 30 seconds has passed, the robots will be switched into the
+if \KickOffAutoTime has passed, the robots will be switched into the
 \emph{set} state, in which they
 must stop walking. Each robot that is not at a legal position at
 this point in time will be placed manually by the assistant referees
@@ -444,7 +449,8 @@ not counted. The time that was played with a wrong configuration is
 counted as ``lost time'', \ie the half should be lengthened by it.
 Note that the assistant referees are only responsible for setting team
 color on kick-off.  Robots replaced after a request for pickup are
-the responsibility of the team.
+the responsibility of the team, %RHM 27/4/09
+\emph{and should be handed to the referees or assistants in the `initial' state.}
 
 The current GameController requires robots to know both their team number
 and their robot number within the team.  It is each team's responsibility
@@ -459,8 +465,8 @@ None.
 \subsection{Penalty Kick}
 \label{sec:penalty_kick}
 
-A penalty kick is carried out with one attacking robot and one
-opposing goal keeper. Other robots should be powered off and stay outside of the
+A penalty kick is carried out with one attacking robot, playing as a red player, and one
+opposing goal keeper, defending the blue goal. Other robots should be powered off and stay outside of the
 field. Teams are allowed to switch to specially designed software
 for a penalty kick. The attacker has 1 minute in which to score a
 goal. If the ball leaves the playing area it is not replaced and
@@ -541,7 +547,7 @@ side of the field as the ball went out of play.
 
 The ball will be replaced on the throw-in line one metre (if possible)
 back from the point it went out, where `back' is defined as being towards
-the goal of the team that last touched the ball. Note that if the one metre placement would take cause the ball to be placed
+the goal of the team that last touched the ball. Note that if the one metre placement would cause the ball to be placed
 off the end of the throw-in line, then it should be placed at the end of the throw in line, and not beyond.
 
 If the ball goes over an end-line then the assistant referee will
@@ -551,7 +557,7 @@ replace the ball back on the field according to the following rules:
   is replaced on the closest `corner kick' point. The `corner kick'
   points are located as indicated in Section \ref{sec:field_lines}.
 \item If the ball was last touched by the offensive team then the ball
-  is placed on the halfway line on the side of the field the ball went
+  is placed at the intersection of the halfway line and the throw in line on the side of the field the ball went
   out.
 \end{itemize}
 
@@ -580,6 +586,9 @@ The ball is regarded as out by red and therefore
 is replaced on the throw-in line 1 metre closer to the yellow goal.
 
 \subsection{Game Stuck}
+
+The intention of the game stuck rules is to ensure some progress is made in the game, with minimal intervention from the referees.
+
 \subsubsection{Local Game Stuck}
 
 In the event of no substantial change in the game state for 30
@@ -601,7 +610,9 @@ not be removed from the game stuck situation. Instead, the ball will be placed o
 %\end{figure}
 
 \subsubsection{Global Game Stuck}
-If no robot touches the ball for 30 seconds, the referee shall stop
+If 
+%RHM 27/4/09
+\emph{following a local game stuck} no robot touches the ball for 30 seconds, the referee shall stop
 the game and restart the game from the kick-off formation. The
 kick-off will be awarded to the team defending the side of the field
 the ball is on when the game stuck is called.
@@ -642,10 +653,10 @@ After the completion of the timeout, the game resumes with a kick
 off for the team which did not call the timeout.
 
 If a team is not ready to play at the assigned time for a game, the
-referee will call the timeout for that team.  After the expiration
+referee will call the timeout for that team. After the expiration
 of such a timeout, if the team is still not ready to play then they
 must either forfeit the game, or the referee shall start the game with
-only one team on the field.  The team that wasn't ready can return
+only one team on the field.   The team that wasn't ready can return
 its robots to the field as per the rules for ``Request for Pick-up''.
 
 %rankings
@@ -706,9 +717,11 @@ the robots indicating the infraction committed.
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
 
-Most infractions in this league result in the removal of the
-infringing robot from the field of play for a period of time.  This
-process is called the standard removal penalty.  When the head
+Unless otherwise stated (as for example in the case of the Goal Keeper, see Section \ref{sec:goal_keeper_standard_penalty}, all infractions in this league result in the removal of the
+infringing robot from the field of play for 30 seconds, after which it will be returned to the field of play.
+This process is called the standard removal penalty, and a detailed description of the process follows.
+
+When the head
 referee indicates a foul has been committed that results in the
 standard removal penalty, the assistant referee closest to the robot
 will remove the robot immediately from the field of play.  The robot
@@ -750,6 +763,10 @@ If the
 wireless is not working, the assistant referee who placed the robot
 back on the field has to bring it into the \emph{playing} state
 again.
+
+\subsubsection{Standard Penalty for the Goal Keeper}\label{sec:goal_keeper_standard_penalty}
+
+In the case of infringements by a goal keeper, the standard removal penalty becomes a zero second removal. In this case, the robot will not be placed in the penalized state, and will be removed and immediately replaced at the sideline as in the standard replacement of a penalized robot.
 
 \subsection{Manual Interaction by Team Members}
 
@@ -816,8 +833,7 @@ robots should release the ball for approximately as long as they were
 holding it to reset the clock.  Without a sufficient release,
 the continual holding is regarded as a continuous hold from
 the very beginning and the holding rule is strictly applied. The
-violation of this rule will result in having the penalized robot
-removed from the field for 30 seconds as per the standard removal
+violation of this rule will result in the standard removal
 penalty (see Section~\ref{sec:removal_penalty} for details).  In
 case of a violation by the goal keeper, the robot will be removed
 for 0 seconds as per the standard removal penalty, \ie it will be
@@ -846,7 +862,7 @@ held the ball.
 
 If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be removed as per the standard removal penalty. A robot which is unable to autonomously stand up within 20 seconds after a fall will be removed and subject to the standard penalty. The goal keeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. In all other cases, the robot should be programmed to attempt to remain upright - that is, supported by its feet.
 
-A Robot that has ceased activity for 10seconds will be removed by the referees and subject to the standard penalty. A robot is active if it performs at least one of the following:
+A Robot that has ceased activity for 10seconds will be removed by the referees and subject to the standard removal penalty. A robot is active if it performs at least one of the following:
 \begin{enumerate}
   \item {The robot walks in any direction, or turns.}
   \item {The robot searches for the ball, or is looking at the ball.}
@@ -912,7 +928,7 @@ A robot cannot be penalized for pushing if the contact is with a robot that is r
 
 \subsubsection{Results of Player Pushing}
 
-The standard penalty will apply for pushing (30seconds, or 0 seconds for a goal keeper). If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
+The standard removal penalty will apply for pushing. If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
 
 If a robot illegally pushes an opposing robot that is not pushing, and the collision causes the opposing robot to fall, the fallen robot will be picked up by one of the referees and replaced in an upright position at the point at which it fell.
 
@@ -954,7 +970,7 @@ If a robot illegally pushes an opposing robot that is not pushing, and the colli
 
 \subsection{Playing with Arms/Hands}
 \label{sec:hand_ball}
-A field player or a goal keeper outside its own penalty box that intentionally touches the ball with its arms/hands in a manipulative manner (i.e. to stop the ball, to kick the ball etc.) will be removed for 30 seconds (or 0 seconds for the goal keeper) as per the standard removal penalty. In this case, the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.
+A field player or a goal keeper outside its own penalty box that intentionally touches the ball with its arms/hands in a manipulative manner (i.e. to stop the ball, to kick the ball etc.) will be subject to the standard removal penalty. In this case, the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.
 
 
 \subsection{Damage to the Field}
@@ -968,8 +984,7 @@ Section~\ref{sec:penalty_kick}).
 
 \subsection{Leaving the Field}
 
-A robot that leaves the \TotalWidth $\times$ \TotalLength carpeted area will be removed for 30
-seconds as per the standard removal penalty (see
+A robot that leaves the \TotalWidth $\times$ \TotalLength carpeted area will be subject to the standard removal penalty (see
 Section~\ref{sec:removal_penalty}).  A robot may leave the
 4mx6m playing field, but must stay within the \TotalWidth $\times$ \TotalLength area.
 
@@ -983,7 +998,7 @@ Only the goalie can be within its team's penalty area. Having both
 legs inside the penalty area is the definition of being in the
 penalty area and that situation is not allowed for defending field
 players.  When other defending robots enter the area, they will be
-removed for 30 seconds as per the standard removal penalty (see
+subject to the standard removal penalty (see
 Section~\ref{sec:removal_penalty}).  This is called the ``Illegal
 Defender Rule''.  This rule will be applied even if the goalie is
 outside of the penalty area, but not if an operational defender is
@@ -1000,7 +1015,7 @@ decision shall be against the infringing robot.
  When a robot that is not heading for the ball is actively and
  intentionally blocking the way to the ball for a robot of the other
  team, this is an obstruction (\cf Figure~\ref{fig:obstruction}). The
- obstructing robot will be removed for 30 seconds as per the standard
+ obstructing robot will be subject to the standard
  removal penalty (see Section~\ref{sec:removal_penalty}). A robot will not be penalized for pushing a robot that is penalized for obstruction (see Section~\ref{sec:player_pushing}).
 
  \paragraph{Example.} If a robot of one team, robot A, is heading for
@@ -1090,7 +1105,7 @@ members. An assistant referee will also put the robot back on the
 field. In addition, the assistant referees can indicate violations
 against the rules committed by robots to the head referee, so that
 the head referee can decide whether to penalize a certain robot or
-not.
+not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
 
 \subsection{Operator of the GameController}
 
