@@ -292,7 +292,7 @@ See Section~\ref{sec:penalty_procedure}.
 
 For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.
 
-In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. Only one field player of the attacking team can walk to positions between the center line and the middle of their side. He may put his leg(s) on the center circle line, but no leg may be inside the circle line. The other field players (one of the attacking team, two of the defending team) have to be located in the half of their field that is behind the penalty mark (none of their feet are allowed to be closer to the middle line), and their feet must be outside the penalty area. In contrast, the feet of the goal keeper must be \emph{inside} the penalty area.
+In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allowed touching the halfway line. One field player of the attacking team can walk to a position inside the center circle. The second field player of the attacking team can walk to any position within its own half, except for the penalty area. The field players of the defending team have to be located in the half of their field that is behind the penalty mark (none of their feet are allowed to be closer to the middle line), and their feet must be outside the penalty area. In contrast, the feet of both goal keepers must be \emph{inside} the penalty area.
 
 If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees.
 
@@ -304,7 +304,7 @@ The robots have a maximum of \KickOffAutoTime to reach their positions. If all t
 \label{fig:ko}
 \end{figure}
 
-There are extra restrictions on the legal positions of manually positioned robots. The kicking-off robot is placed on the penalty mark, while all other robots shall be on in front of the corners of their own penalty area. As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
+There are extra restrictions on the legal positions of manually positioned robots. The kicking-off robot is placed on the center circle, right in front of the penalty mark. Its feet touch the line, but they are not inside the center circle. The second field player of the attacking team is placed in front of one of the goal posts on the height of the penalty mark. The robots of the defending team shall be in front of the corners of their own penalty area. As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
 Just before the \emph{set} state is called, the ball is placed on the center point of the center circle by one of the referees. If it is moved by one of the robots before set is called it is replaced by one of the referees.
 
