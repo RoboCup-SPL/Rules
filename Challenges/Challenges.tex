@@ -46,7 +46,7 @@ All challenges will use the 2009 field and the 2009 rules will apply.
 
 The most common techniques for object detection, specifically ball detection, in the RoboCup leagues mostly rely on color information. However, it is expected in the near future that visual cues like color will be removed to come to a more realistic setup with robots playing with a ``regular'' soccer ball, or even with any kind of ball. Therefore, the aim of this challenge is to test whether the robots can detect balls other than the orange ones on the field, and manipulate them as precise as they can manipulate orange balls.
 
-Each team will be asked to bring (at least) one ball which is similar to the orange ball in size and weight but different from it in pattern. The TC will pick 6 balls out of this pile; 5 of those will be used in the challenge and the remaining 1 will be spare. If one of the balls in the pile of 5 was brought by the competing team, then it will be replaced with the spare one to make sure that the robot tries to deal with balls that it has not seen before.
+Each team will be asked to bring (at least) one ball which is similar to the orange ball in size and weight but with different colors and patterns. The TC will pick 6 balls out of this pile; 5 of those will be used in the challenge and the remaining 1 will be spare. If one of the balls in the pile of 5 was brought by the competing team, then it will be replaced with the spare one to make sure that the robot tries to deal with balls that it has not seen before.
 
 The robot will start from the intersection of one of the side lines and the center line, facing towards the center of the field. The balls will be placed randomly within an imaginary $3m \times 2m$ area (i.e. $1/4^{th}$ of the field) located at the center of the field. Also there will be two stationary robots on the field placed in such a way that they are not somewhere between the balls and the goals. The purpose of placing those extra robots on the field is to make sure that there are some \emph{non-ball} objects on the field. An example scenario is illustrated in Figure \ref{fig:anyballchallenge}.
 
@@ -58,7 +58,7 @@ The robot will start from the intersection of one of the side lines and the cent
  \label{fig:anyballchallenge}
 \end{figure}
 
-The robot will have 3 minutes to detect the balls, walk towards them, and try to score as many goals as it can. It can kick the ball towards both goals. If the robot is able to score with all balls before the time is over, then the stopwatch will be stopped, time spent for scoring will be recorded, and the team will be awarded with a score of ($180 - \emph{spentTime}$), $180$ being 3 minutes in seconds. The robot will be awarded 20 points for each time it intentionally kicks the balls, and additional 50 points for each goal it scores. If the robot is not able to score after 3 minutes, then partial credit will be given based on whether the robot showed convincing attempts of detecting, tracking, and kicking the ball. Finally the teams will be ordered based on their scores and their scores will be normalized according to the scoring scheme mentioned in the introduction section.
+The robot will have 3 minutes to detect the balls, walk towards them, and try to score as many goals as it can. It can kick the ball towards both goals. If the robot is able to score with all balls before the time is over, then the stopwatch will be stopped, time spent for scoring will be recorded, and the team will be awarded with a score of ($180 - \emph{spentTime}$), $180$ being 3 minutes in seconds. The robot will be awarded 20 points for each time it intentionally kicks the balls, and additional 50 points for each goal it scores. An intentional kick is defined as a kick that results in at least 1 meter displacement of the ball. Balls that go inside the goals or out of bounds will be removed. If the robot is not able to score after 3 minutes, then partial credit will be given based on whether the robot showed convincing attempts of detecting, tracking, and kicking the ball. Finally the teams will be ordered based on their scores and their scores will be normalized according to the scoring scheme mentioned in the introduction section.
 
 \newpage
 \section{The Passing Challenge}
@@ -82,7 +82,7 @@ One robot is placed inside each penalty area.
  \label{fig:passingchallenge}
 \end{figure}
 
-The robots will have 2 minutes to perform 3 successive passes. The trial ends without success if the ball or one of the robots leaves the field, or if the ball stops inside the middle area or one of the robots enters the middle area. The ball is expected to cross the middle area 3 times, as indicated by the example trajectory in Figure \ref{fig:passingchallenge}. The trial is considered successful if the receiving robot touches the ball after the third crossing.
+The robots will have 2 minutes to perform 3 successive passes. The trial ends without success, that is the challenge ends, if the ball or one of the robots leaves the field, or if the ball stops inside the middle area or one of the robots enters the middle area. The ball is expected to cross the middle area 3 times, as indicated by the example trajectory in Figure \ref{fig:passingchallenge}. The trial is considered successful if the receiving robot touches the ball after the third crossing.
 
 Intermediate scoring for passing between robot 1 and 2 (robot 1 is the first kicking one):
 \begin{itemize}
@@ -91,7 +91,7 @@ Intermediate scoring for passing between robot 1 and 2 (robot 1 is the first kic
  \item $3^{rd}$ touch of the ball to robot 2:  3 points
 \end{itemize}
 
-If a team completes the challenge successfully in less than 3 minutes, then the final placement among such teams will be based on how fast the challenge was completed.
+If a team completes the challenge successfully in less than 2 minutes, then the final placement among such teams will be based on how fast the challenge was completed.
 
 \newpage
 \section{The Localization With Obstacle Avoidance Challenge}
@@ -99,7 +99,9 @@ If a team completes the challenge successfully in less than 3 minutes, then the 
 
 \textbf{Time: 3 minutes}
 
-The aim of this challenge is to test the abilities of the robots to get localized on the field and move to their target positions while avoiding the obstacles on the way. The TC will pick 3 random points on the field and the coordinates of these points will be declared to the teams prior to the challenge. There will also be two blue robots on the field to be used as stationary obstacles. The locations of those robots will be changed randomly for each competing team. This scenario can be thought of as a simulation of the state of the field after a goal is scored, where the robots are mostly on the opposite half of the field and trying to go back to their kick-off positions.
+The aim of this challenge is to test the abilities of the robots to get localized on the field and move to their target positions while avoiding the obstacles on the way. This scenario can be thought of as a simulation of the state of the field after a goal is scored, where the robots are mostly on the opposite half of the field and trying to go back to their kick-off positions. 
+
+The TC will pick 3 random points on the field and these coordinates will be loaded to the USB sticks of the robots by the TC prior to the challenge. There will also be two blue robots on the field to be used as stationary obstacles. The locations of those robots will be determined randomly at the beginning of the challenge and will be the same for all teams. These obstacles will be at least 50cm away from each of the target points. The starting point of the competing robots will also be determined randomly at the beginning and remain unchanged for all teams. The TC will pick those points from inside a smaller area (as in the any ball challenge) to make sure that they are not extreme, considering the current walking speeds of the robots. The coordinate frame for these points has its center (0,0) on the center point of the field, and +x axis points towards the yellow goal. 
 
 The robots are expected to indicate that they think they are on the target points by pausing for 10 seconds and flashing their ear LEDs. When this signal is observed, the referee will pause the stopwatch, place a small marker underneath the center of the robot (approximately the point between the robot's feet), and restart the timer when the robot starts moving. The aim of the robots in this challenge will be to visit those points as fast and accurate as possible.
 
