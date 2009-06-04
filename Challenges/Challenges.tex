@@ -96,7 +96,7 @@ If a team completes the challenge successfully in less than 3 minutes, then the 
 
 The aim of this challenge is to test the abilities of the robots to get localized on the field and move to their target positions while avoiding the obstacles on the way. This scenario can be thought of as a simulation of the state of the field after a goal is scored, where the robots are mostly on the opposite half of the field and trying to go back to their kick-off positions. 
 
-The TC will pick 3 random points on the field. The coordinate system of the points has its origin at the center point of the field, the +$x$ axis points towards the yellow goal, and the +$y$ axis points to the left. The coordinates will be stored on the USB sticks of the robots by the Technical Committee in the file /media/userdata/points.cfg prior to the challenge\footnote{Please announce early to the TC if this location is not available on the USB stick of your robot}. Here is an example of the file for the positions of three robots shown in Figure~\ref{fig:anyballchallenge}\footnote{The real positions will always be inside the playing area}:
+The TC will pick 3 random points on the field. The coordinate system of the points has its origin at the center point of the field, the +$x$ axis points towards the yellow goal, and the +$y$ axis points to the left. The coordinates will be stored on the USB sticks of the robots by the Technical Committee in the file /media/userdata/points.cfg prior to the challenge\footnote{Please announce early to the TC if this location is not available on the USB stick of your robot}. Here is an example of the file for the positions of the three robots shown in Figure~\ref{fig:anyballchallenge}\footnote{In contrast to the example, the target positions will always be inside the playing area}:
 %
 {\small\begin{verbatim}
 120 -160
@@ -105,7 +105,7 @@ The TC will pick 3 random points on the field. The coordinate system of the poin
 \end{verbatim}
 }
 %
-There will also be two blue robots on the field to be used as stationary obstacles. The locations of those robots will be determined randomly at the beginning of the challenge and will be the same for all teams. These obstacles will be at least 50cm away from each of the target points. The starting point of the competing robots will also be determined randomly at the beginning and remain unchanged for all teams. 
+There will also be two blue robots on the field to be used as stationary obstacles. The locations of those robots will be determined randomly at the beginning of the challenge and will be the same for all teams. These obstacles will be at least 50cm away from each of the target points. The starting point of the competing robot will also be determined randomly at the beginning and remain unchanged for all teams. 
 
 The robots are expected to indicate that they think they are on the target points by pausing for 10 seconds and flashing their ear LEDs. When this signal is observed, the referee will pause the stopwatch, place a small marker underneath the center of the robot (approximately the point between the robot's feet), and restart the timer when the robot starts moving. The aim of the robots in this challenge will be to visit those points as fast and accurate as possible.
 
