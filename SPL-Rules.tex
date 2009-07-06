@@ -33,7 +33,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(2009 rules, as of \today)}
+\date{(2009 rules, as of \today, as modified during the competition itself)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -136,7 +136,7 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 \subsection{Lighting Conditions}
 
-The lighting conditions depend on the actual competition site. Only ceiling lights may be used. 
+The lighting conditions depend on the actual competition site. Only ceiling lights may be used.
 
 \section{Robot Players}
 
@@ -236,6 +236,8 @@ The teams will change the goal defended and color of the team markers during the
 \label{sec:robot_states}
 
 Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give indication of the game state, team color and, the kickoff state.
+%RHM 4/7/07
+\emph{If a robot does not respond to either the game controller or the button press interface, then it is not included in the game, and the game starts without the offending robots.}
 
 \begin{description}
 
@@ -293,6 +295,9 @@ In the ready state, the robots should walk to their legal kick-off positions. Th
 If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees.
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed manually by the assistant referees to the positions as shown in Figure~\ref{fig:ko}. Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
+%RHM: 4/7/09
+\emph{In the case where the team leader requests manual placement, all robots on that team are manually positioned.}
+
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/manual_placement}}
@@ -310,7 +315,7 @@ Note that a goal can never be scored directly from a shot from the kick-off. See
 
 If the assistant referees have misconfigured the robots (\eg they set the wrong team color), the kick-off is repeated. In this case, goals scored with at least one misconfigured robot on the field are not counted. The time that was played with a wrong configuration is counted as ``lost time'', \ie the half should be lengthened by it. Note that the assistant referees are only responsible for setting team color on kick-off. Robots replaced after a request for pickup are the responsibility of the team, and should be handed to the referees or assistants in the `penalized' state.
 
-The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on bootup so that this can be easily checked at the start of the game. 
+The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on bootup so that this can be easily checked at the start of the game.
 
 \subsection{Free Kick}
 
@@ -327,14 +332,19 @@ Neither robot shall move their legs before the penalty kick starts. Movements of
 
 The penalty kick ends when the kicker scores the goal, the time expires, or the ball leaves the field. The time limit for the kicker is 1 minute after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
-The goal keeper is not allowed touching a ball that is completely outside the penalty area and the attacking robot is not allowed touching a ball that is completely inside the penalty area. The line is part of the penalty area. If the attacker touched the ball inside the penalty area then the penalty shot is deemed unsuccessful. If the goal keeper touches the ball outside the penalty area then a goal will be awarded to the attacking team.
+The goal keeper is not allowed to touch ball that is completely outside the penalty area and the attacking robot is not allowed to touch a ball that is completely inside the penalty area. The line is part of the penalty area. If the attacker touches the ball when the ball is inside the penalty area then the penalty shot is deemed unsuccessful. If the goal keeper touches the ball when the ball is outside the penalty area then a goal will be awarded to the attacking team.
 
 All the rules such as ``Ball Holding'', ``Pushing'' and others are also applied during the penalty kick. The only exception is the ``Illegal Defender'' rule, \ie the penalty shooter is allowed to enter its own penalty area.
+%RHM 4/7/09
+\emph{A goal keeper will not be penalized for inactivity during a penalty kick (including penalty shoot out), provided its stiffness is on. Other penalties are applied as usual.
+A goal keeper that adopts a crouch position (that is a position with wide spread, but still supported only by the feet) for the penalty kick, can legally do so, but must move from or via an upright position to the crouch position. It cannot commence the penalty kick in that position.}
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
 
-A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter or semi finals). The penalty kick shoot-out will initially consist of five penalty shots \emph{per} team. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
+A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter or semi finals). The penalty kick shoot-out will initially consist of five penalty shots \emph{per} team,
+%RHM 4/7/09
+\emph{with shots taken against the blue goal}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
 
 The procedure for each attempt is the same as for the normal penalty kick described in Section~\ref{sec:penalty_kick}. For the first five attempts, the standard time limit of 1 minute is applied. If after five penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure.
 
@@ -425,7 +435,9 @@ If a team's obtained points is the same as another team's after the preliminary 
 
 \item The points obtained
 
-\item The average difference between goals for and goals against per game
+\item The
+%RHM %average
+ difference between goals for and goals against per game
 
 \item The average goals for per game
 
@@ -551,14 +563,14 @@ Except for the situations described below in Section \ref{sec:not_pushing}, each
 
 \subsubsection{Pushing concerning a fallen robot}
 
-A robot who has fallen over, should be allowed to attempt a `getup' 
+A robot who has fallen over, should be allowed to attempt a `getup'
 routine. While doing the getup movement the standard pushing rules will be applied. Examples:
 
 \begin{enumerate}
 
 \item If the `getting up robot' makes contact with an opposing robot who is not moving towards the fallen robot then the fallen robot will be called for pushing. (Basically saying if the opposing robot has `cleared' the area of the fallen robot, however the getup routine causes the contact then the getting up robot should be penalized.)
 
-\item If during the getup an opposing robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup. 
+\item If during the getup an opposing robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup.
 Then the standing robot should be penalized.
 
 \end{enumerate}
@@ -633,7 +645,7 @@ During the match any robot shall never jam the communication and the sensor syst
 
 \section{Judgement}
 
-The referees are the only persons that are allowed inside the playing area. 
+The referees are the only persons that are allowed inside the playing area.
 
 \subsection{Head Referee}
 
