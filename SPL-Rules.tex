@@ -33,7 +33,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(2009 rules, as of \today, as modified during the competition itself)}
+\date{(2010 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -75,19 +75,20 @@
 \section{Setup of the Environment}
 
 \subsection{Field Construction}
+\label{sec:field_dim}
 
 The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth. The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. The construction of the goals is depicted in Figure \ref{fig:goal_dimensions}.
 
 \begin{figure}[b!]
-\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2009.png}}
+\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2010.pdf}}
 \caption{Scale diagram of entire field (dimensions in mm).} \label{fig:field_dim}
 \end{figure}
 
 \begin{figure}[htp]
 \begin{center}
 \leavevmode
-\includegraphics[width=0.4\columnwidth]{figs/goal_with_dims_left.png}\\
-\vspace{10pt}
+\includegraphics[width=0.8\columnwidth]{figs/goals2010.png}\\
+%\vspace{10pt}
 \includegraphics[width=0.8\columnwidth]{figs/goal_with_dims_top.png}
 \caption{Dimensions of the goal, viewed from above and from the side}
 \label{fig:goal_dimensions}
@@ -138,6 +139,17 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 The lighting conditions depend on the actual competition site. Only ceiling lights may be used.
 
+\subsection{Ball}
+\label{sec:ball}
+
+The official ball will be an orange street hockey ball. They are 65 mm in diameter and weigh 55 grams. These balls are available at a few locations:
+\begin{itemize}
+\item \href{http://www.amazon.com/Mylec-Weather-Bounce-Hockey-Orange/dp/B002LBDA30/ref=sr\_1\_18?ie=UTF8\&s=sporting-goods\&qid=1259775748\&sr=8-18}{http://www.amazon.com/Mylec-Weather-Bounce-Hockey-Orange/dp/B002LBDA30/ref=sr\_1\_18?ie=UTF8\&s=sporting-goods\&qid=1259775748\&sr=8-18}
+\item \href{http://www.hockeymonkey.com/hockey-a-r-balls-accessorie.html}{http://www.hockeymonkey.com/hockey-a-r-balls-accessorie.html}
+\item \href{http://www.puckshop.com/mylec-orange-warm-weather-ball.html}{http://www.puckshop.com/mylec-orange-warm-weather-ball.html}
+\end{itemize}
+
+
 \section{Robot Players}
 
 \subsection{Hardware}
@@ -173,8 +185,11 @@ The goal keeper is the only player that is allowed to stay within the penalty ar
 The field players are not allowed to enter their own penalty area. The two field players robots have the jersey numbers ``2'' and ``3''. When penalized, field players are removed for 30 seconds from the field (see Section~\ref{sec:removal_penalty}).
 
 \subsection{Team Markers}
+\label{sec:team_markers}
 
-Red and blue colored plastic parts manufactured by Aldebaran Robotics will be used as team markers. All markers must be attached to each robot playing in a game (\cf Figure~\ref{fig:nao_markers}).
+Robots will have easily changeable uniforms that are still to be determined.
+
+%Red and blue colored plastic parts manufactured by Aldebaran Robotics will be used as team markers. All markers must be attached to each robot playing in a game (\cf Figure~\ref{fig:nao_markers}).
 
 \begin{figure}[b]
 \centerline{\begin{tabular}{lll}
@@ -368,13 +383,14 @@ These attempts will be timed (that is, for a goal scored, how long did it take t
 
 \end{enumerate}
 
-\subsection{Throw-in}\label{sec:throw_in}
+\subsection{Throw-in}
+\label{sec:throw_in}
 
 A ball is considered to have left the field when there is no part of the ball over the outside of the boundary line (\ie the line itself is in). If the ball leaves the field it will be replaced on the field by an assistant referee. There is \emph{no} stoppage in play.
 
 If the ball goes over a side-line then the assistant referee will replace the ball back on the field on the throw-in line on the same side of the field as the ball went out of play.
 
-The ball will be replaced on the throw-in line one meter (if possible) back from the point it went out, where `back' is defined as being towards the goal of the team that last touched the ball. Note that if the one meter placement would cause the ball to be placed off the end of the throw-in line, then it should be placed at the end of the throw in line, and not beyond.
+The ball will be replaced on the throw-in line at the farthest back of these two locations: a) one meter back from the point it went out or b) one meter back from the location of the kicking robot. We define `back' as being towards the goal of the team that last touched the ball. Note that if the one meter placement would cause the ball to be placed off the end of the throw-in line, then it should be placed at the end of the throw in line, and not beyond.
 
 If the ball goes over an end-line then the assistant referee will replace the ball back on the field according to the following rules:
 
@@ -382,7 +398,7 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 
 \item If the ball was last touched by the defensive team then the ball is replaced on the closest endpoint of the throw-in line.
 
-\item If the ball was last touched by the offensive team then the ball is placed at the intersection of the halfway line and the throw in line on the side of the field the ball went out.
+\item If the ball was touched by the offensive team, the the ball is replaced at on the throw-in line at the farthest back of these three locations: a) one meter back from the point it went out, b) one meter back from the location of the kicking robot, or c) at the halfway line.
 
 \end{itemize}
 
@@ -390,11 +406,16 @@ Balls are deemed to be out based on the team that last touched the ball, irrespe
 
 \paragraph{Example 1.} The red goalie kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on the endpoint of the throw-in line to the right of the yellow goal.
 
-\paragraph{Example 2.} A blue robot kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on the intersection of the right throw-in line and the halfway line.
+\paragraph{Example 2.} A blue robot on the yellow side of the field kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on the intersection of the right throw-in line and the halfway line.
 
-\paragraph{Example 3.} A blue robot kicks the ball over the left sideline 2 meters into the yellow half of the field. The ball is replaced on the left throw-in line 1 meter into the yellow half of the field.
+\paragraph{Example 3.} A blue robot on the blue side of the field kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on one meter behind the robot on the right throw-in line.
 
-\paragraph{Example 4.} A blue robot kicks the ball but the ball touches a red robot before leaving the field near the centre line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter closer to the yellow goal.
+\paragraph{Example 4.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the yellow half of the field. The ball is replaced on the left throw-in line 1 meter into the blue half of the field (one meter behind the robot).
+
+\paragraph{Example 5.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the blue half of the field (towards its own goal). The ball is replaced on the left throw-in line 3 meters into the blue half of the field.
+
+\paragraph{Example 6.} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the centre line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter closer to the yellow goal.
+
 
 \subsection{Game Stuck}
 
@@ -672,6 +693,24 @@ Referees for playoff games will need to be certified (\ie deemed fit to referee)
 \subsection{Referees During the Match}
 
 The head referee and the assistant referees should wear \emph{black clothing and black socks/shoes} and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
+
+\section{Changes From 2009}
+
+This is a brief list of this year's changes to the rules.
+
+\begin{itemize}
+\item Reduced penalty box width from 3000 mm to 2200 mm (Sec.~\ref{sec:field_dim}).
+\item Modified goal to hold net farther back from goal posts (Sec.~\ref{sec:field_dim}).
+\item Changed ball to street hockey ball (Sec.~\ref{sec:ball}).
+\item Changed ball placement after out of bounds (Sec.~\ref{sec:throw_in}).
+\end{itemize}
+
+There are also a few changes still under discussion.
+
+\begin{itemize}
+\item We will institute stricter pushing rules (Sec.~\ref{sec:player_pushing}).
+\item We will have new uniforms (Sec.~\ref{sec:team_markers}).
+\end{itemize}
 
 \section{Questions/Comments}
 
