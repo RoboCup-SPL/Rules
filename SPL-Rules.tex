@@ -470,8 +470,9 @@ If a team's obtained points is the same as another team's after the preliminary 
 \end{enumerate}
 
 \subsection{Rules for Forfeiting}
+\label{sec:forfeit}
 
-If a team chooses to forfeit a match then the result will be 10-0 against the team that forfeited. Teams may choose to forfeit games at any stage. Any game with a final score differential greater than 10 points will be considered a forfeit.
+If a team chooses to forfeit a match then the opposing team will play the match against an empty field. The result will stand, even if the team fails to score against an empty field or scores an own goal. Teams may choose to forfeit games at any stage. Any game with a final score differential greater than 10 points will be considered a forfeit.
 
 \section{Forbidden Actions and Penalties}
 \label{sec:forbidden_act}
@@ -558,10 +559,12 @@ A robot that has ceased activity for 10 seconds or has turned off will be remove
 
 \paragraph{Note:} The intention of this rule is not to penalize robots simply for being stationary -- provided they are not `asleep' and have not `crashed'.
 
-\subsection{Keeper Stance}
-\label{sec:keeper_stance}
+\subsection{Player Stance}
+\label{sec:player_stance}
 
-Goal keeper robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard 0 second keeper penalty. This rule is to prevent teams from using stationary keepers that stay in a wide blocking stance. 
+Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard penalty. If the robot has fallen down, it must start getting up within 5 seconds. 
+
+%This rule is to prevent teams from using stationary keepers that stay in a wide blocking stance. 
 
 \subsection{Player Pushing}
 \label{sec:player_pushing}
@@ -719,9 +722,10 @@ This is a brief list of this year's changes to the rules.
 \item Changed ball to street hockey ball (Sec.~\ref{sec:ball}).
 \item Changed uniforms to be a colored waist band (Sec.~\ref{sec:team_markers}).
 \item Changed ball placement after out of bounds (Sec.~\ref{sec:throw_in}).
-\item Forbid keeper robots from staying wide stance for more than 5 seconds (Sec.~\ref{sec:keeper_stance}).
+\item Forbid robots from staying wide stance for more than 5 seconds (Sec.~\ref{sec:player_stance}).
 \item After 3 team pushing penalties in one half, the team's robot will be removed for the remainder of the half (Sec.~\ref{sec:pushing_results}).
 \item Introduced more examples of where pushing does not apply (Sec.~\ref{sec:not_pushing}).
+\item A forfeit now results in the opposing team playing against an empty field (Sec.~\ref{sec:forfeit}).
 \end{itemize}
 
 
