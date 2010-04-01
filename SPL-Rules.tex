@@ -142,10 +142,10 @@ The lighting conditions depend on the actual competition site. Only ceiling ligh
 \subsection{Ball}
 \label{sec:ball}
 
-The official ball will be an orange street hockey ball. They are 65 mm in diameter and weigh 55 grams. These balls are available at a few locations:
+The official ball will be a Mylec orange street hockey ball. They are 65 mm in diameter and weigh 55 grams. These are the \emph{shiny} balls and are \emph{not} gel-filled. These balls are available at a few locations:
 \begin{itemize}
 \item \href{http://www.amazon.com/Mylec-Weather-Bounce-Hockey-Orange/dp/B002LBDA30/ref=sr\_1\_18?ie=UTF8\&s=sporting-goods\&qid=1259775748\&sr=8-18}{http://www.amazon.com/Mylec-Weather-Bounce-Hockey-Orange/dp/B002LBDA30/ref=sr\_1\_18?ie=UTF8\&s=sporting-goods\&qid=1259775748\&sr=8-18}
-\item \href{http://www.hockeymonkey.com/hockey-a-r-balls-accessorie.html}{http://www.hockeymonkey.com/hockey-a-r-balls-accessorie.html}
+%\item \href{http://www.hockeymonkey.com/hockey-a-r-balls-accessorie.html}{http://www.hockeymonkey.com/hockey-a-r-balls-accessorie.html}
 \item \href{http://www.puckshop.com/mylec-orange-warm-weather-ball.html}{http://www.puckshop.com/mylec-orange-warm-weather-ball.html}
 \end{itemize}
 
@@ -187,18 +187,16 @@ The field players are not allowed to enter their own penalty area. The two field
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots will have easily changeable uniforms that are still to be determined.
-
-%Red and blue colored plastic parts manufactured by Aldebaran Robotics will be used as team markers. All markers must be attached to each robot playing in a game (\cf Figure~\ref{fig:nao_markers}).
+Robots will use colored waistbands as team markers. Official waistbands are blue and pink and have been distrubited to each team. An example of how the team markers are worn is shown in Figure~\ref{fig:nao_markers}.
 
 \begin{figure}[b]
-\centerline{\begin{tabular}{lll}
-a) & b) & c) \\
-\includegraphics[height=0.28\columnwidth]{figs/naosim_front.png}&
-\includegraphics[height=0.28\columnwidth]{figs/naosim_side.png} &
-\includegraphics[height=0.28\columnwidth]{figs/naosim_back.png}
-\end{tabular}}
-\caption{Nao team markers. a) Front view. b) Side view. c) Back view.} \label{fig:nao_markers}
+  \centerline{\begin{tabular}{lll}
+      a) & b) & c) \\
+      \includegraphics[height=0.28\columnwidth]{figs/pink_front.png}&
+      \includegraphics[height=0.28\columnwidth]{figs/blue_angle.png} &
+      \includegraphics[height=0.28\columnwidth]{figs/blue_back.png} 
+  \end{tabular} }
+  \caption{Nao team markers. a) Front view. b) Side view. c) Back view.} \label{fig:nao_markers}
 \end{figure}
 
 \begin{figure}[b]
@@ -515,7 +513,7 @@ Manual interaction with the robots, either directly or via some communications m
 \subsection{Kick-off Shot}
 \label{sec:kick-off_shot}
 
-A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken after a kick-off before the entire ball having left the center circle, including the boundary line. If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and a kick-off will be awarded to the defending team (as per Section~\ref{sec:kick-off}).
+A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by the team kicking off after a kick-off before the entire ball having left the center circle, including the boundary line. If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and a kick-off will be awarded to the defending team (as per Section~\ref{sec:kick-off}).
 
 \subsection{Ball Holding}
 \label{sec:ball_holding}
@@ -559,6 +557,11 @@ A robot that has ceased activity for 10 seconds or has turned off will be remove
 \end{enumerate}
 
 \paragraph{Note:} The intention of this rule is not to penalize robots simply for being stationary -- provided they are not `asleep' and have not `crashed'.
+
+\subsection{Keeper Stance}
+\label{sec:keeper_stance}
+
+Goal keeper robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard 0 second keeper penalty. This rule is to prevent teams from using stationary keepers that stay in a wide blocking stance. 
 
 \subsection{Player Pushing}
 \label{sec:player_pushing}
@@ -614,11 +617,18 @@ Then the standing robot should be penalized.
 
 \item A robot cannot be penalized for pushing if the contact is with a robot that is ruled to have deliberately moved to obstruct.
 
+\item Two robots facing each other with the ball in between them cannot be penalized for pushing.
+
+\item Two robots moving towards the ball that make shoulder-to-shoulder or arm-to-arm contact cannot be penalized for pushing.
+
+\item A robot within 50 cm of the ball, that is moving towards the ball in an attempt to make a play on it cannot be penalized for pushing.
+
 \end{enumerate}
 
 \subsubsection{Results of Player Pushing}
+\label{sec:pushing_results}
 
-The standard removal penalty will apply for pushing. If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
+The standard removal penalty will apply for pushing. \emph{After the 3rd time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half.} If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
 
 If a robot illegally pushes an opposing robot that is not pushing, and the collision causes the opposing robot to fall, the fallen robot will be picked up by one of the referees and replaced in an upright position at the point at which it fell. This is only required if the robot cannot stand up on its own.
 
@@ -707,15 +717,13 @@ This is a brief list of this year's changes to the rules.
 \item Reduced penalty box width from 3000 mm to 2200 mm (Sec.~\ref{sec:field_dim}).
 \item Modified goal to hold net farther back from goal posts (Sec.~\ref{sec:field_dim}).
 \item Changed ball to street hockey ball (Sec.~\ref{sec:ball}).
+\item Changed uniforms to be a colored waist band (Sec.~\ref{sec:team_markers}).
 \item Changed ball placement after out of bounds (Sec.~\ref{sec:throw_in}).
+\item Forbid keeper robots from staying wide stance for more than 5 seconds (Sec.~\ref{sec:keeper_stance}).
+\item After 3 team pushing penalties in one half, the team's robot will be removed for the remainder of the half (Sec.~\ref{sec:pushing_results}).
+\item Introduced more examples of where pushing does not apply (Sec.~\ref{sec:not_pushing}).
 \end{itemize}
 
-There are also a few changes still under discussion.
-
-\begin{itemize}
-\item We will institute stricter pushing rules (Sec.~\ref{sec:player_pushing}).
-\item We will have new uniforms (Sec.~\ref{sec:team_markers}).
-\end{itemize}
 
 \section{Questions/Comments}
 
