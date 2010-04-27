@@ -348,16 +348,16 @@ The penalty kick ends when the kicker scores the goal, the time expires, or the 
 The goal keeper is not allowed to touch ball that is completely outside the penalty area and the attacking robot is not allowed to touch a ball that is completely inside the penalty area. The line is part of the penalty area. If the attacker touches the ball when the ball is inside the penalty area then the penalty shot is deemed unsuccessful. If the goal keeper touches the ball when the ball is outside the penalty area then a goal will be awarded to the attacking team.
 
 All the rules such as ``Ball Holding'', ``Pushing'' and others are also applied during the penalty kick. The only exception is the ``Illegal Defender'' rule, \ie the penalty shooter is allowed to enter its own penalty area.
-%RHM 4/7/09
-\emph{A goal keeper will not be penalized for inactivity during a penalty kick (including penalty shoot out), provided its stiffness is on. Other penalties are applied as usual.
-A goal keeper that adopts a crouch position (that is a position with wide spread, but still supported only by the feet) for the penalty kick, can legally do so, but must move from or via an upright position to the crouch position. It cannot commence the penalty kick in that position.}
+\emph{A goal keeper will not be penalized for inactivity during a penalty kick (including penalty shoot out), provided its stiffness is on. Other penalties are applied as usual.}
+A goal keeper that adopts a crouch position (that is a position with wide spread, but still supported only by the feet) for the penalty kick, can legally do so, but must move from or via an upright position to the crouch position. It cannot commence the penalty kick in that position. The rule on robot stance still applies, i.e. the robot can not stay in a position wider than its shoulders for more than 5 seconds.
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
 
-A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter or semi finals). The penalty kick shoot-out will initially consist of five penalty shots \emph{per} team,
-%RHM 4/7/09
-\emph{with shots taken against the blue goal}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
+A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter or semi finals). 
+There will be a five minute break between the end of the game and the start of the penalty kicks.
+In the preliminary rounds, the penalty kick shoot-out will consist of three penalty shots per team; in the quarterfinals and later, it will consist of five penalty shots per team.
+All penalty shots are \emph{taken against the blue goal}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
 
 The procedure for each attempt is the same as for the normal penalty kick described in Section~\ref{sec:penalty_kick}. For the first five attempts, the standard time limit of 1 minute is applied. If after five penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure.
 
@@ -421,8 +421,11 @@ Balls are deemed to be out based on the team that last touched the ball, irrespe
 
 
 \subsection{Game Stuck}
+\label{sec:game_stuck}
 
-In the event of no substantial change in the game state for 30 seconds, this is considered a game stuck. The main referee has two options how to solve the game stuck and to reestablish the chance of progress in the game. The intention of the game stuck rule is to achieve progress with as little intervention as possible, \ie the \emph{Local Game Stuck} rule will be preferred, but only if there is a chance that its application will result in progress in the game.
+In the event of no substantial change in the game state for 15 seconds, this is considered a game stuck. 
+This includes if a robot is at the ball circling it for 15 seconds without kicking the ball.
+The main referee has two options how to solve the game stuck and to reestablish the chance of progress in the game. The intention of the game stuck rule is to achieve progress with as little intervention as possible, \ie the \emph{Local Game Stuck} rule will be preferred, but only if there is a chance that its application will result in progress in the game.
 
 \subsubsection{Local Game Stuck}
 
@@ -492,7 +495,7 @@ When a robot commits a foul, the head referee shall call out the infraction comm
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
 
-Unless otherwise stated (as for example in the case of the Goal Keeper, see Section \ref{sec:goal_keeper_standard_penalty}, all infractions in this league result in the removal of the infringing robot from the field of play for 30 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.
+Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for 30 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.
 
 When the head referee indicates a foul has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
@@ -501,11 +504,6 @@ The operator of the GameController will send the appropriate signal to the robot
 The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is over, so that one of them can put the robot back on the field. The assistant referee will then place the robot on the field on the halfway line as close to the sideline as possible. The robot should be pointed towards the opposite sideline. The robot should be placed on the side of the field furthest from the ball. If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline facing towards the opposite sideline. If there are no practical locations nearby, a location along one of the sidelines should be found that is away from the ball (the robot should be set down facing the opposite sideline). When finding a nearby location, locations away from the ball should be preferred.
 
 When the robot is on the field again, the operator of the GameController will send the \emph{playing} signal to it. If the wireless is not working, the assistant referee who placed the robot back on the field has to bring it into the \emph{playing} state again.
-
-\subsubsection{Standard Penalty for the Goal Keeper}
-\label{sec:goal_keeper_standard_penalty}
-
-In the case of infringements by a goal keeper, the standard removal penalty becomes a zero second removal. In this case, the robot will be removed and immediately replaced at the sideline as in the standard replacement of a penalized robot. If the robot only supports the button interface, it will not be switched to the \emph{penalized} state in between.
 
 \subsection{Manual Interaction by Team Members}
 
@@ -624,14 +622,14 @@ Then the standing robot should be penalized.
 
 \item Two robots moving towards the ball that make shoulder-to-shoulder or arm-to-arm contact cannot be penalized for pushing.
 
-\item A robot within 50 cm of the ball, that is moving towards the ball in an attempt to make a play on it cannot be penalized for pushing.
+%\item A robot within 50 cm of the ball, that is moving towards the ball in an attempt to make a play on it cannot be penalized for pushing.
 
 \end{enumerate}
 
 \subsubsection{Results of Player Pushing}
 \label{sec:pushing_results}
 
-The standard removal penalty will apply for pushing. \emph{After the 3rd time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half.} If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
+The standard removal penalty will apply for pushing. \emph{The 4th time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half.} If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
 
 If a robot illegally pushes an opposing robot that is not pushing, and the collision causes the opposing robot to fall, the fallen robot will be picked up by one of the referees and replaced in an upright position at the point at which it fell. This is only required if the robot cannot stand up on its own.
 
@@ -645,9 +643,12 @@ A field player or a goal keeper outside its own penalty box that intentionally t
 A robot that damages the field will be removed from the field for the remainder of the game. Similarly a robot that poses a threat to the spectator's safety will also be removed. In such a case, a normal penalty kick will be awarded to the opposing team (\cf Section~\ref{sec:penalty_kick}).
 
 \subsection{Leaving the Field}
+\label{sec:leaving_field}
 
 A robot that intends to leave the \TotalWidth $\times$ \TotalLength carpeted area will be subject to the standard removal penalty (see
 Section~\ref{sec:removal_penalty}). This penalty can already be called after a robot leaves the 4~m $\times$ 6~m playing field if the robot appears to be ``lost''.
+
+In addition, a robot that walks into the goal net for more than 5 seconds will also be subject to the standard removal penalty.
 
 \subsection{Illegal Defender}
 
@@ -723,9 +724,13 @@ This is a brief list of this year's changes to the rules.
 \item Changed uniforms to be a colored waist band (Sec.~\ref{sec:team_markers}).
 \item Changed ball placement after out of bounds (Sec.~\ref{sec:throw_in}).
 \item Forbid robots from staying wide stance for more than 5 seconds (Sec.~\ref{sec:player_stance}).
-\item After 3 team pushing penalties in one half, the team's robot will be removed for the remainder of the half (Sec.~\ref{sec:pushing_results}).
+\item On 4th team pushing penalty in one half, the team's robot will be removed for the remainder of the half (Sec.~\ref{sec:pushing_results}).
 \item Introduced more examples of where pushing does not apply (Sec.~\ref{sec:not_pushing}).
 \item A forfeit now results in the opposing team playing against an empty field (Sec.~\ref{sec:forfeit}).
+\item Changed to best of 3 kicks for preliminary round tiebreakers, penalty kicks start 5 minutes after game ends (Sec.~\ref{sec:penalty_shoot-out}).
+\item Changed game stuck to 15 seconds and to specifically include robots circling around the ball without doing anything (Sec.~\ref{sec:game_stuck}).
+\item Changed all penalties (including keeper) to be 30 seconds penalties (Sec.~\ref{sec:removal_penalty}).
+\item Walking into the net for 5 seconds now constitutes a leaving the field penalty (Sec.~\ref{sec:leaving_field}).
 \end{itemize}
 
 
