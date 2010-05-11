@@ -348,8 +348,7 @@ The penalty kick ends when the kicker scores the goal, the time expires, or the 
 The goal keeper is not allowed to touch ball that is completely outside the penalty area and the attacking robot is not allowed to touch a ball that is completely inside the penalty area. The line is part of the penalty area. If the attacker touches the ball when the ball is inside the penalty area then the penalty shot is deemed unsuccessful. If the goal keeper touches the ball when the ball is outside the penalty area then a goal will be awarded to the attacking team.
 
 All the rules such as ``Ball Holding'', ``Pushing'' and others are also applied during the penalty kick. The only exception is the ``Illegal Defender'' rule, \ie the penalty shooter is allowed to enter its own penalty area.
-\emph{A goal keeper will not be penalized for inactivity during a penalty kick (including penalty shoot out), provided its stiffness is on. Other penalties are applied as usual.}
-A goal keeper that adopts a crouch position (that is a position with wide spread, but still supported only by the feet) for the penalty kick, can legally do so, but must move from or via an upright position to the crouch position. It cannot commence the penalty kick in that position. The rule on robot stance still applies, i.e. the robot can not stay in a position wider than its shoulders for more than 5 seconds.
+A goal keeper will not be penalized for inactivity during a penalty kick (including penalty shoot out), provided its stiffness is on. Other penalties are applied as usual.
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
@@ -571,6 +570,8 @@ Except for the situations described below in Section \ref{sec:not_pushing}, each
 
 \subsubsection{Allowed contact}
 
+Certain contacts are allowed for two robots from different teams. They are not allowed for any further robots.
+
 \begin{enumerate}
 
 \item Shoulder-to-shoulder or arm-to-arm contacts are allowed when both robots are proceeding to the ball.
@@ -588,6 +589,8 @@ Except for the situations described below in Section \ref{sec:not_pushing}, each
 \item Any contact made into the back of an opposing robot with enough force that could result in the robot falling is instantly considered pushing.
 
 \item Chest-to-shoulder/arm or shoulder/arm-to-chest with enough force is considered pushing. For instance if one robot approaches another from the side and exerts sufficient force then it is considered pushing.
+
+\item A third robot is pushing one of the two robots (from different teams) closest to the ball in any way.
 
 \end{enumerate}
 
@@ -618,11 +621,9 @@ Then the standing robot should be penalized.
 
 \item A robot cannot be penalized for pushing if the contact is with a robot that is ruled to have deliberately moved to obstruct.
 
-\item Two robots facing each other with the ball in between them cannot be penalized for pushing.
+\item Two robots from different teams facing each other with the ball in between them cannot be penalized for pushing.
 
-\item Two robots moving towards the ball that make shoulder-to-shoulder or arm-to-arm contact cannot be penalized for pushing.
-
-%\item A robot within 50 cm of the ball, that is moving towards the ball in an attempt to make a play on it cannot be penalized for pushing.
+\item Two robots from different teams moving towards the ball that make shoulder-to-shoulder or arm-to-arm contact cannot be penalized for pushing.
 
 \end{enumerate}
 
@@ -731,6 +732,10 @@ This is a brief list of this year's changes to the rules.
 \item Changed game stuck to 15 seconds and to specifically include robots circling around the ball without doing anything (Sec.~\ref{sec:game_stuck}).
 \item Changed all penalties (including keeper) to be 30 seconds penalties (Sec.~\ref{sec:removal_penalty}).
 \item Walking into the net for 5 seconds now constitutes a leaving the field penalty (Sec.~\ref{sec:leaving_field}).
+\item The player stance rule (Sec.~\ref{sec:player_stance}) also applies to the goalie during a penalty kick (Sec.~\ref{sec:penalty_kick}).
+\item Removed the 50~cm exception for pushing (Sec.~\ref{sec:not_pushing}).
+\item A third robot pushing one of the two robots (from different teams) closest to ball is called for pushing (Sec.~\ref{sec:not_pushing}).
+
 \end{itemize}
 
 
