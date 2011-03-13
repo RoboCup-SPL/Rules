@@ -317,14 +317,14 @@ The robots have a maximum of \KickOffAutoTime to reach their positions. If all t
 
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/manual_placement_2010.png}}
+\centerline{\includegraphics[width=\columnwidth]{figs/manual_placement_2011.png}}
 \caption{Manual setup for kick-off.}
 \label{fig:ko}
 \end{figure}
 
 There are extra restrictions on the legal positions of manually positioned robots. The kicking-off robot is placed on the center circle, right in front of the penalty mark. Its feet touch the line, but they are not inside the center circle. 
-The other field players of the attacking team are each placed in front of one of the goal posts on the height of the penalty mark. 
-The robots of the defending team shall be in front of the corners of their own penalty area. 
+One of the other field players of the attacking team is placed in front of one of the corners of the penalty box on the height of the penalty mark (i.e. the virtual intersection point of the corner of the penalty box and the penalty mark), and the other one is placed on the other corner of the penalty box without having its feet touching the corner. 
+The two field players of the defending team are placed on the halfway between the corners of their own penalty box and the sidelines. The third field player is placed in front of the penalty box, halfway between the center of the penalty box and one of the goal bars.
 As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
 Just before the \emph{set} state is called, the ball is placed on the center point of the center circle by one of the referees. If it is moved by one of the robots before set is called it is replaced by one of the referees.
@@ -651,7 +651,7 @@ Then the standing robot should be penalized.
 \subsubsection{Results of Player Pushing}
 \label{sec:pushing_results}
 
-The standard removal penalty will apply for pushing. \emph{The 4th time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half. Subsequently for the half, a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th, 8th, and 10th times).} If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
+The standard removal penalty will apply for pushing. \emph{The 4th time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half. Subsequently for the half, a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th, and 8th times).} If the ball is moved as the result of pushing, then it will be replaced to where it was at the time of the infringement.
 
 If a robot illegally pushes an opposing robot that is not pushing, and the collision causes the opposing robot to fall, the fallen robot will be picked up by one of the referees and replaced in an upright position at the point at which it fell. This is only required if the robot cannot stand up on its own.
 
