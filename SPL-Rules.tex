@@ -573,23 +573,28 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 \subsection{Player Pushing}
 \label{sec:player_pushing}
 
-Except for the situations described below in Section \ref{sec:not_pushing}, contact between two robots of the same team is considered pushing. Between robots of opposing teams, each contact of a robot with another robot that is forceful enough to make the other robot fall is considered pushing. In addition, a robot that walks front-to-back into another is considered pushing, as is walking into another robot for 3 seconds, regardless of the `pushing force'. Two robots may be penalized for pushing from one incident, for example, if they collide front to front whilst both are moving.
+Except for the situations described below in Section \ref{sec:not_pushing}, contact between two robots of the same team is considered pushing, and between robots of opposing teams, each contact of a robot with another robot that is forceful enough to make the other robot fall is considered pushing. In addition, a robot that walks front-to-back into another is considered pushing, as is walking into another robot for 3 seconds, regardless of the `pushing force'. Two robots may be penalized for pushing from one incident, for example, if they collide front to front whilst both are moving.
 
 \subsubsection{Contact between teammates}
 
-Contact between 2 robots of the same team is considered pushing. 2 robots of the same team are considered to be in contact if:
+Contact between 2 robots of the same team is considered pushing. 2 robots of the same team are considered to be in contact if they are both standing (i.e., not fallen), and:
 \begin{enumerate}
-\item both robots are standing, i.e., not fallen.
-\item any of their parts are touching, i.e., in direct contact.
-\item they are connected through contact with a robot of the opposing team (e.g., if $A_1$ is touching $B_1$ and $B_1$ is touching $A_2$, then $A_1$ and $A_2$ are considered to be in contact).
+\item Any of their parts are touching, i.e., in direct contact, or
+\item They are connected through contact with a robot of the opposing team (e.g., if $A_1$ is touching $B_1$ and $B_1$ is touching $A_2$, then $A_1$ and $A_2$ are considered to be in contact).
 \end{enumerate}
 
 The robot that gets penalized is chosen in the following order:
 \begin{enumerate}
-\item if both robots are stationary, neither is penalized;
-\item if 1 of the robots is a goal keeper in its penalty area, the other one is penalized;
-\item if 1 of the robots is stationary, the other one is penalized;
-\item otherwise, the robot closer to the ball is penalized.
+\item If one robot is a goal keeper in its penalty area, the other robot is penalized;
+\item If one robot is stationary, the other one is penalized;
+\item Otherwise, the robot closer to the ball is penalized.
+\end{enumerate}
+
+The situations described in Section \ref{sec:not_pushing} are exceptions to the descriptions above. For example, neither robot is penalized in the following scenarios:
+\begin{enumerate}
+\item Both robots are stationary.
+\item One robot is a goal keeper in its penalty area, and the other is stationary.
+\item One robot is attempting to kick the ball, and the other is stationary.
 \end{enumerate}
 
 \subsubsection{Contact between opposing robots}
@@ -604,7 +609,7 @@ Robots of opposing teams are allowed contact in certain scenarios:
 
 \end{enumerate}
 
-The following forms of contact are considered pushing:
+The following forms of contact are considered pushing, except the scenarios listed above, and in Section~\ref{sec:not_pushing}:
 
 \begin{enumerate}
 
