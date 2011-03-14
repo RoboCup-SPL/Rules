@@ -97,7 +97,7 @@ The soccer field is built on a total carpet area of length \TotalLength and widt
 
 \subsection{Lines}\label{sec:field_lines}
 
-All robot-visible lines on the soccer field (side lines, end lines, halfway line, centre circle, corner arcs, and the lines surrounding the penalty areas) are 50~mm in width. The centre circle has an outside diameter of 1250~mm.
+All robot-visible lines on the soccer field (side lines, end lines, halfway line, centre circle, corner arcs, and the lines surrounding the penalty areas) are 50~mm in width. The center circle has an outside diameter of 1250~mm.
 
 In addition to the visible lines, there are two invisible lines only relevant to the throw-in procedure (see Section \ref{sec:throw_in}), but not relevant to the construction of the field. These two throw-in lines are 400~mm away from the outside lines and run parallel to them inside the playing area. They are centered lengthwise with respect to the field. Each throw-in line is 4~m long.
 
@@ -248,7 +248,7 @@ The teams will change the goal defended and color of the team markers during the
 \subsection{Robot States}
 \label{sec:robot_states}
 
-Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give indication of the game state, team color and, the kickoff state.
+Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give indication of the game state, team color, and the kickoff state.
 %RHM 4/7/07
 \emph{If a robot does not respond to either the game controller or the button press interface, then it is not included in the game, and the game starts without the offending robots.}
 
@@ -624,8 +624,7 @@ routine. While doing the getup movement the standard pushing rules will be appli
 
 \item If the `getting up robot' makes contact with an opposing robot who is not moving towards the fallen robot then the fallen robot will be called for pushing. (Basically saying if the opposing robot has `cleared' the area of the fallen robot, however the getup routine causes the contact then the getting up robot should be penalized.)
 
-\item If during the getup an opposing robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup.
-Then the standing robot should be penalized.
+\item If during the getup an opposing robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup, then the standing robot should be penalized.
 
 \end{enumerate}
 
@@ -678,18 +677,18 @@ Only the goalie can be within its team's penalty area. Having both legs inside t
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
-\subsection{Obstruction}
-
-When a robot that is not heading for the ball is actively and intentionally blocking the way to the ball for a robot of the other team, this is an obstruction (\cf Figure~\ref{fig:obstruction}). The obstructing robot will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). A robot will not be penalized for pushing a robot that is penalized for obstruction (see Section~\ref{sec:player_pushing}).
-
-\paragraph{Example.} If a robot of one team, robot A, is heading for the ball, but a robot of the other team, robot B, is in its way without heading for the ball, this, by itself, is not an obstruction. But, if robot A starts to move around robot B, and then robot B intentionally moves to block robot A again, this is an obstruction, even if the robots do not actually touch.
-
-Note: The intent of the obstruction rule is to stop people implementing code that deliberately attempts to obstruct opponent robots.
-
-\begin{figure}[t]
-\centerline{\includegraphics[height=5cm]{figs/obstruction}}
-\caption{Obstruction}\label{fig:obstruction}
-\end{figure}
+%\subsection{Obstruction}
+%
+%When a robot that is not heading for the ball is actively and intentionally blocking the way to the ball for a robot of the other team, this is an obstruction (\cf Figure~\ref{fig:obstruction}). The obstructing robot will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). A robot will not be penalized for pushing a robot that is penalized for obstruction (see Section~\ref{sec:player_pushing}).
+%
+%\paragraph{Example.} If a robot of one team, robot A, is heading for the ball, but a robot of the other team, robot B, is in its way without heading for the ball, this, by itself, is not an obstruction. But, if robot A starts to move around robot B, and then robot B intentionally moves to block robot A again, this is an obstruction, even if the robots do not actually touch.
+%
+%Note: The intent of the obstruction rule is to stop people implementing code that deliberately attempts to obstruct opponent robots.
+%
+%\begin{figure}[t]
+%\centerline{\includegraphics[height=5cm]{figs/obstruction}}
+%\caption{Obstruction}\label{fig:obstruction}
+%\end{figure}
 
 \subsection{Jamming}
 
