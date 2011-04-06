@@ -234,7 +234,7 @@ The use of remote processing/sensing is prohibited.
 \subsection{Structure of the Game}
 \label{sec:game_struct}
 
-A game consists of three parts, \ie the first half, a half-time break, and the second half. Each half is 10 minutes. The clock stops during stoppages of play\footnote{This may not be the case during the preliminary games.} (such as kick-offs after goals). The extra time over ten minutes total is referred to as ``lost time''. The half-time break is also ten minutes, during this time both teams may change robots, change programs, or anything else that can be done within the time allotted. In the preliminaries a game can finish in a draw as no penalty shoot-out will follow. In the finals or in the intermediate round a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
+A game consists of three parts, \ie the first half, a half-time break, and the second half. Each half is 10 minutes counted from the initial kick-off. The clock stops during stoppages of play\footnote{This may not be the case during the preliminary games.} (such as kick-offs after goals). The extra time over ten minutes total is referred to as ``lost time''. The half-time break is also ten minutes, during this time both teams may change robots, change programs, or anything else that can be done within the time allotted. In the preliminaries a game can finish in a draw as no penalty shoot-out will follow. In the finals or in the intermediate round a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
 
 The teams will change the goal defended and color of the team markers during the half-time break.
 
@@ -256,7 +256,10 @@ Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If th
 
 \item[Ready.] In this state, the robots walk to their legal kick-off positions (\cf Section~\ref{sec:kick-off}). They remain in this state, until the head referee decides that there is no significant progress anymore (after a maximum of \KickOffAutoTime). This state is not available if only the button interface is implemented.
 
-Robots may be disentangled by the referees at the start of the Ready state. After that, any robots which are close to each other (\cf Section~\ref{sec:player_pushing}) will be placed manually to the positions shown in Figure~\ref{fig:ko}.
+Robots may be disentangled by the referees at the start of the Ready state. After that, 
+the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees (\cf Section~\ref{sec:kick-off}), not the penalty described in Section~\ref{sec:pushing_results}.
+Consequently those pushings do not go into the permanent removal count, either.
+%any robots which are close to each other (\cf Section~\ref{sec:player_pushing}) will be placed manually to the positions shown in Figure~\ref{fig:ko}.
 
 \item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads before the game (re)starts but are not allowed moving their legs or locomote in any fashion. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state.
 
@@ -303,11 +306,12 @@ For kick-off, the robots listening to the wireless GameController run through th
 
 In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allowed touching the halfway line.
 One field player of the attacking team can walk to a position inside the center circle.
-The other field players of the attacking team can walk to any position within their own half, except for the penalty area.
-The field players of the defending team have to be located in the half of their field that is behind the penalty mark (none of their feet are allowed to be past the penalty mark), and their feet must be outside the penalty area.
+The other field players of the attacking team can walk to any position within their own half, except for the penalty area and the center circle.
+The field players of the defending team have to be located in the half of their field that is behind the penalty mark (none of their feet are allowed to be past the penalty mark, i.e. its end furthest away from the middle of the field), and their feet must be outside the penalty area.
 In contrast, the feet of both goal keepers must be \emph{inside} the penalty area.
 
-If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees.
+If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:pushing_results}.
+Consequently those pushings do not go into the permanent removal count, either.
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed manually by the assistant referees to the positions as shown in Figure~\ref{fig:ko}. Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
 \emph{In the case where the team leader requests manual placement, all robots on that team are manually positioned.}
@@ -511,7 +515,9 @@ Manual interaction with the robots, either directly or via some communications m
 \subsection{Kick-off Shot}
 \label{sec:kick-off_shot}
 
-A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by the team kicking off after a kick-off before the entire ball has left the center circle, including the boundary line. If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and a kick-off will be awarded to the defending team (as per Section~\ref{sec:kick-off}).
+A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by the team kicking off after a kick-off before the entire ball has left the center circle, including the boundary line. 
+If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and a kick-off will be awarded to the defending team (as per Section~\ref{sec:kick-off}).
+The main referee's decision in this case is final and can not be changed afterwards by video proof.
 
 \subsection{Ball Holding}
 \label{sec:ball_holding}
@@ -594,14 +600,14 @@ Any contact between 2 robots of the same team is a potential pushing contact if 
 \item They are connected through contact with a robot of the opposing team (e.g., if $A_1$ is touching $B_1$ and $B_1$ is touching $A_2$, then $A_1$ and $A_2$ are considered to be in contact).
 \end{enumerate}
 
-Out of those teammates which are involved and do not fall under any of the exceptions in section~\ref{sec:situations_no_pushing}, the one closer to the ball is penalized.
-If the exceptions of section~\ref{sec:situations_no_pushing} apply to all involved teammates, then no robot gets penalized.
+Out of those teammates which are involved and do not fall under any of the exceptions in Section~\ref{sec:situations_no_pushing}, the main offender is penalized, i.e. the one which in the referees opinions caused the pushing.
+If the exceptions of Section~\ref{sec:situations_no_pushing} apply to all involved teammates, then no robot gets penalized.
 
 Examples for the application of this rule are:
 \begin{enumerate}
 \item If one robot is a goal keeper in its penalty area and the other one is moving, the latter one is penalized;
 \item If only one out of two field players is stationary, the other one is penalized;
-\item If both robots are moving, the robot closer to the ball is penalized.
+\item If both robots are moving, the robot whose moving direction seemed to cause the contact is penalized.
 \end{enumerate}
 
 \subsubsection{Contact between Opposing Robots}
@@ -614,7 +620,7 @@ Robots of opposing teams are allowed contact in certain scenarios:
 	\item Chest-to-chest contact is allowed when the ball is between the robots. If the ball is not between the robots then both robots are penalized.
 \end{enumerate}
 
-The following forms of contact are considered pushing contacts, except the scenarios listed above and in section~\ref{sec:situations_no_pushing}:
+The following forms of contact are considered pushing contacts, except the scenarios listed above and in Section~\ref{sec:situations_no_pushing}:
 \begin{enumerate}
 	\item Any form of contact that has enough force to knock a robot off-balance, even chest-to-shoulder/arm or shoulder/arm-to-chest.
 	\item Walking into another robot for 3 seconds, even if the `force to push' is minimal.
@@ -631,7 +637,7 @@ While doing the getup movement the following pushing contacts might occur:
 
 \begin{enumerate}
 	\item If the `getting up robot' makes contact with another robot which is not moving towards the fallen robot, then the fallen robot will be called for pushing. (Basically saying if the opposing robot has `cleared' the area of the fallen robot, however the getup routine causes the contact, then the getting up robot should be penalized.)
-	\item If during the getup another robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup, then the upright robot will be penalized if non of the exceptions of section~\ref{sec:situations_no_pushing} applies.
+	\item If during the getup another robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup, then the upright robot will be penalized if non of the exceptions of Section~\ref{sec:situations_no_pushing} applies.
 \end{enumerate}
 
 
@@ -640,6 +646,7 @@ While doing the getup movement the following pushing contacts might occur:
 %\colorbox{yellow}{(Unchanged)}
 
 The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half. Subsequently for the half, a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th, and 8th times).
+Pushing during the ready state does not come into this removal count (\cf Section~\ref{sec:kick-off}).
 
 If the ball is moved as the result of pushing, then it should be replaced to where it was at the time of the infringement.
 The ball movement must not result in an advantage for the pushing team.
