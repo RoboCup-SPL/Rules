@@ -578,46 +578,35 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 Section~\ref{sec:situations_no_pushing} defines situations where pushing does not apply.
 Those exceptions overrule all other conditions.
 In all other situations, a \textit{pushing contact} between two robots is considered player pushing and penalized according to section~\ref{sec:pushing_results}.
-Sections~\ref{sec:pushing_own} to~\ref{sec:pushing_fallen} define such pushing contacts between robots in the same team, robots of opposing teams, and with fallen robots, respectively.
+Sections~\ref{sec:pushing_contact} to~\ref{sec:pushing_fallen} define such pushing contacts between two and more walking/standing robots, and with fallen robots, respectively.
 
-\subsubsection{Situations Where Pushing Does Not Apply}
-\label{sec:situations_no_pushing}
-%\colorbox{yellow}{(Unchanged)}
+%\subsubsection{Contact between Teammates}
+%\label{sec:pushing_own}
+%%\colorbox{yellow}{(Removed repeating definitions and simplified the formulation)}
+%
+%Any contact between 2 robots of the same team is a potential pushing contact if they are both standing (i.e., not fallen), and:
+%\begin{enumerate}
+%\item Any of their parts are touching, i.e., in direct contact, or
+%\item They are connected through contact with a robot of the opposing team (e.g., if $A_1$ is touching $B_1$ and $B_1$ is touching $A_2$, then $A_1$ and $A_2$ are considered to be in contact).
+%\end{enumerate}
+%
+%Out of those teammates which are involved and do not fall under any of the exceptions in Section~\ref{sec:situations_no_pushing}, the main offender is penalized, i.e. the one which in the referees opinions caused the pushing.
+%If the exceptions of Section~\ref{sec:situations_no_pushing} apply to all involved teammates, then no robot gets penalized.
+%
+%Examples for the application of this rule are:
+%\begin{enumerate}
+%\item If one robot is a goal keeper in its penalty area and the other one is moving, the latter one is penalized;
+%\item If only one out of two field players is stationary, the other one is penalized;
+%\item If both robots are moving, the robot whose moving direction seemed to cause the contact is penalized.
+%\end{enumerate}
 
-\begin{enumerate}
-	\item A stationary robot cannot be penalized for pushing.
-	\item A robot will not be penalized for pushing whilst attempting to kick the ball, provided that the ball is close enough to the robot that in the opinion of the referee the attempted kick could contact the ball.
-	\item The goal keeper, whilst in its own penalty area, and either moving to the ball or looking at the ball, will not be penalized for pushing.
-\end{enumerate}
+\subsubsection{Contact between standing/walking Robots}
+\label{sec:pushing_contact}
 
-\subsubsection{Contact between Teammates}
-\label{sec:pushing_own}
-%\colorbox{yellow}{(Removed repeating definitions and simplified the formulation)}
-
-Any contact between 2 robots of the same team is a potential pushing contact if they are both standing (i.e., not fallen), and:
-\begin{enumerate}
-\item Any of their parts are touching, i.e., in direct contact, or
-\item They are connected through contact with a robot of the opposing team (e.g., if $A_1$ is touching $B_1$ and $B_1$ is touching $A_2$, then $A_1$ and $A_2$ are considered to be in contact).
-\end{enumerate}
-
-Out of those teammates which are involved and do not fall under any of the exceptions in Section~\ref{sec:situations_no_pushing}, the main offender is penalized, i.e. the one which in the referees opinions caused the pushing.
-If the exceptions of Section~\ref{sec:situations_no_pushing} apply to all involved teammates, then no robot gets penalized.
-
-Examples for the application of this rule are:
-\begin{enumerate}
-\item If one robot is a goal keeper in its penalty area and the other one is moving, the latter one is penalized;
-\item If only one out of two field players is stationary, the other one is penalized;
-\item If both robots are moving, the robot whose moving direction seemed to cause the contact is penalized.
-\end{enumerate}
-
-\subsubsection{Contact between Opposing Robots}
-\label{sec:pushing_opponent}
-%\colorbox{yellow}{(Mostly unchanged)}
-
-Robots of opposing teams are allowed contact in certain scenarios:
+Upright robots are allowed contact in certain scenarios:
 \begin{enumerate}
 	\item Shoulder-to-shoulder or arm-to-arm contacts are allowed when both robots are proceeding to the ball.
-	\item Chest-to-chest contact is allowed when the ball is between the robots. If the ball is not between the robots then both robots are penalized.
+	\item Chest-to-chest contact is allowed when the ball is between the robots.
 \end{enumerate}
 
 The following forms of contact are considered pushing contacts, except the scenarios listed above and in Section~\ref{sec:situations_no_pushing}:
@@ -628,16 +617,34 @@ The following forms of contact are considered pushing contacts, except the scena
 \end{enumerate}
 
 
-\subsubsection{Contact with a Fallen Robot}
+\subsubsection{Contact between 3 standing/walking Robots}
+\label{sec:pushing_3_robots}
+
+Of 3 robots which are in contact, the main offender of the team with more robots involved will be called for pushing, following the rules of Section~\ref{sec:pushing_contact}.
+This is meant to give an advantage to a robot of team A which fights against two robots of team B, since one robot of team B will be called for pushing first. If pushing still occurs after the removal, the situation is judged according to Section~\ref{sec:pushing_contact}.
+
+
+\subsubsection{Contact with a fallen Robot}
 \label{sec:pushing_fallen}
 %\colorbox{yellow}{(Changed to not only cover opposing robots)}
 
-A robot who has fallen over, is allowed to attempt a `getup' routine, but must not interfere with other stationary robots.
+A robot who has fallen over is allowed to attempt a `getup' routine, but must not interfere with other stationary robots.
 While doing the getup movement the following pushing contacts might occur:
 
 \begin{enumerate}
 	\item If the `getting up robot' makes contact with another robot which is not moving towards the fallen robot, then the fallen robot will be called for pushing. (Basically saying if the opposing robot has `cleared' the area of the fallen robot, however the getup routine causes the contact, then the getting up robot should be penalized.)
 	\item If during the getup another robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup, then the upright robot will be penalized if non of the exceptions of Section~\ref{sec:situations_no_pushing} applies.
+\end{enumerate}
+
+
+\subsubsection{Situations Where Pushing Does Not Apply}
+\label{sec:situations_no_pushing}
+%\colorbox{yellow}{(Unchanged)}
+
+\begin{enumerate}
+	\item A stationary robot cannot be penalized for pushing.
+	\item A robot will not be penalized for pushing whilst attempting to kick the ball, provided that the ball is close enough to the robot that in the opinion of the referee the attempted kick could contact the ball.
+	\item The goal keeper, whilst in its own penalty area, and either moving to the ball or looking at the ball, will not be penalized for pushing.
 \end{enumerate}
 
 
