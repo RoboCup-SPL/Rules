@@ -32,7 +32,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(2011 rules, as of \today)}
+\date{(2012 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -79,7 +79,7 @@
 The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth. The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. The construction of the goals is depicted in Figure \ref{fig:goal_dimensions}.
 
 \begin{figure}[b!]
-\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2010.pdf}}
+\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2012.pdf}}
 \caption{Scale diagram of entire field (dimensions in mm).} \label{fig:field_dim}
 \end{figure}
 
@@ -109,11 +109,7 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 \item The lines on the field are white.
 
-\item The red team defends the yellow goal.
-
-\item The blue team defends the sky-blue goal.
-
-\item Goals~(\cf Figure~\ref{fig:goal_colors}). The posts and top cross bar are either yellow or sky-blue. The support triangles on back of the posts and the net are white (yellow: RAL 1018, sky-blue: RAL 5015, a brighter blue is even better).
+\item Goals~(\cf Figure~\ref{fig:goal_colors}). The posts and top cross bar of both goals are yellow. The support triangles on back of the posts and the net are white (yellow: RAL 1018).
 
 \end{itemize}
 
@@ -122,13 +118,13 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 \leavevmode
 \includegraphics[width=0.5\columnwidth]{figs/goal_2010_back.png}\qquad
 \includegraphics[width=0.4\columnwidth]{figs/goal_2010_front.png}
-\caption{Appearance of the yellow goal. Notice that the support triangles are white.}
+\caption{Appearance of the goals. Notice that the support triangles are white.}
 \label{fig:goal_colors}
 \end{center}
 \end{figure}
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/emptyfield_2010.png}}
+\centerline{\includegraphics[width=\columnwidth]{figs/emptyfield_2012.png}}
 \caption{Field colors and layout.}
 \label{fig:field_color}
 \end{figure}
@@ -315,7 +311,7 @@ The robots have a maximum of \KickOffAutoTime to reach their positions. If all t
 
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/manual_placement_2011.png}}
+\centerline{\includegraphics[width=\columnwidth]{figs/manual_placement_2012.png}}
 \caption{Manual setup for kick-off.}
 \label{fig:ko}
 \end{figure}
@@ -350,10 +346,15 @@ Neither robot shall move their legs before the penalty kick starts. Movements of
 
 The penalty kick ends when the kicker scores the goal, the time expires, or the ball leaves the field. The time limit for the kicker is 1 minute after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
-The goal keeper is not allowed to touch ball that is completely outside the penalty area and the attacking robot is not allowed to touch a ball that is completely inside the penalty area. The line is part of the penalty area. If the attacker touches the ball when the ball is inside the penalty area then the penalty shot is deemed unsuccessful. If the goal keeper touches the ball when the ball is outside the penalty area then a goal will be awarded to the attacking team.
+The goal keeper is not allowed to touch a ball that is completely outside the penalty area, and the attacking robot is not allowed to touch a ball once it has been completely inside the penalty area. The line is part of the penalty area.
+This way, a penalty shot is effectually over after the first goal shot which entered the penalty box, either in favor of the attacker if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked or if the ball just did not reach the goal line.
+However, if the goal keeper touches the ball when the ball is outside the penalty area, then a goal will be awarded to the attacking team.
 
 All the rules such as ``Ball Holding'', ``Pushing'' and others are also applied during the penalty kick. The only exception is the ``Illegal Defender'' rule, \ie the penalty shooter is allowed to enter its own penalty area.
 A goal keeper will not be penalized for inactivity during a penalty kick (including penalty shoot out), provided its stiffness is on. Other penalties are applied as usual.
+
+Due to the symmetry of the field, there is no way for the referees to mis-configure one of the robots for the penalty kick, therefore a penalty kick is never repeated.
+
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
@@ -361,11 +362,10 @@ A goal keeper will not be penalized for inactivity during a penalty kick (includ
 A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter or semi finals). 
 There will be a five minute break between the end of the game and the start of the penalty kicks.
 In the preliminary rounds, the penalty kick shoot-out will consist of three penalty shots per team; in the quarterfinals and later, it will consist of five penalty shots per team.
-All penalty shots are \emph{taken against the blue goal}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
+All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided in accordance with the teams, or otherwise by a coin toss.}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
 
 The procedure for each attempt is the same as for the normal penalty kick described in Section~\ref{sec:penalty_kick}. For the first five attempts, the standard time limit of 1 minute is applied. If after five penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure.
 
-Penalty shoot-outs are taken against the \emph{blue} goal. The GameController will configure the team color of the penalty shooter as red and the team color of the goal keeper as blue.
 
 \subsubsection{Sudden Death Shoot-Out}
 
@@ -501,7 +501,18 @@ When the head referee indicates a foul has been committed that results in the st
 
 The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. This may not be done if the penalty is not timed, \ie it is a 0 seconds penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
 
-The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is over, so that one of them can put the robot back on the field. The assistant referee will then place the robot on the field on the halfway line as close to the sideline as possible. The robot should be pointed towards the opposite sideline. The robot should be placed on the side of the field furthest from the ball. If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline facing towards the opposite sideline. If there are no practical locations nearby, a location along one of the sidelines should be found that is away from the ball (the robot should be set down facing the opposite sideline). When finding a nearby location, locations away from the ball should be preferred.
+The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is over, so that one of them can put the robot back on the field. 
+The assistant referee will then place the robot on the field in the half of the field which this robot's team is defending.
+The robot should be placed close to the position, where the penalty point projects on the sideline.
+The robot should be pointed towards the opposite sideline. The robot should be placed on the side of the field furthest from the ball. If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline facing towards the opposite sideline. If there are no practical locations nearby, a location along one of the sidelines should be found that is away from the ball (the robot should be set down facing the opposite sideline). 
+This is illustrated in Figure~\ref{fig:penalty_re-entry_points}.
+When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's on half, so that the symmetry of the field can be resolved by the robot's localization system.
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points.png}}
+\caption{For robots coming back from a standard removal penalty, re-entry points lie in their own half, on the sideline on the side away from the ball.}
+\label{fig:penalty_re-entry_points}
+\end{figure}
 
 When the robot is on the field again, the operator of the GameController will send the \emph{playing} signal to it. If the wireless is not working, the assistant referee who placed the robot back on the field has to bring it into the \emph{playing} state again.
 
@@ -577,13 +588,7 @@ Sections~\ref{sec:pushing_contact} to~\ref{sec:pushing_fallen} define such pushi
 \subsubsection{Contact between standing/walking Robots}
 \label{sec:pushing_contact}
 
-Upright robots are allowed contact in certain scenarios:
-\begin{enumerate}
-	\item Shoulder-to-shoulder or arm-to-arm contacts are allowed when both robots are proceeding to the ball.
-	\item Chest-to-chest contact is allowed when the ball is between the robots.
-\end{enumerate}
-
-The following forms of contact are considered pushing contacts, except the scenarios listed above and in Section~\ref{sec:situations_no_pushing}:
+The following forms of contact are considered pushing contacts, except the scenarios listed in Section~\ref{sec:situations_no_pushing}:
 \begin{enumerate}
 	\item Any form of contact that has enough force to knock a robot off-balance, even chest-to-shoulder/arm or shoulder/arm-to-chest.
 	\item Walking into another robot for 3 seconds, even if the `force to push' is minimal.
@@ -612,10 +617,20 @@ While doing the getup movement the following pushing contacts might occur:
 \subsubsection{Situations Where Pushing Does Not Apply}
 \label{sec:situations_no_pushing}
 
+General situation where pushing does not apply:
+
 \begin{enumerate}
 	\item A stationary robot cannot be penalized for pushing.
 	\item A robot will not be penalized for pushing whilst attempting to kick the ball, provided that the ball is close enough to the robot that in the opinion of the referee the attempted kick could contact the ball.
 	\item The goal keeper, whilst in its own penalty area, and either moving to the ball or looking at the ball, will not be penalized for pushing.
+\end{enumerate}
+
+
+Situations in which two upright robots of different teams are fighting for the ball:
+
+\begin{enumerate}
+	\item Shoulder-to-shoulder or arm-to-arm contacts are allowed when both robots are proceeding to the ball.
+	\item Chest-to-chest contact is allowed when the ball is between the robots.
 \end{enumerate}
 
 
@@ -698,23 +713,22 @@ Referees for playoff games will need to be certified (\ie deemed fit to referee)
 
 The head referee and the assistant referees should wear \emph{black clothing and black socks/shoes} and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
 
-\section{Changes From 2010}
+\section{Changes From 2011}
 
 This is a brief list of this year's changes to the rules.
 
 \begin{itemize}
-\item The number of robots per team changed from 3 to 4 (see Sec.~\ref{sec:field_players}).
-\item The rules for autonomous and manual positioning changed according to the increased number of robots (see Sec.~\ref{sec:kick-off}).
-\item The pushing rules changed substantially, both concerning the pushing between opposing robots as well as team mates (see Sec.~\ref{sec:player_pushing}).
-\item Robots are now removed for the rest of the half after the 4th, 6th and 8th pushing (see Sec.~\ref{sec:pushing_results}).
-\item The obstruction rules has been removed (formerly Sec. 4.14 in the 2010 rules).
+	\item Both goals have the same color now (yellow)!
+	\item A penalty kick ends after one shot on the goal, i.e. after the striker kicked the ball inside the penalty box. No further shots are allowed anymore in case the goal keeper blocks and the ball rolls out of the penalty box again. This is to increase the similarity to real soccer. However, the striker is still allowed to touch the ball more than once before performing the actual goal shot.
+	\item Clarified that penalty kicks should not be repeated.
+	\item Small change in the formulation of the pushing rule for easier understandability; no change in the meaning is intended. 
 
 \end{itemize}
 
 
 \section{Questions/Comments}
 
-Questions or comments on these rules should be mailed to spl\_tech@tzi.de
+Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup.org.
 
 \end{document}
 
