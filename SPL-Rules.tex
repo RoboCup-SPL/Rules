@@ -443,10 +443,13 @@ This includes if a robot is at the ball circling it for 15 seconds without kicki
 The main referee has two options how to solve the game stuck and to reestablish the chance of progress in the game. The intention of the game stuck rule is to achieve progress with as little intervention as possible, \ie the \emph{Local Game Stuck} rule will be preferred, but only if there is a chance that its application will result in progress in the game.
 
 \subsubsection{Local Game Stuck}
+\label{sec:game_stuck:local}
 
-The referee picks up the nearest robot to the ball and moves the robot to the half way line. The referee does \emph{not} replace the ball. If the ball is accidentally bumped when removing the robots, the ball should be replaced where it was when the game stuck was called. As a special exception, if the goalie is involved in a game stuck situation while having both feet in its own penalty area, it will be placed on the penalty mark of its half facing its goal.
+%The referee picks up the nearest robot to the ball and moves the robot to the half way line. The referee does \emph{not} replace the ball. If the ball is accidentally bumped when removing the robots, the ball should be replaced where it was when the game stuck was called. As a special exception, if the goalie is involved in a game stuck situation while having both feet in its own penalty area, it will be placed on the penalty mark of its half facing its goal.
+The nearest robot to the ball will get the standard removal penalty according to Section~\ref{sec:removal_penalty}.
 
 \subsubsection{Global Game Stuck}
+\label{sec:game_stuck:global}
 
 The referee stops the game and restarts the game from the kick-off formation. The kick-off will be awarded to the team defending the side of the field the ball is on when the game stuck is called. A global game stuck can only be called if at least one robot has touched the ball since the previous kick-off.
 
@@ -749,7 +752,8 @@ This is a brief list of this year's changes to the rules.
 	\item During a penalty shoot-out,the attacking robot will be indicated by the GameController using the kick-off flag, not the team color as before (cf. Section~\ref{sec:penalty_kick}).
 	\item Clarified that penalty kicks should not be repeated.
 	\item Small change in the formulation of the pushing rule for easier understandability; no change in the meaning is intended. 
-	\item Added a note about marking the invisible throw-in lines.
+	\item Added a note about marking the invisible throw-in lines. 
+	\item Local Game Stuck (cf. Section~\ref{sec:game_stuck:local}): The responsible robot has previously been picked up and placed at a symmetric position. In oder to avoid this without introducing new complicated special cases, this robot will now simply get the standard removal penalty.
 
 \end{itemize}
 
