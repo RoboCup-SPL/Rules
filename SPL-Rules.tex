@@ -23,6 +23,12 @@
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 
+% comment 'disable' in to disable all the todo notes :)
+\usepackage
+[
+%disable
+]{todonotes}
+
 \sloppy
 \newcommand{\ie}{\mbox{i.\,e.}\xspace}
 \newcommand{\eg}{\mbox{e.\,g.}\xspace}
@@ -217,7 +223,7 @@ The only wireless hardware allowed to be used by the teams are the wireless netw
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The IP addresses, channels, SSIDs, and WEP keys of the fields will be announced at the competition site.
 
-Teams can use a bandwidth of up to 500 Kbps of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by TCP, UDP, or the GameController.
+Teams can use a bandwidth of up to 500 Kbps \todo{reduce the bandwidth} of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by TCP, UDP, or the GameController.
 
 Any form of wireless robot-to-robot communication is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), it does not conflict with TCP/IP or UDP, and the maximum bandwidth allowed for each team is not exceeded. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
 
@@ -457,8 +463,9 @@ The referee stops the game and restarts the game from the kick-off formation. Th
 \label{sec:request_for_pickup}
 
 Either team may request that one of their players be picked up only for hardware dysfunction and software crashes at any point in the game (called ``Request for Pick-up''). 
-It is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
-It is discouraged to change the robot's control program, but not forbidden.
+Basically every change (hardware or software) is allowed during a request for pick-up. In particular,
+it is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
+It is discouraged to change the robot's control program, \textbf{but not forbidden}.
 It is also allowed to replace a broken robot by a substitute robot.
 
 Any strategic ``Request for Pick-up'' is not allowed, i.e. gaining an advantage by removing the robot from the game.
@@ -750,6 +757,14 @@ The intent of switching to same-colored goals is to remove artificial landmarks.
 Robots should be able to localize with the SPL field and its ``normal'' surroundings.
 Introducing new team-specific artificial landmarks is against the spirit and intention of the league's progress.
 The application of this rule needs to be well considered and should be reserved for situations which seem constructed by one team or another, but will ultimately be the head referee's decision alone.
+
+\section{Changes From 2012}
+
+This is a brief list of this year's changes to the rules.
+
+\begin{itemize}
+	\item ...
+\end{itemize}
 
 
 \section{Changes From 2011}
