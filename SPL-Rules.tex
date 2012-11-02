@@ -650,69 +650,66 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 \subsection{Player Pushing}
 \label{sec:player_pushing}
 
-Section~\ref{sec:situations_no_pushing} defines situations where pushing does not apply.
-Those exceptions overrule all other conditions.
-In all other situations, a \textit{pushing contact} between two robots is considered player pushing and penalized according to section~\ref{sec:pushing_results}.
-Sections~\ref{sec:pushing_contact} to~\ref{sec:pushing_fallen} define such pushing contacts between two and more walking/standing robots, and with fallen robots, respectively.
+%Section~\ref{sec:situations_no_pushing} defines situations where pushing does not apply. Those exceptions overrule all other conditions. In all other situations, a \textit{pushing contact} between two robots is considered player pushing and penalized according to section~\ref{sec:pushing_results}. Sections~\ref{sec:pushing_contact} to~\ref{sec:pushing_fallen} define such pushing contacts between two and more walking/standing robots, and with fallen robots, respectively.
+
+The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a
+half, the offending robot will be removed for the remainder of the half. Subsequently for that half,
+a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th time, 8th time, 10th time, etc.). Pushing during the ready state does not come into this removal count (\cf Section~\ref{sec:kick-off}). 
+
+If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement. The ball movement must not result in an advantage for the pushing team. If this is not the case, the ball does not need to be replaced if, in the referee's opinion, this would create more interference with the game than not replacing it.\todo{is it needed?}
+
+\subsubsection{Exceptions to the Pushing Rules}
+\label{sec:situations_no_pushing}
+
+The following define situations where pushing does not apply:
+
+\begin{enumerate}
+	\item A stationary robot cannot be penalized for pushing, including a robot that is kicking, provided that the ball was close enough where a kick could have succeeded at the start of the kick motion
+	\item The goal keeper cannot be penalized for pushing while looking at or chasing the ball in it's own penalty area.
+	\item Front to front contact between robots with the ball between them does not constitute pushing.
+	\item Any robot proceeding to the ball whose side (i.e., arm, shoulder etc.) makes contact with another robot cannot be called for pushing. Even if the second robot is not proceeding to the ball.
+\end{enumerate}
 
 \subsubsection{Contact between standing/walking Robots}
 \label{sec:pushing_contact}
 
-The following forms of contact are considered pushing contacts, except the scenarios listed in Section~\ref{sec:situations_no_pushing}:
+The following forms of contact are considered pushing contacts except for the conditions in Section~\ref{sec:situations_no_pushing}:
 \begin{enumerate}
-	\item Any form of contact that has enough force to knock a robot off-balance, even chest-to-shoulder/arm or shoulder/arm-to-chest.
+	\item Any form of contact that has enough force to knock a robot over.
 	\item Walking into another robot for 3 seconds, even if the `force to push' is minimal.
-	\item Walking front-to-back into another robot, even if the `force to push' is minimal.
 \end{enumerate}
 
-
-\subsubsection{Contact between 3 standing/walking Robots}
-\label{sec:pushing_3_robots}
-
-If 3 robots are in contact or close to contact, and pushing occurs following the rules of Section 4.9.1, the team with more robots involved is the main offender and one of their robots will be penalized.
-This is meant to give an advantage to a robot of team A which fights against two robots of team B, since one robot of team B will be called for pushing first. If pushing still occurs after the removal, the situation is judged according to Section~\ref{sec:pushing_contact}.
 
 \subsubsection{Contact with a fallen Robot}
 \label{sec:pushing_fallen}
 
-A robot who has fallen over is allowed to attempt a `getup' routine, but must not interfere with other stationary robots.
-While doing the getup movement the following pushing contacts might occur:
+%A robot who has fallen over is allowed to attempt a `getup' routine, but must not interfere with other stationary robots.
+While doing a getup movement the following pushing contacts might occur: 
 
 \begin{enumerate}
-	\item If the `getting up robot' makes contact with another robot which is not moving towards the fallen robot, then the fallen robot will be called for pushing. (Basically saying if the opposing robot has `cleared' the area of the fallen robot, however the getup routine causes the contact, then the getting up robot should be penalized.)
-	\item If during the getup another robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup, then the upright robot will be penalized if none of the exceptions of Section~\ref{sec:situations_no_pushing} applies.
+	\item If, during the getup, another robot moves towards the fallen robot and makes contact with the fallen robot who is attempting a getup, then the upright robot will be penalized if none of the exceptions of Section~\ref{sec:situations_no_pushing} apply.
+	
+	\item If the `getting up robot' makes forceful contact with another robot (enough to destabilize it) where the standing robot is not moving towards the fallen robot, then the fallen robot will be called for pushing. (Basically saying if the opposing robot has `cleared' the area of the fallen robot, however the getup routine causes the contact, then the getting up robot should be penalized.)
 \end{enumerate}
 
 
-\subsubsection{Situations Where Pushing Does Not Apply}
-\label{sec:situations_no_pushing}
+\subsubsection{Contact Between More Than 2 Robots}
+\label{sec:pushing_several_robots}
 
-General situation where pushing does not apply:
+%If 3 robots are in contact or close to contact, and pushing occurs following the rules of Section 4.9.1, the team with more robots involved is the main offender and one of their robots will be penalized. This is meant to give an advantage to a robot of team A which fights against two robots of team B, since one robot of team B will be called for pushing first. If pushing still occurs after the removal, the situation is judged according to Section~\ref{sec:pushing_contact}.
 
-\begin{enumerate}
-	\item A stationary robot cannot be penalized for pushing.
-	\item A robot will not be penalized for pushing whilst attempting to kick the ball, provided that the ball is close enough to the robot that in the opinion of the referee the attempted kick could contact the ball.
-	\item The goal keeper, whilst in its own penalty area, and either moving to the ball or looking at the ball, will not be penalized for pushing.
-\end{enumerate}
+Pushing should be called the in the same way when multiple robots are in contact. The robot that is pushing will be called for a penalty regardless of how many robots of either team are in the area. This is to ensure that the team that is pushing is called for the penalty. If any of the exceptions apply to a robot in the group, that robot cannot be called for pushing.
 
 
-Situations in which two upright robots of different teams are fighting for the ball:
+%\subsubsection{Results of Player Pushing}
+%\label{sec:pushing_results}
 
-\begin{enumerate}
-	\item Shoulder-to-shoulder or arm-to-arm contacts are allowed when both robots are proceeding to the ball.
-	\item Chest-to-chest contact is allowed when the ball is between the robots.
-\end{enumerate}
+%The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half. Subsequently for the half, a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th, and 8th times).
+%Pushing during the ready state does not come into this removal count (\cf Section~\ref{sec:kick-off}).
 
-
-\subsubsection{Results of Player Pushing}
-\label{sec:pushing_results}
-
-The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a half, the offending robot will be removed for the remainder of the half. Subsequently for the half, a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th, and 8th times).
-Pushing during the ready state does not come into this removal count (\cf Section~\ref{sec:kick-off}).
-
-If the ball is moved as the result of pushing, then it should be replaced to where it was at the time of the infringement.
-The ball movement must not result in an advantage for the pushing team.
-If this is not the case, the ball does not need to be replaced if, in the referee's opinion, this would create more interference with the game than not replacing it.
+%If the ball is moved as the result of pushing, then it should be replaced to where it was at the time of the infringement.
+%The ball movement must not result in an advantage for the pushing team.
+%If this is not the case, the ball does not need to be replaced if, in the referee's opinion, this would create more interference with the game than not replacing it.
 
 %If a robot illegally pushes an opposing robot that is not pushing, and the collision causes the opposing robot to fall, the fallen robot will be picked up by one of the referees and replaced in an upright position at the point at which it fell. This is only required if the robot cannot stand up on its own.
 
@@ -801,7 +798,14 @@ This is a brief list of rule changes from 2012 to 2013.
 	\item Increased the size of the field to $6~m\times 9~m$ (cf. Section~\ref{sec:field_dim}).
 	\item If a timeout is ended prematurely, the opponent team has up to 2 minutes time to be ready to play (cf. Section~\ref{sec:request_for_timeout}).
 	\item Clarified, that \emph{any} changes on the robot (hardware and software) may be made during a request for pick-up (cf. Section~\ref{sec:request_for_pickup}).
-	\item Removed an old rule: referees will not put upright a robot fallen after pushing, i.e., a robot hat to get up on its own (cf. Section~\ref{sec:pushing_results}).
+
+	\item Simplified the pushing rules. In particular:
+	\begin{itemize}
+	\item Pushing while walking front-to-back is not treated separately anymore. (\cf Section~\ref{sec:pushing_contact}).
+	\item No special treatment if more than two robots are involved in pushing (\cf Section~\ref{sec:pushing_several_robots}).
+	\item Removed an old rule: referees will not put upright a robot fallen after pushing, i.e., a robot hat to get up on its own (cf. Section~\ref{sec:player_pushing}).
+	\item Exceptions to the pushing rules do apply in the same way to contacts with own and opponent players (\cf Section~\ref{sec:situations_no_pushing}), i.e., it's no pushing if two robots of the same team are fighting front to front for the ball.
+	\end{itemize}
 \end{itemize}
 	
 
