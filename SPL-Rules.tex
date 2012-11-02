@@ -129,12 +129,12 @@ I & Border strip width & 700 \\
 \end{center}
 \end{figure}
 
-\subsection{Lines}
+\subsection{Throw-in Lines}
 \label{sec:field_lines}
 
-All robot-visible lines on the soccer field (side lines, end lines, halfway line, centre circle, corner arcs, and the lines surrounding the penalty areas) are 50~mm in width. The center circle has an outside diameter of 1250~mm.
+%All robot-visible lines on the soccer field (side lines, end lines, halfway line, centre circle, corner arcs, and the lines surrounding the penalty areas) are 50~mm in width. The center circle has an outside diameter of 1250~mm.
 
-In addition to the visible lines, there are two invisible lines only relevant to the throw-in procedure (see Section \ref{sec:throw_in}), but not relevant to the construction of the field. These two throw-in lines are 400~mm away from the outside lines and run parallel to them inside the playing area. They are centered lengthwise with respect to the field. Each throw-in line is 4~m long.
+In addition to the visible lines, there are two invisible lines only relevant to the throw-in procedure (see Section \ref{sec:throw_in}), but not relevant to the construction of the field. These two throw-in lines are 400~mm away from the outside lines and run parallel to them inside the playing area. They are centered lengthwise with respect to the field. Each throw-in line is 4~m\todo{adjust} long.
 
 The throw in lines will be marked (as dots at the end of the throw in lines and short dashes along the line) by the technical committee at the start of competition with felt-tip pen - these lines are intended to stay invisible to robots but provide a guide to referees.
 
@@ -510,6 +510,7 @@ The returning robot will be replaced after a minimum of 30 seconds after it was 
 If a robot has been rebooted and the wireless is not working, it is the responsibility of the team members (not the assistant referees) to configure its team color correctly. The robot should be returned to the assistant referees in the \emph{penalized} state so that the assistant referees cannot accidentally change the robot's team color.
 
 \subsection{Request for Timeout}
+\label{sec:request_for_timeout}
 
 At any stoppage of play (after a goal, stuck game, before half, etc.) either team may call a timeout. Each team can call a \textbf{maximum of 1 timeout per game} with a total time totaling no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted. 
 The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or latest \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
@@ -728,7 +729,7 @@ A robot that damages the field will be removed from the field for the remainder 
 \label{sec:leaving_field}
 
 A robot that intends to leave the \TotalWidth $\times$ \TotalLength carpeted area will be subject to the standard removal penalty (see
-Section~\ref{sec:removal_penalty}). This penalty can already be called after a robot leaves the 4~m $\times$ 6~m playing field if the robot appears to be ``lost''.
+Section~\ref{sec:removal_penalty}). This penalty can already be called after a robot leaves the 6~m $\times$ 9~m playing field if the robot appears to be ``lost''.
 
 In addition, a robot that walks into the goal net for more than 5 seconds will also be subject to the standard removal penalty.
 
@@ -794,16 +795,18 @@ The application of this rule needs to be well considered and should be reserved 
 
 \section{Changes From 2012}
 
-This is a brief list of this year's changes to the rules.
+This is a brief list of rule changes from 2012 to 2013.
 
 \begin{itemize}
-	\item ...
+	\item Increased the size of the field to $6~m\times 9~m$ (cf. Section~\ref{sec:field_dim}).
+	\item If a timeout is ended prematurely, the opponent team has up to 2 minutes time to be ready to play (cf. Section~\ref{sec:request_for_timeout}).
+	\item Clarified, that \emph{any} changes on the robot (hardware and software) may be made during a request for pick-up (cf. Section~\ref{sec:request_for_pickup}).
 \end{itemize}
-
+	
 
 \section{Changes From 2011}
 
-This is a brief list of this year's changes to the rules.
+This is a brief list of rule changes from 2011 to 2012.
 
 \begin{itemize}
 	\item Both goals have the same color now (yellow)!
