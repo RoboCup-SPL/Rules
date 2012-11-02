@@ -57,8 +57,10 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
-\newcommand{\TotalWidth}{5.4~m\xspace}
-\newcommand{\TotalLength}{7.4~m\xspace }
+% 9m + 2*0.7m = 10.4m
+% 6m + 2*0.7m = 7.4m
+\newcommand{\TotalWidth}{7.4~m\xspace}
+\newcommand{\TotalLength}{10.4~m\xspace }
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
 
 \begin{document}
@@ -85,9 +87,37 @@
 The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth. The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. The construction of the goals is depicted in Figure \ref{fig:goal_dimensions}.
 
 \begin{figure}[b!]
-\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2012.pdf}}
-\caption{Scale diagram of entire field (dimensions in mm).} \label{fig:field_dim}
+\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2013.pdf}}
+\vspace{1ex}
+\begin{tabular}{| l | l | l |}
+ID & Description & Length (in mm) \\
+\hline
+A & Field length & 9000 \\
+\hline
+B & Field width & 6000 \\
+\hline
+C & Line width & 50 \\ 
+\hline
+D & Penalty mark size & 100 \\ 
+\hline
+ &  &  \\
+\end{tabular}
+\begin{tabular}{|l|l|l|}
+ID & Description & Length (in mm) \\
+\hline
+E & Penalty area length & 600 \\
+\hline
+F & Penalty area width & 2200 \\
+\hline
+G & Penalty mark distance & 1800 \\ 
+\hline
+H & Center circle diameter & 1200 \\
+\hline
+I & Border strip width & 700 \\
+\end{tabular}
+\caption{Schematic diagram of the soccer field (not to scale). and corresponding dimensions in mm.} \label{fig:field_dim}
 \end{figure}
+
 
 \begin{figure}[t!]
 \begin{center}
@@ -99,7 +129,8 @@ The soccer field is built on a total carpet area of length \TotalLength and widt
 \end{center}
 \end{figure}
 
-\subsection{Lines}\label{sec:field_lines}
+\subsection{Lines}
+\label{sec:field_lines}
 
 All robot-visible lines on the soccer field (side lines, end lines, halfway line, centre circle, corner arcs, and the lines surrounding the penalty areas) are 50~mm in width. The center circle has an outside diameter of 1250~mm.
 
