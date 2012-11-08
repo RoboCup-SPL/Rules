@@ -63,6 +63,9 @@
 \newcommand{\TotalLength}{10.4~m\xspace }
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
 
+% needed to align an image and text correctly side by side
+\newcommand{\imagebox}[1]{\raisebox{2ex}{\raisebox{-\height}{#1}}}
+
 \begin{document}
 
 \maketitle
@@ -84,7 +87,7 @@
 \subsection{Field Construction}
 \label{sec:field_dim}
 
-The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth. The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. The construction of the goals is depicted in Figure \ref{fig:goal_dimensions}.
+The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth. The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}.
 
 \begin{figure}[b!]
 \centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2013.pdf}}
@@ -122,10 +125,33 @@ I & Border strip width & 700 \\
 \begin{figure}[t!]
 \begin{center}
 \leavevmode
-\includegraphics[width=0.4\columnwidth]{figs/goals2010_2.png}\\
-\includegraphics[width=0.8\columnwidth]{figs/goal_with_dims_top.png}
-\caption{Dimensions of the goal, viewed from above and from the side}
+%\includegraphics[width=0.4\columnwidth]{figs/goals2010_2.png}\\
+%\includegraphics[width=0.8\columnwidth]{figs/goal_with_dims_top.png}
+\includegraphics[width=1\columnwidth]{figs/goalDimensions.pdf}
+\caption{Dimensions of the goal, viewed from above and its placement on the field.}
 \label{fig:goal_dimensions}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\leavevmode
+\begin{minipage}[t]{0.49\columnwidth}
+\imagebox{\includegraphics[width=1\columnwidth]{figs/goalDimensions3D.png}}%
+\end{minipage}
+\begin{minipage}[t]{0.49\columnwidth}
+Goalposts and crossbar made from 3 yellow cylinders with a diameter of 10cm. 
+The net:
+\begin{itemize}
+\item has a height of 80cm
+\item is of white, grey or black color
+\item is properly supported, in a way to minimize interference with the goal keeper
+\item is attached to the field to catch the ball
+\item has a weave with holes smaller than the ball diameter.
+\end{itemize}
+\end{minipage}
+\caption{Appearance and dimensions of the goals.}
+\label{fig:goal_appearance}
 \end{center}
 \end{figure}
 
@@ -148,19 +174,9 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 \item The lines on the field are white.
 
-\item Goals~(\cf Figure~\ref{fig:goal_colors}). The posts and top cross bar of both goals are yellow. The support triangles on back of the posts and the net are white (yellow: RAL 1018).
+\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top cross bar of both goals are yellow (RAL 1018). The support triangles on back of the posts and the net are white.
 
 \end{itemize}
-
-\begin{figure}[t]
-\begin{center}
-\leavevmode
-\includegraphics[width=0.5\columnwidth]{figs/goal_2010_back.png}\qquad
-\includegraphics[width=0.4\columnwidth]{figs/goal_2010_front.png}
-\caption{Appearance of the goals. Notice that the support triangles are white.}
-\label{fig:goal_colors}
-\end{center}
-\end{figure}
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/emptyfield_2012.png}}
@@ -183,6 +199,8 @@ The official ball will be a Mylec orange street hockey ball. They are 65 mm in d
 
 
 \section{Robot Players}
+\label{sec:robot_players}
+A match is played by two teams, each consisting of not more than \textbf{5} players. Maximal one of them may be designated as \emph{goalkeeper}, the others are \emph{field players}.
 
 \subsection{Hardware}
 
@@ -224,9 +242,9 @@ Robots will use colored waistbands as team markers. Official waistbands are blue
 \begin{figure}[b]
   \centerline{\begin{tabular}{lll}
       a) & b) & c) \\
-      \includegraphics[height=0.28\columnwidth]{figs/pink_front.png}&
-      \includegraphics[height=0.28\columnwidth]{figs/blue_angle.png} &
-      \includegraphics[height=0.28\columnwidth]{figs/blue_back.png} 
+      \includegraphics[height=0.28\columnwidth]{figs/pink_front.jpg}&
+      \includegraphics[height=0.28\columnwidth]{figs/blue_angle.jpg} &
+      \includegraphics[height=0.28\columnwidth]{figs/blue_back.jpg} 
   \end{tabular} }
   \caption{Nao team markers. a) Front view. b) Side view. c) Back view.} \label{fig:nao_markers}
 \end{figure}
@@ -796,16 +814,22 @@ This is a brief list of rule changes from 2012 to 2013.
 
 \begin{itemize}
 	\item Increased the size of the field to $6~m\times 9~m$ (cf. Section~\ref{sec:field_dim}).
-	\item If a timeout is ended prematurely, the opponent team has up to 2 minutes time to be ready to play (cf. Section~\ref{sec:request_for_timeout}).
-	\item Clarified, that \emph{any} changes on the robot (hardware and software) may be made during a request for pick-up (cf. Section~\ref{sec:request_for_pickup}).
-
+	
+	\item Use the same goals construction as the humanoid kid-size league (cf. Section~\ref{sec:field_dim})
+	
+	\item Increased the number of players to \textbf{5} (\cf Section~\ref{sec:robot_players})
+	
+	
 	\item Simplified the pushing rules. In particular:
 	\begin{itemize}
-	\item Pushing while walking front-to-back is not treated separately anymore. (\cf Section~\ref{sec:pushing_contact}).
-	\item No special treatment if more than two robots are involved in pushing (\cf Section~\ref{sec:pushing_several_robots}).
-	\item Removed an old rule: referees will not put upright a robot fallen after pushing, i.e., a robot hat to get up on its own (cf. Section~\ref{sec:player_pushing}).
-	\item Exceptions to the pushing rules do apply in the same way to contacts with own and opponent players (\cf Section~\ref{sec:situations_no_pushing}), i.e., it's no pushing if two robots of the same team are fighting front to front for the ball.
+		\item Pushing while walking front-to-back is not treated separately anymore. (\cf Section~\ref{sec:pushing_contact}).
+		\item No special treatment if more than two robots are involved in pushing (\cf Section~\ref{sec:pushing_several_robots}).
+		\item Removed an old rule: referees will not put upright a robot fallen after pushing, i.e., a robot hat to get up on its own (cf. Section~\ref{sec:player_pushing}).
+		\item Exceptions to the pushing rules do apply in the same way to contacts with own and opponent players (\cf Section~\ref{sec:situations_no_pushing}), i.e., it's no pushing if two robots of the same team are fighting front to front for the ball.
 	\end{itemize}
+	
+	\item If a timeout is ended prematurely, the opponent team has up to 2 minutes time to be ready to play (cf. Section~\ref{sec:request_for_timeout}).
+	\item Clarified, that \emph{any} changes on the robot (hardware and software) may be made during a request for pick-up (cf. Section~\ref{sec:request_for_pickup}).
 \end{itemize}
 	
 
