@@ -133,7 +133,7 @@ I & Border strip width & 700 \\
 \begin{center}
 \leavevmode
 \includegraphics[width=1\columnwidth]{figs/goalDimensions.pdf}
-\caption{Dimensions of the goal, viewed from above and its placement on the field.}
+\caption{Dimensions of the goal (in mm), viewed from above and its placement on the field.}
 \label{fig:goal_dimensions}
 \end{center}
 \end{figure}
@@ -145,10 +145,10 @@ I & Border strip width & 700 \\
 \imagebox{\includegraphics[width=1\columnwidth]{figs/goalDimensions3D.png}}%
 \end{minipage}
 \begin{minipage}[t]{0.49\columnwidth}
-Goalposts and crossbar made from 3 yellow cylinders with a diameter of 10cm. 
+The goalposts and crossbar are made from 3 yellow cylinders with a diameter of 10 cm. 
 The net:
 \begin{itemize}
-\item has a height of 80cm
+\item has a height of 80 cm
 \item is of white, grey or black color
 \item is properly supported, in a way to minimize interference with the goal keeper
 \item is attached to the field to catch the ball
@@ -159,13 +159,14 @@ The net:
 \label{fig:goal_appearance}
 \end{center}
 \end{figure}
+The support structure for the net shall be made with small white bars or cylinders as shown in Figure \ref{fig:goal_appearance}.
 
 \subsection{Throw-in Lines}
 \label{sec:field_lines}
 
-In addition to the visible lines, there are two invisible lines only relevant to the throw-in procedure (see Section \ref{sec:throw_in}), but not relevant to the construction of the field. These two throw-in lines are 400~mm away from the outside lines and run parallel to them inside the playing area. They are centered lengthwise with respect to the field. Each throw-in line is 4~m\todo{adjust} long.
+In addition to the visible lines, there are two invisible lines only relevant to the throw-in procedure (see Section \ref{sec:throw_in}), but not relevant to the construction of the field. These two throw-in lines are 400 mm away from the sidelines and run parallel to them inside the playing area.  Each throw-in line is 7 m long.
 
-The throw in lines will be marked (as dots at the end of the throw in lines and short dashes along the line) by the technical committee at the start of competition with felt-tip pen - these lines are intended to stay invisible to robots but provide a guide to referees.
+The throw in lines will be marked (as dots at the end of the throw in lines and short dashes along the line) by the technical committee at the start of competition with a felt-tip pen --- these lines are intended to stay invisible to robots but provide a guide to referees.
 
 \subsection{Field Colors}
 
@@ -177,7 +178,7 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 \item The lines on the field are white.
 
-\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top cross bar of both goals are yellow (RAL 1018). The support triangles on back of the posts and the net are white.
+\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top cross bar of both goals are yellow (RAL 1018). The net is white, grey, or black.  The support structure for the net is white.
 
 \end{itemize}
 
@@ -203,7 +204,7 @@ The official ball will be a Mylec orange street hockey ball. They are 65 mm in d
 
 \section{Robot Players}
 \label{sec:robot_players}
-A match is played by two teams, each consisting of not more than \textbf{5} players. Maximal one of them may be designated as \emph{goalkeeper}, the others are \emph{field players}.
+A match is played by two teams, each consisting of not more than \textbf{5} players. At most one may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
 
 \subsection{Hardware}
 
@@ -230,12 +231,12 @@ A computer will be provided by the event organizers for the purpose of sending G
 \subsection{Goal Keeper}
 \label{sec:goal_keeper}
 
-The goal keeper is the only player that is allowed to stay within the penalty area of its own team and to touch the ball with its arms/hands whilst within the penalty area. It always has the jersey number ``1''.
+The goal keeper is the only player that is allowed to enter the penalty area of its own team.  The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own penalty area. It always has the jersey number ``1''.
 
 \subsection{Field Players}
 \label{sec:field_players}
 
-The field players are not allowed to enter their own penalty area. The three field players robots have the jersey numbers ``2'', ``3'', ``4'' and ``5''.
+The field players are not allowed to enter their own penalty area. The four field players robots have the jersey numbers ``2'', ``3'', ``4'' and ``5''.
 
 \subsection{Team Markers}
 \label{sec:team_markers}
@@ -288,7 +289,7 @@ The use of remote processing/sensing is prohibited.
 \subsection{Structure of the Game}
 \label{sec:game_struct}
 
-A game consists of three parts, \ie the first half, a half-time break, and the second half. Each half is 10 minutes counted from the initial kick-off. The clock stops during stoppages of play\footnote{This may not be the case during the preliminary games.} (such as kick-offs after goals). The extra time over ten minutes total is referred to as ``lost time''. The half-time break is also ten minutes, during this time both teams may change robots, change programs, or anything else that can be done within the time allotted. In the preliminaries a game can finish in a draw as no penalty shoot-out will follow. In the finals or in the intermediate round a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
+A game consists of three parts, \ie the first half, a half-time break, and the second half. Each half is 10 minutes counted from the initial kick-off. The clock stops during stoppages of play\footnote{This may not be the case until the quarter finals.} (such as ready and set state after goals). The extra time over ten minutes total is referred to as ``lost time''. The half-time break is also ten minutes --- during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted. In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the intermediate round, quarter finals, semi finals, or 3rd place, or final a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
 
 The teams will change the goal defended and color of the team markers during the half-time break.
 
@@ -302,7 +303,7 @@ The teams will change the goal defended and color of the team markers during the
 \label{sec:robot_states}
 
 Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give indication of the game state, team color, and the kickoff state.
-\emph{If a robot does not respond to either the game controller or the button press interface, then it is not included in the game, and the game starts without the offending robots.}
+\emph{If a robot does not respond to either the game controller or the button press interface, then it is not included in the game, and the game starts without the offending robot.}
 
 \begin{description}
 
@@ -311,14 +312,14 @@ Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If th
 \item[Ready.] In this state, the robots walk to their legal kick-off positions (\cf Section~\ref{sec:kick-off}). They remain in this state, until the head referee decides that there is no significant progress anymore (after a maximum of \KickOffAutoTime). This state is not available if only the button interface is implemented.
 
 Robots may be disentangled by the referees at the start of the Ready state. After that, 
-the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees (\cf Section~\ref{sec:kick-off}), not the penalty described in Section~\ref{sec:pushing_results}.
-Consequently those pushings do not go into the permanent removal count, either.
+the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees (\cf Section~\ref{sec:kick-off}), not the penalty described in Section~\ref{sec:player_pushing}.
+Consequently those pushings do not go into the permanent removal count.
 
-\item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads before the game (re)starts but are not allowed moving their legs or locomote in any fashion. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state.
+\item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads before the game (re)starts but they are not allowed to move their legs or locomote in any fashion. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state.
 
 \item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 
-\item[Penalized.] A robot is in this state when it has been penalized. It is not allowed moving in any fashion, \ie also the head has to stop turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
+\item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion, \ie also the head has to stop turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
 
 \item[Finished.] This state is reached when a half is finished. This state is not available if only the button interface is implemented.
 
@@ -358,7 +359,7 @@ See Section~\ref{sec:penalty_procedure}.
 
 The first kick-off at the start of each half time is the initial kick-off.
 Before the initial kick-off, i.e. before the start of each half, all robots must be in the initial state and must be placed on the sidelines in their own half of the field.
-It is up to the team's choice on which sideline and where exactly on the sidelines the robots are placed.
+It is up to the team as to which sideline(s) and where exactly on the sidelines the robots are placed.
 Once the robots receive the \emph{ready} signal from the GameController, they are to proceed as described in Section~\ref{sec:kick-off}.
 
 
@@ -366,14 +367,14 @@ Once the robots receive the \emph{ready} signal from the GameController, they ar
 \label{sec:kick-off}
 For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.
 
-In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allowed touching the halfway line.
+In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allow to touch the halfway line.
 One field player of the attacking team can walk to a position inside the center circle.
 The other field players of the attacking team can walk to any position within their own half, except for the penalty area and the center circle.
 The field players of the defending team have to be located in the half of their field that is behind the penalty mark (none of their feet are allowed to be past the penalty mark, i.e. its end furthest away from the middle of the field), and their feet must be outside the penalty area.
 In contrast, the feet of both goal keepers must be \emph{inside} the penalty area.
 
-If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:pushing_results}.
-Consequently those pushings do not go into the permanent removal count, either.
+If robots collide during the autonomous placement, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:player_pushing}.
+Consequently those pushings do not go into the permanent removal count.
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed manually by the assistant referees to the positions as shown in Figure~\ref{fig:ko}. Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
 \emph{In the case where the team leader requests manual placement, all robots on that team are manually positioned.}
@@ -416,7 +417,7 @@ Neither robot shall move their legs before the penalty kick starts. Movements of
 The penalty kick ends when the kicker scores the goal, the time expires, or the ball leaves the field. The time limit for the kicker is 1 minute after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
 The goal keeper is not allowed to touch a ball that is completely outside the penalty area, and the attacking robot is not allowed to touch a ball once it has been completely inside the penalty area. The line is part of the penalty area.
-This way, a penalty shot is effectually over after the first goal shot which entered the penalty box, either in favor of the attacker if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked or if the ball just did not reach the goal line.
+This way, a penalty shot is effectively over after the first goal shot which entered the penalty box, either in favor of the attacker if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked or if the ball just did not reach the goal line.
 However, if the goal keeper touches the ball when the ball is outside the penalty area, then a goal will be awarded to the attacking team.
 
 All the rules such as ``Ball Holding'', ``Pushing'' and others are also applied during the penalty kick. The only exception is the ``Illegal Defender'' rule, \ie the penalty shooter is allowed to enter its own penalty area.
@@ -430,9 +431,9 @@ The attacking robot will be indicated by the GameController using the kick-off f
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
 
-A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter or semi finals). 
+A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter finals, semi finals, third place or final). 
 There will be a five minute break between the end of the game and the start of the penalty kicks.
-In the preliminary rounds, the penalty kick shoot-out will consist of three penalty shots per team; in the quarterfinals and later, it will consist of five penalty shots per team.
+In the intermediate round, the penalty kick shoot-out will consist of three penalty shots per team; in the quarterfinals and later, it will consist of five penalty shots per team.
 All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided in accordance with the teams, or otherwise by a coin toss.}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
 
 The procedure for each attempt is the same as for the normal penalty kick described in Section~\ref{sec:penalty_kick}. For the first five attempts, the standard time limit of 1 minute is applied. If after five penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure.
@@ -478,19 +479,19 @@ line.
 
 \end{itemize}
 
-Balls are deemed to be out based on the team that last touched the ball, irrespective of who actually kicked the ball.
+Balls are deemed to be out based on the team that last touched the ball, irrespective of who actually kicked the ball.  In these examples, ``yellow half of the field'' refers to the half the yellow team is defending.
 
-\paragraph{Example 1.} The red goalie kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on the endpoint of the throw-in line to the right of the yellow goal.
+\paragraph{Example 1.} The red goalie kicks the ball out the end of the field to the right of the goal. The ball is placed on the endpoint of the throw-in line to the right of the goal.
 
-\paragraph{Example 2.} A blue robot on the yellow side of the field kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on the intersection of the right throw-in line and the halfway line.
+\paragraph{Example 2.} A blue robot on the yellow half of the field kicks the ball out the end of the field to the right of the goal the red team is defending. The ball is placed on the intersection of the right throw-in line and the halfway line.
 
-\paragraph{Example 3.} A blue robot on the blue side of the field kicks the ball out the end of the field to the right of the yellow goal. The ball is placed on one meter behind the robot on the right throw-in line.
+\paragraph{Example 3.} A blue robot on the blue half of the field kicks the ball out the end of the field to the right of the goal the red team is defending. The ball is placed on one meter behind the robot on the right throw-in line.
 
 \paragraph{Example 4.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the yellow half of the field. The ball is replaced on the left throw-in line 1 meter into the blue half of the field (one meter behind the robot).
 
 \paragraph{Example 5.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the blue half of the field (towards its own goal). The ball is replaced on the left throw-in line 3 meters into the blue half of the field.
 
-\paragraph{Example 6.} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the centre line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter closer to the yellow goal.
+\paragraph{Example 6.} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the centre line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter closer to the goal the red team is defending.
 
 
 \subsection{Game Stuck}
@@ -534,13 +535,13 @@ If a robot has been rebooted and the wireless is not working, it is the responsi
 \label{sec:request_for_timeout}
 
 At any stoppage of play (after a goal, stuck game, before half, etc.) either team may call a timeout. Each team can call a \textbf{maximum of 1 timeout per game} with a total time totaling no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted. 
-The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or latest \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
+The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
   
 The clock stops during timeouts, even during the preliminaries.
 
 After the completion of the timeout, the game resumes with a kick off for the team which did not call the timeout.
 
-If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then they must either forfeit the game, or the referee shall start the game with only one team on the field.  The team that wasn't ready can return its robots to the field as per the rules for ``Request for Pick-up''. If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.
+If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then the referee shall start the game with only one team on the field.  The team that wasn't ready can return its robots to the field as per the rules for ``Request for Pick-up''. If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.
 
 \subsection{Winner and Rankings}
 
@@ -566,7 +567,7 @@ If a team's obtained points is the same as another team's after the preliminary 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
 
-If a team chooses to forfeit a match then the opposing team will play the match against an empty field. The result will stand, even if the team fails to score against an empty field or scores an own goal. Teams may choose to forfeit games at any stage. Any game with a final score differential greater than 10 points will be considered a forfeit.
+If a team chooses to forfeit a match then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot lose (but they can draw).  Teams may choose to forfeit a game at any stage.  However, once a forfeit is announced, they may not reverse this decision.
 
 \section{Forbidden Actions and Penalties}
 \label{sec:forbidden_act}
@@ -576,7 +577,7 @@ The following actions are forbidden. In general, when a penalty applies, the rob
 \subsection{Locomotion Type}
 \label{sec:locomotion_type}
 
-Robots should clearly demonstrate bipedal walking similar to human walk. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate.
+Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate.
 
 \subsection{Penalty procedure}
 \label{sec:penalty_procedure}
@@ -676,9 +677,9 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 
 The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a
 half, the offending robot will be removed for the remainder of the half. Subsequently for that half,
-a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th time, 8th time, 10th time, etc.). Pushing during the ready state does not come into this removal count (\cf Section~\ref{sec:kick-off}).
+a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th time, 8th time, 10th time, etc.). Pushing offenses during the ready state are not counted as part of this removal count (\cf Section~\ref{sec:kick-off}).
 
-If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement. The ball movement must not result in an advantage for the pushing team. If this is not the case, the ball does not need to be replaced if, in the referee's opinion, this would create more interference with the game than not replacing it.\todo{is it needed?}
+If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement.
 
 \subsubsection{Exceptions to the Pushing Rules}
 \label{sec:situations_no_pushing}
@@ -773,7 +774,7 @@ Any decision of the head referee is valid. There is no discussion about decision
 
 \subsection{Assistant Referees}
 
-The two assistant referees handle the robots. They start them if the wireless is not working, they move them manually to legal kick-off positions, they take them out when the robots are penalized, and they put them in again. If a team requests picking up a robot, an assistant referee will pick it up and give it to one of the team members. An assistant referee will also put the robot back on the field. In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
+The two assistant referees handle the robots. They start them if the wireless is not working, they move them manually to legal kick-off positions, they take them out when the robots are penalized, and they put them in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
 
 \subsection{Operator of the GameController}
 
@@ -781,20 +782,20 @@ The operator of the GameController sits at a PC outside the playing area. He or 
 
 \subsection{Selection of the Referees}
 
-At least in the preliminaries, the games will be refereed by members of teams from a different Round-Robin group. Each team has to referee a number of these games. For each of the games, it can either provide the head referee and the operator of the GameController, or the two assistant referees. These persons must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform (formerly Four Legged) league.
+At least in the preliminaries, the games will be refereed by members of teams from a different Round-Robin group. Each team has to referee a number of these games. For each of the games, it can either provide the head referee and the operator of the GameController, or the two assistant referees. These persons must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
 Referees for playoff games will need to be certified (\ie deemed fit to referee) by at least half the teams in the playoffs. Unless they have no eligible referees, each team in the playoffs shall supply at least one referee for the playoffs. For a particular game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
 
 \subsection{Referees During the Match}
 
-The head referee and the assistant referees should wear clothing and socks/shoes \emph{of black or dark blue color}\footnote{In contrast to previous years, this includes blue jeans, as these can not be confused with blue goal posts any more.} and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
+The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue color} (blue jeans are acceptable) and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
 
 \subsection{A Remark on Artificial Landmarks}
 \label{sec:judgement:landmarks}
 
 The head referee may decide at any point before or during a game to relocate any objects around the field, or direct persons to another position around the field.
 
-The intent of switching to same-colored goals is to remove artificial landmarks.
+The intent of using same-colored goals is to remove artificial landmarks.
 Robots should be able to localize with the SPL field and its ``normal'' surroundings.
 Introducing new team-specific artificial landmarks is against the spirit and intention of the league's progress.
 The application of this rule needs to be well considered and should be reserved for situations which seem constructed by one team or another, but will ultimately be the head referee's decision alone.
@@ -822,6 +823,7 @@ This is a brief list of rule changes from 2012 to 2013.
 	
 	\item If a timeout is ended prematurely, the opponent team has up to 2 minutes time to be ready to play (cf. Section~\ref{sec:request_for_timeout}).
 	\item Clarified, that \emph{any} changes on the robot (hardware and software) may be made during a request for pick-up (cf. Section~\ref{sec:request_for_pickup}).
+	\item Forfeits no longer result in a 10:0 score.  When an opponent forfeits, the other team must play out the game against an open field.  Any own goals scored by this team will not count, however (\cf Section~\ref{sec:forfeit}).
 \end{itemize}
 	
 
