@@ -1,23 +1,15 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{url}
-%\usepackage{hyperref}
 \usepackage{verbatim}
-%\usepackage{times,mathptm}
 \usepackage{times}
-% the following package is optional:
-%\usepackage{latexsym}
-%\usepackage{picins}
 \usepackage{url}
 \usepackage{epsfig}
 \usepackage{amsmath}
-%\usepackage{macros}
-%\usepackage{small-caption}
-%\usepackage[l]{floatflt}
 
 \begin{document}
 
-\title{Technical Challenges for the RoboCup 2011 Standard Platform League Competition}
+\title{Technical Challenges for the RoboCup 2013 Standard Platform League Competition}
 
 \author{RoboCup SPL Technical Committee}
 
@@ -26,19 +18,41 @@
 \section{Introduction}
 \label{sec:introduction}
 
-The RoboCup 2011 Standard Platform League Competition is going to have only 
-one technical challenge, which is the Open Challenge.
+There are three technical challenges that will be held at the RoboCup 
+2013 Standard Platform League Competition. These are:
 
-The team with the top score in the challenge will receive 28 points, each 
-position thereafter will receive 1 less point; i.e. 1st = 28pts, 2nd = 27pts, 
-3rd = 26pts ... 28th = 1pt. In the case of a draw, each team will receive 
-the average of the points allocated to these positions; e.g. if three team 
-tie for 2nd, they will receive $(27+26+25)/3 = 26$ points. Teams not competing 
-in the challenge will receive 0 points, also if a team competes but fails to 
+\begin{itemize}
+\item The Open Challenge (Section~\ref{sec:open})
+\item The Passing Challenge (Section~\ref{sec:passing})
+\item The Dribbling Challenge (Section~\ref{sec:dribbling})
+\item The Drop-In Player Challenge (Section~\ref{sec:dropIn})
+\end{itemize}
+
+The team with the top score in a challenge will receive 25 points, each 
+position thereafter will receive 1 less point; i.e. 1st = 25pts, 2nd = 24pts, 
+3rd = 23pts ... 25th = 1pts. In the case of a draw, each team will receive 
+the average of the points allocated to these positions; e.g. if three teams 
+tie for 2nd, they will receive $(24+23+22)/3 = 23$ points. Teams not competing 
+in a challenge will receive 0 points, also if a team competes but fails to 
 score a point (or receive a vote) they will receive 0 points again. The team 
-with the highest score after the challenge is deemed the challenge winner.
+with the highest total score after all challenges is deemed the overall 
+challenge winner.
 
-The challenge will use the 2011 field and the 2011 rules will apply.
+All challenges will use the 2013 field and the 2013 rules will apply.
+
+The challenges will be performed separately in three two hour time slots. 
+In each time slot, five minutes are reserved for each team, \emph{three minutes} 
+of which will be used for the actual challenge. The remaining two minutes are 
+reserved for setup and intermediate stoppages if the challenge requires them.
+
+Ten minutes before each Technical Challenge two hour time slot starts, the teams 
+have to provide the robots participating in the challenge to the Technical Committee 
+(switched off).
+
+Before each challenge, the robot(s) will be booted and put into the \emph{penalized} 
+state. For the start of the challenge they will be unpenalized, either by the 
+GameController or manually by pushing the chest button. The GameController will 
+configure the robots to team color \emph{blue}.
 
 
 \section{The Open Challenge}
@@ -59,7 +73,7 @@ Teams must describe the content of their demonstration to the technical
 committee at least \emph{four weeks} before the competitions. 
 \item 
 The demonstration should be strongly related to the scope of the league. 
-Irrelevant demonstrations, such as dancing and debugging tool presentations 
+Irrelevant demonstrations, such as dancing and debugging tool presentations, 
 are discouraged.
 \item 
 Each team may use any number of Aldebaran Nao robots. Teams must arrange
@@ -70,7 +84,7 @@ includes any time used for initial setup. Any demonstration deemed
 likely to require excessive time may be disallowed by the technical
 committee.
 \item 
-Teams may use extra objects on the field, as part of their
+Teams may use extra objects on the field as part of their
 demonstration. \emph{Robots other than the Naos may not be used}.
 \item 
 The demonstration must \emph{not} mark or damage the field. Any
@@ -91,18 +105,24 @@ Game Controller, are allowed.
 
 The winner will be decided by a vote among the entrants using a Borda
 count (\url{http://en.wikipedia.org/wiki/Borda_count}). Each participating 
-team will list their top 10 teams in order (excluding themselves).
-The teams are encouraged to evaluate the performance based on the
+team will vote for their top 10 teams in order (excluding themselves).
+Teams are encouraged to evaluate the performance based on the
 following criteria: technical strength, novelty, expected impact and
 relevance to RoboCup. At a time decided by the designated referee,
 within 30 minutes of the last demonstration if not otherwise
-specified, the captain of each team will provide the designated
-referee with their rankings. Each ranking is converted to points based on 
-the scoring criteria mentioned in Section \ref{sec:introduction}. Any 
-points awarded by a team to itself will be disregarded. The points awarded 
-by the teams are summed and the team with the highest total score shall be 
-the winner.
+specified, the captain of each team will submit his or her team's rankings 
+by filling out an online form.  Any points awarded by a team to itself will be 
+disregarded. The points awarded by the teams are summed and the team with the 
+highest total score shall be the winner.
 
+\section{The Passing Challenge}
+\label{sec:passing}
+
+\section{The Dribbling Challenge}
+\label{sec:dribbling}
+
+\section{The Drop-In Player Challenge}
+\label{sec:dropIn}
 
 \end{document}
 
