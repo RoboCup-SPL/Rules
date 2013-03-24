@@ -37,8 +37,9 @@ score a point (or receive a vote), they will also receive 0 points. The team
 with the highest total score after all challenges is deemed the overall 
 challenge winner.
 
-All challenges will use the 2013 field and the 2013 rules will apply.  The 
-challenges will be performed separately in three two hour time slots.
+All challenges will use the 2013 field and the 2013 rules will apply.  Each 
+challenge will be performed in a two hour time slot, where the time slots of 
+each challenge will not overlap.
 
 \section{The Open Challenge}
 \label{sec:open}
@@ -156,7 +157,7 @@ A pass is deemed unsuccessful if:
 A robot is deemed to be inside a circle if part of one foot is inside the circle. The ball is
 inside the circle if some part of the ball is inside the circle. The line is regarded as inside the circle.
 
-Robots may pass the ball between either other in any order, but will be rewarded only for passing
+Robots may pass the ball between each other in any order, but will be rewarded for passing
 to a different robot then that which passed to it. Scoring of the challenge will be as
 follows:
 
@@ -164,13 +165,15 @@ follows:
 \textbf{1 pt} For a successful pass.
 \textbf{0.5 pt} For a partially successful pass.
 
+For example, if robot 2 starts with the ball and successfully passes to robot 3, one point will be awarded.  Then if robot 3 successfully passes to robot 1, three points will be awarded.  If robot 1 then successfully passes back to robot 3, one point will be awarded.  If robot 3 then successfully passes to robot 2, three points will be awarded.  If robot 2 then has a partially successful pass to robot 1, 0.5 points will be awarded.  Then if robot 1 brings to ball back to its circle and then successfully passes to robot 3, one point will be awarded (if robot 1 had passed the ball before taking it back to its circle, no points would be awarded).
+
 All normal game rules apply in the challenge, except:
 \begin{itemize}
 \item if the ball leaves the field, it will be replaced back in the closest circle
 \item game stuck will not be called
 \end{itemize}
 
-If a rule is violated then any pass resulting from this violation will receive no points.
+If a rule is violated then any pass resulting from this violation will receive no points, and the pass itself will be considered unsuccessful.
 
 
 \section{The Drop-In Player Challenge}
@@ -179,15 +182,14 @@ The main point of this challenge is for teams to develop `drop-in' players that 
 
 Each participating team will contribute one `drop-in' player.  Each drop-in player will compete in 5 minute games with at least three different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the challenge.
 
-So that we can randomly draw teams and organize this challenge, each team that wishes to compete in this challenge must send a statement regarding their intent to participate in this challenge to the technical committee by June 10, 2013.  Teams who do not submit an intent to participate by this deadline will not be allowed to compete in this challenge.
+So that we can randomly draw teams and organize this challenge, each team that wishes to compete in this challenge must send a statement regarding their intent to participate in this challenge to the technical committee by May 27, 2013.  Teams who do not submit an intent to participate by this deadline will not be allowed to compete in this challenge.
 
-All normal game rules apply in the challenge.  The only exceptions will be:
+All normal game rules apply in the challenge.  The only exception will be:
 \begin{itemize}
-\item Players will be assigned player numbers 2 through 6.
-\item Any player may be goalie (ie, enter the goal box and behave as goalie).  Additionally, multiple players may become the goalie during a game.  However, only one defensive player may be within the goal box at any time.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders.
+\item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders.
 \end{itemize}
 
-Each drop-in player may communicate with its teammates using a simple protocol.  However, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at \url{}.
+Each drop-in player may communicate with its teammates using a simple protocol.  However, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at \url{somewhere on SPL wiki}.
 
 The challenge will be scored using two metrics: 
 \begin{itemize}
@@ -195,11 +197,11 @@ The challenge will be scored using two metrics:
 \item average human judged score
 \end{itemize}
 
-The judges will likely be from other leagues, but teams are still asked to remove or cover any distinguishing markers on their robots for this challenge.  For each game, each judge will award each drop-in player a teamwork score ranging from 0 to 10, where 10 means the drop-in player was an excellent teammate and 0 means that the drop-in player ignored its teammates.
+The judges will likely be from other leagues, but teams are still asked to remove or cover any distinguishing markers on their robots for this challenge.  For each game, each judge will award each drop-in player a teamwork score ranging from 0 to 10, where 10 means the drop-in player was an excellent teammate and 0 means that the drop-in player ignored its teammates.  The judges will be instructed to focus on teamwork capabilities, rather than individual skills, so that a less-skilled robot could still be given top marks for good teamwork.  The human judges will help to identify good teamwork abilities in agents to ameliorate the problems of random variance in the games and the quality of teammates affecting the goal differences.
 
-The two metrics will be normalized when determining the overall winner of this challenge.  Specifically, 10 will be divided by the average goal difference of the best drop-in player when scored by average goal difference.  Each drop-in player's average goal difference will then be multiplied by this result, and each drop-in player's average human judged score will be added, such that an overall score is obtained.
+The two metrics will be normalized when determining the overall winner of this challenge.  The normalization factor will be computed to be $\frac{10}{\text{best average goal difference of a drop-in player}}$.  Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
 
-Each participating team should plan for at least one team member to attend the challenge.  This team member will need to update the player number of their team's drop-in player between games, and potentially help referee some of the games.
+Each participating team should plan for at least one team member to attend the challenge.  This team member will need to update the team color and player number of their team's drop-in player between games, and potentially help referee some of the games.
 
 \end{document}
 
