@@ -112,11 +112,18 @@ teams will be summed, and the team with the highest total score shall be the win
 This challenge is intended to encourage teams to develop passing skills. In this challenge,
 each team will be required to provide three robots, all robots must be in the same
 colored uniform (the decision on the color of the uniforms can be made by each team).
-Each robot will placed on the field inside a circle of radius 35cm (Figure 1). The center 
+Each robot will placed on the field inside a circle of radius 35cm (Figure \ref{fig:passing}). The center 
 of the circles will be no closer then 80cm and no further then 250cm apart. The triangle formed 
 by the circles will not be equilateral, i.e. the distances between robots will be different.  
 The circles may be marked with a felt-tip marker (such that they are invisible to the robots) or 
 with white tape (such that they may be visible to the robots).
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.6\linewidth]{figures/passing.eps}
+\caption{An example placement of the robots for the passing challenge.}
+\label{fig:passing}
+\end{figure}
 
 The location of the circles will be made available on the morning of the challenge.
 It will be the responsibility of each team to make sure they have set the correct points.
@@ -190,7 +197,7 @@ All normal game rules apply in the challenge.  The only exception will be:
 \item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders.
 \end{itemize}
 
-Each drop-in player may communicate with its teammates using a simple protocol.  However, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at \url{somewhere on SPL wiki}.
+Each drop-in player may communicate with its teammates using a simple protocol.  However, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at \url{https://www.tzi.de/spl/pub/Website/Downloads/pickup.h}.
 
 The challenge will be scored using two metrics: 
 \begin{itemize}

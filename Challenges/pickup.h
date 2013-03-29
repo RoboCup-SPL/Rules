@@ -31,7 +31,11 @@ struct PickUpSoccerBroadcastInfo {
 
     // main diagonal of covariance of position of ball
 
-    float ballvar[2];
+    float ballVar[2];
+
+    // velocity of the ball (same coordinate system as above, without heading)
+
+    float ballVel[2];
 
 };
 
