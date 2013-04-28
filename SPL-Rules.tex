@@ -398,7 +398,7 @@ As autonomously placed robots are allowed to be much closer to the ball, success
 Just before the \emph{set} state is called, the ball is placed on the center point of the center circle by one of the referees. If it is moved by one of the robots before set is called it is replaced by one of the referees.
 
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} (again either by the GameController or manually), in which they can actually play soccer.
-The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once 10 seconds have elapsed in the playing state.
+The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play the ``Illegal Defender'' penalty is applied (cf. section~\ref{s:illegal_defender}).
 
 Note that a goal can never be scored directly from a shot from the kick-off. See Section~\ref{sec:kick-off_shot} for details.
 
@@ -679,7 +679,7 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 
 The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a
 half, the offending robot will be removed for the remainder of the half. Subsequently for that half,
-a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th time, 8th time, 10th time, etc.). Pushing offenses during the ready state are not counted as part of this removal count (\cf Section~\ref{sec:kick-off}).
+a robot from the team will be removed for every 2 pushing offenses, i.e., the 6th time, 8th time and 10th time. Pushing offenses during the ready state are not counted as part of this removal count (\cf Section~\ref{sec:kick-off}).
 
 If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement.
 
@@ -743,6 +743,7 @@ Section~\ref{sec:removal_penalty}). This penalty can already be called after a r
 In addition, a robot that walks into the goal net for more than 5 seconds will also be subject to the standard removal penalty.
 
 \subsection{Illegal Defender}
+\label{s:illegal_defender}
 
 Only the goalie can be within its team's penalty area. Having both legs inside the penalty area (\ie at least touching the line) is the definition of being in the penalty area and that situation is not allowed for defending field players. When other defending robots enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. This rule will be applied even if the goalie is outside of the penalty area, but not if an operational defender is pushed into the penalty area by an opponent.
 
@@ -851,6 +852,8 @@ This is a brief list of rule changes from 2012 to 2013.
 	\item A penalty kick is no longer awarded when an opponent's robot presents a threat to spectator safety.  Instead, this robot is removed for the remainder of the game (cf. Section~\ref{sec:damage}).
 
 	\item For each match in which a team does not provide referees as required, the team will receive a one goal deduction in their next match (cf. Section~\ref{sec:refPenalty}).
+	
+	\item ``Illegal Defender'' rule is applied if a player of the defensive team enters the center circle before the ball is in play (cf. Section~\ref{sec:kick-off}).
 
 \end{itemize}
 
