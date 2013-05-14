@@ -23,7 +23,7 @@ struct PickUpSoccerBroadcastInfo {
     float posVar[3];
 
     // Ball information
-    int ballAge;        // frames since this robot last saw the ball. -1 if we haven't seen it
+    float ballAge;        // seconds since this robot last saw the ball. -1 if we haven't seen it
 
     // position of ball (same coordinate system as above, without heading)
 
@@ -36,6 +36,14 @@ struct PickUpSoccerBroadcastInfo {
     // velocity of the ball (same coordinate system as above, without heading)
 
     float ballVel[2];
+
+    // true if the robot is penalized, false if not
+
+    bool penalized;
+
+    // true if fallen or getting up, false if not
+
+    bool fallen;
 
 };
 
