@@ -1,7 +1,7 @@
 #ifndef PICKUP_H
 #define PICKUP_H
 
-static const int PICKUP_UDP_PORT = 9000;
+static const int PICKUP_UDP_PORT = 9000; // arbitrary - each team will communicate on different ports, to be assigned the day of competition
 
 struct PickUpSoccerBroadcastInfo {
     char header[4];    // "PkUp"
@@ -37,13 +37,13 @@ struct PickUpSoccerBroadcastInfo {
 
     float ballVel[2];
 
-    // true if the robot is penalized, false if not
+    // seconds the robot has been penalized. -1 if not penalized
 
-    bool penalized;
+    float penalized;
 
-    // true if fallen or getting up, false if not
+    // seconds the robot has been fallen.  -1 if not fallen
 
-    bool fallen;
+    float fallen;
 
 };
 
