@@ -509,7 +509,6 @@ The main referee has two options how to solve the game stuck and to reestablish 
 \subsubsection{Local Game Stuck}
 \label{sec:game_stuck:local}
 
-%The referee picks up the nearest robot to the ball and moves the robot to the half way line. The referee does \emph{not} replace the ball. If the ball is accidentally bumped when removing the robots, the ball should be replaced where it was when the game stuck was called. As a special exception, if the goalie is involved in a game stuck situation while having both feet in its own penalty area, it will be placed on the penalty mark of its half facing its goal.
 The nearest robot to the ball will get the standard removal penalty according to Section~\ref{sec:removal_penalty}.
 
 \subsubsection{Global Game Stuck}
@@ -547,27 +546,6 @@ The clock stops during timeouts, even during the preliminaries.
 After the completion of the timeout, the game resumes with a kick off for the team which did not call the timeout.
 
 If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then the referee shall start the game with only one team on the field.  The team that wasn't ready can return its robots to the field as per the rules for ``Request for Pick-up''. If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.
-
-\subsection{Winner and Rankings}
-
-The team which scored more goals than the other is the winner of the match. If the two teams scored the same number of goals, the game will be a draw. The draw will follow the same system defined in Section~\ref{sec:game_struct}. Total (and final) standings will be decided on points as follows (the points will be given based on the result of each game):
-
-\makebox[\columnwidth]{ \hfill Win = 3 pts\hfill Draw = 1 pt \hfill
-Lose = 0 pts\hfill }
-
-If a team's obtained points is the same as another team's after the preliminary round is complete, the following evaluations will be applied in order to qualify the finalists.
-
-\begin{enumerate}
-
-\item The points obtained
-
-\item The difference between goals for and goals against per game
-
-\item The average goals for per game
-
-\item Game result between the teams directly
-
-\end{enumerate}
 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
@@ -787,26 +765,9 @@ The two assistant referees handle the robots. They start them if the wireless is
 \label{sec:gameControllerOp}
 The operator of the GameController sits at a PC outside the playing area. He or she will signal any change in the game state to the robots via the wireless as they are announced by the head referee. He or she will also inform the assistant referees when a timed penalty is over and a robot has to be placed back on the field. He or she should announce to the head referee when the ball is in play on kick-off (if this occurs because 10 seconds have elapsed in the playing state) by stating ``Ball in Play''. The operator may also be responsible for time keeping if the head referee has delegated this task.
 
-\subsection{Selection of the Referees}
-\label{sec:refSelection}
-At least in the preliminaries, the games will be refereed by members of teams from a different Round-Robin group. Each team has to referee a number of these games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
-
-Referees for playoff games will need to be certified (\ie deemed fit to referee) by at least half the teams in the playoffs. Unless they have no eligible referees, each team in the playoffs shall supply at least one referee for the playoffs. For a particular game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
-\todo{Katie: Let's either have some sort of certification process, or remove/rewrite most of this section.  I do agree that the veto power should be left in though.}
-
 \subsection{Referees During the Match}
 
 The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue color} (blue jeans are acceptable) and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
-
-\subsection{Penalty for Failing to Referee when Assigned}
-\label{sec:refPenalty}
-A schedule will be released regarding the games for which each team is required to provide two referees.  These referees should report to the field on which the game they are to referee is to be played at least five minutes before the game is scheduled to start.
-
-Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offence that will not only cost you automatic qualification if your team reaches the Quarter Finals, but will also severely effect your team's chances of being accepted the following year.
-
-A team may swap refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
-
-The requirement to referee may be an extreme hardship for extremely small teams.  If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.  The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
 
 \subsection{A Remark on Artificial Landmarks}
 \label{sec:judgement:landmarks}
@@ -818,8 +779,56 @@ Robots should be able to localize with the SPL field and its ``normal'' surround
 Introducing new team-specific artificial landmarks is against the spirit and intention of the league's progress.
 The application of this rule needs to be well considered and should be reserved for situations which seem constructed by one team or another, but will ultimately be the head referee's decision alone.
 
-\section{Changes From 2013}
+\section{Questions/Comments}
 
+Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup.org.
+
+\appendix
+\section{The Official Robocup Competition Rules}
+\label{sec:comRules}
+This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international Robocup competition.
+
+\subsection{Winner and Rankings}
+
+The team which scored more goals than the other is the winner of the match. If the two teams scored the same number of goals, the game will be a draw. The draw will follow the same system defined in Section~\ref{sec:game_struct}. Total (and final) standings will be decided on points as follows (the points will be given based on the result of each game):
+
+\makebox[\columnwidth]{ \hfill Win = 3 pts\hfill Draw = 1 pt \hfill
+Lose = 0 pts\hfill }
+
+If a team's obtained points is the same as another team's after the preliminary round is complete, the following evaluations will be applied in order to qualify the finalists.
+
+\begin{enumerate}
+
+\item The points obtained
+
+\item The difference between goals for and goals against per game
+
+\item The average goals for per game
+
+\item Game result between the teams directly
+
+\end{enumerate}
+
+\subsection{Selection of the Referees}
+\label{sec:refSelection}
+At least in the preliminaries, the games will be refereed by members of teams from a different Round-Robin group. Each team has to referee a number of these games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+
+Referees for playoff games will need to be certified (\ie deemed fit to referee) by at least half the teams in the playoffs. Unless they have no eligible referees, each team in the playoffs shall supply at least one referee for the playoffs. For a particular game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
+\todo{Katie: Let's either have some sort of certification process, or remove/rewrite most of this section.  I do agree that the veto power should be left in though.}
+
+
+\subsection{Penalty for Failing to Referee when Assigned}
+\label{sec:refPenalty}
+A schedule will be released regarding the games for which each team is required to provide two referees.  These referees should report to the field on which the game they are to referee is to be played at least five minutes before the game is scheduled to start.
+
+Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offence that will not only cost you automatic qualification if your team has otherwise earned auto qualification, but will also severely effect your team's chances of being accepted the following year.
+
+A team may swap refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
+
+The requirement to referee may be an extreme hardship for extremely small teams.  If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.  The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
+
+
+\section{Changes From 2013}
 This is a brief list of rule changes from 2013 to 2014.
 
 \begin{itemize}
@@ -829,12 +838,8 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
 	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
+	\item Moved rules that are not directly relevant for games into the appendix. (Section \ref{sec:comRules})
 \end{itemize}
-
-
-\section{Questions/Comments}
-
-Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup.org.
 
 \end{document}
 
