@@ -242,9 +242,9 @@ The field players are not allowed to enter their own penalty area. The four fiel
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots will use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt will have a player number(1-5) printed on it in white text.  The official jersey shirts will be available for purchase by each team --- details regarding purchase of official jersey shirts will be sent via email to all teams.  Teams must purchase the official jersey shirts as specified in this email --- teams are not allowed to use jersey shirts that they design themselves or that are manufactured by a different supplier.  An example of how the team markers are worn is shown in Figure~\ref{fig:nao_markers}.
-\todo{Katie: Need to change this section to include details on how new teams can buy jerseys.}
-\todo{Katie: Need to update the images of the jerseys to be the ones we are using (Katie can do this).}
+Robots will use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt will have a player number(1-5) printed on it in white text.  The official jersey shirts will be the jersey shirts used at Robocup 2013.  Teams who competed in Robocup 2013 should use the jerseys they purchased at Robocup 2013.  New teams may purchase official jersey shirts by X \todo{how can they purchase jerseys?}.  Teams must purchase the official jersey shirts --- teams are not allowed to use jersey shirts that they design themselves or that are manufactured by a different supplier.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
+
+\todo{update jersey pictures}
 
 \begin{figure}[b]
   \centerline{\begin{tabular}{lll}
@@ -255,6 +255,10 @@ Robots will use colored jersey shirts as team markers. The official jersey shirt
   \end{tabular} }
   \caption{Team markers. a) Front view. b) Side view. c) Back view.} \label{fig:nao_markers}
 \end{figure}
+
+Teams may attach, print, or sew sponsor or team logos to the back side of the official jersey shirts.  One acceptable location is centered above the number on the back of the jersey, while the other acceptable location is centered below the number on the back of the jersey.  Teams may only place a logo in one of these two locations.
+
+Logos in one of two styles are allowed.  The first style would be a white background with black text.  The second style would be one in which a white or black logo is screen-printed on the jersey, such that the background of the logo is the jersey.  In either case, the dimensions of the area of the jersey that is non-jersey color may be no larger than 8mm in width and 2.5mm in height.
 
 \begin{figure}[b]
 \centerline{\begin{tabular}{ll}
@@ -292,10 +296,9 @@ The use of remote processing/sensing is prohibited.
 \subsection{Structure of the Game}
 \label{sec:game_struct}
 
-A game consists of three parts, \ie the first half, a half-time break, and the second half. Each half is 10 minutes counted from the initial kick-off. The clock stops during stoppages of play\footnote{This may not be the case until the quarter finals.} (such as ready and set state after goals). The extra time over ten minutes total is referred to as ``lost time''. The half-time break is also ten minutes --- during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted. In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the intermediate round, quarter finals, semi finals, or 3rd place, or final a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
-\todo{Katie: I'd like to remove the notion of lost time.  This will require some changes in other parts of the document.}
+A game consists of three parts, \ie the first half, a half-time break, and the second half. Each half is 10 minutes counted from the initial kick-off. The half-time break is also ten minutes --- during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted. 
 
-The teams will change the goal defended and color of the team markers during the half-time break.
+The teams will change the goal defended during the half-time break.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
@@ -401,9 +404,6 @@ After the head referee has signaled the kick-off, the robot's state is switched 
 The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
 
 Note that a goal can never be scored directly from a kick-off shot. See Section~\ref{sec:kick-off_shot} for details.
-
-If the assistant referees have misconfigured the robots (\eg they set the wrong team color), the kick-off is repeated. In this case, goals scored with at least one misconfigured robot on the field are not counted. The time that was played with a wrong configuration is counted as ``lost time'', \ie the half should be lengthened by it. Note that the assistant referees are only responsible for setting team color on kick-off. Robots replaced after a request for pickup are the responsibility of the team, and should be handed to the referees or assistants in the `penalized' state.
-\todo{Katie: Can we just remove the previous paragraph?  The assistant refs should never be configuring the robots anyway, right?}
 
 The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on bootup so that this can be easily checked at the start of the game.
 
@@ -784,9 +784,17 @@ The application of this rule needs to be well considered and should be reserved 
 Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup.org.
 
 \appendix
+\section{Drop-in Player Competition}
+\label{sec:drop-in}
+The main rule book describes the rules for Robocup Standard Platform Games.  However, at the international Robocup competition there will be a competition in the standard platform league in which teams are formed of players from various teams.
+
 \section{The Official Robocup Competition Rules}
 \label{sec:comRules}
 This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international Robocup competition.
+
+\subsection{Game Structure}
+
+The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
 
 \subsection{Winner and Rankings}
 
@@ -795,7 +803,7 @@ The team which scored more goals than the other is the winner of the match. If t
 \makebox[\columnwidth]{ \hfill Win = 3 pts\hfill Draw = 1 pt \hfill
 Lose = 0 pts\hfill }
 
-If a team's obtained points is the same as another team's after the preliminary round is complete, the following evaluations will be applied in order to qualify the finalists.
+If a team's obtained points is the same as another team's after a round of pool play is complete, the following evaluations will be applied in order to qualify the finalists.
 
 \begin{enumerate}
 
@@ -811,17 +819,33 @@ If a team's obtained points is the same as another team's after the preliminary 
 
 \subsection{Selection of the Referees}
 \label{sec:refSelection}
-At least in the preliminaries, the games will be refereed by members of teams from a different Round-Robin group. Each team has to referee a number of these games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+During pool play, the games will be refereed by members of teams from a different pool. Each team has to referee a number of these games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
 Referees for playoff games will need to be certified (\ie deemed fit to referee) by at least half the teams in the playoffs. Unless they have no eligible referees, each team in the playoffs shall supply at least one referee for the playoffs. For a particular game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
 \todo{Katie: Let's either have some sort of certification process, or remove/rewrite most of this section.  I do agree that the veto power should be left in though.}
 
+\subsection{Subsequent Year Pre-Qualification Procedure}
+\label{sec:preQual}
+Teams may become pre-qualified for the subsequent year's team competition via the following means:
+\begin{itemize}
+\item Reaching the quarter-finals in the team competition
+\item Being selected to be on the `all-star' drop-in team (ie, finishing in the top five teams in the drop-in competition)
+\item Finishing in the top 3 overall in the technical challenges
+\end{itemize}
+
+However, teams pre-qualified via the above means will not be pre-qualified if they fail to do any of the following:
+\begin{itemize}
+\item Post in a publically available location a team research report describing their work for the 2014 competition
+\item Submit a shortened application as required by the call for participation for the subsequent year's competition
+\end{itemize}
+
+Teams that reach the quarter-finals in the team competition must also publicly release code, either in the form of a complete release (perhaps without behavior) or limited libraries, in order to be pre-qualified for the subsequent year's competition.  This release must be documented and coded in a way where it can be used by others.
 
 \subsection{Penalty for Failing to Referee when Assigned}
 \label{sec:refPenalty}
 A schedule will be released regarding the games for which each team is required to provide two referees.  These referees should report to the field on which the game they are to referee is to be played at least five minutes before the game is scheduled to start.
 
-Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offence that will not only cost you automatic qualification if your team has otherwise earned auto qualification, but will also severely effect your team's chances of being accepted the following year.
+Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offence that will not only cost you pre-qualification for the subsequent year if your team has otherwise earned pre-qualification, but will also severely effect your team's chances of being accepted the following year.
 
 A team may swap refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
 
@@ -835,10 +859,15 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Clarified that the net should not be attached to the field, but instead attached tightly to the support structure. (Section \ref{sec:field_dim})
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
+	\item Teams may place logos in one of two allowable locations on their official jersey shirts. (Section \ref{sec:team_markers})
+	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
+	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
 	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
-	\item Moved rules that are not directly relevant for games into the appendix. (Section \ref{sec:comRules})
+	\item Added a section regarding the drop-in player competition to the Appendix. (Section \ref{sec:drop-in})
+	\item Moved rules that are not directly relevant for games into the Appendix. (Section \ref{sec:comRules})
+	\item Added a section regarding pre-qualification for the subsequent year to the Appendix. (Section \ref{sec:preQual})
 \end{itemize}
 
 \end{document}
