@@ -786,7 +786,39 @@ Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup
 \appendix
 \section{Drop-in Player Competition}
 \label{sec:drop-in}
-The main rule book describes the rules for Robocup Standard Platform Games.  However, at the international Robocup competition there will be a competition in the standard platform league in which teams are formed of players from various teams.
+The main rule book describes the rules for Robocup Standard Platform Games.  However, at the international Robocup competition there will be a competition in the Standard Platform League in which teams are formed of players from various teams.  All teams who compete in the team competition must participate in this competition.  Additional teams will be selected to participate in just this competition.
+
+The main point of this competition is for teams to develop `drop-in' players that can be good teammates and play well with a team composed of drop-in players from a variety of teams.
+
+Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 20 drop-in games during the competition.
+
+All normal game rules apply in this challenge.  The only exception will be:
+\begin{itemize}
+\item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders.
+\end{itemize}
+
+Each drop-in player may communicate with its teammates using a simple protocol.  Although it is strongly encouraged, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at X. \todo{post drop-in protocal once we finalize it}
+
+The challenge will be scored using two metrics: 
+\begin{itemize}
+\item average goal difference
+\item average human judged score
+\end{itemize}
+
+The judges will be members of the technical committee.  There will be atleast two judges for each game, where judges will not judge any game in which their team is competing.  The judges will score the players based on the following criteria:
+\begin{itemize}
+\item pass to teammate = +3
+\item team has no goalie = -3
+\item walking into a teammate = -2
+\end{itemize}
+\todo{think about the criteria}
+\todo{should one judge consider each team?  or both judge both teams, and average their scores?}
+
+The two metrics will be normalized when determining the overall winner of this competition --- which will recieve the ``Best Player'' award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.  The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
+Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
+\todo{are we okay with one of the SPL All Stars also being on the championship team?}
+
+Each team should plan for at least one team member to attend the drop-in games.  This team member will need to update the team color and player number of their team's drop-in player between games, and referee when his or her team is not competing in the drop-in challenge.
 
 \section{The Official Robocup Competition Rules}
 \label{sec:comRules}
@@ -829,12 +861,13 @@ Referees for playoff games will need to be certified (\ie deemed fit to referee)
 Teams may become pre-qualified for the subsequent year's team competition via the following means:
 \begin{itemize}
 \item Reaching the quarter-finals in the team competition
-\item Being selected to be on the `all-star' drop-in team (ie, finishing in the top five teams in the drop-in competition)
+\item Being selected to be on the `SPL All Stars' drop-in team (ie, finishing in the top five teams in the drop-in competition)
 \item Finishing in the top 3 overall in the technical challenges
 \end{itemize}
 
 However, teams pre-qualified via the above means will not be pre-qualified if they fail to do any of the following:
 \begin{itemize}
+\item Participate in the drop-in competition, and not finish in the bottom three teams in this competition
 \item Post in a publically available location a team research report describing their work for the 2014 competition
 \item Submit a shortened application as required by the call for participation for the subsequent year's competition
 \end{itemize}
