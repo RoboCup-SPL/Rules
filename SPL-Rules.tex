@@ -205,7 +205,7 @@ The official ball will be a Mylec orange street hockey ball. They are 65 mm in d
 
 \section{Robot Players}
 \label{sec:robot_players}
-A match is played by two teams, each consisting of not more than \textbf{5} players. At most one may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
+A match is played by two teams, each consisting of not more than \textbf{5} players and a coaching robot. At most one player may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
 
 \subsection{Hardware}
 \label{sec:hardware}
@@ -223,7 +223,7 @@ All teams must use NAO humanoid robots manufactured by Aldebaran Robotics. Absol
 
 \item Protecting the fingers with white finger protectors provided by Aldebaran or with transparent or white duct tape.
 
-\item Fixing the location of the upper camera using a bit of glue.
+\item Fixing the location of the upper camera using a bit of glue. \todo{Tim: We nood to check, if this kind of rule is OK for Aldebaran.}
 
 \item Use of alternate memory sticks in replacement of the Aldebaran supplied memory sticks.
 
@@ -240,6 +240,11 @@ The goal keeper is the only player that is allowed to enter the penalty area of 
 \label{sec:field_players}
 
 The field players are not allowed to enter their own penalty area. The four field players have the jersey numbers ``2'', ``3'', ``4'' and ``5''.
+
+\subsection{Coaching Robot}
+\label{sec:coaching_robot}
+
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot is not allowed to move and has to remain on its seat, which is provided by the organizers or brought by the team.  \todo{Tim: Does the coaching robot need a specific number?}
 
 \subsection{Team Markers}
 \label{sec:team_markers}
@@ -260,6 +265,8 @@ Robots will use colored jersey shirts as team markers. The official jersey shirt
 Teams may attach, print, or sew sponsor or team logos to the official jersey shirts.  One acceptable location is centered above the number on the back of the jersey, while the other acceptable location is on the front of the jersey, opposite to the team number, as depicted in Fig. \ref{fig:sponsor_jersey}.
 
 Logos in one of two styles are allowed.  The first style would be a white background with a black or gray print.  The second style would be one in which a white or black logo is screen-printed on the jersey, such that the background of the logo is the jersey.  In either case, the dimensions of the logos are limited: the back logo has a maximum height of 3 cm and a maximum width of 8 cm, the front logo has a maximum height of 3 cm and a maximum width of 3 cm.
+
+The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
 
 \begin{figure}[b]
 \centerline{\begin{tabular}{ll}
@@ -294,9 +301,11 @@ Each team will get a range of IP addresses that can be used both for their robot
 
 Teams can use a bandwidth of up to 500 Kbps of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by TCP, UDP, or the GameController.
 
-Any form of wireless robot-to-robot communication is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), it does not conflict with TCP/IP or UDP, and the maximum bandwidth allowed for each team is not exceeded. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
+Any form of wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), it does not conflict with TCP/IP or UDP, and the maximum bandwidth allowed for each team is not exceeded. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
+
+The coaching robot is not allowed to communicate with the robot players\todo{Tim: We need to find a way to make sure that the coach does not receive data from the robots on the field}. Instead, it sends messages to the GameController's coaching interface \todo{Tim: My idea is to use the GameController messages for transporting coaching information. This will be the easiest way. Interesting side effect: The other team can hear what the other coach says :-)}. These messages have a maximum size of N \todo{define N} bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every M \todo{define M} seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by O seconds \todo{define O}. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players.
 
 The use of remote processing/sensing is prohibited.
 
@@ -881,6 +890,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Clarified that the net should not be attached to the field, but instead attached tightly to the support structure. (Section \ref{sec:field_dim})
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
+    \item Added the coaching robot. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
 	\item Teams may place logos in one of two allowable locations on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
