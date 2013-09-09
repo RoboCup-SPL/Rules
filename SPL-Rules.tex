@@ -781,6 +781,10 @@ The application of this rule needs to be well considered and should be reserved 
 
 Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup.org.
 
+
+\newpage
+
+
 \appendix
 \section{Drop-in Player Competition}
 \label{sec:drop-in}
@@ -792,7 +796,7 @@ Each participating team will contribute one drop-in player.  Each drop-in player
 
 All normal game rules apply in this challenge.  The only exception will be:
 \begin{itemize}
-\item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders.
+\item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders. \todo{Check this after overworking the illegal defender rule}
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using a simple protocol.  Although it is strongly encouraged, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at X. \todo{post drop-in protocal once we finalize it}
@@ -803,11 +807,12 @@ The challenge will be scored using two metrics:
 \item average human judged score
 \end{itemize}
 
-The judges will be members of the technical committee.  There will be atleast two judges for each game, where judges will not judge any game in which their team is competing.  The judges will score the players based on the following criteria:
+The judges will be members of the technical committee.  There will be at least two judges for each game, where judges will not judge any game in which their team is competing.  The judges will score the players based on the following criteria:
 \begin{itemize}
 \item pass to teammate = +3
 \item team has no goalie = -3
 \item walking into a teammate = -2
+\item illegal defender = -2
 \end{itemize}
 \todo{think about the criteria}
 \todo{should one judge consider each team?  or both judge both teams, and average their scores?}
@@ -816,7 +821,11 @@ The two metrics will be normalized when determining the overall winner of this c
 Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
 \todo{are we okay with one of the SPL All Stars also being on the championship team?}
 
-Each team should plan for at least one team member to attend the drop-in games.  This team member will need to update the team color and player number of their team's drop-in player between games, and referee when his or her team is not competing in the drop-in challenge.
+Each team should plan for at least one team member to attend the drop-in games.  This team member will need to update the team color and player number of their team's drop-in player between games, and referee when his or her team is not competing in the drop-in challenge. \todo{Tim: I think that the content of the last paragraph is obvious and could be removed.}
+
+
+\newpage
+
 
 \section{The Official Robocup Competition Rules}
 \label{sec:comRules}
