@@ -223,7 +223,7 @@ All teams must use NAO humanoid robots manufactured by Aldebaran Robotics. Absol
 
 \item Protecting the fingers with white finger protectors provided by Aldebaran or with transparent or white duct tape.
 
-\item Fixing the location of the upper camera using a bit of glue. \todo{Tim: We nood to check, if this kind of rule is OK for Aldebaran.}
+\item Fixing the location of the upper camera using a bit of glue. \todo{Tim: We need to check, if this kind of rule is OK for Aldebaran.}
 
 \item Use of alternate memory sticks in replacement of the Aldebaran supplied memory sticks.
 
@@ -244,7 +244,7 @@ The field players are not allowed to enter their own penalty area. The four fiel
 \subsection{Coaching Robot}
 \label{sec:coaching_robot}
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot is not allowed to move and has to remain on its seat, which is provided by the organizers or brought by the team.  \todo{Tim: Does the coaching robot need a specific number?}
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot is not allowed to move.  It may either stand on the table, sit on the table, or sit in a seat.  A seat will be provided by the organizers, but teams may bring their own seat. \todo{Katie: Should we put limitations in the seat, such that the robot can not be held to a height taller than X while sitting in the seat?} \todo{Tim: Does the coaching robot need a specific number? Katie: Perhaps for GameController?  Otherwise, I don't see why.}
 
 \subsection{Team Markers}
 \label{sec:team_markers}
@@ -264,7 +264,7 @@ Robots will use colored jersey shirts as team markers. The official jersey shirt
 
 Teams may attach, print, or sew sponsor or team logos to the official jersey shirts.  One acceptable location is centered above the number on the back of the jersey, while the other acceptable location is on the front of the jersey, opposite to the team number, as depicted in Fig. \ref{fig:sponsor_jersey}.
 
-Logos in one of two styles are allowed.  The first style would be a white background with a black or gray print.  The second style would be one in which a white or black logo is screen-printed on the jersey, such that the background of the logo is the jersey.  In either case, the dimensions of the logos are limited: the back logo has a maximum height of 3 cm and a maximum width of 8 cm, the front logo has a maximum height of 3 cm and a maximum width of 3 cm.
+Logos in one of two styles are allowed.  The first style would be a white background with a black or gray print.  The second style would be one in which a white, gray, or black logo is screen-printed on the jersey, such that the background of the logo is the jersey.  In either case, the dimensions of the logos are limited: the back logo has a maximum height of 3 cm and a maximum width of 8 cm, the front logo has a maximum height of 3 cm and a maximum width of 3 cm.
 
 The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
 
@@ -305,7 +305,7 @@ Any form of wireless robot-to-robot communication among the robot players is all
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate with the robot players\todo{Tim: We need to find a way to make sure that the coach does not receive data from the robots on the field}. Instead, it sends messages to the GameController's coaching interface \todo{Tim: My idea is to use the GameController messages for transporting coaching information. This will be the easiest way. Interesting side effect: The other team can hear what the other coach says :-)}. These messages have a maximum size of N \todo{define N} bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every M \todo{define M} seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by O seconds \todo{define O}. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players.
+The coaching robot is not allowed to communicate with the robot players\todo{Tim: We need to find a way to make sure that the coach does not receive data from the robots on the field}. Instead, it sends messages to the GameController's coaching interface \todo{Tim: My idea is to use the GameController messages for transporting coaching information. This will be the easiest way. Interesting side effect: The other team can hear what the other coach says :-) Katie: Sounds good.}. These messages have a maximum size of N \todo{define N} bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every M \todo{define M} seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by O seconds \todo{define O}. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players.
 
 The use of remote processing/sensing is prohibited.
 
@@ -703,11 +703,12 @@ The following define situations where pushing does not apply:
 \label{sec:clustering}
 Clustering should be called when two robots from opposite teams are at the ball and an additional robot from either team contacts one of the original robots that was at the ball.  The referee should remove any additional robots at the moment they touch one of the original two robots according to the standard removal penalty.
 
+If two or more robots from a team are at the ball, this is allowable until a robot from the opposing team approaches the cluster of robots.  The first robot contacted by the approaching robot is removed according to the standard removal penalty.  If two or more robots from one team remain at the ball, these robots should also be removed until only one robot from each team remains at the ball.
+
 \subsection{Playing with Arms/Hands}
 \label{sec:hand_ball}
 
-A field player or a goal keeper outside its own penalty box that intentionally touches the ball with its arms/hands in a manipulative manner (i.e. to stop the ball, to kick the ball etc.) will be subject to the standard removal penalty. In this case, the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.
-\todo{Katie: Let's remove the intentionally and manupulative parts - if a field player or goalie outside his box touches the ball with hands or arms, it's playing with hands.}
+A field player or a goal keeper outside its own penalty box that touches the ball with its arms/hands will be subject to the standard removal penalty. In this case, the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.
 
 \subsection{Damage to the Field}
 \label{sec:damage}
@@ -748,8 +749,7 @@ The referees are the only persons that are allowed inside the playing area.
 
 \subsection{Head Referee}
 
-The head referee signals game starts, restarts, when a goal was scored, the case of \emph{game stuck}, and penalties by a single whistle. In general, the head referee first whistles and then announces the reason for the whistle. The only exception is the case of the kick-off, in which the reason for the whistle is obvious. The whistle defines the point in time at which the decision is made. If the head referee has to announce many decisions in short sequence, he may skip whistling. For penalties, he announces the infraction committed, the team color, and the jersey number of the robot, \eg ``illegal defender, blue number 3''. In case of a goal scored, local or global game stuck, this is also announced verbally. By two whistles, the head referee terminates the first half; by three whistles he terminates the second half, \ie the whole game. The head referee is also responsible for keeping the time of each half, \ie, he or she stops the clock after a goal or game stuck, and continues it at the kick-off\footnote{The clock may not be stopped during the preliminaries.}. The head referee may choose to delegate this task to the GameController, it should be noted that the ultimate responsibility for correct time keeping still remains with the head referee.
-\todo{Katie: No head referees actually keep time - the game controller always does this.  Let's allocate this specifically to the game controller.}
+The head referee signals game starts, restarts, when a goal was scored, the case of \emph{game stuck}, and penalties by a single whistle. In general, the head referee first whistles and then announces the reason for the whistle. The only exception is the case of the kick-off, in which the reason for the whistle is obvious. The whistle defines the point in time at which the decision is made. If the head referee has to announce many decisions in short sequence, he may skip whistling. For penalties, he announces the infraction committed, the team color, and the jersey number of the robot, \eg ``illegal defender, blue number 3''. In case of a goal scored, local or global game stuck, this is also announced verbally. By two whistles, the head referee terminates the first half; by three whistles he terminates the second half, \ie the whole game.
 
 In the penalty kick shoot-out, the head referee keeps the time.
 
@@ -761,7 +761,7 @@ The two assistant referees handle the robots. They start them if the wireless is
 
 \subsection{Operator of the GameController}
 \label{sec:gameControllerOp}
-The operator of the GameController sits at a PC outside the playing area. He or she will signal any change in the game state to the robots via the wireless as they are announced by the head referee. He or she will also inform the assistant referees when a timed penalty is over and a robot has to be placed back on the field. He or she should announce to the head referee when the ball is in play on kick-off (if this occurs because 10 seconds have elapsed in the playing state) by stating ``Ball in Play''. The operator may also be responsible for time keeping if the head referee has delegated this task.
+The operator of the GameController sits at a PC outside the playing area. He or she will signal any change in the game state to the robots via the wireless as they are announced by the head referee. He or she will also inform the assistant referees when a timed penalty is over and a robot has to be placed back on the field. He or she should announce to the head referee when the ball is in play on kick-off (if this occurs because 10 seconds have elapsed in the playing state) by stating ``Ball in Play''. The operator is also responsible for keeping the time of each half, \ie, he or she stops the clock after a goal or game stuck, and continues it at the kick-off\footnote{The clock may not be stopped during the preliminaries.}.  The operator should count aloud the remaining seconds in a half once the time remaining is 5 seconds or less.
 
 \subsection{Referees During the Match}
 
@@ -820,9 +820,6 @@ The judges will be members of the technical committee.  There will be at least t
 The two metrics will be normalized when determining the overall winner of this competition --- which will recieve the ``Best Player'' award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.  The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
 Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
 \todo{are we okay with one of the SPL All Stars also being on the championship team?}
-
-Each team should plan for at least one team member to attend the drop-in games.  This team member will need to update the team color and player number of their team's drop-in player between games, and referee when his or her team is not competing in the drop-in challenge. \todo{Tim: I think that the content of the last paragraph is obvious and could be removed.}
-
 
 \newpage
 
@@ -901,7 +898,8 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
     \item Added the coaching robot. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
-	\item Teams may place logos in one of two allowable locations on their official jersey shirts. (Section \ref{sec:team_markers})
+	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goalie in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
+	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
@@ -909,6 +907,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
 	\item Removed the pushing section regarding ``Contact Between More Than 2 Robots'', as this is now covered by the Clustering rule (Section \ref{sec:clustering}).
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
+	\item The operator of the Game Controller is now officially in change of game timing. (Section \ref{sec:gameControllerOp})
 	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
 	\item Added a section regarding the drop-in player competition to the Appendix. (Section \ref{sec:drop-in})
 	\item Moved rules that are not directly relevant for games into the Appendix. (Section \ref{sec:comRules})
