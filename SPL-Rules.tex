@@ -625,10 +625,9 @@ The main referee's decision in this case is final and can not be changed afterwa
 \subsection{Ball Holding}
 \label{sec:ball_holding}
 
-The goal keeper is allowed to hold the ball for up to 5 seconds as long as it has one foot inside in its own penalty area. In all other cases, robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is ``Ball Holding'' and is not allowed.
+The goal keeper is allowed to hold the ball for up to 5 seconds as long as it has one foot inside in its own penalty area. In all other cases (except those noted in Section \ref{situations_no_ball_holding}), robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is ``Ball Holding'' and is not allowed.
 
 A robot which does not leave enough open space around the ball will be penalized as ``Ball Holding'' if that situation continues more than 3 seconds. The occupation of the ball is judged using the convex hull of the projection of the robot's body onto the ground. ``Enough open space'' means that at least the half of the ball is not covered by the convex hull. It is not important whether the robot actually touches the ball.
-
 
 \begin{figure}[t]
 \centerline{\begin{tabular}{ll}
@@ -647,6 +646,17 @@ Intentional continual holding is prohibited even if each individual holding time
 can remove the robot, it shoots the ball into the goal. The goal
 will not be counted and the ball will be replaced where the robot
 held the ball.
+
+\subsubsection{Exceptions to the Ball Holding Rules}
+\label{sec:situations_no_ball_holding}
+
+The following define situations where ball holding does not apply:
+
+\begin{enumerate}
+	\item Ball holding may not occur when the ball becomes stuck between a robot's legs.  An assistant referee should remove the ball in these situations and place the ball approximately where it was before it became stuck.
+	\item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule.
+\end{enumerate}
+
 
 \subsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}
@@ -914,6 +924,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
 	\item Moved subsection about penalty kick to the end of the \textit{Game Process} section and merged it with section about penalty shootout. (Section \ref{sec:penalty_kick})
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
+	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{situations_no_ball_holding})
 	\item A robot currently getting up cannot be penalized for pushing. (Section \ref{sec:situations_no_pushing})
 	\item Edited the pushing definition to include ``any form of contact that has enough force to destabilize a robot, such that walking and/or kicking is impeded'' instead of ``any form of contact that has enough force to knock a robot over''. (Section \ref{sec:pushing_contact})
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
