@@ -244,7 +244,7 @@ The field players are not allowed to enter their own penalty area. The four fiel
 \subsection{Coaching Robot}
 \label{sec:coaching_robot}
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot is not allowed to move.  It may either stand on the table, sit on the table, or sit in a seat.  A seat will be provided by the organizers, but teams may bring their own seat. \todo{Katie: Should we put limitations in the seat, such that the robot can not be held to a height taller than X while sitting in the seat?} \todo{Tim: Does the coaching robot need a specific number? Katie: Perhaps for GameController?  Otherwise, I don't see why.}
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot is not allowed to move.  It may either stand on the table, sit on the table, or sit in a seat.  A seat will be provided by the organizers, but teams may bring their own seat. \todo{Katie: Should we put limitations in the seat, such that the robot can not be held to a height taller than X while sitting in the seat?} \todo{Tim: Does the coaching robot need a specific number? Katie: Perhaps for GameController?  Otherwise, I don't see why.} \todo{Katie: Should we define where the seats/standing area will be on the table?}
 
 \subsection{Team Markers}
 \label{sec:team_markers}
@@ -305,7 +305,7 @@ Any form of wireless robot-to-robot communication among the robot players is all
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate with the robot players\todo{Tim: We need to find a way to make sure that the coach does not receive data from the robots on the field}. Instead, it sends messages to the GameController's coaching interface \todo{Tim: My idea is to use the GameController messages for transporting coaching information. This will be the easiest way. Interesting side effect: The other team can hear what the other coach says :-) Katie: Sounds good.}. These messages have a maximum size of N \todo{define N} bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every M \todo{define M} seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by O seconds \todo{define O}. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players.
+The coaching robot is not allowed to communicate directly with the robot players\todo{Tim: We need to find a way to make sure that the coach does not receive data from the robots on the field}. Instead, it sends messages to the GameController's coaching interface \todo{Tim: My idea is to use the GameController messages for transporting coaching information. This will be the easiest way. Interesting side effect: The other team can hear what the other coach says :-) Katie: Sounds good.}. These messages have a maximum size of N \todo{define N} bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every M \todo{define M (10?)} seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by O seconds \todo{define O (5?)}. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players.
 
 The use of remote processing/sensing is prohibited.
 
@@ -372,7 +372,11 @@ The team color should be displayed during the whole game on the LED of the left 
 
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
 
-Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (even if unintentional -- see also Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is accidental contact with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
+Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (s Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is accidental contact with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
+
+\subsection{Goal Keeper Save}
+\label{sec:goalie_save}
+While within its penalty area, a goal keeper may touch the ball with its arms and/or hands.  If a goal keeper is able to lift the ball off of the ground using its arms and/or hand, and hold it there for at least 1 second, the ball will be moved to the intersection of a throw-in line and the halfway line.
 
 \subsection{Applying Penalties}
 
@@ -727,7 +731,7 @@ In addition, a robot that walks into the goal net for more than 5 seconds will a
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
 
-Only the goalie can be within its team's penalty area. Having both legs inside the penalty area (\ie at least touching the line) is the definition of being in the penalty area and that situation is not allowed for defending field players. When other defending robots enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. This rule will be applied even if the goalie is outside of the penalty area, but not if an operational defender is pushed into the penalty area by an opponent.
+Only the goalie and at most one defending field player can be within a team's penalty area. Having both legs inside the penalty area (\ie at least touching the line) is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goalie is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be suject to removal unless it fails to exit the area.
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
@@ -903,11 +907,13 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goalie in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
+	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball and holding it for at least 1 second.  The ball is then placed on the intersection of a throw-in line and the halfway line. (Section \ref{sec:goalie_save}) 
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
 	\item Removed the definition in which pushing had to have ``enough force to knock a robot over''.  Pushing is now defined as ``walking into another robot for 2 seconds''. (Section \ref{sec:player_pushing})
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
 	\item Removed the pushing section regarding ``Contact Between More Than 2 Robots'', as this is now covered by the Clustering rule (Section \ref{sec:clustering}).
+	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
 	\item The operator of the Game Controller is now officially in change of game timing. (Section \ref{sec:gameControllerOp})
 	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
