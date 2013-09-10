@@ -508,7 +508,7 @@ line.
 
 Balls are deemed to be out based on the team that last touched the ball, irrespective of who actually kicked the ball.  In these examples, ``yellow half of the field'' refers to the half the yellow team is defending.
 
-\paragraph{Example 1.} The red goalie kicks the ball out the end of the field to the right of the goal. The ball is placed on the endpoint of the throw-in line to the right of the goal.
+\paragraph{Example 1.} The red goal keeper kicks the ball out the end of the field to the right of the goal. The ball is placed on the endpoint of the throw-in line to the right of the goal.
 
 \paragraph{Example 2.} A blue robot on the yellow half of the field kicks the ball out the end of the field to the right of the goal the red team is defending. The ball is placed on the intersection of the right throw-in line and the halfway line.
 
@@ -627,7 +627,7 @@ The main referee's decision in this case is final and can not be changed afterwa
 \subsection{Ball Holding}
 \label{sec:ball_holding}
 
-The goalie is allowed to hold the ball for up to 5 seconds as long as it has one foot inside in its own penalty area. In all other cases, robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is ``Ball Holding'' and is not allowed.
+The goal keeper is allowed to hold the ball for up to 5 seconds as long as it has one foot inside in its own penalty area. In all other cases, robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is ``Ball Holding'' and is not allowed.
 
 A robot which does not leave enough open space around the ball will be penalized as ``Ball Holding'' if that situation continues more than 3 seconds. The occupation of the ball is judged using the convex hull of the projection of the robot's body onto the ground. ``Enough open space'' means that at least the half of the ball is not covered by the convex hull. It is not important whether the robot actually touches the ball.
 
@@ -731,7 +731,7 @@ In addition, a robot that walks into the goal net for more than 5 seconds will a
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
 
-Only the goalie and at most one defending field player can be within a team's penalty area. Having both legs inside the penalty area (\ie at least touching the line) is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goalie is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be suject to removal unless it fails to exit the area.
+Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both legs inside the penalty area (\ie at least touching the line) is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be suject to removal unless it fails to exit the area.
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
@@ -802,7 +802,7 @@ Each participating team will contribute one drop-in player.  Each drop-in player
 
 All normal game rules apply in this challenge.  The only exception will be:
 \begin{itemize}
-\item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders. \todo{Check this after overworking the illegal defender rule}
+\item Any player may be goal keeper (ie, enter the goal box and behave as goal keeper).  However, once one player has become goal keeper for a team, this player will be the goal keeper for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders. \todo{Check this after overworking the illegal defender rule}
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using a simple protocol.  Although it is strongly encouraged, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at X. \todo{post drop-in protocal once we finalize it}
@@ -816,7 +816,7 @@ The challenge will be scored using two metrics:
 The judges will be members of the technical committee.  There will be at least two judges for each game, where judges will not judge any game in which their team is competing.  The judges will score the players based on the following criteria:
 \begin{itemize}
 \item pass to teammate = +3
-\item team has no goalie = -3
+\item team has no goal keeper = -3
 \item walking into a teammate = -2
 \item illegal defender = -2
 \end{itemize}
@@ -904,7 +904,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
     \item Added the coaching robot. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
-	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goalie in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
+	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goal keeper in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
 	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball and holding it for at least 1 second.  The ball is then placed on the intersection of a throw-in line and the halfway line. (Section \ref{sec:goalie_save}) 
