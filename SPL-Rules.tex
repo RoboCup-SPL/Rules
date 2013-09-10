@@ -117,7 +117,7 @@ E & Penalty area length & 600 \\
 \hline
 F & Penalty area width & 2200 \\
 \hline
-G & Penalty mark distance & 1800 \\ 
+G & Penalty mark distance & 1300 \\ 
 \hline
 H & Center circle diameter & 1500 \\
 \hline
@@ -594,7 +594,7 @@ Unless otherwise stated, all infractions in this league result in the removal of
 
 When the head referee indicates a foul has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
-The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. This may not be done if the penalty is not timed, \ie it is a 0 seconds penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
+The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
 
 The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is over, so that one of them can put the robot back on the field. 
 The assistant referee will then place the robot on the field in the half of the field which this robot's team is defending.
@@ -900,6 +900,7 @@ The requirement to referee may be an extreme hardship for extremely small teams.
 This is a brief list of rule changes from 2013 to 2014.
 
 \begin{itemize}
+	\item Moved the penalty mark closer to each goal. (Section \ref{sec:field_dim})
 	\item Clarified that the net should not be attached to the field, but instead attached tightly to the support structure. (Section \ref{sec:field_dim})
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
