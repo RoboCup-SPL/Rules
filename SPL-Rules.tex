@@ -244,7 +244,9 @@ The field players are not allowed to enter their own penalty area. The four fiel
 \subsection{Coaching Robot}
 \label{sec:coaching_robot}
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot is not allowed to move.  It may either stand on the table, sit on the table, or sit in a seat.  A seat will be provided by the organizers, but teams may bring their own seat. \todo{Katie: Should we put limitations in the seat, such that the robot can not be held to a height taller than X while sitting in the seat?} \todo{Tim: Does the coaching robot need a specific number? Katie: Perhaps for GameController?  Otherwise, I don't see why.} \todo{Katie: Should we define where the seats/standing area will be on the table?}
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (\cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in \todo{Tim: I will prepare a figure that shows the coaches on the tables}.  Seats will not be provided by the organizers,  teams may bring their own seats that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the robots can be placed.
+
+ 
 
 \subsection{Team Markers}
 \label{sec:team_markers}
@@ -680,7 +682,11 @@ A robot that has ceased activity for 10 seconds or has turned off will be remove
 
 Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard penalty. If the robot has fallen down, it must start getting up within 5 seconds. 
 
-\newpage
+\subsection{Coach Motion}
+\label{sec:coach_motion}
+
+The coach robot has to remain seated during the whole game, it is only allowed to move its arms and head. If the robot leaves its seating position, it will be disqualified for the remainder of the game and has to leave its position on the table. Technically, this is handled as a Request for Pick-Up
+(\cf Section \ref{sec:request_for_pickup}) but without the possibility to reenter the game.
 
 \subsection{Player Pushing}
 \label{sec:player_pushing}
@@ -940,6 +946,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
 	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{situations_no_ball_holding})
+	\item Added definition and penalty for coach motion. (Section \ref{sec:coach_motion})
 	\item A robot currently getting up cannot be penalized for pushing. (Section \ref{sec:situations_no_pushing})
 	\item Edited the pushing definition to include ``any form of contact that has enough force to destabilize a robot, such that walking and/or kicking is impeded'' instead of ``any form of contact that has enough force to knock a robot over''. (Section \ref{sec:pushing_contact})
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
@@ -950,7 +957,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \subsection*{Judgement}
 \begin{itemize}
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
-	\item The operator of the Game Controller is now officially in change of game timing. (Section \ref{sec:gameControllerOp})
+	\item The operator of the Game Controller is now officially in charge of game timing. (Section \ref{sec:gameControllerOp})
 	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
 \end{itemize}
 
