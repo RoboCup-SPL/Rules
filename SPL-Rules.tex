@@ -244,7 +244,7 @@ The field players are not allowed to enter their own penalty area. The four fiel
 \subsection{Coaching Robot}
 \label{sec:coaching_robot}
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (\cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in \todo{Tim: I will prepare a figure that shows the coaches on the tables}.  Seats will not be provided by the organizers,  teams may bring their own seats that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the robots can be placed.
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except their head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in \todo{Tim: I will prepare a figure that shows the coaches on the tables}.  Seats will not be provided by the organizers,  teams may bring their own seats that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the robots can be placed.
 
  
 
@@ -828,6 +828,7 @@ Each participating team will contribute one drop-in player.  Each drop-in player
 All normal game rules apply in this challenge.  The only exception will be:
 \begin{itemize}
 \item Any player may be goal keeper (ie, enter the goal box and behave as goal keeper).  However, once one player has become goal keeper for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if more than one defensive field player enters the goal box, the newly entering field players should be removed as illegal defenders.
+\item Drop-in teams will not have a coaching robot.
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using a simple protocol.  Although it is strongly encouraged, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at X. \todo{post drop-in protocal once we finalize it}
@@ -838,15 +839,23 @@ The challenge will be scored using two metrics:
 \item average human judged score
 \end{itemize}
 
-The judges will be members of the technical committee.  There will be at least two judges for each game, where judges will not judge any game in which their team is competing.  The judges will score the players based on the following criteria:
+The judges will be members of the technical committee, organizing committee, and indivudal teams.  There will be three judges for each game, where judges will not judge any game in which their team is competing.  We will take the median score of these three judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria:
 \begin{itemize}
-\item pass to teammate = +3
-\item team has no goal keeper = -3
-\item walking into a teammate = -2
-\item illegal defender = -2
+\item Judged constantly during game:
+  \begin{itemize}
+  \item Appropriate decision to pass to teammate = +3
+  \item Appropriate decision to shoot on goal = +3
+  \item Pass to teammate that subsequently scores a goal = +5
+  \item walking into a teammate = -2
+  \item penalty/card = -1
+  \end{itemize}
+\item Judged once per half:
+  \begin{itemize}
+  \item team has no goal keeper = -3
+  \item good positioning = between 0 and 10
+  \end{itemize}
 \end{itemize}
 \todo{think about the criteria}
-\todo{should one judge consider each team?  or both judge both teams, and average their scores?}
 
 The two metrics will be normalized when determining the overall winner of this competition --- which will recieve the ``Best Player'' award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.  The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
 Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
