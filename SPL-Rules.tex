@@ -75,6 +75,10 @@
 
 \maketitle
 
+\begin{center}
+Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.robocup.org}.
+\end{center}
+
 \vfill
 
 \tableofcontents
@@ -203,6 +207,9 @@ The official ball will be a Mylec orange street hockey ball. They are 65 mm in d
 \end{itemize}
 
 
+\newpage
+
+
 \section{Robot Players}
 \label{sec:robot_players}
 A match is played by two teams, each consisting of not more than \textbf{5} players and a coaching robot. At most one player may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
@@ -256,7 +263,7 @@ The coaching robot is not placed on the field but on the table that is used for 
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots will use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt will have a player number(1-5) printed on it in white text.  The official jersey shirts will be the jersey shirts used at Robocup 2013.  Teams who competed in Robocup 2013 should use the jerseys they purchased at Robocup 2013.  New teams may purchase official jersey shirts by X \todo{how can they purchase jerseys?}.  Teams must purchase the official jersey shirts --- teams are not allowed to use jersey shirts that they design themselves or that are manufactured by a different supplier.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
+Robots will use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt will have a player number(1-5) printed on it in white text.  The official jersey shirts will be the jersey shirts used at RoboCup 2013.  Teams who competed in RoboCup 2013 should use the jerseys they purchased at RoboCup 2013.  New teams may purchase official jersey shirts by X \todo{how can they purchase jerseys?}.  Teams must purchase the official jersey shirts --- teams are not allowed to use jersey shirts that they design themselves or that are manufactured by a different supplier.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
 
 
 \begin{figure}
@@ -315,6 +322,10 @@ The GameController will use UDP to connect to the robots. The source distributio
 The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by 10 seconds. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these message should be in a human-readable format.
 
 The use of remote processing/sensing is prohibited.
+
+
+\newpage
+
 
 \section{Game Process}
 \label{sec:game_process}
@@ -586,6 +597,8 @@ These attempts will be timed (that is, for a goal scored, how long did it take t
 \end{enumerate}
 
 
+\newpage
+
 
 \section{Forbidden Actions and Penalties}
 \label{sec:forbidden_act}
@@ -779,6 +792,10 @@ During the match any robot shall never jam the communication and the sensor syst
 
 \end{description}
 
+
+\newpage
+
+
 \section{Judgement}
 
 The referees are the only persons that are allowed inside the playing area.
@@ -813,10 +830,6 @@ Robots should be able to localize with the SPL field and its ``normal'' surround
 Introducing new team-specific artificial landmarks is against the spirit and intention of the league's progress.
 The application of this rule needs to be well considered and should be reserved for situations which seem constructed by one team or another, but will ultimately be the head referee's decision alone.
 
-\section{Questions/Comments}
-
-Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup.org.
-
 
 \newpage
 
@@ -824,7 +837,7 @@ Questions or comments on these rules should be mailed to rc-spl-tc@lists.robocup
 \appendix
 \section{Drop-in Player Competition}
 \label{sec:drop-in}
-The main rule book describes the rules for Robocup Standard Platform Games.  However, at the international Robocup competition there will be a competition in the Standard Platform League in which teams are formed of players from various teams.  All teams who compete in the team competition must participate in this competition.  Additional teams will be selected to participate in just this competition.
+The main rule book describes the rules for RoboCup Standard Platform Games.  However, at the international RoboCup competition there will be a competition in the Standard Platform League in which teams are formed of players from various teams.  All teams who compete in the team competition must participate in this competition.  Additional teams will be selected to participate in just this competition.
 
 The main point of this competition is for teams to develop `drop-in' players that can be good teammates and play well with a team composed of drop-in players from a variety of teams.
 
@@ -869,9 +882,9 @@ Each drop-in player's average goal difference will then be multiplied by this no
 \newpage
 
 
-\section{The Official Robocup Competition Rules}
+\section{The Official RoboCup Competition Rules}
 \label{sec:comRules}
-This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international Robocup competition.
+This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international RoboCup competition.
 
 \subsection{Game Structure}
 
