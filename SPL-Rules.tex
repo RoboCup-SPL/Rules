@@ -308,18 +308,18 @@ The robots should play without human control. Communication is only allowed amon
 There are no restrictions on communication between the robots using a microphone or a speaker.
 
 \subsubsection{Wireless Communications}
-
+\label{sec:wireless}
 The only wireless hardware allowed to be used by the teams are the wireless network cards built into the NAOs, and the access points provided by the event organizers. All other wireless hardware must be deactivated. A team may be disqualified if one of the team members violates this rule. The MAC-addresses of all NAOs participating in the competition will be registered. Only these MAC-addresses can be reached through the access points provided by the event organizers. In addition, the access points will be secured by different SSIDs and WEP keys. 
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The IP addresses, channels, SSIDs, and WEP keys of the fields will be announced at the competition site.
 
-Teams can use a bandwidth of up to 500 Kbps of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by TCP, UDP, or the GameController.
+Teams can use a bandwidth of up to 500 Kbps of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by UDP or the GameController.
 
-Any form of wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), it does not conflict with TCP/IP or UDP, and the maximum bandwidth allowed for each team is not exceeded. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
+Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, and the maximum bandwidth allowed for each team is not exceeded. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by 10 seconds. This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these message should be in a human-readable format.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable format.
 
 The use of remote processing/sensing is prohibited.
 
@@ -966,6 +966,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
+	\item Only UDP communication is allowed (Section \ref{sec:wireless})
 \end{itemize}
 
 \subsection*{Game Process}
