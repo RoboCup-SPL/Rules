@@ -841,6 +841,8 @@ The main rule book describes the rules for RoboCup Standard Platform Games.  How
 
 The main point of this competition is for teams to develop `drop-in' players that can be good teammates and play well with a team composed of drop-in players from a variety of teams.
 
+\subsection{Organization}
+
 Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 20 drop-in games during the competition.
 
 All normal game rules apply in this challenge.  The only exception will be:
@@ -850,6 +852,9 @@ All normal game rules apply in this challenge.  The only exception will be:
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using a simple protocol.  Although it is strongly encouraged, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at X. \todo{post drop-in protocal once we finalize it}
+
+
+\subsection{Scoring}
 
 The challenge will be scored using two metrics: 
 \begin{itemize}
@@ -864,7 +869,9 @@ The judges will be members of the technical committee, organizing committee, and
   \item Appropriate decision to pass to teammate = +3
   \item Appropriate decision to shoot on goal = +3
   \item Pass to teammate that subsequently scores a goal = +5
+  \item Clearing the ball from own penalty area = +1
   \item walking into a teammate = -2
+  \item disturbing own goal keeper = -2
   \item penalty/card = -1
   \end{itemize}
 \item Judged once per half:
@@ -875,9 +882,13 @@ The judges will be members of the technical committee, organizing committee, and
 \end{itemize}
 \todo{think about the criteria}
 
-The two metrics will be normalized when determining the overall winner of this competition --- which will receive the ``Best Player'' award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.  The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
+The two metrics will be normalized when determining the overall winner of this competition. The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
 Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
-\todo{are we okay with one of the SPL All Stars also being on the championship team?}
+
+
+\subsection{Award}
+The overall winner will receive the \textit{``Best Player''} award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.\todo{are we okay with one of the SPL All Stars also being on the championship team?}
+
 
 \newpage
 
