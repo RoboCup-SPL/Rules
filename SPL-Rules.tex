@@ -263,8 +263,9 @@ The coaching robot is not placed on the field but on the table that is used for 
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots will use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt will have a player number(1-5) printed on it in white text.  The official jersey shirts will be the jersey shirts used at RoboCup 2013.  Teams who competed in RoboCup 2013 should use the jerseys they purchased at RoboCup 2013.  New teams may purchase official jersey shirts by X \todo{how can they purchase jerseys?}.  Teams must purchase the official jersey shirts --- teams are not allowed to use jersey shirts that they design themselves or that are manufactured by a different supplier.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
+Robots use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt has a player number(1-5) printed on it in white text.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
 
+Teams may use jerseys purchased at RoboCup 2013, or they may produce their own jerseys following the CAD blueprint available at Z. \todo{Dietmar needs to provide us these details}  The exact color specification for cyan is X and for magenta is Y. Failure to produce jerseys that follow these specifications will result in having to fix the problem (likely either by borrowing jerseys from other teams or modifying the jerseys).  The TC currently has a few extra sets of jerseys --- if your team wishes to purchases these, write to rc-spl-tc@lists.robocup.org.
 
 \begin{figure}
   \centerline{\begin{tabular}{lll}
@@ -436,6 +437,8 @@ The robots have a maximum of \KickOffAutoTime to reach their positions. If all t
 There are extra restrictions on the legal positions of manually positioned robots. The kicking-off robot is placed on the center circle, right in front of the penalty mark. Its feet touch the line, but they are not inside the center circle. 
 One of the other field players of the attacking team is placed in front of one of the goal posts on the height of the penalty mark (i.e. the virtual intersection point of the goal post and the penalty mark) and the other two are placed on the corners of the penalty box without having their feet touching the corners. 
 Two field players of the defending team are placed halfway between the corners of their own penalty box and the sidelines. The other two field players of the defending team are placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post.  The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line.
+
+To assist the assistant referees in placing the robots manually when needed or requested, small Ks and Ds will be marked on the field using a black felt-tip pen.  These marks should be small, such that they are visible to humans but invisible to robots.
 
 As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
@@ -924,10 +927,11 @@ If a team's obtained points is the same as another team's after a round of pool 
 
 \subsection{Selection of the Referees}
 \label{sec:refSelection}
-During pool play, the games will be refereed by members of teams from a different pool. Each team has to referee a number of these games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+During pool play, the games will be refereed by members of teams from a different pool.  Each team has to referee a number of games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
-Referees for playoff games will need to be certified (\ie deemed fit to referee) by at least half the teams in the playoffs. Unless they have no eligible referees, each team in the playoffs shall supply at least one referee for the playoffs. For a particular game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
-\todo{Katie: Let's either have some sort of certification process, or remove/rewrite most of this section.  I do agree that the veto power should be left in though.}
+For each game, the captain of each team playing will rate the 4 officials working the game once the game has concluded.  In the case of drop-in games, each team participating in that drop-in game should rate the officials.  The individual ratings will remain private, but top officials will be announced.  Additionally, referees for the semi-final, championship, and 3rd place games will be choosen from the most highly rated referees from earlier games in the competition.
+
+In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
 
 \subsection{Subsequent Year Pre-Qualification Procedure}
 \label{sec:preQual}
@@ -976,6 +980,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
+	\item Teams may produce their own jersey shirts, using specific color specifications and following a provided CAD blueprint. (Section \ref{sec:team_markers})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Only UDP communication is allowed (Section \ref{sec:wireless})
 \end{itemize}
@@ -984,6 +989,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \begin{itemize}
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
 	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball and holding it for at least 1 second.  The ball is then placed on the intersection of a throw-in line and the halfway line. (Section \ref{sec:goalie_save}) 
+	\item Small Ks and Ds will be marked on the field to specify manual positions for the kick-off team and the defensive team. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
   \item Added a 10-minute referee timeout. (Section \ref{sec:referee_timeout})
@@ -1006,13 +1012,14 @@ This is a brief list of rule changes from 2013 to 2014.
 \begin{itemize}
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
 	\item The operator of the Game Controller is now officially in charge of game timing. (Section \ref{sec:gameControllerOp})
-	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
 \end{itemize}
 
 \subsection*{Appendices}
 \begin{itemize}	
 	\item Added a description of the drop-in player competition. (Appendix \ref{sec:drop-in})
 	\item Moved rules that are not directly relevant for games into the Appendix. (Appendix \ref{sec:comRules})
+	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
+	\item At the end of each game, captains for the playing teams will rate each of the referees for that game.  Top officials will be used in the semi-final, championship, and 3rd place games.
 	\item Added a description of the pre-qualification for the subsequent year. (Appendix \ref{sec:preQual})
 \end{itemize}
 
