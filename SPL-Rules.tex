@@ -241,17 +241,17 @@ A computer will be provided by the event organizers for the purpose of sending G
 \subsection{Goal Keeper}
 \label{sec:goal_keeper}
 
-The goal keeper is the only player that is allowed to enter the penalty area of its own team.  The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own penalty area. It always has the jersey number ``1''.
+The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own penalty area. It always has the jersey number ``1''.
 
 \subsection{Field Players}
 \label{sec:field_players}
 
-The field players are not allowed to enter their own penalty area. The four field players have the jersey numbers ``2'', ``3'', ``4'' and ``5''.
+Only one field player may enter their own penalty area at any given time. The four field players have the jersey numbers ``2'', ``3'', ``4'' and ``5''.
 
 \subsection{Coaching Robot}
 \label{sec:coaching_robot}
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers,  teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the robots can be placed.
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers,  teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
@@ -320,7 +320,7 @@ Wireless robot-to-robot communication among the robot players is allowed, as lon
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable format.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
 The use of remote processing/sensing is prohibited.
 
@@ -438,7 +438,7 @@ There are extra restrictions on the legal positions of manually positioned robot
 One of the other field players of the attacking team is placed in front of one of the goal posts on the height of the penalty mark (i.e. the virtual intersection point of the goal post and the penalty mark) and the other two are placed on the corners of the penalty box without having their feet touching the corners. 
 Two field players of the defending team are placed halfway between the corners of their own penalty box and the sidelines. The other two field players of the defending team are placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post.  The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line.
 
-To assist the assistant referees in placing the robots manually when needed or requested, small Ks and Ds will be marked on the field using a black felt-tip pen.  These marks should be small, such that they are visible to humans but invisible to robots.
+To assist the assistant referees in placing the robots manually when needed or requested, small Ks and Ds will be marked on the field using a black felt-tip pen in the spots where manually placed robots should go if they are kicking off (Ks) or defending (Ds).  These marks should be small, such that they are visible to humans but invisible to robots.
 
 As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
@@ -540,14 +540,14 @@ If a team is not ready to play at the assigned time for a game, the referee will
 \label{sec:referee_timeout}
 The head official may call a timeout at any stoppage of play if he or she deems it necessary.  One example of when a referee might need to call a timeout would include: the power to the wireless router is down.  However, when and whether to call a referee timeout is left up to the head referee.
 
-The referee may call at most one \textbf{10 minute} timeout per game.  Teams may do anything during this timeout, but they must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after a referee prematurely ends the timeout, whichever is earlier.
+The referee may call at most one \textbf{10 minute} timeout per game.  Teams may do anything during this timeout, but they must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after the referee prematurely ends the timeout, whichever is earlier.
 
 The team who would have kicked off if the timeout had not been called shall kickoff when the game resumes.
 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
 
-If a team chooses to forfeit a match then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot lose (but they can draw).  Teams may choose to forfeit a game at any stage.  However, once a forfeit is announced, they may not reverse this decision.
+If a team chooses to forfeit a match then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit a game at any stage.  However, once a forfeit is announced, they may not reverse this decision.
 
 
 \subsection{Penalty Kick Shoot-out}
@@ -611,12 +611,12 @@ The following actions are forbidden. In general, when a penalty applies, the rob
 \subsection{Locomotion Type}
 \label{sec:locomotion_type}
 
-Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate.
+Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion.
 
 \subsection{Penalty procedure}
 \label{sec:penalty_procedure}
 
-When a robot commits a foul, the head referee shall call out the infraction committed, the jersey color of the robot, and the jersey number of the robot. Each robot will be labeled with a jersey number before the game. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
+When a robot commits a foul, the head referee shall call out the infraction committed, the jersey color of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
 
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
@@ -627,12 +627,11 @@ When the head referee indicates a foul has been committed that results in the st
 
 The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
 
-The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is over, so that one of them can put the robot back on the field. 
-The assistant referee will then place the robot on the field in the half of the field which this robot's team is defending.
-The robot should be placed close to the position, where the penalty point projects on the sideline.
-The robot should be pointed towards the opposite sideline. The robot should be placed on the side of the field furthest from the ball. If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline facing towards the opposite sideline. If there are no practical locations nearby, a location along one of the sidelines should be found that is away from the ball (the robot should be set down facing the opposite sideline). 
-This is illustrated in Figure~\ref{fig:penalty_re-entry_points}.
-When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
+The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}. 
+
+If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline. When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
+
+With approximatly 5 seconds left before the penalty ends, the robot should be turned to face towards the opposite sideline.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points.pdf}}
@@ -656,7 +655,7 @@ The main referee's decision in this case is final and can not be changed afterwa
 \subsection{Ball Holding}
 \label{sec:ball_holding}
 
-The goal keeper is allowed to hold the ball for up to 5 seconds as long as it has one foot inside in its own penalty area. In all other cases (except those noted in Section \ref{situations_no_ball_holding}), robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is ``Ball Holding'' and is not allowed.
+The goal keeper is allowed to hold the ball for up to 5 seconds as long as it has one foot inside in its own penalty area. In all other cases (except those noted in Section \ref{sec:situations_no_ball_holding}), robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is ``Ball Holding'' and is not allowed.
 
 A robot which does not leave enough open space around the ball will be penalized as ``Ball Holding'' if that situation continues more than 3 seconds. The occupation of the ball is judged using the convex hull of the projection of the robot's body onto the ground. ``Enough open space'' means that at least the half of the ball is not covered by the convex hull. It is not important whether the robot actually touches the ball.
 
@@ -999,7 +998,7 @@ This is a brief list of rule changes from 2013 to 2014.
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
-	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{situations_no_ball_holding})
+	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{sec:situations_no_ball_holding})
 	\item Added definition and penalty for coach motion. (Section \ref{sec:coach_motion})
 	\item A robot currently getting up cannot be penalized for pushing. (Section \ref{sec:situations_no_pushing})
 	\item Edited the pushing definition to include ``any form of contact that has enough force to destabilize a robot, such that walking and/or kicking is impeded'' instead of ``any form of contact that has enough force to knock a robot over''. (Section \ref{sec:pushing_contact})
