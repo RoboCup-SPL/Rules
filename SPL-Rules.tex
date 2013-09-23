@@ -314,9 +314,7 @@ The only wireless hardware allowed to be used by the teams are the wireless netw
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The IP addresses, channels, SSIDs, and WEP keys of the fields will be announced at the competition site.
 
-Teams can use a bandwidth of up to 500 Kbps of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by UDP or the GameController.
-
-Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, and the maximum bandwidth allowed for each team is not exceeded. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
+Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used\todo{We need to define this packet. It will be similar to the drop-in packet and contain an additional data field that can be used by the teams for whatever they want.}, and not more than five messages per robot per second are sent. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
@@ -990,7 +988,9 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
 	\item Teams may produce their own jersey shirts, using specific color specifications and following a provided CAD blueprint. (Section \ref{sec:team_markers})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
-	\item Only UDP communication is allowed (Section \ref{sec:wireless})
+	\item Only UDP communication is allowed. (Section \ref{sec:wireless})
+    \item Teams have to use the standard communication packet. (Section \ref{sec:wireless})
+    \item A robot is not allowed to send more than five messages per second. (Section \ref{sec:wireless})
 \end{itemize}
 
 \subsection*{Game Process}
