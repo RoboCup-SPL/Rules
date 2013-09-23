@@ -860,11 +860,11 @@ Each drop-in player may communicate with its teammates using a simple protocol. 
 
 The challenge will be scored using two metrics: 
 \begin{itemize}
-\item average goal difference
-\item average human judged score
+\item average goal difference 
+\item average human judged score 
 \end{itemize}
 
-The judges will be members of the technical committee, organizing committee, and indivudal teams.  There will be three judges for each game, where judges will not judge any game in which their team is competing.  We will take the median score of these three judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria:
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be three judges for each game, where judges will not judge any game in which their team is competing.  We will take the median score of these three judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria:
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
@@ -884,12 +884,20 @@ The judges will be members of the technical committee, organizing committee, and
 \end{itemize}
 \todo{finalize criteria}
 
-The two metrics will be normalized when determining the overall winner of this competition. The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
-Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
+The two metrics will be normalized and added up to determine the overall winner of this competition:
+\begin{itemize}
+\item The team that has the highest average goal difference will get 100 points.
+\item The team that has the lowest average goal difference will get 0 points.
+\item All other goal differences become scaled linearly. 
+\item The team that has the highest average human judged score will get 100 points.
+\item The team that has the lowest average human judged score will get 0 points.
+\item All other average human judged scores become scaled linearly. 
+\item Each team's judge and goal points will be added.
+\end{itemize}
 
 
 \subsection{Award}
-The overall winner will receive the \textit{``Best Player''} award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.  If the 1st place team in the team competition also had one of the top five drop-in players, this player will not compete on the SPL All Star team and will instead be replaced by the sixth best drop-in player from the competition.
+The overall winner (\ie the team that has the most points) will receive the \textit{``Best Player''} award.  Additionally, the top five drop-in players from the competition (the SPL All Stars) will play together against the 1st place team in the team competition after the championship game.  If the 1st place team in the team competition also had one of the top five drop-in players, this player will not compete on the SPL All Star team and will instead be replaced by the sixth best drop-in player from the competition.
 
 
 \newpage
