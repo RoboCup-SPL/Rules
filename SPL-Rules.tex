@@ -780,12 +780,12 @@ Only the goal keeper and at most one defending field player can be within a team
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
 \subsection{Jamming}
-
+\label{sec:jamming}
 During the match any robot shall never jam the communication and the sensor systems of the opponents:
 
 \begin{description}
 
-\item[Wireless communication.] Teams can use a bandwidth of up to 500 Kbps of the wireless. This includes any data transferred, namely the actual payload and any protocol overhead created, \eg, by TCP or UDP. If a team uses more bandwidth over a couple of seconds in a game, it will be disqualified for that game. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using 2.4~GHz radio equipment (including cellular phones and/or Bluetooth devices).
+\item[Wireless communication.] As specified in Sect. \ref{sec:wireless}, each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format. If a robot uses a different protocol or sends too many messages over a couple of seconds in a game, it will be disqualified for that game. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using 2.4~GHz radio equipment (including cellular phones and/or Bluetooth devices).
 
 \item[Acoustic communication.] If acoustic communication is used by both teams, they shall negotiate before the match how they can reduce interference. If only one team uses acoustic communication, the robots of the other team shall avoid producing any sound. In addition, both the teams and the audience shall avoid intentionally confusing the robots by producing similar sounds to those used for communication.
 
@@ -1015,6 +1015,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
 	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
 	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goal keeper in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
+	\item Adapted definition of jamming to new wireless rules. (Section \ref{sec:jamming})
 \end{itemize}
 
 \subsection*{Judgement}
