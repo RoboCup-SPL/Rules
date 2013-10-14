@@ -777,7 +777,7 @@ In addition, a robot that walks into the goal net for more than 5 seconds will a
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
 
-Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both legs inside the penalty area (\ie at least touching the line) is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area.
+Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both feet (\ie at least touching the line) or more than half of the body (lying on the floor) inside the penalty area is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area.
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
@@ -1018,6 +1018,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Edited the pushing definition to include ``any form of contact that has enough force to destabilize a robot, such that walking and/or kicking is impeded'' instead of ``any form of contact that has enough force to knock a robot over''. (Section \ref{sec:pushing_contact})
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
 	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
+    \item Definition of illegal defense has been extended to lying robots. (Section \ref{sec:illegal_defender})
 	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goal keeper in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
 	\item Adapted definition of jamming to new wireless rules. (Section \ref{sec:jamming})
 \end{itemize}
