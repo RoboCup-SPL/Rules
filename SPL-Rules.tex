@@ -127,7 +127,7 @@ H & Center circle diameter & 1500 \\
 \hline
 I & Border strip width & 700 \\
 \end{tabular}
-\caption{Schematic diagram of the soccer field (not to scale). and corresponding dimensions in mm.  Note that measurements on this diagram are made to the center of lines.} \label{fig:field_dim}
+\caption{Schematic diagram of the soccer field (not to scale) and corresponding dimensions in mm.  Note that measurements on this diagram are made to the center of lines.} \label{fig:field_dim}
 \end{figure}
 
 
@@ -135,7 +135,7 @@ I & Border strip width & 700 \\
 \begin{center}
 \leavevmode
 \includegraphics[width=1\columnwidth]{figs/goalDimensions.pdf}
-\caption{Dimensions of the goal (in mm), viewed from above and its placement on the field.}
+\caption{Dimensions of the goal (in mm), viewed from above, and its placement on the field.}
 \label{fig:goal_dimensions}
 \end{center}
 \end{figure}
@@ -253,7 +253,7 @@ Only one field player may enter their own penalty area at any given time. The fo
 
 The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers,  teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
+The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
@@ -320,7 +320,7 @@ Wireless robot-to-robot communication among the robot players is allowed, as lon
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface.\todo{post packet Tim made} These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exists humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language such as English and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface.\todo{post packet Tim made} These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
 The use of remote processing/sensing is prohibited.
 
@@ -352,7 +352,7 @@ Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If th
 
 \begin{description}
 
-\item[Initial.] After booting, the robots are in their \emph{initial} state. In this state, the button interface for manually setting the team color and whether the team has kick-off is active. The robots are not allowed moving in any fashion besides initially standing up. Pressing the left foot bump sensor will switch the team color. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
+\item[Initial.] After booting, the robots are in their \emph{initial} state. In this state, the button interface for manually setting the team color and whether the team has kick-off is active. The robots are not allowed to be moving in any fashion besides initially standing up. Pressing the left foot bump sensor will switch the team color. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 
 \item[Ready.] In this state, the robots walk to their legal kick-off positions (\cf Section~\ref{sec:kick-off}). They remain in this state, until the head referee decides that there is no significant progress anymore (after a maximum of \KickOffAutoTime). This state is not available if only the button interface is implemented.
 
@@ -392,7 +392,7 @@ The team color should be displayed during the whole game on the LED of the left 
 
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
 
-Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (s Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is accidental contact with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
+Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
 
 \subsection{Goal Keeper Save}
 \label{sec:goalie_save}
@@ -406,7 +406,7 @@ See Section~\ref{sec:penalty_procedure}.
 \subsection{Initial Kick-off}
 \label{sec:initial-kick-off}
 
-The first kick-off at the start of each half time is the initial kick-off.
+The first kick-off at the start of each half is the initial kick-off.
 Before the initial kick-off, i.e. before the start of each half, all robots must be in the initial state and must be placed on the sidelines in their own half of the field.
 It is up to the team as to which sideline(s) and where exactly on the sidelines the robots are placed.
 Once the robots receive the \emph{ready} signal from the GameController, they are to proceed as described in Section~\ref{sec:kick-off}.
@@ -430,7 +430,7 @@ The robots have a maximum of \KickOffAutoTime to reach their positions. If all t
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/manual_placement_2013.pdf}}
-\caption{Manual setup for kick-off.}
+\caption{Manual setup for kick-off.  The attacking team is on the right.}
 \label{fig:ko}
 \end{figure}
 
@@ -553,7 +553,7 @@ If a team chooses to forfeit a match then the opposing team will play the match 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
 
-A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during quarter finals, semi finals, third place or final). 
+A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during the intermediate round, quarter finals, semi finals, third place or final). 
 There will be a five minute break between the end of the game and the start of the penalty kicks.
 In the intermediate round, the penalty kick shoot-out will consist of three penalty shots per team; in the quarterfinals and later, it will consist of five penalty shots per team.
 All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided in accordance with the teams, or otherwise by a coin toss.}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
