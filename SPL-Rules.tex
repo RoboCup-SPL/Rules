@@ -267,8 +267,7 @@ The coaching robot is not placed on the field but on the table that is used for 
 
 Robots use colored jersey shirts as team markers. The official jersey shirt colors are cyan and magenta (referred to as blue and red throughout this document).  Each jersey shirt has a player number(1-5) printed on it in white text.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
 
-Teams may use jerseys purchased at RoboCup 2013, or they may produce their own jerseys following the CAD blueprint available at Z. \todo{Dietmar needs to provide us these details}  The exact color specification for cyan is X and for magenta is Y. Failure to produce jerseys that follow these specifications will result in having to fix the problem (likely either by borrowing jerseys from other teams or modifying the jerseys).  The TC currently has a few extra sets of jerseys --- if your team wishes to purchases these, write to rc-spl-tc@lists.robocup.org.
-\todo{Should the league produce jerseys?  If so, should teams be forced to purchase these if they have none from 2013?}
+Teams may use jerseys purchased at RoboCup 2013 or they may order jerseys from the league (these jerseys will be as similar as possible to the ones used at RoboCup 2013).  Teams may not use any other jersey and teams are required to have jerseys.  Information regarding purchasing jerseys will be sent out to all teams.
 
 \begin{figure}
   \centerline{\begin{tabular}{lll}
@@ -321,7 +320,7 @@ Wireless robot-to-robot communication among the robot players is allowed, as lon
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages.\todo{note the coach packet} However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exists humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language such as English and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface.\todo{post packet Tim made} These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exists humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language such as English and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
 The use of remote processing/sensing is prohibited.
 
@@ -521,7 +520,7 @@ In this case, the head referee will indicate when the robot is no longer affecti
 A ``Request for Pick-up'' for a robot which is currently out of the game, e.g. penalized, can be granted immediately.
 
 To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up'', and only one designated person per team shall accept the robot from the referee, and hand it back after fixing the problem.
-The returning robot will be replaced after a minimum of 30 seconds after it was taken off the field following the normal replacement procedure used after the standard removal penalty (see Section~\ref{sec:removal_penalty}).
+The returning robot will be replaced after a minimum of 45 seconds after it was taken off the field following the normal replacement procedure used after the standard removal penalty (see Section~\ref{sec:removal_penalty}).
 
 If a robot has been rebooted and the wireless is not working, it is the responsibility of the team members (not the assistant referees) to configure its team color correctly. The robot should be returned to the assistant referees in the \emph{penalized} state so that the assistant referees cannot accidentally change the robot's team color.
 
@@ -620,7 +619,7 @@ When a robot commits a foul, the head referee shall call out the infraction comm
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
 
-Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for 30 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.\todo{Should we increase it to 45 seconds?}
+Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for 45 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.
 
 When the head referee indicates a foul has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
@@ -682,7 +681,7 @@ held the ball.
 The following define situations where ball holding does not apply:
 
 \begin{enumerate}
-	\item Ball holding may not occur when the ball becomes stuck between a robot's legs.  An assistant referee should remove the ball in these situations and place the ball approximately where it was before it became stuck.\todo{There is still debate regarding this.}
+	\item Ball holding may not occur when the ball becomes stuck between a robot's legs.  An assistant referee should remove the ball in these situations and place the ball approximately where it was before it became stuck.
 	\item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule.
 \end{enumerate}
 
@@ -989,7 +988,6 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may fix the location of the upper camera using a bit of glue. (Section \ref{sec:hardware})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
-	\item Teams may produce their own jersey shirts, using specific color specifications and following a provided CAD blueprint. (Section \ref{sec:team_markers})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Only UDP communication is allowed. (Section \ref{sec:wireless})
     \item Teams have to use the standard communication packet. (Section \ref{sec:wireless})
@@ -1011,6 +1009,7 @@ This is a brief list of rule changes from 2013 to 2014.
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
+        \item The standard removal penalty time has been increased from 30 seconds to 45 seconds. (Section \ref{sec:removal_penalty})
 	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{sec:situations_no_ball_holding})
 	\item Added definition and penalty for coach motion. (Section \ref{sec:coach_motion})
 	\item A robot currently getting up cannot be penalized for pushing. (Section \ref{sec:situations_no_pushing})
