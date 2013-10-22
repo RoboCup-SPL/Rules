@@ -230,7 +230,7 @@ All teams must use NAO humanoid robots manufactured by Aldebaran Robotics. Absol
 
 \item Protecting the fingers with white finger protectors provided by Aldebaran or with transparent or white duct tape.
 
-\item Fixing the location of the upper camera using a bit of glue. \todo{Tim: We need to check, if this kind of rule is OK for Aldebaran.}
+\item Fixing the location of the upper camera using a bit of glue. \todo{Tim: We need to check, if this kind of rule is OK for Aldebaran. Katie: Working on this.}
 
 \item Use of alternate memory sticks in replacement of the Aldebaran supplied memory sticks.
 
@@ -317,11 +317,11 @@ The only wireless hardware allowed to be used by the teams are the wireless netw
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The IP addresses, channels, SSIDs, and WEP keys of the fields will be announced at the competition site.
 
-Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used\todo{We need to define this packet. It will be similar to the drop-in packet and contain an additional data field that can be used by the teams for whatever they want.}, and not more than five messages per robot per second are sent. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
+Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used\todo{post packet Tim made}, and not more than five messages per robot per second are sent. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exists humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language such as English and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages.\todo{note the coach packet} However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds, all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exists humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language such as English and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
 The use of remote processing/sensing is prohibited.
 
@@ -541,11 +541,9 @@ If a team is not ready to play at the assigned time for a game, the referee will
 \label{sec:referee_timeout}
 The head official may call a timeout at any stoppage of play if he or she deems it necessary.  A referee timeout should only be called in dire circumstances --- one example might be when the power to the wireless router is down.  However, when and whether to call a referee timeout is left up to the head referee.
 
-The referee may call at most one \textbf{10 minute} timeout per game.  Teams may do anything during this timeout, but they must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after the referee prematurely ends the timeout, whichever is earlier.
+Referees may call multiple timeouts during a game if needed.  Teams may do anything during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout.  The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
 
 The team who would have kicked off if the timeout had not been called shall kickoff when the game resumes.
-
-\todo{Eric: What should the referees do if the problem lasts longer than 10 minutes?}
 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
@@ -622,7 +620,7 @@ When a robot commits a foul, the head referee shall call out the infraction comm
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
 
-Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for 30 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.\todo{Should we increase it to 45 seconds?  Or consider some other standard penalty, such as cards?}
+Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for 30 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.\todo{Should we increase it to 45 seconds?}
 
 When the head referee indicates a foul has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
@@ -1005,7 +1003,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Small Ks and Ds will be marked on the field to specify manual positions for the kick-off team and the defensive team. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
-  \item Added a 10-minute referee timeout. (Section \ref{sec:referee_timeout})
+  \item Added the possibility of referee timeouts. (Section \ref{sec:referee_timeout})
 	\item Moved subsection about penalty kick to the end of the \textit{Game Process} section and merged it with section about penalty shootout. (Section \ref{sec:penalty_kick})
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
 	\item Clarified definition of the end of a penalty shot: The ball has to come to a full stop. (Section \ref{sec:penalty_kick})
