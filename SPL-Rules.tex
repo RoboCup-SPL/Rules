@@ -845,13 +845,12 @@ The main point of this competition is for teams to develop `drop-in' players tha
 
 \subsection{Organization}
 
-Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the competition.
+Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the RoboCup 2014 competition.
 
 All normal game rules apply in this challenge.  The only exceptions will be:
 \begin{itemize}
 \item Any player may be goal keeper (ie, enter the goal box and behave as goal keeper).  However, once one player has become goal keeper for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if more than one defensive field player enters the goal box, the newly entering field players should be removed as illegal defenders.
 \item Drop-in teams will not have a coaching robot.
-\item Identifying markers --- such as sponsor logos, team logos, robot names, ect --- on participating robots must be removed or covered with white tape.
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}). 
@@ -865,7 +864,7 @@ The challenge will be scored using two metrics:
 \item average human judged score 
 \end{itemize}
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing.  We will take the median score of these five judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria:\todo{This list of criteria may change slightly.}
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible).  We will take the median scores of these five judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria\footnote{This list of criteria and/or the weighting may change slightly after the local opens, but will be finalized by May 1st, 2014.}:
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
@@ -886,7 +885,6 @@ The judges will be members of the technical committee, organizing committee, and
   \item Team has no goal keeper = -3 (for each robot on the team)
   \end{itemize}
 \end{itemize}
-
 
 When calculating the average goal difference for each drop-in player, the player's best and worst games with respect to average goal difference will be disregarded.  Likewise, when calculating the average human judged score for each drop-in player, the player's best and worst games with respect to human judged score will be disregarded.  The two metrics will then be normalized and added up to determine the overall winner of this competition:
 \begin{itemize}
