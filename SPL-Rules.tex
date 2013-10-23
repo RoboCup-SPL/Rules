@@ -865,26 +865,28 @@ The challenge will be scored using two metrics:
 \item average human judged score 
 \end{itemize}
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be three judges for each game, where judges will not judge any game in which their team is competing.  We will take the median score of these three judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria:
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing.  We will take the median score of these five judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria:\todo{This list of criteria may change slightly.}
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
   \item Appropriate decision to pass to teammate = +3
-  \item Appropriate decision to shoot on goal = +3
+  \item Appropriate decision to shoot on goal = +2
   \item Pass to teammate that subsequently scores a goal = +5
-  \item Clearing the ball from own penalty area = +1
-  \item walking into a teammate = -2
-  \item disturbing own goal keeper = -2
-  \item penalty/card = -1
+  \item Appropriate decision to clear the ball from own penalty area = +3
+  \item Appropriate decision to clear the ball from defensive end = +2
+  \item Keeper and defender coordinate positions = +2
+  \item Walking into a teammate = -2
+  \item Disturbing own goal keeper = -2
+  \item Kicked ball out of bounds = -1
+  \item Penalty = -1
+  \item Unclassified bonus or penalty (capped at -10/+10 per game)
   \end{itemize}
 \item Judged once per half:
   \begin{itemize}
-  \item team has no goal keeper = -3 (for each robot on the team)
-  \item good positioning = between 0 and 10 (individual score per robot)
+  \item Team has no goal keeper = -3 (for each robot on the team)
   \end{itemize}
 \end{itemize}
-\todo{Score a drop-in game from 2013, and ensure these are reasonable}
-\todo{Eric: the judging appears to reward offense far more than defense (assuming passing occurs in either situation). Also some of the terms are vaguely defined - e.g. would kicking the ball out count for "clearing from own penalty area", it is easy to see how a "pass" could be interpreted very differently by different people, etc.}
+
 
 When calculating the average goal difference for each drop-in player, the player's best and worst games with respect to average goal difference will be disregarded.  Likewise, when calculating the average human judged score for each drop-in player, the player's best and worst games with respect to human judged score will be disregarded.  The two metrics will then be normalized and added up to determine the overall winner of this competition:
 \begin{itemize}
