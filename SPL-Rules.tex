@@ -394,7 +394,7 @@ Note that a goal can never be awarded where the last contact of the ball with a 
 
 \subsection{Goal Keeper Save}
 \label{sec:goalie_save}
-While within its penalty area, a goal keeper may touch the ball with its arms and/or hands.  If a goal keeper is able to lift the ball off of the ground using its arms and/or hands, and hold it there for at least 1 second, the ball will be moved to the intersection of a throw-in line and the halfway line.
+While within its penalty area, a goal keeper may touch the ball with its arms and/or hands.  If a goal keeper is able to lift the ball off of the ground using its arms and/or hands, and hold it there for at least 1 second, the ball will be moved to either intersection of a throw-in line and the halfway line.
 
 The robot is not required to lift the ball to a particular height in order for the ball to be considered to be `lifted off of the ground', but lack of contact between the ball and ground must be clearly recognizable by the head referee.
 
@@ -774,7 +774,7 @@ In addition, a robot that walks into the goal net for more than 5 seconds will a
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
 
-Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both feet (\ie at least touching the line) or more than half of the body (lying on the floor) inside the penalty area is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area.
+Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both feet (\ie at least touching the line) or more than half of the body (lying on the floor) inside the penalty area is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
@@ -866,23 +866,22 @@ The judges will be members of the technical committee, organizing committee, and
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
-  \item Appropriate decision to pass to teammate = +3
-  \item Appropriate decision to shoot on goal = +2
-  \item Pass to teammate that subsequently scores a goal = +5
-  \item Appropriate decision to clear the ball from own penalty area = +3
-  \item Appropriate decision to clear the ball from defensive end = +2
-  \item Keeper and defender coordinate positions = +2
-  \item Walking into a teammate = -2
-  \item Disturbing own goal keeper = -2
-  \item Kicked ball out of bounds = -1
+  \item Appropriate decision to pass to teammate = +1 -- +3
+  \item Receiving a pass = +1 -- +2
+  \item Pushing a teammate = -2
   \item Penalty = -1
-  \item Unclassified bonus or penalty (capped at -10/+10 per game)
   \end{itemize}
 \item Judged once per half:
   \begin{itemize}
-  \item Team has no goal keeper = -3 (for each robot on the team)
+   \item Unclassified bonus or penalty (capped at -3 /+3; needs justification by judge if $\neq 0$)
   \end{itemize}
 \end{itemize}
+
+The major manifestation of soccer cooperation is passing among robots. This is why passing and receiving are the only actions that result in a positive score. In both cases, a range of possible points is specified. This allows the judges to award the significance and brilliance of a pass. In any case, passes that do not provide any benefit for the team should not be awarded. Receiving a pass is an expression of useful positioning. A pass does not necessarily need to be precise (i.e. touch the receiver precisely) and can instead be a shot into open space into which a teammate walks.
+
+Pushing a teammate, which is judged using the same criteria as player pushing, is penalized because well positioned players should rarely be in a position from which pushing a teammate is possible.  Penalties that result in a player receiving the standard removal penalty are also penalized, as it is bad for the entire team when a player is removed from the field.
+
+At the end of each half, each judge may assign each robot an additional score between -3 and +3 (the default score is 0). If a robot behaves in an obviously uncooperative manner (e.g. by just standing around passively most of the time), it can receive a negative score. If a robot performs actions that are benefiticial for the team and are not covered by the other rules (e.g. some nice field player / goalie coordination), a positive score can be awarded.  Any score different from 0 needs a short explanation (this both justifies the score and will help the TC adapt the rule set for future competitions).
 
 When calculating the average goal difference for each drop-in player, the player's best and worst games with respect to average goal difference will be disregarded.  Likewise, when calculating the average human judged score for each drop-in player, the player's best and worst games with respect to human judged score will be disregarded.  The two metrics will then be normalized and added up to determine the overall winner of this competition:
 \begin{itemize}
@@ -998,7 +997,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \subsection*{Game Process}
 \begin{itemize}
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
-	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball and holding it for at least 1 second.  The ball is then placed on the intersection of a throw-in line and the halfway line. (Section \ref{sec:goalie_save}) 
+	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball and holding it for at least 1 second.  The ball is then placed on either intersection of a throw-in line and the halfway line. (Section \ref{sec:goalie_save}) 
 	\item Small Ks and Ds will be marked on the field to specify manual positions for the kick-off team and the defensive team. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
@@ -1019,6 +1018,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
 	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
     \item Definition of illegal defense has been extended to lying robots. (Section \ref{sec:illegal_defender})
+	\item If an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling). (Section \ref{sec:illegal_defender})
 	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goal keeper in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
 	\item Adapted definition of jamming to new wireless rules. (Section \ref{sec:jamming})
 \end{itemize}
