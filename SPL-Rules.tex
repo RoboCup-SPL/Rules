@@ -985,9 +985,10 @@ This is a brief list of rule changes from 2013 to 2014.
 
 \subsection*{Robot Players}
 \begin{itemize}
-   \item Added the coaching robot. (Section \ref{sec:robot_players})
+   \item Added the coaching robot. (Sections \ref{sec:robot_players} and \ref{sec:coaching_robot})
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
+	\item At most one field player may enter their own penalty area at any given time. (Section \ref{sec:field_players})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
 	\item Only UDP communication is allowed. (Section \ref{sec:wireless})
     \item Teams have to use the standard communication packet. (Section \ref{sec:wireless})
@@ -1009,24 +1010,26 @@ This is a brief list of rule changes from 2013 to 2014.
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
+	\item Clarified that robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion. (Section \ref{sec:locomotion_type})
         \item The standard removal penalty time has been increased from 30 seconds to 45 seconds. (Section \ref{sec:removal_penalty})
+	\item The operator of the GameController will signal the assistant referees when a penalty is 10 seconds from being over. The assistant referees should turn the penalized robot to face towards the field when approximately 5 seconds are left before the penalty ends. (Section \ref{sec:removal_penalty})
         \item The goal keeper is allowed to hold the ball for up to 10 seconds as long as it has one foot inside in its own penalty area. (Section \ref{sec:ball_holding})
 	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{sec:situations_no_ball_holding})
 	\item Added definition and penalty for coach motion. (Section \ref{sec:coach_motion})
 	\item A robot currently getting up cannot be penalized for pushing. (Section \ref{sec:situations_no_pushing})
 	\item Edited the pushing definition to include ``any form of contact that has enough force to destabilize a robot, such that walking and/or kicking is impeded'' instead of ``any form of contact that has enough force to knock a robot over''. (Section \ref{sec:pushing_contact})
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
+	\item A field player or a goal keeper outside its own penalty box should always be penalized when touching the ball with its arms/hands.  This contact does not need to be intentional or manipulative. (Section \ref{sec:hand_ball})
 	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
     \item Definition of illegal defense has been extended to lying robots. (Section \ref{sec:illegal_defender})
 	\item If an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling). (Section \ref{sec:illegal_defender})
-	\item Removed the 'Playing with Hands' requirement for the action to be intentional and manupulative.  Any robot who contacts the ball with hand or arms (and is not the goal keeper in the penalty box) will be penalized. (Section \ref{sec:hand_ball})
 	\item Adapted definition of jamming to new wireless rules. (Section \ref{sec:jamming})
 \end{itemize}
 
 \subsection*{Judgement}
 \begin{itemize}
 	\item The operator of the Game Controller should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
-	\item The operator of the Game Controller is now officially in charge of game timing. (Section \ref{sec:gameControllerOp})
+	\item The operator of the Game Controller is now officially in charge of game timing.  The operator should count aloud the remaining seconds in a half once the time remaining is 5 seconds or less. (Section \ref{sec:gameControllerOp})
 \end{itemize}
 
 \subsection*{Appendices}
@@ -1034,7 +1037,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Added a description of the drop-in player competition. (Appendix \ref{sec:drop-in})
 	\item Moved rules that are not directly relevant for games into the Appendix. (Appendix \ref{sec:comRules})
 	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and game controller and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
-	\item At the end of each game, captains for the playing teams will rate each of the referees for that game.  Top officials will be used in the semi-final, championship, and 3rd place games.
+	\item At the end of each game, captains for the playing teams will rate each of the referees for that game.  Top officials will be used in the semi-final, championship, and 3rd place games. (Section \ref{sec:refSelection})
 	\item Added a description of the pre-qualification for the subsequent year. (Appendix \ref{sec:preQual})
 \end{itemize}
 
