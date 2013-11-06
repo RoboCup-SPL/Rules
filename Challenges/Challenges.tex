@@ -242,7 +242,38 @@ Dietmar has to add a description here.
 
 \section{Sound Recognition Challenge}
 
-Dietmar has to add a description here.
+WLAN communication is one burden SPL robotic soccer has to cope with. As it is neither reliable under tournament conditions nor human-like in any means (rate of data exchange, communication medium) this challenge is the first step towards getting rid of it. To pave way for acoustic signals and acoustic communication in future RoboCup tournaments, this years challenge introduces acuesthesia for the teams' robots. Goal of this challenge is to make our robots hear. To be more precise, this year's goal is to make SPL robots recognize specific acoustic signals for game events like game-start and game-stop.
+
+The challenge consists of two major parts:
+\begin{description}
+	\item[Recognition of predefined signals:]Robots have to recognize predefined static signals emitted by a global sound system. Similar to the horn like audible alarms in ice hokey, where halftime start and end are signaled that way, future RoboCup tournaments can rely on this mechanism to signal RefBox messages. The predefined acoustic signals are provided by the TC as wav files at least four month prior to the tournament.
+	
+	\item[Recognition of individual whistles:]Teams should bring one whistle, which has to be recognized by the team's robots. This part of the challenge brings in a ``real soccer'' aspect to the SPL.
+	
+\end{description}
+
+\begin{figure}[th!]
+\centerline{\includegraphics[width=0.5\columnwidth,angle=270]{figures/acuesthesia}}
+\caption{Setup for the Sound Recognition Challenge}
+\label{fig:recognition_challenge}
+\end{figure}
+
+For both parts of the challenge the field setup is depicted in Figure~\ref{fig:recognition_challenge}. A team has to place one robot at each location labeled 1, 2, and 3. For the first part of the challenge (predefined signals) loudspeakers are mounted at locations A and B. The loudspeakers emit the signals solely and jointly. For the second part of the challenge (whistle) one team member is positioned at a random position on the field to blow the whistle. Provision of additional signals (visual, audible, or WLAN) are prohibited.
+
+Whenever a robot recognizes a given signal it has to raise an arm immediately for 10 seconds (latest within one second after the given signal).
+Points are scored by validly recognizing emitted sounds. Falsely detected signals, so raising an arm without given audible alarms, are counted as negative score and hence are subtracted from the overall score.
+
+The competition procedure will be as follows:
+
+\begin{description}
+	\item[Setup:] The team has to place its robots on the field in accordance to Figure~\ref{fig:recognition_challenge}
+	\item[Predefined signals recognition:] Each predefined signal is emitted by loudspeaker A. Robots have to signal any detected sound immediately. After a short break the signal is emitted by loudspeaker B, and after another short break it is emitted by loudspeaker A and B simultaneously. Afterwards this sequence is repeated once. The overall sequence is the same for each predefined signal. So for two predefined signals it would look like A,B,AB,A,B,AB,A',B',A'B',A',B',A'B' where ' denotes the second predefined signal.\\
+	\\For each emitted signal and each robot $1$ point can be achieved. For each false positive $-1$ point will be accounted. For the example sequence in best case $36$ points can be scored.
+	\item[Whistle recognition:] One team member is placed at a random position on the field simulating a moving main referee. Signaled by the organizers the teams's whistle is blown once for about one second. After a short break the team member is relocated to a second random position and repeats the process.\\
+	\\ For each emitted whistle blow and each robot $3x$ points can be scored where $x$ denotes the number of predefined signals from part one of the challenge. For each false positive $-3x$ point will be accounted. For the example sequence from above in best case $36$ points can be scored.
+\end{description}
+
+Finally, the overall score is calculated by summing up all points from part one and part two of the competition.
 
 
 
