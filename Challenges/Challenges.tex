@@ -259,9 +259,11 @@ Events of interest, specified by their \emph{eventID}, are:
 	\item[FALLEN\_ROBOT:] A fallen robot was detected. This event has to be reported only once for a fallen robot for each 10 second time slice.
 \end{description}
 
+This challenge will be held as a live challenge.  Each participating team will bring a notebook running their solution to the location of the challenge.  They will then get a USB stick containing the video file, and will need to process it live.  No human feedback will be allowed during or after processing.  The output csv file will need to be stored on the usb stick and will be returned to the technical committee.
+
 For each event of ROBOT\_ENTERING\_BOX, ROBOT\_LEAVING\_BOX, and FALLEN\_ROBOT an extra point can be gained if the optional parameter contains the robot's correct team color (RED, BLUE). 
 
-To calculate a teams score, the produced log file is cross checked with respect to events and timestamps precalculated by the organizers. If an event is observed within a valid time frame of $2$ seconds, $1$ point is scored. If the event is one of ROBOT\_ENTERING\_BOX, ROBOT\_LEAVING\_BOX, and FALLEN\_ROBOT, and the proper team color is provided, $1$ additional point is scored. Any false positives are accounted as $-1$ point. If a valid event is observed, but the wrong team color is reported, $0$ points are scored as $1+(-1)=0$. If a false positive event is logged with any team color only $-1$ point is accounted. 
+To calculate a teams score, the produced log file is cross checked with respect to events and timestamps precalculated by the organizers. If an event is reported within $1$ second of when it actually occurred, $1$ point is scored. If the event is one of ROBOT\_ENTERING\_BOX, ROBOT\_LEAVING\_BOX, and FALLEN\_ROBOT, and the proper team color is provided, $1$ additional point is scored. Any false positives are accounted as $-1$ point. If a valid event is observed, but the wrong team color is reported, $0$ points are scored as $1+(-1)=0$. If a false positive event is logged with any team color only $-1$ point is accounted. 
 
 Finally, the overall team score is calculated by summing up all points.
 
@@ -275,7 +277,7 @@ Finally, the overall team score is calculated by summing up all points.
 
 \section{Sound Recognition Challenge}
 
-WLAN communication is one burden SPL robotic soccer has to cope with. As it is neither reliable under tournament conditions nor human-like in any means (rate of data exchange, communication medium) this challenge is the first step towards getting rid of it. To pave the way for acoustic signals and acoustic communication in future RoboCup tournaments, this year's challenge introduces acuesthesia for the teams' robots. The goal of this challenge is to make our robots hear. To be more precise, this year's goal is to make SPL robots recognize specific acoustic signals for game events like game-start and game-stop.
+WLAN communication is one burden SPL robotic soccer has to cope with. As it is neither reliable under tournament conditions nor human-like in any means (rate of data exchange, communication medium) this challenge is the first step towards getting rid of it. To pave the way for acoustic signals and acoustic communication in future RoboCup tournaments, this year's challenge introduces accoustic senses for the teams' robots. The goal of this challenge is to make our robots hear. To be more precise, this year's goal is to make SPL robots recognize specific acoustic signals for game events like game-start and game-stop.
 
 The challenge consists of two major parts:
 \begin{description}
@@ -291,9 +293,9 @@ The challenge consists of two major parts:
 \label{fig:recognition_challenge}
 \end{figure}
 
-For both parts of the challenge the field setup is depicted in Figure~\ref{fig:recognition_challenge}. A team has to place one robot at each location labeled 1, 2, and 3. For the first part of the challenge (predefined signals) loudspeakers are mounted at locations A and B. The loudspeakers emit the signals solely and jointly. For the second part of the challenge (whistle) one team member is positioned at a random position on the field to blow the whistle. Provision of additional signals (visual, audible, or WLAN) are prohibited.
+For both parts of the challenge the field setup is depicted in Figure~\ref{fig:recognition_challenge}. A team has to place one robot at each location labeled 1, 2, and 3 in a way such that the robots can not see each other. In addition, robots must look forward and may not move their head. For the first part of the challenge (predefined signals) loudspeakers are mounted at locations A and B. The loudspeakers emit the signals solely and jointly. For the second part of the challenge (whistle) one team member is positioned at a random position on the field to blow the whistle. Provision of additional signals (visual, audible, or WLAN) are prohibited.
 
-Whenever a robot recognizes a given signal it has to raise an arm immediately for 10 seconds (latest within one second after the given signal).
+Whenever a robot recognizes a given signal it has to raise an arm immediately for 5 seconds (within one second after the given signal).
 Points are scored by validly recognizing emitted sounds. Falsely detected signals, so raising an arm without given audible alarms, are counted as negative scores and hence are subtracted from the overall score.
 
 The competition procedure will be as follows:
