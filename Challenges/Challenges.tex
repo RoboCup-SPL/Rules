@@ -180,6 +180,12 @@ To assess the current state of the art regarding walking stability and to foster
 
 In this challenge, a participating robot has to walk over a number of different carpets. The layout of the carpets is depicted in Fig. \ref{fig:walking_challenge}.
 
+\begin{figure}[th!]
+\centerline{\includegraphics[width=0.6\columnwidth]{figures/walking-challenge}}
+\caption{The field layout for the Walking Challenge: Six pieces of different carpets are placed next to each other between the two penalty areas. Each piece of carpet is about 1 meter wide and 3 meters long. A participating robot starts in the center of a penalty area (the team can choose the penalty area), facing the goal on the opposite side of the field.}
+\label{fig:walking_challenge}
+\end{figure}
+
 For each successfully mastered carpet, the robot can gain either 1, 2, or 4 points: 
 
 \begin{description}
@@ -187,12 +193,6 @@ For each successfully mastered carpet, the robot can gain either 1, 2, or 4 poin
 \item[2 points] for successfully traversing a carpet and having been standing still for at least 2 seconds while being completely on the carpet. If the robot has fallen while being on the carpet, the 2 points will not be awarded. However, if successfully leaving the carpet, the robot can still achieve 1 point.
 \item[4 points] for successfully traversing a carpet and making a full turn of 360 degrees while being completely on the carpet. If the robot has fallen while being on the carpet, the 4 points will not be awarded. However, if successfully leaving the carpet, the robot can still achieve 1 point.
 \end{description}
-
-\begin{figure}[th!]
-\centerline{\includegraphics[width=0.6\columnwidth]{figures/walking-challenge}}
-\caption{The field layout for the Walking Challenge: Six pieces of different carpets are placed next to each other between the two penalty areas. Each piece of carpet is about 1 meter wide and 3 meters long. A participating robot starts in the center of a penalty area (the team can choose the penalty area), facing the goal on the opposite side of the field.}
-\label{fig:walking_challenge}
-\end{figure}
 
 The carpets will be arranged with the most difficult carpets close to the center of the field and the easiest carpets close to the goals. There will not be any gaps between the carpets. However, as the carpets are put on a standard field and are expected to have different heights, teams have to be aware that the overall configuration will contain multiple thresholds over which the robot has to walk.
 
@@ -214,7 +214,7 @@ The carpets will be brought to the competition by TC members and the teams. On s
 
 Unlike humans, which are able to play soccer (at least at a basic level) independent of most environment features (\ie size and color of the ball, lighting, structure of the ground, size of goals, ...), most soccer robots still rely on very strict specifications of their environment. In recent years, the Standard Platform League addressed this issue by removing artificial field elements such as the borders and additional beacons, as well as by holding technical challenges that require playing under varying lighting conditions (2004) and playing with any ball (2009).
 
-This challenge will be about shooting a (standard) ball into a (standard) goal that is not placed on an SPL field but on the floor of some room or hall at the RoboCup venue. The TC will determine the exact place but keep it secret to all participating teams. The chosen place will be challenging but reasonable, \ie, for instance, the ground will be even and hard and there will not be many orange features or yellow walls in the environment.
+This challenge will be about shooting a (standard) ball into a (standard) goal that is not placed on an SPL field but on the floor of some room or hall at the RoboCup venue. The TC will determine the exact place but keep it secret to all participating teams. The chosen place will be challenging but reasonable, \ie, for instance, the ground will be even, hard, and preferably carpeted. There should not be many orange features or yellow walls in the environment.
 
 At the beginning of the challenge, everybody meets at the SPL area. The TC will fetch an official ball and one official goal. Every participating team will bring one robot. From then on, it will not be allowed to change the software or configuration of any robot. The group walks to the place that has been chosen for the challenge. The goal is placed and starting points for the robot and the ball as well as the field of play will be marked. All markers will be (almost) invisible to the robot. The size and shape of the field of play will be similar to a half of the original SPL field and denotes the area in which the robot has to perform.
 
