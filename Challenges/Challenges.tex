@@ -1,107 +1,48 @@
-\documentclass[12pt]{article}
-
-\usepackage{times,fullpage,xspace,fancyhdr,url}
-\usepackage[pdftex]{graphicx}
-\usepackage[pdftex,
-            a4paper,
-            colorlinks=true,
-            urlcolor=black,
-            linkcolor=black,
-            citecolor=black,
-            bookmarksopen=false,
-            bookmarksnumbered=true,
-            pdfstartview=FitH]{hyperref}
-
+\documentclass{article}
 \usepackage{graphicx}
-\usepackage{xspace,color}
-\pdfcompresslevel=9
-\newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
-\hypersetup{
- pdftitle={\leaguename Technical Challenge Proposals 2014},
- pdfauthor={Technical Committee},
-}
-\usepackage[latin1]{inputenc}
-\usepackage{amsmath}
+\usepackage{url}
+\usepackage{verbatim}
 \usepackage{times}
-
-% comment 'disable' in to disable all the todo notes :)
-\usepackage
-[
-%disable
-]{todonotes}
-
-\sloppy
-\newcommand{\ie}{\mbox{i.\,e.}\xspace}
-\newcommand{\eg}{\mbox{e.\,g.}\xspace}
-\newcommand{\cf}{\mbox{cf.}\xspace}
-\newcommand{\comment}[1]{\marginpar{\pdfannot width 4in height .5in depth 8pt {/Subtype /Text /Contents (#1)}}}
-\newcommand{\inparagraph}[1]{\paragraph{#1\hspace{-1em} }}
-
-
-% some colors
-\definecolor{orange}{rgb}{1,0.5,0}
-\definecolor{red}{rgb}{1,0,0}
-\definecolor{green}{rgb}{0,1,0}
-
-
-\title{\leaguename \\ Technical Challenge Proposals}
-\author{RoboCup Technical Committee}
-\date{(2014 rules, as of \today)}
-
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 6pt minus 3 pt}
-\setcounter{tocdepth}{1}
-\widowpenalty=10000
-\clubpenalty=10000
-
-\pagestyle{fancy}
-\lhead{}
-\chead{}
-\rhead{}
-\lfoot{}
-\cfoot{}
-\rfoot{}
-
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-
-% needed to align an image and text correctly side by side
-\newcommand{\imagebox}[1]{\raisebox{2ex}{\raisebox{-\height}{#1}}}
-
-
+\usepackage{url}
+\usepackage{epsfig}
+\usepackage{amsmath}
 
 \begin{document}
 
+\title{Technical Challenges for the RoboCup 2013 Standard Platform League Competition}
+
+\author{RoboCup SPL Technical Committee}
+
 \maketitle
 
-For RoboCup 2014, the Technical Committee identified five possible technical challenges, which are described in this document. Out of these five, two or three challenges will be selected based on the vote of all SPL teams that intend to participate in RoboCup 2014 (\ie that submit qualification material). For this purpose, an online poll is open at {\small \url{http://goo.gl/1itolR}} until December 8th, 2013.
+\section{Introduction}
+\label{sec:introduction}
 
-The proposals described in this document have to be considered as drafts. The final challenge rules might be slightly different and may contain more details.
+There are three technical challenges that will be held at the RoboCup 
+2013 Standard Platform League Competition. These are:
 
-The scores earned in each challenge will vary in magnitude.  Hence, they must be scaled before calculating the overall technical challenge rankings.  Teams who do not participate in a challenge will recieve 0 points for that challenge.  The team with the highest total score for a challenge will get 25 points for that challenge, while the team with the lowest total score for a challenge will get 5 points for that challenge.  A linear equation will then be fit to these two points, and each other participating team in that challenge will gain points for that challenge based on this equation.
+\begin{itemize}
+\item The Open Challenge (Section~\ref{sec:open})
+\item The Passing Challenge (Section~\ref{sec:passing})
+\item The Drop-In Player Challenge (Section~\ref{sec:dropIn})
+\end{itemize}
 
-Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@lists.robocup.org}}.
+The team with the top score in a challenge will receive 25 points, each 
+position thereafter will receive 1 less point; i.e. 1st = 25pts, 2nd = 24pts, 
+3rd = 23pts ... 25th = 1pts. In the case of a draw, each team will receive 
+the average of the points allocated to these positions; e.g. if three teams 
+tie for 2nd, they will receive $(24+23+22)/3 = 23$ points. Teams not competing 
+in a challenge will receive 0 points.  If a team competes in a challenge, but fails to 
+score a point (or receive a vote), they will also receive 0 points. The team 
+with the highest total score after all challenges is deemed the overall 
+challenge winner.
 
-\vfill
+All challenges will use the 2013 field and the 2013 rules will apply.  Each 
+challenge will be performed in a two hour time slot, where the time slots of 
+each challenge will not overlap.
 
-\renewcommand\contentsname{Challenges}
-\tableofcontents
-\setcounter{tocdepth}{1}
-
-\thispagestyle{fancy}
-
-\clearpage
-
-\cfoot{\thepage}
-\setcounter{page}{1}
-
-
-
-% % % % % % % % % % % % % % % % % % % % % % % %
-
-
-
-\section{Open Challenge}
+\section{The Open Challenge}
+\label{sec:open}
 \newcommand{\openMinNum}{three}
 
 This challenge is designed to encourage creativity within the Standard 
@@ -111,7 +52,7 @@ minutes of time on the RoboCup field to demonstrate their research.
 
 Each team that wishes to compete in this challenge \emph{must} send a 
 short, one page document describing their demonstration to the technical 
-committee by \textbf{[date will be announced later]}.  Teams who do not submit this description by 
+committee by \textbf{May 27, 2013}.  Teams who do not submit this description by 
 the deadline will not be allowed to compete in this challenge. These 
 descriptions will be posted on the website before the competition.
 
@@ -161,156 +102,116 @@ following criteria: technical strength, novelty, expected impact and
 relevance to RoboCup. At a time decided by the designated referee,
 within one hour of the last demonstration if not otherwise
 specified, the captain of each team will submit his or her team's rankings 
-by filling out an online form at \textbf{[URL will be announced later]}.  Any points 
+by filling out an online form at \url{http://goo.gl/vIVTr}.  Any points 
 awarded by a team to itself will be disregarded. The points awarded by the 
 teams will be summed, and the team with the highest total score shall be the winner.
 
-\newpage
 
+\section{The Passing Challenge}
+\label{sec:passing}
+This challenge is intended to encourage teams to develop passing skills. In this challenge,
+each team will be required to provide three robots, all robots must be in the same
+colored uniform (the decision on the color of the uniforms can be made by each team).
+Each robot will placed on the field inside a circle of radius 35cm (Figure \ref{fig:passing}). The center 
+of the circles will be no closer then 80cm and no further then 250cm apart. The triangle formed 
+by the circles will not be equilateral, i.e. the distances between robots will be different.  
+The circles may be marked with a felt-tip marker (such that they are invisible to the robots) or 
+with white tape (such that they may be visible to the robots).
 
-
-% % % % % % % % % % % % % % % % % % % % % % % %
-
-
-
-\section{Walking Challenge}
-
-One frequently discussed topic is to exchange the current field carpet for a more challenging surface, \eg artificial lawn.
-To assess the current state of the art regarding walking stability and to foster research into this direction, the \textit{Walking Challenge} has been prepared.
-
-In this challenge, a participating robot has to walk over a number of different carpets. The layout of the carpets is depicted in Fig. \ref{fig:walking_challenge}.
-
-\begin{figure}[th!]
-\centerline{\includegraphics[width=0.6\columnwidth]{figures/walking-challenge}}
-\caption{The field layout for the Walking Challenge: Six pieces of different carpets are placed next to each other between the two penalty areas. Each piece of carpet is about 1 meter wide and 3 meters long. A participating robot starts in the center of a penalty area (the team can choose the penalty area), facing the goal on the opposite side of the field.}
-\label{fig:walking_challenge}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.6\linewidth]{figures/passing.eps}
+\caption{An example placement of the robots for the passing challenge.}
+\label{fig:passing}
 \end{figure}
 
-For each successfully mastered carpet, the robot can gain either 1, 2, or 4 points: 
+The location of the circles will be made available on the morning of the challenge.
+It will be the responsibility of each team to make sure they have set the correct points.
 
-\begin{description}
-\item[1 point] for successfully traversing a carpet. A carpet is considered as \textit{traversed} if the robot has been completely on the carpet (\ie there has been a point of time at which both feet have been completely on the carpet) and has left it completely afterwards (\ie no part of the robots touches the carpet anymore). Between entering and leaving the carpet, there must be at least three steps. It does not matter if the robot has fallen during traversing the carpet.
-\item[2 points] for successfully traversing a carpet and having been standing still for at least 2 seconds while being completely on the carpet. If the robot has fallen while being on the carpet, the 2 points will not be awarded. However, if successfully leaving the carpet, the robot can still achieve 1 point.
-\item[4 points] for successfully traversing a carpet and making a full turn of 360 degrees while being completely on the carpet. If the robot has fallen while being on the carpet, the 4 points will not be awarded. However, if successfully leaving the carpet, the robot can still achieve 1 point.
-\end{description}
+Ten minutes before the challenge is scheduled to start, participating teams must
+provide the three robots participating in the challenge to the Technical Committee 
+(switched off).
 
-The carpets will be arranged with the most difficult carpets close to the center of the field and the easiest carpets close to the goals. There will not be any gaps between the carpets. However, as the carpets are put on a standard field and are expected to have different heights, teams have to be aware that the overall configuration will contain multiple thresholds over which the robot has to walk.
+Before the challenge, each robot will be booted and put into the \emph{penalized} 
+state. The GameController will configure the robots to team color \emph{blue}.  Once each 
+robot has been placed inside a circle, they will be placed into the `set' state for 
+15 seconds. The robots will then be placed into `playing' and given three minutes to 
+pass the ball around.
 
-A robot can only receive one score per carpet. The order of mastered carpets does not matter. The order of performed actions does not matter either. Therefore, it would be possible, for instance, to walk straight over all carpets (and gain 1 point for each carpet) and to return to some of the carpets afterwards to achieve higher scores on these carpets.
+A pass will be regarded as successful when:
+\begin{itemize}
+\item The passing robot kicks the ball from inside its circle \emph{and}
+\item the catching robot stops/controls the ball inside its circle. Stops/control will be
+left to the referee's discretion. Examples are:
+\begin{itemize}
+\item The ball comes to a complete stop.
+\item The robot is capable of kicking the ball from one circle to another without the need for stopping the ball.
+\end{itemize}
+\end{itemize}
 
-Each robot will be given 3 minutes to walk on the field. If a robot falls over and its get up motion fails on a particular surface, the team can request to relocate the robot to one of the starting positions (the team can choose a new starting position for each relocation).
+A pass will be deemed \emph{partially} successful if:
+\begin{itemize}
+\item The passing robot kicks the ball from inside its circle \emph{and}
+\item the catching robot touches the ball inside the circle but the ball then travels outside the circle.
+\end{itemize}
 
-The carpets will be brought to the competition by TC members and the teams. On site, all available carpets will be presented and six carpets will be selected by the TC for the challenge. The selection should cover a broad range of (un)evenness and slippage. Each carpet's difficulty is judged by the TC. All carpets will be green (in any shade) but do not need to be uniform.
+A pass is deemed unsuccessful if:
+\begin{itemize}
+\item Either robot makes contact with the ball when the ball is outside a circle \emph{or}
+\item the ball exits the field.
+\end{itemize}
 
-\newpage
+A robot is deemed to be inside a circle if part of one foot is inside the circle. The ball is
+inside the circle if some part of the ball is inside the circle. The line is regarded as inside the circle.
 
+Robots may pass the ball between each other in any order, but will be rewarded for passing
+to a different robot then that which passed to it. Scoring of the challenge will be as
+follows:
+\begin{itemize}
+\item \textbf{3 pts} For a successful non `return' pass that directly follows a successful pass reception.
+\item \textbf{1 pt} For a successful pass.
+\item \textbf{0.5 pt} For a partially successful pass.
+\end{itemize}
 
+For example, if robot 2 starts with the ball and successfully passes to robot 3, one point will be awarded.  Then if robot 3 successfully passes to robot 1, three points will be awarded.  If robot 1 then successfully passes back to robot 3, one point will be awarded.  If robot 3 then successfully passes to robot 2, three points will be awarded.  If robot 2 then has a partially successful pass to robot 1, 0.5 points will be awarded.  Then if robot 1 brings the ball back to its circle and then successfully passes to robot 3, one point will be awarded (if robot 1 had passed the ball before taking it back to its circle, no points would be awarded).
 
-% % % % % % % % % % % % % % % % % % % % % % % %
+All normal game rules apply in the challenge, except:
+\begin{itemize}
+\item if the ball leaves the field, it will be replaced back in the closest circle
+\item game stuck will not be called
+\end{itemize}
 
-
-
-\section{Any Place Challenge}
-
-Unlike humans, which are able to play soccer (at least at a basic level) independent of most environment features (\ie size and color of the ball, lighting, structure of the ground, size of goals, ...), most soccer robots still rely on very strict specifications of their environment. In recent years, the Standard Platform League addressed this issue by removing artificial field elements such as the borders and additional beacons, as well as by holding technical challenges that require playing under varying lighting conditions (2004) and playing with any ball (2009).
-
-This challenge will be about shooting a (standard) ball into a (standard) goal that is not placed on an SPL field but on the floor of some room or hall at the RoboCup venue. The TC will determine the exact place but keep it secret to all participating teams. The chosen place will be challenging but reasonable, \ie, for instance, the ground will be even, hard, and preferably carpeted. There should not be many orange features or yellow walls in the environment.
-
-At the beginning of the challenge, everybody meets at the SPL area. The TC will fetch an official ball and one official goal. Every participating team will bring one robot. From then on, it will not be allowed to change the software or configuration of any robot. The group walks to the place that has been chosen for the challenge. The goal is placed and starting points for the robot and the ball as well as the field of play will be marked. All markers will be (almost) invisible to the robot. The size and shape of the field of play will be similar to a half of the original SPL field and denotes the area in which the robot has to perform.
-
-Now, the robot has 3 minutes to score as many goals as possible. If a goal is scored, the robot as well as the ball are put back to their starting points. If the ball goes out of bounds, it will be put back on the starting point but the robot will remain in place. If a robot exits the field of play, it will be put back on its starting point but the ball will remain in place.
-
-
-\newpage
-
-
-
-% % % % % % % % % % % % % % % % % % % % % % % %
-
-
-
-\section{Autonomous Refereeing Challenge}
-
-Like in real soccer, referees in the SPL have to do a high skilled complex job that requires lots of concentration and awareness under tournament conditions. Being focused on an ongoing in-fight between defender and attacker to monitor fair play makes it nearly impossible to keep track of the back field and possible violations of rules there. In addition, several rules of the SPL require independent counters and timers and hence put another mental load on the main referee. This challenge aims at the creation of supporting AI-based tools for the SPL referees. The outcome of this year's challenge can be integrated into future RoboCup tournaments.
-
-The concrete task for the 2014 RoboCup is the development of a tool that monitors the goal box and players entering the box, leaving the box, and staying within the box. The tool should report violations of the current SPL rule set to the referees.
-
-\begin{figure}[th!]
-\centerline{\includegraphics[width=0.65\columnwidth]{figures/refmon}}
-\caption{Setup for the Automatic Referee Challenge}
-\label{fig:referee_challenge}
-\end{figure}
-
-For the challenge, teams will be provided a true color video stream (file) recorded by a top camera as depicted in Figure~\ref{fig:referee_challenge}. The video will capture a rectangular area around a goal box similar to the one sketched by the dotted line and representing the field of view (FOV) of the monitoring system. The monitoring system has to observe the video feed, detect robots and the ball, and record all activities. All observations have to be logged into a csv file using the following data format for score evaluation:
-
-\begin{verbatim}
-timeCode; frameNumber; eventID [; optionalParameter]	
-\end{verbatim}
-
-The \emph{timeCode} field holds the absolute time (mm:ss.nn) of the frame where an event was observed. For simplicity all video sequences start with time code 00:00.00 meaning minute 00, second 00.00, at frame $0$.
-
-Events of interest, specified by their \emph{eventID}, are:
-
-\begin{description}
-	\item[ROBOT\_ENTERING\_BOX:] A robot has entered the goal box. If there are already robots within the goal box in frame 00:00.00, this event has to be reported for each of them.
-	\item[ROBOT\_LEAVING\_BOX:] A robot has left the goal box. 
-	\item[BALL\_IN\_BOX:] The ball has entered the goal box. If the ball is already within the goal box in frame 00:00.00, this event has to be reported.
-	\item[BALL\_OUTOF\_BOX:] The ball has left the goal box.
-	\item[FALLEN\_ROBOT:] A fallen robot was detected. This event has to be reported only once for a fallen robot for each 10 second time slice.
-\end{description}
-
-This challenge will be held as a live challenge.  Each participating team will bring a notebook running their solution to the location of the challenge.  They will then get a USB flash drive containing the video file and will need to process it live.  No human feedback will be allowed during or after processing.  The output csv file has to be stored on the USB  flash drive and will be returned to the technical committee.
-
-For each event of ROBOT\_ENTERING\_BOX, ROBOT\_LEAVING\_BOX, and FALLEN\_ROBOT an extra point can be gained if the optional parameter contains the robot's correct team color (RED, BLUE). 
-
-To calculate a team's score, the produced log file is cross checked with respect to events and timestamps precalculated by the organizers. If an event is reported within $1$ second of when it actually occurred, $1$ point is scored. If the event is one of ROBOT\_ENTERING\_BOX, ROBOT\_LEAVING\_BOX, and FALLEN\_ROBOT, and the proper team color is provided, $1$ additional point is scored. Any false positives are accounted as $-1$ point. If a valid event is observed, but the wrong team color is reported, $0$ points are scored as $1+(-1)=0$. If a false positive event is logged with any team color, only $-1$ point is accounted. 
-
-Finally, the overall team score is calculated by summing up all points.
+If a rule is violated then any pass resulting from this violation will receive no points, and the pass itself will be considered unsuccessful.
 
 
-\newpage
+\section{The Drop-In Player Challenge}
+\label{sec:dropIn}
+The main point of this challenge is for teams to develop `drop-in' players that can be good teammates and play well with a team composed of drop-in players from a variety of teams.
 
+Each participating team will contribute one drop-in player.  Each drop-in player will compete in 5 minute games with at least three different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the challenge.
 
-% % % % % % % % % % % % % % % % % % % % % % % %
+So that we can randomly draw teams and organize this challenge, each team that wishes to compete in this challenge must send a statement regarding their intent to participate in this challenge to the technical committee by \textbf{May 27, 2013}.  Teams who do not submit an intent to participate by this deadline will not be allowed to compete in this challenge.
 
+All normal game rules apply in this challenge.  The only exception will be:
+\begin{itemize}
+\item Any player may be goalie (ie, enter the goal box and behave as goalie).  However, once one player has become goalie for a team, this player will be the goalie for the remainder of the game.  Any subsequent defensive players to enter the goal box will be removed as illegal defenders.
+\end{itemize}
 
+Each drop-in player may communicate with its teammates using a simple protocol.  However, drop-in players are not required to utilize this protocol.  The protocol for the communication packet is presented in pickup.h, available at \url{https://www.tzi.de/spl/pub/Website/Downloads/pickup.h}.
 
-\section{Sound Recognition Challenge}
+The challenge will be scored using two metrics: 
+\begin{itemize}
+\item average goal difference
+\item average human judged score
+\end{itemize}
 
-WLAN communication is one burden SPL robotic soccer has to cope with. As it is neither reliable under tournament conditions nor human-like in any means (rate of data exchange, communication medium), this challenge is the first step towards getting rid of it. To pave the way for acoustic signals and acoustic communication in future RoboCup tournaments, this year's challenge introduces acoustic senses for the teams' robots. The goal of this challenge is to make our robots hear. To be more precise, this year's goal is to make SPL robots recognize specific acoustic signals for game events like game-start and game-stop.
+The judges will likely be from other leagues, but teams are still asked to remove or cover any distinguishing markers on their robots for this challenge.  For each game, each judge will award each drop-in player a teamwork score ranging from 0 to 10, where 10 means the drop-in player was an excellent teammate and 0 means that the drop-in player ignored its teammates.  The judges will be instructed to focus on teamwork capabilities, rather than individual skills, so that a less-skilled robot could still be given top marks for good teamwork.  The human judges will help to identify good teamwork abilities in agents to ameliorate the problems of random variance in the games and the quality of teammates affecting the goal differences.
 
-The challenge consists of two major parts:
-\begin{description}
-	\item[Recognition of predefined signals:] Robots have to recognize predefined static signals emitted by a global sound system. Similar to the horn-like audible alarms in ice hockey, where halftime starts and ends are signaled using the horn, future RoboCup tournaments could rely on this mechanism to signal GameController or referee messages. The predefined acoustic signals are provided by the TC as wav files at least four months prior to the tournament.
-	
-	\item[Recognition of individual whistles:] Teams should bring one whistle that has to be recognized by the teams' robots. This part of the challenge brings in a ``real soccer'' aspect to the SPL.
-	
-\end{description}
+The two metrics will be normalized when determining the overall winner of this challenge.  The normalization factor will be computed to be \[\frac{10}{\text{best average goal difference of a drop-in player}}\]
+Each drop-in player's average goal difference will then be multiplied by this normalization factor, to get each drop-in player's normalized average goal difference.  The normalized average goal difference will be added to the average human judged score for each drop-in player to obtain its overall score.
 
-\begin{figure}[th!]
-\centerline{\includegraphics[width=0.6\columnwidth,angle=270]{figures/acuesthesia}}
-\caption{Setup for the Sound Recognition Challenge}
-\label{fig:recognition_challenge}
-\end{figure}
-
-For both parts of the challenge, the field setup is depicted in Figure~\ref{fig:recognition_challenge}. A team has to place one robot at each location labeled 1, 2, and 3 in a way such that the robots can not see each other. In addition, robots must look forward and may not move their head. For the first part of the challenge (predefined signals), loudspeakers are mounted at locations A and B. The loudspeakers emit the signals solely and jointly. For the second part of the challenge (whistle), one team member is positioned at a random position on the field to blow the whistle. Provision of additional signals (visual, audible, or WLAN) are prohibited.
-
-Whenever a robot recognizes a given signal, it has to raise an arm immediately for 5 seconds (within one second after the given signal).
-Points are scored by validly recognizing emitted sounds. Falsely detected signals, so raising an arm without given audible alarms, are counted as negative scores and hence are subtracted from the overall score.
-
-The competition procedure will be as follows:
-
-\begin{description}
-	\item[Setup:] The team has to place its robots on the field in accordance to Figure~\ref{fig:recognition_challenge}
-	\item[Predefined signals recognition:] Each predefined signal is emitted by loudspeaker A. Robots have to signal any detected sound immediately. After a short break, the signal is emitted by loudspeaker B, and after another short break it is emitted by loudspeaker A and B simultaneously. Afterwards, this sequence is repeated once. The overall sequence is the same for each predefined signal. So for two predefined signals it would look like A,B,AB,A,B,AB,A',B',A'B',A',B',A'B' where ' denotes the second predefined signal.\\
-	\\For each emitted signal and each robot $1$ point can be achieved. For each false positive $-1$ point will be accounted. For the example sequence, $36$ points can be scored in the best case.
-	\item[Whistle recognition:] One team member is placed at a random position on the field simulating a moving main referee. Signaled by the organizers, the teams' whistle is blown once for about one second. After a short break, the team member is relocated to a second random position and repeats the process.\\
-	\\ For each emitted whistle blow and each robot, $3x$ points can be scored where $x$ denotes the number of predefined signals from part one of the challenge. For each false positive, $-3x$ point will be accounted. For the example sequence from above, $36$ points can be scored in the best case.
-\end{description}
-
-Finally, the overall score is calculated by summing up all points from part one and part two of the challenge.
-
-
+Each participating team should plan for at least one team member to attend the challenge.  This team member will need to update the team color and player number of their team's drop-in player between games, and potentially help referee some of the games.
 
 \end{document}
+
 
