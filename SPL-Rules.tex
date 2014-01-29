@@ -249,7 +249,7 @@ Only one field player may enter their own penalty area at any given time. The fo
 \subsection{Coaching Robot}
 \label{sec:coaching_robot}
 
-The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
+The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). The coaching robot may not communicate via any other mechanism.  A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
 
 The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
 
@@ -306,7 +306,7 @@ The robots should play without human control. Communication is only allowed amon
 
 \subsubsection{Acoustic Communications}
 
-There are no restrictions on communication between the robots using a microphone or a speaker.
+There are no restrictions on communication between the robots using a microphone or a speaker.  The only exception is that the coaching robot may not communicate acoustically via its microphone or speaker.
 
 \subsubsection{Wireless Communications}
 \label{sec:wireless}
@@ -629,7 +629,7 @@ The GameController will keep track of the time of the penalty. The operator of t
 
 If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline. When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
 
-With approximatly 5 seconds left before the penalty ends, the robot should be turned to face towards the opposite sideline.
+With approximately 5 seconds left before the penalty ends, the robot should be turned to face towards the opposite sideline.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points.pdf}}
@@ -849,6 +849,7 @@ All normal game rules apply in this challenge.  The only exceptions will be:
 \begin{itemize}
 \item Any player may be goal keeper (ie, enter the goal box and behave as goal keeper).  However, once one player has become goal keeper for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if more than one defensive field player enters the goal box, the newly entering field players should be removed as illegal defenders.
 \item Drop-in teams will not have a coaching robot.
+\item Drop-in teams may not call any timeouts.
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}). 
@@ -985,7 +986,7 @@ This is a brief list of rule changes from 2013 to 2014.
 
 \subsection*{Robot Players}
 \begin{itemize}
-   \item Added the coaching robot. (Sections \ref{sec:robot_players} and \ref{sec:coaching_robot})
+   \item Added the coaching robot. The coaching robot may only communicate via the SPLCoachMessage packet. (Section \ref{sec:robot_players})
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
 	\item At most one field player may enter their own penalty area at any given time. (Section \ref{sec:field_players})
@@ -1004,7 +1005,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
   \item Added the possibility of referee timeouts. (Section \ref{sec:referee_timeout})
 	\item Moved subsection about penalty kick to the end of the \textit{Game Process} section and merged it with section about penalty shootout. (Section \ref{sec:penalty_kick})
-	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidently removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
+	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidentally removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
 	\item Clarified definition of the end of a penalty shot: The ball has to come to a full stop. (Section \ref{sec:penalty_kick})
 \end{itemize}
 
