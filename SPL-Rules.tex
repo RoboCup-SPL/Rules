@@ -445,7 +445,7 @@ As autonomously placed robots are allowed to be much closer to the ball, success
 Just before the \emph{set} state is called, the ball is placed on the center point of the center circle by one of the referees. If it is moved by one of the robots before set is called it is replaced by one of the referees.
 
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} (again either by the GameController or manually), in which they can actually play soccer.
-The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
+The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play, the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
 
 Note that a goal can never be scored directly from a kick-off shot. See Section~\ref{sec:kick-off_shot} for details.
 
@@ -777,6 +777,8 @@ In addition, a robot that walks into the goal net for more than 5 seconds will a
 Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both feet (\ie at least touching the line) or more than half of the body (lying on the floor) inside the penalty area is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
+
+The ``Illegal Defender'' penalty is also applied to defensive players that enter the center circle after a kick-off before the ball is in play (\cf Section~\ref{sec:kick-off}).
 
 \subsection{Jamming}
 \label{sec:jamming}
