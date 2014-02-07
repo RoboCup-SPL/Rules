@@ -648,7 +648,6 @@ Manual interaction with the robots, either directly or via some communications m
 
 A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by the team kicking off after a kick-off before the entire ball has left the center circle, including the boundary line. 
 If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and a kick-off will be awarded to the defending team (as per Section~\ref{sec:kick-off}).
-The main referee's decision in this case is final and can not be changed afterwards by video proof.
 
 \subsection{Ball Holding}
 \label{sec:ball_holding}
@@ -803,12 +802,12 @@ During the match any robot shall never jam the communication and the sensor syst
 The referees are the only persons that are allowed inside the playing area.
 
 \subsection{Head Referee}
-
+\label{sec:head_referee}
 The head referee signals game starts, restarts, when a goal was scored, the case of \emph{game stuck}, and penalties by a single whistle. In general, the head referee first whistles and then announces the reason for the whistle. The only exception is the case of the kick-off, in which the reason for the whistle is obvious. The whistle defines the point in time at which the decision is made. If the head referee has to announce many decisions in short sequence, he may skip whistling. For penalties, he announces the infraction committed, the team color, and the jersey number of the robot, \eg ``illegal defender, blue number 3''. In case of a goal scored, local or global game stuck, this is also announced verbally. By two whistles, the head referee terminates the first half; by three whistles he terminates the second half, \ie the whole game.
 
 In the penalty kick shoot-out, the head referee keeps the time.
 
-Any decision of the head referee is valid. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience or the teams and the head referee.
+Any decision of the head referee is valid. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience or the teams and the head referee. The main referee's decision is final and can not be changed afterwards by video proof.
 
 \subsection{Assistant Referees}
 
@@ -1017,6 +1016,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Clarified that robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion. (Section \ref{sec:locomotion_type})
         \item The standard removal penalty time has been increased from 30 seconds to 45 seconds. (Section \ref{sec:removal_penalty})
 	\item The operator of the GameController will signal the assistant referees when a penalty is 10 seconds from being over. The assistant referees should turn the penalized robot to face towards the field when approximately 5 seconds are left before the penalty ends. (Section \ref{sec:removal_penalty})
+	\item Moved exclusion of video proof.  (from Section \ref{sec:kick-off_shot} to Section \ref{sec:head_referee})
         \item The goal keeper is allowed to hold the ball for up to 10 seconds as long as it has one foot inside in its own penalty area. (Section \ref{sec:ball_holding})
 	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{sec:situations_no_ball_holding})
 	\item Added definition and penalty for coach motion. (Section \ref{sec:coach_motion})
