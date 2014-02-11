@@ -417,7 +417,7 @@ For kick-off, the robots listening to the wireless GameController run through th
 
 In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allow to touch the halfway line.
 The field players of the attacking team can walk to any position within their own half (including inside the center circle), except for inside the penalty area.
-The field players of the defending team can walk to any position within their own half, except for inside the center circle.  Only one field player of the defending team may be within the penalty area during the set state.  If multiple field players of the defending team are within the penalty area during the set state, the robot(s) closer to center field should be placed manually by the assistant referees to the closest position(s) as shown in Figure~\ref{fig:ko}.
+The field players of the defending team can walk to any position within their own half, except for inside the center circle.  Only one field player of the defending team may be within the penalty area during the set state.  If multiple field players of the defending team are within the penalty area during the set state, the robot(s) closer to center field should be placed manually by the assistant referees to the closest position(s) (as shown in Figure~\ref{fig:ko}) in which a team mate is not already positioned within 1 meter.
 The feet of both goal keepers must be \emph{inside} the penalty area.
 
 If robots collide during the Ready state, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:player_pushing}.
@@ -543,6 +543,10 @@ The head official may call a timeout at any stoppage of play if he or she deems 
 Referees may call multiple timeouts during a game if needed.  Teams may do anything during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout.  The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
 
 The team who would have kicked off if the timeout had not been called shall kickoff when the game resumes.
+
+\subsection{Extra Time}
+\label{sec:extra_time}
+The head official may decide to add time to the clock if a substantial delay (such as an enormous wireless delay) causes excessive game time to be lost.  The decision to add time to the clock should be made immediately after the incident.  The person working the GameController should execute this addition of time using the GameController interface.
 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
@@ -1012,6 +1016,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item More detailed description of manual placement for single robots. (Section \ref{sec:kick-off})
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
   \item Added the possibility of referee timeouts. (Section \ref{sec:referee_timeout})
+  \item Added the possibility of extra time added by head referee. (Section \ref{sec:extra_time})
   \item Teams may choose to forfeit at stoppages of play only. (Section \ref{sec:forfeit})
 	\item Moved subsection about penalty kick to the end of the \textit{Game Process} section and merged it with section about penalty shootout. (Section \ref{sec:penalty_kick})
 	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidentally removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
