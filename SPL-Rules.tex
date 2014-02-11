@@ -847,18 +847,22 @@ The main point of this competition is for teams to develop `drop-in' players tha
 
 Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the RoboCup 2014 competition.
 
-All normal game rules apply in this challenge.  The only exceptions will be:
+
+\subsection{Rules}
+
+All normal game rules apply in this competition.  The only exceptions will be:
 \begin{itemize}
-\item Any player may be goal keeper (ie, enter the goal box and behave as goal keeper).  However, once one player has become goal keeper for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if more than one defensive field player enters the goal box, the newly entering field players should be removed as illegal defenders.
+\item Any player may be goal keeper (ie, enter the goal box and behave as goal keeper).  However, once one player has entered the goal box for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if any other player of this team enters the goal box, the newly entering player is treated as a field player.
 \item Drop-in teams will not have a coaching robot.
 \item Drop-in teams may not call any timeouts.
+\item Similar to normal games, pushing a teammate does not result in a penalty. But as this is one criterion for scoring (\cf Section \ref{sec:drop-in:scoring}), the head referee has to judge this infraction (given the standard pushing rules as described in Section \ref{sec:player_pushing}) and to announce it accordingly, \eg ``teammate pushing, red number 2''. 
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}). 
 
 
 \subsection{Scoring}
-
+\label{sec:drop-in:scoring}
 The challenge will be scored using two metrics: 
 \begin{itemize}
 \item average goal difference 
