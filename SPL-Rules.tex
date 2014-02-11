@@ -424,7 +424,8 @@ The feet of both goal keepers must be \emph{inside} the penalty area.
 If robots collide during the Ready state, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:player_pushing}.
 Consequently those pushings do not go into the permanent removal count.
 
-The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed manually by the assistant referees to the positions as shown in Figure~\ref{fig:ko}. Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
+The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed by the assistant referees in the closest manual position (see Figure~\ref{fig:ko}) that does not already have a team mate within 1 meter.
+Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
 \emph{In the case where the team leader requests manual placement, all robots on that team are manually positioned.}
 
 
@@ -1004,6 +1005,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Small Ks and Ds will be marked on the field to specify manual positions for the kick-off team and the defensive team. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item It is allowed to have one field  player inside the own penalty box in the set state. (Section \ref{sec:kick-off})
+	\item More detailed description of manual placement for single robots. (Section \ref{sec:kick-off})
 	\item Removed subsection about free kick. (Section \ref{sec:game_process})
   \item Added the possibility of referee timeouts. (Section \ref{sec:referee_timeout})
   \item Teams may choose to forfeit at stoppages of play only. (Section \ref{sec:forfeit})
