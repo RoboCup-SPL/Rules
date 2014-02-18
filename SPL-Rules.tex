@@ -317,7 +317,7 @@ Wireless robot-to-robot communication among the robot players is allowed, as lon
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in \url{https://www.tzi.de/spl/pub/Website/Downloads/SPLCoachMessage.h}. These messages have a maximum size of 20 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in \url{https://www.tzi.de/spl/pub/Website/Downloads/SPLCoachMessage.h}. These messages have a maximum size of 40 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 8--12 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
 The use of remote processing/sensing is prohibited.
 
@@ -850,6 +850,7 @@ The main point of this competition is for teams to develop `drop-in' players tha
 
 Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the RoboCup 2014 competition.
 
+Each team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2014 (July 24, 2014).  These descriptions will be released on the SPL wiki soon after the competition.
 
 \subsection{Rules}
 
@@ -872,7 +873,7 @@ The challenge will be scored using two metrics:
 \item average human judged score 
 \end{itemize}
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible).  We will take the median scores of these five judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria\footnote{This list of criteria and/or the weighting may change slightly after the local opens, but will be finalized by May 1st, 2014.}:
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible).  We will take the median scores of these five judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria\footnote{This list of criteria and/or the weighting may change slightly after the local opens, but will be finalized by May 15th, 2014.}:
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
@@ -963,7 +964,7 @@ If any team is pre-qualified via multiple means (\eg by reaching the quarter fin
 
 However, teams pre-qualified via the above means must do all of the following in order to remain pre-qualified:
 \begin{itemize}
-\item Participate in the drop-in competition, and not finish in the bottom three teams in this competition
+\item Participate in the drop-in competition, submit a short explanation of their drop-in player strategy by the end of the final competition day, and not finish in the bottom three teams in this competition
 \item Post in a publicly available location a team research report describing their work for the 2014 competition
 \item Submit a shortened application as required by the call for participation for the subsequent year's competition
 \end{itemize}
