@@ -387,6 +387,8 @@ The team color should be displayed during the whole game on the LED of the left 
 
 \end{itemize}
 
+The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on bootup so that this can be easily checked at the start of the game.
+
 \subsection{Goal}
 \label{sec:goal}
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
@@ -452,8 +454,6 @@ After the head referee has signaled the kick-off, the robot's state is switched 
 The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play, the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
 
 Note that a goal can never be scored directly from a kick-off shot. See Section~\ref{sec:kick-off_shot} for details.
-
-The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on bootup so that this can be easily checked at the start of the game.
 
 \subsection{Throw-in}
 \label{sec:throw_in}
@@ -781,7 +781,7 @@ In addition, a robot that walks into the goal net for more than 5 seconds will a
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
 
-Only the goal keeper and at most one defending field player can be within a team's penalty area. Having both feet (\ie at least touching the line) or more than half of the body (lying on the floor) inside the penalty area is the definition of being in the penalty area. When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
+Only the goal keeper and at most one defending field player can be within a team's penalty area. A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines.  When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
@@ -1047,7 +1047,7 @@ This is a brief list of rule changes from 2013 to 2014.
 	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
 	\item A field player or a goal keeper outside its own penalty box should always be penalized when touching the ball with its arms/hands.  This contact does not need to be intentional or manipulative. (Section \ref{sec:hand_ball})
 	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
-    \item Definition of illegal defense has been extended to lying robots. (Section \ref{sec:illegal_defender})
+	\item A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines. (Section \ref{sec:illegal_defender})
 	\item If an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling). (Section \ref{sec:illegal_defender})
 	\item Adapted definition of jamming to new wireless rules. (Section \ref{sec:jamming})
 \end{itemize}
