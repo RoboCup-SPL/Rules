@@ -216,7 +216,9 @@ A match is played by two teams, each consisting of not more than \textbf{5} play
 
 \subsection{Hardware}
 \label{sec:hardware}
-All teams must use NAO humanoid robots manufactured by Aldebaran Robotics. Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
+All teams must use grey NAO humanoid robots manufactured by Aldebaran Robotics. NAO robots with actuated hands may be used, but the fingers may not be used for any purpose and should remain with the fingers bent (similarly to how the fingers of NAOs without actuated hands naturally remain).
+
+Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
 
 \begin{itemize}
 
@@ -278,7 +280,7 @@ Teams may use jerseys purchased at RoboCup 2013 or they may order jerseys from t
 
 Teams may attach, print, or sew sponsor or team logos to the official jersey shirts.  One acceptable location is centered above the number on the back of the jersey, while the other acceptable location is on the front of the jersey, opposite to the team number, as depicted in Fig. \ref{fig:sponsor_jersey}.
 
-Logos in one of two styles are allowed.  The first style would be a white background with a black or gray print.  The second style would be one in which a white, gray, or black logo is screen-printed on the jersey, such that the background of the logo is the jersey.  In either case, the dimensions of the logos are limited: the back logo has a maximum height of 3 cm and a maximum width of 8 cm, the front logo has a maximum height of 3 cm and a maximum width of 3 cm.
+Logos in one of two styles are allowed.  The first style would be a white background with a black or grey print.  The second style would be one in which a white, grey, or black logo is screen-printed on the jersey, such that the background of the logo is the jersey.  In either case, the dimensions of the logos are limited: the back logo has a maximum height of 3 cm and a maximum width of 8 cm, the front logo has a maximum height of 3 cm and a maximum width of 3 cm.
 
 The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
 
@@ -337,7 +339,7 @@ The teams will change the goal defended during the half-time break.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
-\caption{Robot states. Button interface transitions are shown in gray. GameController transitions are shown in black. However, any transition possible can actually be sent by the GameController.}
+\caption{Robot states. Button interface transitions are shown in grey. GameController transitions are shown in black. However, any transition possible can actually be sent by the GameController.}
 \label{fig:robot_states}
 \end{figure}
 
@@ -386,10 +388,12 @@ The team color should be displayed during the whole game on the LED of the left 
 \end{itemize}
 
 \subsection{Goal}
-
+\label{sec:goal}
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
 
 Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
+
+Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active.  In this case, the goal is not scored and a global game stuck is called on the active team.
 
 \subsection{Goal Keeper Save}
 \label{sec:goalie_save}
@@ -1001,6 +1005,8 @@ This is a brief list of rule changes from 2013 to 2014.
    \item Added the coaching robot. The coaching robot may only communicate via the SPLCoachMessage packet.  Updates of the coach message will be delayed by the GameController by about 3--6 seconds. (Section \ref{sec:robot_players})
 	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
 	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
+	\item Only grey Aldebaran NAO robots may be used. (Section \ref{sec:hardware})
+	\item NAO robots with actuated hands may be used, but the fingers may not be used for any purpose and should remain with the fingers bent. (Section \ref{sec:hardware})
 	\item At most one field player may enter their own penalty area at any given time. (Section \ref{sec:field_players})
 	\item The number ``6'' is a valid number for a field player. (Section \ref{sec:field_players})
 	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
@@ -1012,6 +1018,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \subsection*{Game Process}
 \begin{itemize}
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
+	\item A goal will not be awarded when a team scores on themselves and there are no opponent robots on the field that are active.  In this case, the goal is not scored and a global game stuck is called on the active team. (Section \ref{sec:goal})
 	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball using atleast one arm/hand and holding it for at least 1 second.  The ball is then placed on one of the two intersections of a throw-in line and the halfway line.  Specifically, the ball will be moved to the intersection point closer (regarding the angle) to the goal keeper at the moment of lifting.  If the goal keeper is almost aligned with the field's x-axis, the referee should use the intersection point at which a teammate is closer at the moment of lifting. (Section \ref{sec:goalie_save}) 
 	\item Small Xs will be marked on the field to specify manual positions. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
