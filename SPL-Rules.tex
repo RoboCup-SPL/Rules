@@ -416,8 +416,8 @@ Once the robots receive the \emph{ready} signal from the GameController, they ar
 For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.
 
 In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allow to touch the halfway line.
-The field players of the attacking team can walk to any position within their own half (including inside the center circle), except for inside the penalty area.
-The field players of the defending team can walk to any position within their own half, except for inside the center circle.  Only one field player of the defending team may be within the penalty area during the set state.  If multiple field players of the defending team are within the penalty area during the set state, the robot(s) closer to center field should be placed manually by the assistant referees to the closest position(s) (as shown in Figure~\ref{fig:ko}) in which a team mate is not already positioned within 1 meter.
+The field players of the attacking team can walk to any position within their own half.
+The field players of the defending team can walk to any position within their own half, except for inside the center circle.  Only one field player may be within the penalty area during the set state.  If multiple field players are within the penalty area during the set state, the robot(s) closer to center field should be placed manually by the assistant referees to the closest position(s) (as shown in Figure~\ref{fig:ko}) in which a team mate is not already positioned within 1 meter.
 The feet of both goal keepers must be \emph{inside} the penalty area.
 
 If robots collide during the Ready state, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:player_pushing}.
@@ -434,11 +434,11 @@ Robots that are legally positioned will not be moved by the assistant referees u
 \label{fig:ko}
 \end{figure}
 
-There are extra restrictions on the legal positions of manually positioned robots. The kicking-off robot is placed on the center circle, right in front of the penalty mark. Its feet touch the line, but they are not inside the center circle. 
-One of the other field players of the attacking team is placed in front of one of the goal posts on the height of the penalty mark (i.e. the virtual intersection point of the goal post and the penalty mark) and the other two are placed on the corners of the penalty box without having their feet touching the corners. 
-Two field players of the defending team are placed halfway between the corners of their own penalty box and the sidelines. The other two field players of the defending team are placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post.  The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line.
+There are extra restrictions on the legal positions of manually positioned robots. Two field players of the defending team are placed halfway between the corners of their own penalty box and the sidelines. The other two field players of the defending team are placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post.  The kicking-off robot is placed on the center circle, right in front of the penalty mark. Its feet touch the line, but they are not inside the center circle. 
+One of the other field players of the attacking team is placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post. The other two field players of the attacking team are placed halfway between the corners of their own penalty box and the sidelines. 
+  The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line. See Figure \ref{fig:ko} for a pictorial representation of these positions.
 
-To assist the assistant referees in placing the robots manually when needed or requested, small Ks and Ds will be marked on the field using a black felt-tip pen in the spots where manually placed robots should go if they are kicking off (Ks) or defending (Ds).  These marks should be small, such that they are visible to humans but invisible to robots.
+To assist the assistant referees in placing the robots manually when needed or requested, small Xs will be marked on the field using a black felt-tip pen in the spots where manually placed robots should go.  Note that most positions are shared between the attacking team and defending team, so only 6 marks will be needed.  These marks should be small, such that they are visible to humans but invisible to robots.
 
 As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
@@ -1013,7 +1013,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \begin{itemize}
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
 	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball using atleast one arm/hand and holding it for at least 1 second.  The ball is then placed on one of the two intersections of a throw-in line and the halfway line.  Specifically, the ball will be moved to the intersection point closer (regarding the angle) to the goal keeper at the moment of lifting.  If the goal keeper is almost aligned with the field's x-axis, the referee should use the intersection point at which a teammate is closer at the moment of lifting. (Section \ref{sec:goalie_save}) 
-	\item Small Ks and Ds will be marked on the field to specify manual positions for the kick-off team and the defensive team. (Section \ref{sec:kick-off})
+	\item Small Xs will be marked on the field to specify manual positions. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
 	\item It is allowed to have one field  player inside the own penalty box in the set state. (Section \ref{sec:kick-off})
 	\item More detailed description of manual placement for single robots. (Section \ref{sec:kick-off})
