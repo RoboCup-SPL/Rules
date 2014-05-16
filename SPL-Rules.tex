@@ -862,16 +862,16 @@ All normal game rules apply in this competition.  The only exceptions will be:
 \begin{itemize}
 \item Any player may be goal keeper (\ie, enter the goal box and behave as goal keeper).  However, once one player has entered the goal box for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if any other player of this team enters the goal box, the newly entering player is treated as a field player.
 \item Drop-in teams will not have a coaching robot.
+\item No player may be ejected under `Pushing' rules.
 \item Each of the five players has a jersey number from the set $\{1, 2, 3, 4, 5\}$.
 \item Drop-in teams may not call any timeouts.
-\item Similar to normal games, pushing a teammate does not result in a penalty. But as this is one criterion for scoring (\cf Section \ref{sec:drop-in:scoring}), the head referee has to judge this infraction (given the standard pushing rules as described in Section \ref{sec:player_pushing}) and to announce it accordingly, \eg ``teammate pushing, red number 2''. 
 \end{itemize}
 
 Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}).
 
 In this competition, no code changes may be made once the lineups are announced for a match that would tell the drop-in player anything about the identity or ability of its teammates or opponents.  Each drop-in player is expected to play without any human-provided knowledge of its teammates or opponents. 
 
-The clock will not stop during stoppages of play in drop-in competition games.  Drop-in competition games may also finish in a draw, as no penalty shoot-out will follow.
+The clock will not stop during stoppages of play in drop-in competition games.  Drop-in competition games may finish in a draw, as no penalty shoot-out will follow.
 
 \subsection{Scoring}
 \label{sec:drop-in:scoring}
@@ -881,28 +881,30 @@ The challenge will be scored using two metrics:
 \item average human judged score 
 \end{itemize}
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible).  We will take the median scores of these five judges for each player, which means we will not count the best score given by a judge nor the worst score given by a judge.  The judges will score the players based on the following criteria\footnote{This list of criteria and/or the weighting may change slightly after the local opens, but will be finalized by May 15th, 2014.}:
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be six judges for each game, where judges will not judge any game in which their team is competing (if possible).  Three judges will judge each team, and the team each judge is scoring will change at halftime.  The judges will score the players based on the following criteria:
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
-  \item Appropriate decision to pass to teammate = +1 -- +3
-  \item Receiving a pass = +1 -- +2
-  \item Pushing a teammate = -2
+  \item Appropriate decision to pass to teammate = +1 -- +4
+  \item Receiving a pass = +1 -- +3
+  \item Pushing a teammate = -2 (whether this occurs must be determined by each judge)
   \item Penalty = -1
-  \end{itemize}
-\item Judged once per half:
-  \begin{itemize}
-   \item Unclassified bonus or penalty (capped at -3 /+3; needs justification by judge if $\neq 0$)
+  \item Game participation = -2 -- +2 (capped at -10 / +10 per half; needs justification by judge)
+  \item Unclassified bonus or penalty = -2 -- +2 (capped at -10 / +10 per half; needs justification by judge)
   \end{itemize}
 \end{itemize}
 
-The major manifestation of soccer cooperation is passing among robots. This is why passing and receiving are the only actions that result in a positive score. In both cases, a range of possible points is specified. This allows the judges to award the significance and brilliance of a pass. In any case, passes that do not provide any benefit for the team should not be awarded. Receiving a pass is an expression of useful positioning. A pass does not necessarily need to be precise (i.e. touch the receiver precisely) and can instead be a shot into open space into which a teammate walks.
+Passing is rewarded because it is a major manifestation of soccer cooperation. Note that a range of possible points is specified. This allows the judges to award the significance and brilliance of a pass. In any case, passes that do not provide any benefit for the team should not be awarded. Receiving a pass is an expression of useful positioning. A pass does not necessarily need to be precise (i.e. touch the receiver precisely) and can instead be a shot into open space into which a teammate walks.
 
 Pushing a teammate, which is judged using the same criteria as player pushing, is penalized because well positioned players should rarely be in a position from which pushing a teammate is possible.  Penalties that result in a player receiving the standard removal penalty are also penalized, as it is bad for the entire team when a player is removed from the field.
 
-At the end of each half, each judge may assign each robot an additional score between -3 and +3 (the default score is 0). If a robot behaves in an obviously uncooperative manner (e.g. by just standing around passively most of the time), it can receive a negative score. If a robot performs actions that are beneficial for the team and are not covered by the other rules (e.g. some nice field player / goalie coordination), a positive score can be awarded.  Any score different from 0 needs a short explanation (this both justifies the score and will help the TC adapt the rule set for future competitions).
+Throughout each half, judges may assign each robot rewards or punishments between -2 and +2 for its participating in the game.  If the judge notes that a robot is positioning well or otherwise actively contributing to the game, it can receive up to +2 for that instance.  If a robot is positioning poorly, behaving in a harmful or useless manner, or is inactive, the judge can give it up to -2 for that instance.  Any scores require a short explanation (this both justifies the score and will help the TC adapt the rule set for future competitions).
 
-When calculating the average goal difference for each drop-in player, the player's best and worst games with respect to average goal difference will be disregarded.  Likewise, when calculating the average human judged score for each drop-in player, the player's best and worst games with respect to human judged score will be disregarded.  The two metrics will then be normalized and added up to determine the overall winner of this competition:
+Additionally, each judge may also assign each robot an additional score between -2 and +2 at any point during a half for actions that are beneficial or harmful for the team but are not covered by the other rules.  Note that players should usually not be rewarded for merely scoring a goal, as this will be rewarded via goal differential.  Any scores require a short explanation.
+
+For any half in which a drop-in player did not leave the sideline, it will receive a judge score of -20 for that half.
+
+The two scoring metrics will be normalized and added up to determine the overall winner of this competition:
 \begin{itemize}
 \item The team that has the highest average goal difference will get 100 points.
 \item The team that has the lowest average goal difference will get 0 points.
