@@ -393,7 +393,7 @@ The current GameController requires robots to know both their team number and th
 \label{sec:goal}
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
 
-Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}) of an attacking robot. Should the ball enter the goal area where the last contact is with the arm or hand of an attacking robot, the goal shall not count and a goal kick is awarded, that is, it shall count as if the ball is out by the attacking team (see Section \ref{sec:throw_in}).
+Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}).
 
 Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active.  In this case, the goal is not scored and a global game stuck is called on the active team.
 
@@ -867,7 +867,9 @@ All normal game rules apply in this competition.  The only exceptions will be:
 \item Similar to normal games, pushing a teammate does not result in a penalty. But as this is one criterion for scoring (\cf Section \ref{sec:drop-in:scoring}), the head referee has to judge this infraction (given the standard pushing rules as described in Section \ref{sec:player_pushing}) and to announce it accordingly, \eg ``teammate pushing, red number 2''. 
 \end{itemize}
 
-Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}). 
+Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}).
+
+In this competition, no code changes may be made once the lineups are announced for a match that would tell the drop-in player anything about the identity or ability of its teammates or opponents.  Each drop-in player is expected to play without any human-provided knowledge of its teammates or opponents. 
 
 The clock will not stop during stoppages of play in drop-in competition games.  Drop-in competition games may also finish in a draw, as no penalty shoot-out will follow.
 
@@ -1019,6 +1021,7 @@ This is a brief list of rule changes from 2013 to 2014.
 \begin{itemize}
 	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
 	\item A goal will not be awarded when a team scores on themselves and there are no opponent robots on the field that are active.  In this case, the goal is not scored and a global game stuck is called on the active team. (Section \ref{sec:goal})
+	\item Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand. All such instances will be regarded as `Playing with Arms/Hands' (see Section \ref{sec:hand_ball}).  (Section \ref{sec:goal}).
 	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball using atleast one arm/hand and holding it for at least 1 second.  The ball is then placed on one of the two intersections of a throw-in line and the halfway line.  Specifically, the ball will be moved to the intersection point closer (regarding the angle) to the goal keeper at the moment of lifting.  If the goal keeper is almost aligned with the field's x-axis, the referee should use the intersection point at which a teammate is closer at the moment of lifting. (Section \ref{sec:goalie_save}) 
 	\item Small Xs will be marked on the field to specify manual positions. (Section \ref{sec:kick-off})
 	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
