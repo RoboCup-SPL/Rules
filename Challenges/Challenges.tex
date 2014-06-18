@@ -207,7 +207,7 @@ WLAN communication is one burden SPL robotic soccer has to cope with. As it is n
 
 The challenge consists of two major parts:
 \begin{description}
-	\item[Recognition of predefined signals:] Robots have to recognize predefined static signals emitted by a global sound system. Similar to the horn-like audible alarms in ice hockey, where halftime starts and ends are signaled using the horn, future RoboCup tournaments could rely on this mechanism to signal GameController or referee messages. The predefined acoustic signals are available at \url{www.tzi.de/spl/pub/Website/Downloads/soundfiles14.tar.gz}.
+	\item[Recognition of predefined signals:] Robots have to recognize predefined static signals emitted by a global sound system. Similar to the horn-like audible alarms in ice hockey, where halftime starts and ends are signaled using the horn, future RoboCup tournaments could rely on this mechanism to signal GameController or referee messages. The predefined acoustic signals are available at \url{http://www.tzi.de/spl/pub/Website/Downloads/soundfiles14.tar.gz}.
 	
 	\item[Recognition of individual whistles:] Teams should bring one whistle that has to be recognized by the teams' robots. This part of the challenge brings in a ``real soccer'' aspect to the SPL.
 	
@@ -219,9 +219,9 @@ The challenge consists of two major parts:
 \label{fig:recognition_challenge}
 \end{figure}
 
-For both parts of the challenge, the field setup is depicted in Figure~\ref{fig:recognition_challenge}. A team has to place one robot at each location labeled 1, 2, and 3 in a way such that the robots can not see each other. In addition, robots must look forward and may not move their head. For the first part of the challenge (predefined signals), loudspeakers are mounted at locations A and B. The loudspeakers emit the signals solely and jointly. For the second part of the challenge (whistle), one team member is positioned at a random position on the field to blow the whistle. Provision of additional signals (visual, audible, or WLAN) are prohibited.
+For both parts of the challenge, the field setup is depicted in Figure~\ref{fig:recognition_challenge}. A team has to place one standing robot at each location labeled 1, 2, and 3 in a way such that the robots can not see each other. In addition, robots must look forward and may not move their head. For the first part of the challenge (predefined signals), loudspeakers are mounted at locations A and B. The loudspeakers emit the signals solely and jointly. For the second part of the challenge (whistle), one team member is positioned at a random position on the field to blow the whistle. Provision of additional signals (visual, audible, or WLAN) are prohibited.
 
-Whenever a robot recognizes a given signal, it has to raise an arm immediately for 5 seconds (within one second after the given signal).
+Whenever a robot recognizes a given signal, it has to raise at least one arm immediately for about 3 seconds (within one second after the given signal). An arm is considered as \emph{raised}, if the hand is clearly above neck height. In a robot's default pose, both hands are at hip height.
 Points are scored by validly recognizing emitted sounds. Falsely detected signals, so raising an arm without given audible alarms, are counted as negative scores and hence are subtracted from the overall score.
 
 The competition procedure will be as follows:
