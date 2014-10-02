@@ -45,7 +45,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(2014 rules, as of \today)}
+\date{(2015 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -852,9 +852,9 @@ The main point of this competition is for teams to develop `drop-in' players tha
 
 \subsection{Organization}
 
-Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the RoboCup 2014 competition.
+Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the RoboCup 2015 competition.
 
-Each team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2014 (July 24, 2014).  These descriptions will be released on the SPL wiki soon after the competition.
+Each team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2015.  These descriptions will be released on the SPL wiki soon after the competition.
 
 \subsection{Rules}
 
@@ -978,7 +978,7 @@ If any team is pre-qualified via multiple means (\eg by reaching the quarter fin
 However, teams pre-qualified via the above means must do all of the following in order to remain pre-qualified:
 \begin{itemize}
 \item Participate in the drop-in competition, submit a short explanation of their drop-in player strategy by the end of the final competition day, and not finish in the bottom three teams in this competition
-\item Post in a publicly available location a team research report describing their work for the 2014 competition
+\item Post in a publicly available location a team research report describing their work for the 2015 competition
 \item Submit a shortened application as required by the call for participation for the subsequent year's competition
 \end{itemize}
 
@@ -998,81 +998,42 @@ The requirement to referee may be an extreme hardship for extremely small teams.
 \newpage
 
 
-\section{Changes From 2013}
-This is a brief list of rule changes from 2013 to 2014.
+\section{Changes From 2014}
+This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Setup of the Environment}
 \begin{itemize}
-	\item Moved the penalty mark closer to each goal. (Section \ref{sec:field_dim})
-	\item Clarified that the net should not be attached to the field, but instead attached tightly to the support structure. (Section \ref{sec:field_dim})
+	\item Changed color of goals from yellow to white. (Section \ref{sec:field_dim})
 \end{itemize}
 
 \subsection*{Robot Players}
 \begin{itemize}
-   \item Added the coaching robot. The coaching robot may only communicate via the SPLCoachMessage packet.  Updates of the coach message will be delayed by the GameController by about 3--6 seconds. (Section \ref{sec:robot_players})
-	\item The league does not provide stickers with player numbers.  Teams may attach player numbers to the heads and/or legs of the robots that correspond to the number on the robot's jersey. (Section \ref{sec:robot_players})
-	\item Teams may also protect the fingers of their robots with white finger protectors provided by Aldebaran. (Section \ref{sec:robot_players})
-	\item Only grey Aldebaran NAO robots may be used. (Section \ref{sec:hardware})
-	\item NAO robots with actuated hands may be used, but the fingers may not be used for any purpose and should remain with the fingers bent. (Section \ref{sec:hardware})
-	\item At most one field player may enter their own penalty area at any given time. (Section \ref{sec:field_players})
-	\item The number ``6'' is a valid number for a field player. (Section \ref{sec:field_players})
-	\item Teams may place logos on their official jersey shirts. (Section \ref{sec:team_markers})
-	\item Only UDP communication is allowed. (Section \ref{sec:wireless})
-    \item Teams have to use the standard communication packet. (Section \ref{sec:wireless})
-    \item A robot is not allowed to send more than five messages per second. (Section \ref{sec:wireless})
+   \item (none)
 \end{itemize}
 
 \subsection*{Game Process}
 \begin{itemize}
-	\item Teams will not change team markers at half-time. (Section \ref{sec:game_struct})
-	\item A goal will not be awarded when a team scores on themselves and there are no opponent robots on the field that are active.  In this case, the goal is not scored and a global game stuck is called on the active team. (Section \ref{sec:goal})
-	\item A goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (unless the goal was by a defending goalie in its penalty box). All such instances will be regarded as `Playing with Arms/Hands' (see Section \ref{sec:hand_ball}).  (Section \ref{sec:goal}).
-	\item While in its penalty box, a goal keeper is able to save the ball by picking up the ball using atleast one arm/hand and holding it for at least 1 second.  The ball is then placed on one of the two intersections of a throw-in line and the halfway line.  Specifically, the ball will be moved to the intersection point closer (regarding the angle) to the goal keeper at the moment of lifting.  If the goal keeper is almost aligned with the field's x-axis, the referee should use the intersection point at which a teammate is closer at the moment of lifting. (Section \ref{sec:goalie_save}) 
-	\item Small Xs will be marked on the field to specify manual positions. (Section \ref{sec:kick-off})
-	\item Removed references to what happens when assistant referees misconfigure team color on kick-off, as the assistant referees should not need to do this.  Also removed the notion of `lost time' (which was only used in reference to assistant referees misconfiguring robots). (Section \ref{sec:kick-off})
-	\item It is allowed to have one field  player inside the own penalty box in the set state. (Section \ref{sec:kick-off})
-	\item More detailed description of manual placement for single robots. (Section \ref{sec:kick-off})
-	\item Removed subsection about free kick. (Section \ref{sec:game_process})
-  \item Added the possibility of referee timeouts. (Section \ref{sec:referee_timeout})
-  \item Added the possibility of extra time added by head referee. (Section \ref{sec:extra_time})
-  \item Teams may choose to forfeit at stoppages of play only. (Section \ref{sec:forfeit})
-	\item Moved subsection about penalty kick to the end of the \textit{Game Process} section and merged it with section about penalty shootout. (Section \ref{sec:penalty_kick})
-	\item Added the rule that the goal keeper is not allowed to touch a ball that is completely outside the penalty area on penalty kicks.  This rule was accidentally removed from the rules prior to RoboCup 2013, although RoboCup 2013 played with this rule. (Section \ref{sec:penalty_kick})
-	\item Clarified definition of the end of a penalty shot: The ball has to come to a full stop. (Section \ref{sec:penalty_kick})
+	\item (none)
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
-	\item Clarified that robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion. (Section \ref{sec:locomotion_type})
-        \item The standard removal penalty time has been increased from 30 seconds to 45 seconds. (Section \ref{sec:removal_penalty})
-	\item The operator of the GameController will signal the assistant referees when a penalty is 10 seconds from being over. The assistant referees should turn the penalized robot to face towards the field when approximately 5 seconds are left before the penalty ends. (Section \ref{sec:removal_penalty})
-	\item Moved exclusion of video proof.  (from Section \ref{sec:kick-off_shot} to Section \ref{sec:head_referee})
-        \item The goal keeper is allowed to hold the ball for up to 10 seconds as long as it has one foot inside in its own penalty area. (Section \ref{sec:ball_holding})
-	\item Ball holding should not be called when a robot has fallen on a ball or when a robot gets the ball stuck between its legs. (Section \ref{sec:situations_no_ball_holding})
-	\item Added definition and penalty for coach motion. (Section \ref{sec:coach_motion})
-	\item A robot currently getting up cannot be penalized for pushing. (Section \ref{sec:situations_no_pushing})
-	\item Edited the pushing definition to include ``any form of contact that has enough force to destabilize a robot, such that walking and/or kicking is impeded'' instead of ``any form of contact that has enough force to knock a robot over''. (Section \ref{sec:pushing_contact})
-	\item Removed the special rules for pushing with regard to a fallen robot. (Section \ref{sec:player_pushing})
-	\item A field player or a goal keeper outside its own penalty box should always be penalized when touching the ball with its arms/hands.  This contact does not need to be intentional or manipulative. (Section \ref{sec:hand_ball})
-	\item Allow one defending field player to be within a team's penalty box. (Section \ref{sec:illegal_defender})
-	\item A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines. (Section \ref{sec:illegal_defender})
-	\item If an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling). (Section \ref{sec:illegal_defender})
-	\item Adapted definition of jamming to new wireless rules. (Section \ref{sec:jamming})
+	\item (none)
 \end{itemize}
 
 \subsection*{Judgement}
 \begin{itemize}
-	\item The operator of the GameController should announce to the head referee when the ball is in play on kick-off by stating ``Ball in Play''. (Section \ref{sec:gameControllerOp})
-	\item The operator of the GameController is now officially in charge of game timing.  The operator should count aloud the remaining seconds in a half once the time remaining is 5 seconds or less. (Section \ref{sec:gameControllerOp})
+	\item (none)
 \end{itemize}
 
-\subsection*{Appendices}
+\subsection*{Drop-in Player Competition}
 \begin{itemize}	
-	\item Added a description of the drop-in player competition. (Appendix \ref{sec:drop-in})
-	\item Moved rules that are not directly relevant for games into the Appendix. (Appendix \ref{sec:comRules})
-	\item Explicitly stated that the two teams assigned to referee a game must decide among themselves which team will contribute the head referee and the operator of the GameController and which team will contribute the two assistant referees. (Section \ref{sec:refSelection})
-	\item At the end of each game, captains for the playing teams will rate each of the referees for that game.  Top officials will be used in the semi-final, championship, and 3rd place games. (Section \ref{sec:refSelection})
-	\item Added a description of the pre-qualification for the subsequent year. (Appendix \ref{sec:preQual})
+	\item (none)
+\end{itemize}
+
+\subsection*{The Official RoboCup Competition Rules}
+\begin{itemize}	
+	\item (none)
 \end{itemize}
 
 \end{document}
