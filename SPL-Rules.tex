@@ -160,7 +160,7 @@ The net:
 \label{fig:goal_appearance}
 \end{center}
 \end{figure}
-The support structure for the net shall be made with small black bars or cylinders as shown in Figure \ref{fig:goal_appearance}.
+The support structure for the net shall be made with small black, white, or gray bars or cylinders as shown in Figure \ref{fig:goal_appearance}.
 
 \subsection{Throw-in Lines}
 \label{sec:field_lines}
@@ -179,7 +179,7 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 \item The lines on the field are white.
 
-\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top cross bar of both goals are yellow (RAL 1018). The net is white, grey, or black.  The support structure for the net is white.
+\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top cross bar of both goals are white. The net and the support structure for the net are white, grey, or black.
 
 \end{itemize}
 
@@ -252,7 +252,7 @@ Only one field player may enter their own penalty area at any given time. Each o
 
 The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). The coaching robot may not communicate via any other mechanism.  A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
+The coaching robot is not placed on the field but on the table that is used for the GameController computer.  The coaching robot may be connected via a cable to the GameController. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
@@ -315,11 +315,11 @@ The only wireless hardware allowed to be used by the teams are the wireless netw
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The IP addresses, channels, SSIDs, and WEP keys of the fields will be announced at the competition site.
 
-Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a limited range of UDP ports on which broadcast will be permitted.
+Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in the header \emph{SPLCoachMessage.h} that is distributed with the latest GameController release. These messages have a maximum size of 40 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped. In addition, the update of the coach message will be delayed by the GameController by about 3--6 seconds (the exact offset is determined randomly for each message). This represents the intent that the coaching robot should make long-term strategic decisions instead of immediately controlling the robot players. It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content and meaning of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in the header \emph{SPLCoachMessage.h} that is distributed with the latest GameController release. These messages have a maximum size of 80 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped.  It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content and meaning of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
 The use of remote processing/sensing is prohibited.
 
@@ -867,7 +867,7 @@ All normal game rules apply in this competition.  The only exceptions will be:
 \item Drop-in teams may not call any timeouts.
 \end{itemize}
 
-Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}).
+Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}).  Drop-in teams will use UDP ports 10098 and 10099.
 
 In this competition, no code changes may be made once the lineups are announced for a match that would tell the drop-in player anything about the identity or ability of its teammates or opponents.  Each drop-in player is expected to play without any human-provided knowledge of its teammates or opponents. 
 
@@ -1003,12 +1003,14 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Setup of the Environment}
 \begin{itemize}
-	\item Changed color of goals from yellow to white. (Section \ref{sec:field_dim})
+	\item Changed color of goals from yellow to white. Goal supports should be white, gray, or black. (Section \ref{sec:field_dim})
 \end{itemize}
 
 \subsection*{Robot Players}
 \begin{itemize}
-   \item (none)
+	\item The coaching robot may be connected via a cable to the GameController. (Section \ref{sec:coaching_robot})
+	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})
+	\item Coach messages can have a maximum size of 80 bytes.  Messages will not be delayed. (Section \ref{sec:wireless})
 \end{itemize}
 
 \subsection*{Game Process}
