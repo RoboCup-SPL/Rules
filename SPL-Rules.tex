@@ -369,6 +369,8 @@ Consequently those pushings do not go into the permanent removal count.
 
 \end{description}
 
+In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty.
+
 The team color should be displayed during the whole game on the LED of the left foot (blue/red). Teams that support the GameController can visualize whether the robot's team has kick-off on the LED of the right foot (off/white) in the states \emph{initial}, \emph{ready} and \emph{set}. The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
 
 \begin{itemize}
@@ -1016,7 +1018,7 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Game Process}
 \begin{itemize}
-	\item (none)
+	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:game_states})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
