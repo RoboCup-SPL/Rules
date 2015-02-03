@@ -252,7 +252,7 @@ Only one field player may enter their own penalty area at any given time. Each o
 
 The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). The coaching robot may not communicate via any other mechanism.  A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer.  The coaching robot may be connected via a cable to the GameController. The coaching robot may either sit on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
+The coaching robot is not placed on the field but on the table that is used for the GameController computer.  The coaching robot may be connected via a cable to the GameController. The coaching robot may sit or kneel on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
@@ -264,18 +264,19 @@ The coaching robot is not placed on the field but on the table that is used for 
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots use colored jersey shirts as team markers. Each jersey shirt has a player number(1-5) printed on it in white text.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
+Robots use colored jersey shirts as team markers. Each jersey shirt has a player number(1-5) printed on it.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
 
 Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cyan solid colors) or they may design and manufacture their own jerseys.  Austrian Kangaroos may still have magenta and cyan jerseys available for purchase --- please inquire directly with them regarding potential purchase of these jerseys.  Teams opting to design and manufacture their own jerseys must follow these guidelines:
 \begin{itemize}
-\item Jerseys should be the tank top style used at RoboCup 2013/2014.  Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required.
+\item Jerseys should be the tank top style used at RoboCup 2013/2014.  The torso LED must be clearly visible.  Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required.
 	\begin{itemize}
 	\item The sonar panel mesh (if used) may be white, black, the jersey's primary color, or the jersey's secondary color.
 	\item Jerseys should cover approximately the same areas of the robot as shown in Figure~\ref{fig:nao_markers}.
 	\end{itemize}
-\item Jerseys must be at least 80\% solid colored in any one color, although this color may not be white, orange, red, green, or light gray.  At most 20\% of the jersey may be a secondary color or colors which may not be orange, red, or green.  Note that logos count as part of the 20\%.
+\item Each side (front/back) of the jerseys must be at least 80\% solid colored in any one color, although this color may not be white, orange, red, green, or light gray.  At most 20\% of each side (front/back) of the jersey may be a secondary color or colors which may not be orange, red, or green.  Note that logos count as part of the 20\%.
+\item Jersey material must be non-reflecting and non-textured.  Material that is shiny or glittery is also not appropriate.
 \item Jerseys should be numbered 1-5 on both sides.  The numbers must be printed in white, black, the jersey's primary color, or one of the jersey's secondary colors and must be {\bf easily} recognized by humans.
-\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval at least 4 weeks prior to the first set-up day of the competition (i.e. by June 19, 2014). At most three designs may be submitted. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
+\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval at least 4 weeks prior to the first set-up day of the competition (i.e. by June 19, 2015).  Designs submitted before June 19, 2015 will be reviewed within two weeks of their submission date.  At most three designs may be submitted. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
 \end{itemize}
 
 It is possible that multiple teams may design similar jerseys.  Hence, if the head referee believes the jerseys of two competing teams are too similar, the second team listed on the schedule must change into an alternate jersey.
@@ -417,7 +418,6 @@ For kick-off, the robots listening to the wireless GameController run through th
 In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allow to touch the halfway line.
 The field players of the attacking team can walk to any position within their own half.
 The field players of the defending team can walk to any position within their own half, except for inside the center circle.  Only one field player may be within the penalty area during the set state.  If multiple field players are within the penalty area during the set state, the robot(s) closer to center field should be placed manually by the assistant referees to the closest position(s) (as shown in Figure~\ref{fig:ko}) in which a team mate is not already positioned within 1 meter.
-The feet of both goal keepers must be \emph{inside} the penalty area.
 
 If robots collide during the Ready state, the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees, not the penalty described in Section~\ref{sec:player_pushing}.
 Consequently those pushings do not go into the permanent removal count.
@@ -524,7 +524,7 @@ If a robot has been rebooted and the wireless is not working, it is the responsi
 \subsection{Request for Timeout}
 \label{sec:request_for_timeout}
 
-At any stoppage of play (after a goal, stuck game, before half, etc.) either team may call a timeout. Each team can call a \textbf{maximum of 1 timeout per game} with a total time totaling no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted. 
+At any stoppage of play (after a goal, stuck game, before a half, etc.) either team may call a timeout. Each team can call a \textbf{maximum of 1 timeout per game} with a total time totaling no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted. 
 The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
   
 The clock stops during timeouts, even during the preliminaries.
@@ -681,7 +681,7 @@ held the ball.
 The following define situations where ball holding does not apply:
 
 \begin{enumerate}
-	\item Ball holding may not occur when the ball becomes stuck between a robot's legs.  An assistant referee should remove the ball in these situations and place the ball approximately where it was before it became stuck.
+	\item Ball holding may not occur when the ball becomes stuck between a robot's legs.  In such a situation, the head referee should call `clear ball' and an assistant referee should remove the ball and place the ball approximately where it was before it became stuck.
 	\item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule.
 \end{enumerate}
 
@@ -746,7 +746,7 @@ The following define situations where pushing does not apply:
 The following forms of contact are considered pushing contacts except for the conditions in Section~\ref{sec:situations_no_pushing}:
 \begin{enumerate}
 	\item Any form of forceful contact that significantly destabilizes a robot, such that walking and/or kicking is impeded. Examples for forceful contacts include falling into another robot or walking carelessly into another robot at significant speed.
-	\item Walking into another robot for 2 seconds, even if the `force to push' is minimal.
+	\item Walking into another robot for 2 seconds (even a fallen or getting up robot), even if the `force to push' is minimal.
 \end{enumerate}
 
 \subsubsection{Contact Between More Than 2 Robots}
@@ -804,15 +804,15 @@ The referees are the only persons that are allowed inside the playing area.
 
 \subsection{Head Referee}
 \label{sec:head_referee}
-The head referee signals game starts, restarts, when a goal was scored, the case of \emph{game stuck}, and penalties by a single whistle. In general, the head referee first whistles and then announces the reason for the whistle. The only exception is the case of the kick-off, in which the reason for the whistle is obvious. The whistle defines the point in time at which the decision is made. If the head referee has to announce many decisions in short sequence, he may skip whistling. For penalties, he announces the infraction committed, the team color, and the jersey number of the robot, \eg ``illegal defender, blue number 3''. In case of a goal scored, local or global game stuck, this is also announced verbally. By two whistles, the head referee terminates the first half; by three whistles he terminates the second half, \ie the whole game.
+The head referee signals game starts, restarts, and the case of \emph{game stuck} by a single whistle. In general, the head referee first whistles and then announces the reason for the whistle. The only exception is the case of the kick-off, in which the reason for the whistle is obvious. The whistle defines the point in time at which the decision is made. In case of a local or global game stuck, this is also announced verbally. By two whistles, the head referee terminates the first half; by three whistles he terminates the second half, \ie the whole game.  Goals should be indicated verbally and by the head referee pointing with one arm towards the center of the field.
 
 In the penalty kick shoot-out, the head referee keeps the time.
 
 Any decision of the head referee is valid. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience or the teams and the head referee. The main referee's decision is final and can not be changed afterwards by video proof.
 
 \subsection{Assistant Referees}
-
-The two assistant referees handle the robots. They start them if the wireless is not working, they move them manually to legal kick-off positions, they take them out when the robots are penalized, and they put them in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
+\label{sec:assist_referee}
+The two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots manually to legal kick-off positions, they take the robots out when they are penalized, and they put the robots in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. An addistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.  In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
 
 \subsection{Operator of the GameController}
 \label{sec:gameControllerOp}
@@ -1005,6 +1005,7 @@ This is a brief list of rule changes from 2014 to 2015.
 \begin{itemize}
 	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
 	\item The coaching robot may be connected via a cable to the GameController. (Section \ref{sec:coaching_robot})
+	\item The coaching robot may sit or kneel. (Section \ref{sec:coaching_robot})
 	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})
 	\item Coach messages can have a maximum size of 80 bytes.  Messages will not be delayed. (Section \ref{sec:wireless})
 \end{itemize}
@@ -1012,16 +1013,20 @@ This is a brief list of rule changes from 2014 to 2015.
 \subsection*{Game Process}
 \begin{itemize}
 	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:game_states})
+	\item The goal keeper is no longer required to have its feet inside the goal box during Set (Section \ref{sec:kick-off})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
+	\item  When a ball becomes stuck between a robot's legs, the head referee should call `clear ball' and an assistant referee should remove the ball. (Section \ref{sec:ball_holding})
+	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
 	\item Flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots. (Section \ref{sec:jamming})
 \end{itemize}
 
 \subsection*{Judgement}
 \begin{itemize}
-	\item (none)
+	\item The head referee should not whistle to announce goals or penalities.  Both should be indicated verbally, and goals should be indicated by the head referee pointing with one arm towards the center of the field. (Section \ref{sec:head_referee})
+	\item Updated the rules to reflect the fact that the assistant referees should handle judgements made by the head referee with regards to both robots and the ball. (Section \ref{sec:assist_referee})
 \end{itemize}
 
 \subsection*{Drop-in Player Competition}
