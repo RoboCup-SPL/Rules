@@ -216,7 +216,7 @@ A match is played by two teams, each consisting of not more than \textbf{5} play
 
 \subsection{Hardware}
 \label{sec:hardware}
-All teams must use gray NAO humanoid robots manufactured by Aldebaran Robotics. NAO robots with actuated hands may be used, but the fingers may not be used for any purpose and should remain with the fingers bent (similarly to how the fingers of NAOs without actuated hands naturally remain).
+All teams must use gray NAO humanoid robots manufactured by Aldebaran Robotics. 
 
 Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
 
@@ -389,7 +389,7 @@ A goal is achieved when the entire ball (not only the center of the ball) goes o
 
 Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}).  The only exception to the rules is a defending goal keeper within its penalty box.
 
-Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active.  In this case, the goal is not scored and a global game stuck is called on the active team.
+Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Sect. \ref{sec:fallenrobots}).  In this case, the goal is not scored and a global game stuck is called on the active team.
 
 \subsection{Goal Keeper Save}
 \label{sec:goalie_save}
@@ -769,7 +769,12 @@ A robot that damages the field will be removed from the field for the remainder 
 A robot that intends to leave the \TotalWidth $\times$ \TotalLength carpeted area will be subject to the standard removal penalty (see
 Section~\ref{sec:removal_penalty}). This penalty can already be called after a robot leaves the 6~m $\times$ 9~m playing field if the robot appears to be ``lost''.
 
-In addition, a robot that walks into the goal net for more than 5 seconds will also be subject to the standard removal penalty.
+In addition, 
+\begin{itemize}
+\item a robot that walks into the goal net for more than 5 seconds as well as 
+\item a robot whose fingers become entangled in the net (without any time constraint)
+\end{itemize}
+will also be subject to the standard removal penalty.
 
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
@@ -1003,6 +1008,7 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Robot Players}
 \begin{itemize}
+    \item Removed restrictions about NAO robots with actuated hands, \ie goalkeepers are now allowed to hold or block the ball by using their fingers. (Section \ref{sec:hardware})
 	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
 	\item The coaching robot may be connected via a cable to the GameController. (Section \ref{sec:coaching_robot})
 	\item The coaching robot may sit or kneel. (Section \ref{sec:coaching_robot})
@@ -1020,12 +1026,13 @@ This is a brief list of rule changes from 2014 to 2015.
 \begin{itemize}
 	\item  When a ball becomes stuck between a robot's legs, the head referee should call `clear ball' and an assistant referee should remove the ball. (Section \ref{sec:ball_holding})
 	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
+	\item Fingers entangled in the goal net are considered as `Leaving the Field'. (Section \ref{sec:leaving_field})
 	\item Flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots. (Section \ref{sec:jamming})
 \end{itemize}
 
 \subsection*{Judgement}
 \begin{itemize}
-	\item The head referee should not whistle to announce goals or penalities.  Both should be indicated verbally, and goals should be indicated by the head referee pointing with one arm towards the center of the field. (Section \ref{sec:head_referee})
+	\item The head referee should not whistle to announce goals or penalties.  Both should be indicated verbally, and goals should be indicated by the head referee pointing with one arm towards the center of the field. (Section \ref{sec:head_referee})
 	\item Updated the rules to reflect the fact that the assistant referees should handle judgements made by the head referee with regards to both robots and the ball. (Section \ref{sec:assist_referee})
 \end{itemize}
 
