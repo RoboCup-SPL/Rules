@@ -446,7 +446,7 @@ Just before the \emph{set} state is called, the ball is placed on the center poi
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} (again either by the GameController or manually), in which they can actually play soccer.
 The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play, the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
 
-Note that a goal can never be scored directly from a kick-off shot. See Section~\ref{sec:kick-off_shot} for details.
+Note that a goal can never be scored from within the center circle after a kick-off. See Section~\ref{sec:kick-off_shot} for details.
 
 \subsection{Throw-in}
 \label{sec:throw_in}
@@ -647,8 +647,10 @@ Manual interaction with the robots, either directly or via some communications m
 \subsection{Kick-off Shot}
 \label{sec:kick-off_shot}
 
-A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by the team kicking off after a kick-off before the entire ball has left the center circle, including the boundary line. 
-If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and a kick-off will be awarded to the defending team (as per Section~\ref{sec:kick-off}).
+A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by any of the two teams after a kick-off before the entire ball has left the center circle, including the boundary line. 
+If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and the standard removal penalty will be applied to the kicking robot. The ball will be put back to the place from which it was kicked.
+
+If the ball touches a teammate of the kicking robot outside the center circle before entering the goal, a goal is scored.
 
 \subsection{Ball Holding}
 \label{sec:ball_holding}
@@ -1018,12 +1020,14 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Game Process}
 \begin{itemize}
+    \item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
 	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:game_states})
 	\item The goal keeper is no longer required to have its feet inside the goal box during Set (Section \ref{sec:kick-off})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
+    \item The `Kick-off shot' penalty is now applied to both teams, if they kicked the ball into the goal before it has left the center circle. A kick-off shot does not result into a new kick-off but into the application of the standard removal penalty to the kicking robot. (Section \ref{sec:kick-off_shot})
 	\item  When a ball becomes stuck between a robot's legs, the head referee should call `clear ball' and an assistant referee should remove the ball. (Section \ref{sec:ball_holding})
 	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
 	\item Fingers entangled in the goal net are considered as `Leaving the Field'. (Section \ref{sec:leaving_field})
