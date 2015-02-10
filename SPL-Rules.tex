@@ -531,7 +531,7 @@ The clock stops during timeouts, even during the preliminaries.
 
 After the completion of the timeout, the game resumes with a kick off for the team which did not call the timeout.
 
-If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then the referee shall start the game with only one team on the field.  The team that wasn't ready can return its robots to the field as per the rules for ``Request for Pick-up''. If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.
+If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then the referee shall start the game with only one team on the field.  The team that was not ready can return its robots to the field as per the rules for ``Request for Pick-up''. If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.
 
 \subsection{Referee Timeout}
 \label{sec:referee_timeout}
@@ -548,8 +548,19 @@ The head official may decide to add time to the clock if a substantial delay (su
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
 
-If a team chooses to forfeit a match then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
+Teams who do not make a good faith effort to participate in a scheduled game are considered to forfeit the game.  In the case of a forfeit, a note will be added to the Penalty Counts list kept by the league, which may affect qualification in future years.
 
+If a team notifies the technical committee that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
+
+If a team notifies the technical committee that they wish to forfeit at least two hours before their schedule game time, the following procedure will be followed.
+
+\begin{itemize}
+\item If a team chooses to forfeit a match in the round robin games the other team plays the match against an empty field.  However, any own goals will not be scored.
+\item If a team chooses to forfeit in a knock-out game which it reached directly after a round robin group, it will be replaced by its runner up in that round robin group.
+\item If a team chooses to forfeit in a knock-out game which it reached after a previous knock-out game (e.g. semi final after winning the quarter final), it will be replaced by the team that it eliminated in the previous round.
+\item If a team chooses to forfeit the final and the final is scheduled to occur after the 3rd place game, it will be replaced by the 3rd place winner, and the 4th place team will become 3rd place. No new 4th place will be selected.
+\item If a team chooses to forfeit the final and the 3rd place game is schedule to occur after the final, it will be replaced by the team that lost to the forfeiting team in the previous semifinals. No 3rd place game will be played.
+\end{itemize}
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
@@ -793,7 +804,7 @@ During the match any robot shall never jam the communication and the sensor syst
 
 \begin{description}
 
-\item[Wireless communication.] As specified in Sect. \ref{sec:wireless}, each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format. If a robot uses a different protocol or sends too many messages over a couple of seconds in a game, it will be disqualified for that game. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using 2.4~GHz radio equipment (including cellular phones and/or Bluetooth devices).
+\item[Wireless communication.] As specified in Sect. \ref{sec:wireless}, each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format. If a robot uses a different protocol or sends too many messages over a couple of seconds in a game, it will be disqualified for that game. If a teams violates this rule in multiple games, disqualification from the tournament (including technical challenges as well as the drop-in competition) as well as an entry in the penalty list will be the consequence. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using 2.4~GHz radio equipment (including cellular phones and/or Bluetooth devices).
 
 \item[Acoustic communication.] If acoustic communication is used by both teams, they shall negotiate before the match how they can reduce interference. If only one team uses acoustic communication, the robots of the other team shall avoid producing any sound. In addition, both the teams and the audience shall avoid intentionally confusing the robots by producing similar sounds to those used for communication.
 
@@ -805,7 +816,7 @@ During the match any robot shall never jam the communication and the sensor syst
 \newpage
 
 
-\section{Judgement}
+\section{Judgment}
 
 The referees are the only persons that are allowed inside the playing area.
 
@@ -819,7 +830,7 @@ Any decision of the head referee is valid. There is no discussion about decision
 
 \subsection{Assistant Referees}
 \label{sec:assist_referee}
-The two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots manually to legal kick-off positions, they take the robots out when they are penalized, and they put the robots in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. An addistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.  In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
+The two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots manually to legal kick-off positions, they take the robots out when they are penalized, and they put the robots in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.  In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
 
 \subsection{Operator of the GameController}
 \label{sec:gameControllerOp}
@@ -830,7 +841,7 @@ The operator of the GameController sits at a PC outside the playing area. He or 
 The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue color} (blue jeans are acceptable) and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
 
 \subsection{A Remark on Artificial Landmarks}
-\label{sec:judgement:landmarks}
+\label{sec:judgment:landmarks}
 
 The head referee may decide at any point before or during a game to relocate any objects around the field, or direct persons to another position around the field.
 
@@ -960,9 +971,9 @@ If a team's obtained points is the same as another team's after a round of pool 
 
 \subsection{Selection of the Referees}
 \label{sec:refSelection}
-During pool play, the games will be refereed by members of teams from a different pool.  Each team has to referee a number of games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+During pool play, the games will be refereed by members of teams from a different pool.  Each team has to referee a number of games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  Note that the head referee and the GameController should always be from the same team.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
-For each game, the captain of each team playing will rate the 4 officials working the game once the game has concluded.  In the case of drop-in games, each team participating in that drop-in game should rate the officials.  The individual ratings will remain private, but top officials will be announced.  Additionally, referees for the semi-final, championship, and 3rd place games will be chosen from the most highly rated referees from earlier games in the competition.
+After each game, the captain of each team playing will decide whether to recommend the head referee and GameController and/or the assistant referees to officiate the finals.  These rankings will help select the officiating crew for the finals and other games near the end of the tournament.
 
 In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
 
@@ -989,7 +1000,7 @@ Teams that reach the quarter-finals in the team competition must also publicly r
 \label{sec:refPenalty}
 A schedule will be released regarding the games for which each team is required to provide two referees.  These referees should report to the field on which the game they are to referee is to be played at least five minutes before the game is scheduled to start.
 
-Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offence that will not only cost you pre-qualification for the subsequent year if your team has otherwise earned pre-qualification, but will also severely effect your team's chances of being accepted the following year.
+Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offense that will not only cost you pre-qualification for the subsequent year if your team has otherwise earned pre-qualification, but will also severely effect your team's chances of being accepted the following year.
 
 A team may swap refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
 
@@ -1022,7 +1033,8 @@ This is a brief list of rule changes from 2014 to 2015.
 \begin{itemize}
     \item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
 	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:game_states})
-	\item The goal keeper is no longer required to have its feet inside the goal box during Set (Section \ref{sec:kick-off})
+	\item The goal keeper is no longer required to have its feet inside the goal box during Set. (Section \ref{sec:kick-off})
+	\item Updated the forfeiting rules to consider forfeits that occur well before the game is scheduled to occur. (Section \ref{sec:forfeit})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
@@ -1032,12 +1044,13 @@ This is a brief list of rule changes from 2014 to 2015.
 	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
 	\item Fingers entangled in the goal net are considered as `Leaving the Field'. (Section \ref{sec:leaving_field})
 	\item Flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots. (Section \ref{sec:jamming})
+	\item Teams who used a different protocol or send too many messages over a couple of seconds in multiple games will be disqualified from the tournament (including technical challenges as well as the drop-in competition) and will also receive an entry in the penalty list. (Section \ref{sec:jamming})
 \end{itemize}
 
-\subsection*{Judgement}
+\subsection*{Judgment}
 \begin{itemize}
 	\item The head referee should not whistle to announce goals or penalties.  Both should be indicated verbally, and goals should be indicated by the head referee pointing with one arm towards the center of the field. (Section \ref{sec:head_referee})
-	\item Updated the rules to reflect the fact that the assistant referees should handle judgements made by the head referee with regards to both robots and the ball. (Section \ref{sec:assist_referee})
+	\item Updated the rules to reflect the fact that the assistant referees should handle judgments made by the head referee with regards to both robots and the ball. (Section \ref{sec:assist_referee})
 \end{itemize}
 
 \subsection*{Drop-in Player Competition}
@@ -1047,7 +1060,7 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}	
-	\item (none)
+	\item Simplified the referee evaluation process. (Section \ref{sec:refSelection})
 \end{itemize}
 
 \end{document}
