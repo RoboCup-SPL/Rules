@@ -102,7 +102,7 @@ Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@
 
 \section{Corner Kick Challenge}
 
-describe corner kick challenge
+Tim - describe corner kick challenge
 
 \newpage
 
@@ -113,7 +113,7 @@ describe corner kick challenge
 
 
 \section{Many Carpets Challenge}
-\commentk{I pulled over the proposal from last year, but it should be updates as needed.}
+\commentk{Matthias - I pulled over the proposal from last year, but it should be updates as needed.}
 One frequently discussed topic is to exchange the current field carpet for a more challenging surface, \eg artificial lawn.
 To assess the current state of the art regarding walking stability and to foster research into this direction, the \textit{Walking Challenge} has been prepared.
 
@@ -152,7 +152,16 @@ The carpets will be brought to the competition by TC members and the teams. On s
 
 \section{Realistic Ball Challenge}
 
-describe the realistic ball challenge
+\commentk{pulled over the 2009 text for now, need to consider how much to limit size and design (if at all).  Humanoid KidSize plays with FIFA size 1 balls.}
+
+The most common techniques for object detection, specifically ball detection, in the RoboCup leagues mostly rely on color information. However, it is expected in the near future that visual cues like color will be removed to come to a more realistic setup with robots playing with a ``regular'' soccer ball, or even with any kind of ball. Therefore, the aim of this challenge is to test whether the robots can detect balls other than the orange ones on the field, and manipulate them as precise as they can manipulate orange balls.
+
+Each team will be asked to bring (at least) one ball which is similar to the orange ball in size and weight but with different colors and patterns. The TC will pick 6 balls out of this pile; 5 of those will be used in the challenge and the remaining 1 will be spare. If one of the balls in the pile of 5 was brought by the competing team, then it will be replaced with the spare one to make sure that the robot tries to deal with balls that it has not seen before.
+
+The robot will start from the intersection of one of the side lines and the center line, facing towards the center of the field. The balls will be placed randomly within an imaginary $3m \times 2m$ area (i.e. $1/4^{th}$ of the field) located at the center of the field. Also there will be two stationary robots on the field placed in such a way that they are not somewhere between the balls and the goals. The purpose of placing those extra robots on the field is to make sure that there are some \emph{non-ball} objects on the field. An example scenario is illustrated in Figure X.
+
+The robot will have 3 minutes to detect the balls, walk towards them, and try to score as many goals as it can. It can kick the ball towards both goals. If the robot is able to score with all balls before the time is over, then the stopwatch will be stopped, time spent for scoring will be recorded, and the team will be awarded with a score of ($180 - \emph{spentTime}$), $180$ being 3 minutes in seconds. The robot will be awarded 20 points for each time it intentionally kicks the balls, and additional 50 points for each goal it scores. An intentional kick is defined as a kick that results in at least 1 meter displacement of the ball. Balls that go inside the goals or out of bounds will be removed. If the robot is not able to score after 3 minutes, then partial credit will be given based on whether the robot showed convincing attempts of detecting, tracking, and kicking the ball. Finally the teams will be ordered based on their scores and their scores will be normalized according to the scoring scheme mentioned in the introduction section.
+
 
 
 \end{document}
