@@ -575,7 +575,7 @@ The procedure for each attempt is described in Section~\ref{sec:penalty_kick}. F
 \subsubsection{Penalty Kick}
 \label{sec:penalty_kick}
 
-A penalty kick is carried out with one attacking robot and one opposing goal keeper. Other robots (including the coach) should be powered off and stay outside of the field. Teams are allowed to switch to specially designed software for a penalty kick. 
+A penalty kick is carried out with one attacking robot and one opposing goal keeper. Other robots (including the coach) should be powered off and stay outside of the field. Teams are allowed to switch to specially designed software for a penalty kick.  Moreover, teams are allowed to replace their robot after each penalty shot attempt if desired.  However, all robots (including the replacements) must be ready before the penalty shootout begins. After the start of the penalty shootout, no additional code changes are allowed.
 
 The ball is placed on the penalty spot, at the end of the field closest to the goal being defended. The attacking robot is positioned 1 meter behind the penalty spot, facing the ball.  This spot is denoted with a small dot made with a felt-tip pen. The goal keeper is placed with its feet on the goal line and in the center of the goal.
 
@@ -1021,25 +1021,26 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Robot Players}
 \begin{itemize}
-    \item Removed restrictions about NAO robots with actuated hands, \ie goalkeepers are now allowed to hold or block the ball by using their fingers. (Section \ref{sec:hardware})
-	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
+	\item Removed restrictions about NAO robots with actuated hands, \ie goalkeepers are now allowed to hold or block the ball by using their fingers. (Section \ref{sec:hardware})
 	\item The coaching robot may be connected via a cable to the GameController. (Section \ref{sec:coaching_robot})
 	\item The coaching robot may sit or kneel. (Section \ref{sec:coaching_robot})
+	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
 	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})
 	\item Coach messages can have a maximum size of 80 bytes.  Messages will not be delayed. (Section \ref{sec:wireless})
 \end{itemize}
 
 \subsection*{Game Process}
 \begin{itemize}
-    \item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
-	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:game_states})
+	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:robot_states})
+	\item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
 	\item The goal keeper is no longer required to have its feet inside the goal box during Set. (Section \ref{sec:kick-off})
 	\item Updated the forfeiting rules to consider forfeits that occur well before the game is scheduled to occur. (Section \ref{sec:forfeit})
+	\item Robots may be replaced after each penalty kick attempt if desired. (Section \ref{sec:penalty_kick})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
-    \item The `Kick-off shot' penalty is now applied to both teams, if they kicked the ball into the goal before it has left the center circle. A kick-off shot does not result into a new kick-off but into the application of the standard removal penalty to the kicking robot. (Section \ref{sec:kick-off_shot})
+	\item The `Kick-off shot' penalty is now applied to both teams, if they kicked the ball into the goal before it has left the center circle. A kick-off shot does not result into a new kick-off but into the application of the standard removal penalty to the kicking robot. (Section \ref{sec:kick-off_shot})
 	\item  When a ball becomes stuck between a robot's legs, the head referee should call `clear ball' and an assistant referee should remove the ball. (Section \ref{sec:ball_holding})
 	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
 	\item Fingers entangled in the goal net are considered as `Leaving the Field'. (Section \ref{sec:leaving_field})
