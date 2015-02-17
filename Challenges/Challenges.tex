@@ -100,12 +100,43 @@ Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@
 % % % % % % % % % % % % % % % % % % % % % % % %
 
 
-\section{Corner Kick Challenge}
+\section{Corner Kicks Challenge}
 
-Tim - describe corner kick challenge
+\begin{figure}[t]
+\centerline{\includegraphics[width=0.8\columnwidth]{figures/corner-kicks-challenge}}
+\caption{Setup before each corner kick attempt. The robot $R_1$, which has to carry out the corner kick, is placed on the sideline with its feet touching a virtual extension of the penalty area's front line. The robot $R_2$ ist standing at the default penalty kick position, \ie 1 m behind the penalty mark. The ball is placed in the left corner of the field. Please note that during the challenge, several opponent robots will be placed on the field. Their positions will not be announced in advance.}
+\label{fig:corner_kicks_challenge}
+\end{figure}
 
-\newpage
 
+The purpose of this challenge is to foster passing skills, team play, and the perception of opponent robots.
+
+\subsection{Setup}
+The ball is placed at one of the field corners next to one of the goals. Each participating team has to provide two robots (whose jersey color can be chosen freely, wearing no jersey is legal, too). These robots will be placed at the two predefined positions $R_1$ and $R_2$ (see Fig. \ref{fig:corner_kicks_challenge}). The initial game state is SET. Initially, there are no opponent robots. The time limit for this challenge are 3 minutes. \comment{Tim: Allowing more than 3 minutes makes the overall time slot for this challenge too large. We already stop the time after a goal. I do not believe that more time will lead to a more differentiated result.}
+
+As of the start of the first participating teams, no changes of code or configuration are allowed for any participating team.
+
+\subsection{Procedure}
+The game state changes to PLAYING and the robots can start to carry out the corner kick. To achieve a goal, both robots need to have touched the ball. The robot at position $R_1$ has to be the first who touches the ball. There are no other restrictions regarding a minimum or maximum number of touches. If the other robot touches first, the game state changes to SET again and the corner kick is repeated.
+
+If the ball leaves the field, it is placed in the corner again.
+
+If the ball enters the goal, the game state changes to SET and the time stops. Both robots are put back on their start positions again.
+
+After each goal, one opponent robot (standing and not moving) is added to the field to make the following corner kick attempt more difficult. The positions of the opponent robots will not be announced in advance. There will not be more than 4 opponents, i.e. after having scored four goals, the setup will remain constant. The configuration of the opponent robots will be the same for all teams. 
+
+If an opponent becomes pushed, or a playing robots leaves the field or is fallen (everything according to the definitions in the normal rules), the game state changes to SET and the time stops. Both robots are put back on their start positions again.
+
+\subsection{Score}
+Each goal will be awarded with one point.
+Before the first goal is scored, a team receives one initial point, if both robots have touched the ball.
+
+\subsection{Origin, Color, and Handling of Opponent Robots}
+The opponent robots will be provided by the other teams that participate in this challenge. Whenever a team has completed the challenge, it will provide its two robots as potential opponents for the next two participating teams. The last teams participating in this challenge have to provide their robots for the first participants. The Technical Committee will announce a detailed plan in advance to the challenge.
+
+All opponent wear the cyan standard jerseys. \comment{Tim: We should specify the color of the opponent robots. Otherwise teams may not be able to distinguish them from their own robots.}
+
+To avoid any unnecessary damages to the robots, the Technical Committee members that conduct this challenge can try to catch falling opponent robots and put them back in a standing position, if requested by the teams.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % %
