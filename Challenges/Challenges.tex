@@ -79,6 +79,8 @@ At RoboCup 2015, the Standard Platform League will hold three different technica
 
 The scores earned in each challenge will vary in magnitude.  Hence, they must be scaled before calculating the overall technical challenge rankings.  Teams who do not participate in a challenge will receive 0 points for that challenge.  The team with the highest total score for a challenge will get 25 points for that challenge, while the team with the lowest total score for a challenge will get 5 points for that challenge.  A linear equation will then be fit to these two points, and each other participating team in that challenge will gain points for that challenge based on this equation.
 
+For all three challenges, no changes of code or configuration are allowed for any participating team after the first team starts the challenge. 
+
 Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@lists.robocup.org}}.
 
 \vfill
@@ -104,7 +106,7 @@ Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.8\columnwidth]{figures/corner-kicks-challenge}}
-\caption{Setup before each corner kick attempt. The robot $R_1$, which has to carry out the corner kick, is placed on the sideline with its feet touching a virtual extension of the penalty area's front line. The robot $R_2$ ist standing at the default penalty kick position, \ie 1 m behind the penalty mark. The ball is placed in the left corner of the field. Please note that during the challenge, several opponent robots will be placed on the field. Their positions will not be announced in advance.}
+\caption{Setup before each corner kick attempt. The robot $R_1$, which has to carry out the corner kick, is placed on the sideline with its feet touching a virtual extension of the penalty area's front line. The robot $R_2$ is standing at the default penalty kick position, \ie 1 m behind the penalty mark. The ball is placed in the left corner of the field. Please note that during the challenge, several opponent robots will be placed on the field. Their positions will not be announced in advance.}
 \label{fig:corner_kicks_challenge}
 \end{figure}
 
@@ -112,9 +114,7 @@ Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@
 The purpose of this challenge is to foster passing skills, team play, and the perception of opponent robots.
 
 \subsection{Setup}
-The ball is placed at one of the field corners next to one of the goals. Each participating team has to provide two robots (whose jersey color can be chosen freely, wearing no jersey is legal, too). These robots will be placed at the two predefined positions $R_1$ and $R_2$ (see Fig. \ref{fig:corner_kicks_challenge}). The initial game state is SET. Initially, there are no opponent robots. The time limit for this challenge are 3 minutes. \comment{Tim: Allowing more than 3 minutes makes the overall time slot for this challenge too large. We already stop the time after a goal. I do not believe that more time will lead to a more differentiated result.}
-
-As of the start of the first participating teams, no changes of code or configuration are allowed for any participating team.
+The ball is placed at one of the field corners next to one of the goals. Each participating team has to provide two robots (whose jersey color can be chosen freely, wearing no jersey is legal, too). These robots will be placed at the two predefined positions $R_1$ and $R_2$ (see Fig. \ref{fig:corner_kicks_challenge}). The initial game state is SET. Initially, there are no opponent robots. The time limit for this challenge are 3 minutes. \comment{Tim: Allowing more than 3 minutes makes the overall time slot for this challenge too large. We already stop the time after a goal. I do not believe that more time will lead to a more differentiated result. Katie: Agreed.}
 
 \subsection{Procedure}
 The game state changes to PLAYING and the robots can start to carry out the corner kick. To achieve a goal, both robots need to have touched the ball. The robot at position $R_1$ has to be the first who touches the ball. There are no other restrictions regarding a minimum or maximum number of touches. If the other robot touches first, the game state changes to SET again and the corner kick is repeated.
@@ -134,7 +134,7 @@ Before the first goal is scored, a team receives one initial point once both rob
 \subsection{Origin, Color, and Handling of Opponent Robots}
 The opponent robots will be provided by the other teams that participate in this challenge. Whenever a team has completed the challenge, it will provide its two robots as potential opponents for the next two participating teams. The last teams participating in this challenge have to provide their robots for the first participants. The Technical Committee will announce a detailed plan in advance to the challenge.
 
-All opponent robots must wear the cyan standard jerseys. \comment{Tim: We should specify the color of the opponent robots. Otherwise teams may not be able to distinguish them from their own robots.}
+All opponent robots must wear the cyan standard jerseys. \comment{Tim: We should specify the color of the opponent robots. Otherwise teams may not be able to distinguish them from their own robots. Katie: Agreed.}
 
 To avoid any unnecessary damages to the robots, the Technical Committee members that conduct this challenge can try to catch falling opponent robots and put them back in a standing position if requested by the teams.
 
@@ -183,13 +183,22 @@ The carpets will be brought to the competition by TC members and the teams. On s
 
 \section{Realistic Ball Challenge}
 
-The most common techniques for ball detection in the SPL mostly rely on color information. However, in accordance with the new white goals, it is expected that a more realistic ball will be adopted by the SPL in the near future.  The Humanoid KidSize league has already adopted a realistic FIFA size 1 ball.  Therefore, the aim of this challenge is to test whether NAO robots can detect balls other than the orange ones on the field and manipulate them as precisely as an orange ball.
+The most common techniques for ball detection in the SPL mostly rely on color information. However, in accordance with the new white goals, it is expected that a more realistic ball will be adopted by the SPL in the near future.  The Humanoid Kid Size league has adopted a realistic FIFA size 1 ball that is at least 50\% white for the 2015 competitions.  Therefore, the aim of this challenge is to test whether NAO robots can detect balls other than the orange ones on the field and manipulate them as precisely as an orange ball.
 
-Each team will be asked to bring (at least) one ball that is not orange.  It is preferrable for the ball to be a realistic soccer ball in some manner (color, design, material, ect). Each team will play with one of the balls it brought (if multiple balls were brought, the team may choose).  The TC will also pick 5 balls out of all of the balls brought by teams.  4 of these balls will be choosen by the TC to be used in the challenge, and the fifth will be a spare.  All teams will complete with the 4 balls choosen by the TC and their own ball --- if this would result in the use of two balls from the participating team being used in the challenge (or only four balls being used in the challenge) then the spare ball will be used to replace whichever of the team's balls that the team wishes.
+\subsection{Selection of Balls}
 
-The robot will start from the intersection of one of the side lines and the center line, facing towards the center of the field. The balls will be placed randomly within an imaginary $4m \times 4m$ area located at the center of the field. Also there will be two stationary robots in the  $4m \times 4m$ area. The purpose of placing those extra robots on the field is to make sure that there are some \emph{non-ball} objects on the field. An example scenario is illustrated in Figure X.
+Each team will be asked to bring (at least) one ball that is not orange.  It is preferable for the ball to be a realistic soccer ball in some manner (color, design, material, ect). Each team will play with one of the balls it brought (if multiple balls were brought, the team may choose).  The TC will also pick 5 balls out of all of the balls brought by teams.  4 of these balls will be chosen by the TC to be used in the challenge, and the fifth will be a spare.  All teams will complete with the 4 balls chosen by the TC and their own ball --- if this would result in the use of two balls from the participating team being used in the challenge (or only four balls being used in the challenge) then the spare ball will be used to replace whichever of the balls originally provided by the team that the team choses to remove.
 
-The robot will have 3 minutes to detect the balls, walk towards them, and try to score as many goals as it can. It can attempt to score on either goal. The robot will be awarded 1 point the first time it touches each ball and this touch moves the ball towards the goal (towards the goal is defined to be within a 90 degree cone pointing directly from the robot towards the goal).  The robot is awarded 3 points for each goal scored.  If the robot is able to score with all five balls before the time is over, then the stopwatch will be stopped, time spent for scoring will be recorded, and the team will be awarded with a additional ($180 - \emph{spentTime}$) points (where $180$ is 3 minutes in seconds and $\emph{spentTime}$ is recorded in seconds). Balls that go inside the goals or out of bounds will be removed.
+\subsection{Setup}
+
+The robot will start from the intersection of one of the side lines and the center line, facing towards the center of the field. The initial game state is SET. All five balls will be placed randomly within an imaginary $4m \times 4m$ area located at the center of the field at the beginning of the challenge.  There will also be two stationary robots in the  $4m \times 4m$ area that may wear any jersey that the Technical Committee choses. The purpose of placing those extra robots on the field is to make sure that there are some \emph{non-ball} objects on the field. The balls and the robots will be placed in the same positions for all teams.
+
+\subsection{Procedure}
+
+Once the state is switched to PLAYING, the robot has 3 minutes to detect the balls, walk towards them, and try to score as many goals as it can. The robot may attempt to score on either goal.  Normal SPL rules will be followed except in the following cases.  First, balls that go out of bounds or into the goal will be removed from the field. Second, in the case of any penalty (fallen robot, leaving the field, pushing) the clock will be stopped, the state will set switched to SET, the robot will be repositioned to the intersection of one of the side lines and the center line (facing towards the center of the field), and then the clock will be restarted and the state will be switched to PLAYING.
+
+\subsection{Scoring}
+The robot will be awarded 1 point the first time it touches each ball {\bf and} this touch moves the ball towards the goal (towards the goal is defined to be within a 90 degree cone pointing directly from the robot towards the goal).  The robot is awarded 3 points for each goal scored.  If the robot is able to score with all five balls before the time is over, then the stopwatch will be stopped, time spent for scoring will be recorded, and the robot will be awarded a additional ($180 - \emph{spentTime}$) points (where $180$ is 3 minutes in seconds and $\emph{spentTime}$ is recorded in seconds).
 
 \end{document}
 
