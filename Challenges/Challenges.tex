@@ -117,9 +117,9 @@ The purpose of this challenge is to foster passing skills, team play, and the pe
 The ball is placed at one of the field corners next to one of the goals. Each participating team has to provide two robots (whose jersey color can be chosen freely, wearing no jersey is legal, too). These robots will be placed at the two predefined positions $R_1$ and $R_2$ (see Fig. \ref{fig:corner_kicks_challenge}). The initial game state is SET. Initially, there are no opponent robots. The time limit for this challenge are 3 minutes. \comment{Tim: Allowing more than 3 minutes makes the overall time slot for this challenge too large. We already stop the time after a goal. I do not believe that more time will lead to a more differentiated result. Katie: Agreed.}
 
 \subsection{Procedure}
-The game state changes to PLAYING and the robots can start to carry out the corner kick. To achieve a goal, both robots need to have touched the ball. The robot at position $R_1$ has to be the first who touches the ball. There are no other restrictions regarding a minimum or maximum number of touches. If the other robot touches first, the game state changes to SET again and the corner kick is repeated.
+The game state changes to PLAYING and the robots can start to carry out the corner kick. To achieve a goal, both robots need to have touched the ball. The robot at position $R_1$ has to be the first who touches the ball. There are no other restrictions regarding a minimum or maximum number of touches. If the other robot touches first, the game state changes to SET again and the corner kick is repeated. The time is stopped during this reset.
 
-If the ball leaves the field, it is placed in the corner again.
+If the ball leaves the field, it is placed in the corner again. In this case, the time is not stopped and the game state does not change to SET. 
 
 If the ball enters the goal, the game state changes to SET and the time stops. Both robots are put back on their start positions again.
 
