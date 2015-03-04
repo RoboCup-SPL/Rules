@@ -868,11 +868,11 @@ Each participating team will contribute one drop-in player.  Each drop-in player
 Each team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2015.  These descriptions will be released on the SPL wiki soon after the competition.
 
 \subsection{Rules}
-
+\label{sec:drop-in:rules}
 All normal game rules apply in this competition.  The only exceptions will be:
 \begin{itemize}
 \item Any player may be goal keeper (\ie, enter the goal box and behave as goal keeper).  However, once one player has entered the goal box for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if any other player of this team enters the goal box, the newly entering player is treated as a field player.
-\item Drop-in games will only consist of one 10 minute half.
+\item Drop-in games will each consist of one 10 minute half.
 \item Drop-in teams will not have a coaching robot.
 \item No player may be ejected under `Pushing' rules.
 \item Each of the five players has a jersey number from the set $\{1, 2, 3, 4, 5\}$.
@@ -880,7 +880,7 @@ All normal game rules apply in this competition.  The only exceptions will be:
 \item Drop-in teams may not call any timeouts.
 \end{itemize}
 
-Each drop-in player may communicate with its teammates using SPL standard protocol (\cf Section \ref{sec:wireless}).  Drop-in teams will use UDP ports 10098 and 10099.
+Each drop-in player must communicate with its teammates using SPL standard message protocol (\cf Section \ref{sec:wireless}).  Drop-in teams will use UDP ports 10098 and 10099.  Drop-in players who do not properly fill in and update each field in the standard message, as well as send at least X messages every minute, will not be allowed to play. \todo{what should X be?}
 
 In this competition, no code changes may be made once the lineups are announced for a match that would tell the drop-in player anything about the identity or ability of its teammates or opponents.  Each drop-in player is expected to play without any human-provided knowledge of its teammates or opponents. 
 
@@ -896,7 +896,7 @@ The Drop-in Player Competition will be scored using two metrics:
 
 The average game result will be calculated by awarding points at the end of each game based on the result: Win, Draw, Loss, Absent.  Players on the winning team receive 2 points, players on both teams receive 1 point if the game result was a draw, and players on the losing team receive 0 points.  Players who were assigned to be on one of the playing team, but who did not enter the field during the game, receive -2 points.
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible) and one judge will be designated as head judge.  The head judge will instruct the judges in how to properly judge the game, monitor drop-in player communication, and make notes regarding when players are not present on the field throughout the game.  Drop-in players who do not properly fill in and update each field in the standard message, as well as send at least X messages every minute, will not be allowed to play. \todo{what should X be?}
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible) and one judge will be designated as head judge.  The head judge will instruct the judges in how to properly judge the game, monitor drop-in player communication, and make notes regarding when players are not present on the field throughout the game.
 
 The four judges will judge each player on the field.  The judges will score the players based on the following criteria, although a player's judge score can be no lower than 0 if it was on the field for most of the half (this will be determined by the head judge).
 \begin{itemize}
@@ -1050,12 +1050,18 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Drop-in Player Competition}
 \begin{itemize}	
-	\item (none)
+	\item Drop-in Competition games will consist of one 10 minute half. (Section \ref{sec:drop-in:rules})
+	\item Drop-in players who do not correctly fill in and update all of the fields in the standard message will not be able to play.  The fields must be updated frequently. (Section \ref{sec:drop-in:rules})
+	\item Average game results will be considered instead of average goal differential when evaluating drop-in players. (Section \ref{sec:drop-in:scoring})
+	\item 5 judges will be used for each drop-in game, where one judge will be head judge. (Section \ref{sec:drop-in:scoring})
+	\item Judging criteria was simplified. (Section \ref{sec:drop-in:scoring})
+	\item Average human judged score will account for $\frac{2}{3}$ of a drop-in players score; average game result will account for the other $\frac{1}{3}$. (Section \ref{sec:drop-in:scoring})
 \end{itemize}
 
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}	
 	\item Simplified the referee evaluation process. (Section \ref{sec:refSelection})
+	\item Prequalified teams must not finish with a negative average judge score (before normalization) or negative average game result (before normalization) in the Drop-in Competition (among other requirements) in order to remain prequalified. (Section \ref{sec:preQual})
 \end{itemize}
 
 \end{document}
