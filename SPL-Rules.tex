@@ -863,7 +863,7 @@ The main point of this competition is for teams to develop `drop-in' players tha
 
 \subsection{Organization}
 
-Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 18 drop-in games during the RoboCup 2015 competition.
+Each participating team will contribute one drop-in player.  Each drop-in player will compete in games with many different teams composed of randomly chosen drop-in players.  In each game, the opponent will also be a team composed of randomly selected drop-in players.  The exact number of games played by each drop-in player will depend on the number of teams that participate in the competition, but we expect to hold approximately 20 drop-in games during the RoboCup 2015 competition.
 
 Each team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2015.  These descriptions will be released on the SPL wiki soon after the competition.
 
@@ -872,6 +872,7 @@ Each team is required to email a short (no more than 200 words) explanation of t
 All normal game rules apply in this competition.  The only exceptions will be:
 \begin{itemize}
 \item Any player may be goal keeper (\ie, enter the goal box and behave as goal keeper).  However, once one player has entered the goal box for a team, this player will be the goal keeper for the remainder of the game.  Subsequently, if any other player of this team enters the goal box, the newly entering player is treated as a field player.
+\item Drop-in games will only consist of one 10 minute half.
 \item Drop-in teams will not have a coaching robot.
 \item No player may be ejected under `Pushing' rules.
 \item Each of the five players has a jersey number from the set $\{1, 2, 3, 4, 5\}$.
@@ -887,47 +888,40 @@ The clock will not stop during stoppages of play in drop-in competition games.  
 
 \subsection{Scoring}
 \label{sec:drop-in:scoring}
-The challenge will be scored using two metrics: 
+The Drop-in Player Competition will be scored using two metrics: 
 \begin{itemize}
-\item average goal difference 
+\item average game result
 \item average human judged score 
 \end{itemize}
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be six judges for each game, where judges will not judge any game in which their team is competing (if possible).  Three judges will judge each team, and the team each judge is scoring will change at halftime.  The judges will score the players based on the following criteria:
+The average game result will be calculated by awarding points at the end of each game based on the result: Win, Draw, Loss, Absent.  Players on the winning team receive 2 points, players on both teams receive 1 point if the game result was a draw, and players on the losing team receive 0 points.  Players who were assigned to be on one of the playing team, but who did not enter the field during the game, receive -2 points.
+
+The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible) and one judge will be designated as head judge.  The head judge will instruct the judges in how to properly judge the game, monitor drop-in player communication, and make notes regarding when players are not present on the field throughout the game.  Drop-in players who do not properly fill in and update each field in the standard message, as well as send at least X messages every minute, will not be allowed to play. \todo{what should X be?}
+
+The four judges will judge each player on the field.  The judges will score the players based on the following criteria, although a player's judge score can be no lower than 0 if it was on the field for most of the half (this will be determined by the head judge).
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
-  \item Appropriate decision to pass to teammate = +1 -- +4
-  \item Receiving a pass = +1 -- +3
-  \item Pushing a teammate = -2 (whether this occurs must be determined by each judge)
-  \item Unclassified bonus or penalty = -2 -- +2 (capped at -10 / +10 per half; needs justification by judge)
+  \item Positive team play (passing, positioning to receive a pass or intercept an opponent's shot) = +1 -- +4
+  \item Negative team play (pushing teammates, stealing the ball from teammates) = -1 -- -4
   \end{itemize}
-\item Judged once per half:
+\item Judged once per game:
   \begin{itemize}
-  \item Game participation = -10 --- +10 (needs justification by judge)
+  \item Overall positioning (poor 0, average 5, exceptional 10)
+  \item Game participation (mostly not on field -5, mostly inactive 0, average 5, exceptional 10)
   \end{itemize}
-
 \end{itemize}
 
-Passing is rewarded because it is a major manifestation of soccer cooperation. Note that a range of possible points is specified. This allows the judges to award the significance and brilliance of a pass. In any case, passes that do not provide any benefit for the team should not be awarded. Receiving a pass is an expression of useful positioning. A pass does not necessarily need to be precise (i.e. touch the receiver precisely) and can instead be a shot into open space into which a teammate walks.
-
-Pushing a teammate, which is judged using the same criteria as player pushing, is penalized because well positioned players should rarely be in a position from which pushing a teammate is possible.
-
-Additionally, each judge may also assign each robot an additional score between -2 and +2 at any point during a half for actions that are beneficial or harmful for the team but are not covered by the other rules.  Note that players should not be rewarded (or punished) for scoring a goal, as this will be rewarded (or punished) via goal differential.  Any scores require a short explanation (this both justifies the score and will help the TC adapt the rule set for future competitions).
-
-At the end of each half, judges may assign each robot a reward or punishment between -10 and +10 for its participation in that half.  Good positioning or actively contributing to the game should be rewarded, while poor positioning, harmful behaviors, or inactivity should be punished. Any non-zero score should be shortly justified.
-
-For any half in which a drop-in player did not leave the sideline, it will receive a judge score of -20 for that half.
-
-The two scoring metrics will be normalized and added up to determine the overall winner of this competition:
+The two scoring metrics will be normalized and added up to determine the overall winner of this competition as follows:
 \begin{itemize}
-\item The team that has the highest average goal difference will get 100 points.
-\item The team that has the lowest average goal difference will get 0 points.
-\item All other goal differences become scaled linearly. 
-\item The team that has the highest average human judged score will get 100 points.
-\item The team that has the lowest average human judged score will get 0 points.
-\item All other average human judged scores become scaled linearly. 
-\item Each team's judge and goal points will be added.
+\item The team that has the highest average game result will get 100 points.
+\item The team that has the lowest non-negative average game result will get 0 points.
+\item All other non-negative average game results become scaled linearly. 
+\item The team that has the highest average human judged score will get 200 points.
+\item The team that has the lowest non-negative average human judged score will get 0 points.
+\item All other non-negative average human judged scores become scaled linearly. 
+\item Each team's judge and game result points will be added.
+\item Teams with negative average game results or negative average judge score will be excluded from the final rankings.
 \end{itemize}
 
 
@@ -989,7 +983,7 @@ If any team is pre-qualified via multiple means (\eg by reaching the quarter fin
 
 However, teams pre-qualified via the above means must do all of the following in order to remain pre-qualified:
 \begin{itemize}
-\item Participate in the drop-in competition, submit a short explanation of their drop-in player strategy by the end of the final competition day, and not finish in the bottom three teams in this competition
+\item Participate in the drop-in competition, submit a short explanation of their drop-in player strategy by the end of the final competition day, and not finish with a negative average judge score (before normalization) or negative average game result (before normalization)
 \item Post in a publicly available location a team research report describing their work for the 2015 competition
 \item Submit a shortened application as required by the call for participation for the subsequent year's competition
 \end{itemize}
