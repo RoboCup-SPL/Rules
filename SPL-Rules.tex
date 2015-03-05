@@ -902,14 +902,21 @@ The four judges will judge each player on the field.  The judges will score the 
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
-  \item Positive team play (passing, positioning to receive a pass or intercept an opponent's shot) = +1 -- +4
-  \item Negative team play (pushing teammates, stealing the ball from teammates) = -1 -- -4
+  \item Positive team play = +1 -- +4
+  \begin{itemize}
+  \item Examples: passing, positioning to receive a pass or intercept an opponent's shot
+  \end{itemize}
+  \item Negative team play = -1 -- -4
+  \begin{itemize}
+  \item Examples: pushing teammates, stealing the ball from teammates
+  \end{itemize}
   \end{itemize}
 \item Judged once per game:
   \begin{itemize}
   \item Overall positioning (poor 0, average 5, exceptional 10)
   \item Game participation (mostly not on field -5, mostly inactive 0, average 5, exceptional 10)
   \end{itemize}
+  The default for any robot should be 5 for each score. Only in cases of remarkably negative or positive behavior, the other values should be taken. These deviations are what the judges should watch for.
 \end{itemize}
 
 The two scoring metrics will be normalized and added up to determine the overall winner of this competition as follows:
