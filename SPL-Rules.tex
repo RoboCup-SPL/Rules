@@ -524,7 +524,8 @@ If a robot has been rebooted and the wireless is not working, it is the responsi
 \subsection{Request for Timeout}
 \label{sec:request_for_timeout}
 
-At any stoppage of play (after a goal, stuck game, before a half, etc.) either team may call a timeout. Each team can call a \textbf{maximum of 1 timeout per game} with a total time totaling no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted. 
+At any stoppage of play (after a goal, stuck game, before a half, etc.) either team may call a timeout. Each team can call a \textbf{maximum of 1 timeout per game} with a total time totaling no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted.  It is allowable to call one timeout before a penalty shootout or between penalty kicks if the penalty shootout directly follows a game in which the team did not use a timeout.
+
 The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
   
 The clock stops during timeouts, even during the preliminaries.
@@ -561,6 +562,8 @@ If a team notifies the technical committee that they wish to forfeit at least tw
 \item If a team chooses to forfeit the final and the final is scheduled to occur after the 3rd place game, it will be replaced by the 3rd place winner, and the 4th place team will become 3rd place. No new 4th place will be selected.
 \item If a team chooses to forfeit the final and the 3rd place game is schedule to occur after the final, it will be replaced by the team that lost to the forfeiting team in the previous semifinals. No 3rd place game will be played.
 \end{itemize}
+
+Note that there are a few unlikely cases that are not covered by these rules.  If a situation is not covered by these rules, the technical committee and the organizing committee will work together to make a decision.
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
@@ -1035,6 +1038,7 @@ This is a brief list of rule changes from 2014 to 2015.
 	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during Set (ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:robot_states})
 	\item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
 	\item The goal keeper is no longer required to have its feet inside the goal box during Set. (Section \ref{sec:kick-off})
+	\item Teams may call one timeout before a penalty shootout or between penalty kicks if the penalty shootout directly follows a game, and they did not use their timeout during the game. (Section \ref{sec:request_for_timeout})
 	\item Updated the forfeiting rules to consider forfeits that occur well before the game is scheduled to occur. (Section \ref{sec:forfeit})
 	\item Robots may be replaced after each penalty kick attempt if desired. (Section \ref{sec:penalty_kick})
 \end{itemize}
