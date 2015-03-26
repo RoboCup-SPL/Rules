@@ -138,40 +138,28 @@ All opponent robots must wear the cyan standard jerseys. \comment{Tim: We should
 
 To avoid any unnecessary damages to the robots, the Technical Committee members that conduct this challenge can try to catch falling opponent robots and put them back in a standing position if requested by the teams.
 
-
+\newpage
 % % % % % % % % % % % % % % % % % % % % % % % %
 
 
 
 \section{Many Carpets Challenge}
-\commentk{Matthias - I pulled over the proposal from last year, but it should be updates as needed.}
-One frequently discussed topic is to exchange the current field carpet for a more challenging surface, \eg artificial lawn.
-To assess the current state of the art regarding walking stability and to foster research into this direction, the \textit{Walking Challenge} has been prepared.
 
-In this challenge, a participating robot has to walk over a number of different carpets. The layout of the carpets is depicted in Fig. \ref{fig:walking_challenge}.
+\subsection{Purpose}
 
-\begin{figure}[th!]
-\centerline{\includegraphics[width=0.6\columnwidth]{figures/walking-challenge}}
-\caption{The field layout for the Walking Challenge: Six pieces of different carpets are placed next to each other between the two penalty areas. Each piece of carpet is about 1 meter wide and 3 meters long. A participating robot starts in the center of a penalty area (the team can choose the penalty area), facing the goal on the opposite side of the field.}
-\label{fig:walking_challenge}
-\end{figure}
+The purpose of the challenge is the improvement of motion skills. Moreover, we intend to study whether robots are able to play on different types of carpets.
 
-For each successfully mastered carpet, the robot can gain either 1, 2, or 4 points: 
+\subsection{Setup}
 
-\begin{description}
-\item[1 point] for successfully traversing a carpet. A carpet is considered as \textit{traversed} if the robot has been completely on the carpet (\ie there has been a point of time at which both feet have been completely on the carpet) and has left it completely afterwards (\ie no part of the robots touches the carpet anymore). Between entering and leaving the carpet, there must be at least three steps. It does not matter if the robot has fallen during traversing the carpet.
-\item[2 points] for successfully traversing a carpet and having been standing still for at least 2 seconds while being completely on the carpet. If the robot has fallen while being on the carpet, the 2 points will not be awarded. However, if successfully leaving the carpet, the robot can still achieve 1 point.
-\item[4 points] for successfully traversing a carpet and making a full turn of 360 degrees while being completely on the carpet. If the robot has fallen while being on the carpet, the 4 points will not be awarded. However, if successfully leaving the carpet, the robot can still achieve 1 point.
-\end{description}
+The challenge will happen on three different types of carpets. Teams are strongly encouraged to bring an individual carpet to the competition. The size of an individual carpet should be approximately 3*4 meters. The carpets will be displayed to the teams one day before the challenge will take place. Each individual team requires exactly one robot for the challenge, software changes are not allowed during the progress of the challenge.
 
-The carpets will be arranged with the most difficult carpets close to the center of the field and the easiest carpets close to the goals. There will not be any gaps between the carpets. However, as the carpets are put on a standard field and are expected to have different heights, teams have to be aware that the overall configuration will contain multiple thresholds over which the robot has to walk.
+\subsection{Procedure}
 
-A robot can only receive one score per carpet. The order of mastered carpets does not matter. The order of performed actions does not matter either. Therefore, it would be possible, for instance, to walk straight over all carpets (and gain 1 point for each carpet) and to return to some of the carpets afterwards to achieve higher scores on these carpets.
+One robot, one ball, and one goal are placed on the carpet. After the game state switches from SET to PLAYING, the robot should move to the ball and kick it into the goal. After a goal has been obtained, or the ball moves out of the field, the challenge for the current carpet is finished. The time limit for each individual carpet is one minute. 
 
-Each robot will be given 3 minutes to walk on the field. If a robot falls over and its get up motion fails on a particular surface, the team can request to relocate the robot to one of the starting positions (the team can choose a new starting position for each relocation).
+\subsection{Score}
 
-The carpets will be brought to the competition by TC members and the teams. On site, all available carpets will be presented and six carpets will be selected by the TC for the challenge. The selection should cover a broad range of (un)evenness and slippage. Each carpet's difficulty is judged by the TC. All carpets will be green (in any shade) but do not need to be uniform.
-
+There will be 2.5 points if a goal was achieved, half a point when the robot touches the ball the first time, and half a point when the ball leaves the field on the ground line without scoring a goal. This way, a team can obtain at maximum 3 points per carpet, 0.5 points for touching the ball, and 2.5 points for obtaining a goal.  
 
 \newpage
 
