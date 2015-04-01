@@ -114,7 +114,7 @@ Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@
 The purpose of this challenge is to foster passing skills, team play, and the perception of opponent robots.
 
 \subsection{Setup}
-The ball is placed at one of the field corners next to one of the goals. Each participating team has to provide two robots (whose jersey color can be chosen freely, wearing no jersey is legal, too). These robots will be placed at the two predefined positions $R_1$ and $R_2$ (see Fig. \ref{fig:corner_kicks_challenge}). The initial game state is SET. Initially, there are no opponent robots. The time limit for this challenge are 3 minutes. \comment{Tim: Allowing more than 3 minutes makes the overall time slot for this challenge too large. We already stop the time after a goal. I do not believe that more time will lead to a more differentiated result. Katie: Agreed.}
+The ball is placed at one of the field corners next to one of the goals. Each participating team has to provide two robots (whose jersey color can be chosen freely, wearing no jersey is legal, too). These robots will be placed at the two predefined positions $R_1$ and $R_2$ (see Fig. \ref{fig:corner_kicks_challenge}). The initial game state is SET. Initially, there are no opponent robots. The time limit for this challenge is 3 minutes.
 
 \subsection{Procedure}
 The game state changes to PLAYING and the robots can start to carry out the corner kick. To achieve a goal, both robots need to have touched the ball. The robot at position $R_1$ has to be the first who touches the ball. There are no other restrictions regarding a minimum or maximum number of touches. If the other robot touches first, the game state changes to SET again and the corner kick is repeated. The time is stopped during this reset.
@@ -134,7 +134,7 @@ Before the first goal is scored, a team receives one initial point once both rob
 \subsection{Origin, Color, and Handling of Opponent Robots}
 The opponent robots will be provided by the other teams that participate in this challenge. Whenever a team has completed the challenge, it will provide its two robots as potential opponents for the next two participating teams. The last teams participating in this challenge have to provide their robots for the first participants. The Technical Committee will announce a detailed plan in advance to the challenge.
 
-All opponent robots must wear the cyan standard jerseys. \comment{Tim: We should specify the color of the opponent robots. Otherwise teams may not be able to distinguish them from their own robots. Katie: Agreed.}
+All opponent robots must wear the cyan standard jerseys.
 
 To avoid any unnecessary damages to the robots, the Technical Committee members that conduct this challenge can try to catch falling opponent robots and put them back in a standing position if requested by the teams.
 
@@ -149,17 +149,25 @@ To avoid any unnecessary damages to the robots, the Technical Committee members 
 
 The purpose of the challenge is the improvement of motion skills. Moreover, we intend to study whether robots are able to play on different types of carpets.
 
+\subsection{Selection of Carpets}
+
+Each team may bring one carpet to the competition (this is encouraged, but not required). This carpet should be approximately 3*4 meters, with no seams or lines.  It is preferable for the carpet to be significantly different than the current SPL carpet (texture, fiber height, ect). If a team brings a carpet, it will use the carpet it brought.  The Technical Committee will also pick 3 carpets out of all of the carpets brought by teams.  2 of these carpets will be chosen by the Technical Committee to be used in the challenge, and the third will be a spare.  All teams will complete with the 2 carpets chosen by the Technical Committee and their own carpet --- if this would result in only two carpets being used in the challenge, then the spare carpet will also be used.  Note that the Technical Committee may opt to use the spare carpet if otherwise two of the carpets used by a team in the challenge would be extremely similar (as would be the case if a team's carpet is extremely similar to one of carpets chosen by the Technical Committee).
+
+The chosen carpets will be displayed to the teams about 24 hours before the challenge will take place.  We hope space will allow for teams to test on these carpets within the 24 hours before the challenge, but space constraints may not allow this.  Hence, teams should not plan on being able to test on the carpets before the challenge.
+
 \subsection{Setup}
 
-The challenge will happen on three different carpets that are choosen by the Technical Committee. Teams are strongly encouraged to bring an individual carpet to the competition. The size of an individual carpet should be approximately 3*4 meters. The carpets will be displayed to the teams about 24 hours before the challenge will take place. Each individual team requires exactly one robot for the challenge, software changes are not allowed during the progress of the challenge.
+The challenge will happen on three different carpets that are chosen as stated above.   Each individual team requires exactly one robot for the challenge.
+
+The carpet will be laid out as flat as possible.  One robot, one ball, and one goal are placed on the carpet. The goal will be placed near one of the edges of the carpet. The robot and the ball will be placed on set, but unannounced, positions on the carpet (these positions will be the same for all teams, but may vary from carpet to carpet).  The carpet will not be lined in any way.  The initial game state is SET.
 
 \subsection{Procedure}
 
-One robot, one ball, and one goal are placed on the carpet. After the game state switches from SET to PLAYING, the robot should move to the ball and kick it into the goal (multiple kicks may be used to score if needed). After a goal has been obtained, or the ball leaves the field, the challenge for the current carpet is finished. The time limit for each individual carpet is one minute. 
+After the game state switches from SET to PLAYING, the robot should move to the ball and kick it into the goal (multiple kicks may be used to score if needed). After a goal has been obtained, or the ball leaves the carpet, the challenge for the current carpet is finished. The time limit for each individual carpet is one minute. 
 
 \subsection{Score}
 
-For each carpet, 2.5 points will be awarded once a goal scored, half a point once the robot touches the ball the first time, and half a point once the ball leaves the field on the ground line without scoring a goal. This way, a team can obtain at maximum of 3 points per carpet (0.5 points for touching the ball and 2.5 points for obtaining a goal).
+For each carpet, 2.5 points will be awarded once a goal is scored, half a point once the robot touches the ball the first time, and half a point once the ball leaves the field on the ground line without scoring a goal. This way, a team can obtain at maximum of 3 points per carpet (0.5 points for touching the ball and 2.5 points for obtaining a goal).
 
 \newpage
 
@@ -175,7 +183,7 @@ The most common techniques for ball detection in the SPL mostly rely on color in
 
 \subsection{Selection of Balls}
 
-Each team will be asked to bring one ball that is not orange or red.  It is preferable for the ball to be a realistic soccer ball in some manner (color, design, material, ect). Each team will play with the ball it brought.  The TC will also pick 5 balls out of all of the balls brought by teams.  4 of these balls will be chosen by the TC to be used in the challenge, and the fifth will be a spare.  All teams will complete with the 4 balls chosen by the TC and their own ball --- if this would result in only four balls being used in the challenge, then the spare ball will also be used.
+Each team must bring one ball that is not orange or red.  It is preferable for the ball to be a realistic soccer ball in some manner (color, design, material, ect). Each team will play with the ball it brought.  The Technical Committee will also pick 5 balls out of all of the balls brought by teams.  4 of these balls will be chosen by the Technical Committee to be used in the challenge, and the fifth will be a spare.  All teams will complete with the 4 balls chosen by the Technical Committee and their own ball --- if this would result in only four balls being used in the challenge, then the spare ball will also be used.  Note that the Technical Committee may opt to use the spare ball if otherwise two of the ball used by a team in the challenge would be extremely similar (as would be the case if a team's ball is extremely similar to one of balls chosen by the Technical Committee) or if the Technical Committee believes the ball brought by the team is orange or red.
 
 \subsection{Setup}
 
