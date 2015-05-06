@@ -314,11 +314,13 @@ There are no restrictions on communication between the robots using a microphone
 
 \subsubsection{Wireless Communications}
 \label{sec:wireless}
-The only wireless hardware allowed to be used by the teams are the wireless network cards built into the NAOs, and the access points provided by the event organizers. All other wireless hardware must be deactivated. A team may be disqualified if one of the team members violates this rule. The MAC-addresses of all NAOs participating in the competition will be registered. Only these MAC-addresses can be reached through the access points provided by the event organizers. In addition, the access points will be secured by different SSIDs and WEP keys. 
+The only wireless hardware allowed to be used by the teams are the wireless network cards built into the NAOs, and the access points provided by the event organizers. All other wireless hardware must be deactivated. A team may be disqualified if one of the team members violates this rule. 
 
-Each team will get a range of IP addresses that can be used both for their robots and their computers. The IP addresses, channels, SSIDs, and WEP keys of the fields will be announced at the competition site.
+Each team will get a range of IP addresses that can be used both for their robots and their computers. The network configuration (\eg IP addresses, channels, SSIDs, and required encryption) of the fields will be announced at the competition site.
 
 Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
+
+Robots are not allowed to be connected to access points of fields that are currently running official games of other teams.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
@@ -1040,7 +1042,8 @@ This is a brief list of rule changes from 2014 to 2015.
 	\item The coaching robot must be connected via a cable to the GameController. (Section \ref{sec:coaching_robot})
 	\item The coaching robot may sit or kneel. (Section \ref{sec:coaching_robot})
 	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
-	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})
+    \item Removed some networking details. Robots are not allowed to connect to access points on fields that currently host official games of other teams. (Section \ref{sec:wireless})
+	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})	
 	\item Coach messages can have a maximum size of 81 bytes.  Messages will not be delayed. (Section \ref{sec:wireless})
 \end{itemize}
 
