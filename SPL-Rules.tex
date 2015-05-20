@@ -402,7 +402,7 @@ A goal is achieved when the entire ball (not only the center of the ball) goes o
 
 Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}).  The only exception to the rules is a defending goal keeper within its penalty box.
 
-Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Sect. \ref{sec:fallenrobots}).  In this case, the goal is not scored and a global game stuck is called on the active team.
+Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Sect. \ref{sec:fallenrobots}).  In this case, the goal is not scored and the game will proceed with a throw-in (see Section~\ref{sec:throw_in}).
 
 \subsection{Goal Keeper Save}
 \label{sec:goalie_save}
@@ -1052,6 +1052,7 @@ This is a brief list of rule changes from 2014 to 2015.
 \begin{itemize}
     \item Removed displaying and changing (via foot bumper) of the team color. (Section \ref{sec:game_struct})
 	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:robot_states})
+	\item In case of an invalid own goal, the game will proceed with a throw-in. (Section \ref{sec:goal})
 	\item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
 	\item The goal keeper is no longer required to have its feet inside the goal box during \emph{set}. (Section \ref{sec:kick-off})
 	\item Removed text about team color configuration when returning from a \emph{request for pickup}. (Section \ref{sec:request_for_pickup})
