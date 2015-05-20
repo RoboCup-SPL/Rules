@@ -808,7 +808,7 @@ will also be subject to the standard removal penalty.
 \subsection{Illegal Defender}
 \label{sec:illegal_defender}
 
-Only the goal keeper and at most one defending field player can be within a team's penalty area. A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines.  When additional field players enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Only one defending field player may be within the penalty area even if the goal keeper is outside of the penalty area.  Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
+Only two players can be within a team's penalty area at the same time. A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines.  When any additional players (whether field player or goalkeeper) enter the area, they will be subject to the standard removal penalty (see Section~\ref{sec:removal_penalty}). This is called the ``Illegal Defender Rule''. Note that if an operational defender is pushed into the penalty area by an opponent, this robot will not be subject to removal unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (e.g. the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
@@ -1066,6 +1066,7 @@ This is a brief list of rule changes from 2014 to 2015.
 	\item  When a ball becomes stuck between a robot's legs, the head referee should call `clear ball' and an assistant referee should remove the ball. (Section \ref{sec:ball_holding})
 	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
 	\item Fingers entangled in the goal net are considered as `Leaving the Field'. (Section \ref{sec:leaving_field})
+	\item Two field players (instead of goalkeeper plus field player) are allowed to be inside the own penalty area at the same time. (Section \ref{sec:illegal_defender})
 	\item Flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots. (Section \ref{sec:jamming})
 	\item Teams who used a different protocol or send too many messages over a couple of seconds in multiple games will be disqualified from the tournament (including technical challenges as well as the drop-in competition) and will also receive an entry in the penalty list. (Section \ref{sec:jamming})
 \end{itemize}
