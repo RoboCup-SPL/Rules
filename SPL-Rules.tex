@@ -914,7 +914,7 @@ The average game result will be calculated by awarding points at the end of each
 
 The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible) and one judge will be designated as head judge.  The head judge will instruct the judges in how to properly judge the game, monitor drop-in player communication, and make notes regarding when players are not present on the field throughout the game.
 
-The four judges will judge each player on the field.  The judges will score the players based on the following criteria, although a player's judge score can be no lower than 0 if it was on the field for most of the half (this will be determined by the head judge).
+The four judges will judge each player on the field.  The judges will score the players based on the following criteria, although a player's judge score can be no lower than 0 if it was on the field for most of the half (\ie for at least 5 minutes). If a robot was not on the field for most of the half, its overall judge score will be -5 by default. This will be determined by the head judge. 
 \begin{itemize}
 \item Judged constantly during game:
   \begin{itemize}
@@ -930,7 +930,7 @@ The four judges will judge each player on the field.  The judges will score the 
 \item Judged once per game:
   \begin{itemize}
   \item Overall positioning (poor 0, average 5, exceptional 10)
-  \item Game participation (mostly not on field -5, mostly inactive 0, average 5, exceptional 10)
+  \item Game participation (mostly inactive / not on field 0, average 5, exceptional 10)
   \end{itemize}
   The default for any robot should be 5 for each score. Only in cases of remarkably negative or positive behavior, the other values should be taken. These deviations are what the judges should watch for.
 \end{itemize}
