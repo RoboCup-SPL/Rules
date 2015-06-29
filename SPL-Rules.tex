@@ -320,6 +320,8 @@ Each team will get a range of IP addresses that can be used both for their robot
 
 Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
 
+No team or robot should listen into another team's communication.
+
 Robots are not allowed to be connected to access points of fields that are currently running official games of other teams.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
@@ -364,7 +366,7 @@ Robots may be disentangled by the referees at the start of the Ready state. Afte
 the ``Player Pushing'' rules are applied, but the penalty is manual placement by the assistant referees (\cf Section~\ref{sec:kick-off}), not the penalty described in Section~\ref{sec:player_pushing}.
 Consequently those pushings do not go into the permanent removal count.
 
-\item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads before the game (re)starts but they are not allowed to move their arms or legs or locomote in any fashion. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state.
+\item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions or are fallen and laying in a standing position on the ground, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their arms or legs or locomote in any fashion. Penalties such as inactive robot, fallen robot, ect may be called as needed. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state.
 
 \item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 
@@ -1043,6 +1045,7 @@ This is a brief list of rule changes from 2014 to 2015.
 	\item The coaching robot may sit or kneel. (Section \ref{sec:coaching_robot})
 	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
 	\item Coach may use acoustic communication. (Section \ref{sec:acoustic})
+        \item No team or robot should listen into another team's communication. (Section \ref{sec:wireless})
     \item Removed some networking details. Robots are not allowed to connect to access points on fields that currently host official games of other teams. (Section \ref{sec:wireless})
 	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})	
 	\item Coach messages can have a maximum size of 81 bytes.  Messages will not be delayed. (Section \ref{sec:wireless})
@@ -1050,6 +1053,7 @@ This is a brief list of rule changes from 2014 to 2015.
 
 \subsection*{Game Process}
 \begin{itemize}
+        \item Describe what happens if a robot is fallen in Set. (Section \ref{sec:robot_states})
     \item Removed displaying and changing (via foot bumper) of the team color. (Section \ref{sec:game_struct})
 	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:robot_states})
 	\item In case of an invalid own goal, the game will proceed with a throw-in. (Section \ref{sec:goal})
