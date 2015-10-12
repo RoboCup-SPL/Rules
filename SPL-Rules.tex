@@ -45,7 +45,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(2015 rules, as of \today)}
+\date{(2016 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -96,7 +96,9 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 \subsection{Field Construction}
 \label{sec:field_dim}
 
-The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth. The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}.
+The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth.  The carpet should have a flat wooden base underneith.  Care should be taken to ensure the field is as flat and level as possible.
+
+The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. Note that the penalty cross is a cross and there is a dash at center field. The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}.
 
 \begin{figure}[b!]
 \centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2015.pdf}}
@@ -110,7 +112,7 @@ B & Field width & 6000 \\
 \hline
 C & Line width & 50 \\ 
 \hline
-D & Penalty mark size & 100 \\ 
+D & Penalty cross size & 100 \\ 
 \hline
  &  &  \\
 \end{tabular}
@@ -121,7 +123,7 @@ E & Penalty area length & 600 \\
 \hline
 F & Penalty area width & 2200 \\
 \hline
-G & Penalty mark distance & 1300 \\ 
+G & Penalty cross distance & 1300 \\ 
 \hline
 H & Center circle diameter & 1500 \\
 \hline
@@ -1029,74 +1031,13 @@ The requirement to referee may be an extreme hardship for extremely small teams.
 \newpage
 
 
-\section{Changes From 2014}
-This is a brief list of rule changes from 2014 to 2015.
+\section{Changes From 2015}
+This is a brief list of rule changes from 2015 to 2016.
 
 \subsection*{Setup of the Environment}
 \begin{itemize}
-	\item Changed color of goals from yellow to white. Goal supports should be white, gray, or black. (Section \ref{sec:field_dim})
-	\item Lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay.  Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, etc. (Section \ref{sec:lightConditions})
-\end{itemize}
-
-\subsection*{Robot Players}
-\begin{itemize}
-	\item Removed restrictions about NAO robots with actuated hands, \ie goalkeepers are now allowed to hold or block the ball by using their fingers. (Section \ref{sec:hardware})
-	\item The coaching robot must be connected via a cable to the GameController. (Section \ref{sec:coaching_robot})
-	\item The coaching robot may sit or kneel. (Section \ref{sec:coaching_robot})
-	\item Teams may design their own jerseys, subject to some restrictions. (Section \ref{sec:team_markers})
-	\item Coach may use acoustic communication. (Section \ref{sec:acoustic})
-        \item No team or robot should listen into another team's communication. (Section \ref{sec:wireless})
-    \item Removed some networking details. Robots are not allowed to connect to access points on fields that currently host official games of other teams. (Section \ref{sec:wireless})
-	\item Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number. (Section \ref{sec:wireless})	
-	\item Coach messages can have a maximum size of 81 bytes.  Messages will not be delayed. (Section \ref{sec:wireless})
-\end{itemize}
-
-\subsection*{Game Process}
-\begin{itemize}
-        \item Describe what happens if a robot is fallen in Set. (Section \ref{sec:robot_states})
-    \item Removed displaying and changing (via foot bumper) of the team color. (Section \ref{sec:game_struct})
-	\item In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie, before the referee blows the whistle) will be penalized in place on the field until the GameController transmits the Playing signal.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty. (Section \ref{sec:robot_states})
-	\item In case of an invalid own goal, the game will proceed with a throw-in. (Section \ref{sec:goal})
-	\item After kick-off both teams are not allowed to score from within the center circle. (Section \ref{sec:kick-off})
-	\item The goal keeper is no longer required to have its feet inside the goal box during \emph{set}. (Section \ref{sec:kick-off})
-	\item Removed text about team color configuration when returning from a \emph{request for pickup}. (Section \ref{sec:request_for_pickup})
-	\item Teams may call one timeout before a penalty shootout or between penalty kicks if the penalty shootout directly follows a game, and they did not use their timeout during the game. (Section \ref{sec:request_for_timeout})
-	\item Updated the forfeiting rules to consider forfeits that occur well before the game is scheduled to occur. (Section \ref{sec:forfeit})
-	\item Robots may be replaced after each penalty kick attempt if desired. (Section \ref{sec:penalty_kick})
-\end{itemize}
-
-\subsection*{Forbidden Actions and Penalties}
-\begin{itemize}
-	\item The `Kick-off shot' penalty is now applied to both teams, if they kicked the ball into the goal before it has left the center circle. A kick-off shot does not result into a new kick-off but into the application of the standard removal penalty to the kicking robot. (Section \ref{sec:kick-off_shot})
-	\item  When a ball becomes stuck between a robot's legs, the head referee should call `clear ball' and an assistant referee should remove the ball. (Section \ref{sec:ball_holding})
-	\item Walking into a fallen or getting up robot for 2 seconds is considered pushing unless one of the exceptions applies. (Section \ref{sec:pushing_contact})
-	\item Fingers entangled in the goal net are considered as `Leaving the Field'. (Section \ref{sec:leaving_field})
-	\item Two field players (instead of goalkeeper plus field player) are allowed to be inside the own penalty area at the same time. (Section \ref{sec:illegal_defender})
-	\item Flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots. (Section \ref{sec:jamming})
-	\item Teams who used a different protocol or send too many messages over a couple of seconds in multiple games will be disqualified from the tournament (including technical challenges as well as the drop-in competition) and will also receive an entry in the penalty list. (Section \ref{sec:jamming})
-\end{itemize}
-
-\subsection*{Judgment}
-\begin{itemize}
-	\item The head referee should not whistle to announce goals or penalties.  Both should be indicated verbally, and goals should be indicated by the head referee pointing with one arm towards the center of the field. (Section \ref{sec:head_referee})
-	\item Updated the rules to reflect the fact that the assistant referees should handle judgments made by the head referee with regards to both robots and the ball. (Section \ref{sec:assist_referee})
-	\item The GameController operator should react to the whistling at kick-off. (Section \ref{sec:gameControllerOp})
-\end{itemize}
-
-\subsection*{Drop-in Player Competition}
-\begin{itemize}	
-	\item Drop-in Competition games will consist of one 10 minute half. (Section \ref{sec:drop-in:rules})
-	\item Drop-in players who do not correctly fill in and update all of the fields in the standard message will not be able to play.  The fields must be updated frequently. (Section \ref{sec:drop-in:rules})
-	\item Average game results will be considered instead of average goal differential when evaluating drop-in players. (Section \ref{sec:drop-in:scoring})
-	\item 5 judges will be used for each drop-in game, where one judge will be head judge. (Section \ref{sec:drop-in:scoring})
-	\item Judging criteria was simplified. (Section \ref{sec:drop-in:scoring})
-	\item Average human judged score will account for $\frac{2}{3}$ of a drop-in players score; average game result will account for the other $\frac{1}{3}$. (Section \ref{sec:drop-in:scoring})
-\end{itemize}
-
-\subsection*{The Official RoboCup Competition Rules}
-\begin{itemize}	
-	\item Simplified the referee evaluation process. (Section \ref{sec:refSelection})
-	\item Prequalified teams must not finish with a negative average judge score (before normalization) or negative average game result (before normalization) in the Drop-in Competition (among other requirements) in order to remain prequalified. (Section \ref{sec:preQual})
+	\item Be explicit about penalty cross and dash at center field. (Section \ref{sec:field_dim})
+        \item Require a flat, level, wooden base for the field. (Section \ref{sec:field_dim})
 \end{itemize}
 
 \end{document}
