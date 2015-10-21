@@ -105,15 +105,42 @@ Questions or comments on these rules should be mailed to {\small \url{rc-spl-tc@
 \section{No Wi-Fi Challenge}
 
 The purpose of this challenge is to foster communication without the use of wireless networks.
+As in human soccer, communications may be visual, acoustic, or some combination of both.
 
 \subsection{Setup}
-TODO
+Each participating team has to provide two robots. The robots may wear jerseys if so desired and the
+jersey colour and pattern may be chosen freely in this case. One of the robots shall be designated as
+the communication transmitter and the other designated as the communication receiver. 
+Both robots will be connected via long ethernet cables to the switch connected to the game controller computer.
+A communications tester tool running on the game controller computer will be used to inject messages (via
+ethernet) to the transmitter robot and extract messages (again via ethernet) from the receiver robot.
+[TODO: how to prevent robots communicating directly with each other using ethernet?]
+
+Two message types will be used in the challenge: the location message and the data message. The location message will convey an x,y position on the field using integer values in millimeters relative to the SPL standard message coordinate frame.
+The data message type consists of up to 200 bytes of binary data.
+
+The robots will be placed by the technical committee. 
+The receiver robot shall be placed in the manually placed goalie
+position, that is, in the center of the penalty box with its feet immediately in front of the end line (position 1).
+The transmitter robot shall be placed facing the receiver robot at one of the following positions: the field centre spot (position 2) or the far away penalty spot (position 3). It will initially be placed in position 3.
+
+During setup, robots shall be in the penalized state under chest button control. No communication may take place while in this state.
 
 \subsection{Procedure}
-TODO
+The game state is changed to playing on both robots using the chest button.
+
+A location message is injected at the transmitter robot which should immediately transmit it to the receiver robot.
+If the receiver robots receives the location message successfully it should forward it (via ethernet) to the game controller computer and also point at the corresponding spot on the field. Once the receiver robot has forwarded the message or pointed to the spot on the field, the message will considered received and another message may be sent. A message will be considered lost if there is no indication from the receiver within 5 seconds of end of transmission. If the transmitter robot does not initiate communication within 5 seconds of a message being  injected, the message will also be considered lost.
+
+Three such messages will be sent when the transmitter robot is in position 3. A further 3 messages will be sent when the transmitter robot is in postion 2.
+
+Not all communication schemes are suitable for general purpose data communications. The second part of the non-WiFi challenge investigates the suitability for data communications by estimating the practical data rate that can be achieved. This test will be performed with the transmitter robot in position 2.
+In order to test the possible data rate using the non-WiFi communication scheme, a single 200 byte message will be injected at the transmitter robot. The transmitter robot should immediately transmit as much of the 200 data bytes as it estimates (or measures) can be transmitted in ten seconds. If it is possible to send more than 200 bytes within ten seconds, then the message contents may be repeated as necessary. The receiver robot should immediately forward any data received to the game controller computer. The data message is considered lost if the transmitter does not begin transmission within 5 seconds of a message being injected, or if the receiver does not forward any data to the game controller within five seconds of the end of transmission.
 
 \subsection{Score}
 TODO
+Each correctly received location message from position 3 will be awarded two points. Each correctly received location message from position 2 will be awarded one point.
+The data message will be scored by error-free data rate. Specifically TODO...
 
 \newpage
 % % % % % % % % % % % % % % % % % % % % % % % %
