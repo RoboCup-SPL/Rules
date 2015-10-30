@@ -17,7 +17,7 @@
 \pdfcompresslevel=9
 \newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
 \hypersetup{
- pdftitle={\leaguename Technical Challenges 2016},
+ pdftitle={\leaguename Technical Challenges 2016 (Draft)},
  pdfauthor={Technical Committee},
 }
 \usepackage[latin1]{inputenc}
@@ -45,9 +45,9 @@
 \definecolor{green}{rgb}{0,1,0}
 
 
-\title{\leaguename \\ Technical Challenges}
+\title{\leaguename \\ Technical Challenges (Draft)}
 \author{RoboCup Technical Committee}
-\date{(2016 technical challenge rules, as of \today)}
+\date{(A draft of the 2016 technical challenge rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 6pt minus 3 pt}
@@ -75,7 +75,7 @@
 
 \maketitle
 
-At RoboCup 2016, the Standard Platform League will hold two different technical challenges, which are described in this document.
+At RoboCup 2016, the Standard Platform League will hold two different technical challenges, which are described in this document.  Note that this is a preliminary draft of the technical challenges, and hence small details and scoring may be altered.  However, any alterations will be made and announced well before the 2016 competition.
 
 The scores earned in each challenge will vary in magnitude.  Hence, they must be scaled before calculating the overall technical challenge rankings.  Teams who do not participate in a challenge will receive 0 points for that challenge.  The team with the highest total score for a challenge will get 25 points for that challenge, while the team with the lowest total score for a challenge will get 5 points for that challenge.  A linear equation will then be fit to these two points, and each other participating team in that challenge will gain points for that challenge based on this equation.
 
@@ -110,7 +110,7 @@ As in human soccer, communications may be visual, acoustic, or some combination 
 \subsection{Setup}
 Each participating team has to provide two robots. Insofar as it may affect visual communications,
 the robots may wear jerseys if so desired and the
-jersey colour and pattern may be chosen freely in this case. 
+jersey color and pattern may be chosen freely. 
 
 One of the robots shall be designated as
 the communication transmitter and the other designated as the communication receiver. 
@@ -126,7 +126,7 @@ The {\em data message} is used to evaluate communication of arbitrary binary dat
 The robots will be placed by the technical committee. 
 R shall be placed in the manually placed goalie
 position, that is, in the center of the penalty box with its feet immediately in front of the end line (position 1).
-T shall be placed facing R at one of the following positions: the field centre spot (position 2) or the far away penalty spot (position 3). It will initially be placed in position 3.
+T shall be placed facing R at one of the following positions: the field center spot (position 2) or the far away penalty spot (position 3). It will initially be placed in position 3.
 
 During setup, robots shall be in the penalized state under chest button control. No communication may take place while in this state.
 
@@ -134,7 +134,7 @@ During setup, robots shall be in the penalized state under chest button control.
 The challenge begins with the location message tests. The game state is changed to playing on both robots using the chest button.
 
 The communications tester sends a location message to T which should immediately transmit it to R.
-If R receives the location message successfully it should forward it (via ethernet) to the communication tester. The robot, R, must also point at the corresponding spot on the field for 3 seconds using its right or left arm. Once R has forwarded the message or pointed to the spot on the field, the message will considered received and another message may be sent. Except in the cases specified below, three location messages will be sent with T in position 3 and a further three messages will be sent with T in postion 2.
+If R receives the location message successfully it should forward it (via ethernet) to the communication tester. The robot, R, must also point at the corresponding spot on the field for 3 seconds using its right or left arm. Once R has forwarded the message or pointed to the spot on the field, the message will considered received and another message may be sent. Except in the cases specified below, three location messages will be sent with T in position 3 and a further three messages will be sent with T in position 2.
 
 A message will be considered lost if, after a message being sent by the communications tester, (a) T does not initiate communication within 5 seconds, or (b) R does not point or forward the received message to the Game Controller computer within 15 seconds.
 
@@ -146,7 +146,7 @@ Not all communication schemes are suitable for general purpose data communicatio
 In order to test the possible data rate using the non-WiFi communication scheme, the communications tester will send a single 10,000 byte message to T. T should estimate the number of bytes, N, that it can transmit in 15 seconds using its non-WiFi communications scheme. Thereafter, T must transmit N or the number of bytes originally received (whichever is less) to R. The data may be fragmented as necessary for the non-WiFi channel. R should forward each fragment received immediately to the communications tester as a separate data message. If communication continues after 15 seconds, subsequent messages will be ignored by the communications tester. The robots will be penalized again at this point if communications have not ended.
 
 The fragment offset in each message received by the communications tester will be used to compare the received message with the corresponding part of the original message sent to T in order to establish the correctness of the data. For example if the communications tester first receives a message with fragment offset 0 and length 10, the bytes of this message will be compared with data bytes 0-9 of the original message. If a later message with fragment offset 30 and length 10 is received, the bytes of this second message will be compared with data bytes 30-39 of the original message. The total number of correctly matching bytes received during the allowed time
-will be counted. Each data byte received will be compared just once based on the first message which includes that byte. Therefore duplicate messages or messages with overlapping fragments will not artifically increase the number of correctly received bytes.
+will be counted. Each data byte received will be compared just once based on the first message which includes that byte. Therefore duplicate messages or messages with overlapping fragments will not artificially increase the number of correctly received bytes.
 
 The error-free data rate will be calculated as the difference between the time at which the last permitted data message was received by the communications tester and the time at which the original large data message was originally sent divided by the total number of error-free bytes received by the communications tester.
 
@@ -167,17 +167,28 @@ Scoring of the data message communication is determined by the error-free data r
 \section{Outdoor Challenge}
 
 \subsection{Purpose}
-
-The purpose of the challenge is to foster skills for playing in natural lighting on a more realistic playing surface.
+The purpose of this challenge is to foster skills for playing in natural lighting on a more realistic playing surface.
 
 \subsection{Setup}
-TODO
+Each team provides two robots. The ball and one of the robots is manually placed onto the field by the technical committee. The other robot is considered to be the goalie and starts at the manual placement position for goalies on the opposite field side. Hence, the attacking robot will be always positioned in its own half to avoid initial symmetry problems with the localization.
+
+The challenge must be conducted outdoors or within a hall consisting of a transparent ceiling. Note that the challenge will be executed twice to increase the chance of playing in lighting conditions that differ from each other.
 
 \subsection{Procedure}
-TODO 
+The procedure is as follows: The attacking robot must advance to the ball and make an attempt to score. The goalie should attempt to block the ball. When the ball leaves the field on the side line, it will be replaced according to the SPL rules. When the ball leaves the baseline, the attempt is over. There is a time limit of two minutes. Within this time, each team may have at most three attempts. At the beginning, all robots are in penalized mode. Once the challenge has been started, the robots become unpenalized. After each attempt, both robots are set to the penalized mode again and repositioned by the technical committee.  The ball is also repositioned by the technical committee.
+
+The challenge is executed twice, ideally on different days to increase the chance of having different weather and lighting conditions.
 
 \subsection{Score}
-TODO
+The following events will increase the score for the participating team by one point. All scores are only awarded once per attempt:
+
+\begin{itemize}
+\item The attacking robot touches the ball. 
+\item The attacking robot moves the ball towards the opponents goal. The ball must roll into the goal, or towards the goal line. If the ball passes the goal line outside of the goal, just half of a point is awarded.
+\item The goalie attempts to defend the ball, e.g. by executing a blocking motion. Note that the goalie must move in order to get a point. Hence, standing robots that block the ball will not be awarded a point.
+
+\end{itemize}
+If two teams achieve the same score, the team that was faster in execution of the challenge will be ranked superior.
 
 \end{document}
 
