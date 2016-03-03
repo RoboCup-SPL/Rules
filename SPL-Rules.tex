@@ -452,7 +452,7 @@ Just before the \emph{set} state is called, the ball is placed on the center poi
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} (again either by the GameController or manually), in which they can actually play soccer.
 The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play, the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
 
-Note that a goal can never be scored from within the center circle after a kick-off. See Section~\ref{sec:kick-off_shot} for details.
+Note that in some cases a goal can not be scored from within the center circle on kick-off. See Section~\ref{sec:kick-off_shot} for details.
 
 \subsection{Throw-in}
 \label{sec:throw_in}
@@ -513,19 +513,18 @@ The referee stops the game and restarts the game from the kick-off formation. Th
 \subsection{Request for Pick-up}
 \label{sec:request_for_pickup}
 
-Either team may request that one of their players be picked up only for hardware dysfunction and software crashes at any point in the game (called ``Request for Pick-up''). 
+Either team may request that one of their players be picked up (called ``Request for Pick-up'').  Players in the Playing state may only be picked up for for hardware failures.  Players in all other states may be picked up for any reason.
+
 Basically every change (hardware or software) is allowed during a request for pick-up. In particular,
 it is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
 It is discouraged to change the robot's control program, \textbf{but not forbidden}.
 It is also allowed to replace a broken robot by a substitute robot.
 
 Any strategic ``Request for Pick-up'' is not allowed, i.e. gaining an advantage by removing the robot from the game.
-In general, a ``Request for Pick-up'' for a robot which is currently in the game is only allowed for obvious hardware failures.
 In this case, the head referee will indicate when the robot is no longer affecting play and can be removed from the field by an assistant referee.
-A ``Request for Pick-up'' for a robot which is currently out of the game, e.g. penalized, can be granted immediately.
 
 To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up'', and only one designated person per team shall accept the robot from the referee, and hand it back after fixing the problem.
-The returning robot will be replaced after a minimum of 45 seconds after it was taken off the field following the normal replacement procedure used after the standard removal penalty (see Section~\ref{sec:removal_penalty}).
+The returning robot will be replaced following the normal replacement procedure after the standard removal penalty (see Section~\ref{sec:removal_penalty}).
 
 The robot should be returned to the assistant referees in the \emph{penalized} state.
 
@@ -670,9 +669,9 @@ Manual interaction with the robots, either directly or via some communications m
 \label{sec:kick-off_shot}
 
 A ``kick-off shot'' can never score a goal. A ``kick-off shot'' is a shot taken by any of the two teams after a kick-off before the entire ball has left the center circle, including the boundary line. 
-If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and the standard removal penalty will be applied to the kicking robot. The ball will be put back to the place from which it was kicked.
+If a kick-off shot enters the goal (either directly or via contact with an opposing robot), no goal will be scored and the standard removal penalty will be applied to the kicking robot. The ball will be put back to the place from which it was kicked. At this point, either team may attempt to shoot the ball on goal.
 
-If the ball touches a teammate of the kicking robot outside the center circle before entering the goal, a goal is scored.
+If the ball touches a teammate of the kicking robot outside the center circle before entering the goal, a goal is scored.  Additionally, if a team scores an own goal, the goal is scored.
 
 \subsection{Ball Holding}
 \label{sec:ball_holding}
@@ -950,7 +949,19 @@ five drop-in players from the competition (the ``SPL All Stars'') will play toge
 
 
 \newpage
+\section{Outdoor Competition}
+\label{sec:outdoorRules}
+The main rule book describes the rules for traditional RoboCup Standard Platform Games.  However, at the international RoboCup competition eight teams have been selected to play the games in their first round robin pool in `outdoor' conditions.
 
+The main point of this competition is to encourage teams to develop players that can play on more realistic playing surfaces as well as under natural lighting.
+
+\subsection{Altered Rules}
+The outdoor competition games will follow all of the rules for traditional RoboCup Standard Platform Games with two notable exceptions:
+\begin{itemize}
+	\item Games will be played under natural lighting.  For RoboCup 2016, this will be accomplished by playing in a glass pavilion whose support structure also creates some shadows.
+	\item Games will be played on an artificial grass carpet.
+\end{itemize}
+\newpage
 
 \section{The Official RoboCup Competition Rules}
 \label{sec:comRules}
@@ -1039,10 +1050,21 @@ This is a brief list of rule changes from 2015 to 2016.
 	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController 'Playing' signal. (Section \ref{sec:robot_states})
 \end{itemize}
 
+\subsection*{Forbidden Actions and Penalties}
+\begin{itemize}
+	\item After a kick-off goal, either team may attempt shots on goal. (Section \ref{sec:kick-off_shot})
+	\item Own kick-off goals count. (Section \ref{sec:kick-off_shot})
+\end{itemize}
+
+\subsection*{Outdoor Competition}
+\begin{itemize}
+	\item An outdoor competition was created to serve as the initial round robin for 8 teams. (Section \ref{sec:outdoorRules})
+\end{itemize}
+
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}
-	\item Referees and the GameController should study for, take, and pass an online rules test before attending RoboCup.
-	\item Teams will no longer evaluate referees and GameControllers.
+	\item Referees and the GameController should study for, take, and pass an online rules test before attending RoboCup. (Section \ref{sec:refSelection})
+	\item Teams will no longer evaluate referees and GameControllers. (Section \ref{sec:refSelection})
 \end{itemize}
 
 \end{document}
