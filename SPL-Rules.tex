@@ -96,7 +96,7 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 \subsection{Field Construction}
 \label{sec:field_dim}
 
-The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth.  The carpet should have a flat wooden base underneith.  Care should be taken to ensure the field is as flat and level as possible.
+The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth.  The carpet should have a flat wooden base underneith.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and hence not give when humans stand or walk on it.
 
 The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. Note that the penalty cross is a cross and there is a dash at center field. The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}.
 
@@ -162,14 +162,7 @@ The net:
 \label{fig:goal_appearance}
 \end{center}
 \end{figure}
-The support structure for the net shall be made with small black, white, or gray bars or cylinders as shown in Figure \ref{fig:goal_appearance}.
-
-\subsection{Throw-in Lines}
-\label{sec:field_lines}
-
-In addition to the visible lines, there are two invisible lines only relevant to the throw-in procedure (see Section \ref{sec:throw_in}), but not relevant to the construction of the field. These two throw-in lines are 400 mm away from the sidelines and run parallel to them inside the playing area.  Each throw-in line is 7 m long.
-
-The throw-in lines will be marked (as dots at the end of the throw-in lines and short dashes along the line) by the technical committee at the start of competition with a felt-tip pen --- these lines are intended to stay invisible to robots but provide a guide to referees.
+The support structure for the net shall be made with small black, white, or gray bars or cylinders.  The support structure shall be constructed exactly as shown in Figure \ref{fig:goal_appearance}.
 
 \subsection{Field Colors}
 
@@ -202,12 +195,7 @@ Fields may be located close to one another.  Barriers will not necessarily be co
 \subsection{Ball}
 \label{sec:ball}
 
-The official ball will be a Mylec orange street hockey ball. They are 65 mm in diameter and weigh 55 grams. These are the \emph{shiny} balls and are \emph{not} gel-filled.  They are no-bounce warm weather (60 to 75 degrees Fahrenheit) hockey balls.  These balls are available at a few locations:
-\begin{itemize}
-\item \url{http://www.amazon.com/Mylec-Weather-Bounce-Hockey-Orange/dp/B002LBDA30/ref=sr\_1\_18?ie=UTF8\&s=sporting-goods\&qid=1259775748\&sr=8-18}
-\item \url{http://www.puckshop.com/mylec-orange-warm-weather-ball.html}
-\end{itemize}
-
+The official ball is a soft foam ball with a black and white soccer ball print. They are 100 mm in diameter and weigh \todo{55} grams. These balls are available by writing to info@sportpaint.de (in German or English) and asking to order the "pu schaumstoffball 10cm 100ss".  Each ball costs EUR 2.50 plus shipping, where shipping cost depends on the destination.
 
 \newpage
 
@@ -223,12 +211,6 @@ All teams must use gray NAO humanoid robots manufactured by Aldebaran Robotics.
 Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
 
 \begin{itemize}
-
-\item Attaching player numbers to the heads and/or legs of the robots.  These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
-
-\item Adding black and white sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). These logos must be at least 50\% white by area.
-
-\item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be at least 50\% white by area.
 
 \item Setting the passive wrist joints to a fixed position either with glue or a transparent or white duct tape.
 
@@ -277,22 +259,20 @@ The coaching robot is not placed on the field but on the table that is used for 
 
 Robots use colored jersey shirts as team markers. Each jersey shirt has a player number (1-6) printed on it.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
 
-Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cyan solid colors) or they may design and manufacture their own jerseys.  Austrian Kangaroos may still have magenta and cyan jerseys available for purchase --- please inquire directly with them regarding potential purchase of these jerseys.  Teams opting to design and manufacture their own jerseys must follow these guidelines:
+Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cyan solid colors) or they may design and manufacture their own jerseys.  Teams opting to design and manufacture their own jerseys may design jerseys in any color (multi and many color jerseys are acceptable), but must follow these guidelines:
 \begin{itemize}
-\item Jerseys should be the tank top style used at RoboCup 2013/2014.  The torso LED must be clearly visible.  Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required.
-	\begin{itemize}
-	\item The sonar panel mesh (if used) may be white, black, the jersey's primary color, or the jersey's secondary color.
-	\item Jerseys should cover approximately the same areas of the robot as shown in Figure~\ref{fig:nao_markers}.
-	\end{itemize}
-\item Each side (front/back) of the jerseys must be at least 80\% solid colored in any one color, although this color may not be white, orange, red, green, or light gray.  At most 20\% of each side (front/back) of the jersey may be a secondary color or colors which may not be orange, red, or green.  Note that logos count as part of the 20\%.
+\item Jerseys should be the tank top style used at RoboCup 2013/2014 and should cover approximately the same areas of the robot as shown in Figure~\ref{fig:nao_markers}.  The torso LED must be clearly visible.  Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required.
+\item Jerseys must have a primary color that comprises at least 70\% of the jersey.
+\item Jerseys should not contain distractors, such as large pictures of SPL balls or white stripes on green jerseys.
 \item All players on a team must wear identical jerseys, including the goalkeeper.
 \item A team must wear the jerseys that it starts a game in for the entire game.
-\item Jersey material must be non-reflecting and non-textured.  Material that is shiny or glittery is also not appropriate.
-\item Jerseys should be numbered 1-6 on both sides.  The numbers must be printed in white, black, the jersey's primary color, or one of the jersey's secondary colors and must be {\bf easily} recognized by humans.
-\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval at least 4 weeks prior to the first set-up day of the competition (i.e. by June 19, 2015).  Designs submitted before June 19, 2015 will be reviewed within two weeks of their submission date.  At most three designs may be submitted. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
+\item Jersey material must be non-reflecting, non-shiny, and non-textured.  Material that is shiny or glittery is also not appropriate.
+\item Jerseys should be numbered 1-6 on both sides.  The numbers must be large and {\bf easily} recognized by humans.
+\item Teams must have two sets of jerseys that are significantly different in terms of their primary color.
+\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by February 16, 2016. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must either use their approved jerseys from RoboCup 2015 or use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
 \end{itemize}
 
-It is possible that multiple teams may design similar jerseys.  Hence, if the head referee believes the jerseys of two competing teams are too similar, the second team listed on the schedule must change into an alternate jersey.
+Each team must designate a 'home' color and an 'away' color when asked about one month before RoboCup.  Teams must wear their designated jerseys when they are 'home' (the first team listed on the schedule) and 'away' (the second team listed on the schedule).  However, it is possible that multiple teams may design similar jerseys.  Hence, if the head referee believes the jerseys of two competing teams are too similar (either visually or for the purposes of GameController), the 'away' team must change into its alternate jersey.
 
 \begin{figure}
   \centerline{\begin{tabular}{lll}
@@ -304,15 +284,24 @@ It is possible that multiple teams may design similar jerseys.  Hence, if the he
   \caption{Team markers. a) Front view. b) Side view. c) Back view.} \label{fig:nao_markers}
 \end{figure}
 
+Some teams wish to include additional information or logos on their robots.  The following are allowable:
+\begin{itemize}
+\item Attaching player numbers to the heads and/or legs of the robots.  These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
+
+\item Adding black and white sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). These logos must be at least 50\% white by area.
+
+\item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be at least 50\% white by area.
+\end{itemize}
+
 The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
 
 \subsection{Communications}
 
 The robots should play without human control. Communication is only allowed among robots on the field and between the robots and the GameController.
 
-\subsubsection{Acoustic Communications}
+\subsubsection{Non-Wireless Communications}
 \label{sec:acoustic}
-There are no restrictions on communication between the robots using a microphone or a speaker.  
+There are no restrictions on communication between robots using built-in microphones, speakers, and infrared.  
 
 \subsubsection{Wireless Communications}
 \label{sec:wireless}
@@ -378,7 +367,7 @@ Consequently those pushings do not go into the permanent removal count.
 
 \end{description}
 
-In the quarter finals and onward, the GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized in place on the field (and moved back to their original position if they have moved significantly before becoming penalized) until the GameController transmits the \emph{playing signal}.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty.
+The GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized in place on the field (and moved back to their original position if they have moved significantly before becoming penalized) until the GameController transmits the \emph{playing signal}.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty.
 
 Teams that support the GameController can visualize whether the robot's team has kick-off on the LED of the right foot (off/white) in the states \emph{initial}, \emph{ready} and \emph{set}. The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
 
@@ -469,6 +458,8 @@ Note that a goal can never be scored from within the center circle after a kick-
 \label{sec:throw_in}
 
 A ball is considered to have left the field when there is no part of the ball over the outside of the boundary line (\ie the line itself is in). If the ball leaves the field it will be replaced on the field by an assistant referee. There is \emph{no} stoppage in play.
+
+Throw-in lines will be marked (as dots at the end of the throw-in lines and short dashes along the line) by the technical committee at the start of competition with a felt-tip pen --- these lines are intended to stay invisible to robots but provide a guide to referees.  These two throw-in lines are 400 mm away from the sidelines and run parallel to them inside the playing area.  Each throw-in line is 7 m long.
 
 If the ball goes over a sideline then the assistant referee will replace the ball back on the field on the throw-in line on the same side of the field as the ball went out of play.
 
@@ -992,9 +983,7 @@ If a team's obtained points is the same as another team's after a round of pool 
 
 \subsection{Selection of the Referees}
 \label{sec:refSelection}
-During pool play, the games will be refereed by members of teams from a different pool.  Each team has to referee a number of games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  Note that the head referee and the GameController should always be from the same team.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. The persons should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
-
-After each game, the captain of each team playing will decide whether to recommend the head referee and GameController and/or the assistant referees to officiate the finals.  These rankings will help select the officiating crew for the finals and other games near the end of the tournament.
+During pool play, the games will be refereed by members of teams from a different pool.  Each team has to referee a number of games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  Note that the head referee and the GameController should always be from the same team.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. Both referees and the GameController are expected to have studied for, taken, and passed an online rule test which will be available before RoboCup.  Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
 In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
 
@@ -1038,6 +1027,22 @@ This is a brief list of rule changes from 2015 to 2016.
 \begin{itemize}
 	\item Be explicit about penalty cross and dash at center field. (Section \ref{sec:field_dim})
         \item Require a flat, level, wooden base for the field. (Section \ref{sec:field_dim})
+\end{itemize}
+
+\subsection*{Robot Players}
+\begin{itemize}
+	\item Allow teams to design jerseys with fewer restrictions. (Section \ref{sec:team_markers})
+\end{itemize}
+
+\subsection*{Game Process}
+\begin{itemize}
+	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController 'Playing' signal. (Section \ref{sec:robot_states})
+\end{itemize}
+
+\subsection*{The Official RoboCup Competition Rules}
+\begin{itemize}
+	\item Referees and the GameController should study for, take, and pass an online rules test before attending RoboCup.
+	\item Teams will no longer evaluate referees and GameControllers.
 \end{itemize}
 
 \end{document}
