@@ -195,7 +195,7 @@ Fields may be located close to one another.  Barriers will not necessarily be co
 \subsection{Ball}
 \label{sec:ball}
 
-The official ball is a soft foam ball with a black and white soccer ball print. They are 100 mm in diameter and weigh \todo{55} grams. These balls are available by writing to info@sportpaint.de (in German or English) and asking to order the "pu schaumstoffball 10cm 100ss".  Each ball costs EUR 2.50 plus shipping, where shipping cost depends on the destination.
+The official ball is a soft foam ball with a black and white soccer ball print. They are 100 mm in diameter and weigh 44 grams. These balls are available by writing to info@sportpaint.de (in German or English) and asking to order the "pu schaumstoffball 10cm 100ss".  Each ball costs EUR 2.50 plus shipping, where shipping cost depends on the destination.
 
 \newpage
 
@@ -633,7 +633,7 @@ The following actions are forbidden. In general, when a penalty applies, the rob
 
 Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion.
 
-\subsection{Penalty procedure}
+\subsection{Penalty Procedure}
 \label{sec:penalty_procedure}
 
 When a robot commits a foul, the head referee shall call out the infraction committed, the primary jersey color of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
@@ -641,11 +641,13 @@ When a robot commits a foul, the head referee shall call out the infraction comm
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
 
-Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for 45 seconds, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.
+Unless otherwise stated, all infractions in this league result in the removal of the infringing robot from the field of play for a particular amount of time, after which it will be returned to the field of play. This process is called the standard removal penalty, and a detailed description of the process follows.
 
 When the head referee indicates a foul has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
 The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
+
+Penalty times become incrementally longer each time a particular robot commits a particular infraction.  Specifically, the first instance of a particular infraction will result in a penalty time of 45 seconds, the second instance will result in a penalty time of 90 seconds, the third instance will result in a penalty time of 135 seconds, and the fourth instance will result in ejection for the remainder of the half.  The counters for each infraction types for each robot will reset at half-time.  
 
 The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}. 
 
@@ -743,9 +745,7 @@ The coach robot has to remain seated during the whole game, it is only allowed t
 % basic definition of pushing
 \emph{Pushing} is a forceful contact with another robot, i.e., enough to destabilize it, and is not allowed. In the following, the cases when pushing occurs as well as exceptions are specified in more detail.
 
-The standard removal penalty will apply for pushing. The 4th time a team is called for pushing in a
-half, the offending robot will be removed for the remainder of the half. Subsequently for that half,
-a robot from the team will be removed for every 2 pushing offenses (i.e., the 6th time, 8th time, etc.).  Note that this can result in all five of a team's robots being removed for the remainder of the half if they are called for pushing twelve times in a half.  Pushing offenses during the ready state are not counted as part of this removal count (\cf Section~\ref{sec:kick-off}).
+Pushing offenses during the ready state are not counted as towards a robot's pushing count.
 
 If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement.
 
@@ -817,6 +817,8 @@ During the match any robot shall never jam the communication and the sensor syst
 \item[Wireless communication.] As specified in Sect. \ref{sec:wireless}, each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format. If a robot uses a different protocol or sends too many messages over a couple of seconds in a game, it will be disqualified for that game. If a teams violates this rule in multiple games, disqualification from the tournament (including technical challenges as well as the drop-in competition) as well as an entry in the penalty list will be the consequence. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using 2.4~GHz radio equipment (including cellular phones and/or Bluetooth devices).
 
 \item[Acoustic communication.] If acoustic communication is used by both teams, they shall negotiate before the match how they can reduce interference. If only one team uses acoustic communication, the robots of the other team shall avoid producing any sound. In addition, both the teams and the audience shall avoid intentionally confusing the robots by producing similar sounds to those used for communication.
+
+\item[Infrared communication.] If infrared communication is used by both teams, they shall negotiate before the match how they can reduce interference (if at all). Both the teams and the audience shall avoid confusing the robots by producing similar infrared signals to those used for communication.
 
 \item[Visual perception.] To avoid confusing other robots, the robots are not allowed to switch LEDs to orange. In general, the use of flashlights is not allowed during the games.  However, flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots.
 
@@ -1038,6 +1040,7 @@ This is a brief list of rule changes from 2015 to 2016.
 \begin{itemize}
 	\item Be explicit about penalty cross and dash at center field. (Section \ref{sec:field_dim})
         \item Require a flat, level, wooden base for the field. (Section \ref{sec:field_dim})
+	\item The league has changed the type of ball used in games. (Section \ref{sec:ball})
 \end{itemize}
 
 \subsection*{Robot Players}
@@ -1052,8 +1055,11 @@ This is a brief list of rule changes from 2015 to 2016.
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
+	\item The Standard Removal Penalty time is now incremental per infraction and per robot. (Section \ref{sec:removal_penalty})
 	\item After a kick-off goal, either team may attempt shots on goal. (Section \ref{sec:kick-off_shot})
 	\item Own kick-off goals count. (Section \ref{sec:kick-off_shot})
+	\item Due to the new incremental standard removal penalty, pushing will be treated like all other infractions.  The one exception is that pushing during the Ready state does not count towards a robot's pushing count. (Section \ref{sec:player_pushing})
+	\item Jamming can also refer to infrared communication. (Section \ref{sec:jamming})
 \end{itemize}
 
 \subsection*{Outdoor Competition}
