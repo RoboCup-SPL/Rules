@@ -186,7 +186,9 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. All it
 
 \subsection{Lighting Conditions}
 \label{sec:lightConditions}
-The lighting conditions depend on the actual competition site. Only ceiling lights may be used.  Lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay.  Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, ect.
+The lighting conditions depend on the actual competition site, but the lighting should be even (not hotspots). It is expected that only ceiling lights will be used unless this results in extremely dark playing conditions.  Local organizers should discuss with the technical committee if they believe additional lighting may be required.
+
+Lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay.  Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, ect.
 
 \subsection{Venue Setup}
 \label{sec:boundaries}
@@ -314,7 +316,7 @@ Each team will get a range of IP addresses that can be used both for their robot
 
 Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
 
-Team and their robots must not listen into another team's communication.
+Teams and their robots must not listen into another team's communication.
 
 Robots are not allowed to be connected to access points of fields that are currently running official games of other teams.
 
