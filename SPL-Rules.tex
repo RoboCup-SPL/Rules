@@ -96,7 +96,7 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 \subsection{Field Construction}
 \label{sec:field_dim}
 
-The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth.  The carpet should have a flat wooden base underneith.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and hence not give when humans stand or walk on it.
+The soccer field is built on a total carpet area of length \TotalLength and width \TotalWidth.  The carpet should have a flat wooden base underneath.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and should not give when humans stand or walk on it.
 
 The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. Note that the penalty cross is a cross and there is a dash at center field. The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}.
 
@@ -222,15 +222,6 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 
 A computer will be provided by the event organizers for the purpose of sending GameController messages to the robots.
 
-\begin{figure}[b]
-\centerline{\begin{tabular}{ll}
-\includegraphics[height=0.35\columnwidth]{figs/naosim_with_logo.png}&
-\includegraphics[height=0.35\columnwidth]{figs/naosim_legs_with_logo_closeup.png}
-\end{tabular}}
-\caption{Example Sponsor/Team Logo placement on legs.}
-\label{fig:sponsor}
-\end{figure}
-
 \subsection{Goal Keeper}
 \label{sec:goal_keeper}
 
@@ -248,9 +239,9 @@ The purpose of the coaching robot is to observe the game from an external positi
 The coaching robot is not placed on the field but on the table that is used for the GameController computer.  The coaching robot must be connected via a cable to the GameController. The coaching robot may sit or kneel on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
-\caption{Two coaching robots observing a game. The left robot is sitting on a seating platform. The right robot sits on the table.}
-\label{fig:coaches}
+  \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
+  \caption{Two coaching robots observing a game. The left robot is sitting on a seating platform. The right robot sits on the table.}
+  \label{fig:coaches}
 \end{figure}
  
 
@@ -258,6 +249,18 @@ The coaching robot is not placed on the field but on the table that is used for 
 \label{sec:team_markers}
 
 Robots use colored jersey shirts as team markers. Each jersey shirt has a player number (1-6) printed on it.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
+
+\begin{figure}
+  \centerline{\begin{tabular}{lll}
+      a) & b) & c) \\
+      \includegraphics[height=0.28\columnwidth]{figs/front.jpg}&
+      \includegraphics[height=0.28\columnwidth]{figs/side.jpg} &
+      \includegraphics[height=0.28\columnwidth]{figs/back.jpg} 
+  \end{tabular} }
+  \caption{Team markers. a) Front view. b) Side view. c) Back view.} 
+  \label{fig:nao_markers}
+\end{figure}
+
 
 Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cyan solid colors) or they may design and manufacture their own jerseys.  Teams opting to design and manufacture their own jerseys may design jerseys in any color (multi and many color jerseys are acceptable), but must follow these guidelines:
 \begin{itemize}
@@ -274,16 +277,6 @@ Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cya
 
 Each team must designate a 'home' color and an 'away' color when asked about one month before RoboCup.  Teams must wear their designated jerseys when they are 'home' (the first team listed on the schedule) and 'away' (the second team listed on the schedule).  However, it is possible that multiple teams may design similar jerseys.  Hence, if the head referee believes the jerseys of two competing teams are too similar (either visually or for the purposes of GameController), the 'away' team must change into its alternate jersey.
 
-\begin{figure}
-  \centerline{\begin{tabular}{lll}
-      a) & b) & c) \\
-      \includegraphics[height=0.28\columnwidth]{figs/front.jpg}&
-      \includegraphics[height=0.28\columnwidth]{figs/side.jpg} &
-      \includegraphics[height=0.28\columnwidth]{figs/back.jpg} 
-  \end{tabular} }
-  \caption{Team markers. a) Front view. b) Side view. c) Back view.} \label{fig:nao_markers}
-\end{figure}
-
 Some teams wish to include additional information or logos on their robots.  The following are allowable:
 \begin{itemize}
 \item Attaching player numbers to the heads and/or legs of the robots.  These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
@@ -295,13 +288,23 @@ Some teams wish to include additional information or logos on their robots.  The
 
 The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
 
+\begin{figure}[b]
+  \centerline{\begin{tabular}{ll}
+  \includegraphics[height=0.35\columnwidth]{figs/naosim_with_logo.png}&
+  \includegraphics[height=0.35\columnwidth]{figs/naosim_legs_with_logo_closeup.png}
+  \end{tabular}}
+  \caption{Example Sponsor/Team Logo placement on legs.}
+  \label{fig:sponsor}
+\end{figure}
+
+
 \subsection{Communications}
 
-The robots should play without human control. Communication is only allowed among robots on the field and between the robots and the GameController.
+The robots must play without human control. Communication is only allowed among robots on the field and between the robots and the GameController.
 
 \subsubsection{Non-Wireless Communications}
 \label{sec:acoustic}
-There are no restrictions on communication between robots using built-in microphones, speakers, and infrared.  
+In general there are no restrictions on communication between robots in play on the field using visual signalling (e.g. gestures) or the robot's built-in microphones, speakers, and infrared transceivers. However, communication that causes excessive discomfort to an audience, affects the safety of an audience, or violates normal playing rules is not permitted.
 
 \subsubsection{Wireless Communications}
 \label{sec:wireless}
@@ -311,11 +314,13 @@ Each team will get a range of IP addresses that can be used both for their robot
 
 Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
 
-No team or robot should listen into another team's communication.
+Team and their robots must not listen into another team's communication.
 
 Robots are not allowed to be connected to access points of fields that are currently running official games of other teams.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
+
+Robots send status updates (defined in \emph{RoboCupGameControlData.h}) to the GameController. These return packets must be addressed directly to the GameController PC (\ie not broadcast) and sent on the GameController return UDP port specified by the symbol \verb!GAMECONTROLLER_RETURN_PORT! in \emph{RoboCupGameControlData.h}.
 
 The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in the header \emph{SPLCoachMessage.h} that is distributed with the latest GameController release. These messages have a maximum size of 81 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped.  It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content and meaning of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
@@ -439,11 +444,9 @@ Robots that are legally positioned will not be moved by the assistant referees u
 \label{fig:ko}
 \end{figure}
 
-There are extra restrictions on the legal positions of manually positioned robots. Two field players of the defending team are placed halfway between the corners of their own penalty box and the sidelines. The other two field players of the defending team are placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post.  The kicking-off robot is placed on the center circle, right in front of the penalty mark. Its feet touch the line, but they are not inside the center circle. 
-One of the other field players of the attacking team is placed immediately in front of their own penalty box, halfway between the center of the penalty box and the goal post. The other two field players of the attacking team are placed halfway between the corners of their own penalty box and the sidelines. 
-  The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line. See Figure \ref{fig:ko} for a pictorial representation of these positions.
+The legal positions for manually positioned robots are shown in Figure~\ref{fig:ko}. The kicking-off robot is placed such that its feet touch the center circle (but are not inside it), right in front of the penalty mark. The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line.
 
-To assist the assistant referees in placing the robots manually when needed or requested, small Xs will be marked on the field using a black felt-tip pen in the spots where manually placed robots should go.  Note that most positions are shared between the attacking team and defending team, so only 6 marks will be needed.  These marks should be small, such that they are visible to humans but invisible to robots.
+To assist the assistant referees in placing the robots manually when needed or requested, small Xs will be marked on the field using a black felt-tip pen in the spots where manually placed robots should go.  These marks should be small, such that they are visible to humans but invisible to robots.
 
 As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
