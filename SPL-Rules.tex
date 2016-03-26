@@ -76,7 +76,7 @@
 \maketitle
 
 \begin{center}
-This is a preliminary rulebook.  We plan to further update the rulebook for the 2016 drop-in player competition as well as any changes required after 2016 Open competitions.
+This is a preliminary rulebook.  We plan to further update the rulebook after the Open competitions.  In particular, the drop-in player competition rules will be altered substantially.
 
 Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.robocup.org}.
 \end{center}
@@ -92,6 +92,8 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 
 \cfoot{\thepage}
 \setcounter{page}{1}
+
+\newpage
 
 \section{Setup of the Environment}
 
@@ -520,7 +522,7 @@ The referee stops the game and restarts the game from the kick-off formation. Th
 \subsection{Request for Pick-up}
 \label{sec:request_for_pickup}
 
-Either team may request that one of their players be picked up (called ``Request for Pick-up'').  Players in the Playing state may only be picked up for for hardware failures.  Players in all other states may be picked up for any reason.
+Either team may request that one of their players be picked up (called ``Request for Pick-up'').  Players in the Playing state may only be picked up for hardware failures.  Players in all other states may be picked up for any reason.
 
 Basically every change (hardware or software) is allowed during a request for pick-up. In particular,
 it is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
@@ -876,6 +878,8 @@ The application of this rule needs to be well considered and should be reserved 
 \appendix
 \section{Drop-in Player Competition}
 \label{sec:drop-in}
+{\bf Note: this section has not yet been updated for RoboCup 2016.}
+
 The main rule book describes the rules for RoboCup Standard Platform Games.  However, at the international RoboCup competition there will be a competition in the Standard Platform League in which teams are formed of players from various teams.  All teams who compete in the team competition must participate in this competition.  Additional teams will be selected to participate in just this competition.
 
 The main point of this competition is for teams to develop `drop-in' players that can be good teammates and play well with a team composed of drop-in players from a variety of teams. The competition's goal is to develop more intelligent players that can efficiently and robustly collaborate with other robots without exactly knowing their states, skills, and intentions and that can carry out cooperative moves without explicit specifications of pre-coordinated behaviors by the human team members.
@@ -1047,18 +1051,21 @@ This is a brief list of rule changes from 2015 to 2016.
 \begin{itemize}
 	\item Be explicit about penalty cross and dash at center field. (Section \ref{sec:field_dim})
         \item Require a flat, level, wooden base for the field. (Section \ref{sec:field_dim})
-	\item The league has changed the type of ball used in games. (Section \ref{sec:ball})
         \item Local organizers should discuss with the technical committee if overhead lighting is too dark.  Additional lighting may be used if necessary, but should not create hot spots. (Section \ref{sec:lightConditions})
+	\item The league has changed the type of ball used in games. (Section \ref{sec:ball})
 \end{itemize}
 
 \subsection*{Robot Players}
 \begin{itemize}
 	\item Allow teams to design jerseys with fewer restrictions. (Section \ref{sec:team_markers})
+	\item Handle all types of non-wireless communication. (Section \ref{sec:acoustic})
+	\item Status updates must be addressed directly to the GameController PC and sent on the specified GameController return UDP port. (Section \ref{sec:wireless})
 \end{itemize}
 
 \subsection*{Game Process}
 \begin{itemize}
 	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController 'Playing' signal. (Section \ref{sec:robot_states})
+	\item Players in the Playing state may only be picked up (via a `Request for Pick-up') for hardware failures.  Players in all other states may be picked up for any reason. (Section \ref{sec:request_for_pickup})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
