@@ -287,9 +287,9 @@ Some teams wish to include additional information or logos on their robots.  The
 \begin{itemize}
 \item Attaching player numbers to the heads and/or legs of the robots.  These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
 
-\item Adding black and white sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). These logos must be at least 50\% white by area.
+\item Adding sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more that a 25 $\text{cm}^2$ area.
 
-\item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be at least 50\% white by area.
+\item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
 \end{itemize}
 
 The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
@@ -561,6 +561,10 @@ The team who would have kicked off if the timeout had not been called shall kick
 \subsection{Extra Time}
 \label{sec:extra_time}
 The head official may decide to add time to the clock if a substantial delay (such as an enormous wireless delay) causes excessive game time to be lost.  The decision to add time to the clock should be made immediately after the incident.  The person working the GameController should execute this addition of time using the GameController interface.
+
+\subsection{Mercy Rule}
+\label{sec:mercy_rule}
+A game will conclude once the game score shows a goal difference of 10.  Ending the game is mandatory once a goal difference of 10 is reached.
 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
@@ -1058,6 +1062,7 @@ This is a brief list of rule changes from 2015 to 2016.
 \subsection*{Robot Players}
 \begin{itemize}
 	\item Allow teams to design jerseys with fewer restrictions. (Section \ref{sec:team_markers})
+	\item Teams may add sponsor or team logos to the upper legs of the robots as long as a box drawn around the non-white area of these logos does not cover more that a 25 $\text{cm}^2$ area. (Section \ref{sec:team_markers})
 	\item Handle all types of non-wireless communication. (Section \ref{sec:acoustic})
 	\item Status updates must be addressed directly to the GameController PC and sent on the specified GameController return UDP port. (Section \ref{sec:wireless})
 \end{itemize}
@@ -1066,6 +1071,7 @@ This is a brief list of rule changes from 2015 to 2016.
 \begin{itemize}
 	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController 'Playing' signal. (Section \ref{sec:robot_states})
 	\item Players in the Playing state may only be picked up (via a `Request for Pick-up') for hardware failures.  Players in all other states may be picked up for any reason. (Section \ref{sec:request_for_pickup})
+	\item Games must conclude once a goal difference of 10 is obtained. (Section \ref{sec:mercy_rule})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
