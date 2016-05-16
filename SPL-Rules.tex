@@ -1091,10 +1091,10 @@ This is a brief list of rule changes from 2015 to 2016.
 \subsection*{Game Process}
 \begin{itemize}
 	\item Penalties in Ready do not count towards the incremental penalty count. (Section \ref{sec:robot_states})
+	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController 'Playing' signal. (Section \ref{sec:robot_states})
 	\item If a team leader calls for the entire team to be manually placed, even players penalized in place for ``Motion in Set'' will be manually placed. (Section \ref{sec:kick-off})
 	\item The ball should be placed immediately after the Set state is called. (Section \ref{sec:kick-off})
 	\item Updated the Game Stuck rules substantially.  Game stuck can be called after 30 seconds of no substantial change, where substantial change can be robots searching the field.  Global Game Stuck is called on the team further from the ball such that kick-off will go to the team that was closer to the ball. Players go into Ready state as soon as Global Game Stuck is called. (Section \ref{sec:game_stuck})
-	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController 'Playing' signal. (Section \ref{sec:robot_states})
 	\item Players in the Playing state may only be picked up (via a `Request for Pick-up') for hardware failures.  Players in all other states may be picked up for any reason. (Section \ref{sec:request_for_pickup})
 	\item Games must conclude once a goal difference of 10 is obtained. (Section \ref{sec:mercy_rule})
 	\item The first (left) team in the GameController will perform the first penalty kick. (Section \ref{sec:penalty_kick})
@@ -1107,14 +1107,14 @@ This is a brief list of rule changes from 2015 to 2016.
 	\item After a kick-off goal, either team may attempt shots on goal. (Section \ref{sec:kick-off_shot})
 	\item Own kick-off goals count. (Section \ref{sec:kick-off_shot})
 	\item Due to the new incremental standard removal penalty, pushing will be treated like all other infractions. (Section \ref{sec:player_pushing})
-	\item  A robot pushed by another robot can not simultaneously be called for pushing itself. (Section \ref{situations_no_pushing})
+	\item  A robot pushed by another robot can not simultaneously be called for pushing itself. (Section \ref{sec:situations_no_pushing})
 	\item A field player (including a defender) that touches the ball with its arms/hands will be subject to the standard removal penalty and the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized. (Section \ref{sec:hand_ball})
 	\item Jamming can also refer to infrared communication. (Section \ref{sec:jamming})
 \end{itemize}
 
 \subsection*{Drop-in Player Competition}
 \begin{itemize}
-	\item There will be a skill test held for drop-in player competition players.  The results of the skill test will be used to seed players. (Section \ref{sec:sec:drop-in})
+	\item There will be a skill test held for drop-in player competition players.  The results of the skill test will be used to seed players. (Section \ref{sec:drop-in})
 	\item Drop-in players can now be ejected for too many penalties. (Section \ref{sec:drop-in:rules})
 \end{itemize}
 
@@ -1125,9 +1125,9 @@ This is a brief list of rule changes from 2015 to 2016.
 
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}
-        \item Removed the requirement for teams to participate in the drop-in competition in order to remain pre-qualified (since main competition teams are no longer required to participate). (Section \ref{sec:preQual})
 	\item Referees and the GameController should study for, take, and pass an online rules test before attending RoboCup. (Section \ref{sec:refSelection})
 	\item Teams will no longer evaluate referees and GameControllers. (Section \ref{sec:refSelection})
+        \item Removed the requirement for teams to participate in the drop-in competition in order to remain pre-qualified (since main competition teams are no longer required to participate). (Section \ref{sec:preQual})
 \end{itemize}
 
 \end{document}
