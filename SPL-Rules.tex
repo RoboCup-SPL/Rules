@@ -222,7 +222,7 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 
 \item Protecting the fingers with white finger protectors provided by Aldebaran or with transparent or white duct tape.
 
-\item Use of alternate memory sticks in replacement of the Aldebaran supplied memory sticks.
+\item For NAO versions that require a memory stick to remain in the head during operation, alternate memory sticks may be used instead of the Aldebaran supplied memory sticks.
 
 \end{itemize}
 
@@ -972,6 +972,23 @@ The main rule book describes the rules for traditional RoboCup Standard Platform
 
 The main point of this competition is to encourage teams to develop players that can play on more realistic playing surfaces as well as under natural lighting.
 
+How a team finishes in the Outdoor Competition will affect their seeding in the second round of the Indoor Competition.  Specifically, teams will be seeded into the second round as follows:
+\begin{itemize}
+	\item Teams from the first round Indoor Competition will be seeded into the second round based on their finish. This distribution will be done first and fields will be allocated based upon this distribution.
+	\item One of the top two teams from each outdoor pool will be randomly distributed into each of the four second round indoor pools.  However, the random distribution must be repeated until:
+	\begin{itemize}
+		\item No second round pool contains two teams that finished in the top 4 at the 2015 Main Competition
+		\item No second round pool contains two teams that were eliminated in the quarterfinals at the 2015 Main Competition
+	\end{itemize}
+	\item One of the remaining four outdoor teams will be randomly distributed into each of the four second round indoor pools.  However, the random distribution must be repeated until:
+	\begin{itemize}
+		\item No second round pool contains two teams that finished in the top 4 at the 2015 Main Competition
+		\item No second round pool contains two teams that were eliminated in the quarterfinals at the 2015 Main Competition
+	\end{itemize}
+	\item The quarterfinals will be set such that - if the top four finishers from 2015 were to advance to the semifinal round - the 1st place finisher from 2015 will play the 4th place finisher and the 2nd place finisher will play the 3rd place finisher.
+\end{itemize}
+
+
 \subsection{Altered Rules}
 The outdoor competition games will follow all of the rules for traditional RoboCup Standard Platform Games with two notable exceptions:
 \begin{itemize}
@@ -1027,12 +1044,11 @@ If any team is pre-qualified via multiple means (\eg by reaching the quarter fin
 
 However, teams pre-qualified via the above means must do all of the following in order to remain pre-qualified:
 \begin{itemize}
-\item Participate in the drop-in competition, submit a short explanation of their drop-in player strategy by the end of the final competition day, and not finish with a negative average judge score (before normalization) or negative average game result (before normalization)
 \item Post in a publicly available location a team research report describing their work for the 2015 competition
 \item Submit a shortened application as required by the call for participation for the subsequent year's competition
 \end{itemize}
 
-Teams that reach the quarter-finals in the team competition must also publicly release code, either in the form of a complete release (perhaps without behavior) or limited libraries, in order to be pre-qualified for the subsequent year's competition.  This release must be documented and coded in a way where it can be used by others.
+Teams that reach the quarter-finals in the team competition must also publicly release code from that year's codebase, either in the form of a complete release (perhaps without behavior) or limited libraries, in order to be pre-qualified for the subsequent year's competition.  This release must be documented and coded in a way where it can be used by others.
 
 \subsection{Penalty for Failing to Referee when Assigned}
 \label{sec:refPenalty}
@@ -1090,6 +1106,7 @@ This is a brief list of rule changes from 2015 to 2016.
 
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}
+        \item Removed the requirement for teams to participate in the drop-in competition in order to remain pre-qualified (since main competition teams are no longer required to participate). (Section \ref{sec:preQual})
 	\item Referees and the GameController should study for, take, and pass an online rules test before attending RoboCup. (Section \ref{sec:refSelection})
 	\item Teams will no longer evaluate referees and GameControllers. (Section \ref{sec:refSelection})
 \end{itemize}
