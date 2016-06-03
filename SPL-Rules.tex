@@ -360,7 +360,7 @@ The teams will change the goal defended during the half-time break.
 \label{sec:robot_states}
 
 Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give indication of the game state, team color, and the kickoff state.
-\emph{If a robot does not respond to either the GameController or the button press interface, then it is not included in the game, and the game starts without the offending robot.}
+\emph{If a robot does not respond to either the GameController or the button press interface, then it is not included in the game (technically via a `Request for Pick-up'), and the game starts without the offending robot.}
 
 \begin{description}
 
@@ -432,13 +432,13 @@ Once the robots receive the \emph{ready} signal from the GameController, they ar
 
 \subsection{Kick-off}
 \label{sec:kick-off}
-For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.
+For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.  
 
 In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allowed to touch the halfway line.
 The field players of the attacking team can walk to any position within their own half.
 The field players of the defending team can walk to any position within their own half, except for inside the center circle.  Only one field player may be within the penalty area during the set state.  If multiple field players are within the penalty area during the set state, the robot(s) closer to center field should be placed manually by the assistant referees to the closest position(s) (as shown in Figure~\ref{fig:ko}) in which a team mate is not already positioned within 1 meter.
 
-If robots incur penalties during Ready state, the penalty is manual placement by the assistant referees, not the normal penalty. Consequently those penalties do not go into the permanent removal count.
+If robots incur penalties during Ready state, the penalty is manual placement by the assistant referees. Note that these penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed by the assistant referees in the closest manual position (see Figure~\ref{fig:ko}) that does not already have a team mate within 1 meter.
 Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
@@ -457,7 +457,7 @@ To assist the assistant referees in placing the robots manually when needed or r
 
 As autonomously placed robots are allowed to be much closer to the ball, successful autonomous placement results in a significant advantage over manual placement.
 
-Just after the \emph{set} state is called, the ball is placed on the center point of the center circle by one of the referees. If it is moved by one of the robots before set is called it is replaced by one of the referees.
+Just after the \emph{set} state is called, the ball is placed on the center point of the center circle by one of the referees. If it is moved by one of the robots during Set it is replaced by one of the referees.
 
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} (again either by the GameController or manually), in which they can actually play soccer.
 The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state. If a defensive player enters the center circle before the ball is in play, the ``Illegal Defender'' penalty is applied (\cf Section~\ref{sec:illegal_defender}).
@@ -538,7 +538,7 @@ Any strategic ``Request for Pick-up'' is not allowed, i.e. gaining an advantage 
 In this case, the head referee will indicate when the robot is no longer affecting play and can be removed from the field by an assistant referee.
 
 To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up'', and only one designated person per team shall accept the robot from the referee, and hand it back after fixing the problem.
-The returning robot will be replaced following the normal replacement procedure after the standard removal penalty (see Section~\ref{sec:removal_penalty}).
+The returning robot may be returned following the normal replacement procedure at any point within Ready or Set states.  In Playing, the robot may return once at least 45 seconds have elapsed since the robot was removed from play. Note that this penalty does not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 The robot should be returned to the assistant referees in the \emph{penalized} state.
 
@@ -656,7 +656,7 @@ Robots should clearly demonstrate bipedal walking similar to human walking. Othe
 \subsection{Motion in Set}
 \label{sec:motion_in_set}
 
-Robots may not exit the Set state until either the referee's whistle is detected or a GameController Playing signal has been received.  Players that leave the Set state prematurely will be called for ``Motion in Set'' and penalized in place on the field.  They will then be unable to move until they receive the GameController Playing signal.
+Robots may not exit the Set state until either the referee's whistle is detected or a GameController Playing signal has been received.  Players that leave the Set state prematurely will be called for ``Motion in Set'' and penalized in place on the field.  They will then be unable to move until they receive the GameController Playing signal.  Motion in Set penalties do not following the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 \subsection{Penalty Procedure}
 \label{sec:penalty_procedure}
@@ -672,7 +672,7 @@ When the head referee indicates a foul has been committed that results in the st
 
 The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
 
-Penalty times become incrementally longer each time a particular robot commits a particular infraction.  Specifically, the first instance of a particular infraction will result in a penalty time of 45 seconds, the second instance will result in a penalty time of 90 seconds, the third instance will result in a penalty time of 135 seconds, and the fourth instance will result in ejection for the remainder of the half.  The counters for each infraction types for each robot will reset at half-time.  
+Unless otherwise specified, penalty times become incrementally longer each time a team commits any infraction.  Specifically, the first infraction will result in a penalty time of 45 seconds, the second infraction (of any type) will result in a penalty time of 50 seconds, the third infraction (of any type) will result in a penalty time of 55 seconds, ect.  The counter for each team's infractions will reset at half-time.  
 
 The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}. 
 
@@ -904,7 +904,7 @@ Each participating team will contribute one drop-in player.  Each drop-in player
 
 Drop-in players will undergo a mandatory skill test, likely to be held on the second set-up day.  This test will evaluate communication as well as the ability for the player to score a goal on an empty field.  The results of this test will be used to seed players onto teams for the remainder of the tournament.  Additionally, failing to be able to score a goal within 5 minutes in the skill test (given three tries) and finishing in the bottom 25\% of drop-in players in the competition will be considered in your 2017 application.
 
-Each participating team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2016.  These descriptions will be released on the SPL wiki soon after the competition.
+Each participating team is required to email a short (no more than 200 words) explanation of their drop-in player strategy to \url{rc-spl-tc@lists.robocup.org} by the end of the final competition day at RoboCup 2016.  Failing to do so when be considered in your 2017 application. These descriptions will be released on the SPL wiki soon after the competition.
 
 \subsection{Rules}
 \label{sec:drop-in:rules}
@@ -934,7 +934,7 @@ The Drop-in Player Competition will be scored using two metrics:
 
 The average game result will be calculated by awarding points at the end of each game based on the result: Win, Draw, Loss, Absent.  Players on the winning team receive 2 points, players on both teams receive 1 point if the game result was a draw, and players on the losing team receive 0 points.  Players who were assigned to be on one of the playing team, but who did not enter the field during the game, receive -2 points.
 
-The judges will be members of the technical committee, organizing committee, and individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible) and one judge will be designated as head judge.  The head judge will instruct the judges in how to properly judge the game, monitor drop-in player communication, and make notes regarding when players are not present on the field throughout the game.
+The judges will be members of individual teams.  There will be five judges for each game, where judges will not judge any game in which their team is competing (if possible) and one judge will be designated as head judge.  The head judge will instruct the judges in how to properly judge the game, monitor drop-in player communication, and make notes regarding when players are not present on the field throughout the game.
 
 The four judges will judge each player on the field.  The judges will score the players based on the following criteria, although a player's judge score can be no lower than 0 if it entered the game. If a robot did not enter the game, its overall judge score will be -5 by default. This will be determined by the head judge. 
 \begin{itemize}
@@ -1109,7 +1109,7 @@ This is a brief list of rule changes from 2015 to 2016.
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
-	\item The Standard Removal Penalty time is now incremental per infraction and per robot. (Section \ref{sec:removal_penalty})
+	\item The Standard Removal Penalty time is now incremental per team. (Section \ref{sec:removal_penalty})
 	\item After a kick-off goal, either team may attempt shots on goal. (Section \ref{sec:kick-off_shot})
 	\item Own kick-off goals count. (Section \ref{sec:kick-off_shot})
 	\item Due to the new incremental standard removal penalty, pushing will be treated like all other infractions. (Section \ref{sec:player_pushing})
@@ -1121,7 +1121,6 @@ This is a brief list of rule changes from 2015 to 2016.
 \subsection*{Drop-in Player Competition}
 \begin{itemize}
 	\item There will be a skill test held for drop-in player competition players.  The results of the skill test will be used to seed players. (Section \ref{sec:drop-in})
-	\item Drop-in players can now be ejected for too many penalties. (Section \ref{sec:drop-in:rules})
 \end{itemize}
 
 \subsection*{Outdoor Competition}
