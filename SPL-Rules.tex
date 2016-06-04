@@ -380,7 +380,7 @@ Robots may be disentangled by the referees at the start of the Ready state. Afte
 
 \end{description}
 
-The GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized in place on the field via the ``Motion in Set'' GameController signal (and moved back to their original position if they have moved significantly before becoming penalized) until the GameController transmits the \emph{playing signal}.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty.
+The GameController Playing signal will be delayed by 15 seconds.  The referee will announce the start of the Playing state with a short whistle blow.  The referee may choose to use any normal sports whistle.  Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized in place on the field via the ``Motion in Set'' (see Section \ref{sec:motion_in_set}) GameController signal (and moved back to their original position if they have moved significantly before becoming penalized) until the GameController transmits the \emph{playing signal}.  Note that responding to a whistle on another field, although unlikely and poor luck, will result in this penalty.
 
 Teams that support the GameController can visualize whether the robot's team has kick-off on the LED of the right foot (off/white) in the states \emph{initial}, \emph{ready} and \emph{set}. The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
 
@@ -432,7 +432,7 @@ Once the robots receive the \emph{ready} signal from the GameController, they ar
 
 \subsection{Kick-off}
 \label{sec:kick-off}
-For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.  
+For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. Robots not listening to the GameController are simply penalized using the chest button and manually placed for kick-off\footnote{Note that robots being manually placed because they are not listening to the GameController must still be placed in the restricted set of legal positions for manually placed robots. It is to a team's advantage to have their robots listen to the GameController.}.  
 
 In the ready state, the robots should walk to their legal kick-off positions. These positions are always located inside their own side of the field. No player is allowed to touch the halfway line.
 The field players of the attacking team can walk to any position within their own half.
@@ -515,7 +515,7 @@ The main referee has two options how to solve the game stuck and to reestablish 
 
 If one robot is preventing the game from proceeding --- perhaps by circling the ball repeatedly without kicking the ball --- it is recommended to improve progress by removing this one robot.
 
-When Local Game Stuck is called, the nearest robot to the ball will get the standard removal penalty according to Section~\ref{sec:removal_penalty}.
+When Local Game Stuck is called, the nearest robot to the ball will be penalized and removed for 45 seconds (Section \ref{sec:pen_local_game_stuck}). Local Game Stuck penalties do not following the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 \subsubsection{Global Game Stuck}
 \label{sec:game_stuck:global}
@@ -657,6 +657,13 @@ Robots should clearly demonstrate bipedal walking similar to human walking. Othe
 \label{sec:motion_in_set}
 
 Robots may not exit the Set state until either the referee's whistle is detected or a GameController Playing signal has been received.  Players that leave the Set state prematurely will be called for ``Motion in Set'' and penalized in place on the field.  They will then be unable to move until they receive the GameController Playing signal.  Motion in Set penalties do not following the standard removal procedure, and hence do not count towards the incremental penalty count.
+
+\subsubsection{Local Game Stuck}
+\label{sec:pen_local_game_stuck}
+
+A robot should not prevent the game from proceeding.  In some cases, the head referee may decide to remove a player if doing so is likely to help the game proceed (see Section \ref{sec:game_stuck:local}).
+
+When Local Game Stuck is called, the nearest robot to the ball will be penalized and removed for 45 seconds. Local Game Stuck penalties do not following the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 \subsection{Penalty Procedure}
 \label{sec:penalty_procedure}
