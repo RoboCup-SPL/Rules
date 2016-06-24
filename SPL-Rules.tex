@@ -285,7 +285,7 @@ Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cya
 \item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by February 16, 2016. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must either use their approved jerseys from RoboCup 2015 or use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
 \end{itemize}
 
-Each team must designate a 'home' color and an 'away' color when asked about one month before RoboCup.  Teams must wear their designated jerseys when they are 'home' (the first team listed on the schedule) and 'away' (the second team listed on the schedule).  However, it is possible that multiple teams may design similar jerseys.  Hence, if the head referee believes the jerseys of two competing teams are too similar (either visually or for the purposes of GameController), the 'away' team must change into its alternate jersey.
+Each team must designate a 'home' color and an 'away' color when asked about one month before RoboCup.  Teams must wear their 'home' jerseys when they are 'home' (the first team listed on the schedule).  Teams will wear their `home' jersey when they are 'away' (the second team listed on the schedule) as well, unless either the head referee or the GameControl program believes the jerseys of two competing teams are too similar.  In this case, the `away' team will then wear their `away' jersey.
 
 Some teams wish to include additional information or logos on their robots.  The following are allowable:
 \begin{itemize}
@@ -993,15 +993,15 @@ The main point of this competition is to encourage teams to develop players that
 How a team finishes in the Outdoor Competition will affect their seeding in the second round of the Indoor Competition.  Specifically, teams will be seeded into the second round as follows:
 \begin{itemize}
 	\item Teams from the first round Indoor Competition will be seeded into the second round based on their finish. This distribution will be done first and fields will be allocated based upon this distribution.
-	\item One of the top two teams from each outdoor pool will be randomly distributed into each of the four second round indoor pools.  However, the random distribution must be repeated until:
+	\item Each of the top two teams from each outdoor pool will be randomly distributed into the four second round indoor pools.  However, the random distribution must be repeated until:
 	\begin{itemize}
-		\item No second round pool contains two teams that finished in the top 4 at the 2015 Main Competition
-		\item No second round pool contains two teams that were eliminated in the quarterfinals at the 2015 Main Competition
+		\item No second round pool contains more than one team that finished in the top 4 at the 2015 Main Competition
+		\item No second round pool contains more than one team that was eliminated in the quarterfinals at the 2015 Main Competition
 	\end{itemize}
-	\item One of the remaining four outdoor teams will be randomly distributed into each of the four second round indoor pools.  However, the random distribution must be repeated until:
+	\item Each of the remaining four outdoor teams will be randomly distributed into the four second round indoor pools.  However, the random distribution must be repeated until:
 	\begin{itemize}
-		\item No second round pool contains two teams that finished in the top 4 at the 2015 Main Competition
-		\item No second round pool contains two teams that were eliminated in the quarterfinals at the 2015 Main Competition
+		\item No second round pool contains more than one team that finished in the top 4 at the 2015 Main Competition
+		\item No second round pool contains more than one team that was eliminated in the quarterfinals at the 2015 Main Competition
 	\end{itemize}
 	\item The quarterfinals will be set such that - if the top four finishers from 2015 were to advance to the semifinal round - the 1st place finisher from 2015 will play the 4th place finisher and the 2nd place finisher will play the 3rd place finisher.
 \end{itemize}
@@ -1096,6 +1096,7 @@ This is a brief list of rule changes from 2015 to 2016.
 \subsection*{Robot Players}
 \begin{itemize}
 	\item Allow teams to design jerseys with fewer restrictions. (Section \ref{sec:team_markers})
+	\item Both teams will wear their `home' jerseys unless this would cause the two teams to have too similar jerseys.  In this case, the `away' team will wear its `away' jerseys. (Section \ref{sec:team_markers})
 	\item Teams may add one sponsor or team logos to each upper leg of the robots as long as a box drawn around the non-white area of these logos does not cover more that a 25 $\text{cm}^2$ area. (Section \ref{sec:team_markers})
 	\item Handle all types of non-wireless communication. (Section \ref{sec:acoustic})
 	\item Status updates must be addressed directly to the GameController PC and sent on the specified GameController return UDP port. (Section \ref{sec:wireless})
