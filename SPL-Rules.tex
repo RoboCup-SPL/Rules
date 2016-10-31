@@ -246,7 +246,7 @@ Only one field player may enter their own penalty area at any given time. Each o
 
 The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). The coaching robot may not communicate via any other mechanism.  A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
 
-The coaching robot is not placed on the field but on the table that is used for the GameController computer.  The coaching robot must be connected via a cable to the GameController. The coaching robot may sit or kneel on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. The positions of the seats are not specified in detail and might differ from field to field. However, at each field there will be marked coaching zones (one at each side of the GameController computer) in which the coaching robots can be placed.
+The coaching robot is not placed on the field but on a table on the same side of the field as the GameController computer.  The coaching robot must be connected via a cable to the GameController. The coaching robot may sit or kneel on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. Teams may position the coach anywhere they wishon a table on the same side of the field as the GameController computer.  The coach may only be moved at half-time and during time-outs.
 
 \begin{figure}[t]
   \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
@@ -332,9 +332,9 @@ The GameController will use UDP to connect to the robots. The source distributio
 
 Robots send status updates (defined in \emph{RoboCupGameControlData.h}) to the GameController. These return packets must be addressed directly to the GameController PC (\ie not broadcast) and sent on the GameController return UDP port specified by the symbol \verb!GAMECONTROLLER_RETURN_PORT! in \emph{RoboCupGameControlData.h}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in the header \emph{SPLCoachMessage.h} that is distributed with the latest GameController release. These messages have a maximum size of 81 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message only every 10 seconds --- all other coach messages will be dropped.  It is intended to display the coach messages to the audience, \eg via the GameController display. Therefore, these messages have to be in a human-readable\footnote{In this context, the definition of ``human-readable'' is: There exist humans outside the RoboCup context who can easily understand the content and meaning of the message, \ie it is not required to use any specific language (such as English) and teams could use, for instance, their native language.} format and may not contain any numbers.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
+The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in the header \emph{SPLCoachMessage.h} that is distributed with the latest GameController release. These messages have a maximum size of 250 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message every second --- all other coach messages will be dropped. There are no limitation on how these messages should be formatted.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
 
-The use of remote processing/sensing is prohibited.
+Besides the coaching robot, the use of remote processing/sensing is prohibited.
 
 
 \newpage
@@ -1087,61 +1087,23 @@ This is a brief list of rule changes from 2015 to 2016.
 
 \subsection*{Setup of the Environment}
 \begin{itemize}
-	\item Be explicit about penalty cross and dash at center field. (Section \ref{sec:field_dim})
-        \item Require a flat, level, wooden base for the field. (Section \ref{sec:field_dim})
-        \item Local organizers should discuss with the technical committee if overhead lighting is too dark.  Additional lighting may be used if necessary, but should not create hot spots. (Section \ref{sec:lightConditions})
-	\item The league has changed the type of ball used in games. (Section \ref{sec:ball})
+	\item The coaching robot can be placed anywhere on the sideline tables. (Section \ref{sec:coaching_robot})
 \end{itemize}
 
 \subsection*{Robot Players}
 \begin{itemize}
-	\item Allow teams to design jerseys with fewer restrictions. (Section \ref{sec:team_markers})
-	\item Both teams will wear their `home' jerseys unless this would cause the two teams to have too similar jerseys.  In this case, the `away' team will wear its `away' jerseys. (Section \ref{sec:team_markers})
-	\item Teams may add one sponsor or team logos to each upper leg of the robots as long as a box drawn around the non-white area of these logos does not cover more that a 25 $\text{cm}^2$ area. (Section \ref{sec:team_markers})
-	\item Handle all types of non-wireless communication. (Section \ref{sec:acoustic})
-	\item Status updates must be addressed directly to the GameController PC and sent on the specified GameController return UDP port. (Section \ref{sec:wireless})
+	\item Relax restrictions on how much and how often the coaching robot can send packets.  Also remove restrictions on data formatting. (Section \ref{sec:wireless})
 \end{itemize}
 
 \subsection*{Game Process}
-\begin{itemize}
-	\item Penalties in Ready do not count towards the incremental penalty count. (Section \ref{sec:robot_states})
-	\item All kick-offs, except drop-in games, begin with a whistle and a delayed GameController `Playing' signal. (Section \ref{sec:robot_states})
-	\item If a team leader calls for the entire team to be manually placed, even players penalized in place for ``Motion in Set'' will be manually placed. (Section \ref{sec:kick-off})
-	\item The ball should be placed immediately after the Set state is called. (Section \ref{sec:kick-off})
-	\item Updated the Game Stuck rules substantially.  Game stuck can be called after 30 seconds of no substantial change, where substantial change can be robots searching the field.  Global Game Stuck is called on the team further from the ball such that kick-off will go to the team that was closer to the ball. Players go into Ready state as soon as Global Game Stuck is called. (Section \ref{sec:game_stuck})
-	\item Players in the Playing state may only be picked up (via a `Request for Pick-up') for hardware failures.  Players in all other states may be picked up for any reason. (Section \ref{sec:request_for_pickup})
-	\item Games must conclude once a goal difference of 10 is obtained. (Section \ref{sec:mercy_rule})
-	\item The first (left) team in the GameController will perform the first penalty kick. (Section \ref{sec:penalty_kick})
-	\item Robot ready for penalty kicks do not need to be turned off, but should not be on the wifi network. (Section \ref{sec:penalty_kick})
-\end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
-\begin{itemize}
-	\item The Standard Removal Penalty time is now incremental per team. (Section \ref{sec:removal_penalty})
-	\item After a kick-off goal, either team may attempt shots on goal. (Section \ref{sec:kick-off_shot})
-	\item Own kick-off goals count. (Section \ref{sec:kick-off_shot})
-	\item Due to the new incremental standard removal penalty, pushing will be treated like all other infractions. (Section \ref{sec:player_pushing})
-	\item  A robot pushed by another robot can not simultaneously be called for pushing itself. (Section \ref{sec:situations_no_pushing})
-	\item A field player (including a defender) that touches the ball with its arms/hands will be subject to the standard removal penalty and the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized. (Section \ref{sec:hand_ball})
-	\item Jamming can also refer to infrared communication. (Section \ref{sec:jamming})
-\end{itemize}
 
 \subsection*{Drop-in Player Competition}
-\begin{itemize}
-	\item There will be a skill test held for drop-in player competition players.  The results of the skill test will be used to seed players. (Section \ref{sec:drop-in})
-\end{itemize}
 
 \subsection*{Outdoor Competition}
-\begin{itemize}
-	\item An outdoor competition was created to serve as the initial round robin for 8 teams. (Section \ref{sec:outdoorRules})
-\end{itemize}
 
 \subsection*{The Official RoboCup Competition Rules}
-\begin{itemize}
-	\item Referees and the GameController should study for, take, and pass an online rules test before attending RoboCup. (Section \ref{sec:refSelection})
-	\item Teams will no longer evaluate referees and GameControllers. (Section \ref{sec:refSelection})
-        \item Removed the requirement for teams to participate in the drop-in competition in order to remain pre-qualified (since main competition teams are no longer required to participate). (Section \ref{sec:preQual})
-\end{itemize}
 
 \end{document}
 
