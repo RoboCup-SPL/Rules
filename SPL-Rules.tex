@@ -595,27 +595,29 @@ Note that there are a few unlikely cases that are not covered by these rules.  I
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
 
-A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, during the intermediate round, quarter finals, semi finals, third place or final). 
+A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, when team progression is tied on all tie-break factors, during the intermediate round, quarter finals, semi finals, third place or final). 
 There will be a five minute break between the end of the game and the start of the penalty kicks.
-In the intermediate round, the penalty kick shoot-out will consist of three penalty shots per team; in the quarterfinals and later, it will consist of five penalty shots per team.
-All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided in accordance with the teams, or otherwise by a coin toss.}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 3 goals to win but only has 2 attempts remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
+At all stages of the competition, the penalty kick shoot-out will consist of three penalty shots per team.
+All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided in accordance with the teams, or otherwise by a coin toss.}. At the conclusion of these shots the team that has scored the most goals will be declared the winner. Note that a winner can be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 2 goals to win but only has 1 attempt remaining. If the two teams still remain tied then a sudden death shoot-out will follow until a definite winner is found.
 
-The procedure for each attempt is described in Section~\ref{sec:penalty_kick}. For the first five attempts, the standard time limit of 1 minute is applied. If after five penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure.
+Teams are allowed to switch to specially designed software for a penalty kick.  Moreover, teams are allowed to replace their robot after each penalty shot attempt if desired.  However, all robots (including the replacements) must be ready and handed over to the referees before the penalty shootout begins. After the start of the penalty shootout, no additional code changes are allowed. No timeouts may be called during the penalty shootout.
+
+The procedure for each of the first 3 attempts is described in Section~\ref{sec:penalty_kick}. If after three penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure in \ref{sec:sudden_death_shoot_out}.
 
 \subsubsection{Penalty Kick}
 \label{sec:penalty_kick}
 
-A penalty kick is carried out with one attacking robot and one opposing goal keeper. Other robots (including the coach) should not be on the wifi network and must stay outside of the field. Teams are allowed to switch to specially designed software for a penalty kick.  Moreover, teams are allowed to replace their robot after each penalty shot attempt if desired.  However, all robots (including the replacements) must be ready before the penalty shootout begins. After the start of the penalty shootout, no additional code changes are allowed.
+A penalty kick is carried out with one attacking robot and one opposing goal keeper. Robots that will not participate in the shootout (including the coach) must not be on the wifi network and must stay outside of the field. Replacement robots that might participate and have been handed to referees must not be transmitting on the wifi network until or unless it is their turn to play.
 
 The first (left) team in the GameController will perform the first penalty kick.
 
-The ball is placed on the penalty spot, at the end of the field closest to the goal being defended. The attacking robot is positioned 1 meter behind the penalty spot, facing the ball.  This spot is denoted with a small dot made with a felt-tip pen. The goal keeper is placed with its feet on the goal line and in the center of the goal.
+Referees place the attacking robot, the goal keeper robot, and the ball. The ball is placed on the penalty spot, at the end of the field closest to the goal being defended. The attacking robot is positioned 1 meter behind the penalty spot, facing the ball.  This spot is denoted with a small dot made with a felt-tip pen. The goal keeper is placed with its feet on the goal line and in the center of the goal.
 
 Neither robot shall move their legs before the penalty kick starts. Movements of the robot's head and arms are allowed as long as the robot does not locomote. Technically, the robots are in the \emph{set} state when waiting for the penalty kick to start. If robots are not listening to the GameController, they are in the \emph{penalized} state instead. The robots are started by switching to the \emph{playing} state.
 
-The attacking robot is only allowed to contact the ball once.  The time limit for the kicker is 1 minute after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
+The attacking robot is only allowed to contact the ball once.  The time limit for the kicker is 45 seconds after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
-Hence, a penalty shot is over when the ball has come to a full stop after the first contact by the attacking robot, either in favor of the attacker if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked or if the ball just did not reach the goal line.
+A penalty shot is over when the ball has come to a full stop after the first contact by the attacking robot, either in favor of the attacker if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked or if the ball just did not reach the goal line.
 
 The goal keeper is not allowed to touch a ball that is completely outside the penalty area, where the line is part of the penalty area. If the goal keeper touches the ball when the ball is completely outside the penalty area, then a goal will be awarded to the attacking team.
 
@@ -624,10 +626,11 @@ All the rules such as ``Ball Holding'', ``Pushing'' and others are also applied 
 The attacking robot will be indicated by the GameController using the kick-off flag, \ie the kick-off team is the attacking one.
 
 \subsubsection{Sudden Death Shoot-Out}
+\label{sec:sudden_death_shoot_out}
 
-The time limit for sudden death penalty shots is two minutes.
+The time limit for sudden death penalty shots is 45 seconds.
 
-These attempts will be timed (that is, for a goal scored, how long did it take to score the goal) and measured (that is, if a goal is not scored, what is the shortest distance between the ball and the goal line segment between the goal posts, achieved at any time during the penalty shot) by the referee. After these attempts, the game decision will be made as follows:
+These attempts will be timed (that is, for a goal scored, how long did it take to score the goal) and measured if a goal is not scored (that is, what is the shortest distance between the final ball position and the goal line segment between the goal posts) by the referee. After these attempts, the game decision will be made as follows:
 
 \begin{enumerate}
 
@@ -909,6 +912,7 @@ This section contains rules that are not directly relevant for games and that ma
 The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
 
 \subsection{Winner and Rankings}
+\label{sec:rankings}
 
 The team which scored more goals than the other is the winner of the match. If the two teams scored the same number of goals, the game will be a draw. The draw will follow the same system defined in Section~\ref{sec:game_struct}. Total (and final) standings will be decided on points as follows (the points will be given based on the result of each game):
 
@@ -935,9 +939,11 @@ In order to provide better matched games for teams of all abilities the RoboCup 
 
 It is proposed that the SPL will qualify 24 teams, but if the numbers qualified change the numbers in the following may be altered slightly.
 
-All teams who qualify for participation in the RoboCup SPL are ranked on the basis of their previous year's RoboCup result. (New teams will be ranked equally. Teams that participated previously but did not participate in the previous year will be ranked among other returning teams.) The top 50\% of teams (by rank) will be Champions cup candidates and the remaining teams will be Challenge shield candidates.
+All teams who qualify for participation in the RoboCup SPL are ranked on the basis of their previous year's RoboCup result in accordance with the ranking described in \ref{sec:rankings}. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.) The top 12 teams (by rank) will be Champions cup candidates and the remaining teams will be Challenge shield candidates.
 
-All Champions cup candidates play a single qualifier round robin stage comprising 4 groups of 3 teams each. All Challenge shield candidates play a similar qualifier round robin stage also consisting of 4 groups of 3 teams each. The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) and the winners of these games go the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage followed by a knockout competition.
+All Champions cup candidates play a single qualifier round robin stage comprising 4 groups of 3 teams each. All Challenge shield candidates play a similar qualifier round robin stage also consisting of 4 groups of 3 teams each. Each Champions cup qualifier group will consist of one team ranked 1-4, one team ranked 5-8, and one team ranked 9-12. Each of the teams ranked 13-16 will be placed in a different Challenge shield group. Remaining Challenge shield qualifier group places will be filled by random selection from teams ranked 17-24.
+
+The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) and the winners of these games go the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage followed by a knockout competition.
 
 
 \subsection{Selection of the Referees}
@@ -1000,6 +1006,10 @@ This is a brief list of rule changes from 2016 to 2017.
 \end{itemize}
 
 \subsection*{Game Process}
+\begin{itemize}
+	\item The penalty shootout procedure has been streamlined by reducing the number of penalties and the time limit for each penalty shot. Robots and replacements must now be handed over at the start of the penalty shootout. (Section \ref{sec:penalty_shoot-out})
+\end{itemize}
+
 
 \subsection*{Forbidden Actions and Penalties}
 
