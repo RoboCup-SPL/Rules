@@ -604,9 +604,9 @@ A team that has scored the most goals at the conclusion of these will be declare
 
 Only robots that communicate with and respond correctly to the {GameController} software in penalty shots mode are eligible to participate in a penalty shootout. Robots that will not participate in the shootout (including the coach) must not be on the wifi network and must stay outside of the field.
 
-Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team with a remaining timeout may request a timeout before the penalty shootout starts. 
+Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. 
 
-All robots that may participate in the penalty shootout (including replacements) must be ready and handed over to the referees before the penalty shootout begins. No robots may be added once the penalty shootout starts. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 The procedure for each of the first 3 attempts is described in Section~\ref{sec:penalty_kick}. If after three penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure in \ref{sec:sudden_death_shoot_out}.
 
@@ -615,13 +615,13 @@ The procedure for each of the first 3 attempts is described in Section~\ref{sec:
 
 A penalty kick is carried out with one striker robot and one opposing goal keeper. The first (left) team in the GameController will perform the first penalty kick.
 
-Referees place the ball, the striker robot, and goal keeper. The ball is placed on the penalty spot, at the end of the field closest to the goal being defended. The striker robot is positioned 1 meter behind the penalty spot, facing the ball and the goal.  This spot is denoted by a small dot made with a felt-tip pen. The goal keeper is placed with its feet on the goal line and in the center of the goal.
+Referees place the ball, the striker robot, and goal keeper. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned 1 meter behind the penalty spot, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goal keeper is placed with its feet on the goal line and in the center of the goal.
 
 Neither robot shall move their legs before the penalty kick starts. Movements of the robot's head and arms are allowed as long as the robot does not locomote. Technically, the robots are in the \emph{set} state when waiting for the penalty kick to start. If the GameController is not communicating, robots are in the \emph{penalized} state instead. The robots are started by switching to the \emph{playing} state.
 
 The striker robot is only allowed to contact the ball once.  The time limit for the striker is 45 seconds after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
-A penalty shot is over when the ball has come to a full stop after the first contact by the attacking robot, either in favor of the attacking team if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked the shot, if the ball did not reach the goal line, or if the ball leaves the field.
+A penalty shot is over when the ball has come to a full stop after the first contact by the attacking robot. The goal is in favor of the attacking team if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked the shot, if the ball did not reach the goal line, or if the ball leaves the field.
 
 The goal keeper is not allowed to leave the penalty area except to stand within its own goal. If the goal keeper violates this rule, then a goal will be awarded to the attacking team. Furthermore, the goal keeper is not allowed to touch a ball that is completely outside the penalty area, where the line is part of the penalty area. If the goal keeper violates this rule, then a goal will be awarded to the attacking team.
 
@@ -642,9 +642,21 @@ These attempts will be timed (that is, for a goal scored, how long did it take t
 
 \item If both teams score a goal, then if one team is timed to have scored at least 2 seconds faster than the other team, the faster team wins. Otherwise, the sudden death shoot-out is repeated.
 
-\item If neither team scores a goal, then if one team is measured to have moved the ball more than 50~mm closer to the goal than the other team, the closer team wins. Otherwise, the sudden death shoot-out is repeated.
+\item If neither team scores a goal, then the game decision is resolved as follows:
+
+\begin{enumerate}
+
+\item A valid shot (the ball is touched once and remains on the field) beats a wide shot (the ball leaves the field) which beats no contact (the striker fails to touch the ball). For example, if one team executes a valid shot and the other executes a wide shot, the team executing the valid shot wins.
+
+\item If both teams execute a valid shot and if one team is measured to have moved the ball more than 50~mm closer to the goal than the other team, the closer team wins. Otherwise, the sudden death shoot-out is repeated.
+
+\item If both teams execute a wide shot, the sudden death shoot-out is repeated.
 
 \item If neither team has touched the ball during the shoot-out, the referee will toss a coin to decide the game.
+
+\end{enumerate}
+
+\item If after 3 sudden death penalty shots there is still no winner, the referee will toss a coin to decide the game.
 
 \end{enumerate}
 
