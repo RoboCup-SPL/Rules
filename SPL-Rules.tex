@@ -576,7 +576,7 @@ A game will conclude once the game score shows a goal difference of 10.  Ending 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
 
-Teams who do not make a good faith effort to participate in a scheduled game are considered to forfeit the game.  In the case of a forfeit, a note will be added to the Penalty Counts list kept by the league, which may affect qualification in future years.
+Teams who do not make a good faith effort to participate in a scheduled game are considered to forfeit the game.
 
 If a team notifies the technical committee that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
 
@@ -591,6 +591,8 @@ If a team notifies the technical committee that they wish to forfeit at least tw
 \end{itemize}
 
 Note that there are a few unlikely cases that are not covered by these rules.  If a situation is not covered by these rules, the technical committee and the organizing committee will work together to make a decision.
+
+Any forfeit will result in a qualification penalty being recorded (Section \ref{sec:qualificationPenalties}) but the circumstances of the forfeit will affect the severity of the offence and the impact on future qualification.
 
 \subsection{Penalty Kick Shoot-out}
 \label{sec:penalty_shoot-out}
@@ -832,7 +834,10 @@ Pushing should be called in the same way when multiple robots are in contact. Th
 \subsection{Playing with Arms/Hands}
 \label{sec:hand_ball}
 
-A field player (including a defender) or a goal keeper outside its own penalty box that touches the ball with its arms/hands will be subject to the standard removal penalty and the ball is to be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
+Playing with arms/hands occurs when a field player (including a defender) or a goal keeper outside its own penalty box moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
+
+Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play, normal throw in rules will apply (Section \ref {sec:throw_in}).
+
 
 \subsection{Damage to the Field}
 \label{sec:damage}
@@ -962,11 +967,24 @@ All Champions cup candidates play a single qualifier round robin stage comprisin
 The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) and the winners of these games go the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage followed by a knockout competition.
 
 
-\subsection{Selection of the Referees}
+\subsection{Referee selection and requirements}
 \label{sec:refSelection}
-During pool play, the games will be refereed by members of teams from a different pool.  Each team has to referee a number of games --- a refereeing schedule will be released prior to the competition. For each of the games, a team can either provide the head referee and the operator of the GameController, or the two assistant referees.  Note that the head referee and the GameController should always be from the same team.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.  Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+During pool play, the games will be refereed by members of teams from a different pool.  
+
+Each team has to referee a number of games. A schedule will be released specifying the games for which each team is required to provide two referees. Referees should report to the appropriate field at least five minutes before the game is scheduled to start.
+
+If a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee and recorded as a \textbf{qualification penalty} (Section \ref {sec:qualificationPenalties}).
+
+For each of the games, a team will be required either to provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill. Note, however, that the head referee and the GameController should always be from the same team.
+
+A team may swap their scheduled refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
+
+The requirement to referee may be an extreme hardship for extremely small teams.  If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.  The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
+
+Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
 In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
+
 
 \subsection{Subsequent Year Pre-Qualification Procedure}
 \label{sec:preQual}
@@ -979,15 +997,19 @@ However, pre-qualified teams must do all of the following in order to remain pre
 \item Submit a shortened application as required by the call for participation for the subsequent year's competition
 \end{itemize}
 
-\subsection{Penalty for Failing to Referee when Assigned}
-\label{sec:refPenalty}
-A schedule will be released regarding the games for which each team is required to provide two referees.  These referees should report to the field on which the game they are to referee is to be played at least five minutes before the game is scheduled to start.
+\subsection{Qualification penalties}
+\label{sec:qualificationPenalties}
 
-Each time a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee.  Failing to provide referees when assigned is a serious offense that will not only cost you pre-qualification for the subsequent year if your team has otherwise earned pre-qualification, but will also severely effect your team's chances of being accepted the following year.
+There are a number of offenses which lead to qualification penalties being recorded against a team. These are as follows:
+\begin{itemize}
+    \item Withdrawing from RoboCup after the final committment deadline
+    \item Failing to referee when assigned (Section \ref {sec:refSelection})
+    \item Forfeiting a game (Section \ref {sec:forfeit})
+\end{itemize}
 
-A team may swap refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
+A team cannot be pre-qualified for RoboCup in the year following a qualification penalty. Furthermore, a qualification penalty is considered by the Technical Committee when reviewing applications and will negatively affect the assessment of a team's application. Multiple penalties accumulate and will result in an even more negative assessment of a team's application. Qualification penalties are considered for a period of three years following the offense.
 
-The requirement to referee may be an extreme hardship for extremely small teams.  If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.  The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
+Whenever a qualification penalty is recorded, all relevant details including any possible mitigating circumstances are also recorded and these will also inform the assessment of a team's application.
 
 \section{Mixed Team Tournament}
 \label{sec:mixedTeamTournament}
@@ -1027,6 +1049,12 @@ This is a brief list of rule changes from 2016 to 2017.
 	\item The penalty shootout procedure has been streamlined by reducing the number of penalties and the time limit for each penalty shot. Robots and replacements must now be handed over at the start of the penalty shootout. A timeout can only be called before the penalty shootout. (Section \ref{sec:penalty_shoot-out})
 	\item Only robots that communicate and respond correctly to {GameController} may participate in a penalty shootout. (Section \ref{sec:penalty_shoot-out})
 	\item A team can choose which robot will participate in each penalty kick, but only from among the robots handed over to the referees before the penalty shootout began. (Section \ref{sec:penalty_shoot-out})
+	\item Slight clarification of qualification penalties related to forfeiting a game (Section \ref{sec:forfeit})
+\end{itemize}
+
+\subsection*{Forbidden Actions and Penalties}
+\begin{itemize}
+	\item Added exceptions to playing the ball with arms/hands. (Section \ref {sec:hand_ball})
 \end{itemize}
 
 \subsection*{Drop-in Player Competition}
@@ -1038,6 +1066,8 @@ Deleted
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}
 	\item Introduce the division of the SPL into two competitions: the Champions cup and the Challenge shield. (Section \ref{sec:twoCompetitions})
+	\item Combined the text from "Failing to referee when assigned" with that describing referee selection and guidelines (Section \ref {sec:refSelection})
+	\item Added a description of qualification penalties. (Section \ref {sec:qualificationPenalties})
 \end{itemize}
 
 \subsection*{Mixed Team Tournament}
