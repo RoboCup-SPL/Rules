@@ -45,7 +45,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(Preliminary 2017 rules, as of \today)}
+\date{(2017 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -408,9 +408,9 @@ The current GameController requires robots to know both their team number and th
 \label{sec:goal}
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
 
-Note that a goal can never be awarded where the last contact of the ball with a robot was by the arm or hand (see Section~\ref{sec:hand_ball}).  The only exception to the rules is a defending goal keeper within its penalty box.
+Note that a goal can never be awarded when the last contact of the ball was with an attacking robot that played the ball with the arms/hands as defined in Section~\ref{sec:hand_ball}. However, an own goal may be scored by any defending robot playing with arms/hands.
 
-Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Sect. \ref{sec:fallenrobots}).  In this case, the goal is not scored and the game will proceed with a throw-in (see Section~\ref{sec:throw_in}).
+Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Section \ref{sec:fallenrobots}).  In this case, the goal is not scored and the game will proceed with a throw-in (see Section~\ref{sec:throw_in}).
 
 \subsection{Goal Keeper Save}
 \label{sec:goalie_save}
@@ -604,11 +604,11 @@ All penalty shots are taken against the same goal\footnote{Which goal to take fo
 At all stages of the competition, the penalty kick shoot-out will consist of three penalty kicks per team.
 A team that has scored the most goals at the conclusion of these will be declared the winner. A winner can also be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 2 goals to win but only has 1 attempt remaining. If the two teams remain tied after three penalty kicks, then a sudden death shoot-out will follow until a definite winner is found.
 
-Only robots that communicate with and respond correctly to the {GameController} software in penalty shots mode are eligible to participate in a penalty shootout. Robots that will not participate in the shootout (including the coach) must not be on the wifi network and must stay outside of the field.
+Robots that will not participate in the shootout (including the coach) must not be on the wifi network and must stay outside of the field.
 
 Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. 
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick; the referee will first ask the defending team and then the attacking team to nominate their selected robot for the shot. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 The procedure for each of the first 3 attempts is described in Section~\ref{sec:penalty_kick}. If after three penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure in \ref{sec:sudden_death_shoot_out}.
 
@@ -619,7 +619,9 @@ A penalty kick is carried out with one striker robot and one opposing goal keepe
 
 Referees place the ball, the striker robot, and goal keeper. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned 1 meter behind the penalty spot, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goal keeper is placed with its feet on the goal line and in the center of the goal.
 
-Neither robot shall move their legs before the penalty kick starts. Movements of the robot's head and arms are allowed as long as the robot does not locomote. Technically, the robots are in the \emph{set} state when waiting for the penalty kick to start. If the GameController is not communicating, robots are in the \emph{penalized} state instead. The robots are started by switching to the \emph{playing} state.
+Neither robot shall move their legs before the penalty kick starts. Movements of the robot's head and arms are allowed as long as the robot does not locomote. Technically, the robots are in the \emph{set} state when waiting for the penalty kick to start. The robots are started by switching to the \emph{playing} state. 
+
+If a robot is not responding to GameController it is in the \emph{penalized} state when waiting for the penalty kick to start. In this case, the robot is started by switching to playing state using the button interface. When the penalty shot is over, the robot is switched back to the penalized state using the button interface. Only the referees may operate the button interface and no non-standard or extra button sequences are permitted. Robots that are not receiving from GameController must determine their role in a penalty shot (goal keeper or striker) indepently, \eg using location awareness.
 
 The striker robot is only allowed to contact the ball once.  The time limit for the striker is 45 seconds after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
@@ -836,7 +838,7 @@ Pushing should be called in the same way when multiple robots are in contact. Th
 
 Playing with arms/hands occurs when a field player (including a defender) or a goal keeper outside its own penalty box moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
 
-Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play, normal throw in rules will apply (Section \ref {sec:throw_in}).
+Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal throw in rules will apply (Section \ref {sec:throw_in}). Similarly, if a goal is scored, the goal should count.
 
 
 \subsection{Damage to the Field}
@@ -1046,6 +1048,7 @@ This is a brief list of rule changes from 2016 to 2017.
 
 \subsection*{Game Process}
 \begin{itemize}
+	\item Clarification of situations in which goals may be scored when the ball touches the arms or hands of a robot. (Section \ref{sec:goal})
 	\item The penalty shootout procedure has been streamlined by reducing the number of penalties and the time limit for each penalty shot. Robots and replacements must now be handed over at the start of the penalty shootout. A timeout can only be called before the penalty shootout. (Section \ref{sec:penalty_shoot-out})
 	\item Only robots that communicate and respond correctly to {GameController} may participate in a penalty shootout. (Section \ref{sec:penalty_shoot-out})
 	\item A team can choose which robot will participate in each penalty kick, but only from among the robots handed over to the referees before the penalty shootout began. (Section \ref{sec:penalty_shoot-out})
@@ -1054,7 +1057,7 @@ This is a brief list of rule changes from 2016 to 2017.
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
-	\item Added exceptions to playing the ball with arms/hands. (Section \ref {sec:hand_ball})
+	\item Added exceptions to playing the ball with arms/hands and clarified situations in which goals may be scored. (Section \ref {sec:hand_ball})
 \end{itemize}
 
 \subsection*{Drop-in Player Competition}
@@ -1074,5 +1077,16 @@ Deleted
 \begin{itemize}
 	\item Introduced the new mixed teams tournament. (Section \ref{sec:mixedTeamTournament})
 \end{itemize}
+
+
+\section{Future Changes}
+
+The following rules are planned to be removed before RoboCup 2018 if insufficient teams make use of them during RoboCup 2017:
+
+\begin{itemize}
+    \item Coach robot (Section \ref{sec:coaching_robot})
+    \item Goal keeper save (Section \ref{sec:goalie_save})
+\end{itemize}
+
 \end{document}
 
