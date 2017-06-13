@@ -608,7 +608,7 @@ Robots that will not participate in the shootout (including the coach) must not 
 
 Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. 
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick; the referee will first ask the defending team and then the attacking team to nominate their selected robot for the shot. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick; the referee will first ask the defending team and then the attacking team to nominate their selected robot for the shot. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 The procedure for each of the first 3 attempts is described in Section~\ref{sec:penalty_kick}. If after three penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure in \ref{sec:sudden_death_shoot_out}.
 
@@ -1049,10 +1049,9 @@ This is a brief list of rule changes from 2016 to 2017.
 \subsection*{Game Process}
 \begin{itemize}
 	\item Clarification of situations in which goals may be scored when the ball touches the arms or hands of a robot. (Section \ref{sec:goal})
-	\item The penalty shootout procedure has been streamlined by reducing the number of penalties and the time limit for each penalty shot. Robots and replacements must now be handed over at the start of the penalty shootout. A timeout can only be called before the penalty shootout. (Section \ref{sec:penalty_shoot-out})
-	\item Only robots that communicate and respond correctly to {GameController} may participate in a penalty shootout. (Section \ref{sec:penalty_shoot-out})
-	\item A team can choose which robot will participate in each penalty kick, but only from among the robots handed over to the referees before the penalty shootout began. (Section \ref{sec:penalty_shoot-out})
 	\item Slight clarification of qualification penalties related to forfeiting a game (Section \ref{sec:forfeit})
+	\item The penalty shootout procedure has been streamlined by reducing the number of penalties and the time limit for each penalty shot. Robots and replacements must now be handed over at the start of the penalty shootout. A timeout can only be called before the penalty shootout. (Section \ref{sec:penalty_shoot-out})
+	\item A team can choose which robot will participate in each penalty kick, but only from among the robots handed over to the referees before the penalty shootout began. (Section \ref{sec:penalty_shoot-out})
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
