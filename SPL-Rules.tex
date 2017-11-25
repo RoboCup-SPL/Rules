@@ -45,7 +45,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(2017 rules, as of \today)}
+\date{(2018 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -243,20 +243,6 @@ The goal keeper is allowed to touch the ball with its arms/hands only while it i
 \label{sec:field_players}
 Only one field player may enter their own penalty area at any given time. Each of the four field players has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, the number ``6'' should only be used for a substitute that enters the game later.
 
-\subsection{Coaching Robot}
-\label{sec:coaching_robot}
-
-The purpose of the coaching robot is to observe the game from an external position and to give tactical and strategic advice to its team's field players. This is realized by sending messages via a dedicated GameController interface (\cf Section \ref{sec:wireless}). The coaching robot may not communicate via any other mechanism.  A coach is not directly connected to its teammates and should not serve as a remote controller or external vision system.
-
-The coaching robot is not placed on the field but on a table on the same side of the field as the GameController computer.  The coaching robot must be connected via a cable to the GameController. The coaching robot may sit or kneel on the table or in a seat. For safety reasons, it is not allowed to move (except its head and arms --- see \cf Section \ref{sec:coach_motion}) or to enter a pose different from ordinary seating as depicted in Fig. \ref{fig:coaches}.  Seats will not be provided by the organizers, but teams may bring their own seats or small platforms that have a maximum height of the seating surface of 15 cm. Except for a backrest that is not higher than the sitting robot, no additional elements such as flags are allowed to be attached to the seats. Teams may position the coach anywhere they wish on a table on the same side of the field as the GameController computer.  The coach may only be moved at half-time and during time-outs.
-
-\begin{figure}[t]
-  \centerline{\includegraphics[width=\columnwidth]{figs/coaching-robots}}
-  \caption{Two coaching robots observing a game. The left robot is sitting on a seating platform. The right robot sits on the table.}
-  \label{fig:coaches}
-\end{figure}
- 
-
 \subsection{Team Markers}
 \label{sec:team_markers}
 
@@ -298,8 +284,6 @@ Some teams wish to include additional information or logos on their robots.  The
 \item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
 \end{itemize}
 
-The coaching robot is allowed to wear a custom shirt that has a team-specific design. There are no restrictions regarding colors or patterns. The shirt is allowed to cover the body as well as the upper arms of the coaching robot.
-
 \begin{figure}[b]
   \centerline{\begin{tabular}{ll}
   \includegraphics[height=0.35\columnwidth]{figs/naosim_with_logo.png}&
@@ -334,9 +318,7 @@ The GameController will use UDP to connect to the robots. The source distributio
 
 Robots send status updates (defined in \emph{RoboCupGameControlData.h}) to the GameController. These return packets must be addressed directly to the GameController PC (\ie not broadcast) and sent on the GameController return UDP port specified by the symbol \verb!GAMECONTROLLER_RETURN_PORT! in \emph{RoboCupGameControlData.h}.
 
-The coaching robot is not allowed to communicate directly with the robot players, \ie it is neither allowed to send any messages to the players nor is it allowed to listen on ports that are used by players to send messages. Instead, it sends messages to the GameController's coaching interface by using the struct defined in the header \emph{SPLCoachMessage.h} that is distributed with the latest GameController release. These messages have a maximum size of 250 bytes and will be copied by the GameController to its standard messages. However, independent of the sending frequency of a coach, the GameController will accept a new message every second --- all other coach messages will be dropped. There are no limitation on how these messages should be formatted.  Failure to follow these specifications will result in the inability to use the coaching robot until it is able to follow these specifications.
-
-Besides the coaching robot, the use of remote processing/sensing is prohibited.
+The use of remote processing/sensing is prohibited.
 
 
 \newpage
@@ -411,12 +393,6 @@ A goal is achieved when the entire ball (not only the center of the ball) goes o
 Note that a goal can never be awarded when the last contact of the ball was with an attacking robot that played the ball with the arms/hands as defined in Section~\ref{sec:hand_ball}. However, an own goal may be scored by any defending robot playing with arms/hands.
 
 Additionally, a goal can never be awarded when a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Section \ref{sec:fallenrobots}).  In this case, the goal is not scored and the game will proceed with a throw-in (see Section~\ref{sec:throw_in}).
-
-\subsection{Goal Keeper Save}
-\label{sec:goalie_save}
-While within its penalty area, a goal keeper may touch the ball with its arms and/or hands.  If a goal keeper is able to lift the ball off of the ground using its arms and/or hands (\ie using at least one arm or hand), and hold it there for at least 1 second, the ball will be moved to one of the two intersections of a throw-in line and the halfway line. Specifically, the ball will be moved to the intersection point closer (regarding the angle) to the goal keeper at the moment of lifting. If the goal keeper is almost aligned with the field's x-axis, the referee should use the intersection point at which a teammate is closer at the moment of lifting.
-
-The robot is not required to lift the ball to a particular height in order for the ball to be considered to be `lifted off of the ground', but lack of contact between the ball and ground must be clearly recognizable by the head referee.
 
 \subsection{Applying Penalties}
 
@@ -604,11 +580,11 @@ All penalty shots are taken against the same goal\footnote{Which goal to take fo
 At all stages of the competition, the penalty kick shoot-out will consist of three penalty kicks per team.
 A team that has scored the most goals at the conclusion of these will be declared the winner. A winner can also be declared before the conclusion of the penalty shoot-out if a team can no longer win, for example, a team requires 2 goals to win but only has 1 attempt remaining. If the two teams remain tied after three penalty kicks, then a sudden death shoot-out will follow until a definite winner is found.
 
-Robots that will not participate in the shootout (including the coach) must not be on the wifi network and must stay outside of the field.
+Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field.
 
 Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. 
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick; the referee will first ask the defending team and then the attacking team to nominate their selected robot for the shot. To prevent mistakes or confusion, only team leaders should communicate the requested robot selection to referees. In response, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout (including replacements). No robots may be added once the penalty shootout starts. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams are allowed to select which of the robots they have handed over will participate (as goal keeper or striker) in the penalty kick. Only team leaders should communicate the requested robot selection to referees by handing the referee a card with their chosen number privately before each kick. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 The procedure for each of the first 3 attempts is described in Section~\ref{sec:penalty_kick}. If after three penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure in \ref{sec:sudden_death_shoot_out}.
 
@@ -621,9 +597,9 @@ Referees place the ball, the striker robot, and goal keeper. The ball is placed 
 
 Neither robot shall move their legs before the penalty kick starts. Movements of the robot's head and arms are allowed as long as the robot does not locomote. Technically, the robots are in the \emph{set} state when waiting for the penalty kick to start. The robots are started by switching to the \emph{playing} state. 
 
-If a robot is not responding to GameController it is in the \emph{penalized} state when waiting for the penalty kick to start. In this case, the robot is started by switching to playing state using the button interface. When the penalty shot is over, the robot is switched back to the penalized state using the button interface. Only the referees may operate the button interface and no non-standard or extra button sequences are permitted. Robots that are not receiving from GameController must determine their role in a penalty shot (goal keeper or striker) indepently, \eg using location awareness.
+If a robot is not responding to GameController it is in the \emph{penalized} state when waiting for the penalty kick to start. In this case, the robot is started by switching to playing state using the button interface. When the penalty shot is over, the robot is switched back to the penalized state using the button interface. Only the referees may operate the button interface and no non-standard or extra button sequences are permitted. Robots that are not receiving from GameController must determine their role in a penalty shot (goal keeper or striker) independently, \eg using location awareness.
 
-The striker robot is only allowed to contact the ball once.  The time limit for the striker is 45 seconds after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
+The striker robot is only allowed to contact the ball once.  The time limit for the striker is 30 seconds after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
 A penalty shot is over when the ball has come to a full stop after the first contact by the attacking robot. The goal is in favor of the attacking team if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked the shot, if the ball did not reach the goal line, or if the ball leaves the field.
 
@@ -789,12 +765,6 @@ A robot that has ceased activity for 10 seconds or has turned off will be remove
 \label{sec:player_stance}
 
 Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard penalty. If the robot has fallen down, it must start getting up within 5 seconds. 
-
-\subsection{Coach Motion}
-\label{sec:coach_motion}
-
-The coach robot has to remain seated during the whole game, it is only allowed to move its arms and head. If the robot leaves its seating position, it will be disqualified for the remainder of the game and has to leave its position on the table. Technically, this is handled as a Request for Pick-Up
-(\cf Section \ref{sec:request_for_pickup}) but without the possibility to reenter the game.
 
 \subsection{Player Pushing}
 \label{sec:player_pushing}
@@ -1029,63 +999,32 @@ For the 2017 tournament, there will be eight games in total: a round robin round
 
 \newpage
 
-\section{Changes From 2016}
-This is a brief list of rule changes from 2016 to 2017.
+\section{Changes From 2017}
+This is a brief list of rule changes from 2017 to 2018.
 
 \subsection*{Setup of the Environment}
-\begin{itemize}
-	\item The field surface is 8mm artificial turf. (Section \ref{sec:field_dim})
-	\item The lighting conditions shall favour window lighting where possible and will allow for uneven lighting (Section \ref{sec:lightConditions})
-\end{itemize}
 
 \subsection*{Robot Players}
 \begin{itemize}
-	\item Plating on NAO robots can be gray, red, blue, or orange. (Section \ref{sec:hardware})
-	\item A memory stick may remain in the head during operation.  Only ordinary USB flash memory keys that sit flush or recessed to the head casing may be utilized. Other USB dongles or devices, as well as memory sticks that are not flush or recessed, are not permitted. (Section \ref{sec:hardware})
-	\item The coaching robot can be placed anywhere on the sideline tables. (Section \ref{sec:coaching_robot})
-	\item Relax restrictions on how much and how often the coaching robot can send packets.  Also remove restrictions on data formatting. (Section \ref{sec:wireless})
+  \item Removed coach robot.
 \end{itemize}
 
 \subsection*{Game Process}
 \begin{itemize}
-	\item Clarification of situations in which goals may be scored when the ball touches the arms or hands of a robot. (Section \ref{sec:goal})
-	\item Slight clarification of qualification penalties related to forfeiting a game (Section \ref{sec:forfeit})
-	\item The penalty shootout procedure has been streamlined by reducing the number of penalties and the time limit for each penalty shot. Robots and replacements must now be handed over at the start of the penalty shootout. A timeout can only be called before the penalty shootout. (Section \ref{sec:penalty_shoot-out})
-	\item A team can choose which robot will participate in each penalty kick, but only from among the robots handed over to the referees before the penalty shootout began. (Section \ref{sec:penalty_shoot-out})
+  \item Reduced the time for a penalty kick from 45 to 30 seconds.
+  \item Selection of penalty shootout robots is now done privately for each team by handing the referee a card with the selected number with no knowledge of the other teams decision.
+  \item Removed goal keeper save rule.
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
-\begin{itemize}
-	\item Added exceptions to playing the ball with arms/hands and clarified situations in which goals may be scored. (Section \ref {sec:hand_ball})
-\end{itemize}
 
 \subsection*{Drop-in Player Competition}
-Deleted
 
 \subsection*{Outdoor Competition}
-Deleted
 
 \subsection*{The Official RoboCup Competition Rules}
-\begin{itemize}
-	\item Introduce the division of the SPL into two competitions: the Champions cup and the Challenge shield. (Section \ref{sec:twoCompetitions})
-	\item Combined the text from "Failing to referee when assigned" with that describing referee selection and guidelines (Section \ref {sec:refSelection})
-	\item Added a description of qualification penalties. (Section \ref {sec:qualificationPenalties})
-\end{itemize}
-
-\subsection*{Mixed Team Tournament}
-\begin{itemize}
-	\item Introduced the new mixed teams tournament. (Section \ref{sec:mixedTeamTournament})
-\end{itemize}
-
 
 \section{Future Changes}
-
-The following rules are planned to be removed before RoboCup 2018 if insufficient teams make use of them during RoboCup 2017:
-
-\begin{itemize}
-    \item Coach robot (Section \ref{sec:coaching_robot})
-    \item Goal keeper save (Section \ref{sec:goalie_save})
-\end{itemize}
 
 \end{document}
 
