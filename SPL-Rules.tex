@@ -420,7 +420,7 @@ If robots incur penalties during Ready state, the penalty is manual placement by
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed by the assistant referees in the closest manual position (see Figure~\ref{fig:ko}) that does not already have a team mate within 1 meter.
 Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
-\emph{In the case where the team leader requests manual placement, all robots on that team --- including those penalized in place for ``Motion in Set'' --- are manually positioned.}  However, the penalty persists for those players penalized for ``Motion in Set''.
+\emph{In the case where the team leader requests manual placement, all robots on that team --- including those penalized in place for ``Motion in Set'' --- are manually positioned.}  However, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infrictions will stay at the sideline until their penalty time is over.
 
 
 \begin{figure}[t]
@@ -680,7 +680,7 @@ When the head referee indicates a foul has been committed that results in the st
 
 The operator of the GameController will send the appropriate signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signaled to the robot, it is not allowed to move in any fashion, such as being in the \emph{initial} state. The removed robot will be placed outside of the field facing away from the field of play.
 
-Unless otherwise specified, penalty times become incrementally longer each time a team commits any infraction.  Specifically, the first infraction will result in a penalty time of 45 seconds, the second infraction (of any type) will result in a penalty time of 50 seconds, the third infraction (of any type) will result in a penalty time of 55 seconds, ect.  The counter for each team's infractions will reset at half-time.  
+Unless otherwise specified, penalty times become incrementally longer each time a team commits any infraction.  Specifically, the first infraction will result in a penalty time of 45 seconds, the second infraction (of any type) will result in a penalty time of 55 seconds, the third infraction (of any type) will result in a penalty time of 65 seconds, etc.  During the \emph{set} state the penalty time counter will not decrease.
 
 The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}. 
 
@@ -1017,8 +1017,10 @@ This is a brief list of rule changes from 2017 to 2018.
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
-
-\subsection*{Drop-in Player Competition}
+\begin{itemize}
+  \item Increased penalty times (+10 sec for each penalty), no reset during half time. 
+  \item The penalty time counter does not change during \emph{set} state.
+\end{itemize}
 
 \subsection*{Outdoor Competition}
 
