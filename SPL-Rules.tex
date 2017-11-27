@@ -67,6 +67,7 @@
 \newcommand{\TotalWidth}{7.4~m\xspace}
 \newcommand{\TotalLength}{10.4~m\xspace }
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
+\newcommand{\FreeKickTime}{30 seconds\xspace}
 
 % needed to align an image and text correctly side by side
 \newcommand{\imagebox}[1]{\raisebox{2ex}{\raisebox{-\height}{#1}}}
@@ -308,7 +309,7 @@ The only wireless hardware allowed to be used by the teams are the wireless netw
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The network configuration (\eg IP addresses, channels, SSIDs, and required encryption) of the fields will be announced at the competition site.
 
-Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than five messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these five messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
+Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP, the SPL standard message packet is used, and not more than three messages per robot per second are sent\footnote{Official status packages that are sent to the GameController can be sent in addition to these three messages.}. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release. Each team will be assigned a range of IP-addresses that can be used for direct robot-to-robot communication. Each team will also be allocated a single UDP port on which broadcast will be permitted.  Specifically, a team's port will be 10000 plus that team's GameController number.
 
 Teams and their robots must not listen into another team's communication.
 
@@ -354,9 +355,9 @@ Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If th
 
 Robots may be disentangled by the referees at the start of the Ready state. After that, penalties should be called as normal, but these penalties do not count towards the incremental penalties.  Penalized players should be manually placed during Set (and unpenalized by the GameController).
 
-\item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions or are fallen and laying in a standing position on the ground, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their arms or legs or locomote in any fashion. Penalties such as inactive robot, fallen robot, ect may be called as needed. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state.
+\item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions or are fallen and laying in a standing position on the ground, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their arms or legs or locomote in any fashion. Penalties such as inactive robot, fallen robot, etc may be called as needed. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state. The penalty time counter is frozen during this state.
 
-\item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
+\item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state. During the \emph{playing} state, the GameController can activate the \emph{free kick} substate (see Section~\ref{sec:free_kick}).
 
 \item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion, \ie also the head has to stop turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
 
@@ -459,10 +460,9 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 
 \item If the ball was last touched by the defensive team then the ball is replaced on the closest endpoint of the throw-in line.
 
-\item If the ball was touched by the offensive team, the ball is replaced on
-the throw-in line at the farthest back of these two locations: a) one
-meter back from the location of the kicking robot, or b) at the halfway
-line.
+\item If the ball was touched by the offensive team, a Goal Free Kick is awarded to the defensive team, and the ball is
+placed on the Goal spot on the same side of the centre field line that the ball was kicked-out. The Goal spot is in
+line with the penalty spot and side-edge of the penalty box.
 
 \end{itemize}
 
@@ -470,7 +470,7 @@ Balls are deemed to be out based on the team that last touched the ball, irrespe
 
 \paragraph{Example 1.} The red goal keeper kicks the ball out the end of the field to the right of the goal. The ball is placed on the endpoint of the throw-in line to the right of the goal.
 
-\paragraph{Example 2.} A blue robot on the red half of the field kicks the ball out the end of the field to the right of the goal the red team is defending. The ball is placed on the intersection of the right throw-in line and the halfway line.
+\paragraph{Example 2.} A blue robot on the red half of the field kicks the ball out the end of the field to the right of the goal the red team is defending. The ball is placed on the intersection of the penalty spot and the right side edge of the penalty box.
 
 \paragraph{Example 3.} A blue robot on the blue half of the field kicks the ball out the end of the field to the right of the goal the red team is defending. The ball is placed on one meter behind the robot on the right throw-in line.
 
@@ -480,6 +480,44 @@ Balls are deemed to be out based on the team that last touched the ball, irrespe
 
 \paragraph{Example 6.} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the center line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter closer to the goal the red team is defending.
 
+\subsection{Free Kick}
+\label{sec:free_kick}
+
+A Free kick is initiated in two circumstances:
+\begin{itemize}
+  \item In place of an end-line throw-in initiated by the offensive team, also termed a \emph{Goal Free Kick}.
+  \item A pushing penalty awarded near the ball, termed a \emph{Penalty Free Kick}, see Section~\ref{sec:player_pushing}.
+\end{itemize}
+
+If a team is awarded a Free Kick, the following procedure will apply:
+\begin{enumerate}
+  \item The head referee will announce a Free Kick, calling ''Penalty/Goal Free Kick \textless team\textgreater''.
+  \item Game Controller will change the Game state to \emph{Free Kick}.
+  \item For a Goal Free Kick, the ball will be positioned by the assistant referee, on the Goal Kick Spot.
+  \item For a Penalty Free Kick, the ball will be left in place, and only repositioned in accordance with the Pushing
+  rules (see Section~\ref{sec:player_pushing}).
+  \item The team who is awarded the Free Kick has \FreeKickTime to complete the Free Kick.
+  \item During the Free Kick:
+  \begin{enumerate}
+    \item The game clock continues to count-down. If the game time expires during a Free Kick, play is terminated
+    as per normal.
+    \item Only the team awarded with the Free Kick may approach within a minimum 0.5m radius of the ball.
+    \item Only the opposition Goal Keeper may remain within the 0.5m radius, provided that the Goal Keeper is
+    within the Goal Box, and does not touch the ball.
+    \item Opposition robots that violate these conditions are penalised with the ''Illegal Defender'' penalty (see Section~\ref{sec:illegal_defender}) which results in a standard removal penalty (see Section~\ref{sec:removal_penalty}).
+    \item Additional penalties against any further robots, including Pushing, do not result in an additional Free
+    Kick, but still use the appropriate removal penalty.
+  \end{enumerate}
+  \item A Free Kick is deemed completed and play returns to normal if any of the following occurs:
+  \begin{itemize}
+    \item The team who has been awarded the Free Kick touches the ball.
+    \item The \FreeKickTime time period expires.
+    \item The game time expires.
+  \end{itemize}
+  \item The head referee will announce a Free Kick is completed, by ''Free Kick complete'', and the GameController
+  changes the game state to \emph{playing}. Note the switch in state may automatically occur if the \FreeKickTime time
+  period expires.
+\end{enumerate}
 
 \subsection{Game Stuck}
 \label{sec:game_stuck}
@@ -493,7 +531,7 @@ The main referee has two options how to solve the game stuck and to reestablish 
 
 If one robot is preventing the game from proceeding --- perhaps by circling the ball repeatedly without kicking the ball --- it is recommended to improve progress by removing this one robot.
 
-When Local Game Stuck is called, the nearest robot to the ball will be penalized and removed for 45 seconds (Section \ref{sec:pen_local_game_stuck}). Local Game Stuck penalties do not following the standard removal procedure, and hence do not count towards the incremental penalty count.
+When Local Game Stuck is called, the nearest robot to the ball will be penalized and removed for 45 seconds (Section \ref{sec:pen_local_game_stuck}). Local Game Stuck penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 \subsubsection{Global Game Stuck}
 \label{sec:game_stuck:global}
@@ -516,7 +554,7 @@ Any strategic ``Request for Pick-up'' is not allowed, i.e. gaining an advantage 
 In this case, the head referee will indicate when the robot is no longer affecting play and can be removed from the field by an assistant referee.
 
 To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up'', and only one designated person per team shall accept the robot from the referee, and hand it back after fixing the problem.
-The returning robot may be returned following the normal replacement procedure at any point within Ready or Set states.  In Playing, the robot may return once at least 45 seconds have elapsed since the robot was removed from play. Note that this penalty does not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+The returning robot may be returned following the normal replacement procedure at any point within Ready or Set states. In Playing, the robot may return once at least 45 seconds have elapsed since the robot was removed from play. Note that this penalty does not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 The robot should be returned to the assistant referees in the \emph{penalized} state.
 
@@ -774,6 +812,21 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 
 If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement.
 
+A Penalty Free Kick is awarded against the a robot penalised for pushing if:
+\begin{itemize}
+  \item The robot is near the ball (approximately within 0.5m of the ball), and
+  \item The robot that was pushed was actively involved in the play. (Examples of a robot "involved in the play"
+  include directly contesting for the ball, assisting in the contest, providing a supporting role, or acting as a
+  defender.)
+\end{itemize}
+
+A Penalty Free Kick is \emph{not} awarded for pushing if:
+
+\begin{itemize}
+  \item The pushing occurred off of the play, that is, away from the ball.
+  \item The pushed robot was near the ball, but not involved in the play.
+\end{itemize}
+
 \subsubsection{Exceptions to the Pushing Rules}
 \label{sec:situations_no_pushing}
 
@@ -1007,10 +1060,12 @@ This is a brief list of rule changes from 2017 to 2018.
 \subsection*{Robot Players}
 \begin{itemize}
   \item Removed coach robot.
+  \item SPL standard message packets per second reduced to three from five.
 \end{itemize}
 
 \subsection*{Game Process}
 \begin{itemize}
+  \item Introduced Free Kick rule.
   \item Reduced the time for a penalty kick from 45 to 30 seconds.
   \item Selection of penalty shootout robots is now done privately for each team by handing the referee a card with the selected number with no knowledge of the other teams decision.
   \item Removed goal keeper save rule.
