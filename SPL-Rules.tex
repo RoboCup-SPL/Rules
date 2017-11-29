@@ -68,6 +68,7 @@
 \newcommand{\TotalLength}{10.4~m\xspace }
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
 \newcommand{\FreeKickTime}{30 seconds\xspace}
+\newcommand{\PenaltyKickTime}{30 seconds\xspace}
 
 % needed to align an image and text correctly side by side
 \newcommand{\imagebox}[1]{\raisebox{2ex}{\raisebox{-\height}{#1}}}
@@ -271,7 +272,7 @@ Teams may use jerseys purchased at RoboCup 2013 or RoboCup 2014 (magenta and cya
 \item Jersey material must be non-reflecting, non-shiny, and non-textured.  Material that is glittery is also not appropriate.
 \item Jerseys should be numbered 1-6 on both sides.  The numbers must be large and {\bf easily} recognized by humans.
 \item Teams must have two sets of jerseys that are significantly different in terms of their primary color.
-\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by May 1, 2017. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must either use their approved jerseys from RoboCup 2015/2016 or use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
+\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by May 1, 2017. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  All images and designs should be submitted in pdf or jpg format.  If a team does not submit designs by the deadline, they must either use their approved jerseys from RoboCup 2015/2016/2017 or use the magenta and cyan jerseys from RoboCup 2013/2014 (and find a way to obtain these jerseys for themselves).
 \end{itemize}
 
 Each team must designate a `home' color and an `away' color when asked about one month before RoboCup.  Teams must wear their `home' jerseys when they are `home' (the first team listed on the schedule).  Teams will wear their `home' jersey when they are `away' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the `away' team will then wear their `away' jersey.
@@ -421,7 +422,7 @@ If robots incur penalties during Ready state, the penalty is manual placement by
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed by the assistant referees in the closest manual position (see Figure~\ref{fig:ko}) that does not already have a team mate within 1 meter.
 Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
-\emph{In the case where the team leader requests manual placement, all robots on that team --- including those penalized in place for ``Motion in Set'' --- are manually positioned.}  However, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infrictions will stay at the sideline until their penalty time is over.
+\emph{In the case where the team leader requests manual placement, all robots on that team --- including those penalized in place for ``Motion in Set'' --- are manually positioned.}  However, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infrictions will stay at the sideline until their penalty time is over. Note that this only refers to penalties from the \emph{playing} state, since penalties during ready only result in a manual placement.
 
 
 \begin{figure}[t]
@@ -452,7 +453,7 @@ Throw-in lines will be marked (as dots at the end of the throw-in lines and shor
 
 If the ball goes over a sideline then the assistant referee will replace the ball back on the field on the throw-in line on the same side of the field as the ball went out of play.
 
-The ball will be replaced on the throw-in line at the farthest back of these two locations: a) one meter back from the point it went out or b) one meter back from the location of the kicking robot. We define `back' as being towards the goal of the team that last touched the ball. Note that if the one meter placement would cause the ball to be placed off the end of the throw-in line, then it should be placed at the end of the throw-in line, and not beyond.
+The ball will be replaced on the throw-in line one meter back from the location of the kicking robot. We define `back' as being towards the goal of the team that last touched the ball. Note that if the one meter placement would cause the ball to be placed off the end of the throw-in line, then it should be placed at the end of the throw-in line, and not beyond.
 
 If the ball goes over an end-line then the assistant referee will replace the ball back on the field according to the following rules:
 
@@ -460,11 +461,17 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 
 \item If the ball was last touched by the defensive team then the ball is replaced on the closest endpoint of the throw-in line.
 
-\item If the ball was touched by the offensive team, a Goal Free Kick is awarded to the defensive team, and the ball is
-placed on the Goal spot on the same side of the centre field line that the ball was kicked-out. The Goal spot is in
-line with the penalty spot and side-edge of the penalty box.
+\item If the ball was touched by the offensive team, a Goal Free Kick (see Section~\ref{sec:free_kick}) is awarded to the defensive team, and the ball is
+placed on the Goal Spot on the same side of the centre field line that the ball was kicked-out. The Goal Spot is in
+line with the penalty spot and side-edge of the penalty box. 
 
 \end{itemize}
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=0.7\columnwidth]{figs/goal-kick-spots.png}}
+\caption{Goal Spot for goal line out on the lefthand side (blue) and the righthand side (red).}
+\label{fig:goal_free_kick}
+\end{figure}
 
 Balls are deemed to be out based on the team that last touched the ball, irrespective of who actually kicked the ball.  In these examples, ``red half of the field'' refers to the half the red team is defending.
 
@@ -476,9 +483,7 @@ Balls are deemed to be out based on the team that last touched the ball, irrespe
 
 \paragraph{Example 4.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the red half of the field. The ball is replaced on the left throw-in line 1 meter into the blue half of the field (one meter behind the robot).
 
-\paragraph{Example 5.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the blue half of the field (towards its own goal). The ball is replaced on the left throw-in line 3 meters into the blue half of the field.
-
-\paragraph{Example 6.} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the center line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter closer to the goal the red team is defending.
+\paragraph{Example 5.} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the center line. The ball is regarded as out by red and therefore is replaced on the throw-in line 1 meter behind the red robot.
 
 \subsection{Free Kick}
 \label{sec:free_kick}
@@ -486,14 +491,14 @@ Balls are deemed to be out based on the team that last touched the ball, irrespe
 A Free kick is initiated in two circumstances:
 \begin{itemize}
   \item In place of an end-line throw-in initiated by the offensive team, also termed a \emph{Goal Free Kick}.
-  \item A pushing penalty awarded near the ball, termed a \emph{Penalty Free Kick}, see Section~\ref{sec:player_pushing}.
+  \item A pushing penalty (see Section~\ref{sec:player_pushing}) awarded near the ball, termed a \emph{Penalty Free Kick}.
 \end{itemize}
 
 If a team is awarded a Free Kick, the following procedure will apply:
 \begin{enumerate}
   \item The head referee will announce a Free Kick, calling ''Penalty/Goal Free Kick \textless team\textgreater''.
-  \item Game Controller will change the Game state to \emph{Free Kick}.
-  \item For a Goal Free Kick, the ball will be positioned by the assistant referee, on the Goal Kick Spot.
+  \item Game Controller will activate the secondary game state \emph{Free Kick}.
+  \item For a Goal Free Kick, the ball will be positioned by the assistant referee, on the Goal Kick Spot (see figure~\ref{fig:goal_free_kick}).
   \item For a Penalty Free Kick, the ball will be left in place, and only repositioned in accordance with the Pushing
   rules (see Section~\ref{sec:player_pushing}).
   \item The team who is awarded the Free Kick has \FreeKickTime to complete the Free Kick.
@@ -504,7 +509,7 @@ If a team is awarded a Free Kick, the following procedure will apply:
     \item Only the team awarded with the Free Kick may approach within a minimum 0.5m radius of the ball.
     \item Only the opposition Goal Keeper may remain within the 0.5m radius, provided that the Goal Keeper is
     within the Goal Box, and does not touch the ball.
-    \item Opposition robots that violate these conditions are penalised with the ''Illegal Defender'' penalty (see Section~\ref{sec:illegal_defender}) which results in a standard removal penalty (see Section~\ref{sec:removal_penalty}).
+    \item Opposition robots that violate these conditions are penalized with the ''Illegal Defender'' penalty (see Section~\ref{sec:illegal_defender}) which results in a standard removal penalty (see Section~\ref{sec:removal_penalty}).
     \item Additional penalties against any further robots, including Pushing, do not result in an additional Free
     Kick, but still use the appropriate removal penalty.
   \end{enumerate}
@@ -637,7 +642,7 @@ Neither robot shall move their legs before the penalty kick starts. Movements of
 
 If a robot is not responding to GameController it is in the \emph{penalized} state when waiting for the penalty kick to start. In this case, the robot is started by switching to playing state using the button interface. When the penalty shot is over, the robot is switched back to the penalized state using the button interface. Only the referees may operate the button interface and no non-standard or extra button sequences are permitted. Robots that are not receiving from GameController must determine their role in a penalty shot (goal keeper or striker) independently, \eg using location awareness.
 
-The striker robot is only allowed to contact the ball once.  The time limit for the striker is 30 seconds after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
+The striker robot is only allowed to contact the ball once.  The time limit for the striker is \PenaltyKickTime after the penalty kick starts. The ball must be in the goal within this time limit in order to count as a goal.
 
 A penalty shot is over when the ball has come to a full stop after the first contact by the attacking robot. The goal is in favor of the attacking team if a goal has been scored, or in favor of the defending team if the goal keeper successfully blocked the shot, if the ball did not reach the goal line, or if the ball leaves the field.
 
@@ -650,7 +655,7 @@ The attacking robot will be indicated by the GameController using the kick-off f
 \subsubsection{Sudden Death Shoot-Out}
 \label{sec:sudden_death_shoot_out}
 
-The time limit for sudden death penalty shots is also 45 seconds.
+The time limit for sudden death penalty shots is also \PenaltyKickTime.
 
 These attempts will be timed (that is, for a goal scored, how long did it take to score the goal) and the distance will be measured if a goal is not scored (that is, what is the shortest distance between the final ball position and the goal line segment between the goal posts) by the referee. After these attempts, the game decision will be made as follows:
 
@@ -955,7 +960,7 @@ This section contains rules that are not directly relevant for games and that ma
 
 \subsection{Game Structure}
 
-The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
+The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
 
 \subsection{Winner and Rankings}
 \label{sec:rankings}
@@ -989,8 +994,7 @@ All teams who qualify for participation in the RoboCup SPL are ranked on the bas
 
 All Champions cup candidates play a single qualifier round robin stage comprising 4 groups of 3 teams each. All Challenge shield candidates play a similar qualifier round robin stage also consisting of 4 groups of 3 teams each. Each Champions cup qualifier group will consist of one team ranked 1-4, one team ranked 5-8, and one team ranked 9-12. Each of the teams ranked 13-16 will be placed in a different Challenge shield group. Remaining Challenge shield qualifier group places will be filled by random selection from teams ranked 17-24.
 
-The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) and the winners of these games go the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage followed by a knockout competition.
-
+The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) in the so called promotion round and the winners of these games go the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage, followed by an intermediate round and a knockout competition. In the intermediate round the second and third placed team of each group coming from the second round robin will play against a team from another group for a spot in the quarter final.
 
 \subsection{Referee selection and requirements}
 \label{sec:refSelection}
@@ -1069,6 +1073,7 @@ This is a brief list of rule changes from 2017 to 2018.
   \item Reduced the time for a penalty kick from 45 to 30 seconds.
   \item Selection of penalty shootout robots is now done privately for each team by handing the referee a card with the selected number with no knowledge of the other teams decision.
   \item Removed goal keeper save rule.
+  \item Simplified the Throw-in rule on side-out to ''1 meter behind robot who last touched the ball''.
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
@@ -1076,8 +1081,6 @@ This is a brief list of rule changes from 2017 to 2018.
   \item Increased penalty times (+10 sec for each penalty), no reset during half time. 
   \item The penalty time counter does not change during \emph{set} state.
 \end{itemize}
-
-\subsection*{Outdoor Competition}
 
 \subsection*{The Official RoboCup Competition Rules}
 
