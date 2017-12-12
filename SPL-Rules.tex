@@ -68,6 +68,7 @@
 \newcommand{\TotalLength}{10.4~m\xspace }
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
 \newcommand{\FreeKickTime}{30 seconds\xspace}
+\newcommand{\FreeKickRadius}{0.75m\xspace}
 \newcommand{\PenaltyKickTime}{30 seconds\xspace}
 
 % needed to align an image and text correctly side by side
@@ -354,7 +355,7 @@ Robots can be in six different states (\cf Figure~\ref{fig:robot_states}). If th
 
 \item[Ready.] In this state, the robots walk to their legal kick-off positions (\cf Section~\ref{sec:kick-off}). They remain in this state, until the head referee decides that there is no significant progress anymore (after a maximum of \KickOffAutoTime). This state is not available if only the button interface is implemented.
 
-Robots may be disentangled by the referees at the start of the Ready state. After that, penalties should be called as normal, but these penalties do not count towards the incremental penalties.  Penalized players should be manually placed during Set (and unpenalized by the GameController).
+Robots may be disentangled by the referees at the start of the Ready state. After that, penalties should be called as normal, but these penalties do not count towards the incremental penalties. 
 
 \item[Set.] In this state, the robots stop and wait for kick-off (\cf Section~\ref{sec:kick-off}). If they are not at legal positions or are fallen and laying in a standing position on the ground, they will be placed manually by the assistant referees to the positions shown in Figure~\ref{fig:ko}. They are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their arms or legs or locomote in any fashion. Penalties such as inactive robot, fallen robot, etc may be called as needed. This state is not available if only the button interface is implemented. Robots that do not listen to the GameController will be placed manually. Until the game is (re)started, they are in the \emph{penalized} state. The penalty time counter is frozen during this state.
 
@@ -504,14 +505,13 @@ If a team is awarded a Free Kick, the following procedure will apply:
   \item The team who is awarded the Free Kick has \FreeKickTime to complete the Free Kick.
   \item During the Free Kick:
   \begin{enumerate}
-    \item The game clock continues to count-down. If the game time expires during a Free Kick, play is terminated
-    as per normal.
-    \item Only the team awarded with the Free Kick may approach within a minimum 0.5m radius of the ball.
-    \item Only the opposition Goal Keeper may remain within the 0.5m radius, provided that the Goal Keeper is
+    \item Only the team awarded with the Free Kick may approach within \FreeKickRadius to the ball.
+    \item Only the opposition Goal Keeper may remain within the \FreeKickRadius radius, provided that the Goal Keeper is
     within the Goal Box, and does not touch the ball.
-    \item Opposition robots that violate these conditions are penalized with the ''Illegal Defender'' penalty (see Section~\ref{sec:illegal_defender}) which results in a standard removal penalty (see Section~\ref{sec:removal_penalty}).
+    \item Opposition robots that violate (a) or (b) are penalized with the ''Illegal Defender'' penalty (see Section~\ref{sec:illegal_defender}) which results in a standard removal penalty (see Section~\ref{sec:removal_penalty}).
     \item Additional penalties against any further robots, including Pushing, do not result in an additional Free
     Kick, but still use the appropriate removal penalty.
+    \item The game clock continues to count-down. 
   \end{enumerate}
   \item A Free Kick is deemed completed and play returns to normal if any of the following occurs:
   \begin{itemize}
@@ -895,6 +895,9 @@ If an illegal defender kicks an own goal, the goal is scored for the opponent. I
 
 The ``Illegal Defender'' penalty is also applied to defensive players that enter the center circle after a kick-off before the ball is in play (\cf Section~\ref{sec:kick-off}).
 
+If a robot of the offending team does enter or not attempt to leave the \FreeKickRadius area around the ball after a Free Kick (see Section~\ref{sec:free_kick}) was called, ''Illegal Defender'' is called as well. This rule does not apply for the goalie robot within its own penalty area.
+\paragraph{Note:} The referee should not look for exact distances and rather penalize only those robots who clearly violate this rule. As a guideline, the robots of the offending team should clear the ball within 10 seconds.
+
 \subsection{Jamming}
 \label{sec:jamming}
 During the match any robot shall never jam the communication and the sensor systems of the opponents:
@@ -1044,7 +1047,7 @@ Whenever a qualification penalty is recorded, all relevant details including any
 \label{sec:mixedTeamTournament}
 This section contains all rules regarding the mixed teams tournament.
 
-For the 2018 tournament, pairs of teams will announce their partnership as part of the answer to the official call for application, as in last years application. As part of the application, potential team pairs should announce the name of the second team, the mixed team name, and their proposed jersey color. Teams are strongly encouraged to change their mixed team partner from the previous year to spread the communication and behavior advancements.
+For the 2018 tournament, pairs of teams will announce their partnership as part of the answer to the official call for application, as in last year's application. As part of the application, potential team pairs should announce the name of the second team, the mixed team name, and their proposed jersey color. Teams are strongly encouraged to change their mixed team partner from the previous year to spread the communication and behavior advancements.
 
 \subsection{Limitations}
 In 2018, the tournament will be limited to six mixed teams. Both teams comprising a mixed team should run their own codebase, but are encouraged to develop a layer for interoperability which could later be used to form mixed teams with other teams. 
@@ -1053,6 +1056,21 @@ In 2018, the tournament will be limited to six mixed teams. Both teams comprisin
 The tournament will be played 6 vs 6 on a SPL field. Besides the number of players, all other normal SPL rules apply. 
 
 For the 2018 tournament, there will be 10 games in total: two round robins consisting of 3 teams each with 3 games, two semifinals, a 3rd place game, and a championship game.  Hence, each mixed team would play a total of 2 to 4 games in the mixed team tournament.
+
+If a penalty shootout is necessary after the group phase or in the final games, the following robot selection procedure will apply in order, where the home team consists of individual teams A and B, and the away team consists of the individual teams C and D:
+
+\begin{enumerate}
+  \item Striker A vs Goalie C
+  \item Striker C vs Goalie B
+  \item Striker B vs Goalie D
+  \item Striker D vs Goalie A
+  \item Striker A vs Goalie D
+  \item Striker C vs Goalie A
+  \item Striker B vs Goalie C
+  \item Striker D vs Goalie B
+\end{enumerate}
+
+If after these eight penalty kicks the result is still even, the teams will continue with the standard penalty shootout procedure and may select the participating robot for each kick from both individual teams.
 
 \section{General Penalty Kick Challenge}
 \label{sec:generalPenaltyKickChallenge}
@@ -1064,7 +1082,7 @@ The previous year has shown significant improvements in penalty shootout skills.
 The challenge will be held as a single elimination tournament as in the previous year. This means there will be:
 \begin{itemize}
   \item One Pre Top 16 round, consisting of all teams exclusive Top 8 of last
-  years' competition.
+  year's competition.
   \item One Top 16 round, consisting of the top teams and winners of the Pre
   Top 16 round.
   \item The Top 8 round.
@@ -1107,12 +1125,14 @@ This is a brief list of rule changes from 2017 to 2018.
   \item Selection of penalty shootout robots is now done privately for each team by handing the referee a card with the selected number with no knowledge of the other teams decision.
   \item Removed goal keeper save rule.
   \item Simplified the Throw-in rule on side-out to ''1 meter behind robot who last touched the ball''.
+  \item Penalties during the \emph{ready} state result in a standard removal penalty instead of a manual placement. Those penalties however still not count towards the incremental penalty counter.
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
 \begin{itemize}
   \item Increased penalty times (+10 sec for each penalty), no reset during half time. 
   \item The penalty time counter does not change during \emph{set} state.
+  \item Extended the ''Illegal Defender'' rule due to the Free Kick rule.
 \end{itemize}
 
 \subsection*{The Official RoboCup Competition Rules}
@@ -1124,6 +1144,7 @@ This is a brief list of rule changes from 2017 to 2018.
 \subsection*{Mixed Team Tournament}
 \begin{itemize}
   \item Number of allowed mixed teams increased to 6 this year.
+  \item Added a section for the penalty shootout procedure in a mixed team tournament.
 \end{itemize}
 
 \subsection*{General Penalty Kick Challenge}
