@@ -809,7 +809,7 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 
 If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infringement.
 
-A Penalty Free Kick is awarded against the robot penalized for pushing if:
+A Pushing Free Kick is awarded against the robot penalized for pushing if:
 \begin{itemize}
   \item The robot is near the ball (approximately within 0.5m of the ball), and
   \item The robot that was pushed was actively involved in the play. (Examples of a robot "involved in the play"
@@ -817,7 +817,7 @@ A Penalty Free Kick is awarded against the robot penalized for pushing if:
   defender.)
 \end{itemize}
 
-A Penalty Free Kick is \emph{not} awarded for pushing if:
+A Pushing Free Kick is \emph{not} awarded for pushing if:
 
 \begin{itemize}
   \item The pushing occurred off of the play, that is, away from the ball.
@@ -959,9 +959,11 @@ The qualification procedure as well as the corresponding deadlines will be annou
 
 The RoboCup Standard Platform League offers unique possibilities to use code from other teams. In spirit of the RoboCup every team is generally allowed to use code from other teams to push the league further with their own research. However, every participant of the RoboCup has to limit their code usage to ensure that their team contributes to the league. The code usage rules for every applicant are as follows:
 \begin{itemize}
-  \item Every applicant has to bring a poster containing the team's contribution, focused on the current year, to the RoboCup event to share this information with the other teams.
-  \item When using another team's code base, the applicant has to replace one major\footnote{This refers to parts like vision system, localization, walking but excplicitly not to a behavior that uses the other team's code base.} part with their own code for each year the other team's code base is used. The replaced parts have to be publishable to be considered contributions that warrant a qualification.
-%  \item If an applicant can not provide this required information in time for the application, he is not considered officially qualified for the RoboCup competition until he can. Provided the applicant fulfills the requirements previous to the registration deadline of the RoboCup event, the qualification decision can be withheld until that time if the applicant agrees\footnote{This ensures, that any significant contribution to the league that is ready for the RoboCup is considered.}.
+  \item Every applicant has to bring a poster containing the team's contribution, focused on the current year, to the RoboCup event to share their contributions with the other teams.
+  \item When their code is based on another team's code base, the applicant has to replace or add one major\footnote{This refers to parts like object detection, localization or walking but explicitly not to a behavior that uses the other team's code base.} part with their own code for each year the other team's code base is used. The replaced parts have to be research publishable (or of equivalent scale and quality) to be considered contributions that warrant a qualification and have to be used in the competition.
+  \item If a team that is otherwise eligible for qualification cannot provide sufficient evidence of the required contributions by the deadline for applications then that team cannot initially be qualified for RoboCup. In this case, the team may be given the opportunity to become qualified subject to providing evidence of the required contributions by the registration deadline of the RoboCup event.
+  
+  %\item If an applicant can not provide this required information in time for the application, he is not considered officially qualified for the RoboCup competition until he can. Provided the applicant fulfills the requirements previous to the registration deadline of the RoboCup event, the qualification decision can be withheld until that time if the applicant agrees\footnote{This ensures, that any significant contribution to the league that is ready for the RoboCup is considered.}.
 \end{itemize}
 
 Failure to meet one of the above requirements will result in a qualification penalty for the following year for qualified teams.
