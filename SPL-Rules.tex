@@ -420,7 +420,7 @@ The field players of the defending team can walk to any position within their ow
 
 The robots have a maximum of \KickOffAutoTime to reach their positions. If all the robots have reached legal positions and have stopped, or if \KickOffAutoTime have passed, the robots will be switched into the \emph{set} state, in which they must stop walking. Each robot that is not at a legal position at this point in time will be placed by the assistant referees in the closest manual position (see Figure~\ref{fig:ko}) that does not already have a team mate within 1 meter.
 Robots that are legally positioned will not be moved by the assistant referees unless a manual position is requested by the team leader.
-\emph{In the case where the team leader requests manual placement, all robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties --- are manually positioned.}  However, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infrictions will stay at the sideline until their penalty time is over. 
+In the case where the team leader requests manual placement, all robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties --- are manually positioned. However, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infrictions will stay at the sideline until their penalty time is over. 
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/manual-placement-2015.pdf}}
@@ -493,10 +493,10 @@ A Free Kick is initiated in two circumstances:
 
 If a team is awarded a Free Kick, the following procedure will apply:
 \begin{enumerate}
-  \item The head referee will announce a Free Kick, calling ''Pushing Free Kick \textless team\textgreater'' for the team with the pushed robot or ''Goal Free Kick \textless team\textgreater'' for the defensive team.
-  \item Game Controller will activate the substate for the Pushing Free Kick or Goal Free Kick, respectively.
+  \item The head referee will announce a Free Kick, calling ''Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot or ''Goal Free Kick \textless team\textgreater'' for the defensive team.
+  \item Game Controller will activate the substate for the Pushing Free Kick or Goal Free Kick, respectively. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ''Foul''. 
   \item For a Goal Free Kick, the ball will be positioned by the assistant referee, on the Goal Kick Spot (see figure~\ref{fig:goal_free_kick}).
-  \item For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the Pushing
+  \item For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing
   rules (see Section~\ref{sec:player_pushing}).
   \item The team who is awarded the Free Kick has \FreeKickTime to complete the Free Kick.
   \item During the Free Kick:
@@ -511,7 +511,7 @@ If a team is awarded a Free Kick, the following procedure will apply:
   \end{enumerate}
   \item A Free Kick is deemed completed and play returns to normal if any of the following occurs:
   \begin{itemize}
-    \item The team who has been awarded the Free Kick touches the ball.
+    \item The team who has been awarded the Free Kick touches the ball. A robot getting up is exempt from this rule.
     \item The \FreeKickTime time period expires.
     \item The game time expires.
   \end{itemize}
@@ -1147,6 +1147,7 @@ This is a brief list of rule changes from 2017 to 2018.
 \begin{itemize}
   \item Added an intermediate round between second round robin and quarterfinals for champions cup and challenge shield.
   \item The games between champions cup and challenge shield are now named promotion round.
+  \item Added a subsection about the qualification process and requirements for participants.
 \end{itemize}
 
 \subsection*{Mixed Team Tournament}
