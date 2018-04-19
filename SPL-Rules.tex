@@ -540,7 +540,7 @@ Once the referee calls Global Game Stuck, players enter the Ready state, and a n
 \subsection{Request for Pick-up}
 \label{sec:request_for_pickup}
 
-Either team may request that one of their players be picked up (called ``Request for Pick-up'').  Players in the Playing state may only be picked up for hardware failures.  Players in all other states may be picked up for any reason.
+Either team may request that one of their players be picked up (called ``Request for Pick-up'').  Players in the Playing or Ready state may only be picked up for hardware failures.  Players in all other states may be picked up for any reason.
 
 Basically every change (hardware or software) is allowed during a request for pick-up. In particular,
 it is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
@@ -551,9 +551,12 @@ Any strategic ``Request for Pick-up'' is not allowed, i.e. gaining an advantage 
 In this case, the head referee will indicate when the robot is no longer affecting play and can be removed from the field by an assistant referee.
 
 To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up'', and only one designated person per team shall accept the robot from the referee, and hand it back after fixing the problem.
-The returning robot may be returned following the normal replacement procedure at any point within Ready or Set states. In Playing, the robot may return once at least 45 seconds have elapsed since the robot was removed from play. Note that this penalty does not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+The returning robot may be returned following the normal replacement procedure at any point within the Set state. In Playing or Ready, the robot may return once at least 45 seconds have elapsed since the robot was removed from play.
+Note that this penalty does not follow the standard removal procedure, and hence does not count towards the incremental penalty count. 
+If the picked-up robot was penalized, the penalty time of the robot counts down with the game clock throughout the pick-up.
 
 The robot should be returned to the assistant referees in the \emph{penalized} state.
+Note here, that the returning robot or the substitute robot will have to wait out any remaining penalty time of the picked up robot after the team handed their robot back to the assistant referees.
 
 \subsection{Request for Timeout}
 \label{sec:request_for_timeout}
@@ -1131,6 +1134,7 @@ This is a brief list of rule changes from 2017 to 2018.
   \item Removed goal keeper save rule.
   \item Simplified the Throw-in rule on side-out to ''1 meter behind robot who last touched the ball''.
   \item Penalties during the \emph{ready} state result in a standard removal penalty instead of a manual placement and do not get manually positioned at the end of the ready phase.
+  \item Pick-ups and return of robots during Ready state are now handled the same as pick-ups during the Playing state. Penalty times now explicity do not get reset with a pick-up.
 \end{itemize}
 
 \subsection*{Forbidden Actions and Penalties}
