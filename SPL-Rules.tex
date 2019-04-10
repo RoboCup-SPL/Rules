@@ -969,11 +969,11 @@ In order to provide better matched games for teams of all abilities the RoboCup 
 
 There are 24 qualified teams.
 
-All teams who qualify for participation in the RoboCup SPL are ranked on the basis of their previous year's RoboCup result in accordance with the ranking described in \ref{sec:rankings}. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.) The top 12 teams (by rank) will be Champions cup candidates and the remaining teams will be Challenge shield candidates.
+All teams who qualify for participation in the RoboCup SPL are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.) The top 12 teams (by rank) will be Champions cup candidates and the remaining teams will be Challenge shield candidates.
 
 All Champions cup candidates play a single qualifier round robin stage comprising 4 groups of 3 teams each. All Challenge shield candidates play a similar qualifier round robin stage also consisting of 4 groups of 3 teams each. Each Champions cup qualifier group will consist of one team ranked 1-4, one team ranked 5-8, and one team ranked 9-12. Each of the teams ranked 13-16 will be placed in a different Challenge shield group. Remaining Challenge shield qualifier group places will be filled by random selection from teams ranked 17-24.
 
-The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) in the so called promotion round and the winners of these games go the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage, followed by an intermediate round and a knockout competition. In the intermediate round the second and third placed team of each group coming from the second round robin will play against a team from another group for a spot in the quarter final.
+The top 2 teams in each Champions cup qualifier group proceed automatically to the Champions cup proper. Similarly the lower 2 teams in each Challenge shield qualifier group proceed automatically to the Challenge shield. The 4 remaining Champions cup candidates (losers in each group) play the remaining Challenge shield candidates (winners in each group) in the so called promotion round and the winners of these games go to the Champions cup while the losers go to the Challenge shield. Thereafter, the Champions cup and Challenge shield competitions shall proceed independently of each other and each will normally consist of a round robin stage, followed by an intermediate round and a knockout competition. In the intermediate round the second and third placed team of each group coming from the second round robin will play against a team from another group for a spot in the quarter final.
 
 \subsection{Referee selection and requirements}
 \label{sec:refSelection}
@@ -1095,6 +1095,7 @@ This is a brief list of rule changes from 2018 to 2019.
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}
   \item Added repeating the head referee calls to the game controller operator duty list.
+  \item Use Glicko rating for seeding.
 \end{itemize}
 
 \subsection*{Mixed Team Tournament}
