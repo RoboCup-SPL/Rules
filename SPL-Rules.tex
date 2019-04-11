@@ -448,7 +448,7 @@ Note that in some cases a goal can not be scored from within the center circle o
 
 A ball is considered to have left the field when there is no part of the ball over the outside of the boundary line (\ie the line itself is in). If the ball leaves the field it will be replaced on the field by an assistant referee.
 
-If the ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. A free kick is awarded to the team that did \emph{not} last touch the ball by the referee calling ''Kick-in \textless color\textgreater''.
+If the ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. A free kick (\cf Section~\ref{sec:free_kick}) is awarded to the team that did \emph{not} last touch the ball by the referee calling ''Kick-in \textless color\textgreater''.
 
 If the ball goes over an end-line then the assistant referee will replace the ball back on the field according to the following rules:
 
@@ -492,9 +492,9 @@ A Free Kick is initiated in four circumstances:
 
 If a team is awarded a Free Kick, the following procedure will apply:
 \begin{enumerate}
-  \item The head referee will announce a Free Kick, calling ''Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot or ''Goal Free Kick \textless team\textgreater'' for the defensive team.
-  \item Game Controller will activate the substate for the Pushing Free Kick or Goal Free Kick, respectively. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ''Foul''. 
-  \item If the ball left the field, the ball will be positioned by the assistant referee as described in chapter\ref{sec:kick_in}.
+  \item The head referee will announce a Free Kick, calling ''Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot or ''Kick-in/Goal Free Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
+  \item Game Controller will activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ''Foul''.
+  \item If the ball left the field, the ball will be positioned by the assistant referee as described in Section~\ref{sec:kick_in}.
   \item For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing
   rules (see Section~\ref{sec:player_pushing}).
   \item The team who is awarded the Free Kick has \FreeKickTime to complete the Free Kick.
