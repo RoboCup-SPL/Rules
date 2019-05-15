@@ -121,37 +121,40 @@ The winner will be decided by a vote among the SPL teams using the Borda count m
 The intention of this challenge is to investigate the possibilities of localizing the point where the referee whistle is blown.
 
 \subsection{Setup}
+\label{sec:dwc:setup}
+Each participating team provides a number of robots from \(1\) to \(5\) for this challenge. The choice of the actual number of robots is up to the team, but it may affect the final ranking (\cf Section~\ref{sec:dwc:score}). Each robot has to wear a jersey with a number from the set \(\{1,2,3,4,5\}\). They are placed on predefined spots on a regular SPL field and oriented in some predefined orientation (per spot), where each spot corresponds to a jersey number. Thus, if a team chooses to use less than 5 robots, they can select which subset of poses is used by the jersey numbers of the robots they provide. The exact poses will be announced well before the challenge, such that teams can make sure that their robots know where they are during the challenge.
 
-Each participating team provides a number of robots from \(1\) to \(5\) for this challenge. The choice of the actual number of robots is up to the team, but it might affect the score that is awarded. The robots are placed on predefined spots on a regular SPL field and oriented in some predefined orientation (per spot). The exact poses will be announced well before the challenge, such that teams can make sure that their robots know where they are during the challenge.
+To evaluate the success of the challenge, at least one of the robots must be connected to a wireless network (with the same settings as in normal games) such that it can send messages to a testing application (which will be released before the competition) running on a separate computer. Wireless communication between the robots using the provided network is also allowed and is not subject to the usual restrictions, \eg robots may send more than one message per second in this challenge.
 
-To evaluate the success of the challenge, one of the robots must be in a WiFi network (details will be made available at the competition) connected via TCP/IP to a testing application (which will be released before the competition). Wireless communication between the robots using the provided network is also allowed.
-
-The robots have to be in a manually penalized state when handed over to the TC. The GameController will not be used in this challenge. The robots will be manually unpenalized with a single chest button press (not necessarily at the same time for all robots) after they have been placed on the field by TC members. Only then should a robot connect to the testing application.
+The robots have to be in a manually penalized state when handed over to the TC. The GameController will not be used in this challenge. The robots will be manually unpenalized with a single chest button press (not necessarily at the same time for all robots) after they have been placed on the field by TC members.
 
 \subsection{Procedure}
+\label{sec:dwc:procedure}
 The challenge is conducted for each team separately after each other. After the robots have been set up, a ``referee'' blows a whistle from \(8\) different points (that are the same for all teams). Some of them are on the same field as the robots and others are on neighboring fields.
 
 In the moment the referee blows the whistle, the operator of the testing application presses a button so that incoming messages will be associated with the current whistle position and the starting time of the attempt can be tracked. Following the whistle, the testing application will accept the first message it receives until up to \(5\) seconds after the attempt has started. Messages that are received in between attempts will be ignored by the testing application. After \(5\) seconds, the attempt is over and the referee will proceed to the next whistle position.
 
-The exact message format will be specified together with the release of the testing application, but can be expected to contain two fields:
+As message format, the SPL standard message (as distributed with the GameController) is used, where some fields have a different meaning for the purpose of this challenge:
 \begin{itemize}
-\item One boolean flag that indicates only whether the whistle is assumed to be one the same field or another field.
-\item The 2D position of the whistle on the ground in Cartesian coordinates, relative to a coordinate system that has its origin in the center of the field.
+\item The \texttt{version} field must be set to 255 such that messages between robots and messages from robots to the testing application can be distinguished.
+\item The \texttt{fallen} field should contain a value of 0 if the robots assume the whistle has been from another field and a nonzero value if they think the whistle has been blown on their field.
+\item The first two entries of the \texttt{pose} field should contain the 2D position of the whistle on the ground in Cartesian coordinates in millimeters, in the same coordinate system that the \texttt{pose} field normally uses (which is the same coordinate system in which the robot poses will be specified).
 \end{itemize}
-The message will be used by the testing application to automatically calculate the score, as it has access to the list of positions occupied by robots and the list of points from which the whistle is blown.
+The message will be used by the testing application to automatically calculate the score, as it has access to the list of positions occupied by robots and the list of points from which the whistle is blown. All other parameters of the network communication (IP address, UDP port, broadcast etc.) are the same as for SPL standard messages between robots, such that no separate networking code is necessary. Note that since UDP communication is used, it might be beneficial to report a detection multiple times (although not too often).
 
-Note that though the message contains Cartesian coordinates, the scoring uses polar coordinates to better model the deviation of measurements. For this, the pose of the robot on the field that is closest to the actual whistle is used as reference pose. The testing application will automatically do the necessary transformations.
+Note that although the message contains Cartesian coordinates, the scoring uses polar coordinates to better model the deviation of measurements. For this, the pose of the robot on the field that is closest to the actual whistle is used as reference pose. The testing application will automatically do the necessary transformations.
 
 The robots are only allowed to move their heads during the challenge. All other motions (especially locomotion) are not allowed and result in the disqualification of that team from this challenge. Just as in the normal rules, any sports whistle is allowable. It can be assumed that the whistle will be blown by a standing person.
 
 \subsection{Score}
+\label{sec:dwc:score}
 Each whistle attempt contributes to the score of a team based on three aspects:
 \begin{description}
 \item[Whether the decision between ``same field'' and ``other field'' is correct:] \(1\) point is awarded if it is correct, \(0\) otherwise.
-\item[Angular precision:] \(1\) point is awarded if the transmitted angle is within a \(\pm15^\circ\) cone of the actual direction. \(0.5\) points are awarded if it is within the \(\pm15^\circ\) cone that points in the opposite direction from the reference pose or is within a \(\pm25^\circ\) cone of the actual direction.
-\item[Distance precision:] \(1\) point is awarded if the transmitted distance is within a \(\pm10\%\) range of the actual distance. \(0.5\) points are awarded if it is within \(\pm20\%\) of the actual distance.
+\item[Angular precision:] \(1\) point is awarded if the absolute value of the transmitted angle is within a \(5^\circ\) of the actual direction. Between \(5^\circ\) and \(30^\circ\) deviation, the number of points scales linearly between \(1\) and \(0\) (\eg a deviation of \(15^\circ\) yields \(0.6\) points). Deviations larger than \(30^\circ\) yield no points.
+\item[Distance precision:] \(1\) point is awarded if the transmitted distance is within a \(\pm5\%\) range of the actual distance. Between \(5\%\) and \(30\%\) deviation, the number of points scales linearly between \(1\) and \(0\) (\eg a deviation of \(20\%\) of the actual distance yields \(0.4\) points). Deviations larger than \(30\%\) of the actual distance yield no points.
 \end{description}
-That is, if the whistle is correctly detected as being on the same field, the direction is also correct but the distance is wrong, \(2\) points are awarded. If, after \(5\) seconds, there is no reaction from the robot, the attempt is over, no points are awarded, and the whistle is blown from the next of the \(8\) points.
+That is, if the whistle is correctly detected as being on the same field, the direction has a deviation of \(10^\circ\) and the distance has a deviation of \(17.5\%\), \(1+0.8+0.5=2.3\) points are awarded. If after \(5\) seconds there has been no reaction from the robot, the attempt is over, no points are awarded, and the whistle is blown from the next of the \(8\) points.
 
 The scores of all \(8\) attempts are added together to form a number between \(0\) and \(24\) which is the total score of the team. In case of a tie (after transforming the score of this challenge to the overall challenge score and combining it with the Open Research Challenge), teams which used less robots in this challenge will be ranked superior.
 
