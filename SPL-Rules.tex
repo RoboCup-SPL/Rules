@@ -708,6 +708,22 @@ If a robot is not inside its own half at the time the Set state starts, it will 
 
 Robots may not exit the Set state until either the referee's whistle is detected or a GameController Playing signal has been received.  Players that leave the Set state prematurely will be called for ``Motion in Set'' and penalized in place on the field.  They will then be unable to move until they receive the GameController Playing signal.  Motion in Set penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
+\subsection{Fallen or Inactive Robots}
+\label{sec:fallenrobots}
+
+If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be penalized and removed for 45 seconds. A robot which is unable to autonomously stand up within 20 seconds after a fall will be penalized and removed for 45 seconds. The goal keeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. In all other cases, the robot should be programmed to attempt to remain upright -- that is, supported by its feet.
+
+A robot that has ceased activity for 10 seconds or has turned off will be removed by the referees and penalized for 45 seconds. A robot is active if it performs at least one of the following:
+
+\begin{enumerate}
+  \item The robot walks in any direction, or turns.
+  \item The robot searches for the ball, or is looking at the ball.
+\end{enumerate}
+
+Fallen/Inactive Robot penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+
+\paragraph{Note:} The intention of this rule is not to penalize robots simply for being stationary -- provided they are not `asleep' and have not `crashed'.
+
 \subsection{Local Game Stuck}
 \label{sec:pen_local_game_stuck}
 
@@ -776,24 +792,6 @@ The following define situations where ball holding does not apply:
 \item Ball holding may not occur when the ball becomes stuck between a robot's legs.  In such a situation, the head referee should call `clear ball' and an assistant referee should remove the ball and place the ball approximately where it was before it became stuck.
 \item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule.
 \end{enumerate}
-
-
-\subsection{Fallen or Inactive Robots}
-\label{sec:fallenrobots}
-
-If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be removed as per the standard removal penalty. A robot which is unable to autonomously stand up within 20 seconds after a fall will be removed and subject to the standard penalty. The goal keeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. In all other cases, the robot should be programmed to attempt to remain upright -- that is, supported by its feet.
-
-A robot that has ceased activity for 10 seconds or has turned off will be removed by the referees and is subject to the standard removal penalty. A robot is active if it performs at least one of the following:
-
-\begin{enumerate}
-
-\item The robot walks in any direction, or turns.
-
-\item The robot searches for the ball, or is looking at the ball.
-
-\end{enumerate}
-
-\paragraph{Note:} The intention of this rule is not to penalize robots simply for being stationary -- provided they are not `asleep' and have not `crashed'.
 
 \subsection{Player Stance}
 \label{sec:player_stance}
@@ -1089,6 +1087,7 @@ This is a brief list of rule changes from 2018 to 2019.
   \item Removed 'Contact Between Standing/Walking Robots' rule.
   \item Removed 'Contact Between More Than 2 Robots' rule.
   \item Simplified 'Leaving the Field' rule.
+  \item Fallen/Inactive Robot is not an incremental penalty.
 \end{itemize}
 
 \subsection*{The Official RoboCup Competition Rules}
