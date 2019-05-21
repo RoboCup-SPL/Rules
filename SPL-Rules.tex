@@ -454,12 +454,10 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 
 \begin{itemize}
 
-\item If the ball was last touched by the defensive team, the referee calls ``Corner Kick'' for the offensive team, the game controller presses the corner kick button and the ball is placed on the corner.
-The attacking team then proceeds with a corner kick following the standard free kick procedure (see Section~\ref{sec:free_kick}).
+\item If the ball was last touched by the defensive team, a \emph{Corner Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the attacking team, and the ball is placed on the corner on the same side of the center field line that the ball was kicked-out.
+The attacking team then proceeds with a corner kick following the standard free kick procedure (\cf Section~\ref{sec:free_kick}).
 
-\item If the ball was touched by the offensive team, a \emph{Goal Free Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team, and the ball is
-placed on the Goal Spot on the same side of the centre field line that the ball was kicked-out. The Goal Spot is in
-line with the penalty spot and side-edge of the penalty box.
+\item If the ball was touched by the offensive team, a \emph{Goal Free Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team, and the ball is placed on the Goal Spot on the same side of the center field line that the ball was kicked-out. The Goal Spot is in line with the penalty spot and side-edge of the penalty box.
 
 \end{itemize}
 
@@ -493,7 +491,7 @@ A Free Kick is initiated in four circumstances:
 If a team is awarded a Free Kick, the following procedure will apply:
 \begin{enumerate}
   \item The head referee will announce a Free Kick, calling ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot or ``Kick-in/Goal Free Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
-  \item Game Controller will activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ``Foul''.
+  \item The GameController will activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ``Foul''.
   \item If the ball left the field, the ball will be positioned by the assistant referee as described in Section~\ref{sec:kick_in}.
   \item For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing
   rules (see Section~\ref{sec:player_pushing}).
@@ -693,7 +691,7 @@ Manual interaction with the robots, either directly or via some communications m
 \subsection{Locomotion Type}
 \label{sec:locomotion_type}
 
-Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion.
+Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via ``Request for Pick-up'' until they are able to show appropriate locomotion.
 
 \subsection{Damage to the Field}
 \label{sec:damage}
@@ -1095,7 +1093,7 @@ This is a brief list of rule changes from 2018 to 2019.
 
 \subsection*{The Official RoboCup Competition Rules}
 \begin{itemize}
-  \item Added repeating the head referee calls to the game controller operator duty list.
+  \item Added repeating the head referee calls to the GameController operator duty list.
   \item Pre-Qualification by technical challenges is possible.
   \item Use Glicko rating for seeding.
 \end{itemize}
