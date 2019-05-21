@@ -681,10 +681,24 @@ These attempts will be timed (that is, for a goal scored, how long did it take t
 
 The following actions are forbidden. In general, when a penalty applies, the robot shall be replaced, not the ball. For penalties that are timed, the penalty time is considered to be over at half-time.
 
+\subsection{Penalty Procedure}
+\label{sec:penalty_procedure}
+
+When a robot commits a foul, the head referee shall call out the infraction committed, the primary jersey color of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
+
+\subsection{Manual Interaction by Team Members}
+
+Manual interaction with the robots, either directly or via some communications mechanism, is not permitted. Team members can only touch one of their robots when an assistant referee hands it over to them after a ``Request for Pick-up''.
+
 \subsection{Locomotion Type}
 \label{sec:locomotion_type}
 
 Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden. It is duty of the head referee to decide whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via `Request for Pick-up' until they are able to show appropriate locomotion.
+
+\subsection{Damage to the Field}
+\label{sec:damage}
+
+A robot that damages the field will be removed from the field for the remainder of the game. Similarly, a robot that poses a threat to spectator safety will also be removed from the field for the remainder of the game.
 
 \subsection{Illegal Positioning}
 \label{sec:illegal_positioning}
@@ -700,11 +714,6 @@ Robots may not exit the Set state until either the referee's whistle is detected
 \label{sec:pen_local_game_stuck}
 
 When Local Game Stuck is called, the nearest robot to the ball will be penalized and removed for 45 seconds. Local Game Stuck penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
-
-\subsection{Penalty Procedure}
-\label{sec:penalty_procedure}
-
-When a robot commits a foul, the head referee shall call out the infraction committed, the primary jersey color of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
 
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
@@ -730,10 +739,6 @@ With approximately 5 seconds left before the penalty ends, the robot should be t
 \end{figure}
 
 When the robot is on the field again, the operator of the GameController will send the \emph{playing} signal to it. If the wireless is not working, the assistant referee who placed the robot back on the field has to bring it into the \emph{playing} state again.
-
-\subsection{Manual Interaction by Team Members}
-
-Manual interaction with the robots, either directly or via some communications mechanism, is not permitted. Team members can only touch one of their robots when an assistant referee hands it over to them after a ``Request for Pick-up''.
 
 \subsection{Kick-off Shot}
 \label{sec:kick-off_shot}
@@ -827,12 +832,7 @@ The following define situations where pushing does not apply:
 
 Playing with arms/hands occurs when a field player (including a defender) or a goal keeper outside its own penalty box moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
 
-Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (Section \ref {sec:kick_in}). Similarly, if a goal is scored, the goal should count.
-
-
-\subsection{Damage to the Field}
-\label{sec:damage}
-A robot that damages the field will be removed from the field for the remainder of the game. Similarly, a robot that poses a threat to spectator safety will also be removed from the field for the remainder of the game.
+Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (\cf Section~\ref{sec:kick_in}). Similarly, if a goal is scored, the goal should count.
 
 \subsection{Leaving the Field}
 \label{sec:leaving_field}
