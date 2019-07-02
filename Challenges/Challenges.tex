@@ -17,8 +17,8 @@
 \pdfcompresslevel=9
 \newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
 \hypersetup{
-	pdftitle={\leaguename Technical Challenges},
-	pdfauthor={Technical Committee},
+  pdftitle={\leaguename Technical Challenges},
+  pdfauthor={Technical Committee},
 }
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
@@ -112,7 +112,7 @@ Each team will be given three minutes of time on an SPL field for a presentation
 
 \subsection{Score}
 
-The winner will be decided by a vote among the SPL teams using the Borda count mechanism (\url{http://en.wikipedia.org/wiki/Borda_count}). Each SPL team will vote for their top 10 teams in order (excluding themselves). Teams are encouraged to evaluate the performance based on the following criteria: technical strength, novelty, expected impact and relevance to RoboCup, quality of the presentation. At a time decided by the designated referee, within one hour of the last demonstration if not otherwise specified, the captain of each team will submit his or her team's rankings by filling out an online form. Any points awarded by a team to itself will be disregarded. The points awarded by the teams will be summed and thus form the score of this challenge which is then converted according to the formula described in the preface of this document.
+The winner will be decided by a vote among the SPL teams using the Borda count mechanism (\url{http://en.wikipedia.org/wiki/Borda_count}). Each SPL team will vote for their top 10 teams in order (excluding themselves). Teams are encouraged to evaluate the performance based on the following criteria: technical strength, novelty, expected impact and relevance to RoboCup, quality of the presentation. At a time decided by the designated referee, within one hour of the last demonstration if not otherwise specified, the captain of each team will submit his or her team's rankings by filling out an online form at \url{https://forms.gle/eiRJRqaJJZWTituV7}. Any points awarded by a team to itself will be disregarded. The points awarded by the teams will be summed and thus form the score of this challenge which is then converted according to the formula described in the preface of this document.
 
 \newpage
 
@@ -122,9 +122,15 @@ The intention of this challenge is to investigate the possibilities of localizin
 
 \subsection{Setup}
 \label{sec:dwc:setup}
-Each participating team provides a number of robots from \(1\) to \(5\) for this challenge. The choice of the actual number of robots is up to the team, but it may affect the final ranking (\cf Section~\ref{sec:dwc:score}). Each robot has to wear a jersey with a number from the set \(\{1,2,3,4,5\}\). They are placed on predefined spots on a regular SPL field and oriented in some predefined orientation (per spot), where each spot corresponds to a jersey number. Thus, if a team chooses to use less than 5 robots, they can select which subset of poses is used by the jersey numbers of the robots they provide. The exact poses will be announced well before the challenge, such that teams can make sure that their robots know where they are during the challenge.
+Each participating team provides a number of robots from \(1\) to \(5\) for this challenge. The choice of the actual number of robots is up to the team, but it may affect the final ranking (\cf Section~\ref{sec:dwc:score}). Each robot has to wear a jersey with a number from the set \(\{1,2,3,4,5\}\). They are placed on predefined spots on a regular SPL field and oriented in some predefined orientation (per spot), where each spot corresponds to a jersey number (\cf Figure~\ref{fig:dwc:poses}). Thus, if a team chooses to use less than 5 robots, they can select which subset of poses is used by the jersey numbers of the robots they provide.
 
-To evaluate the success of the challenge, at least one of the robots must be connected to a wireless network (with the same settings as in normal games) such that it can send messages to a testing application (which will be released before the competition) running on a separate computer. Wireless communication between the robots using the provided network is also allowed and is not subject to the usual restrictions, \eg robots may send more than one message per second in this challenge.
+\begin{figure}[b!]
+  \centerline{\includegraphics[width=\columnwidth]{figures/dwc-poses}}
+  \caption{The poses that robots will be placed at during the challenge, based on their jersey number. Robot 3 is oriented towards the penalty cross, robot 4 towards the center of the field. The exact coordinates are specified in the \texttt{Config/robotPoses.json} file of the testing application.}
+  \label{fig:dwc:poses}
+\end{figure}
+
+To evaluate the success of the challenge, at least one of the robots must be connected to a wireless network (with the same settings as in normal games) such that it can send messages to a testing application\footnote{available at \url{https://github.com/bhuman/DirectionalWhistleTester}} running on a separate computer. Wireless communication between the robots using the provided network is also allowed and is not subject to the usual restrictions, \eg robots may send more than one message per second in this challenge.
 
 The robots have to be in a manually penalized state when handed over to the TC. The GameController will not be used in this challenge. The robots will be manually unpenalized with a single chest button press (not necessarily at the same time for all robots) after they have been placed on the field by TC members.
 
@@ -151,8 +157,8 @@ The robots are only allowed to move their heads during the challenge. All other 
 Each whistle attempt contributes to the score of a team based on three aspects:
 \begin{description}
 \item[Whether the decision between ``same field'' and ``other field'' is correct:] \(1\) point is awarded if it is correct, \(0\) otherwise.
-\item[Angular precision:] \(1\) point is awarded if the absolute value of the transmitted angle is within a \(5^\circ\) of the actual direction. Between \(5^\circ\) and \(30^\circ\) deviation, the number of points scales linearly between \(1\) and \(0\) (\eg a deviation of \(15^\circ\) yields \(0.6\) points). Deviations larger than \(30^\circ\) yield no points.
-\item[Distance precision:] \(1\) point is awarded if the transmitted distance is within a \(\pm5\%\) range of the actual distance. Between \(5\%\) and \(30\%\) deviation, the number of points scales linearly between \(1\) and \(0\) (\eg a deviation of \(20\%\) of the actual distance yields \(0.4\) points). Deviations larger than \(30\%\) of the actual distance yield no points.
+\item[Angular precision:] \(1\) point is awarded if the absolute value of the calculated angle is within \(5^\circ\) of the actual direction. Between \(5^\circ\) and \(30^\circ\) deviation, the number of points scales linearly between \(1\) and \(0\) (\eg a deviation of \(15^\circ\) yields \(0.6\) points). Deviations larger than \(30^\circ\) yield no points.
+\item[Distance precision:] \(1\) point is awarded if the calculated distance is within a \(\pm5\%\) range of the actual distance. Between \(5\%\) and \(30\%\) deviation, the number of points scales linearly between \(1\) and \(0\) (\eg a deviation of \(20\%\) of the actual distance yields \(0.4\) points). Deviations larger than \(30\%\) of the actual distance yield no points.
 \end{description}
 That is, if the whistle is correctly detected as being on the same field, the direction has a deviation of \(10^\circ\) and the distance has a deviation of \(17.5\%\), \(1+0.8+0.5=2.3\) points are awarded. If after \(5\) seconds there has been no reaction from the robot, the attempt is over, no points are awarded, and the whistle is blown from the next of the \(8\) points.
 
