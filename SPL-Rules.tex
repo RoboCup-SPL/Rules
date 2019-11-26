@@ -68,14 +68,16 @@
 \newcommand{\TotalLength}{10.4~m\xspace }
 \newcommand{\GoalScoredDelay}{15 seconds\xspace}
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
+\newcommand{\KickOffBallFreeTime}{10 seconds\xspace}
 \newcommand{\FreeKickTime}{30 seconds\xspace}
 \newcommand{\FreeKickRadius}{0.75m\xspace}
 \newcommand{\PlayingDelayTime}{15 seconds\xspace}
-\newcommand{\PenaltyFreeKickTime}{15 seconds\xspace}
+\newcommand{\PenaltyFreeKickTime}{30 seconds\xspace}
 \newcommand{\PenaltyFreeKickSetupTime}{30 seconds\xspace}
-\newcommand{\PenaltyKickTime}{15 seconds\xspace}
+\newcommand{\PenaltyKickTime}{30 seconds\xspace}
 \newcommand{\StandardPenaltyTime}{45 seconds\xspace}
 \newcommand{\StandardPenaltyIncrease}{10 seconds\xspace}
+\newcommand{\NovelContributionTime}{3 years\xspace}
 
 % needed to align an image and text correctly side by side
 \newcommand{\imagebox}[1]{\raisebox{2ex}{\raisebox{-\height}{#1}}}
@@ -179,8 +181,8 @@ The net:
 \end{figure}
 
 \subsection{Field Colors}
-
-The colors of the soccer field are shown in Figure~\ref{fig:field_color}. Some items on the RoboCup field are color-coded:
+\label{sec:field_colors}
+The colors of the soccer field are as follow:
 
 \begin{itemize}
 
@@ -192,17 +194,17 @@ The colors of the soccer field are shown in Figure~\ref{fig:field_color}. Some i
 
 \end{itemize}
 
-\begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/emptyfield_2015.png}}
-\caption{Field colors and layout.}
-\label{fig:field_color}
-\end{figure}
+%\begin{figure}[t]
+%\centerline{\includegraphics[width=\columnwidth]{figs/emptyfield_2015.png}}
+%\caption{Field colors and layout.}
+%\label{fig:field_color}
+%\end{figure}
 
 \subsection{Lighting Conditions}
 \label{sec:lightConditions}
 The lighting conditions depend on the actual competition site. As the league moves towards natural lighting conditions, SPL fields will be placed near or under windows where possible. Whether or not window lighting is used, ceiling lights will be provided as necessary to ensure that most of the field is never darker than 300 Lux (400 Lux preferred) during competition venue opening hours. Local organizers should discuss with the technical committee if additional lighting will be needed to meet the minimum lighting requirements.
 
-Lighting is not required to be even and hotspots may occur on the fields. The lighting design (comprising both natural and artificial light sources) shall aim to limit the lighting ratio between the brightest and darkest patches on the field to less than 10 : 1. In general, lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay.  Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, etc.
+Lighting is not required to be even and hotspots may occur on the field. The lighting design (comprising both natural and artificial light sources) shall aim to limit the ratio between the brightest and darkest patches on the field to less than 10:1. In general, lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay.  Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, etc.
 
 \subsection{Venue Setup}
 \label{sec:boundaries}
@@ -420,14 +422,18 @@ The current GameController requires robots to know both their team number and th
 A goal is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. The restart after the goal shall adopt the same rules as the kick-off.
 
 The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless color\textgreater''.
-The GameController signal (to the robots) of a goal being scored, will be delayed by \GoalScoredDelay. 
+The head referee should point with one arm towards the center of the field.
 To assist robots listening for whistles, the referee should blow the whistle from on the carpet at the end of the fields where the goal was scored.
+
+The GameController signal (to the robots) of a goal being scored, will be delayed by \GoalScoredDelay. 
 
 \subsubsection{Indirect Kick}
 
 The attacking team may only score a goal from any restart in play (Kick-off, Kick-in, Free-Kick) except for a Penalty Free-Kick, by an indirect kick.
 
 An indirect kick requires the ball is touched by \textit{two} different robots from the attacking team. The ball must also travel at least 0.75m from the point of restart in play for the second touch to satisfy the indirect kick.
+\textit{(proposed TW) If a robot from the defending team deliberately plays at the ball, an indirect kick is no longer required.}
+
 The attacking team must also have at least two robots, that are not the goalkeeper on the field, for an indirect kick to be required.
 
 %    \item If the ball is touched by a legally positioned defending robot after the restart in play, the indirect kick is satisfied.
@@ -492,7 +498,7 @@ To assist the referees in placing the robots manually when needed or requested, 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
 
 After the head referee has signalled the kick-off, the robot's state is switched to \emph{playing} (either by the GameController or manually).
-The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{10 seconds} have elapsed in the playing state.
+The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{\KickOffBallFreeTime} have elapsed in the playing state.
 The GameController and head referee will indicate this by the call `` Ball Free''.
 If a defensive player enters the center circle before the ball is in play, the ``Illegal Position'' penalty is applied (\cf Section~\ref{sec:illegal_positioning}).
 
@@ -577,9 +583,9 @@ resumes the game state \emph{playing}. Note that the substate will be automatica
 \label{sec:penalty_free_kick}
 
 When the GameController activates the Penalty Free Kick, the game changes to the \textit{Ready} state.
-This denotes that the robot are given time to setup and prepare for the penalty kick. 
-For \textit{all} competition games the game clock is \textit{paused}.
-The referee should also pick up the ball.
+This denotes that the robot's are given time to setup and prepare for the penalty kick. 
+Similar to kick-off, the game clock is \textit{paused} during finals games only.
+The referees should pick up the ball.
 
 Robots have \PenaltyFreeKickSetupTime to get into position for the Penalty Free Kick. At the end of 30 seconds, the game changes to the \textit{Set} state.
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Free Kick to commence.
@@ -597,7 +603,7 @@ The referee should also place the ball on the penalty spot during \textit{Set}.
 The referee signals the Penalty Kick commences by blowing the whistle once, and calling ``Playing''. 
 The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
 (Note that the GameContoller signal is delayed by \PlayingDelayTime when switching from \textit{Set} to \textit{free kick} sub-state).
-The attacking team have \PenaltyFreeKickTime to complete the Penalty Free Kick.
+The attacking team has \PenaltyFreeKickTime to complete the Penalty Free Kick.
 
 During the Penalty Free Kick:
 \begin{enumerate}
@@ -722,7 +728,7 @@ A team that has scored the most goals at the conclusion of these will be declare
 
 Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game.
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 %The procedure for each of the first 3 attempts is described in Section~\ref{sec:penalty_kick}. If after three penalty kicks by each team there is no result (that is, each team has scored the same number of goals), then the decision will be made by the following sudden death shoot-out procedure in Section~\ref{sec:sudden_death_shoot_out}.
 
@@ -731,7 +737,7 @@ Before the penalty shootout begins, each team must hand over to referees up to 6
 
 A penalty kick is carried out with one striker robot and one opposing goalkeeper.
 The penalty kick commences with the \textit{set} game state activated.
-The striker (attacking) robot will be indicated by the GameController using the kick-off flag.
+The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
 %, \ie the kick-off team is the attacking one.
 
 Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty box, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goal keeper is placed with its feet on the goal line and in the center of the goal.
@@ -794,7 +800,7 @@ The following actions are forbidden. In general, when a penalty applies, the rob
 
 When a robot commits a foul, the head referee shall call out the infraction committed, the primary jersey color of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
 
-For penalties that are timed, the penalty time is considered to be over at half-time.
+For penalties that are timed, the penalty time is considered to be over at the end of each half.
 
 \subsection{Standard Removal Penalty}
 \label{sec:removal_penalty}
@@ -1034,35 +1040,45 @@ The referees are the only persons permitted on the carpeted area (\ie the field 
 
 \subsection{Head Referee}
 \label{sec:head_referee}
-The head referee signals game starts, restarts, and the case of \emph{game stuck} by a single whistle. In general, the head referee first whistles and then announces the reason for the whistle. The only exception is the case of the kick-off, in which the reason for the whistle is obvious. The whistle defines the point in time at which the decision is made. In case of a local or global game stuck, this is also announced verbally. By two whistles, the head referee terminates the first half; by three whistles he terminates the second half, \ie the whole game.  Goals should be indicated verbally and by the head referee pointing with one arm towards the center of the field.
 
-In the penalty kick shoot-out, the head referee keeps the time.
+The head referee is in charge of the game. Any decision of the head referee is valid. The head referee's decision is final and can not be changed afterwards, even by video proof. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience or the teams and the head referee.
 
-Any decision of the head referee is valid. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience or the teams and the head referee. The main referee's decision is final and can not be changed afterwards by video proof.
-
-\subsection{Assistant Referees}
-\label{sec:assist_referee}
-The two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots, if manual placement is requested, they take the robots out when they are penalized, and they put the robots in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.  In addition, the assistant referees can indicate violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
-
-\subsection{Operator of the GameController}
-\label{sec:gameControllerOp}
-The operator of the GameController sits at a PC outside the playing area. He or she will signal any change in the game state to the robots via the wireless as they are announced by the head referee. Please note that for the kick-off, the moment of whistling is determining, not the verbal announcement of the head referee. He or she will also inform the assistant referees when a timed penalty is over and a robot has to be placed back on the field. He or she should announce to the head referee when the ball is in play on kick-off (if this occurs because 10 seconds have elapsed in the playing state) by stating ``Ball in Play''. The operator is also responsible for keeping the time of each half, \ie, he or she stops the clock after a goal or game stuck, and continues it at the kick-off\footnote{The clock may not be stopped during the preliminaries.}.  The operator should count aloud the remaining seconds in a half once the time remaining is 5 seconds or less. In addition, the operator should repeat the calls of the head referee to make sure it was heard correctly.
-
-\subsection{Referees During the Match}
-
-The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue color} (blue jeans are acceptable) and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
-
-\subsection{Referee Calls \& Whistle Sounds}
-\label{sec:referee-calls-whistles}
-
-Referees and GameController operators should make efforts to use consistent and clear calls.
-It is preferrable for Referees to use the calls as specified in these rules.\footnote{The calls specified in these rules are detailed in English. With the agreement of the teams, the referees may use suitable calls in any language. The exception to this are technical challenge that depends on the calls as specified.}.
+The head referee announces decisions by a clear loud call, and (as required) whistle sound.
+The whistle, or where there is no whistle the first verbal word of the referees calls, defines the point in time at which the decision is made.
+The referees should make efforts to use consistent and clear calls, and it is preferable for referees to use the calls as specified in these rules\footnote{The calls specified in these rules are detailed in English. With the agreement of the teams, the referees may use suitable calls in any language. The exception to this are technical challenge(s) that depends on the calls as specified. The use of consistent calls is also in preparation for future changes~(\cf Section~\ref{sec:future_changes})}.
 The intention of specifying the referee calls is for clarity and consistency across games.
 
+Where a whistle is required, the head referee first whistles and then announces the reason for the whistle.
 The head referee may choose to use any normal sports whistle. 
 Each whistle sound should be short and not too loud as to interfere with other fields and simultaneous games.
 The head referee must \textit{only} sound the whistle in circumstances described in these rules.
 There are three circumstances when the whistle is sounded, Kick-off~(\cf Section~\ref{sec:kick-off}), a goal~(\cf Section~\ref{sec:goal}), and ending a half of gameplay~(\cf Section~\ref{sec:game_struct}).
+
+The head referee should avoid handling the ball (except for placing a ball for kick-off), and avoid handling the robots.
+Their duty is to monitor and adjudicate the game.
+The head referee should only handle robots and the ball if absolutely necessary to expedite gameplay or removal of penalised robots, where the assistant referees are otherwise occupied or too far away.
+
+\subsection{Assistant Referees}
+\label{sec:assist_referee}
+The two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots, if manual placement is requested, they take the robots out when they are penalized, and they put the robots in again. If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet. 
+
+The assistant referees can \textit{indicate} violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee. They should not prevent robots from falling during the game.
+
+\subsection{Operator of the GameController}
+\label{sec:gameControllerOp}
+The operator of the GameController sits at a PC outside the playing area. 
+As with the head referee, the operator should make efforts to use consistent and clear calls.
+They will signal any change in the game state to the robots via the wireless as they are announced by the head referee.
+Note that for both kick-offs and goals, the moment of whistling is determining, not the verbal announcement of the head referee. 
+The operator will also inform the assistant referees when a timed penalty is over and a robot has to be placed back on the field.
+They should announce when the ball is in play on kick-off by stating ``Ball Free'', if the \KickOffBallFreeTime time period has elapsed in the playing state.
+They are also responsible for keeping the time of each half (\ie, they stop the clock after a goal or game stuck, and continues it at the kick-off\footnote{The clock may not be stopped during the preliminaries.}). 
+They should count aloud the remaining seconds in a half once the time remaining is 5 seconds or less.
+Finally, they should repeat the calls of the head referee to make sure it was heard correctly.
+
+\subsection{Referees During the Match}
+
+The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue color} (blue jeans are acceptable) and avoid reserved colors for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
 
 \subsection{A Remark on Artificial Landmarks}
 \label{sec:judgment:landmarks}
@@ -1084,17 +1100,43 @@ The application of this rule needs to be well considered and should be reserved 
 This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international RoboCup competition.
 
 \subsection{Qualification Procedure and Code Usage}
+\label{sec:qualification_procedure_codeuse}
 
 The qualification procedure as well as the corresponding deadlines will be announced by the Technical Committee before qualification applications are accepted.
 
-The RoboCup Standard Platform League offers unique possibilities to use code from other teams. In spirit of the RoboCup every team is generally allowed to use code from other teams to push the league further with their own research. However, every participant of the RoboCup has to limit their code usage to ensure that their team contributes to the league. The code usage rules for every applicant are as follows:
+The RoboCup Standard Platform League offers unique possibilities to use code from other teams. In spirit of the RoboCup every team is generally allowed to use code from other teams to push the league further with their own research.
+However, every participant of RoboCup \textbf{\textit{has a duty}} to contribute to the league.
+
+To qualify, every team must make at least \textit{novel contribution} within their soccer software.
+A team must have made at least one contribution within the last \NovelContributionTime.
+Contributions outside of this period are no longer considered sufficiently novel and a team must make at least one \textit{new} contribution.
+It is also \textit{mandatory} for a team to use their novel contribution in all competition games.
+A novel contribution is:
 \begin{itemize}
-  \item Every applicant has to bring a poster containing the team's contribution, focused on the current year, to the RoboCup event to share their contributions with the other teams.
-  \item When their code is based on another team's code base, the applicant has to replace or add one major\footnote{This refers to parts like object detection, localization or walking but explicitly not to a behavior that uses the other team's code base.} part with their own code for each year the other team's code base is used. The replaced parts have to be research publishable (or of equivalent scale and quality) to be considered contributions that warrant a qualification and have to be used in the competition.
-  \item If a team that is otherwise eligible for qualification cannot provide sufficient evidence of the required contributions by the deadline for applications then that team cannot initially be qualified for RoboCup. In this case, the team may be given the opportunity to become qualified subject to providing evidence of the required contributions by the registration deadline of the RoboCup event.
+  \item Research publishable contribution to a \textit{game critical module}
+  \item Complete replacement of a \textit{game critical module}, with original software. This may not necessarily be necessarily research publishable, but must be of equivalent scale and quality to research publishable work.
 \end{itemize}
 
-Failure to meet one of the above requirements will result in a qualification penalty for the following year for qualified teams.
+Is is not a novel contribution to replace a module with code copied from another source, or to training a new machine learnt model from data sets using software from another team.
+
+As of the 2020 competition, the following are recognised as game critical modules:
+Ball detection, Robot detection, Robot vision (not otherwise listed), Localisation, Walk/Kick engine, Dynamic stabilisation, Behaviour Architecture, \& Distribution computation.
+
+As of the 2020 competition, the following are \textit{not} recognised as sufficiently game critical (even if the ability to play soccer depends on these):
+Hand-written Soccer Behaviours, Whistle detection, Natural Language detection, \& Robot and GC Communication.
+
+In their qualification application, teams may petition the technical committee to recognise other novel contributions not listed here.
+Additionally, a team that has participated at RoboCup for at least \NovelContributionTime consecutively may petition the technical committee to recognise contributions to non-game critical modules, such as developing infrastructure for the league\footnote{However, the technical committee should balance whether a team is continuing to use their own software in games.}.
+A team may also petition for the technical committee to reconsider the list of game critical and non game critical modules.
+For example, a team may petition and provide evidence that their work on the whistle detection is substantial and game critical, thus satisfying the requirements of a novel contribution.
+
+If a team that is otherwise eligible for qualification cannot provide sufficient evidence of the required contributions by the deadline for applications, then that team may be qualified for RoboCup \textit{on probation}.
+In this case, the team must provide evidence of the required contributions to become \textit{fully} qualified by the registration deadline of the RoboCup event.
+If no suitable evidence is provided, the team's probationary qualification will lapse.
+
+Every applicant must also bring a poster containing the team's contribution, focused on the current year, to the RoboCup event to share their contributions with the other teams.
+
+Failure to meet any of these requirements will result in a qualification penalty for subsequent years.
 
 \subsection{Game Structure}
 
@@ -1183,6 +1225,27 @@ A team cannot be pre-qualified for RoboCup in the year following a qualification
 
 Whenever a qualification penalty is recorded, all relevant details including any possible mitigating circumstances are also recorded and these will also inform the assessment of a team's application.
 
+\subsection{Disqualification during Competition}
+\label{sec:disqualification_during_comp}
+
+A team may be disqualified during the RoboCup competition for:
+\begin{itemize}
+  \item A serious violation of the terms of a team's qualification
+  \item Accruing a Qualification Penalty~(\cf Section~\ref{sec:qualificationPenalties})
+  \item A serious breach of ethics, or serious behaviour unbecoming of participants of RoboCup.
+\end{itemize}
+
+\textbf{Example.} A team promises to use their novel contribution in RoboCup games, but fails to do so.
+Alternatively, a team deliberately misleads the technical committee about the novelty of their work and/or their contribution to the league, such that they are deemed to have copied another team.
+
+A team can \textit{only} be disqualified by a decision of the \textit{Board of Trustees of the RoboCup Federation}.
+The RoboCup Soccer SPL executive must petition the board in writing at their soonest possible availability.
+The executive must simultaneously inform the relevant team of the petition in writing.
+
+A disqualified team automatically forfeits all games~(\cf Section~\ref{sec:forfeit}).
+For practicality, the disqualification should not apply \textit{retroactively}.
+However, by majority vote of the team leaders, provisions for retroactive disqualification may be made in the fairness of the affected teams.
+
 %\section{Mixed Team Tournament}
 %\label{sec:mixedTeamTournament}
 %This section contains all rules regarding the mixed teams tournament.
@@ -1225,6 +1288,11 @@ This is a brief list of rule changes from 2019 to 2020.
 \subsection*{Field Layout}
 \begin{itemize}
   \item Size of the penalty box changed (\cf Section~\ref{sec:field_dim})
+\end{itemize}
+
+\subsection*{Field Colors}
+\begin{itemize}
+  \item Removed redundant figure (\cf Section~\ref{sec:field_colors})
 \end{itemize}
 
 \subsection*{Structure of the Game}
@@ -1279,9 +1347,9 @@ This is a brief list of rule changes from 2019 to 2020.
 \begin{itemize}
   \item Time for Penalty Kick reduced to \PenaltyKickTime.
   \item Striker robot is placed on the edge of the penalty box~(\cf Section~\ref{sec:penalty_kick})
-  \item Goalkeeper robot must remain on the goal line and standing.Penalty Free Kick procedure introduced~(\cf Section~\ref{sec:penalty_kick})
-  \item Rules streamlined~(\cf Section~\ref{sec:penalty_shoot-out})
-  \item Streamlined Sudden-death shoot out procedure~(\cf Section~\ref{sec:sudden_death_shoot_out})
+  \item Goalkeeper robot must remain on the goal line and on its feet~(\cf Section~\ref{sec:penalty_kick})
+  \item Removed requirement for timing sudden-death penalty shots as this is no-longer used as a tie-breaker
+  \item General Rules housekeeping~(\cf Section~\ref{sec:penalty_shoot-out} \& Section~\ref{sec:sudden_death_shoot_out})
 \end{itemize}
 
 \subsection*{Illegal Defender \& Position}
@@ -1306,10 +1374,25 @@ This is a brief list of rule changes from 2019 to 2020.
   \item Explicitly define interference of whistle sounds~(\cf Section~\ref{sec:jamming})
 \end{itemize}
 
-\subsection*{Referee Signals, Spoken Calls \& Whistle Sounds}
+\subsection*{Judgement - Head Referee}
 \begin{itemize}
-  \item Defined Referee Spoken Calls~(\cf Section~\ref{sec:referee-calls-whistles})
-  \item Defined Referee Whistle Sounds~(\cf Section~\ref{sec:referee-calls-whistles})
+  \item Modified head referee's use of the whistle as it is now important for robots to detect the whistle during gameplay. Whistle's are only used for kick-off, end-of-half and goals.
+  \item Removed whistle sound for game stuck.
+  \item Added requirement to use calls as defined in the rules.
+  \item Clarified head referee's role in handling robots and the ball.
+  \item Removed requirement for timing sudden-death penalty shots as this is no-longer used as a tie-breaker
+\end{itemize}
+
+\subsection*{Official Rules - Qualification Procedure}
+\begin{itemize}
+  \item Revised qualification requirements for novel contributions and reuse of existing software~(\cf Section~\ref{sec:qualification_procedure_codeuse})
+  \item \textbf{ALL TEAMS}: Note novel contribution requirementlls now apply to all teams.
+\end{itemize}
+
+
+\subsection*{Official Rules - Disqualification during competition}
+\begin{itemize}
+  \item Added possibility to disqualify a team during competition for serious ethical breaches, or violation of the terms of their qualification~(\cf Section~\ref{sec:disqualification_during_comp})
 \end{itemize}
 
 \subsection*{Mixed Team Tournament}
@@ -1323,6 +1406,7 @@ This is a brief list of rule changes from 2019 to 2020.
 \end{itemize}
 
 \section{Future Changes}
+\label{sec:future_changes}
 \begin{itemize}
   \item Use spoken referee commands during gameplay.
   \item Use of the whistle for fouls in general.
