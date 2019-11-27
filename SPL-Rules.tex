@@ -246,18 +246,15 @@ A match is played by two teams, each consisting of not more than \textbf{5} play
 
 \subsection{Hardware}
 \label{sec:hardware}
-All teams must use gray, red, blue, or orange plated NAO humanoid robots manufactured by SoftBank Robotics.
+All teams must use black, gray, red, blue, or orange plated NAO humanoid robots manufactured by SoftBank Robotics.
 
 Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
 
 \begin{itemize}
-
-\item Setting the passive wrist joints to a fixed position either with glue or a transparent or white duct tape.
-
-\item Protecting the fingers with white finger protectors provided by the manufacturer or with transparent or white duct tape.
-
-\item A memory stick may remain in the head during operation.  Only ordinary USB flash memory keys that sit flush or recessed to the head casing may be utilized. Other USB dongles or devices, as well as memory sticks that are not flush or recessed, are not permitted.
-
+    \item Setting the passive wrist joints to a fixed position either with glue or a transparent or white duct tape.
+    \item Protecting the fingers with white finger protectors provided by the manufacturer or with transparent or white duct tape.
+    \item Placing white duct tape over the battery case and screw (under the robot jersey) to keep the battery case in place and prevent the battery becoming disconnected.
+    \item A memory stick may remain in the head during operation.  Only ordinary USB flash memory keys that sit flush or recessed to the head casing may be utilized. Other USB dongles or devices, as well as memory sticks that are not flush or recessed, are not permitted.
 \end{itemize}
 
 A computer will be provided by the event organizers for the purpose of sending GameController messages to the robots.
@@ -405,7 +402,11 @@ This state is not available if only the button interface is implemented.
 
 \end{description}
 
-The referee will announce the start of the Playing state with a single whistle blow. The GameController Playing signal will be delayed by \PlayingDelayTime.   Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf Section~\ref{sec:motion_in_set}) GameController signal (and moved back to their original position if they have moved significantly before becoming penalized) until the GameController transmits the \emph{playing signal}.  Note that responding to a whistle on another field will result in this penalty.
+The referee will announce the start of the Playing state with a single whistle blow.
+The GameController Playing signal will be delayed by \PlayingDelayTime.  
+This delay applies to both kick-off and penalty shots.
+Robots that begin moving their legs or locomoting in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf Section~\ref{sec:motion_in_set}) GameController signal (and moved back to their original position if they have moved significantly before becoming penalized) until the GameController transmits the \emph{playing signal}.  
+Note that responding to a whistle on another field will result in this penalty.
 
 The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
 
@@ -1133,15 +1134,15 @@ A novel contribution is:
 It is not a novel contribution to replace a module with code copied from another source, or to simply train a machine-learning model released by another team using new data.
 
 As of the 2020 competition, the following are recognised as game critical modules:
-Ball detection, Robot detection, Robot vision (not otherwise listed), Localisation, Walk/Kick engine, Dynamic stabilisation, Behaviour Architecture, \& Distribution computation.
+Ball detection, Robot detection, Robot vision (not otherwise listed), Localisation, Walk/Kick engine, Dynamic stabilisation, Behaviour Architecture, \& Distribution computation, Whistle detection.
 
 As of the 2020 competition, the following are \textit{not} recognised as sufficiently game critical (even if the ability to play soccer depends on these):
-Hand-written Soccer Behaviours, Whistle detection, Natural Language detection, \& Robot and GC Communication.
+Hand-written Soccer Behaviours, Natural Language detection, \& Robot and GC Communication.
 
 In their qualification application, teams may petition the technical committee to recognise other novel contributions not listed here.
 Additionally, a team that has participated at RoboCup for at least \NovelContributionTime consecutively may petition the technical committee to recognise contributions to non-game critical modules, such as developing infrastructure for the league\footnote{However, the technical committee should balance whether a team is continuing to use their own software in games.}.
 A team may also petition for the technical committee to reconsider the list of game critical and non game critical modules.
-For example, a team may petition and provide evidence that their work on the whistle detection is substantial and game critical, thus satisfying the requirements of a novel contribution.
+%For example, a team may petition and provide evidence that their work on the whistle detection is substantial and game critical, thus satisfying the requirements of a novel contribution.
 
 If a team that is otherwise eligible for qualification cannot provide sufficient evidence of the required contributions by the deadline for applications, then that team may be qualified for RoboCup \textit{on probation}.
 In this case, the team must provide evidence of the required contributions to become \textit{fully} qualified by the registration deadline of the RoboCup event.
@@ -1288,6 +1289,7 @@ However, by majority vote of the team leaders, provisions for retroactive disqua
 %
 %If after these eight penalty kicks the result is still even, the teams will continue with the standard sudden-death shootout procedure (\cf Section~\ref{sec:sudden_death_shoot_out}) and may select the participating robot for each kick from both individual teams.
 
+\newpage
 \section{General Penalty Kick Challenge}
 \label{sec:generalPenaltyKickChallenge}
 This section contains the rules for the General Penalty Kick Challenge.
@@ -1305,24 +1307,24 @@ The challenge will be held as a single elimination tournament.
   \item The Top 4 round.
   \item The Final.
 \end{itemize}
-Moreover, it is mandatory to provide two referees per team for the challenge. The winner of the challenge will be awarded with a certificate.
 
+It is mandatory to provide two referees per team for the challenge.
+The winner of the challenge will be awarded with a certificate.
 The challenge will be held the day before the official competition starts.
 A schedule will be announced for match-makers and referees. Teams must hand their robots to the referees within 2 minutes of the previous penalty shoot-out concluding. No late robots will be accepted. Referees scheduled for the next shoot-out must be at the field and ready to referee when the previous shoot-out ends.
 
 Violations of any of these rules will be recorded and may affect future qualifications. 
 
-\subsection{Rule Modifications}
-The striker is positioned on a circle segment of radius 1m and an opening angle of $120^\circ$ around the penalty spot facing the ball. On this circle segment two spots to the left and two spots to the right with a distance of each $30^\circ$ are marked as starting position (see Figure~\ref{fig:general_penalty_setup}). For each round each team has to hand over one striker and one goalkeeper or just one robot if goalkeeper and striker are the same robot. Afterwards the head referee throws a die to determine the starting position as in Figure~\ref{fig:general_penalty_setup} for this round).
-
-\begin{figure}[t]
+\begin{figure}[ht]
   \centerline{\includegraphics[width=0.5\columnwidth]{figs/general_penalty_setup}}
   \caption{Possible striker positions for the General Penalty Kick Challenge.}
   \label{fig:general_penalty_setup}
 \end{figure}
 
-\newpage
+\subsection{Rule Modifications}
+The striker is positioned on a circle segment of radius 1m and an opening angle of $120^\circ$ around the penalty spot facing the ball. On this circle segment two spots to the left and two spots to the right with a distance of each $30^\circ$ are marked as starting position (see Figure~\ref{fig:general_penalty_setup}). For each round each team has to hand over one striker and one goalkeeper or just one robot if goalkeeper and striker are the same robot. Afterwards the head referee throws a die to determine the starting position as in Figure~\ref{fig:general_penalty_setup} for this round).
 
+\newpage
 \section{Changes From 2019}
 This is a brief list of rule changes from 2019 to 2020.
 
@@ -1339,6 +1341,12 @@ This is a brief list of rule changes from 2019 to 2020.
 \subsection*{Field Colors}
 \begin{itemize}
   \item Removed redundant figure (\cf Section~\ref{sec:field_colors})
+\end{itemize}
+
+\subsection*{Robot Players: Hardware}
+\begin{itemize}
+  \item Added black Nao plating as permitted color~(\cf Section~\ref{sec:hardware})
+  \item Permit tape on the battery pack~(\cf Section~\ref{sec:hardware})
 \end{itemize}
 
 \subsection*{Structure of the Game}
@@ -1444,6 +1452,11 @@ This is a brief list of rule changes from 2019 to 2020.
 \subsection*{Mixed Team Tournament}
 \begin{itemize}
   \item Removed
+\end{itemize}
+
+\subsection*{Technical Challenges}
+\begin{itemize}
+  \item Penalty Shoot Out Challenge added, as per 2018 rules.
 \end{itemize}
 
 \subsection*{Field Technical Drawing}
