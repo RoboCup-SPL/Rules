@@ -3,7 +3,6 @@
 \usepackage{times,fullpage,xspace,fancyhdr,url}
 \usepackage[pdftex]{graphicx}
 \usepackage[pdftex,
-            a4paper,
             colorlinks=true,
             urlcolor=black,
             linkcolor=black,
@@ -18,9 +17,10 @@
 \newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
 \hypersetup{
  pdftitle={\leaguename Rule Book},
- pdfauthor={Technical Committee},
+ pdfauthor={Technical Committee SPL},
 }
-\usepackage[latin1]{inputenc}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{xargs}   
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
@@ -1288,6 +1288,39 @@ However, by majority vote of the team leaders, provisions for retroactive disqua
 %
 %If after these eight penalty kicks the result is still even, the teams will continue with the standard sudden-death shootout procedure (\cf Section~\ref{sec:sudden_death_shoot_out}) and may select the participating robot for each kick from both individual teams.
 
+\section{General Penalty Kick Challenge}
+\label{sec:generalPenaltyKickChallenge}
+This section contains the rules for the General Penalty Kick Challenge.
+
+The rules are a slightly modified version of the usual penalty shootout rules.
+
+\subsection{Process of the Tournament}
+The challenge will be held as a single elimination tournament.
+\begin{itemize}
+  \item One Pre Top 16 round, consisting of all teams exclusive Top 8 of last
+  year's competition.
+  \item One Top 16 round, consisting of the top teams and winners of the Pre
+  Top 16 round.
+  \item The Top 8 round.
+  \item The Top 4 round.
+  \item The Final.
+\end{itemize}
+Moreover, it is mandatory to provide two referees per team for the challenge. The winner of the challenge will be awarded with a certificate.
+
+The challenge will be held the day before the official competition starts.
+A schedule will be announced for match-makers and referees. Teams must hand their robots to the referees within 2 minutes of the previous penalty shoot-out concluding. No late robots will be accepted. Referees scheduled for the next shoot-out must be at the field and ready to referee when the previous shoot-out ends.
+
+Violations of any of these rules will be recorded and may affect future qualifications. 
+
+\subsection{Rule Modifications}
+The striker is positioned on a circle segment of radius 1m and an opening angle of $120^\circ$ around the penalty spot facing the ball. On this circle segment two spots to the left and two spots to the right with a distance of each $30^\circ$ are marked as starting position (see Figure~\ref{fig:general_penalty_setup}). For each round each team has to hand over one striker and one goalkeeper or just one robot if goalkeeper and striker are the same robot. Afterwards the head referee throws a die to determine the starting position as in Figure~\ref{fig:general_penalty_setup} for this round).
+
+\begin{figure}[t]
+  \centerline{\includegraphics[width=0.5\columnwidth]{figs/general_penalty_setup}}
+  \caption{Possible striker positions for the General Penalty Kick Challenge.}
+  \label{fig:general_penalty_setup}
+\end{figure}
+
 \newpage
 
 \section{Changes From 2019}
@@ -1434,6 +1467,8 @@ This is a brief list of rule changes from 2019 to 2020.
 \section{Field Technical Drawing}
 \label{apx:technical-drawing}
 \centerline{\includegraphics[angle=90,origin=c,width=\columnwidth]{figs/fieldDimensions2020_technical.pdf}}
+
+\change{Add the figures for Center Circle and penaly cross as well.}
 
 \end{document}
 
