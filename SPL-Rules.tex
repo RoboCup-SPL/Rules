@@ -231,15 +231,36 @@ The official ball is a soft foam ball with a black and white soccer ball print (
   \label{fig:ball}
 \end{figure}
 
+\subsubsection{Any Ball}
+
+Teams provide the competition balls, with approval of the Technical Committee.
+The balls must comply with the following constraints:
+\begin{itemize}
+    \item Be between x.xm and y.ym in diameter
+    \item Be made from soft-foam or hard polystyrene material. Note that inflatable balls are permitted
+    \item Must not permanently deform when kicked by a robot or handled by referees, and should retain their circular during gameplay
+    \item The primary colour must white, a significantly secondary colour must be black. Other minor colours, which are not green are permitted.
+    \item May have a non-``soccer'' diamond pattern, though the ball should be ``identifiable'' as a soccer ball, not belonging to any other sport.
+\end{itemize}
+
+The competition rules ~(\cf Appendix~\ref{sec:comRules}) specify how balls are selected for games
+
 \subsection{Definition of Inside and Outside}
 \label{sec:inside_outside}
 
-If not explicitly stated otherwise, a line is always part of a region.
+A line is always part of a region of the field.
 This means, that \emph{inside/outside \textless region\textgreater} refers to the green area as well as the surrounding line.
+Specifically:
+\begin{itemize}
+    \item The field boundary lines are part of the field
+    \item The penalty box lines (and the end field line inside of the goal) part of the penalty box
+    \item The centre circle lines are part of the centre circle
+\end{itemize}
+
+The only \textit{exception} to this rule is the centre field line, which does not form part of any half.
+That is, a robot is \textit{outside} of a half of the field if it is touching the centre line.
 
 \newpage
-
-
 \section{Robot Players}
 \label{sec:robot_players}
 A match is played by two teams, each consisting of not more than \textbf{5} players. At most one player may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
@@ -380,11 +401,11 @@ Robots can be in six different \emph{primary} states (\cf Figure~\ref{fig:robot_
 
 \item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 
-\item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf Section~\ref{sec:kick-off}) or a Penalty Free Kick (\cf Section~\ref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Free Kick. 
+\item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf Section~\ref{sec:kick-off}) or a Penalty Kick (\cf Section~\ref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick. 
 The GameController can activate substates for kick-off and penalty kicks.
 This state is not available if only the button interface is implemented.
 
-\item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf Section~\ref{sec:kick-off}) or a Penalty Free Kick (\cf Section~\ref{sec:penalty_free_kick})). 
+\item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf Section~\ref{sec:kick-off}) or a Penalty Kick (\cf Section~\ref{sec:penalty_free_kick})). 
 Illegally positioned robots are penalized. 
 %For a kick-off, the team leader may request manually positioning of all legally positioned robots. 
 Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion.
@@ -464,7 +485,7 @@ A goal is invalid (that is, it can never be awarded) in the following circumstan
     \item After a Kick-off, when the ball has not been touched by a robot of either team, once the ball has left the centre circle. This was formally known as a ``Kick-off Shot'', but no longer results in a penalty.
 \end{enumerate}
 
-In these case a goal is not scored (that is, the goal is ruled invalid), and the game will proceed with a Goal Free Kick (\cf Section~\ref{sec:free_kick}). The head referee should also advice why the goal is invalid, such as by calling ``Not indirect''.
+In these case a goal is not scored (that is, the goal is ruled invalid), and the game will proceed with a Goal Kick (\cf Section~\ref{sec:free_kick}). The head referee should also advice why the goal is invalid, such as by calling ``Not indirect''.
 
 \subsection{Applying Penalties}
 
@@ -533,7 +554,7 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 If the ball was last touched by the defensive team, a \emph{Corner Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the attacking team. The referee calls ``Corner Kick \textless color\textgreater'' and the ball is placed on the corner on the same side of the field that the ball was kicked-out.
 %The attacking team then proceeds with a corner kick (\cf Section~\ref{sec:free_kick}).
 
-If the ball was last touched by the offensive team, a \emph{Goal Free Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the Penalty Box on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the penalty box meets the goal line.
+If the ball was last touched by the offensive team, a \emph{Goal Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the Penalty Box on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the penalty box meets the goal line.
 
 %\begin{figure}[t]
 %\centerline{\includegraphics[width=0.7\columnwidth]{figs/goal-kick-spots.png}}
@@ -545,7 +566,7 @@ In these examples, ``red half of the field'' refers to the half the red team is 
 
 \paragraph{Example 1.} The red goal keeper kicks the ball out the end of the field to the right of the goal. The referee calls ``Corner Kick blue'', the ball is placed on the corner to the right of the goal and a free kick is started.
 
-\paragraph{Example 2.} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Free Kick red'' and the ball is placed on the right corner of the penalty box.
+\paragraph{Example 2.} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Kick red'' and the ball is placed on the right corner of the penalty box.
 
 \paragraph{Example 3.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the red half of the field. The referee calls ``Kick-in red'' and the ball is replaced on the left sideline where it went out.
 
@@ -558,22 +579,22 @@ A Free Kick is initiated:
 \begin{itemize}
   \item When the ball goes over the sidelines, termed \emph{Kick-in}.
   \item When the ball goes over the end-lines initiated by the defensive team, termed \emph{Corner Kick}.
-  \item In place of an end-line Kick-in initiated by the offensive team, also termed a \emph{Goal Free Kick}.
+  \item In place of an end-line Kick-in initiated by the offensive team, also termed a \emph{Goal Kick}.
   \item A pushing penalty (see Section~\ref{sec:player_pushing}) awarded near the ball, termed a \emph{Pushing Free Kick}.
-  \item A pushing penalty (see Section~\ref{sec:player_pushing}) awarded against the defending team within their own penalty box, termed a \textit{Penalty Free Kick}.
+  \item A pushing penalty (see Section~\ref{sec:player_pushing}) awarded against the defending team within their own penalty box, termed a \textit{Penalty Kick}.
 \end{itemize}
 
 The head referee will announce a Free Kick, calling one of:
 \begin{enumerate}
   \item For a \textit{Pushing Free Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot.
-  \item For a \textit{Penalty Free Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot, followed by ``Penalty Free Kick \textless team\textgreater''.
-  \item For all other free kicks: ``Kick-in/Goal Free Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
+  \item For a \textit{Penalty Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot, followed by ``Penalty Kick \textless team\textgreater''.
+  \item For all other free kicks: ``Kick-in/Goal Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
 \end{enumerate}
 
 The GameController will then activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ``Foul''.
 The team who is awarded the Free Kick (termed the attacking team) has \FreeKickTime to complete the kick.
 %Unless otherwise specific, the game clock is not paused.
-For a ``Penalty Free Kick'', the game instead proceeds as described in Section~\ref{sec:penalty_free_kick}.
+For a ``Penalty Kick'', the game instead proceeds as described in Section~\ref{sec:penalty_free_kick}.
 
 When necessary, the referee may need to place the ball.
 For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see Section~\ref{sec:player_pushing}).
@@ -590,16 +611,16 @@ A Free Kick is deemed completed and play returns to normal if:
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController
 resumes the game state \emph{playing}. Note that the substate will be automatically left after the \FreeKickTime time period expires.
 
-\subsubsection{Penalty Free Kick Procedure}
+\subsubsection{Penalty Kick Procedure}
 \label{sec:penalty_free_kick}
 
-When the GameController activates the Penalty Free Kick, the game changes to the \textit{Ready} state.
+When the GameController activates the Penalty Kick, the game changes to the \textit{Ready} state.
 This denotes that the robot's are given time to setup and prepare for the penalty kick. 
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
 
-Robots have \PenaltyFreeKickSetupTime to get into position for the Penalty Free Kick. At the end of 30 seconds, the game changes to the \textit{Set} state.
-Similar to a kick-off, during the Set state the robots are waiting for the Penalty Free Kick to commence.
+Robots have \PenaltyFreeKickSetupTime to get into position for the Penalty Kick. At the end of 30 seconds, the game changes to the \textit{Set} state.
+Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
 Standard penalties apply.
 Additionally, only the goalkeeper robot from the defending team may be within the penalty box. The goalkeeper robot must also be touching the goal line. 
 Only one robot from the attacking team may be within the penalty box, and it may not block the penalty spot.
@@ -615,9 +636,9 @@ The referee should also place the ball on the penalty spot during \textit{Set}.
 The referee signals the Penalty Kick commences by blowing the whistle once, and calling ``Playing''. 
 The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
 (Note that the GameContoller signal is delayed by \PlayingDelayTime when switching from \textit{Set} to \textit{free kick} sub-state).
-The attacking team has \PenaltyFreeKickTime to complete the Penalty Free Kick.
+The attacking team has \PenaltyFreeKickTime to complete the Penalty Kick.
 
-During the Penalty Free Kick:
+During the Penalty Kick:
 \begin{enumerate}
     \item The defensive goalkeeper robot must always be in contact with the goal line, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
     \item The attacking robot may move freely.
@@ -626,7 +647,7 @@ During the Penalty Free Kick:
     Kick, but still use the appropriate removal penalty.
 \end{enumerate}
 
-The Penalty Free Kick is deemed completed if:
+The Penalty Kick is deemed completed if:
 \begin{itemize}
 \item The attacking team touches the ball, even if the robot has fallen.
 \item The \PenaltyFreeKickTime time period expires (or the game time expires).
@@ -874,7 +895,9 @@ A robot penalised under illegal position has the ``Illegal Position'' penalty ap
 The head referee will call ``Illegal Position  \textless robot\textgreater''\footnote{Referees may intechange ``Illegal Position'' with ``Illegal Defender'' or ``Illegal Attacker'' to help with clarity.}.
 Illegal positions are descried below.
 
-For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty free kick) do not count towards the incremental penalty count\footnote{Historically, the Illegal Positioning penalty only occurred during a kick-off, and other illegal actions were termed Illegal Defender. Illegal Positioning \& Defender have been merged, but the penalty count left unchanged.}.
+For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty kick) do not count towards the incremental penalty count\footnote{Historically, the Illegal Positioning penalty only occurred during a kick-off, and other illegal actions were termed Illegal Defender. Illegal Positioning \& Defender have been merged, but the penalty count left unchanged.}.
+
+Refer to Section~\ref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
 
 \subsubsection{Position for Kick-off}
 If a robot is not inside its own half at the time the Set state starts, it will be penalized and removed for 15 seconds. The center line does not count as part of the own half for this penalty, although the goal box does (that is, the area inside the goal). 
@@ -898,7 +921,7 @@ If a robot of the offending team does enter or not attempt to leave the \FreeKic
 
 \subsubsection{Penalty Box, during Free-kick}
 
-If a robot that enters the relevant penalty box during a penalty-free kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
+If a robot that enters the relevant penalty box during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
 
 \subsection{Motion in Set}
 \label{sec:motion_in_set}
@@ -1011,7 +1034,7 @@ The following define situations where pushing does not apply:
 
 Playing with arms/hands occurs when a field player (including a defender) or a goal keeper outside its own penalty box moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
 
-Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (\cf Section~\ref{sec:kick_in}). However, goals (except for own goals) resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a Goal Free Kick (\cf Section~\ref{sec:free_kick}) as if the ball went over the goal line next to the goal.
+Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (\cf Section~\ref{sec:kick_in}). However, goals (except for own goals) resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a Goal Kick (\cf Section~\ref{sec:free_kick}) as if the ball went over the goal line next to the goal.
 
 \subsection{Leaving the Field}
 \label{sec:leaving_field}
@@ -1356,7 +1379,7 @@ This is a brief list of rule changes from 2019 to 2020.
 
 \subsection*{Robot States}
 \begin{itemize}
-  \item Updated states for penalty free kick (\cf Section~\ref{sec:robot_states})
+  \item Updated states for penalty kick (\cf Section~\ref{sec:robot_states})
 \end{itemize}
 
 \subsection*{Goal}
@@ -1386,15 +1409,15 @@ This is a brief list of rule changes from 2019 to 2020.
   \item Change referee phrase for ending the free kick to ``Ball Free'' for consistency with kick-off and for less confusion on  head referees during the game.(\cf Section~\ref{sec:free_kick})
 \end{itemize}
 
-\subsubsection*{Goal Free Kick}
+\subsubsection*{Goal Kick}
 \begin{itemize}
   \item Position of goal kick adjusted due to change in dimension of the penalty box (\cf Section~\ref{sec:kick_in})
 \end{itemize}
 
-\subsubsection*{Penalty Free Kick}
+\subsubsection*{Penalty Kick}
 \begin{itemize}
   \item Rule introduced~(\cf Section~\ref{sec:free_kick}).
-  \item Penalty Free Kick procedure introduced~(\cf Section~\ref{sec:penalty_free_kick}).
+  \item Penalty Kick procedure introduced~(\cf Section~\ref{sec:penalty_free_kick}).
 \end{itemize}
 
 \subsection*{Penalty Kick Shoot-out}
