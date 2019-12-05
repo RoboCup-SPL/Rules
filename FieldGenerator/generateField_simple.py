@@ -21,6 +21,8 @@ penalty_cross_size = o['penalty_cross_size']
 penalty_area_length = o['penalty_area_length']
 penalty_area_width = o['penalty_area_width']
 penalty_cross_distance = o['penalty_cross_distance']
+goalbox_area_length = o['goalbox_area_length']
+goalbox_area_width = o['goalbox_area_width']
 center_circle_diameter = o['center_circle_diameter']
 border_strip_width = o['border_strip_width']
 goal_depth = o['goal_depth']
@@ -36,6 +38,8 @@ y_sideline = field_width * 0.5
 x_penalty_area = field_length * 0.5 - penalty_area_length
 y_penalty_area = penalty_area_width * 0.5
 x_penalty_cross = field_length * 0.5 - penalty_cross_distance
+x_goalbox_area = field_length * 0.5 - goalbox_area_length
+y_goalbox_area = goalbox_area_width * 0.5
 line_width_2 = line_width * 0.5
 penalty_cross_size_2 = penalty_cross_size * 0.5
 center_circle_radius = center_circle_diameter * 0.5
@@ -74,6 +78,13 @@ def draw_inner_penalty_area(context, sign):
     context.line_to(sign * (x_groundline), (y_penalty_area))
     context.line_to(sign * (x_penalty_area), (y_penalty_area))
     context.line_to(sign * (x_penalty_area), -(y_penalty_area))
+    context.close_path()
+
+def draw_inner_goalbox_area(context, sign):
+    context.move_to(sign * (x_groundline), -(y_goalbox_area))
+    context.line_to(sign * (x_groundline), (y_goalbox_area))
+    context.line_to(sign * (x_goalbox_area), (y_goalbox_area))
+    context.line_to(sign * (x_goalbox_area), -(y_goalbox_area))
     context.close_path()
 
 # inner part of the center circle, including the center dash
@@ -115,7 +126,7 @@ def draw_penalty_cross(context, sign):
     context.line_to(sign * (x_base), penalty_cross_size_2)
     context.close_path()
 
-def draw_dimension_horizontal(context, x1, x2, y, height, bar=True, arrow=True, along_offset=0, across_offset=-0.05, label=""):
+def draw_dimension_horizontal(context, x1, x2, y, height, bar=True, arrow=True, along_offset=-0.1, across_offset=-0.05, label=""):
     if bar:
         context.move_to(x1, y + height * 0.5)
         context.line_to(x1, y - height * 0.5)
@@ -141,7 +152,7 @@ def draw_dimension_horizontal(context, x1, x2, y, height, bar=True, arrow=True, 
     #context.show_text(label + str(round(abs(x2 - x1) * 1000)))
     context.show_text(label)
 
-def draw_dimension_vertical(context, y1, y2, x, width, bar=True, arrow=True, along_offset=0, across_offset=-0.05, label=""):
+def draw_dimension_vertical(context, y1, y2, x, width, bar=True, arrow=True, along_offset=0.1, across_offset=-0.05, label=""):
     if bar:
         context.move_to(x + width * 0.5, y1)
         context.line_to(x - width * 0.5, y1)
@@ -202,6 +213,8 @@ draw_outer_lines(context)
 #draw_inner_lines(context, -1)
 draw_inner_penalty_area(context, 1)
 draw_inner_penalty_area(context, -1)
+draw_inner_goalbox_area(context, 1)
+draw_inner_goalbox_area(context, -1)
 draw_inner_center_circle(context, 1)
 draw_inner_center_circle(context, -1)
 draw_penalty_cross(context, 1)
@@ -226,8 +239,8 @@ context.set_line_width(svg_dimensionline_width)
 # dimensions for field boundary
 #draw_dimension_horizontal(context, -x_border, x_border, -(y_border + 0.1), 0.2)
 #draw_dimension_vertical(context, -y_border, y_border, -(x_border + 0.1), 0.2)
-draw_dimension_horizontal(context, x_groundline, x_border, (y_sideline - 0.3), 0.2, label="I")
-draw_dimension_vertical(context, y_sideline, y_border, (x_groundline - 0.3), 0.2, label="I")
+draw_dimension_horizontal(context, x_groundline, x_border, (y_sideline - 0.3), 0.2, label="K")
+draw_dimension_vertical(context, y_sideline, y_border, (x_groundline - 0.3), 0.2, label="K")
 
 # dimensions for outer field lines
 #draw_dimension_horizontal(context, -(x_groundline + line_width_2), (x_groundline + line_width_2), -(y_sideline + line_width_2 + 0.1), 0.2)
@@ -244,8 +257,10 @@ draw_dimension_vertical(context, -(y_sideline), (y_sideline), -(x_groundline + l
 #draw_dimension_vertical(context, -(y_penalty_area - line_width_2), (y_penalty_area - line_width_2), -(x_groundline + line_width_2 - 0.2), 0.2, bar=False)
 
 # dimension for outer penalty area length / width
-draw_dimension_horizontal(context, -(x_groundline), -(x_penalty_area), -(y_penalty_area + 0.1), 0.2, label="E")
-draw_dimension_vertical(context, -(y_penalty_area), (y_penalty_area), -(x_penalty_area - 0.1), 0.2, across_offset=0.3, label="F")
+draw_dimension_horizontal(context, -(x_groundline), -(x_penalty_area), -(y_penalty_area + 0.1), 0.2, label="G")
+draw_dimension_vertical(context, -(y_penalty_area), (y_penalty_area), -(x_penalty_area - 0.1), 0.2, across_offset=0.3, label="H")
+draw_dimension_horizontal(context, -(x_groundline), -(x_goalbox_area), -(y_goalbox_area + 0.1), 0.2, label="E")
+draw_dimension_vertical(context, -(y_goalbox_area), (y_goalbox_area), -(x_goalbox_area - 0.1), 0.2, across_offset=0.3, label="F")
 
 # penalty area width from center
 #draw_dimension_vertical(context, 0, (y_penalty_area - line_width_2), -(x_penalty_area + line_width_2 + 0.1), 0.2, bar=False)
@@ -255,11 +270,11 @@ draw_dimension_vertical(context, -(y_penalty_area), (y_penalty_area), -(x_penalt
 #draw_dimension_vertical(context, (y_penalty_area + line_width_2), (y_sideline - line_width_2), -(x_groundline - line_width_2 - 0.1), 0.2, bar=False)
 
 # dimension penalty mark
-draw_dimension_horizontal(context, (x_penalty_cross), x_groundline, penalty_cross_size*2, 0.2, label="G")
-draw_dimension_horizontal(context, (x_penalty_cross - penalty_cross_size_2), (x_penalty_cross + penalty_cross_size_2), 0, 0.2, bar=True, label="D")
+draw_dimension_horizontal(context, (x_penalty_cross), x_groundline, penalty_cross_size*2, 0.2, label="I")
+draw_dimension_horizontal(context, (x_penalty_cross - penalty_cross_size_2), (x_penalty_cross + penalty_cross_size_2), 0, 0.2, along_offset=0, bar=True, label="D")
 
 # center circle dimensions
-draw_dimension_horizontal(context, -(center_circle_radius), (center_circle_radius), 0, 0.2, bar=True, label="H", along_offset=0.2)
+draw_dimension_horizontal(context, -(center_circle_radius), (center_circle_radius), 0, 0.2, bar=True, label="J", along_offset=0.2)
 #draw_dimension_horizontal(context, -(center_circle_radius - line_width_2), (center_circle_radius - line_width_2), -0.05, 0.1, along_offset=0.2)
 #draw_dimension_vertical(context, -(center_circle_radius + line_width_2), (center_circle_radius + line_width_2), -0.05, 0.1, along_offset=-0.2)
 #draw_dimension_vertical(context, -(center_circle_radius - line_width_2), (center_circle_radius - line_width_2), 0.125, 0.1, along_offset=-0.2)
@@ -268,7 +283,7 @@ draw_dimension_horizontal(context, -(center_circle_radius), (center_circle_radiu
 #draw_dimension_vertical(context, (center_circle_radius + line_width_2), (y_sideline - line_width_2), -(line_width_2 + 0.05), 0.1, bar=False)
 
 # line width
-draw_dimension_horizontal(context, -svg_fieldline_width/2, svg_fieldline_width/2, -(y_sideline - 1), 0.2, bar=False, label="C")
+draw_dimension_horizontal(context, -svg_fieldline_width/2, svg_fieldline_width/2, -(y_sideline - 1), 0.2, along_offset=0, bar=False, label="C")
 
 if svg_addnotes:
     context.move_to(0, y_border + 0.2)

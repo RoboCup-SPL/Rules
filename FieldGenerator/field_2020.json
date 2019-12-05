@@ -6,6 +6,8 @@
   "penalty_area_length": 1.65,
   "penalty_area_width": 4,
   "penalty_cross_distance": 1.4,
+  "goalbox_area_length": 0.6,
+  "goalbox_area_width": 2.2,
   "center_circle_diameter": 1.5,
   "border_strip_width": 0.7,
   "goal_depth": 0.5,
