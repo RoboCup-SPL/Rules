@@ -452,17 +452,17 @@ The GameController signal (to the robots) of a goal being scored, will be delaye
 \subsubsection{Indirect Kick}
 \label{sec:indirect_kick}
 
-From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick, the attacking team may only score a goal via an indirect kick, providing they have at least 3 active robots on the field at the time the restart occurs (or is awarded in the case of a free kick).
-%That is, if a team is awarded a free kick, the indirect rule applies if they had 3 active robots on the field when the head referee awards the free kick.
-
+From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick, the attacking team may only score a goal via an indirect kick.
+%, providing they have at least 3 active robots on the field at the time the restart occurs (or is awarded in the case of a free kick).
 A robot may not score a goal from an indirect kick, including via deflections.
 The ball must be deliberately played-at a second time (by either another robot, or the same robot) before a goal may be scored.
+A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands. 
 
-%A robot may not score a goal from an indirect kick, including via deflections.
-%The ball must be deliberately played-at by another robot (from either team) before a goal may be scored.
+\textbf{Example 1:} Player 2 (of the red team) kicks the ball to Player 3, who then kicks the ball into the goal. This is a successful indirect kick, and the goal counts.
 
-%An indirect kick prevents the attacking robot from scoring directly from the restart.
-%An indirect kick requires that the ball is played-at by \textit{two different} robots (from either team) before a goal may be scored.
+\textbf{Example 2:} Player 2 (of the red team), kicks the ball at the goal, and it is deflected of the side of the foot of a blue-team robot into the goal. This is \textit{not} and indirect kick, and the goal does not count.
+
+\textbf{Example 2:} Player 2 (of the red team), kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player 2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
 
 Note that an own-goal may always be scored without requiring an indirect kick.
 
@@ -1499,7 +1499,7 @@ This is a brief list of rule changes from 2019 to 2020.
 \label{sec:future_changes}
 \begin{itemize}
   \item Use of the whistle for fouls in general. This would being able to successfully identify and isolate whistle tones from a referee on the field, sounds around the field, and other whistle sounds being made within the RoboCup competition venue. This can be a tough challenge, especially as whistles used by referees can be quite varied,
-  \item Use spoken referee commands during gameplay. This would allow the robots to start to interpret the referee direction and reduce the dependence on the GameController computer. RoboCup Soccer will need to move further in this direction to reach the 2050 goal.
+  \item Use spoken referee commands during gameplay. This would allow the robots to start to interpret the referee direction and reduce the dependence on the GameController computer. RoboCup Soccer will need to move further in this direction to reach the 2050 goal. This is likely to be initially introduced as a technical challenge.
   \item Add Arc to the Penalty Box. This would be the final change for the field to model human-soccer, and allow the rules to more closely approximate to those of human-soccer for penalty shots. This has been left out due to the challenge of accurately constructing arcs and circles compared to straight lines.
   \item Any Ball, if the technical requirements goes beyond training artificial networks. The TC view it as an uninteresting technical requirement to have teams re-train their networks for a new ball on site. It simply adds to the stress of competition without producing any meaningful research. However, if use of different balls is constructed in a manner to bring new and interesting research challenges beyond training networks, this is of interest.
 \end{itemize}
