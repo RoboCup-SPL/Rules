@@ -791,7 +791,7 @@ A penalty shot is over when the ball has come to a full stop after the first con
 A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line).
 Otherwise, the score is unchanged.
 
-The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the penalty box, and must remain on its feet until the striker robot touches the ball.
+The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the goal box, and must remain on its feet until the striker robot touches the ball.
 The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
 Furthermore, the goal keeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area).
 If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
@@ -902,7 +902,7 @@ If a robot is not inside its own half at the time the Set state starts, it will 
 
 \subsubsection{Penalty Box, at all times}
 
-Only \textit{three} players from the \textit{same} team can be the \textit{same} penalty area at the same time\footnote{This means that if no goalkeeper is present, two field players may enter the penalty area to defend the goal.}. This means a total of 6 robots may in the same penalty box at the same time.
+Only \textit{three} players from the \textit{same} team can be the \textit{same} penalty area at the same time\footnote{This means that if no goalkeeper is present, three field players may enter the penalty area to defend the goal.}. This means a total of 6 robots may in the same penalty box at the same time.
 \emph{This applies to all game states.}
 
 A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines.  The penalty is applied when any additional players (whether field player or goalkeeper) enter the area. Note that if a player is pushed into the penalty area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
@@ -1504,9 +1504,15 @@ This is a brief list of rule changes from 2019 to 2020.
   \item Any Ball, if the technical requirements goes beyond training artificial networks. The TC view it as an uninteresting technical requirement to have teams re-train their networks for a new ball on site. It simply adds to the stress of competition without producing any meaningful research. However, if use of different balls is constructed in a manner to bring new and interesting research challenges beyond training networks, this is of interest.
 \end{itemize}
 
-\section{Field Technical Drawing}
+\section{Field Technical Drawings}
 \label{apx:technical-drawing}
 \centerline{\includegraphics[angle=90,origin=c,width=\columnwidth]{figs/fieldDimensions2020_technical.pdf}}
+
+\clearpage
+%\textbf{Center Circle}
+\centerline{\includegraphics[angle=90,origin=c,width=0.5\columnwidth]{figs/fieldDimensions2020_technical_cc.pdf}}
+
+\centerline{\includegraphics[origin=c,width=0.5\columnwidth]{figs/fieldDimensions2020_technical_pc.pdf}}
 
 %\change{Add the figures for Center Circle and penalty cross as well.}
 
