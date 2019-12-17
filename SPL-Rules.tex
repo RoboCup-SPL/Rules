@@ -52,7 +52,7 @@
 
 \title{\leaguename Rule Book}
 \author{RoboCup Technical Committee}
-\date{(DRAFT 2019 rules, as of \today)}
+\date{(DRAFT 2020 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -375,12 +375,6 @@ The head referee should make \textit{all} of these whistle sounds from the T-jun
 
 The teams/robots will change the goal defended during the half-time break.
 
-\begin{figure}[t]
-\centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
-\caption{Robot states. Button interface transitions are shown in gray. GameController transitions are shown in black. However, any transition possible can actually be sent by the GameController.}
-\label{fig:robot_states}
-\end{figure}
-
 \subsection{Robot States}
 \label{sec:robot_states}
 
@@ -412,6 +406,12 @@ This state is not available if only the button interface is implemented.
 \item[Finished.] This state is reached when a half is finished. This state is not available if only the button interface is implemented.
 
 \end{description}
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
+\caption{Robot states. Button interface transitions are shown in gray. GameController transitions are shown in black. However, any transition possible can actually be sent by the GameController.}
+\label{fig:robot_states}
+\end{figure}
 
 The referee will announce the start of the Playing state with a single whistle blow.
 The GameController Playing signal will be delayed by \PlayingDelayTime.
@@ -462,7 +462,9 @@ A deliberate play at the ball includes successfully kicking the ball, dribbling 
 
 \textbf{Example 2:} Player 2 (of the red team), kicks the ball at the goal, and it is deflected of the side of the foot of a blue-team robot into the goal. This is \textit{not} and indirect kick, and the goal does not count.
 
-\textbf{Example 2:} Player 2 (of the red team), kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player 2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
+\textbf{Example 3:} Player 2 (of the red team), kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player 2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
+
+\textbf{Example 4:} Player 2 (of the red team), walks up to and dribbles the ball. To be an indirect kick, Player 2 must then stop, and visibly back-away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. This is a successful indirect kick.
 
 Note that an own-goal may always be scored without requiring an indirect kick.
 
@@ -545,7 +547,7 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 If the ball was last touched by the defensive team, a \emph{Corner Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the attacking team. The referee calls ``Corner Kick \textless color\textgreater'' and the ball is placed on the corner on the same side of the field that the ball was kicked-out.
 %The attacking team then proceeds with a corner kick (\cf Section~\ref{sec:free_kick}).
 
-If the ball was last touched by the offensive team, a \emph{Goal Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the Goalbox on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the penalty box meets the goal line.
+If the ball was last touched by the offensive team, a \emph{Goal Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the Goalbox on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the goalbox meets the goal line.
 
 %\begin{figure}[t]
 %\centerline{\includegraphics[width=0.7\columnwidth]{figs/goal-kick-spots.png}}
@@ -557,7 +559,7 @@ In these examples, ``red half of the field'' refers to the half the red team is 
 
 \paragraph{Example 1.} The red goal keeper kicks the ball out the end of the field to the right of the goal. The referee calls ``Corner Kick blue'', the ball is placed on the corner to the right of the goal and a free kick is started.
 
-\paragraph{Example 2.} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Kick red'' and the ball is placed on the right corner of the penalty box.
+\paragraph{Example 2.} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Kick red'' and the ball is placed on the right corner of the goalbox.
 
 \paragraph{Example 3.} A blue robot at midfield kicks the ball over the left sideline 2 meters into the red half of the field. The referee calls ``Kick-in red'' and the ball is replaced on the left sideline where it went out.
 

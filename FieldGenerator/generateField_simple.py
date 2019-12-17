@@ -186,7 +186,8 @@ def draw_dimension_vertical(context, y1, y2, x, width, bar=True, arrow=True, alo
 ###############################
 
 # additional padding to all four sides (in meters)
-padding = 0.5
+#padding = 0.5
+padding = 0.0
 
 width_in_m = field_length + 2 * border_strip_width + 2 * padding
 height_in_m = field_width + 2 * border_strip_width + 2 * padding
@@ -207,7 +208,7 @@ context.set_line_width(svg_fieldline_width)
 
 # draw the contours of lines in White
 context.set_source_rgb(1, 1, 1)
-draw_carpet_border(context)
+#draw_carpet_border(context)
 draw_outer_lines(context)
 #draw_inner_lines(context, 1)
 #draw_inner_lines(context, -1)
