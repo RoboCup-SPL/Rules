@@ -1,6 +1,6 @@
 # Obstacle avoidance challenge
 
-Proposal as a Technical Challenge for RoboCup 2020 SPL Championship. Version from 6. Dec 2019.
+Technical Challenge for RoboCup 2020 SPL Championship. Version from 3. Mar 2020.
 
 ## Goal
 
@@ -10,7 +10,7 @@ Teams at RoboCup 2019 self-reported working on/having finished improvements of t
 
 ![](figs/obstacle_challenge_2020.png)
 
-A ball is placed at kickoff point. The challenged robot in placed in front of the center circle facing the target goal.  Between ball and target goal three obstacles are placed.
+A ball is placed at kickoff point. The challenged robot is placed in front of the center circle facing the target goal.  Between ball and target goal three obstacles are placed.
 
 - One robot as an obstacle, facing down the long dimension of the field, centered on the imaginary line between kickoff point and center of the target goal.
 - One robot as an obstacle, facing down the long dimension of the field, offset to the left or right so its outermost shoulder point is a balls radius away from the imaginary line between kickoff point and center of the target goal.
@@ -24,16 +24,18 @@ The team currently challenged and the two upcoming teams are present at the fiel
 
 ## Scoring
 
-The challenged robot is tasked to dribble the ball into the target goal. Teams are scored by the time it took to move the ball into the goal (rounded to full seconds). Lower durations are better.
+The challenged robot is tasked to advance with the ball into the target goal. Both dribbling and short kicks are permitted. Shots into the goal are only allowed within one meter from the end field line.
 
-Touching an obstacle with the ball increases the scored duration by 5 seconds. Touching an obstacle with the challenged robot increases the scored duration by 10 seconds. 
+Teams are scored by the time it took to move the ball into the goal (rounded to full seconds). Lower durations are better.
 
-A robot has at most 90 seconds to complete the challenge.
+The obstacles move sideways. Touching an obstacle with the ball increases the scored duration by 5 seconds. Touching an obstacle with the challenged robot increases the scored duration by 10 seconds. 
+
+A robot has at most 90 seconds (penalties excluded) to complete the challenge.
 
 ## Miscellaneous comments
 
-My first intuition says: obstacle robots should be standing upright. If that is not reliable they can also be in a sitting position.
+Do we need to specify who provides the moving obstacles?
+  
+Do we need to better specify the range of the obstacle movements? (i.e. how many steps/meters)
 
- The challenge could be made harder by having one obstacle move.
-
-We can modify the challenge to allow kicks (after being close enough to the goal?). 
+Do we need to better specify the short kicks proprieties? (e.g. not more than X meters)
