@@ -12,11 +12,11 @@ Teams at RoboCup 2019 self-reported working on/having finished improvements of t
 
 A ball is placed on the penalty cross point closest to the starting point of the robot. The challenged robot is placed on the goal line of the goal that is opposite of the target goal. Between ball and target goal three obstacles are placed.
 
-- One robot as an obstacle. This robot is continuously moving back and forth along an imaginary line oriented along the smaller axis of the field. The distance traveled by the robot is approximately the width of the penalty area (see dimension H of section "Field Construction" of the SPL rules). 
-- One robot as an obstacle, facing down the long dimension of the field, offset to the left or right so its outermost shoulder point is a balls radius away from the imaginary line between kickoff point and center of the target goal.
-- Two robots  as an obstacles, facing down the long dimension of the field, positioned offset to the sides so dribbling a ball in between them is the fastest route to the target goal. The space in between them the sum of the robots shoulder-to-shoulder width and a balls diameter.
+- One moving robot as an obstacle. This robot is continuously moving back and forth along an imaginary line oriented along the short axis of the field. The distance traveled by the robot is approximately the width of the penalty area (see dimension H of section "Field Construction" of the SPL rules).
+- One stationary robot as an obstacle, facing down the long dimension of the field, offset to the left or right so its outermost shoulder point is a balls radius away from the imaginary line between kickoff point and center of the target goal.
+- Two stationary robots  as an obstacles, facing down the long dimension of the field, positioned offset to the sides so dribbling a ball in between them is the fastest route to the target goal. The space in between them the sum of the robots shoulder-to-shoulder width and a balls diameter.
 
-One obstacle is placed on the center line. The other two obstacles are placed one balls width away from the  penalty area towards the center of the field.
+With regard to the position of the obstacles along the long axis of the field: One obstacle is placed on the center line. The other two obstacles are placed one balls width away from the  penalty area towards the center of the field.
 
 The order of the obstacles are set up in is randomized by dice throw at the competition before the first team is challenged. Thus no team is aware of the exact setup beforehand and all teams face the same challenge.
 
@@ -28,11 +28,13 @@ The date, time and field used for the challenge will be announced at RoboCup 202
 
 The order of the obstacles is randomized by dice throw while all participating robots are tuned off.
 
-The team currently challenged and the two upcoming teams may turn on and set up their robots for the challenge. Teams must be able set up robots for participating within of 90 seconds of being asked.  Teams are informed of their order of participation in the challenge by the judges. Teams that have competed the challenge must disconnect from the fields wireless network. Thus avoiding the whole league joining a single fields wireless AP.
+The team currently challenged and the two upcoming teams may turn on and set up their robots for the challenge. Teams must be able set up robots for participating within of 90 seconds of being asked.  Teams are informed of their order of participation in the challenge by the judges. Teams that have completed the challenge must disconnect from the fields wireless network. Thus avoiding the whole league joining a single fields wireless AP.
+
+Teams hand over their robots to the judges to be placed on the field. The challenge is started by a judge pressing the chestbutton of the robot once.
 
 ## Scoring
 
-The challenged robot is tasked to advance with the ball into the target goal. Both dribbling and kicks are permitted to move the ball. The maximum distance for goal shots in restricted for this challenge. Shots that do not score a goal are unrestricted.
+The challenged robot is tasked to advance with the ball into the target goal. Both dribbling and kicks are permitted to move the ball. The maximum distance for goal shots is restricted for this challenge. Shots that do not score a goal are unrestricted.
 
 Shots into the goal are only allowed with the center of the ball being within 1.3 meter from the end field line. This threshold is at the same height as the penalty cross (see dimension I of section "Field Construction" of the SPL rules).
 
@@ -42,6 +44,6 @@ Teams are scored by the time it took to move the ball into the goal (rounded up 
 
 If the ball is moved out of the field a judge takes the ball and places it on the kickoff point.
 
-The obstacles move sideways. Touching an obstacle with the ball increases the scored duration by 5 seconds. Touching an obstacle with the challenged robot increases the scored duration by 10 seconds. 
+Touching an obstacle with the ball increases the scored duration by 5 seconds. Touching an obstacle with the challenged robot increases the scored duration by 10 seconds. 
 
 A robot has at most 3 minutes (penalties excluded) to complete the challenge.
