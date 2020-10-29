@@ -12,7 +12,7 @@ Teams at RoboCup 2019 self-reported working on/having finished improvements of t
 
 A ball is placed on the penalty cross point closest to the starting point of the robot. The challenged robot is placed on the goal line of the goal that is opposite of the target goal. Between ball and target goal three obstacles are placed.
 
-- One moving robot as an obstacle. This robot is continuously moving back and forth along an imaginary line oriented along the short axis of the field, facing down the long dimension of the field as it moves. The distance travelled by the robot is approximately the width of the penalty area (see dimension H of section "Field Construction" of the SPL rules).
+- One moving robot as an obstacle. This robot is continuously moving back and forth along an imaginary line oriented along the short axis of the field, facing the direction of travel as it moves. The distance travelled by the robot is approximately the width of the penalty area (see dimension H of section "Field Construction" of the SPL rules).
 - One stationary robot as an obstacle, facing down the long dimension of the field, offset to the left or right so its outermost shoulder point is a balls radius away from the imaginary line between kick-off point and center of the target goal.
 - Two stationary robots as an obstacle, facing down the long dimension of the field, positioned offset to the sides so dribbling a ball in between them is the fastest route to the target goal. The space in between them the sum of the robots' shoulder-to-shoulder width and a balls diameter.
 
