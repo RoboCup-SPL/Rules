@@ -1,6 +1,6 @@
 # Obstacle avoidance challenge
 
-Technical Challenge for RoboCup 2020 SPL Championship. Version from 3. Jun 2020.
+Technical Challenge for RoboCup 2021 SPL Championship. Version from 29. Oct 2020.
 
 ## Goal
 
@@ -8,7 +8,7 @@ Teams at RoboCup 2019 self-reported working on/having finished improvements of t
 
 ## Setup
 
-![](figs/obstacle_challenge_2020.png)
+![](figs/obstacle_challenge_2021.png)
 
 A ball is placed on the penalty cross point closest to the starting point of the robot. The challenged robot is placed on the goal line of the goal that is opposite of the target goal. Between ball and target goal three obstacles are placed.
 
@@ -24,7 +24,7 @@ Obstacle robots may wear any jersey. Which jerseys are not specified beforehand 
 
 ## Challenge management and planning
 
-The date, time and field used for the challenge will be announced at RoboCup 2020. In the 30 minutes leading up to the challenge all participating teams must deliver their participating robot and place it along the outside of the field with the robots turned off.
+The date, time and field used for the challenge will be announced at RoboCup 2021. In the 30 minutes leading up to the challenge all participating teams must deliver their participating robot and place it along the outside of the field with the robots turned off.
 
 The order of the obstacles is randomized by dice throw while all participating robots are turned off.
 
