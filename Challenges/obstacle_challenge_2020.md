@@ -18,7 +18,7 @@ A ball is placed on the penalty cross point closest to the starting point of the
 
 With regard to the position of the obstacles along the long axis of the field: One obstacle is placed on the center line. The other two obstacles are placed one balls width away from the penalty area towards the center of the field.
 
-The order of the obstacles are set up in (i.e. which kind of obstacle stands in which position, and the offset side of the one stationary robot) is randomized by dice throw at the competition before the first team is challenged. Thus no team is aware of the exact setup beforehand and all teams face the same challenge. 
+The order of the obstacles are set up in (i.e. which kind of obstacle stands in which position, and the offset side of the one stationary robot) is randomized by dice throw at the competition before the first team is challenged. Thus no team is aware of the exact setup beforehand and all teams face the same challenge.
 
 Obstacle robots may wear any jersey. Which jerseys are not specified beforehand so teams cannot prepare for specific jerseys.
 
@@ -44,6 +44,6 @@ Teams are scored by the time it took to move the ball into the goal (rounded up 
 
 If the ball is moved out of the field a judge takes the ball and places it on the kick-off point.
 
-Touching an obstacle with the ball increases the scored duration by 5 seconds. Touching an obstacle with the challenged robot increases the scored duration by 10 seconds. 
+Touching an obstacle with the ball increases the scored duration by 5 seconds. Touching an obstacle with the challenged robot increases the scored duration by 10 seconds.
 
 A robot has at most 3 minutes (penalties excluded) to complete the challenge.
