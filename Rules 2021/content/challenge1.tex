@@ -6,14 +6,14 @@ Teams at RoboCup 2019 self-reported working on/having finished improvements of t
 
 \subsection{Overview}
 
-Teams are challenged to move a ball into the target goal as fast as possible. Obstacles are places in-between the ball and target goal. To participate a team needs access to:
+Teams are challenged to move a ball into the target goal as fast as possible. Obstacles are placed in-between the ball and target goal. To participate a team needs access to:
 
 \begin{itemize}
 	\item a single active Nao robot.
 	\item about 75\% of a SPL field.
 	\item 3 inactive Nao robots.
 	\item SPL robot jerseys.
-	\item the ability to record/steam a Video of their field (\cf Section \ref{streaming_explained}).
+	\item the ability to record/steam a video of their field (\cf Section \ref{streaming_explained}).
 \end{itemize}
 
 \subsection{Setup}
@@ -33,7 +33,7 @@ A ball is placed in the center of the center circle. The challenged robot is pla
 Regarding to the position of the obstacles along the long axis of the field:
 
 \begin{itemize}
-	\item One obstacle is placed on the goal box line (see line F of section "Field Construction" of figure \ref{fig:field_construction}).
+	\item One obstacle is placed on the goal box line (see line F in figure \ref{fig:field_construction}).
 	\item One obstacle is placed just outside the penalty box, so it does not touch the line (see distance  G).
 	\item One obstacle is placed away from the center line towards the target goal. The distance to the center line is the radius of the center circle (half of distance J).
 \end{itemize}
@@ -50,7 +50,7 @@ The challenged robot may wear any jersey legal in RoboCup SPL competition or no 
 
 The participating team is free to choose which of their goals is used as a target.
 
-The order the obstacles are set up in (i.e. which kind of obstacle is placed in which position, the offset side of the one stationary robot) and their jersey colors is randomized by dice throw (or similar randomization tool) during the competition before the first team is challenged. Once the first team was challenged the same setup will be used to challenge every further team. Thus, no team is aware of the exact setup beforehand and all teams face the same challenge. Due to this randomization teams might be challenged with one of these setups:
+The order the obstacles are set up in (i.e. which kind of obstacle is placed in which position, the offset side of the one stationary robot) and their jersey colors are randomized by dice throw (or similar randomization tool) during the competition before the first team is challenged. Once the first team was challenged the same setup will be used to challenge every further team. Thus, no team is aware of the exact setup beforehand and all teams face the same challenge. Due to this randomization teams might be challenged with one of these setups:
 
 \begin{figure}[ht]
     \centering
@@ -61,7 +61,7 @@ The order the obstacles are set up in (i.e. which kind of obstacle is placed in 
 
 The challenged robot is tasked to advance with the ball into the target goal. Both dribbling and kicks are permitted to move the ball. The maximum distance for goal shots is restricted for this challenge. Shots that do not score a goal are unrestricted.
 
-Shots into the goal are only allowed with the center of the ball being within 1.3 meter from the end field line. This threshold is at the same height as the penalty cross (see dimension I of section "Field Construction" of the SPL rules).
+Shots into the goal are only allowed with the center of the ball being within 1.3 meter from the end field line. This threshold is at the same height as the penalty cross (see dimension I in figure \ref{fig:field_construction}).
 
 Goals shot from a larger distance do not complete the challenge. In this case, the challenged robot is required to walk into the goal, move the ball outside of the goal and score another goal according to the rules of the challenge.
 Teams are scored by the time it took to move the ball into the goal (rounded up to full seconds). Lower durations are better. In case of a draw, tied teams are required to repeat the challenge. For repeated participation, a different randomization for the obstacle setup might be given to the participating teams.
@@ -90,18 +90,19 @@ Teams may compete in this challenge on fields smaller than the standard SPL fiel
 
 \begin{itemize}
 	\item the area of the artificial turf is big enough to set up the challenge.
-	\item the distance in-between the goalposts is the same as a standard SPL goal construction.
+	\item the distance in-between the goalposts is the same as a standard SPL goal construction (see dimension F in figure \ref{fig:field_construction}).
 \end{itemize}
 
 Teams are not required to move field lines for this challenge.
 
 During setup of this challenge all measurements and distances must be used as if the challenge is set up on a standard SPL field.
 
-Example: Assuming a team is setting up on a smaller field where the distance from goal to goal is 75\% of a standard SPL field. The ball is not placed in the center circle as marked by field lines as the ball would be closer to the target goal compared to a standard SPL field. Instead, the ball is placed independent of center circle marking so the distance between ball and goal is the same as standard SPL field. All other placements follow the same principle.
+Example: Assuming a team is setting up on a smaller field where the distance from goal to goal is 75\% of a standard SPL field. The ball is not placed in the center circle as marked by field lines as the ball would be closer to the target goal compared to a standard SPL field. Instead, the ball is placed independent of center circle markings so the distance between ball and goal is the same as standard SPL field. All other placements follow the same principle.
 
 \subsection{Discussion points for TC meeting}
 
 \begin{itemize}
 	\item Too easy of a challenge? To hard? I went easy to allow as many teams to participate as possible.
 	\item Team can cheat. We might need assistance by the local teams to measure the scored time. Depending on video quality.
+	\item Penalty spot distance was still "to be discussed and tested at German Open" in the last published SPL rules.
 \end{itemize}
