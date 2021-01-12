@@ -1,2 +1,174 @@
 \section{Challenge 4: Autonomous Calibration}
 \label{sec:AutonmousCalivration}
+
+\subsection{Idea of Challenge}
+
+Automated calibration is a challenge for the SPL to reduce the dependence on extensive calibration of robots before each individual SPL game.This includes automatic calibration of:
+\begin{itemize}
+    \item Camera Settings to dynamic lighting conditions and individual robot camera properties
+    \item Locomotion parameters for stable movement on different fields surfaces and individual robot properties
+    \item Localisation to variance in field dimensions
+    \item Audio calibration to variance in whistles and noise around individual fields
+\end{itemize}
+
+This challenge is to independently test a team's automatic calibration software. This challenge is separated from other challenges for teams to demonstrate the quality of their calibration tools.
+
+Requirements to participate in this challenge are:
+\begin{enumerate}
+    \item Deploy your robot's software remotely or via fully autonomous setup
+    \item Use of the chest button to start/stop the calibration challenge software using a single or double press
+    \item Use of the head button to denote different stages of the challenge
+    \item Run the software without any wifi connection
+\end{enumerate}
+
+\subsection{Setup}
+
+General Setup notes:
+\begin{itemize}
+    \item This challenge a standard SPL field of no less than 3/4 sized SPL field as described in the `1v1 Challenge', detailed in Section~\ref{sec:OneVsOneChallenge}.
+    \item  A host venue will supply the field, robots and referee to monitor the challenge
+    \item  Wireless network will be disabled during the challenge. Wireless communication to Game Controller is not required for this challenge, as it is designed to be conducted separate to wifi communications. 
+    \item Teams will be provided the field dimensions as known by the host venue, but dimensions may not be exact.
+\end{itemize}
+
+\subsubsection{Software Setup}
+
+Teams will setup a robot with their software for the challenge as follows:
+\begin{enumerate}
+    \item A robot will be assigned at random from the pool. (Optional,  robots may be assigned and a team ranked on their best performance our of the two robots).
+    \item A \textit{camera shield} will be placed over the robot's camera. This may be a sheet of opaque paper, or an opaque bag.
+    \item The teams will be able to install their software either remotely (with network access) or automatically.
+    \item The teams \textit{must not} enable any robot motors during setup.
+    \item When the software setup is complete, the team must disconnect from the robot.
+\end{enumerate} 
+
+\subsubsection{Timing}
+The challenge will be conducted the first time that a team set's up their robots for use at a given venue.
+
+Ideally, the challenge will be conducted in parallel with the `1v1 Challenge', as described in Section~\ref{sec:OneVsOneChallenge}.
+This challenge will be conducted before teams calibrate their robots for the 1v1 challenge.
+
+\subsection{Challenge Execution}
+
+The challenge is conducted in two phases:
+\begin{enumerate}
+    \item Automatic Calibration
+    \item Evaluation
+\end{enumerate}
+
+Each stage will be timed, and teams are ranked according to the time.
+
+\subsubsection{Phase 1: Automatic Calibration}
+
+The automatic calibration phase will commence immediately after a team has confirmed the software has been successfully setup on the robot, and disconnected any remote connection to the robot.
+
+The automatic calibration phase will run as follows:
+\begin{enumerate}
+    \item The robot shall be placed in a \textit{safe seated position} on one half of the field, at the side-line, and in-line with the penalty spot (This is equivalent to the robot entering a field during a competition game). Two balls shall be placed on the field, one in each half, approximately in the centre of each half, clear of any fields lines (see the diagram).
+    \begin{itemize}
+        \item This shall denote the robot's  ``own half''.
+        \item The other field half is the ``opposition half''.
+        \item The camera shield shall remain in place while the robot is placed.
+    \end{itemize} 
+    \item A single (or double) \textit{chest} button press will be used to start the robot from which is may stand. 
+    \begin{itemize}
+        \item This denotes the calibration phase is to commence
+        \item A team may indicate whether a single or double press is required
+    \end{itemize} 
+    \item In sequence, the camera shield will be removed, the head button tapped, and a timer will be started
+    \begin{itemize}
+        \item This denotes the calibration phase has started
+    \end{itemize} 
+    \item The robot has up to 5 minutes to calibrate. The robot may freely move about the field. However it should not touch either ball, nor leave the boundaries of the field area.
+    \item The robot may choose to end the calibration time early. It does so by standing still and raising one arm. It should also say "Calibration finished".
+    \begin{itemize}
+        \item If the robot finishes the calibration time early, the timer should be stopped and the total calibration time recorded.
+        \item The time is rounded to the nearest 5 seconds to avoid human error
+        \item The head button should be pressed to inform the robot that it's termination of calibration has been acknowledged, and it should lower the arm.
+    \end{itemize} 
+    \item If the 5 minute period is reached, the head button of the robot should be pressed. to inform the robot that the calibration time has ended. The robot should immediately stop.
+    \item At the end of the automatic calibration phase, the camera shield is placed on the robot. The robot should remain in a \textit{stable stationary standing position} until phase 2 commences.
+\end{enumerate} 
+
+\subsubsection{Phase 2: Evaluation}
+
+\begin{enumerate}
+    \item The robot will be placed on it's own half of the field, at the side-line, and in-line with the penalty spot. 
+    \item Two balls shall be placed on the field, one in each half. The balls will be placed in a random position, such that
+    \begin{itemize}
+        \item The balls are within the field boundaries
+        \item The balls are not on any field line
+        \item The balls are gently fixed to the field with a small amount of tape to prevent them from moving.
+        \item The positions will be provided to the hosting venue before the challenge commences
+        \item All robot's participating in the challenge (at a venue) will be given the same fixed positions
+    \end{itemize}
+    \item In sequence, The camera shield will be removed, and the head button tapped and a timer will be started
+    \begin{itemize}
+        \item This denotes the Evaluation phase has started
+    \end{itemize} 
+    \item During the evaluation phase the robot must complete 5 tasks in sequence as \textit{quickly} and \textit{accurately} as possible:
+    \begin{enumerate}
+        \item Report the \textit{field relative} (that is global) position of the ball in the robot's own half.
+        \item Walk to the centre of the goal in it's own half, at any rotation
+        \item Walk to the centre-circle kick-off spot, at any rotation
+        \item Report the \textit{field relative} (that is global) position of the ball in the ``opposition'' half
+        \item Walk to the centre of the goal in the ``opposition'' half, at any rotation
+    \end{enumerate}
+    \item The robot has up to 10 minutes to complete the challenge. The robot may freely move about the field. However it should not touch either ball, nor leave the field area.
+    \item To report a ball position the robot should:
+    \begin{enumerate}
+        \item Raise one arm
+        \item Say: ``The ball is at: x y'', where x and y is the global ball position. The origin co-ordinate of the field is defined as found in Section~\ref{sec:OneVsOneChallenge}.
+        \item The referee should record the stated position, rounded to the nearest 10cm.
+    \end{enumerate}
+    \item To report the desired position is reached the robot should:
+    \begin{enumerate}
+        \item Raise one arm
+        \item Say: ``Finished walking''
+        \item The referee should record the position of the robot by making the robot's location
+    \end{enumerate}
+    \item When a robot has completed a task, referee should attempt to allow the robot to continue as quickly as possible. The referee does so by tapping the head button.
+    \item When the robot completes the final task, the referee should record the total time taken in the evaluation phase, rounded to the nearest 5 seconds, to avoid human error 
+    \item If the 10 minute period is reached (or the robot has finished the final task), the head button of the robot should be pressed to inform the robot that the evaluation time has ended.
+    \item At the end of the evaluation phase, the robot should return to a safe standing or seated position. The chest button should then be pressed once or twice to denote the end of the challenge and to terminate the software.
+    \item The referee should measure the position of the robot for each of the walking tasks, rounded to the nearest 10cm.
+\end{enumerate} 
+
+\subsubsection{Termination Conditions}
+
+The challenge will be terminated at any stage if any of the following conditions are met:
+\begin{itemize}
+    \item The robot falls \textit{three} times
+    \item The robot falls and is unable to return to a standing position after no more than 1 minute.
+    \item The robot leaves the external boundary of the field.
+    \item A robot takes a dangerous action that would result in damaging the robot. This includes a robot obviously grinding gears in attempting to stand after failing.
+    \item The robot fails to stop moving as required by the challenge .
+\end{itemize}
+
+These conditions are intended to prevent damage to the robots that have been provided for use in the challenges.
+
+\subsubsection{Scoring}
+
+Scoring is conducted by ranking robots in each of the following categories:
+\begin{enumerate}
+    \item Fastest time to complete the automatic calibration phase
+    \item Fastest time to complete the evaluation phase
+    \item Closest reported position of the ball in the robot's ``own'' half.
+    \item Closest reported position of the ball in the ``opposition'' half.
+    \item Closest robot position at the goal in the robot's ``own'' half.
+    \item Closest robot position at the centre circle
+    \item Closest robot position at the goal in the ``opposition'' half.
+\end{enumerate} 
+
+\subsubsection{Venue Rankings}
+Teams are ranked according to all teams that attempted the challenge at each venue. Teams are ranked separately in each of the 7 categories, with the top ranked team receiving a rank of 1, and other ranks increasing monotonically.
+
+Teams receive a total score equal to the sum of their ranks in each category at the venue. 
+
+Thus, the team with the \textit{lowest total score} is the best team at the venue.
+
+\subsection{Combine Scoring and Final Winner}
+To determine the final winner, teams are given a score equal to their \textit{average score} across all venues they attempted the automatic calibration challenge. A team must attempt the challenge at \textit{at least 3 venues} to qualify for the final ranking.
+
+Places are awarded in the challenge teams in increasing average score, starting with the lowest scoring team receiving 1st place.
+
