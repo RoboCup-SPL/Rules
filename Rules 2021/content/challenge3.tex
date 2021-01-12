@@ -21,6 +21,7 @@ Requirements to participate in the scored part of this challenge are being able 
 If teams provide an autonomous setup all teams can use this to play against this in their own arena. Also teams who cannot host an arena.
 
 \subsection{Prerequisites}
+\label{sec:c3_Prerequisites}
 % Patrick
 For this challenge teams need to fulfil multiple requirements, which are listed below in more detail.
 
@@ -203,7 +204,7 @@ If you have questions or problems to set your local network, please contact the 
 
 
 \subsection{Rules}
-
+%Arne
 \subsubsection{Setup of the Environment}
 \paragraph{Field Construction}
 \label{sec:field_dim}
@@ -355,7 +356,7 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 
 \paragraph{Field Players}
 \label{sec:field_players}
-Each field player has a jersey number from the set $\{1, 2, 3, 4, 5, 6\}$. However, by default, the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute that enters the game later. This assignment can be changed due to availability of jerseys. \textcolor{red}{TODO:} forbid jersey nr 1 to avoid confusion?
+Each field player has a jersey number from the set $\{1, 2, 3, 4, 5, 6\}$. However, by default, the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute that enters the game later. This assignment can be changed due to availability of jerseys. \improvement[]{TODO: forbid jersey nr 1 to avoid confusion?}
 
 \paragraph{Team Markers}
 \label{sec:team_markers}
@@ -449,8 +450,7 @@ Robots can be in six different \emph{primary} states (\cf Figure~\ref{fig:robot_
 \textbf{The use of the button interface is not allowed in this competition!} 
 
 Should both robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).
-If only one robot does not respond to the GameController then it is not included in the game (via a `Request for Pick-up'), and the game starts without the offending robot.
-%TODO: RFP reference
+If only one robot does not respond to the GameController then it is not included in the game (via a `Request for Pick-up', \cf Section~\ref{sec:request_for_pickup}), and the game starts without the offending robot.
 
 \begin{description}
 	\item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
@@ -505,9 +505,8 @@ The current GameController requires robots to know both their team number and th
 \label{sec:goal}
 A goal (including own goal) is achieved when the entire ball (not only the centre of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. \\
 If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half, that is farthest away from the player in this half. The ball can then directly be played again. 
-%TODO: Reference -> points.
 
-The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed. \textcolor{red}{TODO}: Maybe we an change the logic of the GameController to allow for counting goals without ready and set phase. \\
+The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed. \improvement[]{TODO: Maybe we can change the logic of the GameController to allow for counting goals without ready and set phase.} \\
 After the game is in the state playing, the game state remains in it regardless of shot goals!
 
 
@@ -525,10 +524,10 @@ For kick-off, the robots listening to the wireless GameController run through th
 In the ready state, the robots should walk to their legal kick-off positions.
 The players can be positioned anywhere within their own half, but no player is allowed to touch the centre/halfway line. All robots that do not reach legal positions will be penalized with the ``Illegal Position'' penalty~(\cf Section~\ref{sec:illegal_positioning}).
 
-In the \emph{set} state, the robots must not locomote~(\cf Section~\ref{sec:robot_states}). A referee places the two balls for each side on the goal free kick positions.%TODO:Reference
+In the \emph{set} state, the robots must not locomote~(\cf Section~\ref{sec:robot_states}). A referee places the two balls for each side on the goal free kick positions (\cf Section~\ref{sec:kick_in})
 If the ball is moved by one of the robots during \emph{set} it is replaced by one of the referees.
+\improvement[]{TODO: Allow manual placement or simplify the rules without it?}
 
-\textcolor{red}{TODO}:Allow manual placement or simplify the rules without it?
 %During the \textit{set} state, the team leader may request manual placement for all robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties. Note that the, ``Motion in Set'' penalty persists for those players after manual placement.
 
 %\begin{figure}[t]
@@ -559,7 +558,7 @@ Note that no GameController action is required.
 
 In the event of no ``substantial change''\footnote{``substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball)} in the game state for 30 seconds OR or no ball was played from one half to the other for 1 minute, this is considered a global game stuck and the referee calls ``Global Game Stuck''. \\
 Once the referee calls Global Game Stuck, players enter the Ready state, and a new kick-off (\cf Section~\ref{sec:kick-off}) is awarded.
-\textcolor{red}{TODO:} Single GameController button for Global Game Stuck?
+\improvement[]{TODO: Single GameController button for Global Game Stuck?}
 
 
 \paragraph{Request for Pick-up}
@@ -584,9 +583,8 @@ The returning robot may be returned following the normal replacement procedure o
 
 If the picked-up robot was penalized, the penalty time of the robot counts down with the game clock throughout the pick-up.
 Note here, that the returning robot or the substitute robot will have to wait out any remaining penalty time of the picked up robot after the team handed their robot back to the assistant referees.
-%TODO: RFP because of no Gamecontroller, automatic request for Pickup Referee,
 
-\textcolor{red}{TODO}: Are the Assistants allowed to fix hardware problems (\ie reboot)?
+\improvement[]{TODO: Are the Assistants allowed to fix hardware problems (\ie reboot)?}
 
 \paragraph{Referee Timeout}
 \label{sec:referee_timeout}
@@ -660,7 +658,6 @@ A robot that damages the field, or poses a threat to spectator safety, will be r
 
 The head referee decides whether a robot excessively damages itself and should remove it from the field via ``Request for Pick-up''. 
 All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently.
-%TODO: Team scheidet aus, wenn Laufen so schlecht, dass es zwei Spiele lange nur hingefallen ist
 
 \subparagraph{Illegal Positioning}
 \label{sec:illegal_positioning}
@@ -705,7 +702,7 @@ Fallen/Inactive Robot penalties do not follow the standard removal procedure, an
 \paragraph{Player Stance}
 \label{sec:player_stance}
 
-\textcolor{red}{TODO:} Allow wide stance to intercept a ball?
+-\improvement[]{TODO: Allow wide stance to intercept a ball?}
 
 %Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard removal penalty. If the robot has fallen down, it must start getting up within 5 seconds.
 
@@ -760,6 +757,8 @@ The head referee should avoid handling the ball (except for placing the balls fo
 Their duty is to monitor and adjudicate the game.
 The head referee should only handle robots and the ball if absolutely necessary to expedite gameplay or removal of penalized robots, where the assistant referees are otherwise occupied, are too far away or had to be dropped.
 
+\improvement[]{TODO: Integrate the determination/execution of a penalty for the remainder of the game if the robot has fallen multiple times?}
+
 \paragraph{Assistant Referees}
 \label{sec:assist_referee}
 The, in the ideal case, two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots, if manual placement is requested, they take the robots out when they are penalized, and they put the robots in again. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.
@@ -784,7 +783,7 @@ Finally, they should repeat the calls of the head referee to make sure it was he
 
 The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue colour} (blue jeans are acceptable) and avoid reserved colours for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
 
-\subsection{A Remark on Artificial Landmarks}
+\paragraph{A Remark on Artificial Landmarks}
 \label{sec:judgment:landmarks}
 
 The head referee may decide at any point before or during a game to relocate any objects around the field, or direct persons to another position around the field.
@@ -795,34 +794,53 @@ Introducing new team-specific artificial landmarks is against the spirit and int
 The application of this rule needs to be well considered and should be reserved for situations which seem constructed by one team or another, but will ultimately be the head referee's decision alone.
 
 \subsection{Scoring}
-
 % Arne
-6. Points will be counted by the referees and not by the GC.
-7. Points can be scored by:
-    - Shooting the ball in opponents half and it stops there (1 Point)
-    - Shooting a goal (not own goal) (1 Point)
-    - Touching the opponents player with the ball (0 Point)
-11. Teams playing with an autonomous player get a scoring factor of 2. Each point is multiplied by this factor.
+\label{sec:scoring}
+
+For this challenge points can be scored by:
+\begin{itemize}
+	\item Shooting the ball in the opponents half (1 Point)
+	\begin{itemize}
+		\item The ball has to stop inside the field (\cf Section~\ref{sec:inside_outside})!
+	\end{itemize} 
+	\item Shooting a goal (1 Point)
+	\begin{itemize}
+		\item Afterwards the team which scored the goal gets this ball back (\cf Section~\ref{sec:goal})
+	\end{itemize}
+\end{itemize}
+
+If the defending/other robot touches the ball when it was kicked over the centre line and before it comes to a full stop then \textbf{NO} points are rewarded! This allows the defending team to intercept balls which are shoot into their half of the field.
+
+The head referee has to call:
+\begin{itemize}
+	\item ``Point for \textless colour\textgreater'' for each scored point.
+	\item ``Goal for \textless colour\textgreater'' for each scored goal.
+\end{itemize}
+and then the points will be counted by the operator of the GameController \improvement[]{TODO: either by writing it down or by using a modified GameController}.
+
+For teams playing with an \textbf{autonomous player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{2} \improvement[]{TODO: Which factor seems appropriate? 2, 1.5, 1.25?} is given. This factor is used at the end of the game and the scored points, for this team, are multiplied by it to calculate the final points (\cf Section~\ref{sec:rankings}). \emph{Note that the resulting points should be rounded to the nearest integer.}
 
 \subsection{Challenge execution}
 % Arne
+The 1vs1 Challenge is played as a knock-out competition, as the points scored between individual games are not directly comparable. 
+
 The clock stops during stoppages of play (such as ready and set state after global game stuck)!
 
+\subsubsection{Competition System}
+It is planned to divide the participating teams into three groups, so that there are 8 teams in each group. Within each group, a ladder system will be used where only the winner of the game will advance. 
+
+In the end there will be 3 winners from each group, who will determine their final placing in matches each against each other. If there is a draw between the three final teams, the points scored in the final matches will be used to determine a winner.
+
+The teams are randomly assigned to the groups and no subdivision into challenger shield or champions cup teams is considered.
+To allow all teams to play at least 3 times, the losers of a match will play in additional ladders.
+
+The exact determination of the multiple knock-out rounds/ladders can only be done when the number of participating teams is known and will therefore be announced shortly before the RoboCup. Also the different time zones have to be taken into account and therefore there should only be two games per day per arena.
+    
 \subsubsection{Winner and Rankings}
 \label{sec:rankings}
 
 The team which scored more points, after the expiration of the regular playing time, than the other is the winner of the match. If the two teams scored the same number of points, the game will be a draw. In case of a draw the game duration gets extended by one minute. After each extension the score is evaluated again. At max 5 extensions are allowed. 
-\textcolor{red}{TODO}: Final determination? Coin toss?
-
-
-- Ladder system
-- KO system 
-- groups of 8 teams per Ladder
-- randomly assignment of teams to groups
-- losers of a match will play in additional ladders (To allow all teams to play at least 3 times)
-- Winners play games against each other
-- Time zones (Two games per day)
-- can only be finalized when the exact number of participants is known
+\improvement[]{TODO: Final determination? Coin toss?}    
     
 \newpage
 
@@ -831,9 +849,6 @@ The team which scored more points, after the expiration of the regular playing t
 \centerline{\includegraphics[angle=90,origin=c,width=\columnwidth]{figs/fieldDimensions2020_technical.pdf}}
 
 \clearpage
-%\textbf{Center Circle}
 \centerline{\includegraphics[angle=90,origin=c,width=0.5\columnwidth]{figs/fieldDimensions2020_technical_cc.pdf}}
 
 \centerline{\includegraphics[origin=c,width=0.5\columnwidth]{figs/fieldDimensions2020_technical_pc.pdf}}
-
-%\change{Add the figures for Center Circle and penalty cross as well.}
