@@ -43,7 +43,7 @@ The following items have to be fulfilled to be able to host an arena.
     \item A field that is nearly of the size of a approximately 3/4 field or larger.
     \item Field marks as stated in the rules section. 
     \item Two standard goals with nets.
-    \item Wifi with standard SPL\textunderscore A session, standard password as communicated during the competition via e-mail and standard IP \texttt{10.0.0.2} address and DHCP turned off.
+    \item Wifi with standard SPL\textunderscore A SSID, standard password (as communicated during the competition via e-mail) and standard IP \texttt{10.0.0.2} address and DHCP turned off.
     \item Remote network access via:
     \begin{itemize}
         \item VPN connection
@@ -142,7 +142,8 @@ The following section defines network requirements for a venue that hosts remote
         \item Each robot gets flashed 
         \begin{itemize}
             \item with the standard Softbank image and the LAN IP address is set to 10.1.TEAM\_NO.2 and the replacement robot to 10.1.TEAM\_NO.3, if no individual image is provided by the team.
-            \item with the image provided by the teams together with the field\_dimension.json and robot\_id.json indicating if the main robot or the replacement robot gets flashed. (TODO: Create json) TODO: USB Folder
+            \item with the standard Softbank image and the LAN IP address is set to 10.1.TEAM\_NO.2 and the replacement robot to 10.1.TEAM\_NO.3, if no individual image is provided by the team.
+            \item \textcolor{red}{TODO:} do we allow installation of team code via network cable as alternative to USB-Drive + image?
         \end{itemize}
         \item Teams setup robots remotely, if necessary.
     \end{itemize}
@@ -327,7 +328,7 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 
 \paragraph{Field Players}
 \label{sec:field_players}
-Each field player has a jersey number from the set $\{1, 2, 3, 4, 5, 6\}$. However, by default, the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute that enters the game later. This assignment can be changed due to availability of jerseys.
+Each field player has a jersey number from the set $\{1, 2, 3, 4, 5, 6\}$. However, by default, the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute that enters the game later. This assignment can be changed due to availability of jerseys. \textcolor{red}{TODO:} forbid jersey nr 1 to avoid confusion?
 
 \paragraph{Team Markers}
 \label{sec:team_markers}
