@@ -1,4 +1,4 @@
-\section{Challenge 3: 1 vs 1}
+\section{Remote Challenge 3: 1 vs 1}
 \label{sec:OneVsOneChallenge}
 
 \subsection{Idea of Challenge}
@@ -61,7 +61,7 @@ The following items have to be fulfilled to be able to host an arena.
     \item More than \textbf{four} USB Sticks with 16 GB or more memory for flashing and logging 
     \item At least \textbf{four} standard balls.
     \item Assistants for remote setup and autonomous setup
-    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants)
+    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants (Who are also volunteers for the teams in setup and are in the game local representative for the teams.))
 \end{itemize}
 
 If you cannot fulfil all requirements (equipment or number of people in the field room, etc.) but you would like to host an arena, please contact the TC.
@@ -77,7 +77,7 @@ A NextCloud storage is used for data exchange during the days of RoboCup 2021. A
     \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field dimensions json will be copied on the USB drive after flashing as field\_dimensions.json in the folder configuration. This allows the usage of the same image at different arenas.
 	\info[]{TODO: Define Json (team name, necessary fields, wifi 5GHz available?)}
     \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& night times with focus on the lighting conditions get uploaded until the 15th of June 2021.
-    \item In \textbf{Robot Setup} the arena teams find an image for a particular game. Each game has an identifier and this identifier should be used as folder name. The image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folders one for the player and one for the substitute player. The containing files will be copied on a USB drive in the root.The USB drive will be plugged into the robot after flashing. Within this configuration folders you can place files to configure your image. There are two mandatory files: field\_dimensions.json and robot\_id.json (To configure which robot, player or substitute, it is). This files have to be used by the robot software.
+    \item In \textbf{Robot Setup} the arena teams find an binary image for a particular game. Each game has an identifier and this identifier should be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folders one for the player and one for the substitute player. The containing files will be copied on a USB drive in the root.The USB drive will be plugged into the robot after flashing. Within this configuration folders you can place files to configure your image. There are two mandatory files: field\_dimensions.json and robot\_id.json (To configure which robot, player or substitute, it is). This files have to be used by the robot software.
     \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 15th of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The list of responsible people can be found in the root folder of the NextCloud drive.
     \item In the root folder you find a \texttt{streaming.md} file where every team should publish a link that can be used by public to watch the game. Will be used on SPL website as well.
 	\item Logs and Images will be uploaded from the hosts into the folder \texttt{Logs/Game\_ID}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored. 
@@ -164,12 +164,12 @@ If you have questions or problems to set your local network, please contact the 
         \item Connect robot to LAN and power line
         \item Each robot gets flashed 
         \begin{itemize}
-            \item with the standard Softbank image and the LAN IP address is set to 10.1.TEAM\_NO.2 and the replacement robot to 10.1.TEAM\_NO.3, if no individual image is provided by the team.
+            \item with the standard Softbank binary image and the LAN IP address is set to 10.1.TEAM\_NO.2 and the replacement robot to 10.1.TEAM\_NO.3, if no individual image is provided by the team.
             \item with the image provided by the teams
 		\end{itemize}
 		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
         \item Teams can set their robots up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use images.
-        \item put on jerseys
+        \item put on jerseys 2 (player) or 3 (substitute)
     \end{enumerate}
 
 \subsubsection{Calibration / Testing: 1 hour before match)}
@@ -208,6 +208,8 @@ If you have questions or problems to set your local network, please contact the 
 \subsubsection{Setup of the Environment}
 \paragraph{Field Construction}
 \label{sec:field_dim}
+
+\info[]{Penalty spot position as in 2019}
 
 The soccer field consists of 8mm artificial turf mounted on a flat wooden base with a total area of length \TotalLength and width \TotalWidth.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and should not give when humans stand or walk on it.
 
@@ -559,6 +561,7 @@ Note that no GameController action is required.
 In the event of no ``substantial change''\footnote{``substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball)} in the game state for 30 seconds OR or no ball was played from one half to the other for 1 minute, this is considered a global game stuck and the referee calls ``Global Game Stuck''. \\
 Once the referee calls Global Game Stuck, players enter the Ready state, and a new kick-off (\cf Section~\ref{sec:kick-off}) is awarded.
 \improvement[]{TODO: Single GameController button for Global Game Stuck?}
+\improvement[]{Global game stuck starts with Initial position}
 
 
 \paragraph{Request for Pick-up}
