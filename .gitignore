@@ -17,3 +17,5 @@
 *.tps
 *.auxlock
 *-eps-converted-to.pdf
+*.fdb_latexmk
+*.fls
