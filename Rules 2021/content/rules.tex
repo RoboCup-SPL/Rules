@@ -274,9 +274,10 @@ The teams/robots will change the goal defended during the half-time break.
 \paragraph{Robot States}
 \label{sec:robot_states}
 
-Robots can be in six different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
+Robots can be in \textit{eight}  different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
 \cbp{\textbf{The use of the button interface as a replacement for the GameController is not allowed in the 1vs1 competition!}}
+\info[]{TODO: This is inconsistent now, since the chest button is used to penalise/unpenalise when starting stopping calibration}
 
 \cbp{Should both robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).}
 If \cbw{only one} robot does not respond to the GameController then it is not included in the game (via a `Request for Pick-up', \cbw{\cf Section~\ref{sec:request_for_pickup}}), and the game starts without the offending robot.
@@ -298,6 +299,13 @@ If \cbw{only one} robot does not respond to the GameController then it is not in
 	\item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
 	
 	\item[Finished.] This state is reached when a half is finished.
+
+	\cbp{\item[Unstiff.] \textit{This state has been added in 2021 to help facilitate a consistent and safe handling of the robots for remote competition.} During the Initial, Ready, Set or Penalised states, if all head buttons are pressed, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing all three head button while in the Unstiffen state, permits the robot to stiffen it's joints and return to the previous state, or a state as indicated by GameController. (Note, this is not currently shown in Figure~\ref{fig:robot_states})}
+
+    \info[]{TW: Added Unstiff state. Please review for consistency with 1vs1 and calibration challenges.}
+
+	\cbp{\item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from Initial/Ready by pressing the \textit{front} head button plus the chest button.}
+    
 \end{description}
 
 \begin{figure}[t]
