@@ -4,7 +4,7 @@
 \subsection{Challenge description}
 In recent years teamwork has played an increasingly important role in the RoboCup SPL. A fundamental point in the development of this kind of strategy is the passing of the ball between teammates. The goal of this challenge is to push teams to develop an efficient system for the realization of an offensive strategy based on one or more passes between teammates. 
 
-The setting of the challenge is so defined: there are two attackers robots, and two static defenders. The purpose of the attackers' robots is to execute the highest number of passes between them in a limited amount of time. The timeout is set to 5 minutes.
+The setting of the challenge is so defined: there are two attackers robots, and two static obstacle robots as defenders (\cf Section \ref{sec:stationary_obstacle_robots}). The purpose of the attackers' robots is to execute the highest number of passes between them in a limited amount of time. The timeout is set to 5 minutes.
 The referee will visualize the challenge execution using video streaming. 
 Each team has three attempt on this challenge; the final score for every team is the one obtained in the best of the three attempts. Teams cannot change code between attempts.
 \begin{figure}[ht]
@@ -33,7 +33,7 @@ Field areas should be made visible by demarcating them on the field through the 
 \info[]{TODO: please consider specifying how robots should know if they are inside the allwed/red area. Should they self-loclize using white field lines?}
 
 \subsection{Robots positioning}
-In order to participate each team has to provide four robots, two active ones and two inactive ones. The two active robots are the attacking robots. The defending robots may be inactive, they can be placed in standing position or crouched, but not laying down.
+In order to participate each team has to provide four robots, two active ones and two inactive ones. The two active robots are the attacking robots. The defending robots are acting like static obstacle robots (\cf Section \ref{sec:stationary_obstacle_robots})
 %TODO: Common Rules reference
 Defenders must be turned off or otherwise placed out of the robots' communication network (for example, by setting them up as members of an opposing team).
 The starting robot's positions are identified by the points ${A,B,C,D,E,F,G,H,I}$ in Figures \ref{ch2:zone96} and \ref{ch2:zone64}.
