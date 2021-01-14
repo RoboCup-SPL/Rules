@@ -67,4 +67,8 @@
 
 \input{content/spl_variables.tex}
 
-\newcommand{\colorboxnew}[1]{\colorbox{blue!30}{#1}}
+
+\newlength\colorboxwidth
+\setlength{\colorboxwidth}{\dimexpr\textwidth-2\fboxsep}
+\newcommand{\cbp}[1]{\colorbox{blue!30}{\parbox{\colorboxwidth}{#1}}}
+\newcommand{\cbw}[1]{\colorbox{blue!30}{#1}}

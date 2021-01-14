@@ -25,20 +25,18 @@ In the root folder of the NextCloud drive (see~\ref{sec:data_exchange}) you find
 
 \subsection{Rules}
 \label{sec:rules}
-
+These rules are mostly taken from the 2020 rules, but a few things have been modified and/or omitted. Changes in individual chapters are marked with a \cbw{colourbox}.
 \subsubsection{Setup of the Environment}
 \label{sec:environment_setup}
 \paragraph{Field Construction}
 \label{sec:field_dim}
-
-\info[]{Penalty spot position as in 2019}
 
 The soccer field consists of 8mm artificial turf mounted on a flat wooden base with a total area of length \TotalLength and width \TotalWidth.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and should not give when humans stand or walk on it.
 
 The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}.
 A more detailed technical drawing is provided in Appendix~\ref{apx:technical-drawing} to this document.
 
-Fields that are at least 3/4 of the original size can also be used for this competition. However, field sizes smaller than the original should be reported by email to the TC by June 1, 2021.
+\cbp{Fields that are at least 3/4 of the original size can also be used for this competition. However, field sizes smaller than the original should be reported by email to the TC by June 1, 2021.}
  
 Note that the penalty cross is a cross and there is a dash at centre field. White field lines can be made of the same 8mm artificial turf, but in white (\ie, made of white artificial turf), spray painted or taped. Regardless of the solution, the field lines must be durable throughout the competition.
 
@@ -127,7 +125,7 @@ The colours of the soccer field are as follow:
 
 \paragraph{Lighting Conditions}
 \label{sec:lightConditions}
-The lighting conditions depend on the actual competition site. As the league moves towards natural lighting conditions, SPL fields should be placed near or under windows where possible. Whether or not window lighting is used, ceiling lights should be provided as necessary to ensure that most of the field is never darker than 300 Lux (400 Lux preferred).
+The lighting conditions depend on the actual competition site. As the league moves towards natural lighting conditions, SPL fields \cbw{should} be placed near or under windows where possible. Whether or not window lighting is used, ceiling lights \cbw{should} be provided as necessary to ensure that most of the field is never darker than 300 Lux (400 Lux preferred).
 
 Lighting is not required to be even and hotspots may occur on the field. The lighting design (comprising both natural and artificial light sources) shall aim to limit the ratio between the brightest and darkest patches on the field to less than 10:1. In general, lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay. Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, etc.
 
@@ -165,17 +163,9 @@ That is, a robot is \textit{outside} of a half of the field if it is touching th
 \label{sec:robot_players}
 A match is played by two teams, each consisting of \emph{one player} and \emph{one substitute player}. All robots are \emph{field players} and no robot is designated as \emph{goalkeeper}.
 
-\subsubsection{Stationary Obstacle Robots}
-\label{sec:stationary_obstacle_robots}
-Some of the challenges use stationary obstacle robots.
-
-All stationary obstacle robots are allowed to stand upright or sit down and can remain turned off for the duration of the challenge. Static obstacle robots may not lay down on the field. Stationary obstacle robots are not required to be V6 edition Nao robots. It is allowed to use any Nao edition that was legal to use in a RobCup SPL competition in the past.
-
-When a stationary obstacle robot is required to wear a jersey: teams may use any jersey that was approved for a RoboCup SPL competition in the last 4 years without needing to reapprove it in 2021.
-
 \paragraph{Hardware}
 \label{sec:hardware}
-All teams must use a NAO humanoid robots in version 6 manufactured by SoftBank Robotics.
+All teams must use a NAO humanoid robots \cbw{in version 6} manufactured by SoftBank Robotics.
 
 Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
 \begin{itemize}
@@ -187,7 +177,16 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 
 \paragraph{Field Players}
 \label{sec:field_players}
-Each field player has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute that enters the game later. This assignment can be changed due to availability of jerseys.
+Each field player has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, \cbw{the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute} that enters the game later. \cbw{This assignment can be changed due to availability of jerseys.}
+
+\paragraph{Stationary Obstacle Robots}
+\label{sec:stationary_obstacle_robots}
+\cbp{Some of the challenges use stationary obstacle robots. \\
+	
+	All stationary obstacle robots are allowed to stand upright or sit down and can remain turned off for the duration of the challenge. Static obstacle robots may not lay down on the field. Stationary obstacle robots are not required to be V6 edition NAO robots. It is allowed to use any NAO edition that was legal to use in a RobCup SPL competition in the past. \\
+	
+	When a stationary obstacle robot is required to wear a jersey, any jersey that was approved for a RoboCup SPL competition in the last 4 years can be used otherwise \cf Section~\ref{sec:team_markers}}
+
 
 \paragraph{Team Markers}
 \label{sec:team_markers}
@@ -203,7 +202,7 @@ Robots use coloured jersey shirts as team markers in the ``home'' and ``away'' c
 	\caption{Team markers. a) Front view. b) Side view. c) Back view.}
 	\label{fig:nao_markers}
 \end{figure}
-
+\cbp{Teams may use any jersey that was approved for a RoboCup SPL competition in the last 4 years without needing to reapprove it in 2021.}
 
 Teams may design and manufacture their own jerseys in any colour (multi and many colour jerseys are acceptable), but must follow these guidelines:
 \begin{itemize}
@@ -244,7 +243,7 @@ The robots must play without human control. Communication is only allowed betwee
 
 The only wireless hardware allowed to be used by the teams/arenas are the wireless network cards built into the NAOs, and the access points provided by the arena. All other wireless hardware must be deactivated. A team/arena may be disqualified if one of the team members violates this rule.
 
-Each team will get a range of IP addresses that can be used both for their robots and their computers/remote connections. The network configuration (\eg IP addresses, channels, SSIDs, and required encryption) of the fields will be announced (\cf Section~\ref{sec:c3_BasicRequirementsForArenas}).
+Each team will get a range of IP addresses that can be used both for their robots and their computers/remote connections. The network configuration (\eg IP addresses, channels, SSIDs, and required encryption) of the fields \cbw{will be announced (\cf Section~\ref{sec:c3_BasicRequirementsForArenas})}.
 
 Teams and their robots must not listen into another team's communication.
 
@@ -262,8 +261,9 @@ The use of remote processing/sensing is prohibited.
 \paragraph{Structure of the Competition}
 \label{sec:game_struct}
 
-A 1vs1 competition consists of three parts, the first half, a half-time break, and the second half. Each half is 5 minutes counted from the initial kick-off.
-The half-time break is five minutes and during this time both teams may change their robot to the substitute player, but code changes are prohibited in the half-time. It is mainly used to cool down the robots and to charge them. 
+\cbp{Unless otherwise specified, a competition consists of three parts, the first half, a half-time break, and the second half. Each half is 5 minutes counted from the initial kick-off.} \\
+	
+\cbp{The half-time break is five minutes and during this time both teams may change their robot to the substitute player, but code changes are prohibited in the half-time. It is mainly used to cool down the robots and to charge them.}
 
 The head referee signals the commencement of each half with a single whistle blow (that is, the Initial kick-off, \cf Section~\ref{sec:initial-kick-off}).
 The head referee signals the end of the first half with two short whistle blows, and the end of the second half with two short plus one long whistle blow.
@@ -276,15 +276,15 @@ The teams/robots will change the goal defended during the half-time break.
 
 Robots can be in six different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
-\textbf{The use of the button interface is not allowed in this competition!} 
+\cbp{\textbf{The use of the button interface as a replacement for the GameController is not allowed in the 1vs1 competition!}}
 
-Should both robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).
-If only one robot does not respond to the GameController then it is not included in the game (via a `Request for Pick-up', \cf Section~\ref{sec:request_for_pickup}), and the game starts without the offending robot.
+\cbp{Should both robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).}
+If \cbw{only one} robot does not respond to the GameController then it is not included in the game (via a `Request for Pick-up', \cbw{\cf Section~\ref{sec:request_for_pickup}}), and the game starts without the offending robot.
 
 \begin{description}
 	\item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 	
-	\item[Ready.] In this state, the robots walk to a legal position on their half. They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime.
+	\item[Ready.] In this state, the robots walk to \cbw{a legal position on their half}. They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime.
 	
 	\item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf Section~\ref{sec:kick-off}).
 	Illegally positioned robots are penalized.
@@ -293,16 +293,16 @@ If only one robot does not respond to the GameController then it is not included
 	The penalty time counter is frozen during this state.
 	Note that all penalized robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
 	
-	\item[Playing.] In the \emph{playing} state, the robots are playing the 1vs1 competition.
+	\item[Playing.] In the \emph{playing} state, the robots are playing the competition. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 	
-	\item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion,  this includes stopping the head turning.
+	\item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
 	
 	\item[Finished.] This state is reached when a half is finished.
 \end{description}
 
 \begin{figure}[t]
 	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
-	\caption{Robot states. GameController transitions are shown in black. However, any transition possible for this competition is only sent by the GameController.}
+	\caption{Robot states. Button interface transitions are shown in gray. GameController transitions are shown in black. However, any transition possible \cbw{should} be sent by the GameController.}
 	\label{fig:robot_states}
 \end{figure}
 
@@ -332,32 +332,35 @@ The current GameController requires robots to know both their team number and th
 
 \paragraph{Goal}
 \label{sec:goal}
-A goal (including own goal) is achieved when the entire ball (not only the centre of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}. \\
-If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half, that is farthest away from the player in this half. The ball can then directly be played again. 
+A goal \cbw{(including own goal)} is achieved when the entire ball (not only the centre of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}.
 
-The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed. \\
+\cbp{If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half, that is farthest away from the player in this half. The ball can then directly be played again.}
+
+The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed.
+
 %TODO: Maybe we can change the logic of the GameController to allow for counting goals without ready and set phase.
-After the game is in the state playing, the game state remains in it regardless of shot goals!
+\cbp{After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! The only exception is the application of the Global Game Stuck rule, \cf Section~\ref{sec:game_stuck:global}}
 
 
 \paragraph{Initial Kick-off}
 \label{sec:initial-kick-off}
 
 The first kick-off at the start of each half is the initial kick-off.
-Before the initial kick-off, \ie before the start of each half, both robots must be in the initial state and must be placed on the sidelines, closest to the GameController, in their own half of the field at the height of the penalty spot. 
+Before the initial kick-off, \ie before the start of each half, \cbw{both} robots must be in the initial state and must be placed on the sidelines, \cbw{closest to the GameController}, in their own half of the field \cbw{at the height of the penalty spot}. 
 Once the robots receive the \emph{ready} signal from the GameController, they are to proceed as described in Section~\ref{sec:kick-off}.
 
 \paragraph{Kick-off}
 \label{sec:kick-off}
-For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. It is to a team's responsibility to have their robots listen to the GameController!
+For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. \cbw{It is to a team's responsibility to have their robots listen to the GameController!}
 
 In the ready state, the robots should walk to their legal kick-off positions.
-The players can be positioned anywhere within their own half, but no player is allowed to touch the centre/halfway line. All robots that do not reach legal positions will be penalized with the ``Illegal Position'' penalty~(\cf Section~\ref{sec:illegal_positioning}).
+\cbp{The players can be positioned anywhere within their own half, but no player is allowed to touch the centre / halfway line.} 
+All robots that do not reach legal positions will be penalized with the ``Illegal Position'' penalty~(\cf Section~\ref{sec:illegal_positioning}).
 
-In the \emph{set} state, the robots must not locomote~(\cf Section~\ref{sec:robot_states}). A referee places the two balls for each side on the goal free kick positions (\cf Section~\ref{sec:kick_in})
+In the \emph{set} state, the robots must not locomote~(\cf Section~\ref{sec:robot_states}). A referee places \cbw{the two balls, for each side, on the goal free kick positions (\cf Section~\ref{sec:kick_in}).}
 If the ball is moved by one of the robots during \emph{set} it is replaced by one of the referees.
 
-There is no manual placement of any robot.
+\cbp{There is no manual placement of any robot.}
 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
 
@@ -367,15 +370,16 @@ After the head referee has signalled the kick-off, the robot's state is switched
 \label{sec:kick_in}
 
 A ball is considered to have left the field when there is no part of the ball over the outside of the boundary line (\ie the line itself is in). \\
-If the ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. \\
-If the ball goes over an end-line then the assistant referee will replace the ball onto the corner of the goal box on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the goal box meets the goal line.
-Note that no GameController action is required.
+\cbp{If the ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out.} \\
+\cbp{If the ball goes over an end-line then the assistant referee will replace the ball onto the corner of the goal box on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the goal box meets the goal line.}
+\cbp{Note that no GameController action is required.}
 
 \paragraph{Global Game Stuck}
 \label{sec:game_stuck:global}
 
-In the event of no ``substantial change''\footnote{``substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball)} in the game state for 30 seconds OR or no ball was played from one half to the other for 1 minute, this is considered a global game stuck and the referee calls ``Global Game Stuck''. \\
-Once the referee calls Global Game Stuck, players enter the Ready state, and a new kick-off (\cf Section~\ref{sec:kick-off}) is awarded.
+In the event of no ``substantial change''\footnote{``substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball)} in the game state for 30 seconds OR \cbw{no ball was played from one half to the other for 1 minute}, this is considered a global game stuck and the referee calls ``Global Game Stuck''. 
+
+\cbp{Once the referee calls Global Game Stuck, players enter the Ready state and a new kick-off (\cf Section~\ref{sec:kick-off}) is awarded.}
 %TODO: Single GameController button for Global Game Stuck?
 %TODO: Global game stuck starts with Initial position
 
@@ -387,9 +391,11 @@ Either team may request that their players be picked up (called ``Request for Pi
 In the Playing or Ready state, players may only be picked up for hardware failures.
 In all other states, players may be picked up for any reason.
 
-Only hardware changes are allowed during a request for pick-up! In particular, it is permitted to change batteries, fix mechanical problems, reboot the robots. Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team.
-It is also allowed to replace a broken robot by a substitute robot.
-However it is prohibited to change the robot's control program.
+\cbp{Only hardware changes are allowed during a request for pick-up! In particular, it is permitted to change batteries, fix mechanical problems, reboot the robots. Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team.}
+
+\cbp{It is also allowed to replace a broken robot by a substitute robot.}
+
+\cbp{However it is prohibited to change the robot's control program.}
 
 Any strategic ``Request for Pick-up'' is not allowed.
 That is, gaining an advantage by removing the robot from the competition.
@@ -404,9 +410,9 @@ Note here, that the returning robot or the substitute robot will have to wait ou
 
 \paragraph{Referee Timeout}
 \label{sec:referee_timeout}
-The head official may call a timeout at any stoppage of play if he or she deems it necessary. A referee timeout should only be called in dire circumstances --- one example might be when the power to the wireless router is down or no robot listens to the GameController. However, when and whether to call a referee timeout is left up to the head referee.
+The head official may call a timeout at any stoppage of play if he or she deems it necessary. A referee timeout should only be called in dire circumstances --- one example might be when the power to the wireless router is down \cbw{or no robot listens to the GameController}. However, when and whether to call a referee timeout is left up to the head referee.
 
-Referees may call multiple timeouts during a game if needed. Teams are only allowed to do hardware changes during these timeouts.  The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
+Referees may call multiple timeouts during a game if needed. Teams are \cbw{only allowed to do hardware changes} during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout. The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
 
 \newpage
 
@@ -415,19 +421,19 @@ Referees may call multiple timeouts during a game if needed. Teams are only allo
 
 The following actions are forbidden. In general, when a penalty applies, the robot shall be replaced, not the ball.
 
-Since teams are playing with robots from other teams, there is a maximum of 3 hardware related penalties:
+\cbp{Since teams are playing with robots from other teams, there is a maximum of 3 hardware related penalties:
 \begin{itemize}
 	\item \textbf{fallen robot} or \textbf{inactive robot}, \cf Section~\ref{sec:fallenrobots}
 	\item \textbf{request for pick-up} - either by the team or by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
 \end{itemize}
-After that this robot is excluded for the rest of the competition!
+After that this robot is excluded for the rest of the competition!}
 %TODO: Right spot?
 %TODO: Substitute or restart of the competition? 
 
 \paragraph{Penalty Procedure}
 \label{sec:penalty_procedure}
 
-When a robot commits an infraction, the head referee shall call out the infraction committed, the primary jersey colour of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
+When a robot commits \cbw{an infraction}, the head referee shall call out the infraction committed, the primary jersey colour of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
 
 For penalties that are timed, the penalty time is considered to be over at the end of each half.
 
@@ -436,7 +442,7 @@ For penalties that are timed, the penalty time is considered to be over at the e
 
 Unless otherwise stated, all infractions result in the removal of the infringing robot from the field of play for a particular amount of time, after which it will be returned to the field of play. This process is called the \textit{standard removal penalty}.
 
-When the head referee indicates an infraction has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
+When the head referee indicates \cbw{an infraction} has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
 The GameController will send the appropriate penalty signal to the robot indicating the infraction committed. After a penalty is signalled to the robot, it is not allowed to move in any fashion. The removed robot will be placed outside of the field facing away from the field of play.
 
@@ -446,7 +452,7 @@ That is, the first infraction will result in a penalty time of \StandardPenaltyT
 
 During the \emph{set} state the penalty time counter will not decrease.
 
-The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending and on the sideline that is nearest to the GameController. The robot should be placed close to the position where the penalty spot projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}.
+The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending and \cbw{on the sideline that is nearest to the GameController}. The robot should be placed close to the position where the penalty spot projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}.
 
 With approximately 5 seconds left before the penalty ends, the robot should be turned to face towards the opposite sideline.
 
@@ -476,15 +482,15 @@ The head referee decides whether a robot's locomotion is appropriate. Robots usi
 \subparagraph{Damage to the Field}
 \label{sec:damage}
 
-A robot that damages the field, or poses a threat to spectator safety, will be removed from the field for the remainder of the competition.
+A robot that damages the field, or poses a threat to spectator safety, will be removed from the field for the remainder of the \cbw{competition}.
 
-\subparagraph{Damage to the Robot}
+\cbp{\subparagraph{Damage to the Robot}
 \label{sec:damage_robot}
 
 The head referee decides whether a robot excessively damages itself and should remove it from the field via ``Request for Pick-up''. 
-All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently.
+All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently.}
 
-\subparagraph{Illegal Positioning}
+\paragraph{Illegal Positioning}
 \label{sec:illegal_positioning}
 
 A robot penalized under illegal position has the ``Illegal Position'' penalty applied. Illegally positioned robots are subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty}).
@@ -494,7 +500,7 @@ For simplicity, Illegal Positioning penalties during the \textit{Set} state (for
 
 Refer to Section~\ref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
 
-``Illegal Position'' shall be imposed if a robot is not inside its own half at the time the Set state starts. It will then be penalized and removed for 15 seconds. The centre line does not count as part of the own half for this penalty, nor does the area inside the goal!
+``Illegal Position'' shall be imposed if a robot is not inside its own half at the time the Set state starts. It will then be penalized and removed for 15 seconds. The centre line does not count as part of the own half for this penalty, \cbw{nor does the area inside the goal!}
 
 \paragraph{Motion in Set}
 \label{sec:motion_in_set}
@@ -507,10 +513,10 @@ The offending robot is penalized \textit{in-place} on the field. It will then be
 \label{sec:fallenrobots}
 
 If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be penalized and removed for \StandardPenaltyTime.
-A robot which is unable to autonomously stand up within 20 seconds after a fall and be at least 10 seconds upright will be penalized and removed for \StandardPenaltyTime. 
+A robot which is unable to autonomously stand up within 20 seconds after a fall \cbw{and be at least 10 seconds upright} will be penalized and removed for \StandardPenaltyTime. 
 In both cases, the head referee will call ``Fallen Robot  \textless robot\textgreater''.
 
-\textbf{No robot} is permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. The robots should be programmed to attempt to remain upright -- that is, supported by its feet.
+\cbw{\textbf{No robot}} is permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. The robots should be programmed to attempt to remain upright -- that is, supported by its feet.
 
 A robot that has ceased activity for 10 seconds or has turned off will be removed and penalized for 45 seconds.
 The head referee will call ``Inactive Robot  \textless robot\textgreater''.
@@ -526,26 +532,32 @@ Fallen/Inactive Robot penalties do not follow the standard removal procedure, an
 
 \paragraph{Player Stance}
 \label{sec:player_stance}
-In order to intercept kicked balls the robots are allowed to go into a wide stance as long as they come back to a normal stance within 5 seconds and do not excessively damage the robots\footnote{``excessively'' is decided by the head referee in order to limit the damages to robots}. Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard removal penalty. If the robot has fallen down, it must start getting up within 5 seconds. 
+\cbw{In order to intercept kicked balls the robots are} allowed to go into a wide stance as long as they come back to a normal stance within 5 seconds \cbw{and do not excessively damage the robots}\footnote{\cbw{``excessively'' is decided by the head referee in order to limit damages to robots}}. \\
+Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard removal penalty. \\
+If the robot has fallen down, it must start getting up within 5 seconds. 
 
 \paragraph{Playing with Arms/Hands}
 \label{sec:hand_ball}
 
 Playing with arms/hands occurs when a field player moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot. If an own goal is scored as a result, the goal should count and the player should not be penalized.
+%TODO: Remove the own goal thing?
 
 Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. 
 If the ball goes out of play in this case, normal kick-in rules will apply (\cf Section~\ref{sec:kick_in}). 
-Goals resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a kick-in (\cf Section~\ref{sec:kick_in}) as if the ball went over the goal line next to the goal.
+Goals resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a \cbw{kick-in (\cf Section~\ref{sec:kick_in})} as if the ball went over the goal line next to the goal.
 
 \paragraph{Leaving the Field}
 \label{sec:leaving_field}
 
-A robot that intends to leave the \TotalWidth $\times$ 3.7~m\xspace carpeted area of its \textbf{own half} will be subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty})! A touching/exceeding of the centre/halfway line also leads to this standard removal penalty. 
+A robot that intends to leave the \TotalWidth $\times$ \cbw{3.7~m\xspace} carpeted area of its \cbw{\textbf{own half}} will be subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty})!
+
+\cbp{A touching/exceeding of the centre/halfway line also leads to this standard removal penalty.}
+
 The head referee will call ``Leaving the Field \textless robot\textgreater''.
 
 Additionally, a robot will also be subject to the standard removal penalty when:
 \begin{itemize}
-	\item the robot walks into the goal posts or into the goal area for more than 5 seconds, this includes robots that are stuck on the goal posts and unable to free themselves
+	\item the robot walks into the goal posts or \cbw{into the goal area} for more than 5 seconds, this includes robots that are stuck on the goal posts and unable to free themselves
 	\item the robot's finger become entangled in the net (without any time constraint).
 \end{itemize}
 
@@ -553,16 +565,16 @@ Additionally, a robot will also be subject to the standard removal penalty when:
 
 The referees are the only persons permitted on the carpeted area (\ie the field and the border area).
 
-The local team of an arena has to provide the referees. The number of referees depends on local regulations and can be reduced to a head referee and an operator of the GameController.
+\cbp{The local team of an arena has to provide the referees. The number of referees depends on local regulations and can be reduced to a head referee and an operator of the GameController.}
 
-All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently!
+\cbp{All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently!}
 
 \paragraph{Head Referee}
 \label{sec:head_referee}
 
 The head referee is in charge of the game. Any decision of the head referee is valid. The head referee's decision is final and can not be changed afterwards, even by video proof. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience/spectators or the teams and the head referee.
 
-The head referee also decides whether a robot excessively damages itself and should be removed from the field (\cf Section~\ref{sec:damage})
+\cbp{The head referee also decides whether a robot excessively damages itself and should be removed from the field (\cf Section~\ref{sec:damage})}
 
 The head referee announces decisions by a clear loud call, and (as required) whistle sound.
 The whistle, or where there is no whistle the first verbal word of the referees calls, defines the point in time at which the decision is made.
@@ -575,17 +587,17 @@ Each whistle sound should be short and not too loud.
 The head referee must \textit{only} sound the whistle in circumstances described in these rules.
 There are three circumstances when the whistle is sounded, Kick-off~(\cf Section~\ref{sec:kick-off}), a goal~(\cf Section~\ref{sec:goal}), and ending a half of gameplay~(\cf Section~\ref{sec:game_struct}).
 
-The head referee should avoid handling the ball (except for placing the balls for a kick-off), and avoid handling the robots.
+The head referee should avoid handling the ball (except for placing \cbw{the balls} for a kick-off), and avoid handling the robots.
 Their duty is to monitor and adjudicate the game.
-The head referee should only handle robots and the ball if absolutely necessary to expedite gameplay or removal of penalized robots, where the assistant referees are otherwise occupied, are too far away or had to be dropped.
+The head referee should only handle robots and the ball if absolutely necessary to expedite gameplay or removal of penalized robots, where the assistant referees are otherwise occupied, are too far away \cbw{or had to be dropped due to local regulations.}
 
 \paragraph{Assistant Referees}
 \label{sec:assist_referee}
-The, in the ideal case, two assistant referees handle the robots and the ball. They start the robots if the wireless is not working, they move the robots, if manual placement is requested, they take the robots out when they are penalized, and they put the robots in again. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.
+The, \cbw{in the ideal case}, two assistant referees handle the robots and the balls. They start the robots if the wireless is not working, they move the robots, if manual placement is requested, they take the robots out when they are penalized, and they put the robots in again. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.
 
-If a team requests to pick up a robot, an assistant referee will pick it up and puts it on the sideline. Also the assistant, on behalf of the teams, can do hardware changes to robots on the sideline, \ie reboot it or change and secure the battery. 
+\cbp{If a team requests to pick up a robot, an assistant referee will pick it up and puts it on the sideline. Also the assistant, on behalf of the teams, can do hardware changes to robots on the sideline, \ie reboot it or change and secure the battery.}
 
-The assistant referees can \textit{indicate} violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee or to catch a falling robot.
+The assistant referees can \textit{indicate} violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee \cbw{or to catch a falling robot}.
 
 \paragraph{Operator of the GameController}
 \label{sec:gameControllerOp}
