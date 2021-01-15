@@ -229,13 +229,15 @@ A brief summary of the rule changes will be given here:
 	
 	\item If a ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. If the ball goes over an end-line then the assistant referee will replace the ball onto the corner of the goal box. (\cf Section~\ref{sec:kick_in})
 	
-	\item This competition is played with a GameController and the use of the button interface as a replacement for the GameController is not allowed! (\cf Section~\ref{sec:robot_states})
+	\item This competition is executed with a GameController and the use of the button interface as a replacement for any GameController commands is not allowed! (\cf Section~\ref{sec:robot_states})
 	
-	\item If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half, that is farthest away from the player in this half. The ball can then directly be played again. (\cf Section~\ref{sec:goal})
+	\item If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half. The ball is placed farthest away from the player in this half and can then directly be played again. (\cf Section~\ref{sec:goal})
 	
-	\item After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! The only exception is the application of the Global Game Stuck rule. (\cf Section~\ref{sec:game_stuck:global})
+	\item After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! Exception are the application of the Global Game Stuck rule and a referee timeout. (\cf Section~\ref{sec:game_stuck:global})
 	
-	\item A Global Game Stuck is applied if, among other things, no ball was played from one half to the other for 1 minute (\cf Section~\ref{sec:game_stuck:global})
+	\item A Global Game Stuck is applied if, among other things, no ball was played from one half to the other for more than 1 minute. (\cf Section~\ref{sec:game_stuck:global})
+		
+	\item Alleine auf dem Feld	
 		
 	\item Fields that are at least 3/4 of the original size can also be used for this competition. However, field sizes smaller than the original should be reported by email to the TC by June 1, 2021. (\cf Section~\ref{sec:field_dim})
 \end{itemize}
@@ -257,8 +259,11 @@ A brief summary of the rule changes will be given here:
 	
 	\item If it comes to an excluding of a robot, the head referee, in consultation with the two team leaders, must decide whether the hardware errors that occurred were exclusively self-inflicted due to faulty code or whether it was a general hardware problem with the robot.
 	
-	\item Depending on this decision, the game will continue without this robot in case of self-inflicted hardware problems. For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!
-	
+	\item Depending on this decision:
+	\begin{itemize}
+		\item In case of self-inflicted hardware problems will the game continue without this robot till the end of the regular time or till the remaining robot scores more points or has more point scored as the excluded robot. 
+		\item For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!
+	\end{itemize}
 	\item A robot exchange can take place at most once per team, in this case this competition would be restarted 2 times! (\cf Section~\ref{sec:forbidden_act})
 \end{itemize}
 
@@ -290,7 +295,8 @@ The head referee has to call:
 and then the points will be counted by the operator of the GameController.
 %TODO: either by writing it down or by using a modified GameController
 
-For teams playing with an \textbf{autonomous player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is used at the end of the game and the scored points, for this team, are multiplied by it to calculate the final points (\cf Section~\ref{sec:rankings}). \emph{Note that the resulting points should be rounded to the nearest integer.}
+For teams playing with an \textbf{autonomous player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is used at the end of the game and the scored points, for this team, are multiplied by it to calculate the final points (\cf Section~\ref{sec:rankings}). 
+%\emph{Note that the resulting points should be rounded to the nearest integer.}
 
 \subsection{Challenge execution}
 % Arne

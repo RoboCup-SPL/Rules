@@ -1,6 +1,6 @@
 \section{Common rules}
 \label{sec:Common_rules}
-These rules are mostly taken from the 2020 rule book, but a few things have been added, modified and/or omitted. Changes in individual chapters are marked with a \cbw{colourbox}.
+These rules are mostly taken from the 2020 rule book, but a few things have been added, modified and/or omitted due to the unique circumstances of 2021. Changes in individual chapters are marked with a \cbw{colourbox}.
 
 \subsection{Setup of the Environment}
 \label{sec:environment_setup}
@@ -263,8 +263,7 @@ The teams/robots will change the goal defended during the half-time break.
 
 Robots can be in \textit{eight} different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). \cbw{Wireless connection must be available}, so these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
-\cbp{\textbf{The use of the button interface as a replacement for the GameController is not allowed in the 1vs1 competition!}}
-\info[]{TODO: This is inconsistent now, since the chest button is used to penalise/unpenalise when starting stopping calibration}
+\cbp{\textbf{The use of the button interface as a replacement for any GameController commands is not allowed in the 1vs1 competition!}}
 
 \cbp{Should both robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).}
 If \cbw{only one} robot does not respond to the GameController then it is not included in the game (via a `Request for Pick-up', \cbw{\cf Section~\ref{sec:request_for_pickup}}), and the game starts without the offending robot.
@@ -329,12 +328,12 @@ The current GameController requires robots to know both their team number and th
 \label{sec:goal}
 A goal \cbw{(including own goal)} is achieved when the entire ball (not only the centre of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}.
 
-\cbp{If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half, that is farthest away from the player in this half. The ball can then directly be played again.}
+\cbp{If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half. The ball is placed farthest away from the player in this half and can then directly be played again.}
 
 The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed.
 
 %TODO: Maybe we can change the logic of the GameController to allow for counting goals without ready and set phase.
-\cbp{After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! The only exception is the application of the Global Game Stuck rule, \cf Section~\ref{sec:game_stuck:global}}
+\cbp{After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! Exceptions are the application of the Global Game Stuck rule and a referee timeout, \cf Section~\ref{sec:game_stuck:global} and Section~\ref{sec:referee_timeout}}
 
 
 \subsubsection{Initial Kick-off}
@@ -372,7 +371,7 @@ A ball is considered to have left the field when there is no part of the ball ov
 \subsubsection{Global Game Stuck}
 \label{sec:game_stuck:global}
 
-In the event of no ``substantial change''\footnote{``substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball)} in the game state for 30 seconds OR \cbw{no ball was played from one half to the other for 1 minute}, this is considered a global game stuck and the referee calls ``Global Game Stuck''. 
+In the event of no ``substantial change''\footnote{``substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball)} in the game state for 30 seconds OR \cbw{no ball was played from one half to the other for more than 1 minute}, this is considered a global game stuck and the referee calls ``Global Game Stuck''. 
 
 \cbp{Once the referee calls Global Game Stuck, players enter the Ready state and a new kick-off (\cf Section~\ref{sec:kick-off}) is awarded.}
 %TODO: Single GameController button for Global Game Stuck?
@@ -420,7 +419,13 @@ The following actions are forbidden. In general, when a penalty applies, the rob
 After that this robot is excluded for the rest of the competition!}
 
 \cbp{If it comes to an excluding of a robot, the head referee, in consultation with the two team leaders, must decide whether the hardware errors that occurred were exclusively self-inflicted due to faulty code or whether it was a general hardware problem with the robot.}\\
-\cbp{Depending on this decision, the game will continue without this robot in case of self-inflicted hardware problems. For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!}
+
+\cbp{Depending on this decision:
+\begin{itemize}
+	\item In case of self-inflicted hardware problems will the game continue without this robot till the end of the regular time or till the remaining robot scores more points or stop if it has more points scored than the excluded robot. 
+	\item For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!
+\end{itemize}}
+
 \cbp{A robot exchange can take place at most once per team, in this case this competition would be restarted 2 times!}
 
 %TODO: Right spot?
