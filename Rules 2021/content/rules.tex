@@ -2,8 +2,6 @@
 \label{sec:Common_rules}
 These rules are mostly taken from the 2020 rule book, but a few things have been added, modified and/or omitted. Changes in individual chapters are marked with a \cbw{colourbox}.
 
-%TODO: Jerseys here as well
-
 \subsection{Setup of the Environment}
 \label{sec:environment_setup}
 \subsubsection{Field Construction}
@@ -289,11 +287,11 @@ If \cbw{only one} robot does not respond to the GameController then it is not in
 	
 	\item[Finished.] This state is reached when a half is finished.
 
-	\cbp{\item[Unstiff.] \textit{This state has been added in 2021 to help facilitate a consistent and safe handling of the robots for remote competition.} During the Initial, Ready, Set or Penalised states, if all head buttons are pressed, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing all three head button while in the Unstiffen state, permits the robot to stiffen it's joints and return to the previous state, or a state as indicated by GameController. (Note, this is not currently shown in Figure~\ref{fig:robot_states})}
+	\cbd{\item[Unstiff.] \textit{This state has been added in 2021 to help facilitate a consistent and safe handling of the robots for remote competition.} During the Initial, Ready, Set or Penalised states, if all head buttons are pressed, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing all three head button while in the Unstiffen state, permits the robot to stiffen it's joints and return to the previous state, or a state as indicated by GameController. (Note, this is not currently shown in Figure~\ref{fig:robot_states})}
 
     \info[]{TW: Added Unstiff state. Please review for consistency with 1vs1 and calibration challenges.}
 
-	\cbp{\item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from Initial/Ready by pressing the \textit{front} head button plus the chest button.}
+	\cbd{\item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from Initial/Ready by pressing the \textit{front} head button plus the chest button.}
     
 \end{description}
 
@@ -559,7 +557,7 @@ Additionally, a robot will also be subject to the standard removal penalty when:
 \end{itemize}
 
 \subsection{Judgment}
-
+\label{sec:judgment}
 The referees are the only persons permitted on the carpeted area (\ie the field and the border area).
 
 \cbp{The local team of an arena has to provide the referees. The number of referees depends on local regulations and can be reduced to a head referee and an operator of the GameController.}

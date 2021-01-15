@@ -211,9 +211,58 @@ To give volunteers an interface to command autonomous acting robot, the followin
 
 \subsection{Rules}
 %Arne
-Mayor rule changes 
+A brief summary of the rule changes will be given here:
 
-Others are here: \ref{sec:rules}
+\subparagraph{Competition Execution:}
+\begin{itemize}
+	\item The competition consists of three parts, the first half, a half-time break, and the second half. Each half is 5 minutes counted from the initial kick-off. (\cf Section~\ref{sec:game_struct})
+	
+	\item Only hardware changes are allowed! In particular, it is permitted to change batteries, fix mechanical problems, reboot the robots. Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team. (\cf Section~\ref{sec:game_struct} and Section~\ref{sec:request_for_pickup})
+	
+	\item Each team has one NAO v6 and by default the two robots are wearing ``home'' and ``away'' jerseys with the number 2 on it (\cf Section~\ref{sec:field_players})
+	
+	\item The players can be positioned anywhere within their own half, but no player is allowed to touch or exceed the centre / halfway line. (\cf Section~\ref{sec:kick-off} and Section~\ref{sec:leaving_field})
+	
+	\item There is no manual placement of any robot.(\cf Section~\ref{sec:kick-off})
+	
+	\item The two balls, for each side, are placed onto the corners of the goal box - goal free kick positions - (\cf Section~\ref{sec:kick_in})
+	
+	\item If a ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. If the ball goes over an end-line then the assistant referee will replace the ball onto the corner of the goal box. (\cf Section~\ref{sec:kick_in})
+	
+	\item This competition is played with a GameController and the use of the button interface as a replacement for the GameController is not allowed! (\cf Section~\ref{sec:robot_states})
+	
+	\item If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half, that is farthest away from the player in this half. The ball can then directly be played again. (\cf Section~\ref{sec:goal})
+	
+	\item After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! The only exception is the application of the Global Game Stuck rule. (\cf Section~\ref{sec:game_stuck:global})
+	
+	\item A Global Game Stuck is applied if, among other things, no ball was played from one half to the other for 1 minute (\cf Section~\ref{sec:game_stuck:global})
+		
+	\item Fields that are at least 3/4 of the original size can also be used for this competition. However, field sizes smaller than the original should be reported by email to the TC by June 1, 2021. (\cf Section~\ref{sec:field_dim})
+\end{itemize}
+
+\subparagraph{Referees:}
+\begin{itemize}
+	\item All referees are allowed to \textbf{prevent robots from crashing} to the ground by catching them beforehand and then laying them down gently! (\cf Section~\ref{sec:judgment}) 
+	
+	\item The head referee decides whether a robot excessively damages itself and should remove it from the field via ``Request for Pick-up''. (\cf Section~\ref{sec:damage_robot})
+	
+	\item A robot which is unable to autonomously stand up within 20 seconds after a fall and be \textbf{at least 10 seconds upright} will be penalized as fallen robot. (\cf Section~\ref{sec:fallenrobots})
+	
+	\item Since teams are playing with robots from other teams, there is a \textbf{maximum of 3 hardware related penalties}:
+		\begin{itemize}
+			\item \textbf{fallen robot} or \textbf{inactive robot}, \cf Section~\ref{sec:fallenrobots}
+			\item \textbf{request for pick-up} in the Playing or Ready state - either by the team or by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
+		\end{itemize}
+		After that this robot is excluded for the rest of the competition!
+	
+	\item If it comes to an excluding of a robot, the head referee, in consultation with the two team leaders, must decide whether the hardware errors that occurred were exclusively self-inflicted due to faulty code or whether it was a general hardware problem with the robot.
+	
+	\item Depending on this decision, the game will continue without this robot in case of self-inflicted hardware problems. For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!
+	
+	\item A robot exchange can take place at most once per team, in this case this competition would be restarted 2 times! (\cf Section~\ref{sec:forbidden_act})
+\end{itemize}
+
+A detailed description of the rules can be found here: Section~\ref{sec:Common_rules}
 
 \subsection{Scoring}
 % Arne
