@@ -1,6 +1,6 @@
 \section{Common rules}
 \label{sec:Common_rules}
-These rules are mostly taken from the 2020 rules, but a few things have been modified and/or omitted. Changes in individual chapters are marked with a \cbw{colourbox}.
+These rules are mostly taken from the 2020 rule book, but a few things have been added, modified and/or omitted. Changes in individual chapters are marked with a \cbw{colourbox}.
 
 %TODO: Jerseys here as well
 
@@ -152,7 +152,7 @@ In the root folder of the NextCloud drive (see~\ref{sec:data_exchange}) you find
 
 \subsection{Robot Players}
 \label{sec:robot_players}
-A match is played by two teams, each consisting of \emph{one player} and \emph{one substitute player}. All robots are \emph{field players} and no robot is designated as \emph{goalkeeper}.
+A match is played by two teams, each consisting of \emph{one player}. All robots are \emph{field players} and no robot is designated as \emph{goalkeeper}.
 
 \subsubsection{Hardware}
 \label{sec:hardware}
@@ -168,15 +168,15 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 
 \subsubsection{Field Players}
 \label{sec:field_players}
-Each field player has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, \cbw{the number ``2'' is used for the first field player and the number ``3'' should be used for a substitute} that enters the game later. \cbw{This assignment can be changed due to availability of jerseys.}
+Each field player has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, \cbw{the number ``2'' is used for the field player}. \cbw{This assignment can be changed due to availability of jerseys.}
 
 \cbp{\subsubsection{Stationary Obstacle Robots}
 \label{sec:stationary_obstacle_robots}
 Some of the challenges use stationary obstacle robots. \\
 	
-	All stationary obstacle robots are allowed to stand upright or sit down and can remain turned off for the duration of the challenge. Static obstacle robots may not lay down on the field. Stationary obstacle robots are not required to be V6 edition NAO robots. It is allowed to use any NAO edition that was legal to use in a RobCup SPL competition in the past. \\
-	
-	When a stationary obstacle robot is required to wear a jersey, any jersey that was approved for a RoboCup SPL competition in the last 4 years can be used. (\cf Section~\ref{sec:team_markers})}
+All stationary obstacle robots are allowed to stand upright or sit down and can remain turned off for the duration of the challenge. Static obstacle robots may not lay down on the field. Stationary obstacle robots are not required to be V6 edition NAO robots. It is allowed to use any NAO edition that was legal to use in a RoboCup SPL competition in the past. \\
+
+When a stationary obstacle robot is required to wear a jersey, any jersey that was approved for a RoboCup SPL competition in the last 4 years can be used. (\cf Section~\ref{sec:team_markers})}
 
 
 \subsubsection{Team Markers}
@@ -210,7 +210,7 @@ Teams may design and manufacture their own jerseys in any colour (multi and many
 
 Each team/arena must designate a ``home'' colour and an ``away'' colour when asked about one month before RoboCup. Robots must wear the `home' jerseys when they are ``home'' (the first team listed on the schedule). The ``away'' team (the second team listed on the schedule) will wear the ``away'' jerseys.
 
-Some teams wish to include additional information or logos on their robots.  The following are allowable:
+Some teams wish to include additional information or logos on their robots. The following are allowable:
 \begin{itemize}
 	\item Attaching player numbers to the heads and/or legs of the robots.  These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
 	
@@ -252,7 +252,7 @@ The use of remote processing/sensing is prohibited.
 
 \cbp{Unless otherwise specified, a competition consists of three parts, the first half, a half-time break, and the second half. Each half is 5 minutes counted from the initial kick-off.} \\
 	
-\cbp{The half-time break is five minutes and during this time both teams may change their robot to the substitute player, but code changes are prohibited in the half-time. It is mainly used to cool down the robots and to charge them.}
+\cbp{The half-time break is five minutes and code changes are prohibited in the half-time! It is mainly used to cool down the robots and to charge them.}
 
 The head referee signals the commencement of each half with a single whistle blow (that is, the Initial kick-off, \cf Section~\ref{sec:initial-kick-off}).
 The head referee signals the end of the first half with two short whistle blows, and the end of the second half with two short plus one long whistle blow.
@@ -263,7 +263,7 @@ The teams/robots will change the goal defended during the half-time break.
 \subsubsection{Robot States}
 \label{sec:robot_states}
 
-Robots can be in \textit{eight}  different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). If the wireless is available, these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
+Robots can be in \textit{eight} different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). \cbw{Wireless connection must be available}, so these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
 \cbp{\textbf{The use of the button interface as a replacement for the GameController is not allowed in the 1vs1 competition!}}
 \info[]{TODO: This is inconsistent now, since the chest button is used to penalise/unpenalise when starting stopping calibration}
@@ -390,9 +390,7 @@ In all other states, players may be picked up for any reason.
 
 \cbp{Only hardware changes are allowed during a request for pick-up! In particular, it is permitted to change batteries, fix mechanical problems, reboot the robots. Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team.}
 
-\cbp{It is also allowed to replace a broken robot by a substitute robot.}
-
-\cbp{However it is prohibited to change the robot's control program.}
+\cbp{However it is prohibited to change the robot's control program or any configuration file.}
 
 Any strategic ``Request for Pick-up'' is not allowed.
 That is, gaining an advantage by removing the robot from the competition.
@@ -403,13 +401,13 @@ To prevent mistakes and confusion during games, only team leaders should make a 
 The returning robot may be returned following the normal replacement procedure once at least 45 seconds have elapsed since the robot was removed from play. Note that this penalty does not follow the standard removal procedure, and hence does not count towards the incremental penalty count.
 
 If the picked-up robot was penalized, the penalty time of the robot counts down with the game clock throughout the pick-up.
-Note here, that the returning robot or the substitute robot will have to wait out any remaining penalty time of the picked up robot after the team handed their robot back to the assistant referees.
+Note here, that the returning robot will have to wait out any remaining penalty time of the picked up robot after the team handed their robot back to the assistant referees.
 
 \subsubsection{Referee Timeout}
 \label{sec:referee_timeout}
 The head official may call a timeout at any stoppage of play if he or she deems it necessary. A referee timeout should only be called in dire circumstances --- one example might be when the power to the wireless router is down \cbw{or no robot listens to the GameController}. However, when and whether to call a referee timeout is left up to the head referee.
 
-Referees may call multiple timeouts during a game if needed. Teams are \cbw{only allowed to do hardware changes} during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout. The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
+Referees may call multiple timeouts during a game if needed. Teams are \cbw{only allowed to do hardware changes} during these timeouts and they must be ready to play \textbf{2 minutes} after the referee ends a timeout. The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved. In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
 
 \subsection{Forbidden Actions and Penalties}
 \label{sec:forbidden_act}
@@ -419,11 +417,15 @@ The following actions are forbidden. In general, when a penalty applies, the rob
 \cbp{Since teams are playing with robots from other teams, there is a maximum of 3 hardware related penalties:
 \begin{itemize}
 	\item \textbf{fallen robot} or \textbf{inactive robot}, \cf Section~\ref{sec:fallenrobots}
-	\item \textbf{request for pick-up} - either by the team or by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
+	\item \textbf{request for pick-up} in the Playing or Ready state - either by the team or by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
 \end{itemize}
 After that this robot is excluded for the rest of the competition!}
+
+\cbp{If it comes to an excluding of a robot, the head referee, in consultation with the two team leaders, must decide whether the hardware errors that occurred were exclusively self-inflicted due to faulty code or whether it was a general hardware problem with the robot.}\\
+\cbp{Depending on this decision, the game will continue without this robot in case of self-inflicted hardware problems. For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!}
+\cbp{A robot exchange can take place at most once per team, in this case this competition would be restarted 2 times!}
+
 %TODO: Right spot?
-%TODO: Substitute or restart of the competition? 
 
 \subsubsection{Penalty Procedure}
 \label{sec:penalty_procedure}
@@ -569,7 +571,7 @@ The referees are the only persons permitted on the carpeted area (\ie the field 
 
 The head referee is in charge of the game. Any decision of the head referee is valid. The head referee's decision is final and can not be changed afterwards, even by video proof. There is no discussion about decisions during the game, neither between the assistant referees and the head referee, nor between the audience/spectators or the teams and the head referee.
 
-\cbp{The head referee also decides whether a robot excessively damages itself and should be removed from the field (\cf Section~\ref{sec:damage})}
+\cbp{The head referee also decides whether a robot excessively damages itself and should be removed from the field (\cf Section~\ref{sec:damage})}.
 
 The head referee announces decisions by a clear loud call, and (as required) whistle sound.
 The whistle, or where there is no whistle the first verbal word of the referees calls, defines the point in time at which the decision is made.
@@ -588,9 +590,9 @@ The head referee should only handle robots and the ball if absolutely necessary 
 
 \subsubsection{Assistant Referees}
 \label{sec:assist_referee}
-The, \cbw{in the ideal case}, two assistant referees handle the robots and the balls. They start the robots if the wireless is not working, they move the robots, if manual placement is requested, they take the robots out when they are penalized, and they put the robots in again. An assistant referee will also put the robot back on the field. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.
+The, \cbw{in the ideal case}, two assistant referees handle the robots and the balls. They start the robots if they are not using the GameController, they move the robots, if a manual placement is needed, they take the robots out when they are penalized, and they put the robots in again. An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.
 
-\cbp{If a team requests to pick up a robot, an assistant referee will pick it up and puts it on the sideline. Also the assistant, on behalf of the teams, can do hardware changes to robots on the sideline, \ie reboot it or change and secure the battery.}
+\cbp{If a team requests to pick up a robot, an assistant referee will pick it up and put it on the sideline. Also the assistant, on behalf of the teams, can do hardware changes to robots on the sideline, \ie reboot it or change and secure the battery.}
 
 The assistant referees can \textit{indicate} violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee \cbw{or to catch a falling robot}.
 
@@ -608,7 +610,7 @@ Finally, they should repeat the calls of the head referee to make sure it was he
 
 \subsubsection{Referees During the Match}
 
-The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue colour} (blue jeans are acceptable) and avoid reserved colours for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty. They should avoid interfering with the robots as much as possible.
+The head referee and the assistant referees should wear clothing and socks \emph{of black or dark blue colour} (blue jeans are acceptable) and avoid reserved colours for the ball, the goals, and player markings in their clothing. They may enter the field in particular situations, \eg, to remove a robot when applying a penalty \cbw{or to catch a falling robot}. They should avoid interfering with the robots as much as possible.
 
 \subsubsection{A Remark on Artificial Landmarks}
 \label{sec:judgment:landmarks}
