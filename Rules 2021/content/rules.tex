@@ -143,7 +143,7 @@ There are three use cases for the streaming setup:
 \end{itemize}
 
 These cases should be taken into account when setting up a suitable streaming setup with respect to hardware equipment and internet connectivity.
-You can think of streaming on YouTube/Discord/BigBlueButton/Zoom ..., whatever is available (If bandwidth in the lab is limited, restreaming should be considered on system with better network connection). You should consider that referees should get prioritised access to the stream.  
+You can think of streaming on YouTube/Discord/BigBlueButton/Zoom ..., whatever is available (If bandwidth in the lab is limited, re-streaming should be considered on system with better network connection). You should consider that referees should get prioritised access to the stream.  
 In the root folder of the NextCloud drive (see~\ref{sec:data_exchange}) you find a \texttt{streaming.md} file where every team has to publish a link that can be used by public and teams to watch the challenges and if available another link that can be used by the referees to watch the challenge. The public link will be published on the SPL website / RoboCup 2021 website.}
 \improvement[]{TODO: Make NAO Devils stream setup as example available?}
 
@@ -297,7 +297,7 @@ If \cbw{only one} robot does not respond to the GameController then it is not in
 
 \begin{figure}[t]
 	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
-	\caption{Robot states. Button interface transitions are shown in gray. GameController transitions are shown in black. However, any transition possible \cbw{should} be sent by the GameController.}
+	\caption{Robot states. Button interface transitions are shown in grey. GameController transitions are shown in black. However, any transition possible \cbw{should} be sent by the GameController.}
 	\label{fig:robot_states}
 \end{figure}
 
@@ -323,7 +323,7 @@ The current game state should be displayed on the LED in the torso. The colours 
 	
 \end{itemize}
 
-The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on bootup so that this can be easily checked at the start of the game.
+The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on boot-up so that this can be easily checked at the start of the game.
 
 \subsubsection{Goal}
 \label{sec:goal}

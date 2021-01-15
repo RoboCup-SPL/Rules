@@ -27,7 +27,7 @@ If teams provide an autonomous setup, all teams can use this to play against thi
 % Patrick
 For this challenge teams need to fulfil multiple requirements, which are listed below in more detail.
 
-To be able to participate, teams have to deploy their software on the NAO remotely, or you can deliver a fully autonomous \info[]{Is this allowed by SoftBanks} setup. There will be several opportunities for the teams to talk, discuss, exchange ideas and code over the next few months until RoboCup. Two options will be properly available: Meetings like RoDEO and a spring RoHOW as well as to discuss on the SPL Discord channel. The second option is a code sharing section like it is available for the V6 support on RC SPL website.
+To be able to participate, teams have to deploy their software on the NAO remotely, or you can deliver a fully autonomous \info[]{Is this allowed by SoftBank} setup. There will be several opportunities for the teams to talk, discuss, exchange ideas and code over the next few months until RoboCup. Two options will be properly available: Meetings like RoDEO and a spring RoHOW as well as to discuss on the SPL Discord channel. The second option is a code sharing section like it is available for the V6 support on RC SPL website.
 
 If teams are not able to participate, they (and the other teams as well) can download and deploy the images for fully autonomous setup, calibration and challenge play in the own lab. These games are not part of the ladder system and are outside the competition.
 
@@ -41,7 +41,7 @@ If teams are not able to participate, they (and the other teams as well) can dow
 
 \subsubsection{Basic requirements for arenas}
 \label{sec:c3_BasicRequirementsForArenas}
-Teams have to fulfill the following items to be able to host an arena.
+Teams have to fulfil the following items to be able to host an arena.
 
 \begin{itemize}
     \item A standard field (see \ref{sec:environment_setup}) that is nearly of the size of an approximately 3/4 field or larger.
@@ -74,8 +74,8 @@ This challenge relies on a standardized arena setup as well as on exchanging all
 Teams exchange data during the days of RoboCup 2021 and before using a Nextcloud drive. An access link and password will be sent to the team leaders and have to be used with care. In the Nextcloud every team has its own folder (team number) which will be used for sharing the following data:
 
 \begin{itemize}
-    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field dimensions json will be copied on the USB drive after flashing as field\_dimensions.json in the folder configuration. This allows the usage of the same image at different arenas.
-    \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& nighttimes with focus on the lighting conditions get uploaded until the 15th of June 2021.
+    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field dimensions json will be copied on the USB drive after flashing as \texttt{field\_dimensions.json} in the folder configuration. This allows the usage of the same image at different arenas.
+    \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the 15th of June 2021.
     \item In \textbf{Robot Setup} the arena teams find a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folder for the player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
     \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 15th of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The list of responsible people can be found in the root folder of the Nextcloud drive.
     \item In the root folder you find a \texttt{streaming.md} file where every team has to publish a link that can be used by public to watch the game. It will be used on the SPL website / RoboCup 2021 website as well. Further details for streaming, see~\ref{sec:streaming_setup}.
@@ -107,7 +107,7 @@ The following section defines network requirements for a local venue that hosts 
 
 \begin{itemize}
     \item Participants need easy access to their robots for uploading code and debugging. No ports should be blocked. ICMP must not be blocked. % TODO: Which ports are necessary?
-    \item Robots might accumulate a large amount of log files (including images). These logs will be uploaded after games for analysis. Minimum 100Mbit/s (symmetric) is recommended for a venue, favorable 1Gbit/s. Logs can also be uploaded from another network.
+    \item Robots might accumulate a large amount of log files (including images). These logs will be uploaded after games for analysis. Minimum 100Mbit/s (symmetric) is recommended for a venue, favourable 1Gbit/s. Logs can also be uploaded from another network.
     \item To not overwhelm the network, teams should rate limit their network activity (in particular long log downloads and uncompressed video streams from NAOs during debug sessions)
 \end{itemize}
 
@@ -144,7 +144,7 @@ The following section defines network requirements for a local venue that hosts 
         \item Every team gets one certificate to authenticate via OpenVPN (multiple connections allowed).
         \item Has broadcast forwarding rules in place to allow VPN users to receive Team-/GC-Messages.
         \item GameController computer is assigned 10.0.0.2/16
-        \item \texttt{ETH0} could be connected to your university network and is preferably accessible from the internet on the specific port (please contact your computer center how to realize such a connection). If this is not possible, please check if you can make this network accessible from remote using a mobile internet connection. Or you provide a PC connected to an island network of this structure were people can access the PC using Teamviewer, remote desktop software, or something similar. 
+        \item \texttt{ETH0} could be connected to your university network and is preferably accessible from the internet on the specific port (please contact your computer centre how to realize such a connection). If this is not possible, please check if you can make this network accessible from remote using a mobile internet connection. Or you provide a PC connected to an island network of this structure were people can access the PC using TeamViewer, remote desktop software, or something similar. 
     \end{itemize}
 \end{itemize}
 
@@ -157,7 +157,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \begin{enumerate}
 	\item \texttt{Head button front + Chest button}: Starting the autonomous calibration mode
 	\item \texttt{1x Chest button}: Stiff robot
-	\item \texttt{All three head buttons}: Un-stiff robot
+	\item \texttt{All three head buttons}: Unstiff robot
 \end{enumerate} 
 
 \subsubsection{Start: 2h before match}
@@ -180,7 +180,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Calibration / Testing: 1 hour before match}
     \begin{enumerate}
         \item 20 minutes to calibrate the robot supported by one volunteer.
-        \item Autonomous setup is conducted in the following way: The volunteer place the robot on the normal initial position at the field side. Then the front head button plus the chest button gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 5 minutes to calibrate. At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise, the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}). 
+        \item Autonomous setup is conducted in the following way: The volunteer place the robot on the normal initial position at the field side. Then the front head button plus the chest button gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 5 minutes to calibrate. At the end of the calibration period, the robot may sit down and get unstiffed. Otherwise the robot will be unstiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}). 
 
         \item  Check Wi-Fi and game controller connection
     \end{enumerate}
@@ -219,7 +219,7 @@ A brief summary of the rule changes will be given here:
 	
 	\item Only hardware changes are allowed! In particular, it is permitted to change batteries, fix mechanical problems, reboot the robots. Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team. (\cf Section~\ref{sec:game_struct} and Section~\ref{sec:request_for_pickup})
 	
-	\item Each team has one NAO v6 and by default the two robots are wearing ``home'' and ``away'' jerseys with the number 2 on it (\cf Section~\ref{sec:field_players})
+	\item Each team has one NAO V6 and by default the two robots are wearing ``home'' and ``away'' jerseys with the number 2 on it (\cf Section~\ref{sec:field_players})
 	
 	\item The players can be positioned anywhere within their own half, but no player is allowed to touch or exceed the centre / halfway line. (\cf Section~\ref{sec:kick-off} and Section~\ref{sec:leaving_field})
 	
