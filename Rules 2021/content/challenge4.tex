@@ -4,11 +4,11 @@
 \subsection{Idea of Challenge}
 
 Automated calibration is a challenge for the SPL to reduce the dependence on extensive calibration of robots before each individual SPL game.
-This challenge tests a team's automatic calibration software and separated from the 1vs1 challenges to allow teams to demonstrate the quality of their calibration tools.
-Automatic calibration includes:
+This challenge tests a team's automatic calibration software separately from the 1v1 challenges to allow teams to demonstrate the quality of their calibration tools.
+Automatic calibration may include adjusting:
 \begin{itemize}
-    \item Camera Settings to dynamic lighting conditions and individual robot camera properties
-    \item Locomotion parameters for stable movement on different fields surfaces and individual robot properties
+    \item Camera settings to dynamic lighting conditions and individual robots
+    \item Locomotion parameters for stable movement on different fields surfaces and individual robots
 %    \item Localisation to variance in field dimensions
 %    \item Audio calibration to variance in whistles and noise around individual fields
 \end{itemize}
@@ -19,6 +19,7 @@ Requirements to participate in this challenge are:
     \item Use of the chest/head button interface
     \item Use of the head button to denote different stages of the challenge
     \item Run the software without GameController or any Wifi connection
+    \item Use Speech-to-text for reporting the progress of the robot\footnote{The TC has discussed the possibility of speech-to-text. Softbank provides a \texttt{say} executable on the standard Nao image which can be used. The TC permits and will help teams to share how to enable speech-to-text like the V6 remote setup. However, if teams note persistent problems the reporting mechanism will be adjusted.}
     \item The host venue will also need a measuring tape
 \end{enumerate}
 
@@ -34,7 +35,8 @@ The Prerequisites and Setup for this challenge will follow the same process as d
 
 \subsubsection{Timing}
 Ideally, the challenge will be conducted in parallel with the `1vs1 Challenge', as described in Section~\ref{sec:OneVsOneChallenge}.
-This challenge will be conducted before teams calibrate their robots for the 1vs1 challenge. If this is not possible, the challenge will be conducted the first time that a team set's up their robots for use at a given venue.
+This challenge will be conducted before teams \textit{manually} calibrate their robots for the 1vs1 challenge. 
+%If this is not possible, the challenge will be conducted the first time that a team set's up their robots for use at a given venue.
 
 \subsection{Challenge Execution}
 
@@ -58,14 +60,14 @@ The automatic calibration phase will run as follows:
     \end{itemize} 
     \item The camera shield will be removed.
     \item The \textit{front} head button plus the chest button is pressed tapped. The head button press signifies to initialize auto calibration mode~(see~\ref{sec:robot_states}).
-    \item The robot has up to 5 minutes to calibrate. The robot may freely move about the field. However it should not touch either ball, nor leave the boundaries of the field area.
+    \item The robot has up to 10 minutes to calibrate. The robot may freely move about the field. However it should not touch either ball, nor leave the boundaries of the field area.
     \item The robot may choose to end the calibration time early. It does so by standing still and raising one arm\footnote{If the arms are not functional, use of the arms can be forgone in agreement with the referee.}. It should also say "Calibration finished".
     \begin{itemize}
         \item If the robot finishes the calibration time early, the timer should be stopped and the total calibration time recorded.
         \item The time is rounded to the nearest 5 seconds to avoid human error
     \end{itemize} 
     \item If the 5 minute period is reached, the robot should immediately stop. The robot may also return to a seated position and unstiffen~(see~\ref{sec:robot_states}). If it does not do so the referee may use the chest button interface to penalise the robot (informing the robot to stop calibration). 
-    \item The referee may optionally press all head buttons may be simultaneously pressed to unstiffen the robot, before processing to the evaluation phase.
+    \item The referee may optionally press all head buttons to unstiffen the robot, before processing to the evaluation phase.
     \item At the end of the automatic calibration phase, the camera shield is placed on the robot.
 \end{enumerate} 
 
@@ -85,7 +87,7 @@ The automatic calibration phase will run as follows:
     \item If necessary, the head buttons will be pressed to unstiffen the robot~(see~\ref{sec:robot_states}).
     \item The \textit{back} head button plus the chest button is pressed. The head button press signifies the challenge mode, compared to a normal game/challenge mode.
     \item The referee will start a timer simultaneously with the above step.
-    \item During the evaluation phase, the robot must complete 5 tasks in sequence as \textit{quickly} and \textit{accurately} as possible:
+    \item During the evaluation phase, the robot must complete 5 tasks in sequence as \textit{quickly} and \textit{accurately} as possible (see points 9/10 for details):
     \begin{enumerate}
         \item Report the \textit{field relative} (that is global) position of the ball in the robot's own half.
         \item Walk to the centre of the goal in it's own half, at any rotation
@@ -146,6 +148,6 @@ Teams receive a total score equal to the sum of their ranks in each category at 
 Thus, the team with the \textit{lowest total score} is the best team at the venue.
 
 \subsection{Combine Scoring and Final Winner}
-Teams are given a final score equal to their \textit{average score} across all venues at which they attempted the challenge. A team must attempt the challenge at \textit{at least 3 venues} to qualify for the final ranking.
+Teams are given a final score equal to their \textit{average score} across all venues at which they attempted the challenge. A team must attempt the challenge at \textit{at least 3 venues} to qualify for the final ranking\footnote{The number of venues and completion of the challenge is subject to scheduling constraints and will be confirmed closer to the competition.}.
 Places are awarded in the challenge teams in increasing average score, starting with the lowest scoring team receiving 1st place.
 

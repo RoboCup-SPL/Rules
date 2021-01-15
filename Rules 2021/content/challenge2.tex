@@ -2,40 +2,41 @@
 \label{sec:PassingChallenge}
 
 \subsection{Idea of the Challenge}
-In recent year's teamwork has played an increasingly important role in the RoboCup SPL. A fundamental point in the development of this kind of strategy is the passing of the ball between teammates. The goal of this challenge is to push teams to develop an efficient system for the realization of an offensive strategy based on one or more passes between teammates. 
+Teamwork is an important element in the RoboCup SPL. A fundamental teamwork component is the passing the ball between teammates. The goal of this challenge is to push teams to develop offensive passing strategy. 
 
-The setting of the challenge is so defined: there are two attackers robots, and two static obstacle robots as defenders (\cf Section \ref{sec:stationary_obstacle_robots}). The purpose of the attackers' robots is to execute the highest number of passes between them in a limited amount of time. The timeout is set to 5 minutes.
-The referee will observe the challenge execution using video streaming, see \ref{sec:streaming_setup}.
-Each team has three attempts on this challenge; the final score for every team is the one obtained in the best of the three attempts. Teams cannot change code between attempts.
+The challenge requires two active ``attacker'' robots, and two static ``obstacle'' robots (\cf Section \ref{sec:stationary_obstacle_robots}). The attackers' robots must complete as many passes between them as possible within in a 5 minute period.
+A neutral referee will observe the challenge via a video stream, see \ref{sec:streaming_setup}.
+Teams may make three attempts with their final score being their best attempt. Teams cannot change code between the attempts.
 \begin{figure}[ht]
 \includegraphics[width=0.95\linewidth]{figs/ch_2_full.jpg}
-\caption{Full-size field setup. The red zone represents the movement areas of the attacking robots. The blue zone represents the defender's area. }
+\caption{Full-size field setup. The red zones are for attacking robots, and the blue zone for defending robots. }
 \label{ch2:zone96}
 \centering
 \end{figure}
 
 \begin{figure}[ht]
 \includegraphics[width=0.95\linewidth]{figs/ch_2_reduced.jpg}
-\caption{Reduced size field setup. This image shows an example of the application of the challenge's zones on a 6m by 4m field. The area can be applied also on fields with different dimensions, the basic requirement for the field is to be large enough to accommodate within it the areas necessary for the challenge, whose total dimensions are 6m by 2.45m. The red zone represents the movement areas of the attacking robots. The blue zone represents the defender's area.}
+\caption{Example setup for a 3/4 field, of dimension 6m x 4m. The red zones are for attacking robots, and the blue zone for defending robots.
+%The area can be applied also on fields with different dimensions, the basic requirement for the field is to be large enough to accommodate within it the areas necessary for the challenge, whose total dimensions are 6m by 2.45m.
+}
 \label{ch2:zone64}
 \centering
 \end{figure}
 
 
 \subsection{Field Setup}
-This challenge is designed to be conducted independently within the individual labs of participating teams. The requirements are the presence of a half full-size field or any field capable of hosting the area required by the challenge, whose overall size is that of a rectangle measuring 6m by 2.45m.  
-The divisions and dimensions of the zones of interest of the challenge for the full-size field is shown in Figure \ref{ch2:zone96}. In Figure \ref{ch2:zone64}, is instead shown the division of the zones on a 6m by 4m field.
-The red zones represent the movement zones available to attacker robots. The blue zone represents the zone of placement of the defender robots.
-Field areas should be made visible by demarcating them on the field through the use of a green tape; the tape area definition must not break the regular white field lines. Anyway, the lines must still be easily visible by the referee in streaming video.
-Robots must self-localize using the regular filed lines.
+This challenge will be conducted within local venue of the participating team. A field of at least 3/4 size is required~(\cf Section \ref{sec:field_dim}). 
+%The requirements are the presence of a half full-size field or any field capable of hosting the area required by the challenge, whose overall size is that of a rectangle measuring 6m by 2.45m.  
+The challenge requires three zones shown in Figure \ref{ch2:zone96} for a full-size field and Figure \ref{ch2:zone64} for a 3/4 field. The zones for the challenge \textit{must be exactly} 6m x 2.45m. This is irrespective of the actual field used and the location of the zones on the field.
+The red zones represent area available to attacker robots. The blue zone represents the area where the defender robots are placed.
+The three zones should be made clearly visible to observers including the referee, by demarcating them on the field through the use of a green tape. The tape must not break the regular white field lines.
+Robots must localize using the regular filed lines.
 
 
 \subsection{Robots positioning}
-In order to participate each team has to provide four robots, two active ones and two inactive ones. The two active robots are the attacking robots. The defending robots act like static obstacle robots (\cf Section \ref{sec:stationary_obstacle_robots})
+The two active robots are the attacking robots. The defending robots must be turned off and thus act like static obstacle robots (\cf Section \ref{sec:stationary_obstacle_robots})
 %TODO: Common Rules reference
-Defenders must be turned off or otherwise placed out of the robots' communication network (for example, by setting them up as members of an opposing team).
 The starting robot's positions are identified by the points ${A,B,C,D,E,F,G,H,I}$ in Figures \ref{ch2:zone96} and \ref{ch2:zone64}.
-
 The robot's positions are:
 
 \textbf{Full size field (Vertical setup) -} the reference frame of each point is put in the lower left corner of the corresponding area.
@@ -68,36 +69,35 @@ $E = (1.2m, 0.55m)$
 $F = (1.8m, 0.55m)$
 \\
 \\
-The attacking robots are placed in two random points between the positions A, B, C, for one robot and G, H, I, for the other one.  Randomly one of the two robots is selected as the initial bearer of the ball. The defenders are positioned randomly in two points selected between the D, E, F positions.
-The points disposition is shown in Figure \ref{ch2:zone96} and Figure \ref{ch2:zone64}.
-The Robots are directly put on the selected points while the GameController is in the state of "Initial". Then the GameController state will be put in "Ready" state and then in "Set". At this point the episode will start using the referee whistle and the GameController (as in the regular SPL games). 
+One attacking robots is randomly placed at placed in A, B, or C, and the other attacking robot randomly at G, H, or I.  One attacking robot is randomly selected to start with the ball. The defenders are positioned randomly D, E, or F.
+See Figure \ref{ch2:zone96} and Figure \ref{ch2:zone64}.
 
-\subsection{Passing definition}
-For the correct evaluation of this challenge, it is essential to define the intended passing objectively. It is based on three fundamental requirements:
-\begin{itemize}
-    \item The ball has been touched by two robots of the same team,
-    \item The ball moved more than one meter from its starting position.
-   \item The ball starting position was inside one of the red areas and its ending position was into the other red area.
-\end{itemize}
+\subsection{Challenge Execution}
+A team may make three attempts at the challenge. For each attempt the attacking robots must be connected to GameController.
+Before each attempt, GameController is set to Initial. After the robots are positioned, the GameController changed to Ready state and then Set. The attempt commences using the referee whistle and GameController process, as in typical SPL games~(\cf Section~\ref{sec:game_process}). 
 
-
-\subsection{Episode definition}
-Each episode starts with the referee's whistle. An episode can be concluded in four ways: 
+The attacking robots pass the ball back-and-forth as often as possible until the attempt ends. The attackers can leave their respective red zones for up to 30 seconds (in order to retrieve the ball and pass it back). If the ball leaves the red zone, it is manually put back at the closest side-line point.
+    
+An attempt ends when: 
 \begin{itemize}
     \item[1] The timeout is reached,
     \item[2] The defenders touch the ball,
-    \item[3] One attacker player stays out of its starting red area for more than 30 seconds.
-
+    \item[3] One attacker player stays out of its starting red zone for more than 30 seconds.
 \end{itemize}
 
-\subsection{Points assignment and overall ranking}
-The attacking team is awarded one point for each pass achieved (see rules above). If the ball ends out of the boundaries of the red area of the receiving robot after the pass no point is awarded. Each team will have three attempts on the challenge. Teams cannot do any modification to the code between the attempts. At the end of the three attempts the best score between them is selected as the team's score. The teams will be ranked by their score, from the highest to the lowest. 
+Each team may make three attempts at the challenge however, they cannot modify their code between the attempts.
 
-\subsection{Additional Rules}
-\begin{itemize}
-    \item The attackers can leave the respective red rectangle zone for a maximum time of 30 seconds (in order to retrieve the ball and pass it back), then they have to come back inside the area.
-    \item If during a pass the ball touches the defender, even if the ball doesn't stop, the challenge episode is however considered as finished
-    \item If the ball ends out of the red areas, it is manually put back in a random point inside the closest red area by the referee.
-    \item Points are counted by the referee
-    
-\end{itemize}
+\subsubsection{Passing definition}
+\label{sec:pass-definition}
+A successful pass is defined as:
+\begin{enumerate}
+    \item The ball has been touched by two attacking robots.
+    \item The ball moved more than one meter from its starting position.
+    \item The ball crosses the blue zone so that is starts and ends in different red zones.
+    \item The ball stop moving in a red zone.
+\end{enumerate}
+
+\subsection{Scoring and Overall Ranking}
+One point is awarded for each successful pass (\cf Section~\ref{sec:pass-definition}). The neutral referee will count and adjudicate successful passes. The score for an attempt is the total number of successful passes.
+
+A team is given a final score that is the best of their three attempts. Teams are ranked overall by their score, from the highest to the lowest. 
