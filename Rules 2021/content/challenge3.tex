@@ -44,42 +44,40 @@ If teams are not able to participate, they (and the other teams as well) can dow
 Teams have to fulfill the following items to be able to host an arena.
 
 \begin{itemize}
-    \item A standard field (see \ref{sec:environment_setup}) that is nearly of the size of a approximately 3/4 field or larger.
+    \item A standard field (see \ref{sec:environment_setup}) that is nearly of the size of an approximately 3/4 field or larger.
 	\item Wi-Fi with standard SPL\textunderscore A SSID, standard password (as communicated before the competition via e-mail) and standard IP \texttt{10.0.0.2} address and DHCP turned off
     \item Remote network access via:
     \begin{itemize}
-        \item VPN connection
-        \item Mobile connection
+        \item VPN connection,
+        \item Mobile connection,
         \item TeamViewer, remote desktop connection or VPN connection from the arena to the remote team
     \end{itemize}
     \item Camera, tablet or laptop for on field online calibration with remote team using Discord
     \item Streaming setup, see~\ref{sec:streaming_setup}
-	\item Latest Game Controller running
-	\improvement[]{TODO: Ask BH about 5min and Global Game Stuck button and points}
-    \item At least \textbf{two} working NAOs V6 per game.
+	\item The latest Game Controller running
+    \item At least \textbf{two} working NAOs V6 per game
     \item More than \textbf{two} USB Sticks with 16 GB or more memory for flashing and logging 
-    \item At least \textbf{four} standard balls.
+    \item At least \textbf{four} standard balls
     \item Assistants for remote setup and autonomous setup
-    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants (Who are also volunteers for the teams in setup and are in the game local representative for the teams.))
+    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants (Who are also volunteers for the teams in setup phases. They are also in the following game local representative for the teams.))
 \end{itemize}
 
 If you cannot fulfil all requirements (equipment or number of people in the field room, etc.) but you would like to host an arena, please contact the TC.
 
-\subsection{Arena and organisational setup}
+\subsection{Arena and organizational setup}
 \label{sec:arean-org-setup}
 % Patrick
-This challenge relies on a standardised arena setup as well as on exchanging all necessary information. This section provides the description for this.
+This challenge relies on a standardized arena setup as well as on exchanging all necessary information. This section provides the description for this.
 
 \subsubsection{Data Exchange}
 \label{sec:data_exchange}
-A NextCloud storage is used for data exchange during the days of RoboCup 2021. An access link and password will be sent to the team leaders and have to be used with care. In the NextCloud every team has its own folder (team number) which will be used for sharing the following data:
+Teams exchange data during the days of RoboCup 2021 and before using a Nextcloud drive. An access link and password will be sent to the team leaders and have to be used with care. In the Nextcloud every team has its own folder (team number) which will be used for sharing the following data:
 
 \begin{itemize}
     \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field dimensions json will be copied on the USB drive after flashing as field\_dimensions.json in the folder configuration. This allows the usage of the same image at different arenas.
-	\info[]{TODO: Define Json (team name, necessary fields, wifi 5GHz available?)}
-    \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& night times with focus on the lighting conditions get uploaded until the 15th of June 2021.
-    \item In \textbf{Robot Setup} the arena teams find an binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folder for the player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
-    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 15th of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The list of responsible people can be found in the root folder of the NextCloud drive.
+    \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& nighttimes with focus on the lighting conditions get uploaded until the 15th of June 2021.
+    \item In \textbf{Robot Setup} the arena teams find a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folder for the player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
+    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 15th of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The list of responsible people can be found in the root folder of the Nextcloud drive.
     \item In the root folder you find a \texttt{streaming.md} file where every team has to publish a link that can be used by public to watch the game. It will be used on the SPL website / RoboCup 2021 website as well. Further details for streaming, see~\ref{sec:streaming_setup}.
 	\item Logs and images will be uploaded from the hosts into the folder \texttt{Logs/Game\_ID}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored. 
 
@@ -87,29 +85,28 @@ A NextCloud storage is used for data exchange during the days of RoboCup 2021. A
 
 \subsubsection{USB Drive}
 \label{sec:c3_USB_Drive}
-USB drives are used to flash a robot with an binary image or to store data during the game play of the robot.
+USB drives are used to flash a robot with a binary image or to store data during the game play of the robot.
 
 During the competition a USB drive is used for two purposes:
 
 \paragraph*{Flashing}
-A USB Drive is used to flash a robot either with the standard SoftBank image or with a provided one. After flashing this USB Drive gets replaced by the \textit{storage} USB drive.
+A USB Drive is used to flash a robot either with the standard SoftBank image or with a provided one. After flashing, this USB Drive gets replaced by the \textit{storage} USB drive.
 
 \paragraph*{Storage}
-After \textit{Flashing} a robot, a robot will be equipped with an storage USB drive. It will be used for the following purposes:
-\info[]{TODO: What is the partition format (NTFS, EXFAT, ...)}
+After \textit{Flashing} a robot, a robot will be equipped with a storage USB drive with ext3 file system. It will be used for the following purposes:
 
 \begin{itemize}
 	\item \textbf{Configuration}: Configuration files, at least \texttt{field\_dimensions.json}, will be copied into the root folder of the USB drive. 
-	\item  \textbf{Logging}: If teams want to store log files or images and get them uploaded in the NextCloud, they can store the files in a \texttt{logs} folder on the USB-Drive. 
+	\item  \textbf{Logging}: If teams want to store log files or images and get them uploaded in the Nextcloud, they can store the files in a \texttt{logs} folder on the USB-Drive. 
 \end{itemize}
 
 \subsubsection{Network Setup}
-The following section defines network requirements for a local venue that hosts remote games. The network infrastructure should be as transparent as possible for remote participants. It should get as close as possible to an on-site experience. Please also contact your local administrators and agree your setup with them.
+The following section defines network requirements for a local venue that hosts remote games. The network infrastructure should be as transparent as possible for remote participants. It should get as close as possible to an on-site experience. Please also contact your local IT administrators and agree your setup with them.
 
 \paragraph{General}
 
 \begin{itemize}
-    \item Participants need easy access to their robots for uploading code and debugging. No ports should be blocked. ICMP must not be blocked. TODO: Which ports are necessary?
+    \item Participants need easy access to their robots for uploading code and debugging. No ports should be blocked. ICMP must not be blocked. % TODO: Which ports are necessary?
     \item Robots might accumulate a large amount of log files (including images). These logs will be uploaded after games for analysis. Minimum 100Mbit/s (symmetric) is recommended for a venue, favorable 1Gbit/s. Logs can also be uploaded from another network.
     \item To not overwhelm the network, teams should rate limit their network activity (in particular long log downloads and uncompressed video streams from NAOs during debug sessions)
 \end{itemize}
@@ -117,10 +114,10 @@ The following section defines network requirements for a local venue that hosts 
 \paragraph{SPL Game specific}
 
 \begin{itemize}
-    \item Team Messages (SPLStandardMessages) must be receivable for remote participants
-    \item Team Messages must not be forwarded from remote participants to 10.0.0.0/16 (SPL\_A)
-    \item GameControllerMessages must be receivable for remote participants
-    \item GameControllerMessages must not be forwarded from remote participants to 10.0.0.0/16 to not allow remote participants to control the game (by accident)
+    \item Team Messages (SPLStandardMessages) must be receivable for remote participants.
+    \item Team Messages must not be forwarded from remote participants to 10.0.0.0/16 (SPL\_A).
+    \item GameControllerMessages must be receivable for remote participants.
+    \item GameControllerMessages must not be forwarded from remote participants to 10.0.0.0/16 to not allow remote participants to control the game (by accident).
 \end{itemize}
 
 \paragraph{Example configuration}
@@ -147,11 +144,11 @@ The following section defines network requirements for a local venue that hosts 
         \item Every team gets one certificate to authenticate via OpenVPN (multiple connections allowed).
         \item Has broadcast forwarding rules in place to allow VPN users to receive Team-/GC-Messages.
         \item GameController computer is assigned 10.0.0.2/16
-        \item \texttt{ETH0} could be connected to your university network and is preferably accessible from the internet on the specific port (please contact your computer centre how to realise such a connection). If this is not possible, please check if you can make this network accessible from remote using a mobile internet connection. Or you provide a PC connected to an island network of this structure were people can access the PC using Teamviewer, remote desktop software, or something similar. 
+        \item \texttt{ETH0} could be connected to your university network and is preferably accessible from the internet on the specific port (please contact your computer center how to realize such a connection). If this is not possible, please check if you can make this network accessible from remote using a mobile internet connection. Or you provide a PC connected to an island network of this structure were people can access the PC using Teamviewer, remote desktop software, or something similar. 
     \end{itemize}
 \end{itemize}
 
-If you have questions or problems to set your local network, please contact the TC via email. There will be also an Discord channel for networking to share configuration files and to solve problems.
+If you have questions or problems to set your local network, please contact the TC via email. There will be also a Discord channel for networking to share configuration files and to solve problems.
 
 \subsection{Remote \& Game Setup}
 
@@ -166,7 +163,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Start: 2h before match}
 
     \begin{enumerate}
-        \item Assignment of a volunteer from the host team for each remote team. Create own Discord channel for communication during the whole setup and game phase.
+        \item Assignment of a volunteer from the host team for each remote team. Create own Discord-channel for communication during the whole setup and game phase.
 		\item For each team one randomly selected functional robot is assigned from the pool
         \item Connect robot to LAN and power line
         \item Each robot gets flashed 
@@ -177,15 +174,15 @@ To give volunteers an interface to command autonomous acting robot, the followin
 		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
         \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use images.
         \item The IP address given by the DHCP Server has to be communicated from the local host to the remote team using Discord.
-        \item Dress robots with jerseys
+        \item Dress robots with jerseys.
     \end{enumerate}
 
 \subsubsection{Calibration / Testing: 1 hour before match)}
 
     \begin{enumerate}
         \item 20 minutes to calibrate the robot supported by one volunteer.
-        \item Autonomous setup is conducted in the following way: The volunteer place the robot on the normal initial position at the field side. Then the front head button plus the chest button gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 5 minutes to calibrate. At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}). 
-\info[]{From TW: Please check you are happy with these minor changes.}
+        \item Autonomous setup is conducted in the following way: The volunteer place the robot on the normal initial position at the field side. Then the front head button plus the chest button gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 5 minutes to calibrate. At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise, the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}). 
+
         \item  Check Wi-Fi and game controller connection
     \end{enumerate}
 
@@ -204,10 +201,10 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{After Game}
 	
 	\begin{enumerate}
-		\item After robots received the finish signal of the second half they sit down.
-		\item Robots have time to do all post processing, storing the logs and shutting down.
+		\item After, robots received the finish signal of the second half they sit down.
+		\item Robots have time to do all post-processing, storing the logs and shutting down.
 		\item If robots are not switched off after 5 minutes they will be switched off manually.
-		\item The data from the USB drive will be stored on another device and as soon as possible uploaded in the NextCloud.
+		\item The data from the USB drive will be stored on another device and as soon as possible uploaded in the Nextcloud.
 		\item Teams are not allowed to download their logs directly.
 		\item Robots will be returned to pool for the next game.
 	\end{enumerate}
