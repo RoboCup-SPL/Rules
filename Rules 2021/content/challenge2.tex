@@ -16,7 +16,7 @@ Each team has three attempts on this challenge; the final score for every team i
 
 \begin{figure}[ht]
 \includegraphics[width=0.95\linewidth]{figs/ch_2_reduced.jpg}
-\caption{Reduced size field setup. This image shows the application of the challenge's zones on a 6m by 4m field. The red zone represents the movement areas of the attacking robots. The blue zone represents the defender's area.}
+\caption{Reduced size field setup. This image shows an example of the application of the challenge's zones on a 6m by 4m field. The area can be applied also on fields with different dimensions, the basic requirement for the field is to be large enough to accommodate within it the areas necessary for the challenge, whose total dimensions are 6m by 2.45m. The red zone represents the movement areas of the attacking robots. The blue zone represents the defender's area.}
 \label{ch2:zone64}
 \centering
 \end{figure}
@@ -26,11 +26,9 @@ Each team has three attempts on this challenge; the final score for every team i
 This challenge is designed to be conducted independently within the individual labs of participating teams. The requirements are the presence of a half full-size field or any field capable of hosting the area required by the challenge, whose overall size is that of a rectangle measuring 6m by 2.45m.  
 The divisions and dimensions of the zones of interest of the challenge for the full-size field is shown in Figure \ref{ch2:zone96}. In Figure \ref{ch2:zone64}, is instead shown the division of the zones on a 6m by 4m field.
 The red zones represent the movement zones available to attacker robots. The blue zone represents the zone of placement of the defender robots.
-Field areas should be made visible by demarcating them on the field through the use of tape of any colour except white. Anyway, the lines must still be easily visible by the referee in streaming video.
+Field areas should be made visible by demarcating them on the field through the use of a green tape; the tape area definition must not break the regular white field lines. Anyway, the lines must still be easily visible by the referee in streaming video.
+Robots must self-localize using the regular filed lines.
 
-\info[]{TODO: please consider specifying the tape colour to be green and that no white lines should be broken by the green tape}
-
-\info[]{TODO: please consider specifying how robots should know if they are inside the allowed/red area. Should they self-localize using white field lines?}
 
 \subsection{Robots positioning}
 In order to participate each team has to provide four robots, two active ones and two inactive ones. The two active robots are the attacking robots. The defending robots act like static obstacle robots (\cf Section \ref{sec:stationary_obstacle_robots})
@@ -75,11 +73,11 @@ The points disposition is shown in Figure \ref{ch2:zone96} and Figure \ref{ch2:z
 The Robots are directly put on the selected points while the GameController is in the state of "Initial". Then the GameController state will be put in "Ready" state and then in "Set". At this point the episode will start using the referee whistle and the GameController (as in the regular SPL games). 
 
 \subsection{Passing definition}
-For the correct evaluation of this challenge, it is essential to define the intended passing objectively. It is based on two fundamental requirements:
+For the correct evaluation of this challenge, it is essential to define the intended passing objectively. It is based on three fundamental requirements:
 \begin{itemize}
     \item The ball has been touched by two robots of the same team,
     \item The ball moved more than one meter from its starting position.
-    \info[]{TODO: A robot is not allowed to enter the blue area. (Otherwise it could dribble the ball into the other area. Ball is moved and in the end touched by another robot.)}
+   \item The ball starting position was inside one of the red areas and its ending position was into the other red area.
 \end{itemize}
 
 
