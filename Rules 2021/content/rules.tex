@@ -330,7 +330,7 @@ The current GameController requires robots to know both their team number and th
 \label{sec:goal}
 A goal \cbw{(including own goal)} is achieved when the entire ball (not only the centre of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}.
 
-\cbp{If a player (from both sides) scores a valid goal the ball gets replaced by the referees to one of the starting points, on the other half. The ball is placed farthest away from the player in this half and can then directly be played again.}
+\cbp{If any robot player scores a goal (including own goals) the ball gets replaced by the referees to one of the ball starting points. The ball gets placed on the half opposite to the player that scored the goal. The ball is placed farthest away from the player that scored the goal. The ball can be played again without delay.}
 
 The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed.
 
