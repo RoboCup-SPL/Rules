@@ -152,6 +152,8 @@ If you have questions or problems to set your local network, please contact the 
 
 \subsection{Remote \& Game Setup}
 \label{sec:remote_game_setup}
+This sections describes the setup procedure for a 1 vs. 1 match. The setup procedure distinguishes between fully-autonomus and semi-autonomous setup. The used setup procedure is relevant for scoring the game (\cf section \ref{sec:scoring}).
+
 \subsubsection{Button Interface}
 To give volunteers an interface to command autonomous acting robot, the following button interface sequences are defined:
 \begin{enumerate}
@@ -164,16 +166,17 @@ To give volunteers an interface to command autonomous acting robot, the followin
 
     \begin{enumerate}
         \item Assignment of a volunteer from the host team for each remote team. Create own Discord-channel for communication during the whole setup and game phase.
+        \item The competing team informs the competition venue if they are using fully-autonomus or semi-autonomous setup.
 		\item For each team one randomly selected functional robot is assigned from the pool
-        \item Connect robot to LAN and power line
+        \item Connect the robot to a charger. If the competing team chose semi-autonomous setup, a LAN cable is connected as well.
         \item Each robot gets flashed 
         \begin{itemize}
-            \item with the standard SoftBank binary image.
+            \item with the standard SoftBank binary image. % TODO do they get flashed with both, one after the other? Or is this a or-statemnt?
             \item with the image provided by the respective team.
 		\end{itemize}
 		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
-        \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use images.
-        \item The IP address given by the DHCP Server has to be communicated from the local host to the remote team using Discord.
+        \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use images. If the competing team chose fully-autonomous setup, this step is skipped.
+        \item The IP address given by the DHCP Server has to be communicated from the local host to the remote team using Discord. If the competing team chose fully-autonomous setup, this step is skipped.
         \item Dress robots with jerseys.
     \end{enumerate}
 
@@ -295,7 +298,7 @@ The head referee has to call:
 and then the points will be counted by the operator of the GameController.
 %TODO: either by writing it down or by using a modified GameController
 
-For teams playing with an \textbf{autonomous player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is used at the end of the game and the scored points, for this team, are multiplied by it to calculate the final points (\cf Section~\ref{sec:rankings}). 
+For teams playing with an \textbf{fully autonomous player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is used at the end of the game and the scored points, for this team, are multiplied by it to calculate the final points (\cf Section~\ref{sec:rankings}). 
 %\emph{Note that the resulting points should be rounded to the nearest integer.}
 
 \subsection{Challenge execution}
