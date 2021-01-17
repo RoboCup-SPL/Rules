@@ -5,13 +5,13 @@
 % Patrick
 The aim of this challenge is to display competitive gameplay given the current situation.
 
-Two robots play against each other on a full-sized or scaled-down field (\cf section \ref{sec:field_dim}). The goal is to shoot balls from the own half into the opponent's half or goal to score points. Robots are not allowed to leave their own half. Four balls, two on each side, can be shot by the robots.
+Two robots play against each other on a full-sized or reduced size field (\cf section \ref{sec:field_dim}). The goal is to shoot balls from the own half into the opponent's half or goal to score points. Robots are not allowed to leave their own half. Four balls, two on each side, can be shot by the robots.
 
 This challenge focuses on the following aspects:
 \begin{itemize}
-    \item Remote deployment or fully autonomous setup of NAO software and standardized settings for game play in a remote arena on foreign robots,
-    \item Automatic and semi-automatic calibration of NAO (vision, motion, etc.), 
-    \item One versus One NAO competition in a ladder KO competition with all teams without much robot-to-robot contact. 
+    \item Remote deployment with manual or fully autonomous setup of NAO software and standardized settings for game play in a remote arena on foreign robots,
+    \item Automatic or semi-automatic calibration of NAO (vision, motion, etc.), 
+    \item One versus One NAO competition in a ladder knock out competition for all teams without much robot-to-robot contact. 
 \end{itemize}
 
 Requirements to participate in this challenge are, being able to
@@ -44,7 +44,7 @@ Fully autonomous images allow setup, calibration and challenge play in a teams l
 Teams have to fulfil the following items to be able to host an arena.
 
 \begin{itemize}
-    \item A standard field (see \ref{sec:environment_setup}) that is nearly of the size of an approximately 3/4 field or larger.
+    \item An SPL field (see \ref{sec:environment_setup}) corresponding to the standard SPL field size or a reduced size that is no smaller than the minimum field size (\cf section \ref{sec:field_dim}).
 	\item Wi-Fi with standard SPL\textunderscore A SSID, standard password (as communicated before the competition via e-mail) and standard IP \texttt{10.0.0.2} address and DHCP turned off
     \item Remote network access via:
     \begin{itemize}
@@ -175,7 +175,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
             \item with the image provided by the respective team.
 		\end{itemize}
 		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
-        \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use images. If the competing team chose fully-autonomous setup, this step is skipped.
+        \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use installable images where possible. If the competing team chose fully-autonomous setup, this step is skipped.
         \item The IP address given by the DHCP Server has to be communicated from the local host to the remote team using Discord. If the competing team chose fully-autonomous setup, this step is skipped.
         \item Dress robots with jerseys.
     \end{enumerate}
@@ -298,7 +298,7 @@ The head referee has to call:
 and then the points will be counted by the operator of the GameController.
 %TODO: either by writing it down or by using a modified GameController
 
-For teams playing with an \textbf{fully autonomous player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is used at the end of the game and the scored points, for this team, are multiplied by it to calculate the final points (\cf Section~\ref{sec:rankings}). 
+For teams playing with an \textbf{autonomously setup player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is multiplied by the points a team has scored at the end of normal game time (and each extension if applicable) to calculate the final points used to rank teams (\cf Section~\ref{sec:rankings}). 
 %\emph{Note that the resulting points should be rounded to the nearest integer.}
 
 \subsection{Challenge execution}
