@@ -76,13 +76,13 @@ See Figure \ref{ch2:zone96} and Figure \ref{ch2:zone64}.
 A team may make three attempts at the challenge. For each attempt the attacking robots must be connected to GameController.
 Before each attempt, GameController is set to Initial. After the robots are positioned, the GameController changes to Ready state and then Set. The attempt commences using the referee whistle and GameController process, as in typical SPL games~(\cf Section~\ref{sec:game_process}). 
 
-The attacking robots pass the ball back-and-forth as often as possible until the attempt ends. The attackers can leave their respective red zones for up to 30 seconds (in order to retrieve the ball and pass it back). If the ball leaves the red zone, it is manually put back at the closest side-line point.
+The attacking robots pass the ball back-and-forth as often as possible until the attempt ends. The attackers can leave their respective red starting zones for up to 30 seconds (in order to retrieve the ball and pass it back).
     
 An attempt ends when: 
 \begin{itemize}
     \item[1] The timeout is reached,
     \item[2] The defenders touch the ball,
-    \item[3] One attacker player stays out of its starting red zone for more than 30 seconds.
+    \item[3] One attacking player stays out of its red starting zone for more than 30 seconds.
 \end{itemize}
 
 Each team may make three attempts at the challenge however, they cannot modify their code between the attempts.
