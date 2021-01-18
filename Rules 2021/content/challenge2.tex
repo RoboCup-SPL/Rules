@@ -76,14 +76,16 @@ See Figure \ref{ch2:zone96} and Figure \ref{ch2:zone64}.
 A team may make three attempts at the challenge. For each attempt the attacking robots must be connected to GameController.
 Before each attempt, GameController is set to Initial. After the robots are positioned, the GameController changes to Ready state and then Set. The attempt commences using the referee whistle and GameController process, as in typical SPL games~(\cf Section~\ref{sec:game_process}). 
 
-The attacking robots pass the ball back-and-forth as often as possible until the attempt ends. The attackers can leave their respective red starting zones for up to 30 seconds (in order to retrieve the ball and pass it back).
+The attacking robots pass the ball back-and-forth as often as possible until the attempt ends. The attackers can leave their respective red starting zones for up to 30 seconds, which may be necessary in cases where the ball is near (or at) the edge of the red zone.
+
+If the ball leaves the red zone (such as from a bad pass), then the ball is manually put back at the edge of the red zone where it went out. This is similar to placing the ball for a kick-in in a soccer game~(\cf Section~\ref{sec:kick_in}).  If the ball went out from a blue zone, it is put back at position A or G, corresponding to the last red zone in which the ball was located.
     
 An attempt ends when: 
-\begin{itemize}
-    \item[1] The timeout is reached,
-    \item[2] The defenders touch the ball,
-    \item[3] One attacking player stays out of its red starting zone for more than 30 seconds.
-\end{itemize}
+\begin{enumerate}
+    \item The timeout is reached,
+    \item The defenders touch the ball,
+    \item One attacking player stays out of its red starting zone for more than 30 seconds.
+\end{enumerate}
 
 Each team may make three attempts at the challenge however, they cannot modify their code between the attempts.
 
@@ -94,7 +96,7 @@ A successful pass is defined as:
     \item The ball has been touched by two attacking robots.
     \item The ball moved more than one meter from its starting position.
     \item The ball crosses the blue zone so that is starts and ends in different red zones.
-    \item The ball stop moving in a red zone.
+    \item The ball stops moving in a red zone.
 \end{enumerate}
 
 \subsection{Scoring and Overall Ranking}
