@@ -144,7 +144,7 @@ The following section defines network requirements for a local venue that hosts 
         \item Every team gets one certificate to authenticate via OpenVPN (multiple connections allowed).
         \item Has broadcast forwarding rules in place to allow VPN users to receive Team-/GC-Messages.
         \item GameController computer is assigned 10.0.0.2/16
-        \item \texttt{ETH0} could be connected to your university network and is preferably accessible from the internet on the specific port (please contact your computer centre how to realize such a connection). If this is not possible, please check if you can make this network accessible from remote using a mobile internet connection. Or you provide a PC connected to an island network of this structure where people can access the PC using TeamViewer, remote desktop software, or something similar. 
+        \item \texttt{ETH0} could be connected to your university network and is preferably accessible from the internet on the specific port (please contact your computer center how to realize such a connection). If this is not possible, please check if you can make this network accessible from remote using a mobile internet connection. Or you provide a PC connected to an island network of this structure where people can access the PC using TeamViewer, remote desktop software, or something similar. 
     \end{itemize}
 \end{itemize}
 
@@ -165,25 +165,29 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Start: 2h before match}
 
     \begin{enumerate}
-        \item Assignment of a volunteer from the host team for each remote team. Create own Discord-channel for communication during the whole setup and game phase.
+        \item Assignment of a volunteer from the host team for each remote team. Create own Discord rooms for communication during the whole setup and game phase.
+        \item Initial meeting of two volunteers and both teams each paired in the Discord room to shortly discuss the setup, calibration and game play procedure.
         \item The competing team informs the competition venue if they are using fully-autonomous or semi-autonomous setup.
 		\item For each team one randomly selected functional robot is assigned from the pool
         \item Connect the robot to a charger. If the competing team chose semi-autonomous setup, a LAN cable is connected as well.
         \item Each robot gets flashed 
         \begin{itemize}
-            \item with the standard SoftBank binary image. % TODO do they get flashed with both, one after the other? Or is this a or-statemnt?
+            \item with the standard SoftBank binary image or
             \item with the image provided by the respective team.
 		\end{itemize}
 		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
         \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use installable images where possible. If the competing team chose fully-autonomous setup, this step is skipped.
         \item The IP address given by the DHCP Server has to be communicated from the local host to the remote team using Discord. If the competing team chose fully-autonomous setup, this step is skipped.
-        \item Dress robots with jerseys.
+        \item According to the official game schedule, the first team named is the home team, plays on the left half of the field and the second called team is the away team and play on the right half of the field from the perspective of the GameController. 
+        \item Dress robots with jerseys (see \ref{sec:team_markers}). The hosting team's 'home' and 'away' jersey are assigned to the 'home' and 'away' starting robot. 
     \end{enumerate}
 
 \subsubsection{Calibration / Testing: 1 hour before match}
     \begin{enumerate}
         \item 20 minutes to calibrate the robot supported by one volunteer.
-        \item Autonomous setup is conducted in the following way: The volunteer places the robot on the normal initial position at the field side. Then the front head button plus the chest button gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 10 minutes to calibrate. At the end of the calibration period, the robot may sit down and get unstiffed. Otherwise, the robot will be unstiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}).  % TODO: what are field conditons? can there be a ball on the field during auto calibrations? refs? other stationary robots? other robots walking around?
+        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robot on the normal initial position at the field side of an empty field. Then the \texttt{front head button + chest button} gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 10 minutes to calibrate. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}). At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise, the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}).
+        
+        \textbf{Semi-automatic calibration}: With support of a local volunteer the robot is calibrated remotely. Both volunteer and remote team meet in a Discord room and perform the calibration procedure of the remote team together. The duration is limited to 10 minutes. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}).
 
         \item  Check Wi-Fi and game controller connection
     \end{enumerate}
@@ -196,7 +200,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
 		\item The game will be started using the game controller as \textit{Play-off game} and the robot moves to its starting position.
 		\item In \texttt{Set} the balls will be placed and the game will be started using a whistle.
 		\item In the second half the robots switch their sides.
-		\item Referees apply rules with focus on preventing hardware damage, because there is no SoftBank Robotics support.
+		\item Referees apply rules with focus on preventing hardware damage, because there is no SoftBank Robotics support (see \ref{sec:rules_ref}).
 		\item When robots receive the finish message they have to sit down and will be brought to the chargers and plugged into network.
 	\end{enumerate}
 	
@@ -214,6 +218,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
 
 \subsection{Rules}
 %Arne
+\label{sec:rules_ref}
 A brief summary of the rule changes will be given here:
 
 \subparagraph{Competition Execution:}
