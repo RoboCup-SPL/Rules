@@ -58,6 +58,7 @@ Teams have to fulfil the following items to be able to host an arena.
     \item Streaming setup, see~\ref{sec:streaming_setup}
 	\item The latest Game Controller running
     \item At least \textbf{two} working NAOs V6 per game
+    \item All robots assigned for the whole competition are numbered from \textbf{1} to the maximum number with integers.
     \item More than \textbf{two} tiny USB Sticks with 16 GB or more memory for flashing and logging
     \item At least \textbf{four} standard balls
     \item Assistants for remote setup and autonomous setup
@@ -167,11 +168,19 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Start: 2h before match}
 
     \begin{enumerate}
-        \item Assignment of a volunteer from the host team for each remote team. Create own Discord rooms for communication during the whole setup and game phase.
-        \item Initial meeting of two volunteers and both teams each paired in the Discord room to shortly discuss the setup, calibration and game play procedure.
+        \item Assignment of a volunteer from the host team for each remote team. They create own Discord rooms for communication during the whole setup and game phase and communicate this to the teams.
+        \item Initial meeting of the volunteers and the representatives from the teams in one of the Discord rooms.
+        \item Topics of this meeting are: Welcome, answering questions, agree on timing for calibration, and selecting robots.
+		\item For each team one randomly (see next points) selected functional robot is assigned from the pool.
+		\begin{enumerate}
+            \item The host team has a numbered list of functional robots from 1 to the maximum number.
+            \item One volunteer screen shares a proper random number generator (\url{https://www.random.org/integers/}) with adjusted settings according to the number of available robots.
+            \item The volunteer runs the number generator. The first number is the robot number for the home team, away team is second.
+            \item If a robot, who wears the selected number, is already taken or not available, than the generator has to be run again. 
+        \end{enumerate} 
+        \item Move to the individual Discord rooms to shortly discuss the team specific setup, calibration and game play procedure with the volunteer.
         \item The competing team informs the competition venue if they are using fully-autonomous or semi-autonomous setup.
-		\item For each team one randomly selected functional robot is assigned from the pool
-        \item Connect the robot to a charger. If the competing team chose semi-autonomous setup, a LAN cable is connected as well.
+        \item Connect the robot (should already be fully charged) to a charger. If the competing team chose semi-autonomous setup, a LAN cable is connected as well.
         \item Each robot gets flashed 
         \begin{itemize}
             \item with the standard SoftBank binary image or
@@ -187,9 +196,11 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Calibration / Testing: 1 hour before match}
     \begin{enumerate}
         \item 20 minutes to calibrate the robot supported by one volunteer.
-        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robot on the normal initial position at the field side of an empty field. Then the \texttt{front head button + chest button} gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}). The robot than can move over the whole field to calibrate itself. The robot has 10 minutes to calibrate. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}). At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise, the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}).
+        \item The robot than can move over the whole field to calibrate itself. The robot has 10 minutes to calibrate. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}).
+        \item Before the calibration starts, on each starting position a ball gets placed. The robot can move any ball. If a ball leaves the field, it gets replaced at its kick-in position (see \ref{sec:kick_in}). If a robot scores a goal, the ball gets moved back to its starting position. 
+        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robot on the normal initial position at the field side of an empty field. Then the \texttt{front head button + chest button} gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}).  At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise, the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}).
         
-        \textbf{Semi-automatic calibration}: With support of a local volunteer the robot is calibrated remotely. Both volunteer and remote team meet in a Discord room and perform the calibration procedure of the remote team together. The duration is limited to 10 minutes. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}).
+        \textbf{Semi-automatic calibration}: With support of a local volunteer the robot is calibrated remotely. Both volunteer and remote team meet in a Discord room and perform the calibration procedure of the remote team together.
 
         \item  Check Wi-Fi and game controller connection
     \end{enumerate}
