@@ -340,3 +340,30 @@ The exact determination of the multiple knock-out rounds/ladders can only be don
 
 The team which scored more points than the other, after the expiration of the regular playing time and by applying the multiplication factor, is the winner of the match. If the two teams scored the same number of points, the game will be a draw. In case of a draw the game duration gets extended by one minute. After each extension the (multiplied) score is evaluated again. At max 5 extensions à 1 minute are allowed. \\
 If the game is still tied after overtime, a coin is tossed to determine a winner!    
+
+\subsection{field\_dimensions.json example}
+\label{sec:fielddimensionsjson}
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+    "field": {
+        "length": 9.0,
+        "width": 6.0,
+        "lineWidth": 0.05,
+        "penaltyMarkerSize": 0.1,
+        "goalBoxAreaLength": 0.6,
+        "goalBoxAreaWidth": 2.2,
+        "penaltyAreaLength": 1.65,
+        "penaltyAreaWidth": 4.0,
+        "penaltyCrossDistance": 1.3,
+        "centerCircleDiameter": 1.5,
+        "borderStripWidth": 0.7
+    },
+    "goal": {
+        "postDiameter": 0.1,
+        "height": 0.8,
+        "innerWidth": 1.5,
+        "depth": 0.5
+    }
+}
+\end{lstlisting}
