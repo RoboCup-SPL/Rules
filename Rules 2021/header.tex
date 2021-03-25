@@ -72,9 +72,11 @@
 \setlength{\colorboxwidth}{\dimexpr\textwidth-2\fboxsep}
 \newlength\colorboxwidthdefinition
 \setlength{\colorboxwidthdefinition}{\dimexpr\textwidth-11\fboxsep}
-
+\newlength\colorboxwidthfigure
+\setlength{\colorboxwidthfigure}{\dimexpr\textwidth-17\fboxsep}
 \newcommand{\cbp}[1]{\colorbox{blue!25}{\parbox{\colorboxwidth}{#1}}}
 \newcommand{\cbd}[1]{\colorbox{blue!25}{\parbox{\colorboxwidthdefinition}{#1}}}
+\newcommand{\cbf}[1]{\colorbox{blue!25}{\parbox{\colorboxwidthfigure}{#1}}}
 \newcommand{\cbw}[1]{\colorbox{blue!25}{#1}}
 
 \usepackage{listings}

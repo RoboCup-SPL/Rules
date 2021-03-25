@@ -3,9 +3,9 @@
 
 \subsection{Idea of the competition}
 % Patrick
-The aim of this competitionis to explorer and demonstrate  competitive remote gameplay given the current situation.
+The aim of this competition is to explorer and demonstrate  competitive remote gameplay given the current situation.
 
-Two teams of each five robots (no substitute) play against each other on a full-sized (\cf section \ref{sec:field_dim}) standard robot soccer according to sligtly modified SPL 2020 rules (TODO: See rules section) in a remote arena. 
+Two teams of each five robots (no substitute) play against each other on a full-sized (\cf section \ref{sec:field_dim}) standard robot soccer according to sligtly modified SPL 2020 rules\change{TODO: See rules section} in a remote arena. 
 
 This competition differs from the standard RoboCup procedure in the following aspects:
 \begin{itemize}
@@ -29,17 +29,17 @@ For this challenge teams need to fulfil multiple requirements, which are listed 
 
 To be able to participate, teams have to deploy their software on the NAO remotely. Teams may deploy software interactively via remote control connection or deliver a fully autonomous setup. There will be several opportunities for the teams to talk, discuss, exchange ideas and code over the next few months until RoboCup. Two options will be properly available: Meetings like RoDEO and a spring RoHOW as well as discussions using SPL Discord channels. The second option is a code sharing section like it is available for the V6 support on RC SPL website.
 
-Fully autonomous images allow setup, calibration and challenge play in a teams local venue without external assistance. Teams that are not able to participate in the 2021 competition may download these images for explorative games in their local venues. These explorative games are not part of the ladder system and are outside the competition.
+Fully autonomous images allow setup, calibration and challenge play in a teams local venue without external assistance. Teams that are not able to participate in the 2021 competition may download these images for explorative games in their local venues. These explorative games are not part of the ladder system and are outside the competition.\change{Der Abschnitt kann weg?}
 
 \subsubsection{Basic requirements for teams}
 \label{sec:c3_BasicRequirementsForTeams}
 \begin{itemize}
     \item A team must be able to deploy their robot software on a NAO V6 remotely or be able to produce a fully autonomous image for a NAO V6.
-    \item A team must be able to host an arena. If not, they have to find a substitute team. Substitute teams take over the hosting arena responsibilities.
+    \item A team must be able to host an arena. If not, they have to find a substitute team. Substitute teams take over the hosting arena responsibilities.\change{Das sollte geändert werden, sodass andere Teams Roboter für ein anderes Team bereitstellen/schicken können}
     \item A robot should be able to semi- or fully automatic calibrate itself.
 \end{itemize}
 
-If you cannot fulfil all requirements, but you would like to participate, please contact the TC.
+If you cannot fulfil all requirements, but you would like to participate, please contact the TC.\change{Generell ist dieser Abschnitt ja doppelt und dreifach schon gesagt worden oben oder?}
 
 \subsubsection{Basic requirements for arenas}
 \label{sec:c3_BasicRequirementsForArenas}
@@ -57,12 +57,12 @@ Teams have to fulfil the following items to be able to host an arena.
     \item Camera, tablet or laptop for on field online calibration with remote team using Discord
     \item Streaming setup, see~\ref{sec:streaming_setup}
 	\item The latest Game Controller running
-    \item At least \textbf{two} working NAOs V6 per game
+    \item At least \textbf{two} working NAOs V6 per game\change{Kann weg wegen dem Robotpool}
     \item All robots assigned for the whole competition are numbered from \textbf{1} to the maximum number with integers.
-    \item More than \textbf{two} tiny USB Sticks with 16 GB or more memory for flashing and logging
-    \item At least \textbf{four} standard balls
+    \item More than \textbf{two} tiny USB Sticks (\cf section \ref{sec:c3_USB_Drive}) with 16 GB or more memory for flashing and logging\change{am besten 10 USB Sticks}
+    \item At least \textbf{four} standard balls\change{da braucht man ja jetzt nur noch einen}
     \item Assistants for remote setup and autonomous setup
-    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants (Who are also volunteers for the teams in setup phases. They are also in the following game local representative for the teams.))
+    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants (Who are also volunteers for the teams in setup phases. They are also in the following game local representative for the teams.)
 \end{itemize}
 
 If you cannot fulfil all requirements (equipment or number of people in the field room, etc.) but you would like to host an arena, please contact the TC.
@@ -94,12 +94,12 @@ After \textit{Flashing} a robot, a robot will be equipped with a storage USB dri
 Teams exchange data before and during RoboCup 2021 using a Nextcloud drive. An access link and password will be sent to the team leaders and have to be used with care. The Nextcloud drive will contain a folder for every team according to their team number. Team folders will be used for sharing the following data:
 
 \begin{itemize}
-    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file you find in section~\ref{sec:fielddimensionsjson} .This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field desciption will be copied on the USB drive after flashing as \texttt{field\_dimensions.json} in the folder configuration. This allows the usage of the same image at different arenas.
-    \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the 15th of June 2021.
+    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file you find in section~\ref{sec:fielddimensionsjson} .This file has to be uploaded until the \textbf{15th of June 2021}\change{Zeit anpassen}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field desciption will be copied on the USB drive after flashing as \texttt{field\_dimensions.json} in the folder configuration. This allows the usage of the same image at different arenas.
+    \item  In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the 15th of June 2021\change{Zeit anpassen}.
     \item In \textbf{Robot Setup} the arena teams find a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folder for the player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
-    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 1st of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The list of responsible people can be found in the root folder of the Nextcloud drive.
+    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 1st of June\change{Zeit anpassen}. Every team has to announce a responsible person for credentials and remote setup until the 1st of June\change{Zeit anpassen}. The list of responsible people can be found in the root folder of the Nextcloud drive.
     \item In the root folder you find a \texttt{streaming.md} file where every team has to publish a link that can be used by public to watch the game. It will be used on the SPL website / RoboCup 2021 website as well. Further details for streaming, see~\ref{sec:streaming_setup}.
-	\item Logs and images will be uploaded from the hosts into the folder \texttt{Logs/Game\_ID}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored. 
+	\item Logs and images will be uploaded from the hosts into the folder \texttt{Logs/Game\_ID}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}\change{home/nao/logs oder nur logs?}. Other files will be ignored. 
 
 \end{itemize}
 
@@ -155,10 +155,10 @@ If you have questions or problems to set your local network, please contact the 
 
 \subsection{Remote \& Game Setup}
 \label{sec:remote_game_setup}
-This section describes the setup procedure for a 1 vs. 1 match. The setup procedure distinguishes between fully-autonomous and semi-autonomous setup. The used setup procedure is relevant for scoring the game (\cf section \ref{sec:scoring}).
+This section describes the setup procedure for a 1 vs. 1 match\change{5 vs. 5}. The setup procedure distinguishes between fully-autonomous and semi-autonomous setup. The used setup procedure is relevant for scoring the game (\cf section \ref{sec:scoring}).
 
 \subsubsection{Button Interface}
-To give volunteers an interface to command autonomous acting robot, the following button interface sequences are defined:
+To give volunteers an interface to command autonomous acting robot, the following button interface sequences are defined:\change{Ich habe unten mal eine Zeichnung von meinem Verständis der Gamestates gemacht}
 \begin{enumerate}
 	\item \texttt{Head button front + Chest button}: Starting the autonomous calibration mode
 	\item \texttt{1x Chest button}: Stiff robot
@@ -168,14 +168,14 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Start: 2h before match}
 
     \begin{enumerate}
-        \item Assignment of a volunteer from the host team for each remote team. They create own Discord rooms for communication during the whole setup and game phase and communicate this to the teams.
+        \item Assignment of a volunteer from the host team for each remote team.\change{und evtl auch schon assistent wenn dies unterschiedliche Personen sind} They create own Discord rooms for communication during the whole setup and game phase and communicate this to the teams.
         \item Initial meeting of the volunteers and the representatives from the teams in one of the Discord rooms.
         \item Topics of this meeting are: Welcome, answering questions, agree on timing for calibration, and selecting robots.
-		\item For each team one randomly (see next points) selected functional robot is assigned from the pool.
+		\item For each team one\change{5} randomly (see next points) selected functional robot is assigned from the pool.
 		\begin{enumerate}
             \item The host team has a numbered list of functional robots from 1 to the maximum number.
             \item One volunteer screen shares a proper random number generator (\url{https://www.random.org/integers/}) with adjusted settings according to the number of available robots.
-            \item The volunteer runs the number generator. The first number is the robot number for the home team, away team is second.
+            \item The volunteer runs the number generator. The first number is the robot number for the home team, away team is second.\change{Anderes prozedere}
             \item If a robot, who wears the selected number, is already taken or not available, than the generator has to be run again. 
         \end{enumerate} 
         \item Move to the individual Discord rooms to shortly discuss the team specific setup, calibration and game play procedure with the volunteer.
@@ -196,10 +196,10 @@ To give volunteers an interface to command autonomous acting robot, the followin
 \subsubsection{Calibration / Testing: 1 hour before match}
     \begin{enumerate}
         \item 20 minutes to calibrate the robot supported by one volunteer.
-        \item The robot than can move over the whole field to calibrate itself. The robot has 10 minutes to calibrate. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}).
+        \item The robot than can move over the whole field to calibrate itself. The robot has 10 minutes to calibrate. During this time the field has to stay empty. The volunteer has to actively watch the robot and to be ready to catch him as soon as it would leave the field or fall. The volunteer is allowed to catch the robot. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robot (see \ref{sec:rules_ref}).\change{Vielleicht sollte man einfach die 30 minuten jedem Team auf einer hälfte geben}
         \item Before the calibration starts, on each starting position a ball gets placed. The robot can move any ball. If a ball leaves the field, it gets replaced at its kick-in position (see \ref{sec:kick_in}). If a robot scores a goal, the ball gets moved back to its starting position. 
-        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robot on the normal initial position at the field side of an empty field. Then the \texttt{front head button + chest button} gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}).  At the end of the calibration period, the robot may sit down and get un-stiffed. Otherwise, the robot will be un-stiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}).
-        
+        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robot on the normal initial position at the field side of an empty field. Then the \texttt{front head button + chest button} gets pressed to initialize auto calibration mode~(see~\ref{sec:robot_states}).  At the end of the calibration period, the robot may sit down and get unstiffed. Otherwise, the robot will be unstiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}).
+     
         \textbf{Semi-automatic calibration}: With support of a local volunteer the robot is calibrated remotely. Both volunteer and remote team meet in a Discord room and perform the calibration procedure of the remote team together.
 
         \item  Check Wi-Fi and game controller connection
@@ -209,7 +209,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
 
 	\begin{enumerate}
 		\item Robots are in the game controller
-		\item Robots sit on field on the game controller's side on their halves on the height of the penalty spot facing the field. With one button press on the chest button the robot has to get up stiffed in the upright position and is waiting for the ready signal from the game controller.
+		\item Robots sit on field on the game controller's side on their halves on the height of the penalty spot facing the field. With one button press on the chest button the robot has to get up stiffed in the upright position and is waiting for the ready signal from the game controller.\change{Für 5 anpassen möglichst einheitlich!}
 		\item The game will be started using the game controller as \textit{Play-off game} and the robot moves to its starting position.
 		\item In \texttt{Set} the balls will be placed and the game will be started using a whistle.
 		\item In the second half the robots switch their sides.
@@ -227,119 +227,6 @@ To give volunteers an interface to command autonomous acting robot, the followin
 		\item Teams are not allowed to download their logs directly.
 		\item Robots will be returned to pool for the next game.
 	\end{enumerate}
-
-
-\subsection{Rules}
-%Arne
-\label{sec:rules_ref}
-A brief summary of the rule changes will be given here:
-
-\subparagraph{Competition Execution:}
-\begin{itemize}
-	\item The competition consists of three parts, the first half, a half-time break, and the second half. Each half is 5 minutes counted from the initial kick-off. (\cf Section~\ref{sec:game_struct})
-	
-	\item Software or configuration changes during a game are not possible. Only hardware changes are allowed! In particular, it is permitted to change batteries, fix mechanical problems, reboot the robots. Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team. (\cf Section~\ref{sec:game_struct} and Section~\ref{sec:request_for_pickup})
-	
-	\item Each team has one NAO V6 and by default the two robots are wearing ``home'' and ``away'' jerseys of the hosting team with the number 2 on it (\cf Section~\ref{sec:field_players})
-	
-	\item The players can be positioned anywhere within their own half, but no player is allowed to touch or exceed the centre / halfway line. (\cf Section~\ref{sec:kick-off} and Section~\ref{sec:leaving_field})
-	
-	\item There is no manual placement of any robot. (\cf Section~\ref{sec:kick-off})
-	
-	\item The two balls, for each side, are placed onto the corners of the goal box - goal free kick positions - (\cf Section~\ref{sec:kick_in})
-	
-	\item If a ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. If the ball goes over an end-line then the assistant referee will replace the ball onto the corner of the goal box. (\cf Section~\ref{sec:kick_in})
-	
-	\item This competition is executed with a GameController and the use of the button interface as a replacement for any GameController commands is not allowed! (\cf Section~\ref{sec:robot_states})
-	
-	\item If any robot player scores a goal (including own goal) the ball gets replaced by the referees to one of the starting points, on the other half. (\cf details in Section~\ref{sec:goal})
-	
-	\item After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! Exception are the application of the Global Game Stuck rule and a referee timeout. (\cf Section~\ref{sec:game_stuck:global})
-	
-	\item A Global Game Stuck is applied if, among other things, no ball was played from one half to the other for more than 1 minute. (\cf Section~\ref{sec:game_stuck:global})
-		
-	\item Each competing team has only one robot as a field player on the field.
-		
-	\item Fields that are at least 3/4 of the original size can also be used for this competition. However, field sizes smaller than the original should be reported by email to the TC by June 1, 2021. (\cf Section~\ref{sec:field_dim})
-\end{itemize}
-
-\subparagraph{Referees:}
-\begin{itemize}
-	\item All referees are allowed to \textbf{prevent robots from crashing} to the ground by catching them beforehand and then laying them down gently (\cf Section~\ref{sec:judgment})! Robots are not allowed to dive for the ball on purpose (\cf section \ref{sec:fallenrobots}).
-	
-	\item The head referee decides whether a robot excessively damages itself and should remove it from the field via ``Request for Pick-up''. (\cf Section~\ref{sec:damage_robot})
-	
-	\item A robot which is unable to autonomously stand up within 20 seconds after a fall and be \textbf{at least 10 seconds upright} will be penalized as fallen robot. (\cf Section~\ref{sec:fallenrobots})
-	
-	\item Since teams are playing with robots from other teams, there is a \textbf{maximum of 3 hardware related penalties}:
-		\begin{itemize}
-			\item \textbf{fallen robot} or \textbf{inactive robot}, \cf Section~\ref{sec:fallenrobots}
-			\item \textbf{request for pick-up} in the Playing or Ready state - either by the team or by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
-		\end{itemize}
-		After that this robot is excluded for the rest of the competition!
-	
-	\item If it comes to an excluding of a robot, the head referee, in consultation with the two team leaders, must decide whether the hardware errors that occurred were exclusively self-inflicted due to faulty code or whether it was a general hardware problem with the robot.
-	
-	\item Depending on this decision:
-	\begin{itemize}
-		\item In case of self-inflicted hardware problems will the game continue without this robot till the end of the regular time or till the remaining robot scores more points or has more point scored as the excluded robot. 
-		\item For general hardware-related errors of the robot, it will be replaced by another robot and the game will be restarted as soon as possible which depends on how much time this team needs to flash, setup and recalibrate the robot. This must not take longer than the official time for a remote setup (\cf Section~\ref{sec:remote_game_setup})!
-	\end{itemize}
-	\item A robot exchange can take place at most once per team, in this case this competition would be restarted 2 times! (\cf Section~\ref{sec:forbidden_act})
-\end{itemize}
-
-A detailed description of the rules can be found here in section~\ref{sec:Common_rules}.
-
-\subsection{Scoring}
-% Arne
-\label{sec:scoring}
-
-For this challenge points can be scored by:
-\begin{itemize}
-	\item Shooting the ball in the opponents half (1 Point)
-	\begin{itemize}
-		\item The ball has to stop inside the field (\cf Section~\ref{sec:inside_outside})!
-	\end{itemize} 
-	\item Shooting a goal (1 Point)
-	\begin{itemize}
-		\item Afterwards the team which scored the goal gets this ball back (\cf Section~\ref{sec:goal})
-	\end{itemize}
-\end{itemize}
-
-If the defending/other robot touches the ball when it was kicked over the centre line and before it comes to a full stop then \textbf{NO} points are rewarded! This allows the defending team to intercept balls which are shoot into their half of the field. However, robots are not allowed to dive for the ball on purpose (\cf section \ref{sec:fallenrobots}).
-
-The head referee has to call:
-\begin{itemize}
-	\item ``Point for \textless colour\textgreater'' for each scored point.
-	\item ``Goal for \textless colour\textgreater'' for each scored goal.
-\end{itemize}
-and then the points will be counted by the operator of the GameController.
-%TODO: either by writing it down or by using a modified GameController
-
-For teams playing with an \textbf{autonomously setup player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is multiplied by the points a team has scored at the end of normal game time (and each extension if applicable) to calculate the final points used to rank teams (\cf Section~\ref{sec:rankings}). 
-%\emph{Note that the resulting points should be rounded to the nearest integer.}
-
-\subsection{Challenge execution}
-% Arne
-The 1vs1 Challenge is played as a knock-out competition, as the points scored between individual games are not directly comparable. 
-
-The clock stops during stoppages of play (such as ready and set state after global game stuck)!
-
-\subsubsection{Competition System}
-It is planned to divide the participating teams into three groups, so that there are 8 teams in each group. Within each group, a ladder system will be used where only the winner of the game will advance. 
-
-In the end there will be 3 winners from each group, who will determine their final placing in matches each against each other. If there is a draw between the three final teams, the points scored in the final matches will be used to determine a winner.
-
-The teams are randomly assigned to the groups and no subdivision into challenger shield or champions cup teams is considered.
-To allow all teams to play at least 3 times, the losers of a match will play in additional ladders.
-
-The exact determination of the multiple knock-out rounds/ladders can only be done when the number of participating teams is known and will therefore be announced shortly before the RoboCup. Also the different time zones have to be taken into account and therefore there should only be two games per day per arena.
-    
-\subsubsection{Winner and Rankings}
-\label{sec:rankings}
-
-The team which scored more points than the other, after the expiration of the regular playing time and by applying the multiplication factor, is the winner of the match. If the two teams scored the same number of points, the game will be a draw. In case of a draw the game duration gets extended by one minute. After each extension the (multiplied) score is evaluated again. At max 5 extensions à 1 minute are allowed. \\
-If the game is still tied after overtime, a coin is tossed to determine a winner!    
 
 \subsection{field\_dimensions.json example}
 \label{sec:fielddimensionsjson}

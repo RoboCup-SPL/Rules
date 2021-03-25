@@ -303,15 +303,15 @@ If \cbw{fewer} robots does not respond to the GameController then \cbw{they are,
 	
 	\item[Finished.] This state is reached when a half is finished.
 
-	\item[Unstiff.] \cbw{\textit{This state has been added in 2021.}} It helps to facilitate a consistent and safe handling of the robots for remote competition. During the Initial, Ready, Set or Penalised states, if all head buttons are pressed, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing all three head button while in the Unstiffen state, permits the robot to stiffen it's joints and return to the previous state, or a state as indicated by GameController. (Note, this is not currently shown in Figure~\ref{fig:robot_states}.)
+	\item[Unstiff.] \cbw{\textit{This state has been added in 2021.}} It helps to facilitate a consistent and safe handling of the robots for remote competition. During the Initial, Ready, Set or Penalised states, if all head buttons are pressed, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing all three head button while in the Unstiffen state, permits the robot to stiffen it's joints and return to the previous state, or a state as indicated by GameController. (Note, this is not currently shown in Figure~\ref{fig:robot_states}.)\change{Passend zum Diagramm ändern?}
 
 	\item[Calibration.] \cbw{\textit{This state has been added in 2021.}} This state denotes the robot is acting with automatic calibration. This state may only be entered from Initial by pressing the \textit{front} head button plus the chest button.
     
 \end{description}
 
 \begin{figure}[t]
-	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
-	\caption{Robot states. Button interface transitions are shown in grey. GameController transitions are shown in black. However, any transition possible \cbw{should} be sent by the GameController.}
+	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states_new.pdf}}
+	\caption{\cbf{Robot states with Unstiff as the start state. \\\textbf{Chest button} transitions are shown in grey. \\\textbf{GameController} transitions are shown in black. \\\textbf{Calibration} transitions are shown in puple which means pressing the \textit{front head button plus the chest button}.\\ From \textbf{any state} it can be returned to the Unstiff state via pressing all three head buttons.}}
 	\label{fig:robot_states}
 \end{figure}
 
@@ -333,6 +333,10 @@ The current game state should be displayed on the LED in the torso. The colours 
 	\item Penalized: Red
 	
 	\item Finished: Off
+
+    \item Unstiff: Blue-Blinking
+
+    \item Calibration: Purple
 \end{itemize}
 
 The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on boot-up so that this can be easily checked at the start of the game.
