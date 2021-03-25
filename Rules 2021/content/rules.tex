@@ -2,7 +2,7 @@
 \label{sec:Common_rules}
 The 5 vs. 5 games played at the GORE 2021 are designed to use the rules of RoboCup SPL as published in 2020. However, to facilitate the remote participation of all teams and the common robot pool, various changes are required.
 
-Therefore, the following re-produces the rules from RoboCup SPL 2020, with various details that have been modified, added, modified and/or omitted. Changes are marked with a \cbw{colourbox}.
+Therefore, the following re-produces the rules from RoboCup SPL 2020, with various details that have been modified, added and/or omitted. Changes are marked with a \cbw{colourbox}.
 
 \subsection{Setup of the Environment}
 \label{sec:environment_setup}
@@ -231,17 +231,17 @@ Some teams wish to include additional information or logos on their robots. The 
 
 \subsubsection{Robot Pool Markers}
 \label{sec:robot_pool_markers}
-In order to give each robot in the robot pool a unique ID that the hosting team can use to identify the robots, the hosting team is allowed to stick stickers/adhesive tape with the ID on it onto both upper arms of the robots.\change{Soll das so rein?}
+\cbp{In order to give each robot in the robot pool a unique ID that the hosting team can use to identify the robots, the hosting team is allowed to stick stickers/adhesive tape with the ID on it onto both upper arms of the robots.}\change{Soll das so rein?}
 
-\subsection{Communications}
+\subsubsection{Communications}
 \label{sec:communications}
 The robots must play without human control. Communication is only allowed among robots on the field and between the robots and the GameController.
 
-\subsubsection{Non-Wireless Communications}
+\paragraph{Non-Wireless Communications}
 \label{sec:acoustic}
 In general there are no restrictions on communication between robots in play on the field using visual signalling (\eg gestures) or the robot's built-in microphones, speakers, and infrared transceivers. However, communication that causes excessive discomfort to an audience, affects the safety of an audience, or violates normal playing rules is not permitted.
 
-\subsubsection{Wireless Communications}
+\paragraph{Wireless Communications}
 \label{sec:wireless}
 The only wireless hardware allowed to be used by the teams/arenas are the wireless network cards built into the NAOs, and the access points provided by the arena. All other wireless hardware must be deactivated. A team/arena may be disqualified if one of the team members violates this rule.
 
@@ -311,7 +311,11 @@ If \cbw{fewer} robots does not respond to the GameController then \cbw{they are,
 
 \begin{figure}[t]
 	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states_new.pdf}}
-	\caption{\cbf{Robot states with Unstiff as the start state. \\\textbf{Chest button} transitions are shown in grey. \\\textbf{GameController} transitions are shown in black. \\\textbf{Calibration} transitions are shown in puple which means pressing the \textit{front head button plus the chest button}.\\ From \textbf{any state} it can be returned to the Unstiff state via pressing all three head buttons.}}
+	\caption{\cbf{Robot states with Unstiff as the start state. 
+    \\\textbf{Chest button} transitions are shown as grey arrows. 
+    \\\textbf{GameController} transitions are shown as black arrows. 
+    \\\textbf{Calibration} transitions are shown as puple arrows which mean pressing the \textit{front head button plus the chest button}.
+    \\ From \textbf{any state} it can be transitioned to the Unstiff state, as shown in blue arrows, via pressing all three head buttons.}}
 	\label{fig:robot_states}
 \end{figure}
 
@@ -350,7 +354,7 @@ To assist robots listening for whistles, the referee should blow the whistle fro
 
 The GameController signal (to the robots) of a goal being scored, will be delayed by \GoalScoredDelay.
 
-\subsubsection{Invalid Goal}
+\paragraph{Invalid Goal}
 \label{sec:invalid_goal}
 A goal is invalid (that is, it can never be awarded) in the following circumstances:
 \begin{enumerate}
@@ -362,7 +366,7 @@ A goal is invalid (that is, it can never be awarded) in the following circumstan
 
 In these cases a goal is not scored (that is, the goal is ruled invalid) the game will proceed with a Goal Kick (\cf Section~\ref{sec:free_kick}). The head referee should also advice why the goal is invalid, such as by calling ``Not indirect''\cbw{, ``Played with hands'' or ``No own goal''.}
 
-\subsubsection{Indirect Kick}
+\paragraph{Indirect Kick}
 \label{sec:indirect_kick}
 From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick, the attacking team may only score a goal via an indirect kick.
 
@@ -465,7 +469,7 @@ A Free Kick is deemed completed and play returns to normal if:
 \end{itemize}
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the substate will be automatically left after the \FreeKickTime time period expires.
 
-\subsubsection{Penalty Kick Procedure}
+\paragraph{Penalty Kick Procedure}
 \label{sec:penalty_free_kick}
 
 When the GameController activates the Penalty Kick, the game changes to the \textit{ready} state. This denotes that the robot's are given time to setup and prepare for the penalty kick. Similar to kick-off, the game clock is \textit{paused} during finals games only. The referees should pick up the ball.
@@ -504,13 +508,13 @@ In the event of no substantial change in the game state for 30 seconds, this is 
 
 The main referee has two options how to solve the game stuck and to reestablish the chance of progress in the game. The intention of the game stuck rule is to achieve progress with as little intervention as possible, \ie the \emph{Local Game Stuck} rule will be preferred, but only if there is a chance that its application will result in progress in the game.
 
-\subsubsection{Local Game Stuck}
+\paragraph{Local Game Stuck}
 \label{sec:game_stuck:local}
 
 If one robot is preventing the game from proceeding --- perhaps by circling the ball repeatedly without kicking the ball --- it is recommended to improve progress by removing this one robot.
 The head referee calls ``Local Game Stuck \textless robot\textgreater'' for this robot, which is penalised (\cf Section~\ref{sec:pen_local_game_stuck}).
 
-\subsubsection{Global Game Stuck}
+\paragraph{Global Game Stuck}
 \label{sec:game_stuck:global}
 
 If no robots have made progress towards the ball or began to explore the field in 30 seconds, Global Game Stuck should be called on the team whose robot is \textit{not} nearest the ball.
@@ -599,7 +603,7 @@ Teams are allowed to switch to specially designed software for a penalty kick. N
 
 Before the penalty shootout begins, each team must \cbw{specify} to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to \cbw{their designated assistant referee privately}. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
-\subsubsection{Penalty Kick}
+\paragraph{Penalty Kick}
 \label{sec:penalty_kick}
 
 A penalty kick is carried out with one striker robot and one opposing goalkeeper. The penalty kick commences with the \textit{set} game state activated. The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
@@ -620,7 +624,7 @@ The goalkeeper robot must always be in contact with the goal line, is not permit
 
 A goalkeeper will not be penalized for inactivity during a penalty kick, provided its stiffness is on. Other penalties are applied as usual.
 
-\subsubsection{Sudden Death Shoot-Out}
+\paragraph{Sudden Death Shoot-Out}
 \label{sec:sudden_death_shoot_out}
 
 Teams take one additional penalty kick each, and the game decision will be made as follows:
@@ -685,26 +689,25 @@ When the robot is on the field again, the operator of the GameController will se
 The following actions are forbidden, but not treated as penalties.
 Each forbidden action specifies the actions to be taken by the referees.
 
-\subparagraph{Manual Interaction by Team Members}
+\paragraph{Manual Interaction by Team Members}
 
 Manual interaction with the robots, either directly or via some communications mechanism, is not permitted.
 
-\subparagraph{Locomotion Type}
+\paragraph{Locomotion Type}
 \label{sec:locomotion_type}
 
 Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden.
 The head referee decides whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via ``Request for Pick-up'' until they are able to show appropriate locomotion.
 
-\subparagraph{Damage to the Field}
+\paragraph{Damage to the Field}
 \label{sec:damage}
 
 A robot that damages the field, or poses a threat to spectator safety, will be removed from the field for the remainder of the game.
 
-\cbp{\subparagraph{Damage to the Robot}
+\paragraph{Damage to the Robot}
 \label{sec:damage_robot}
 
-The head referee decides whether a robot excessively damages itself and should remove it from the field via ``Request for Pick-up''. 
-All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently.}
+\cbp{The head referee decides whether a robot excessively damages itself and should remove it from the field via ``Request for Pick-up''. All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently.}
 %Robots are not allowed to dive for the ball on purpose (\cf section \ref{sec:fallenrobots}).
 
 \subsubsection{Illegal Positioning}
