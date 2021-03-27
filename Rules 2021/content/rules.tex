@@ -146,7 +146,6 @@ There are two use cases for the streaming setup:
 These cases should be taken into account when setting up a suitable streaming setup with respect to hardware equipment and internet connectivity.
 You can think of streaming on YouTube/Discord/BigBlueButton/Zoom ..., whatever is available (If bandwidth in the lab is limited, re-streaming should be considered on system with better network connection).  
 In the root folder of the NextCloud drive (see~\ref{sec:data_exchange}) you find a \texttt{streaming.md} file where every team has to publish a link that can be used by public and teams to watch the challenges. The public link will be published on the SPL website / RoboCup 2021 website.}
-\improvement[]{TODO: Make NAO Devils stream setup as example available?}
 
 
 \subsection{Robot Players}
@@ -170,11 +169,11 @@ A computer will be provided by the \cbw{host team} for the purpose of sending Ga
 \subsubsection{Goal Keeper}
 \label{sec:goal_keeper}
 
-The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own penalty area\change{Sollte das nicht besser Golabox sein?}. It always has the jersey number ``1''.
+The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own \cbw{goal box area}. It always has the jersey number ``1''.
 
 \subsubsection{Field Players}
 \label{sec:field_players}
-Each field player has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, the number ``6'' should only be used for a substitute that \cbw{may enter} the game later.
+Each field player has a jersey number from the set $\{2, 3, 4, 5\}$. \\\cbw{There will be no 6th replacement robot}.
 
 \subsubsection{Team Markers}
 \label{sec:team_markers}
@@ -231,7 +230,7 @@ Some teams wish to include additional information or logos on their robots. The 
 
 \subsubsection{Robot Pool Markers}
 \label{sec:robot_pool_markers}
-\cbp{In order to give each robot in the robot pool a unique ID that the hosting team can use to identify the robots, the hosting team is allowed to stick stickers/adhesive tape with the ID on it onto both upper arms of the robots.}\change{Soll das so rein?}
+\cbp{In order to give each robot in the robot pool a unique ID (\cf Section~\ref{sec:robot_table}) that the hosting team can use to identify the robots, the hosting team is allowed to stick stickers/adhesive tape with the ID on it onto both upper arms of the robots and on the backside of the head.}
 
 \subsubsection{Communications}
 \label{sec:communications}
@@ -266,9 +265,9 @@ The use of remote processing/sensing is prohibited.
 \label{sec:game_struct}
 
 A game consists of three parts, the first half, a half-time break, and the second half. Each half is 10 minutes counted from the initial kick-off.
-The half-time break is ten minutes, and during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted.\change{Sollten erlaubt sein oder nicht?}
+The half-time break is ten minutes, and during this time both teams may \cbw{change robot programs}, or do anything else that can be done within the time allotted. \cbw{But there will be no replacement of robots!}
 
-The head referee should make these whistle sounds from the T-junction of the half-way line:\change{gegenüber vom Gamecontroller?}
+The head referee should make these whistle sounds from the T-junction of the half-way line \cbw{opposite from game controller}:
 \begin{itemize}
 \item The head referee signals the commencement of each half with a single whistle blow (that is, the Initial kick-off, \cf Section~\ref{sec:initial-kick-off}).
 \item The head referee signals the end of the first half with two short whistle blows, and the end of the second half with two short plus one long whistle blow.
@@ -281,19 +280,21 @@ The teams/robots will change the goal defended during the half-time break.
 
 Robots can be in \textit{eight} different \emph{primary} states (\cf Figure~\ref{fig:robot_states}). \cbw{Wireless connection must be available}, so these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
-\cbp{\textbf{The use of the button interface as a replacement for any GameController commands is not allowed in the GORE competition!}}\change{würde ich drin lassen da sich dann alle schiris auf die sicherheit der Roboter konzentrieren können}
+\cbp{\textbf{The use of the button interface as a replacement for any GameController commands is not allowed in the GORE competition!}}
 
-\cbp{Should, on both teams, more than 2 robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).}
+\cbp{Should, on both teams, at least \textbf{two} robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (\cf Section~\ref{sec:referee_timeout}).}
 If \cbw{fewer} robots does not respond to the GameController then \cbw{they are, at the beginning,} not included in the game (via a `Request for Pick-up', \cbw{\cf Section~\ref{sec:request_for_pickup}}), and the game starts without the offending robots.
 
 \begin{description}
+    \item[Unstiff.] \cbw{\textit{This state has been added in 2021.}} It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing the chest button once while in the \textit{unstiffen} state, permits the robot to stiffen it's joints and return to the initial state, or a state as indicated by GameController.
+
 	\item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 	
 	\item[Ready.] In this state, the robots walk to their legal positions for Kick-Off (\cf Section~\ref{sec:kick-off}) or a Penalty Kick (\cf Section~\ref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime.\\
     The GameController can activate substates for kick-off and penalty kicks.
 	
 	\item[Set.] In this state, the robots stop and wait for Kick-Off (\cf Section~\ref{sec:kick-off}).
-	Illegally positioned robots are penalized.\change{Und an den Rand gestellt werden?} Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion. If a robot cannot get up, fallen robot is called (\cf Section~\ref{sec:fallenrobots}). The penalty time counter is frozen during this state.
+	Illegally positioned robots are penalized \cbw{and placed on the side of the field.} Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion. If a robot cannot get up, fallen robot is called (\cf Section~\ref{sec:fallenrobots}). The penalty time counter is frozen during this state.
 	Note that all penalized robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.\\
     The GameController can activate substates for kick-off and penalty kicks.
 	
@@ -301,11 +302,9 @@ If \cbw{fewer} robots does not respond to the GameController then \cbw{they are,
 	
 	\item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion, this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
 	
-	\item[Finished.] This state is reached when a half is finished.
+	\item[Finished.] This state is reached when a half is finished. \cbw{The robots then have to sit down.}
 
-	\item[Unstiff.] \cbw{\textit{This state has been added in 2021.}} It helps to facilitate a consistent and safe handling of the robots for remote competition. During the Initial, Ready, Set or Penalised states, if all head buttons are pressed, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing all three head button while in the Unstiffen state, permits the robot to stiffen it's joints and return to the previous state, or a state as indicated by GameController. (Note, this is not currently shown in Figure~\ref{fig:robot_states}.)\change{Passend zum Diagramm ändern?}
-
-	\item[Calibration.] \cbw{\textit{This state has been added in 2021.}} This state denotes the robot is acting with automatic calibration. This state may only be entered from Initial by pressing the \textit{front} head button plus the chest button.
+   	\item[Calibration.] \cbw{\textit{This state has been added in 2021.}} This state denotes the robot is acting with automatic calibration. This state may only be entered from Initial by pressing the \textit{front} head button plus the chest button.
     
 \end{description}
 
@@ -315,7 +314,7 @@ If \cbw{fewer} robots does not respond to the GameController then \cbw{they are,
     \\\textbf{Chest button} transitions are shown as grey arrows. 
     \\\textbf{GameController} transitions are shown as black arrows. 
     \\\textbf{Calibration} transitions are shown as puple arrows which mean pressing the \textit{front head button plus the chest button}.
-    \\ From \textbf{any state} it can be transitioned to the Unstiff state, as shown in blue arrows, via pressing all three head buttons.}}
+    \\ From \textbf{any state} it can be transitioned to the Unstiff state, as shown in blue arrows, via pressing all three head buttons at least one second.}}
 	\label{fig:robot_states}
 \end{figure}
 
@@ -326,6 +325,8 @@ Robots that begin moving their legs or locomoting in any fashion during \emph{se
 The current game state should be displayed on the LED in the torso. The colours corresponding to the game states are:
 
 \begin{itemize}
+    \item \cbw{Unstiff: Blue-Blinking}
+
 	\item Initial: Off
 	
 	\item Ready: Blue
@@ -338,9 +339,7 @@ The current game state should be displayed on the LED in the torso. The colours 
 	
 	\item Finished: Off
 
-    \item Unstiff: Blue-Blinking
-
-    \item Calibration: Purple
+    \item \cbw{Calibration: Purple}
 \end{itemize}
 
 The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on boot-up so that this can be easily checked at the start of the game.
@@ -361,7 +360,6 @@ A goal is invalid (that is, it can never be awarded) in the following circumstan
     \item When an Indirect Kick has not occurred (\cf Section~\ref{sec:indirect_kick}).
     \item When the last contact of the ball was with an attacking robot that played the ball with the arms/hands as defined in Section~\ref{sec:hand_ball}. However, an own goal may be scored by any defending robot playing with arms/hands.
     \item When a team scores on themselves (\ie own goal) and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Section~\ref{sec:fallenrobots}).
-    \item After a Kick-off, when the ball has not been touched by a robot of either team, once the ball has left the centre circle. This was formally known as a ``Kick-off Shot'', but no longer results in a penalty.\change{Kann ja weg wegen Indirect Kick?}
 \end{enumerate}
 
 In these cases a goal is not scored (that is, the goal is ruled invalid) the game will proceed with a Goal Kick (\cf Section~\ref{sec:free_kick}). The head referee should also advice why the goal is invalid, such as by calling ``Not indirect''\cbw{, ``Played with hands'' or ``No own goal''.}
@@ -372,7 +370,8 @@ From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick,
 
 A robot may not score a goal from a direct kick, including via deflections.
 The ball must be deliberately played-at a second time (by either another robot, or the same robot) before a goal may be scored.
-A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands.
+A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands. 
+\cbp{If a robot plays the ball to itself, this means that the ball must leave a circular area of at least \FreeKickRadius radius around the robot before the ball is played a second time and to be considered as an indirect kick.}
 
 \textbf{Example 1:} Player 2 (of the red team) kicks the ball to Player 3, who then kicks the ball into the goal. This is a successful indirect kick, and the goal counts.
 
@@ -388,8 +387,17 @@ Note that an own-goal may always be scored without requiring an indirect kick.
 \label{sec:initial-kick-off}
 
 The first kick-off at the start of each half is the initial kick-off.
-Before the initial kick-off, \ie before the start of each half, all robots must be in the initial state and must be placed on the sidelines, in their own half of the field.  
-It is up to the team as to which sideline(s) and where exactly on the sidelines the robots are placed.\change{Sollten wir wenn möglich vereinheitlichen oder?}
+Before the initial kick-off, \ie before the start of each half, all robots must be in the \cbw{\textit{unstiff} state} and will be placed on the sidelines, in their own half of the field, \cbw{by the referees acording to Figure~\ref{fig:initial_positions}}. 
+
+\begin{figure}[t!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1\columnwidth]{figs/initial_positions.pdf}
+		\caption{Positions, player numbers and distances from the centre of the goal line for the initial kick-off of the robots.}
+		\label{fig:initial_positions}
+	\end{center}
+\end{figure}
+
 
 Once the robots receive the \emph{ready} signal from the GameController, they are to proceed as described in Section~\ref{sec:kick-off}.
 
@@ -406,7 +414,7 @@ The green carpet border, except for the area of the goal, is not part of either 
 
 In the \emph{set} state, the robots must not locomote~(\cf Section~\ref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \emph{set} it is replaced by one of the referees.
 
-\cbp{There is no manual placement of any robot.}\change{Sollen wir das wieder erlauben?}
+\cbp{There is no manual placement of any robot.}
 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
 
@@ -481,7 +489,7 @@ During \textit{set} the referee should place the ball on the penalty spot and af
 
 During the Penalty Kick:
 \begin{enumerate}
-    \item The defensive goalkeeper robot must always be in contact with the goal line, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball. \change{Was ist mit dive?}
+    \item The defensive goalkeeper robot must always be in contact with the goal line, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
     \item The attacking robot may move freely.
     \item All robots must be within the field-of-play. That is, robots may not be outside the field lines, but within the field border.
     \item No other robots may enter the penalty box (\cf Section~\ref{sec:illegal_positioning}).
@@ -499,7 +507,7 @@ The Penalty Kick is deemed completed if:
 
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the substate will be automatically left (returning to the \textit{playing} state) after the \PenaltyFreeKickTime time period expires.
 
-Note that the restrictions on the attacking robot still apply after the penalty kick is complete. \change{Was ist damit gemeint?}
+Note that the restrictions on the attacking robot still apply after the penalty kick is complete.
 
 \subsubsection{Game Stuck}
 \label{sec:game_stuck}
@@ -532,7 +540,7 @@ Every change (hardware or software) is allowed during a request for pick-up. In 
 
 Any strategic ``Request for Pick-up'' is not allowed. That is, gaining an advantage by removing the robot from the competition. In this case, the head referee will indicate when the robot is no longer affecting play and can be removed from the field by an assistant referee.
 
-To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up''.\change{Referenz zu eigenem Discord channel mit einem der Assistants?}
+To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up''. \change{Referenz zu eigenem Discord channel mit einem der Assistants?}
 
 The returning robot may be returned following the normal replacement procedure once at least 45 seconds have elapsed since the robot was removed from play. Note that this penalty does not follow the standard removal procedure, and hence does not count towards the incremental penalty count.
 
@@ -541,7 +549,7 @@ Note here, that the returning robot will have to wait out any remaining penalty 
 
 \subsubsection{Request for Timeout}
 \label{sec:request_for_timeout}
-Each team can call a \textbf{maximum of 1 timeout per game} with a total time of no more than \textbf{5 minutes}. During this time, both teams may change robots\change{Erlauben wir das?}, change programs, or anything else that can be done within the time allotted.\\
+Each team can call a \textbf{maximum of 1 timeout per game} with a total time of no more than \textbf{5 minutes}. During this time, both teams may \cbw{change robot programs}, or do anything else that can be done within the time allotted. \cbw{But there will be no replacement of robots!}\\
 \cbp{Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team.}
 
 During normal game time, a team may call a timeout at any stoppage of play (after a goal, stuck game, before a half, etc.). Alternatively, a team may call a timeout before a penalty shootout if they have not used their timeout yet (\cf Section~\ref{sec:penalty_shoot-out}).
@@ -554,7 +562,7 @@ After the completion of the timeout, the game resumes with a kick off for the te
 
 If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then the referee shall start the game with only one team on the field.  The team that was not ready can return its robots to the field as per the rules for ``Request for Pick-up''. 
 
-If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.\change{Was will mir das sagen?}
+If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 5 + 5 = 10 minutes.
 
 \subsubsection{Referee Timeout}
 \label{sec:referee_timeout}
@@ -594,14 +602,14 @@ Note that there are a few unlikely cases that are not covered by these rules. If
 \label{sec:penalty_shoot-out}
 
 A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, when team progression is tied on all tie-break factors, during the promotion round, intermediate round, quarter finals, semi finals, third place or final).
-There will be a \cbw{ten} minute break between the end of the game and the start of the penalty kicks.
+There will be a \cbw{\textbf{no}} break between the end of the game and the start of the penalty kicks. \cbw{As well as no change of robot code is allowed!}
 
 All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided by in accordance with the teams, or otherwise by a coin toss.}.
 At all stages of the competition, the penalty kick shoot-out will consist of three penalty kicks per team. The first (left) team in the GameController will have the striker robot for the first penalty kick. A team that has scored the most goals at the conclusion of these will be declared the winner. A winner can also be declared before the conclusion of the penalty shoot-out if a team can no longer win. If the two teams remain tied after three penalty kicks, then a sudden death shoot-out (\cf Section~\ref{sec:sudden_death_shoot_out}) will follow until a definite winner is found.
 
-Teams are allowed to switch to specially designed software for a penalty kick. No robot code or configuration changes are allowed after the start of the penalty shootout. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game.
+No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game.
 
-Before the penalty shootout begins, each team must \cbw{specify} to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to \cbw{their designated assistant referee privately}. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to \cbw{their designated assistant referee privately}. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 \paragraph{Penalty Kick}
 \label{sec:penalty_kick}
@@ -620,7 +628,7 @@ Note, the playing signal is delayed~(\cf Section~\ref{sec:robot_states}).
 
 The striker robot is only allowed to contact the ball once. The time limit for the striker is \PenaltyKickTime after the penalty kick starts. A penalty shot is over when the ball has come to a full stop after the first contact by the striker robot. A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line). Otherwise, the score is unchanged.
 
-The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the goal box, and must remain on its feet until the striker robot touches the ball. The goalkeeper is only permitted to ``dive''\change{Erlauben wir das?}, and be off it's feet after the attacking robot has touched the ball. Furthermore, the goal keeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area). If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
+The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the goal box, and must remain on its feet until the striker robot touches the ball. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball. Furthermore, the goal keeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area). If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
 
 A goalkeeper will not be penalized for inactivity during a penalty kick, provided its stiffness is on. Other penalties are applied as usual.
 
@@ -640,13 +648,14 @@ Teams take one additional penalty kick each, and the game decision will be made 
 
 The following actions are forbidden. In general, when a penalty applies, the robot shall be replaced, not the ball.
 
-\cbp{Since teams are playing with robots from other teams, there is a maximum of 5 hardware related penalties for each team, this includes:}\change{Ist 5 genug?}
+\cbp{Since teams are playing with robots from other teams, there is a maximum of \textbf{two} hardware related penalties for each robot in the first half and \textbf{one more} in the second half. Hardware related penalties are:}
 \cbp{\begin{itemize}
 	\item \textbf{fallen robot} or \textbf{inactive robot}, \cf Section~\ref{sec:fallenrobots}
-	\item \textbf{request for pick-up} in the Playing or Ready state - either by the team or by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
-	%\item Robots are not allowed to dive for the ball on purpose, \cf section \ref{sec:fallenrobots}.
+	\item \textbf{request for pick-up} in the \textit{playing} or \textit{ready} state - either by the team or forced by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:damage_robot}
 \end{itemize}
-The are counted by the GameController operator and after that robots with additional hardware related penalties are excluded for the rest of the game (they are transitioned into the \textit{unstiffed} state by the assistant referees, \cf Section~\ref{sec:robot_states})!}
+These are counted by the GameController operator and after that a robot with additional hardware related penalties is \textbf{excluded for the rest of the game} (they are transitioned into the \textit{unstiffed} state by the assistant referees, \cf Section~\ref{sec:robot_states})!}
+
+\cbp{Robots are \textbf{not allowed to dive} for the ball on purpose, \cf section \ref{sec:fallenrobots}, except for penalty kicks!}.
 
 \subsubsection{Penalty Procedure}
 \label{sec:penalty_procedure}
@@ -666,7 +675,7 @@ The GameController will send the appropriate penalty signal to the robot indicat
 
 The initial duration of the standard removal penalty time is \StandardPenaltyTime.
 Unless otherwise specified, the penalty time increases by \StandardPenaltyIncrease each time a team commits any infraction.
-That is, the first infraction will result in a penalty time of \StandardPenaltyTime, the second infraction (of any type) results in a penalty time of 55 seconds, the third infraction is 65 seconds, etc.\change{Evtl auch die Penalty increase Time erhöhen?}
+That is, the first infraction will result in a penalty time of \StandardPenaltyTime, the second infraction (of any type) results in a penalty time of 55 seconds, the third infraction is 65 seconds, etc.
 
 During the \emph{set} state the penalty time counter will not decrease.
 
@@ -720,10 +729,10 @@ For simplicity, Illegal Positioning penalties during the \textit{set} state (for
 
 Refer to Section~\ref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
 
-``Illegal Position'' shall be imposed if a robot is not inside its own half at the time the \textit{set} state starts. It will then be penalized and removed for 15 seconds. The centre line does not count as part of the own half for this penalty.
+``Illegal Position'' shall be imposed if a robot is not inside its own half at the time the \textit{set} state starts. It will then be penalized and removed for 15 seconds. The centre line does not count as part of the own half for this penalty, \cbw{nor does the area inside the goal}.
 
 \paragraph{Position for Kick-off}
-If a robot is not inside its own half at the time the \textit{set} state starts, it will be penalized and removed for 15 seconds. The center line does not count as part of the own half for this penalty, although the area inside the goal does.\change{Soll die Goal-Area ausgenommen werden?}
+If a robot is not inside its own half at the time the \textit{set} state starts, it will be penalized and removed for 15 seconds. The center line does not count as part of the own half for this penalty, \cbw{nor does the area inside the goal}.
 
 \paragraph{Penalty Box, at all times}
 
@@ -770,7 +779,7 @@ A robot is active if it performs at least one of the following:
 	\item The robot searches for the ball, or is looking at the ball.
 \end{enumerate}
 
-Fallen/Inactive Robot penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.\change{Vielleicht doch, statt der 5 Hardware related penalties?}
+Fallen/Inactive Robot penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 \textbf{Note:} The intention of this rule is not to penalize robots simply for being stationary -- provided they are not `asleep' and have not `crashed'.
 
@@ -924,7 +933,7 @@ The, \cbw{in the ideal case}, two assistant referees handle the robots and the b
 
 \cbp{If a team requests to pick up a robot, an assistant referee will pick it up and put it on the sideline. Also the assistant, on behalf of the teams, can do hardware changes to robots on the sideline, \ie reboot it or change and secure the battery.}
 
-The assistant referees can \textit{indicate} violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee \cbw{or to catch a falling robot}.\change{Aus meiner Sicht sollten die Assistants mehr rechte bekommen! Um den Head vorallem zu entlasten!}
+The assistant referees can \textit{indicate} violations against the rules committed by robots to the head referee, so that the head referee can decide whether to penalize a certain robot or not. Assistant referees should only enter the field to execute a decision made by the main referee \cbw{or to catch a falling robot}.
 
 \subsubsection{Operator of the GameController}
 \label{sec:gameControllerOp}
