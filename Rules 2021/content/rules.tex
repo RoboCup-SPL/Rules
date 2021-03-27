@@ -4,6 +4,27 @@ The 5 vs. 5 games played at the GORE 2021 are designed to use the rules of RoboC
 
 Therefore, the following re-produces the rules from RoboCup SPL 2020, with various details that have been modified, added and/or omitted. Changes are marked with a \cbw{colourbox}.
 
+\subsection{Major Rule Changes}
+\label{sec:major_rule_changes}
+\begin{itemize}
+\item Only NAO V6 is allowed, \cf Section~\ref{sec:hardware}.
+\item Requiring of a streaming setup for a host arena, \cf Section~\ref{sec:streaming_setup}.
+\item Each team obtains 5 robots from a robot pool but there will be no replacement of robots, \cf Section~\ref{sec:field_players} and Section~\ref{sec:game_struct}! 
+\item Each robot in a robot pool gets a unique ID and for this purpose stickers can be placed on the upper arms and the back of the head, \cf Section~\ref{sec:robot_pool_markers}.
+\item In order to ensure simple and consistent handling of the robots, the \textit{unstiff} and \textit{calibration} states have been added and the transitions between all states have been unified, \cf Section~\ref{sec:robot_states}. The \textit{unstiff} state can be accessed from anywhere and enables an emergency stop of robots!
+\item Indirect kick rule: It is now clarified that if a robot plays the ball to itself, this means that the ball must leave a circular area of at least \FreeKickRadius radius around the robot before the ball is played a second time, \cf Section~\ref{sec:indirect_kick}.
+\item Initial kick-off: Robots start now in the \textit{unstiff} state and the robots are placed by the referees on clearly defined positions, \cf Section~\ref{sec:initial-kick-off}.
+\item There is no manual placement of any robot, \cf Section~\ref{sec:kick-off}.
+\item Since the teams are not on site, the assistant referees take over tasks as if they were a member of the corresponding team, \cf Section~\ref{sec:request_for_pickup}, Section~\ref{sec:request_for_timeout} Section~\ref{sec:penalty_shoot-out} and Section~\ref{sec:assist_referee}.
+\item A penalty kick shoot-out commences immediately after the game finishes, with no break or code changes allowed in between, \cf Section~\ref{sec:penalty_shoot-out}.
+\item Goalkeepers are only allowed to dive during a penalty kick, \cf Section~\ref{sec:forbidden_act}, Section~\ref{sec:penalty_free_kick} and Section~\ref{sec:penalty_kick}.
+\item Since teams are playing with robots from other teams, there is a maximum of two hardware related penalties for each robot in the first half and one more in the second half, \cf Section~\ref{sec:forbidden_act}.
+\item The head referee decides whether a robot excessively damages itself and removes it from the field via ``Request for Pick-up'', \cf Section~\ref{sec:damage_robot}.
+\item All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently, \cf Section~\ref{sec:damage_robot} and Section~\ref{sec:judgment}.
+\item Fallen robot penalty: The robot has to stand up within 20 seconds after a fall and has to be at least 10 seconds upright, \cf Section~\ref{sec:fallenrobots}.
+\item Pushing may occur between any robots, \ie also between team mates, \cf Section~\ref{sec:player_pushing}.
+\end{itemize}
+
 \subsection{Setup of the Environment}
 \label{sec:environment_setup}
 \subsubsection{Field Construction (standard and minimum size)}
@@ -286,7 +307,7 @@ Robots can be in \textit{eight} different \emph{primary} states (\cf Figure~\ref
 If \cbw{fewer} robots does not respond to the GameController then \cbw{they are, at the beginning,} not included in the game (via a `Request for Pick-up', \cbw{\cf Section~\ref{sec:request_for_pickup}}), and the game starts without the offending robots.
 
 \begin{description}
-    \item[Unstiff.] \cbw{\textit{This state has been added in 2021.}} It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and unstiffen all joints. Pressing the chest button once while in the \textit{unstiffen} state, permits the robot to stiffen it's joints and return to the initial state, or a state as indicated by GameController.
+    \item[Unstiff.] \cbw{\textit{This state has been added in 2021.}} It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and unstiffen all joints. So while in the \textit{unstiff} state the robot is not allowed to move in any fashion! Pressing the chest button once while in the \textit{unstiffen} state, permits the robot to stiffen it's joints and return to the \textit{initial} state, or a state as indicated by GameController.
 
 	\item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 	
