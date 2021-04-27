@@ -3,7 +3,7 @@
 
 \subsection{Idea of the competition}
 % Patrick
-The aim of this competition is to explorer and demonstrate  competitive remote gameplay given the current situation.
+The aim of this competition is to explore and demonstrate  competitive remote gameplay given the current situation.
 
 Two teams of each five robots (no substitute) play against each other on a full-sized (\cf section \ref{sec:field_dim}) standard robot soccer according to sligtly modified SPL 2020 rules in a remote arena (\cf section \ref{sec:Common_rules}). 
 
@@ -31,7 +31,7 @@ Requirements to participate in GORE are, being able to
 
 \subsubsection{Basic requirements for arenas}
 \label{sec:c3_BasicRequirementsForArenas}
-Teams have to fulfil the following items to be able to host an arena.
+Teams have to fulfill the following items to be able to host an arena.
 
 \begin{itemize}
     \item A full-size or at least 3/4 SPL field (see \ref{sec:environment_setup}) corresponding to the standard SPL field size (\cf section \ref{sec:field_dim}).
@@ -75,13 +75,13 @@ After \textit{Flashing} a robot, a robot will be equipped with a storage USB dri
 Teams exchange data before and during GORE using a Nextcloud drive. An access link and password will be sent to the team leaders and have to be used with care. The Nextcloud drive will contain a folder for every team according to their team number. Team folders will be used for sharing data. Example file structures are give in \ref{sec:file_structure}. 
 
 \begin{itemize}
-    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file you find in section~\ref{sec:fielddimensionsjson}. This file has to be uploaded by the hosting teams until the \textbf{5th of May 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field description will be copied on the USB drive after flashing as \texttt{field\_dimensions.json} in the folder configuration. This allows the usage of the same image at different arenas.
+    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file you find in section~\ref{sec:fielddimensionsjson}. This file has to be uploaded by the hosting teams until the \textbf{5th of May 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field description will be copied in to the root folder of the USB drive after flashing as \texttt{field\_dimensions.json}. This allows the usage of the same image at different arenas.
     \item In \textbf{Robot Setup} the arena team find a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you can define multiple configuration folders for each player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
     \item To allow an autonomous robot setup to identify the robot, both teams can upload after robot assignment (see \ref{sec:setup_two_hours}) a \texttt{robot\_id.json} into the corresponding folder of the team for the game. The \texttt{robot\_id.json} should have a structure to match \textbf{MAC-Address}, \textbf{IP} and \textbf{Robot ID}. An example is shown in Section~\ref{sec:robotidjson}.
     \item In the folder \textbf{field images} each hosting team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the \textbf{5th of May 2021}.
-    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the \textbf{21st of April 2021}. Every hosting team has to announce a responsible person for credentials and remote setup until the \textbf{22nd of April 2021}. The list of responsible people can be found in the root folder of the Nextcloud drive.
+    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the \textbf{28th of April 2021}. Every hosting team has to announce a responsible person for credentials and remote setup until the \textbf{28th of April 2021}. The list of responsible people can be found in the root folder of the Nextcloud drive.
     \item In the hosting team's root folder you find a \texttt{streaming.md} file where every hosting team has to publish a link that can be used by public to watch a game. Further details for streaming, see~\ref{sec:streaming_setup}.
-	\item Logs and images will be uploaded from the hosts into the folder \texttt{Team/Game\_ID/Logs}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored.
+	\item Logs and images will be uploaded from the hosts into the folder \texttt{Team/Game\_ID/Logs}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored. For each robot a separate folder will be created to distinguish logs files from each robot. 
 \end{itemize}
 
 \paragraph{Example Nextcloud Storage File Structure}
@@ -212,7 +212,7 @@ To give volunteers an interface to command autonomous acting robot, new game sta
 \label{sec:setup_two_hours}
 
     \begin{enumerate}
-        \item Assignment of a volunteer (are also assitent referees in the game) from the host team for each remote team. They create own Discord rooms for communication during the whole setup and game phase and communicate this to the teams.
+        \item Assignment of a volunteer (are also assistant referees in the game) from the host team for each remote team. They create own Discord rooms for communication during the whole setup and game phase and communicate this to the teams.
         \item Initial meeting of the volunteers and the representatives from the teams in one of the Discord rooms.
         \item Topics of this meeting are: Welcome, answering questions, agree on timing for calibration, and selecting robots.
 		\item For each team five randomly (see next points) selected functional robot are assigned from the pool.
@@ -224,25 +224,26 @@ To give volunteers an interface to command autonomous acting robot, new game sta
         \end{enumerate} 
         \item Move to the individual Discord rooms to shortly discuss the team specific setup, calibration and game play procedure with the volunteer. Teams and volunteer will use this room for the reminder of setup and game. And stay connected through this. Also in the game play phase when they are assistant referees.
         \item The competing team informs the competition venue if they are using fully-autonomous or semi-autonomous setup.
+        \item The competing team finalizes the content of the \texttt{Game\_ID} folder in the Nextcloud. At least copy the \texttt{field\_dimensions.json} of the arena to the respective configuration folder.
         \item Connect the robot (should already be fully charged) to a charger. If the competing team chose semi-autonomous setup, a LAN cable is connected as well.
         \item Each robot gets flashed 
         \begin{itemize}
             \item with the standard SoftBank binary image or
             \item with the image provided by the respective team.
 		\end{itemize}
-		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
+		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} (Assistants please check) and started.
         \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use installable images where possible. If the competing team chose fully-autonomous setup, this step is skipped.
         \item The IP address given by the DHCP Server is static and their addresses are available in the Nextcloud folder (see \ref{sec:example_configuration}). If the competing team chose fully-autonomous setup, this step is skipped.
         \item According to the official game schedule, the first team named is the home team, plays on the left half of the field and the second called team is the away team and play on the right half of the field from the perspective of the GameController. 
-        \item Dress robots with jerseys (see \ref{sec:team_markers}). The hosting team's 'home' and 'away' jersey are assigned to the 'home' and 'away' starting robot. 
+        \item Dress robots with jerseys (see \ref{sec:team_markers}). By default: The hosting team's 'home' and 'away' jersey are assigned to the 'home' and 'away' starting robots, respectively. If a team wants to use its own jearseys they have to send the home jerseys to their primary arena and they can also send their away jerseys to the other arena.
     \end{enumerate}
 
 \subsubsection{Calibration / Testing: 1 hour before match}
     \begin{enumerate}
         \item 30 minutes to calibrate the robots supported by one volunteer.
         \item All robots than can move over their half of the field to calibrate themselves. The volunteers have to actively watch the robots and to be ready to catch one as soon as it would leave the field or fall. The volunteers are allowed to catch robots. To prevent damage the same rules as in normal game play have to be applied to prevent damage to the robots (see \ref{sec:forbidden_act}).
-        \item Before the calibration starts, on each penalty kick position a ball gets placed. The robots can move their ball. If a ball leaves the field, it gets replaced at its kick-in position (see \ref{sec:kick_in}). If a robot scores a goal, the ball gets moved back to its starting position. If the ball moves to the opponent's half, it is out.
-        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robots on the normal initial positions at the field side of a field. Then the volunteer presses button to get the robots into calibration state~(see~\ref{sec:robot_states}). At the end of the calibration period, the robot may sit down and get unstiffed by the volunteer. Otherwise, the robot will be unstiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}). Best is to run calibration for each robot separately.
+        \item Before the calibration starts, at the middle of each line connecting penalty spot and the center of the center circle a ball gets placed. The robots can move their ball. If a ball leaves the field, it gets replaced at its kick-in position (see \ref{sec:kick_in}). If a robot scores a goal, the ball gets moved back to its starting position. If the ball moves to the opponent's half, it is out.
+        \item \textbf{Automatic calibration} is conducted in the following way: The volunteer places the robots on the normal initial positions (see Fig.\,\ref{fig:initial_positions}) at the field side of a field. Then the volunteer presses button to get the robots into calibration state~(see~\ref{sec:robot_states}). At the end of the calibration period, the robot may sit down and get unstiffed by the volunteer. Otherwise, the robot will be unstiffed by the volunteer by pressing all head buttons simultaneously~(see~\ref{sec:robot_states}). Best is to run calibration for each robot separately. This procedure should be agreed between assistant and team, if all robots at the same time, or after each other, or ... are in the calibration phase.
      
         \textbf{Semi-automatic calibration}: With support of a local volunteer the robots are calibrated remotely. Both volunteer and remote team meet in a Discord room and perform the calibration procedure of the remote team together.
 
