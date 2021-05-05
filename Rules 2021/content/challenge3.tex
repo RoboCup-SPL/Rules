@@ -191,7 +191,7 @@ The following section defines network requirements for hosting remote games. The
     \end{itemize}
     \item Automated assignment of IP address to robots after being flashed.
     \begin{itemize}
-        \item \label{sec:robot_table} The hosting arenas prepare a file \texttt{robot\_network\_identification.csv} with the following columns: [Robot ID (1-16), Team, Head ID, Body ID, MAC address of LAN, IP-Lan address] 
+        \item \label{sec:robot_table} The hosting arenas prepare a file \texttt{robot\_network\_identification.csv} with the following columns: [Robot ID (1-16) Arena Bremen, (17-32) Arena Dortmund, Team, Team Identifier (Name written on the robot), Head ID, Body ID, MAC address of LAN, IP-Lan address] 
         \item Each team will fill in the data (Except IP Addresses) into the table for its robots until \textbf{26th of April 2021}.
         \item Each hosting team verifies this data when robots arrive.
         \item Each hosting team assigns static IP addresses to the robots based on the data in the table and lists the IP address there.
@@ -214,7 +214,7 @@ To give volunteers an interface to command autonomous acting robot, new game sta
     \begin{enumerate}
         \item Assignment of a volunteer (are also assistant referees in the game) from the host team for each remote team. They create own Discord rooms for communication during the whole setup and game phase and communicate this to the teams.
         \item Initial meeting of the volunteers and the representatives from the teams in one of the Discord rooms.
-        \item Topics of this meeting are: Welcome, answering questions, agree on timing for calibration, and selecting robots.
+        \item Topics of this meeting are: Welcome, answering questions, agree on timing for calibration, and selecting robots, selection of jerseys.
 		\item For each team five randomly (see next points) selected functional robot are assigned from the pool.
 		\begin{enumerate}
             \item The host team has a numbered list of functional robots from 1 to the maximum number.
@@ -222,7 +222,7 @@ To give volunteers an interface to command autonomous acting robot, new game sta
             \item The volunteer runs the number generator. The first valid number is the robot number for the home team, away team is second. Third number is the second robot for the away team and fourth for home team. They continue until each team got 5 robots assigned. 
             \item If a robot, who wears the selected number, is already taken or not available, than the generator has to be run again. 
         \end{enumerate} 
-        \item Move to the individual Discord rooms to shortly discuss the team specific setup, calibration and game play procedure with the volunteer. Teams and volunteer will use this room for the reminder of setup and game. And stay connected through this. Also in the game play phase when they are assistant referees.
+        \item Move to the individual Discord rooms to shortly discuss the team specific setup, robot jersey number assignement, calibration and game play procedure with the volunteer. Teams and volunteer will use this room for the reminder of setup and game. And stay connected through this. Also in the game play phase when they are assistant referees.
         \item The competing team informs the competition venue if they are using fully-autonomous or semi-autonomous setup.
         \item The competing team finalizes the content of the \texttt{Game\_ID} folder in the Nextcloud. At least copy the \texttt{field\_dimensions.json} of the arena to the respective configuration folder.
         \item Connect the robot (should already be fully charged) to a charger. If the competing team chose semi-autonomous setup, a LAN cable is connected as well.
@@ -235,7 +235,7 @@ To give volunteers an interface to command autonomous acting robot, new game sta
         \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use installable images where possible. If the competing team chose fully-autonomous setup, this step is skipped.
         \item The IP address given by the DHCP Server is static and their addresses are available in the Nextcloud folder (see \ref{sec:example_configuration}). If the competing team chose fully-autonomous setup, this step is skipped.
         \item According to the official game schedule, the first team named is the home team, plays on the left half of the field and the second called team is the away team and play on the right half of the field from the perspective of the GameController. 
-        \item Dress robots with jerseys (see \ref{sec:team_markers}). By default: The hosting team's 'home' and 'away' jersey are assigned to the 'home' and 'away' starting robots, respectively. If a team wants to use its own jearseys they have to send the home jerseys to their primary arena and they can also send their away jerseys to the other arena.
+        \item Dress robots with jerseys (see \ref{sec:team_markers}). By default: The hosting team's 'home' and 'away' jersey are assigned to the 'home' and 'away' starting robots, respectively. If a team wants to use its own jerseys they have to send the home jerseys to their primary arena and they can also send their away jerseys to the other arena. Validate that the robots wear the correct jerseys using for example the GameController.
     \end{enumerate}
 
 \subsubsection{Calibration / Testing: 1 hour before match}
