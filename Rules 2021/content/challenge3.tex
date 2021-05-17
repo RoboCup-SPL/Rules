@@ -344,6 +344,10 @@ If the game is still tied after overtime, a coin is tossed to determine a winner
 \subsection{field\_dimensions.json example}
 \label{sec:fielddimensionsjson}
 
+Below you can find an example of a \texttt{field\_dimensions.json} file. These are to be provided by the hosting arenas.
+
+The given example describes a soccer field construction according to the SPL rules from 2020 and onward (separate penaly box and goal box). Some arenas may still have a line construction that was described by the rules in 2019 (only a single penalty box). For 2019 style field lines both the \texttt{goalBoxAreaLength} and \texttt{goalBoxAreaWidth} properties will not be present in the file.
+
 \begin{lstlisting}[language=json,firstnumber=1]
 {
     "field": {
