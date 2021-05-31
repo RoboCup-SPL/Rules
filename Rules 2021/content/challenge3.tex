@@ -94,14 +94,69 @@ After \textit{Flashing} a robot, a robot will be equipped with a storage USB dri
 Teams exchange data before and during RoboCup 2021 using a Nextcloud drive. An access link and password will be sent to the team leaders and have to be used with care. The Nextcloud drive will contain a folder for every team according to their team number. Team folders will be used for sharing the following data:
 
 \begin{itemize}
-    \item In folder \textbf{field dimensions} each team has to provide a JSON file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file can be found in section~\ref{sec:fielddimensionsjson}. This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field desciption will be copied on the USB drive after flashing as \texttt{field\_dimensions.json} in the folder configuration. This allows the usage of the same image at different arenas.
-    \item In the folder \textbf{field images} each team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the 15th of June 2021.
-    \item In \textbf{Robot Setup} the arena teams find a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folder for the player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
-    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 1st of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The list of responsible people can be found in the root folder of the Nextcloud drive.
+    \item In folder \textbf{field\ dimensions} each team has to provide a JSON file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file can be found in section~\ref{sec:fielddimensionsjson}. This file has to be uploaded until the \textbf{15th of June 2021}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field description will be copied on the USB drive after flashing as \texttt{field\_dimensions.json} in the folder configuration. This allows the usage of the same image at different arenas.
+    \item In the folder \textbf{field images} each hosting team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the \textbf{15th of June 2021}.
+    \item In \textbf{Robot Setup} the arena teams find a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{two hours} before the game starts. Next to the image you have to define to configuration folder for the player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one \textbf{mandatory} file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
+    \item In \textbf{Arena Access} remote teams find an instruction \textit{arena\_access.md} how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the 1st of June. Every team has to announce a responsible person for credentials and remote setup until the 1st of June. The name, email and Discord name should be in the \textit{arena\_access.md} as well.
     \item In the root folder you find a \texttt{streaming.md} file where every team has to publish a link that can be used by public to watch the game. It will be used on the SPL website / RoboCup 2021 website as well. Further details for streaming, see~\ref{sec:streaming_setup}.
-	\item Logs and images will be uploaded from the hosts into the folder \texttt{Logs/Game\_ID}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored. 
+	\item Logs and images will be uploaded from the hosts into the folder \texttt{Team/Game\_ID/Logs}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored.
 
 \end{itemize}
+
+\paragraph{Example Nextcloud Storage File Structure}
+\label{sec:file_structure}
+    \begin{forest}
+        for tree={font=\sffamily, grow'=0,
+        folder indent=.9em, folder icons,
+        edge=densely dotted}
+        [root
+            [HULKs \%fully automated setup with own binary and with hosting an arena
+                [arena
+                    [arena1..10.jpg, is file]
+                    [arena\_access.md, is file]
+                    [streaming.md, is file]
+                    [field\_dimensions.json, is file]
+                ]
+                [games
+                    [1 \%Game\_id
+                        [image.bin, is file]
+                        [configuration
+                            [field\_dimensions.json \%mandantory, is file]
+                            [game\_configuration.json, is file]
+                        ]
+                        [logs
+                            [many\_many\_files.files]    
+                        ]
+                    ]
+                ]
+            ]
+            [NAO Devils \%semi automated setup using SBR image and no arena
+                [games
+                    [1 \% Game\_id
+                        [configuration
+                            [field\_dimensions.json \%mandantory, is file]
+                        ]
+                        [logs]
+                    ]
+                ]
+            ]
+        ]
+    \end{forest}
+
+
+\paragraph{Example USB Stick File Structure}
+
+    \begin{forest}
+        for tree={font=\sffamily, %grow'=0,
+        folder indent=.9em, folder icons,
+        edge=densely dotted}
+        [root
+            [field\_dimensions.json, is file]
+            [further\_config\_files.files, is file]
+            [logs]
+        ]
+  \end{forest}
+
 
 \subsubsection{Network Setup}
 The following section defines network requirements for a local venue that hosts remote games. The network infrastructure should be as transparent as possible for remote participants. It should get as close as possible to an on-site experience. Please also contact your local IT administrators and agree your setup with them.
