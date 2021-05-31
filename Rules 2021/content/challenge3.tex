@@ -184,7 +184,7 @@ To give volunteers an interface to command autonomous acting robot, the followin
         \item Each robot gets flashed 
         \begin{itemize}
             \item with the standard SoftBank binary image or
-            \item with the image provided by the respective team.
+            \item with the image provided by the respective team (Can be different from the automatic calibration image).
 		\end{itemize}
 		\item Each robot gets equipped with a USB drive according to \ref{sec:c3_USB_Drive} and started.
         \item Teams can set their robot up remotely, if necessary. To reduce the amount of data transferred to set the robot up, teams should reduce this as much as they can and use installable images where possible. If the competing team chose fully-autonomous setup, this step is skipped.
@@ -314,10 +314,8 @@ The head referee has to call:
 	\item ``Goal for \textless colour\textgreater'' for each scored goal.
 \end{itemize}
 and then the points will be counted by the operator of the GameController.
-%TODO: either by writing it down or by using a modified GameController
 
-For teams playing with an \textbf{autonomously setup player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is multiplied by the points a team has scored at the end of normal game time (and each extension if applicable) to calculate the final points used to rank teams (\cf Section~\ref{sec:rankings}). 
-%\emph{Note that the resulting points should be rounded to the nearest integer.}
+For teams playing with an \textbf{autonomously setup player} (\cf Section~\ref{sec:c3_Prerequisites}) a multiplication factor of \textbf{1.5} is given. This factor is multiplied by the points a team has scored at the end of normal game time (and each extension if applicable) to calculate the final points used to rank teams (\cf Section~\ref{sec:rankings}). Any access to the robot after setup results in a multiplication factor of one.
 
 \subsection{Challenge execution}
 % Arne
