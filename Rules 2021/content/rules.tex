@@ -328,9 +328,9 @@ The current GameController requires robots to know both their team number and th
 \label{sec:goal}
 A goal \cbw{(including own goal)} is achieved when the entire ball (not only the centre of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}.
 
-\cbp{If any robot player scores a goal (including own goals) the ball gets replaced by the referees to one of the ball starting points. The ball gets placed on the half opposite to the player that scored the goal. The ball is placed in the ball starting point farthest away from the player that scored the goal (unless blocked by a robot or ball then, the other goalbox corner is used). The ball can be played again without delay.}
+\cbp{If any robot player scores a goal (including own goals) the ball gets replaced by the referees to one of the ball starting points in the scoring teams half of the field. Note that for an own goal the ball is placed on the opponents half and is a disadvantage in two senses. The ball is placed on the ball starting point farthest away from the player in this half (unless blocked by a ball then the other goalbox corner is used). If the two corners of the goalbox are occupied, the two corners of the penaltybox are used, starting with the one farthest away from the robot. The ball can be played again without delay.}
 
-The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. However no GameController action shall be performed.
+The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless colour\textgreater''. \cbp{However no GameController action shall be performed.}
 
 %TODO: Maybe we can change the logic of the GameController to allow for counting goals without ready and set phase.
 \cbp{After the game is in the state playing, the game state remains in it regardless of shot goals or scored points! Exceptions are the application of the Global Game Stuck rule and a referee timeout, \cf Section~\ref{sec:game_stuck:global} and Section~\ref{sec:referee_timeout}}
