@@ -71,6 +71,7 @@ $F = (1.8m, 0.55m)$
 \\
 One attacking robots is randomly placed at placed in A, B, or C, and the other attacking robot randomly at G, H, or I.  One attacking robot is randomly selected to start with the ball. The defenders are positioned randomly D, E, or F.
 See Figure \ref{ch2:zone96} and Figure \ref{ch2:zone64}.
+In case of fallen robots, if the robot is not able to get up by itself, the team can request a fallen robot from the GameController. This will obviously result in a penalization for the robot and a possible time loss for the team. 
 
 \subsection{Challenge Execution}
 A team may make three attempts at the challenge. For each attempt the attacking robots must be connected to GameController.
@@ -78,7 +79,7 @@ Before each attempt, GameController is set to Initial. After the robots are posi
 
 The attacking robots pass the ball back-and-forth as often as possible until the attempt ends. The attackers can leave their respective red starting zones for up to 30 seconds, which may be necessary in cases where the ball is near (or at) the edge of the red zone.
 
-If the ball leaves the red zone (such as from a bad pass), then the ball is manually put back at the edge of the red zone where it went out. This is similar to placing the ball for a kick-in in a soccer game~(\cf Section~\ref{sec:kick_in}).  If the ball went out from a blue zone, it is put back at position A or I, corresponding to the last red zone in which the ball was located.
+If the ball leaves the red zone (such as from a bad pass), then the ball is manually put back at the edge of the red zone where it went out. This is similar to placing the ball for a kick-in in a soccer game~(\cf Section~\ref{sec:kick_in}).  If the ball went out from a blue zone, or it is stuck in it, it is put back at position A or I, corresponding to the last red zone in which the ball was located.
     
 An attempt ends when: 
 \begin{enumerate}
