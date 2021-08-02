@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage{hyperref}
+\usepackage{verbatim}
+%\usepackage{times,mathptm}
+\usepackage{times}
+% the following package is optional:
+%\usepackage{latexsym}
+%\usepackage{picins}
+\usepackage{url}
+\usepackage{epsfig}
+\usepackage{amsmath}
+%\usepackage{macros}
+%\usepackage{small-caption}
+%\usepackage[l]{floatflt}
+
+\begin{document}
+
+\title{Technical Challenges for the RoboCup 2011 Standard Platform League Competition}
+
+\author{RoboCup SPL Technical Committee}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+The RoboCup 2011 Standard Platform League Competition is going to have only 
+one technical challenge, which is the Open Challenge.
+
+The team with the top score in the challenge will receive 28 points, each 
+position thereafter will receive 1 less point; i.e. 1st = 28pts, 2nd = 27pts, 
+3rd = 26pts ... 28th = 1pt. In the case of a draw, each team will receive 
+the average of the points allocated to these positions; e.g. if three team 
+tie for 2nd, they will receive $(27+26+25)/3 = 26$ points. Teams not competing 
+in the challenge will receive 0 points, also if a team competes but fails to 
+score a point (or receive a vote) they will receive 0 points again. The team 
+with the highest score after the challenge is deemed the challenge winner.
+
+The challenge will use the 2011 field and the 2011 rules will apply.
+
+
+\section{The Open Challenge}
+\label{sec:open}
+\newcommand{\openMinNum}{three}
+
+This challenge is designed to encourage creativity within the Standard 
+Platform League, allowing teams to demonstrate interesting research in 
+the field of autonomous systems. Each team will be given \openMinNum{} 
+minutes of time on the RoboCup field to demonstrate their research. 
+Each team \emph{should} also distribute a short, one page description of 
+their research prior to the competitions. The winner will be decided by 
+a vote among the entrants. In particular:
+
+\begin{itemize}
+\item 
+Teams must describe the content of their demonstration to the technical 
+committee at least \emph{four weeks} before the competitions. 
+\item 
+The demonstration should be strongly related to the scope of the league. 
+Irrelevant demonstrations, such as dancing and debugging tool presentations 
+are discouraged.
+\item 
+Each team may use any number of Aldebaran Nao robots. Teams must arrange
+for their own robots.
+\item 
+Teams have \openMinNum{} minutes to demonstrate their research. This
+includes any time used for initial setup. Any demonstration deemed
+likely to require excessive time may be disallowed by the technical
+committee.
+\item 
+Teams may use extra objects on the field, as part of their
+demonstration. \emph{Robots other than the Naos may not be used}.
+\item 
+The demonstration must \emph{not} mark or damage the field. Any
+demonstration deemed likely to mark or damage the field may be
+disallowed by the technical committee.
+\item 
+The demonstration may \emph{not} use any off-board sensors or
+actuators, or modify the Nao robots.
+\item 
+The demonstration may use off-board computing power connected over the
+wireless LAN. This is the only challenge in which off-board
+computation is allowed.
+\item 
+The demonstration may use off-board human-computer interfaces. This
+is the only challenge in which off-board interfaces, apart from the
+Game Controller, are allowed.
+\end{itemize}
+
+The winner will be decided by a vote among the entrants using a Borda
+count (\url{http://en.wikipedia.org/wiki/Borda_count}). Each participating 
+team will list their top 10 teams in order (excluding themselves).
+The teams are encouraged to evaluate the performance based on the
+following criteria: technical strength, novelty, expected impact and
+relevance to RoboCup. At a time decided by the designated referee,
+within 30 minutes of the last demonstration if not otherwise
+specified, the captain of each team will provide the designated
+referee with their rankings. Each ranking is converted to points based on 
+the scoring criteria mentioned in Section \ref{sec:introduction}. Any 
+points awarded by a team to itself will be disregarded. The points awarded 
+by the teams are summed and the team with the highest total score shall be 
+the winner.
+
+
+\end{document}
+
+

@@ -1,0 +1,145 @@
+\usepackage{times,fullpage,xspace,fancyhdr,url}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex,
+            colorlinks=true,
+            urlcolor=black,
+            linkcolor=black,
+            citecolor=black,
+            bookmarksopen=false,
+            bookmarksnumbered=true,
+            pdfstartview=FitH]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{xspace,color}
+\pdfcompresslevel=9
+\newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
+\hypersetup{
+ pdftitle={\leaguename Rule Book},
+ pdfauthor={Technical Committee SPL},
+}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xargs}
+\usepackage{enumitem}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
+
+% comment 'disable' in to disable all the todo notes :)
+\usepackage
+[
+%disable
+]{todonotes}
+
+\sloppy
+\newcommand{\ie}{\mbox{i.\,e.}\xspace}
+\newcommand{\eg}{\mbox{e.\,g.}\xspace}
+%\newcommand{\cf}{\mbox{cf.}\xspace}
+\newcommand{\cf}{see\xspace}
+\newcommand{\comment}[1]{\marginpar{\pdfannot width 4in height .5in depth 8pt {/Subtype /Text /Contents (#1)}}}
+\newcommand{\inparagraph}[1]{\paragraph{#1\hspace{-1em} }}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt plus 6pt minus 3 pt}
+\setcounter{tocdepth}{1}
+\widowpenalty=10000
+\clubpenalty=10000
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+% some colors
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,1,0}
+
+
+% needed to align an image and text correctly side by side
+\newcommand{\imagebox}[1]{\raisebox{2ex}{\raisebox{-\height}{#1}}}
+
+\input{content/spl_variables.tex}
+
+
+\newlength\colorboxwidth
+\setlength{\colorboxwidth}{\dimexpr\textwidth-2\fboxsep}
+\newlength\colorboxwidthdefinition
+\setlength{\colorboxwidthdefinition}{\dimexpr\textwidth-11\fboxsep}
+\newlength\colorboxwidthfigure
+\setlength{\colorboxwidthfigure}{\dimexpr\textwidth-17\fboxsep}
+\newcommand{\cbp}[1]{\colorbox{blue!25}{\parbox{\colorboxwidth}{#1}}}
+\newcommand{\cbd}[1]{\colorbox{blue!25}{\parbox{\colorboxwidthdefinition}{#1}}}
+\newcommand{\cbf}[1]{\colorbox{blue!25}{\parbox{\colorboxwidthfigure}{#1}}}
+\newcommand{\cbw}[1]{\colorbox{blue!25}{#1}}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{eclipseStrings}{RGB}{42,0.0,255}
+\definecolor{eclipseKeywords}{RGB}{127,0,85}
+\colorlet{numb}{magenta!60!black}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{punct}{red!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    commentstyle=\color{eclipseStrings}, % style of comment
+    stringstyle=\color{eclipseKeywords}, % style of strings
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    % backgroundcolor=\color{gray}, %only if you like
+    string=[s]{"}{"},
+    comment=[l]{:\ "},
+    morecomment=[l]{:"},
+    literate=
+        *{0}{{{\color{numb}0}}}{1}
+         {1}{{{\color{numb}1}}}{1}
+         {2}{{{\color{numb}2}}}{1}
+         {3}{{{\color{numb}3}}}{1}
+         {4}{{{\color{numb}4}}}{1}
+         {5}{{{\color{numb}5}}}{1}
+         {6}{{{\color{numb}6}}}{1}
+         {7}{{{\color{numb}7}}}{1}
+         {8}{{{\color{numb}8}}}{1}
+         {9}{{{\color{numb}9}}}{1}
+         {:}{{{\color{punct}{:}}}}{1}
+        {,}{{{\color{punct}{,}}}}{1}
+        {\{}{{{\color{delim}{\{}}}}{1}
+        {\}}{{{\color{delim}{\}}}}}{1}
+        {[}{{{\color{delim}{[}}}}{1}
+        {]}{{{\color{delim}{]}}}}{1}
+}
+
+\usepackage[edges]{forest}
+\definecolor{foldercolor}{RGB}{124,166,198}
+
+\tikzset{pics/folder/.style={code={%
+    \node[inner sep=0pt, minimum size=#1](-foldericon){};
+    \node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.5*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+    \node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+    },
+    pics/folder/.default={16pt},
+    folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+}
+
+\forestset{is file/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
+        inner sep=1pt},
+    this folder size/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner xsep=0.6*#1},
+    folder tree indent/.style={before computing xy={l=#1}},
+    folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
+    folder icons/.default={10pt},
+}

@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+
+\input{header.tex}
+
+\title{\leaguename\\
+Challenges \& Rule Book}
+\author{RoboCup Technical Committee}
+\date{(2021 rules, as of \today)}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{titlesec}
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+
+\begin{document}
+
+  \maketitle
+
+  \begin{center}
+  Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.robocup.org}.
+  \end{center}
+
+  \newpage
+
+  \setcounter{tocdepth}{4}
+  \setcounter{secnumdepth}{4}
+  \tableofcontents
+
+  \thispagestyle{fancy}
+
+  \clearpage
+
+  \cfoot{\thepage}
+  \setcounter{page}{1}
+
+  \newpage
+
+  \input{content/intro.tex}
+  \newpage
+  \input{content/challenge1.tex}
+  \newpage
+  \input{content/challenge2.tex}
+  \newpage
+  \input{content/challenge3.tex}
+  \newpage
+  \input{content/challenge4.tex}
+  \newpage
+  \input{content/rules.tex}
+
+\end{document}
