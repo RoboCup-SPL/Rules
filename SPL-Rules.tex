@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-\usepackage{times,fullpage,xspace,fancyhdr,url}
+\usepackage{times,fullpage,xspace,fancyhdr,url,color}
 \usepackage[pdftex]{graphicx}
 \usepackage[pdftex,
             colorlinks=true,
@@ -11,8 +11,6 @@
             bookmarksnumbered=true,
             pdfstartview=FitH]{hyperref}
 
-\usepackage{graphicx}
-\usepackage{xspace,color}
 \pdfcompresslevel=9
 \newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
 \hypersetup{
@@ -24,6 +22,11 @@
 \usepackage{amsmath}
 \usepackage{xargs}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{siunitx}
+\usepackage[official]{eurosym}
+\usepackage[useregional]{datetime2}
+\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
+
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\info}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
@@ -71,8 +74,8 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
-\newcommand{\TotalWidth}{7.4~m\xspace}
-\newcommand{\TotalLength}{10.4~m\xspace }
+\newcommand{\TotalWidth}{7.4}
+\newcommand{\TotalLength}{10.4}
 \newcommand{\GoalScoredDelay}{15 seconds\xspace}
 \newcommand{\KickOffAutoTime}{45 seconds\xspace}
 \newcommand{\KickOffBallFreeTime}{10 seconds\xspace}
@@ -97,7 +100,7 @@
 Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.robocup.org}.
 \end{center}
 
-\vfill
+\newpage
 
 \tableofcontents
 \setcounter{tocdepth}{3}
@@ -116,14 +119,13 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 \subsection{Field Construction}
 \label{sec:field_dim}
 
-The soccer field consists of 8mm artificial turf mounted on a flat wooden base with a total area of length \TotalLength and width \TotalWidth.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and should not give when humans stand or walk on it.
+The standard soccer field consists of \qty{8}{\milli\metre} artificial turf mounted on a flat wooden base with a total area of length~\qty{\TotalLength}{\metre} and width~\qty{\TotalWidth}{\metre}. Care should be taken to ensure the field is as flat and level as possible. Additionally, the wooden base should be well-supported and should not give when humans stand or walk on it.
 
-The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}.
+Figure~\ref{fig:field_dim} shows the dimensions of a standard soccer field.
 A more detailed technical drawing is provided in Appendix~\ref{apx:technical-drawing} to this document.
-Note that the penalty cross is a cross and there is a dash at center field. White field lines can be made of the same 8mm artificial turf, but in white (\ie, made of white artificial turf), spray painted or taped. Regardless of the solution, the field lines must be durable throughout the competition.
+Note that the penalty cross is a cross and there is a dash at center field. White field lines can be made of the same \qty{8}{\milli\metre} artificial turf, but in white (\ie, made of white artificial turf), spray-painted or taped. Regardless of the solution, the field lines must be durable throughout the competition.
 
-The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}. The support structure for the net shall be made with small black, white, or gray bars or cylinders.  The support structure shall be constructed exactly as shown in Figure \ref{fig:goal_appearance}.
-
+Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance} depict the construction and placement of the goals. A support structure for the net shall be made with small black, white, or gray bars or cylinders.  The support structure shall be constructed exactly as shown in Figure \ref{fig:goal_appearance}.
 
 \begin{figure}[b!]
 \centering
@@ -147,11 +149,11 @@ F & Goalbox area width & 2200 \\
 \begin{tabular}{|l|l|l|}
 ID & Description & Length (in mm) \\
 \hline \hline
-G & Penalty area length & 1650* \\
+G & Penalty area length & 1650 \\
 \hline
-H & Penalty area width & 4000* \\
+H & Penalty area width & 4000 \\
 \hline
-I & Penalty cross distance & 1300 (1400*) \\
+I & Penalty cross distance & 1300 \\
 \hline
 J & Center circle diameter & 1500 \\
 \hline
@@ -159,8 +161,8 @@ K & Border strip width & 700 \\
 \hline
  &  &  \\
 \end{tabular}
-\caption{Schematic diagram of the soccer field (not to scale) and corresponding dimensions in mm.  Note that measurements on this diagram are made to the center of lines.
-(*Dimension to be tested and confirmed by May 2020.)} \label{fig:field_dim}
+\caption{Schematic diagram of the soccer field (not to scale) and corresponding dimensions in mm.  Note that measurements on this diagram are made to the center of lines.}
+\label{fig:field_dim}
 \end{figure}
 
 
@@ -180,10 +182,10 @@ K & Border strip width & 700 \\
 \imagebox{\includegraphics[width=1\columnwidth]{figs/goalDimensions3D.pdf}}%
 \end{minipage}
 \begin{minipage}[t]{0.49\columnwidth}
-The goalposts and crossbar are made from 3 white cylinders with a diameter of 100mm.
+The goalposts and crossbar are made from 3 white cylinders with a diameter of \qty{100}{\milli\metre}.
 The net:
 \begin{itemize}
-\item has a height of 800mm
+\item has a height of \qty{800}{\milli\metre}
 \item is of white, gray or black color
 \item is tightly supported via the support structure, in a way to minimize interference with the goal keeper
 \item has a weave with holes smaller than the ball diameter.
@@ -204,34 +206,28 @@ The colors of the soccer field are as follow:
 
 \item The lines on the field are white, whether they are taped, spray painted or made from white artificial turf.
 
-\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top cross bar of both goals are white. The net and the support structure for the net are white, gray, or black.
+\item Goals~(\cf Figure~\ref{fig:goal_appearance}). The posts and top crossbar of both goals are white. The net and the support structure for the net are white, gray, or black.
 
 \end{itemize}
 
-%\begin{figure}[t]
-%\centerline{\includegraphics[width=\columnwidth]{figs/emptyfield_2015.png}}
-%\caption{Field colors and layout.}
-%\label{fig:field_color}
-%\end{figure}
-
 \subsection{Lighting Conditions}
 \label{sec:lightConditions}
-The lighting conditions depend on the actual competition site. As the league moves towards natural lighting conditions, SPL fields will be placed near or under windows where possible. Whether or not window lighting is used, ceiling lights will be provided as necessary to ensure that most of the field is never darker than 300 Lux (400 Lux preferred) during competition venue opening hours. Local organizers should discuss with the technical committee if additional lighting will be needed to meet the minimum lighting requirements.
+The lighting conditions depend on the actual venue. SPL fields should be placed near or under windows where possible. Whether window lighting is used, ceiling lights should be provided as necessary to ensure that most of the field is never darker than 300 Lux (400 Lux preferred).
 
 Lighting is not required to be even and hotspots may occur on the field. The lighting design (comprising both natural and artificial light sources) shall aim to limit the ratio between the brightest and darkest patches on the field to less than 10:1. In general, lighting irregularities, including changes that occur during the competition, are acceptable and will not be cause for delay.  Such irregularities may include sun streaming through windows, light bulbs turning off, light bulbs being replaced, etc.
 
 \subsection{Venue Setup}
 \label{sec:boundaries}
-Fields may be located close to one another.  Barriers will not necessarily be constructed between adjacent fields to block the robots from seeing other fields, goals, or balls.  However, barriers will be constructed to block sight between any fields that are not located at least three meters apart.  Hence, for each side of a field that is adjacent to another field, either barriers will separate the fields or at least three meters will be between the carpet of adjacent fields.
+Fields may be located close to one another.  Barriers will not necessarily be constructed between adjacent fields to block the robots from seeing other fields, goals, or balls. However, barriers will be constructed to block sight between any fields that are not located at least three meters apart. Hence, for each side of a field that is adjacent to another field, either barriers will separate the fields or at least \qty{3}{\metre} will be between the carpet of adjacent fields.
 
 \subsection{Ball}
 \label{sec:ball}
 
-The official ball is a soft foam ball with a black and white soccer ball print (see Figure~\ref{fig:ball}). They are 100mm in diameter and weigh 44 grams. These balls are available by writing to \url{info@sportpaint.de} (in German or English) and asking to order the "pu schaumstoffball 10cm 100ss".  Each ball costs EUR 2.50 plus shipping, where shipping cost depends on the destination.
+The official ball is a soft foam ball with a black and white soccer ball print (see Figure~\ref{fig:ball}). They are \qty{100}{\milli\metre} in diameter and weight \qty{44}{\gram}. These balls are available by writing to \url{info@sportpaint.de} (in German or English) and asking to order the "pu schaumstoffball 10cm 100ss".  Each ball costs \euro{2.0} plus shipping, where shipping cost depends on the destination.
 
 \begin{figure}[t]
   \centerline{\includegraphics[height=0.28\columnwidth]{figs/robotWithBall2016.jpg}}
-  \caption{A NAO and the official ball.}
+  \caption{A NAO and an official ball.}
   \label{fig:ball}
 \end{figure}
 
@@ -244,11 +240,23 @@ Specifically:
 \begin{itemize}
     \item The field boundary lines are part of the field
     \item The penalty box lines (and the end field line inside of the goal) part of the penalty box
-    \item The centre circle lines are part of the centre circle
+    \item The center circle lines are part of the center circle
 \end{itemize}
 
-The only \textit{exception} to this rule is the centre field line, which does not form part of any half.
-That is, a robot is \textit{outside} of a half of the field if it is touching the centre line.
+The only \textit{exception} to this rule is the center field line, which does not form part of any half.
+That is, a robot is \textit{outside} a half of the field if it is touching the center line.
+
+\subsection{Streaming setup}
+\label{sec:streaming_setup}
+
+There are multiple use cases for a streaming setup: 
+\begin{itemize}
+	\item Stream all videos to RoboCup SPL Youtube channel to store them there
+	\item Allow team members form remote  watch their robot's match
+	\item Evaluate team's performance measures online from videos recording (Part of Technical Challenge 2022)
+\end{itemize}
+
+A recommended streaming setup with all instruction for hardware, software and how to operate the setup can be found in this Github repository. \todo{Give link after dicussion with Arne}
 
 \newpage
 \section{Robot Players}
@@ -268,12 +276,13 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
     \item A memory stick may remain in the head during operation.  Only ordinary USB flash memory keys that sit flush or recessed to the head casing may be utilized. Other USB dongles or devices, as well as memory sticks that are not flush or recessed, are not permitted.
 \end{itemize}
 
-A computer will be provided by the event organizers for the purpose of sending GameController messages to the robots.
+A computer with two monitors (one for GC and one for TCM) will be provided by the event organizers for the purpose of sending GameController messages to the robots and observing if no robot violates the rules for WIFI usage.
+Additionally, there should be at least one monitor mirroring the second screen of the GC PC with the TCM in visitor mode. \todo{Clearfy this, which TCM mode}
 
 \subsection{Goal Keeper}
 \label{sec:goal_keeper}
 
-The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own penalty area. It always has the jersey number ``1''.
+The goal keeper is allowed to touch the ball with its arms/hands only while it is within its own goal box area. It always has the jersey number ``1''.
 
 \subsection{Field Players}
 \label{sec:field_players}
@@ -294,30 +303,31 @@ Robots use colored jersey shirts as team markers. Each jersey shirt has a player
   \caption{Team markers. a) Front view. b) Side view. c) Back view.}
   \label{fig:nao_markers}
 \end{figure}
-
+Teams may use any jersey that was approved for a RoboCup SPL competition in the last 4 years without needing to reapprove it in 2022.\todo{Make parameter}
 
 Teams may design and manufacture their own jerseys in any color (multi and many color jerseys are acceptable), but must follow these guidelines:
 \begin{itemize}
-\item Jerseys should be the tank top style used at RoboCup 2013/2014 and should cover approximately the same areas of the robot as shown in Figure~\ref{fig:nao_markers}.  The torso LED must be clearly visible.  Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required.
-\item Jerseys must have a primary color that comprises at least 70\% of the jersey.
+\item Jerseys should be the \textbf{tank top} style used at RoboCup 2013/2014 and should cover approximately the same areas of the robot as shown in Figure~\ref{fig:nao_markers}. The torso LED must be clearly visible. Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required.
+\item Jerseys must have a primary color that comprises at least \qty{70}{\percent} of the jersey.
 \item Jerseys should not contain distractors, such as large pictures of SPL balls or white stripes on green jerseys.
 \item All players on a team must wear identical jerseys, including the goalkeeper.
 \item A team must wear the jerseys that it starts a game in for the entire game.
 \item Jersey material must be non-reflecting, non-shiny, and non-textured.  Material that is glittery is also not appropriate.
 \item Jerseys should be numbered 1-6 on both sides.  The numbers must be large and {\bf easily} recognized by humans.
 \item Teams must have two sets of jerseys that are significantly different in terms of their primary color.
-\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by May 1, 2020. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey - these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  If submissions show separated front and back halves of jerseys then the team must specify which halves are matched to form home and away jerseys.  All images and designs should be submitted in pdf or jpg format.
+\item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by \DTMdate{2022-05-01}.\todo{Make parameter} If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey — these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  If submissions show separated front and back halves of jerseys then the team must specify which halves are matched to form home and away jerseys.  All images and designs should be submitted in pdf or jpg format.
 \end{itemize}
 
-Each team must designate a `home' color and an `away' color when asked about one month before RoboCup.  Teams must wear their `home' jerseys when they are `home' (the first team listed on the schedule).  Teams will wear their `home' jersey when they are `away' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the `away' team will then wear their `away' jersey.
+Each team must designate a ``home'' color and an ``away'  ' color when asked about one month before RoboCup. Teams must wear their `home' jerseys when they are ```home'' (the first team listed on the schedule). Teams will wear their ``home'' jersey when they are ``away'' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the ``away'' team will then wear their ``away'' jersey.
 
-Some teams wish to include additional information or logos on their robots.  The following are allowable:
+Some teams wish to include additional information or logos on their robots. The following are allowable:
+
 \begin{itemize}
-\item Attaching player numbers to the heads and/or legs of the robots.  These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
+  \item Attaching player numbers to the heads and/or legs of the robots. These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
 
-\item Adding sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a 25 $\text{cm}^2$ area. At most one logo may be attached per leg --- if you wish to attach more than one logo per leg, email the Technical Committee at least two weeks before the competition.  Depending on the size and design of the logos, this may be allowable.
+  \item Adding sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a \qty{25}{\square\centi\metre} area. At most one logo may be attached per leg - if you wish to attach more than one logo per leg, email the Technical Committee at least two weeks before the competition. Depending on the size and design of the logos, this may be allowable.
 
-\item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
+  \item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
 \end{itemize}
 
 \begin{figure}[b]
