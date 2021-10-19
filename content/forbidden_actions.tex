@@ -19,7 +19,7 @@ When the head referee indicates a foul has been committed that results in the st
 
 The GameController will send the appropriate penalty signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signalled to the robot, it is not allowed to move in any fashion. The removed robot will be placed outside of the field facing away from the field of play.
 
-The initial duration of the standard removal penalty time is \StandardPenaltyTime.
+The initial duration of the standard removal penalty time is \qty{\StandardPenaltyTime}{\second}.
 Unless otherwise specified, the penalty time increases by \StandardPenaltyIncrease each time a team commits any infraction.
 That is, the first infraction will result in a penalty time of 45 seconds, the second infraction (of any type) results in a penalty time of 55 seconds, the third infraction is 65 seconds, etc.
 
