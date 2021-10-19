@@ -1,0 +1,429 @@
+\section{Game Process}
+\label{sec:game_process}
+
+\subsection{Structure of the Game}
+\label{sec:game_struct}
+
+A game consists of three parts, the first half, a half-time break, and the second half. Each half is \qty{10}{\minute} counted from the initial kick-off.
+The half-time break is \qty{10}{\minute}, and during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted.
+
+The head referee signals the commencement of each half with a single whistle blow (that is, the Initial kick-off, \cf Section~\ref{sec:initial-kick-off}).
+The head referee signals the end of the first half with two short whistle blows, and the end of the second half with two short plus one long whistle blow.
+The head referee should make \textit{all} of these whistle sounds from the T-junction of the half-way line.
+
+The teams/robots will change the goal defended during the half-time break.
+
+\subsection{Robot States}
+\label{sec:robot_states}
+
+Robots can be in \textit{eight} different \emph{primary} states (see Figure~\ref{fig:robot_states}). Wireless connection must be available, so these states will be set by the GameController. Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
+
+\textbf{The usage of the button interface as a replacement for any GameController commands/transitions is not allowed in the main competition!}
+
+Should, on both teams, at least two robots have problems with the Wifi/GameController connection the head referee should issue a referee timeout (see Section~\ref{sec:referee_timeout}).
+If fewer robots do not respond to the GameController then they are, at the beginning, not included in the game (via a `Request for Pick-up', see Section~\ref{sec:request_for_pickup}), and the game starts without the offending robot.
+
+\begin{description}
+  \item [Unstiff.] It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and \textit{unstiffen} all joints. So while in the \textit{unstiff} state the robot is not allowed to move in any fashion! Pressing the chest button once while in the \textit{unstiffen} state, permits the robot to \textit{stiffen} it’s joints and return to the initial state, or a state as indicated by GameController.
+
+  \item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
+
+  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf Section~\ref{sec:kick-off}) or a Penalty Kick (\cf Section~\ref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick.
+  The GameController can activate substates for kick-off and penalty kicks.
+  This state is not available if only the button interface is implemented.
+
+  \item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf Section~\ref{sec:kick-off}) or a Penalty Kick (\cf Section~\ref{sec:penalty_free_kick})).
+  Illegally positioned robots are penalized and placed on the side of the field.
+  Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion.
+  If a robot cannot get up, fallen robot is called~(\cf Section~\ref{sec:fallenrobots}).
+  The penalty time counter is frozen during this state.
+  Note that all penalised robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
+  The GameController can activate substates for kick-off and penalty kicks.
+  This state is not available if only the button interface is implemented.
+
+  \item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state. During the \emph{playing} state, the GameController can activate the substates for free kicks (\cf Section~\ref{sec:free_kick}).
+
+  \item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
+
+  \item[Finished.] This state is reached when a half is finished. The robots then have to sit down.
+
+  \item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from \textit{Initial} by first pressing the \textit{front} head button concluded by the chest button, for at least one second by the referees.
+
+
+\end{description}
+
+\begin{figure}[t]
+	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states_new.pdf}}
+	\caption{Diagram of the robot states. 
+    \\\textbf{Chest button} transitions are shown as gray arrows. However, any transition possible should be sent by the GameController.
+    \\\textbf{GameController} transitions are shown as black arrows. 
+    \\Calibration transitions are shown as purple arrows which mean pressing the \textbf{front head button + the chest button}.
+    \\From any state it can be transitioned to the \textit{unstiff} state, shown as a blue arrow, via pressing all \textbf{three head buttons}. Pressing all \textbf{three head buttons} in the \textit{unstiff} state allows a transition to the initial state, or a state as indicated by the GameController.}
+	\label{fig:robot_states}
+\end{figure}
+
+The referee will announce the start of the \textit{Playing} state with a single whistle blow.
+The GameController Playing signal will be delayed by \PlayingDelayTime.
+This delay applies to both kick-off and penalty shots.
+Robots that begin moving their legs or move in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf Section~\ref{sec:motion_in_set}) GameController signal until the GameController transmits the \emph{playing signal}. A robot will be moved back to its original position if it has moved significantly before becoming penalized.
+Note that responding to a whistle on another field will result in this penalty.
+
+The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
+
+\begin{itemize}
+  \item Unstiff: Blue-Blinking
+  \item Initial: Off
+  \item Ready: Blue
+  \item Set: Yellow
+  \item Playing: Green
+  \item Penalized: Red
+  \item Finished: Off
+  \item Calibration: Purple
+\end{itemize}
+
+The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on boot up so that this can be easily checked at the start of the game.
+
+\subsection{Goal}
+\label{sec:goal}
+A goal, including own goal, is achieved when the entire ball (not only the center of the ball) goes over the goal-side edge of the goal line, \ie the ball is completely inside the goal area\footnote{The goal line is part of the field.}.
+
+The head referee signals a goal by a single whistle blow, followed by the call ``Goal \textless color\textgreater''.
+The head referee should point with one arm towards the center of the field.
+To assist robots listening for whistles, the referee should blow the whistle from on the carpet at the end of the fields where the goal was scored.
+
+The GameController signal (to the robots) of a goal being scored, will be delayed by \GoalScoredDelay.
+
+\subsubsection{Invalid Goal}
+\label{sec:invalid_goal}
+
+A goal is invalid (that is, it can never be awarded) in the following circumstances:
+\begin{enumerate}
+    \item When an Indirect Kick has not occurred (see~Section~\ref{sec:indirect_kick}).
+    \item When the last contact of the ball was with an attacking robot that played the ball with the arms/hands as defined in Section~\ref{sec:hand_ball}. However, an own goal may be scored by any defending robot playing with arms/hands.
+    \item When a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in Section~\ref{sec:fallenrobots}).
+\end{enumerate}
+
+In these cases a goal is not scored (that is, the goal is ruled invalid), and the game will proceed with a Goal Kick (\cf Section~\ref{sec:free_kick}). The head referee should also advice why the goal is invalid, such as by calling ``Not indirect'', ``Played with hands'' or ``No own goal''.
+
+\subsubsection{Indirect Kick}
+\label{sec:indirect_kick}
+
+From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick, the attacking team may only score a goal via an indirect kick.
+%, providing they have at least 3 active robots on the field at the time the restart occurs (or is awarded in the case of a free kick).
+A robot may not score a goal from a direct kick, including via deflections.
+The ball must be deliberately played-at a second time (by either another robot, or the same robot) before a goal may be scored.
+A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands.
+If a robot plays the ball to itself, this means that the ball must leave a circular area of at least \qty{0.75}{\metre} the robot before the ball is played a second time and to be considered as an indirect
+kick.
+
+\textbf{Example 1:} Player 2 (of the red team) kicks the ball to Player~3, who then kicks the ball into the goal. This is a successful indirect kick, and the goal counts.
+
+\textbf{Example 2:} Player 2 (of the red team), kicks the ball at the goal, and it is deflected of the side of the foot of a blue-team robot into the goal. This is \textit{not} and indirect kick, and the goal does not count.
+
+\textbf{Example 3:} Player 2 (of the red team), kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
+
+\textbf{Example 4:} Player 2 (of the red team), walks up to and dribbles the ball. To be an indirect kick, Player~2 must then stop, and visibly back-away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. This is a successful indirect kick.
+
+Note that an own-goal may always be scored without requiring an indirect kick.
+
+\subsection{Initial Kick-off}
+\label{sec:initial-kick-off}
+
+The first kick-off at the start of each half is the initial kick-off.
+Before the initial kick-off, \ie before the start of each half, all robots must be in the \textit{unstiff} state and must be placed on the sidelines in their own half of the field, by the referees according to Figure~\ref{fig:initial_positions}.
+Once the robots receive the \emph{ready} signal from the GameController, they are to proceed as described in Section~\ref{sec:kick-off}.
+
+\begin{figure}[t!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1\columnwidth]{figs/initial_positions.pdf}
+		\caption{Positions, player numbers and distances from the center of the goal line for the initial kick-off of the robots.}
+		\label{fig:initial_positions}
+	\end{center}
+\end{figure}
+
+\subsection{Kick-off}
+\label{sec:kick-off}
+For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}.
+It is to a team’s responsibility to have their robots listening to the GameController!
+
+In the ready state, the robots should walk to their legal kick-off positions.
+The attacking team can be positioned anywhere within their own half.
+The defending team can be positioned within their own half, except for inside the center circle including its line. 
+No player is allowed to touch the halfway line.
+Both teams are also subject to restrictions on the penalty box~(\cf Section~\ref{sec:illegal_positioning}).
+The green carpet border, except for the area of the goal, is not part of either teams own half. All robots that do not reach legal positions will be penalized with the ``Illegal Position'' penalty~(\cf Section~\ref{sec:illegal_positioning}).
+
+
+In the \emph{Set} state, the robots must not move~(\cf Section~\ref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \textit{Set} it is moved back by one of the referees.
+
+There is no manual placement of any robot.
+
+The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
+
+After the head referee has signalled the kick-off, the robot's state is switched to \emph{playing} by the GameController.
+The defensive team must stay outside of the center circle until the ball is in play.  The ball is in play once it is touched by the attacking team or once \emph{\KickOffBallFreeTime} have elapsed in the playing state.
+The GameController and head referee will indicate this by the call `` Ball Free''.
+If a defensive player enters the center circle before the ball is in play, the ``Illegal Position'' penalty is applied (\cf Section~\ref{sec:illegal_positioning}).
+
+Note a goal may not be scored from within the center circle on kick-off~(\cf Section~\ref{sec:invalid_goal}), and that indirect kick rules apply~(\cf Section~\ref{sec:indirect_kick}).
+
+\subsection{Kick-in}
+\label{sec:kick_in}
+
+A ball is considered to have left the field when there is no part of the ball over the outside of the boundary line (\ie the line itself is in). If the ball leaves the field it will be replaced on the field by an assistant referee. Balls are deemed to be out based on the team that last touched the ball, irrespective of who actually kicked the ball.
+
+If the ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. A free kick (\cf Section~\ref{sec:free_kick}) is awarded to the team that did \emph{not} last touch the ball by the referee calling ``Kick-in \textless color\textgreater''.
+
+If the ball goes over an end-line then the assistant referee will replace the ball back on the field, depending on which team last touched the ball.
+
+\begin{itemize}
+  \item If the ball was last touched by the defensive team, a \emph{Corner Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the attacking team. The referee calls ``Corner Kick \textless color\textgreater'' and the ball is placed on the corner on the same side of the field that the ball was kicked-out.
+  \item If the ball was last touched by the offensive team, a \emph{Goal Kick} (\cf Section~\ref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the Goalbox on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the goalbox meets the goal line.
+\end{itemize}
+
+In these examples, ``red half of the field'' refers to the half the red team is defending.
+
+  \textbf{Example 1:} The red goal keeper kicks the ball out the end of the field to the right of the goal. The referee calls ``Corner Kick blue'', the ball is placed on the corner to the right of the goal and a free kick is started.
+
+  \textbf{Example 2:} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Kick red'' and the ball is placed on the right corner of the goalbox.
+
+  \textbf{Example 3:} A blue robot at midfield kicks the ball over the left sideline \qty{2}{\metre} into the red half of the field. The referee calls ``Kick-in red'' and the ball is replaced on the left sideline where it went out.
+  
+  \textbf{Example 4:} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the center line. The ball is regarded as out by red, the referee calls ``Kick-in blue'' and the ball is replaced on the kick-in line where it went out.
+
+\subsection{Free Kick}
+\label{sec:free_kick}
+
+A Free Kick is initiated:
+\begin{itemize}
+  \item When the ball goes over the sidelines, termed \emph{Kick-in}.
+  \item When the ball goes over the end-lines initiated by the defensive team, termed \emph{Corner Kick}.
+  \item In place of an end-line Kick-in initiated by the offensive team, also termed a \emph{Goal Kick}.
+  \item A pushing penalty (see Section~\ref{sec:player_pushing}) awarded near the ball, termed a \emph{Pushing Free Kick}.
+  \item A pushing penalty (see Section~\ref{sec:player_pushing}) awarded against the defending team within their own penalty box, termed a \textit{Penalty Kick}.
+\end{itemize}
+
+The head referee will announce a Free Kick, calling one of:
+\begin{enumerate}
+  \item For a \textit{Pushing Free Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot.
+  \item For a \textit{Penalty Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot, followed by ``Penalty Kick \textless team\textgreater''.
+  \item For all other free kicks: ``Kick-in/Goal Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
+\end{enumerate}
+
+The GameController will then activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ``Foul''.
+The team who is awarded the Free Kick (termed the attacking team) has \qty{\FreeKickTime}{\second} to complete the kick.
+For a ``Penalty Kick'', the game instead proceeds as described in Section~\ref{sec:penalty_free_kick}.
+
+When necessary, the referee may need to place the ball.
+For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see Section~\ref{sec:player_pushing}).
+If the ball left the field, the ball will be positioned as described in Section~\ref{sec:kick_in}.
+
+During the Free Kick, only the attacking team may approach within \FreeKickRadius to the ball, with the exception of the defensive goalkeeper. All other robots of the defensive team must move away from the ball. The defensive goalkeeper may be within the \FreeKickRadius radius, provided that it is within the Penalty Box and does not touch the ball. Defensive robots that violate these restrictions are penalised with the ``Illegal Positioning'' penalty (see Section~\ref{sec:illegal_positioning}) which results in a standard removal penalty~(see Section~\ref{sec:removal_penalty}).
+Additional penalties against any further robots during the free kick, including Pushing, do not result in an additional Free Kick, but still use the appropriate removal penalty.
+
+A Free Kick is deemed completed and play returns to normal if:
+\begin{itemize}
+    \item The attacking team touches the ball, except for a robot getting up which is exempt from this rule.
+    \item The \qty{\FreeKickTime}{\second} time period expires (or the game time expires).
+\end{itemize}
+The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the substate will be automatically left after the \qty{\FreeKickTime}{\second} time period expires.
+
+\subsubsection{Penalty Kick Procedure}
+\label{sec:penalty_free_kick}
+
+When the GameController activates the Penalty Kick, the game changes to the \textit{Ready} state.
+This denotes that the robot's are given time to setup and prepare for the penalty kick.
+Similar to kick-off, the game clock is \textit{paused} during finals games only.
+The referees should pick up the ball.
+
+Robots have \qty{\PenaltyFreeKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state.
+Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
+Standard penalties apply.
+Additionally, only the goalkeeper robot from the defending team may be within the penalty box. The goalkeeper robot must also be touching the goal line.
+Only one robot from the attacking team may be within the penalty box, and it may not block the penalty spot.
+Blocking the penalty spot is considered to be an illegal position.
+All robots that do not reach legal positions will be penalized with the ``Illegal Positioning'' penalty~(\cf Section~\ref{sec:illegal_positioning}).
+
+The referee should also place the ball on the penalty spot during \textit{Set}.
+The referee signals the Penalty Kick commences by blowing the whistle once, and calling ``Playing''.
+The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
+(Note that the GameContoller signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \textit{Set} to \textit{free kick} sub-state).
+The attacking team has \qty{\PenaltyFreeKickTime}{\second} to complete the Penalty Kick.
+
+During the Penalty Kick:
+\begin{enumerate}
+    \item The defensive goalkeeper robot must always be in contact with the goal line, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
+    \item The attacking robot may move freely.
+    \item All robots must be within the field-of-play. That is, robots may not be outside the field lines, but within the field border.
+    \item No other robots may enter the penalty box (\cf Section~\ref{sec:illegal_positioning}).
+    \item Additional penalties against any further robots, including Pushing, do not result in an additional Free
+    Kick, but still use the appropriate removal penalty.
+\end{enumerate}
+
+The attacking robot (taking the penalty kick) may only score a goal if it touches the ball once.
+Once the attacking robot has touched the ball, it may not score a goal until another robot (from either team) touches the ball.
+If this robot ``scores'', it results in a Goal kick~(\cf Section~\ref{sec:invalid_goal}).
+
+The Penalty Kick is deemed completed if:
+\begin{itemize}
+\item The attacking team touches the ball, even if the robot has fallen.
+\item The \qty{\PenaltyFreeKickTime}{\second} time period expires (or the game time expires).
+\end{itemize}
+
+The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController
+resumes the game state \emph{playing}. Note that the substate will be automatically left (returning to the \textit{playing} state) after the \qty{\PenaltyFreeKickTime}{\second} time period expires.
+
+Note that the restrictions on the attacking robot still apply after the penalty kick is complete.
+
+\subsection{Game Stuck}
+\label{sec:game_stuck}
+
+In the event of no substantial change in the game state for \qty{\GameStuckTime}{\second}, this is considered a game stuck.  ``Substantial change'' can consist of a robot seeing and moving towards the ball OR robots exploring the field (presumably in an attempt to find the ball).
+
+The main referee has two options how to solve the game stuck and to reestablish the chance of progress in the game. The intention of the game stuck rule is to achieve progress with as little intervention as possible, \ie the \emph{Local Game Stuck} rule will be preferred, but only if there is a chance that its application will result in progress in the game.
+
+\subsubsection{Local Game Stuck}
+\label{sec:game_stuck:local}
+
+If one robot is preventing the game from proceeding --- perhaps by circling the ball repeatedly without kicking the ball --- it is recommended to improve progress by removing this one robot.
+The head referee calls ``Local Game Stuck \textless robot\textgreater'' for this robot, which is penalized (\cf Section~\ref{sec:pen_local_game_stuck}).
+
+\subsubsection{Global Game Stuck}
+\label{sec:game_stuck:global}
+
+If no robots have made progress towards the ball or began to explore the field in \qty{\GameStuckTime}{\second} Global Game Stuck should be called be called on the team whose robot is \textit{not} nearest the ball.
+The referee calls ``Global Game Stuck \textless color\textgreater''.
+
+Once the referee calls Global Game Stuck, players enter the Ready state, and a new kick-off is awarded to the team that was closer to the ball when the Global Game Stuck was called. A global game stuck can only be called if at least one robot has touched the ball since the previous kick-off.
+
+\subsection{Request for Pick-up}
+\label{sec:request_for_pickup}
+
+Either team may request that one of their players be picked up (called ``Request for Pick-up'').
+In the Playing or Ready state, players may only be picked up for hardware failures.
+In all other states, players may be picked up for any reason.
+
+Every change (hardware or software) is allowed during a request for pick-up. In particular,
+it is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
+It is also allowed to replace a broken robot by a substitute robot.
+It is discouraged to change the robot's control program, \textbf{but not forbidden}.
+
+Any strategic ``Request for Pick-up'' is not allowed.
+That is, gaining an advantage by removing the robot from the game.
+In this case, the head referee will indicate when the robot is no longer affecting play and can be removed from the field by an assistant referee.
+
+To prevent mistakes and confusion during games, only team leaders should make a ``Request for Pick-up'', and only one designated person per team shall accept the robot from the referee, and hand it back after fixing the problem.
+The returning robot may be returned following the normal replacement procedure once at least \qty{\StandardPenaltyTime}{\second} have elapsed since the robot was removed from play.
+Note that this penalty does not follow the standard removal procedure, and hence does not count towards the incremental penalty count.
+If the picked-up robot was penalized, the penalty time of the robot counts down with the game clock throughout the pick-up.
+
+The robot should be returned to the assistant referees in the \emph{penalized} state.
+Note here, that the returning robot or the substitute robot will have to wait out any remaining penalty time of the picked up robot after the team handed their robot back to the assistant referees.
+
+\subsection{Request for Timeout}
+\label{sec:request_for_timeout}
+
+Each team can call a \textbf{maximum of 1 timeout per game} with a total time of no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted.  During normal game time, a team may call a timeout at any stoppage of play (after a goal, stuck game, before a half, etc.). Alternatively, a team may call a timeout before a penalty shootout if they have not used their timeout yet (\cf Section~\ref{sec:penalty_shoot-out}).
+
+The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
+
+The clock stops during timeouts, even during the preliminaries, and is reset to the time when the current stoppage of play began.
+
+After the completion of the timeout, the game resumes with a kick off for the team which did not call the timeout.
+
+If a team is not ready to play at the assigned time for a game, the referee will call the timeout for that team. After the expiration of such a timeout, if the team is still not ready to play then the referee shall start the game with only one team on the field.  The team that was not ready can return its robots to the field as per the rules for ``Request for Pick-up''. If both teams are not ready, the referee will call timeouts for both teams. This ``double timeout'' expires after 10 minutes.
+
+\subsection{Referee Timeout}
+\label{sec:referee_timeout}
+The head official may call a timeout at any stoppage of play if he or she deems it necessary.  A referee timeout should only be called in dire circumstances --- one example might be when the power to the wireless router is down or no robot listens to the GameController.  However, when and whether to call a referee timeout is left up to the head referee.
+
+Referees may call multiple timeouts during a game if needed.  Teams may do anything during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout.  The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
+
+The team who would have kicked off if the timeout had not been called shall kickoff when the game resumes.
+
+\subsection{Extra Time}
+\label{sec:extra_time}
+The head official may decide to add time to the clock if a substantial delay (such as an enormous wireless delay) causes excessive game time to be lost.  The decision to add time to the clock should be made immediately after the incident.  The person working the GameController should execute this addition of time using the GameController interface.
+
+\subsection{Mercy Rule}
+\label{sec:mercy_rule}
+A game will conclude once the game score shows a goal difference of 10.  Ending the game is mandatory once a goal difference of 10 is reached.
+
+\subsection{Rules for Forfeiting}
+\label{sec:forfeit}
+
+Teams who do not make a good faith effort to participate in a scheduled game are considered to forfeit the game.
+
+If a team notifies the technical committee that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
+
+If a team notifies the technical committee that they wish to forfeit at least two hours before their schedule game time, the following procedure will be followed.
+
+\begin{itemize}
+  \item If a team chooses to forfeit a match in the round robin games the other team plays the match against an empty field.  However, any own goals will not be scored.
+  \item If a team chooses to forfeit in a knock-out game it gets replaced by the next best qualified team, \ie the team it kicked out or left behind in the round robins.
+\end{itemize}
+
+Note that there are a few unlikely cases that are not covered by these rules.  If a situation is not covered by these rules, the technical committee and the organizing committee will work together to make a decision.
+
+Any forfeit will result in a qualification penalty being recorded (\cf Section~\ref{sec:qualificationPenalties}) but the circumstances of the forfeit will affect the severity of the offence and the impact on future qualification.
+
+\subsection{Penalty Kick Shoot-out}
+\label{sec:penalty_shoot-out}
+
+A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, when team progression is tied on all tie-break factors, during the promotion round, intermediate round, quarter finals, semi finals, third place or final).
+There will be a no break between the end of the game and the start of the penalty kicks. As well as no change of robot's code is allowed!
+
+All penalty shots are taken against the same goal\footnote{Which goal to take for the shoot-out is decided by in accordance with the teams, or otherwise by a coin toss.}.
+At all stages of the competition, the penalty kick shoot-out will consist of three penalty kicks per team.
+The first (left) team in the GameController will have the striker robot for the first penalty kick.
+A team that has scored the most goals at the conclusion of these will be declared the winner. A winner can also be declared before the conclusion of the penalty shoot-out if a team can no longer win. If the two teams remain tied after three penalty kicks, then a sudden death shoot-out will follow until a definite winner is found.
+
+No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. \todo{No change of code allowed?}
+
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+
+\subsubsection{Penalty Kick}
+\label{sec:penalty_kick}
+
+A penalty kick is carried out with one striker robot and one opposing goalkeeper.
+The penalty kick commences with the \textit{set} game state activated.
+The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
+
+Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty box, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goal keeper is placed with its feet on the goal line and in the center of the goal.
+Neither robot is permitted to locomote (move their legs) during the \textit{set} state. Movement of the robot's head and arms is allowed.
+
+If a robot is not responding to GameController it must be in the \emph{penalized} state when waiting for the penalty kick to start.
+The referees will use the button interface to switch the robot between playing and penalized.
+Only the referees may operate the button interface and no non-standard or extra button sequences are permitted.
+
+The head referee commences the penalty kick by blowing the whistle \textit{once}, and calling ``Playing''.
+The GameController activates the penalty kick, switching to the \emph{playing} game state.
+Note, the playing signal is delayed~(\cf Section~\ref{sec:robot_states}).
+
+The striker robot is only allowed to contact the ball once.
+The time limit for the striker is \PenaltyKickTime after the penalty kick starts.
+A penalty shot is over when the ball has come to a full stop after the first contact by the striker robot.
+A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line).
+Otherwise, the score is unchanged.
+
+The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the goal box, and must remain on its feet until the striker robot touches the ball.
+The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
+Furthermore, the goal keeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area).
+If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
+
+All rules such as ``Ball Holding'', ``Pushing'' and others are applied during the penalty kick.
+A goalkeeper will not be penalized for inactivity during a penalty kick, provided its stiffness is on.
+Other penalties are applied as usual.
+
+\subsubsection{Sudden Death Shoot-Out}
+\label{sec:sudden_death_shoot_out}
+
+Teams take one additional penalty kick each, and the game decision will be made as follows:
+
+\begin{enumerate}
+  \item If only one team scores a goal, that team wins.
+  \item If both teams score a goal, the sudden death shoot-out is repeated.
+  \item If neither team score a goal, then a shot blocked by the goalkeeper beats a shot blocked by the goalpost which beats a wide shot. For example, if the shot of one team gets stopped by the goalkeeper and the other executes a wide shot, the first team wins. If both shots are wide, the shoot-out is repeated.
+  \item If after 3 sudden death penalty shots there is still no winner, the referee will toss a coin to decide the game.
+\end{enumerate}

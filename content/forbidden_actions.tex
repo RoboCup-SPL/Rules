@@ -1,0 +1,240 @@
+\section{Forbidden Actions and Penalties}
+\label{sec:forbidden_act}
+
+The following actions are forbidden. In general, when a penalty applies, the robot shall be replaced, not the ball.
+
+\subsection{Penalty Procedure}
+\label{sec:penalty_procedure}
+
+When a robot commits a foul, the head referee shall call out the infraction committed, the primary jersey color of the robot, and the jersey number of the robot. The penalty for the infraction will be applied immediately by an assistant referee. The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game. The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
+
+For penalties that are timed, the penalty time is considered to be over at the end of each half.
+
+\subsection{Standard Removal Penalty}
+\label{sec:removal_penalty}
+
+Unless otherwise stated, all infractions result in the removal of the infringing robot from the field of play for a particular amount of time, after which it will be returned to the field of play. This process is called the \textit{standard removal penalty}.
+
+When the head referee indicates a foul has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
+
+The GameController will send the appropriate penalty signal to the robot indicating the infraction committed. If the wireless is not working and the penalty is timed, the assistant referee handling the robot will reset the robot into the \emph{penalized} state for the duration of the penalty. After a penalty is signalled to the robot, it is not allowed to move in any fashion. The removed robot will be placed outside of the field facing away from the field of play.
+
+The initial duration of the standard removal penalty time is \qty{\StandardPenaltyTime}{\second}.
+Unless otherwise specified, the penalty time increases by \StandardPenaltyIncrease each time a team commits any infraction.
+That is, the first infraction will result in a penalty time of 45 seconds, the second infraction (of any type) results in a penalty time of 55 seconds, the third infraction is 65 seconds, etc.
+
+During the \emph{set} state the penalty time counter will not decrease.
+
+The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is 10 seconds from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}.
+
+If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline. When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
+
+With approximately 5 seconds left before the penalty ends, the robot should be turned to face towards the opposite sideline.
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points_2020.png}}
+\caption{For robots coming back from a standard removal penalty, re-entry points  are inline with the penalty spot in their own half, on the sideline on the side away from the ball.}
+\label{fig:penalty_re-entry_points}
+\end{figure}
+
+When the robot is on the field again, the operator of the GameController will send the \emph{playing} signal to it. If the wireless is not working, the assistant referee who placed the robot back on the field has to bring it into the \emph{playing} state again.
+
+
+\subsection{Forbidden Actions}
+
+The following actions are forbidden, but not treated as penalties.
+Each forbidden action specifies the actions to be taken by the referees.
+
+\subsubsection{Manual Interaction by Team Members}
+
+Manual interaction with the robots, either directly or via some communications mechanism, is not permitted.
+Team members can only touch one of their robots when an assistant referee hands it over to them after a ``Request for Pick-up''.
+
+\subsubsection{Locomotion Type}
+\label{sec:locomotion_type}
+
+Robots should clearly demonstrate bipedal walking similar to human walking. Other types of locomotion involving other parts than feet (crawling etc.) are strictly forbidden.
+The head referee decides whether a robot's locomotion is appropriate. Robots using inappropriate locomotion types will be removed via ``Request for Pick-up'' until they are able to show appropriate locomotion.
+
+\subsubsection{Damage to the Field}
+\label{sec:damage}
+
+A robot that damages the field, or poses a threat to spectator safety, will be removed from the field for the remainder of the game.
+%Similarly, a robot that poses a threat to spectator safety will also be removed from the field for the remainder of the game.
+
+\subsection{Illegal Positioning}
+\label{sec:illegal_positioning}
+
+A robot penalised under illegal position has the ``Illegal Position'' penalty applied. Illegally positioned robots are subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty}).
+The head referee will call ``Illegal Position  \textless robot\textgreater''\footnote{Referees may interchange ``Illegal Position'' with ``Illegal Defender'' or ``Illegal Attacker'' to help with clarity.}.
+Illegal positions are descried below.
+
+For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty kick) do not count towards the incremental penalty count\footnote{Historically, the Illegal Positioning penalty only occurred during a kick-off, and other illegal actions were termed Illegal Defender. Illegal Positioning \& Defender have been merged, but the penalty count left unchanged.}.
+
+Refer to Section~\ref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
+
+\subsubsection{Position for Kick-off}
+If a robot is not inside its own half at the time the Set state starts, it will be penalized and removed for 15 seconds. The center line does not count as part of the own half for this penalty, although the area inside the goal does.
+
+\subsubsection{Penalty Box, at all times}
+
+Only \textit{three} players from the \textit{same} team can be the \textit{same} penalty area at the same time\footnote{This means that if no goalkeeper is present, three field players may enter the penalty area to defend the goal.}. This means a total of 6 robots may in the same penalty box at the same time.
+\emph{This applies to all game states.}
+
+A robot is within the penalty area if any part of its body is touching the ground inside the penalty box or touching one of its lines.  The penalty is applied when any additional players (whether field player or goalkeeper) enter the area. Note that if a player is pushed into the penalty area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within 5 seconds (or 5 seconds of getting up if the pushing led to falling).
+
+If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (\eg the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
+
+\subsubsection{Center Circle, during Kick-off}
+
+The penalty is applied to defensive players that enter the center circle after a kick-off before the ball is in play (\cf Section~\ref{sec:kick-off}).
+
+\subsubsection{Defender Encroachment, during Free-kick}
+
+If a robot of the offending team does enter or not attempt to leave the \FreeKickRadius area around the ball after a Free Kick (\cf Section~\ref{sec:free_kick}) was called, ``Illegal Position'' is called. This rule does not apply for the goalkeeper robot within its own penalty area. Note that the referee should not look for exact distances and rather penalize only those robots who clearly violate this rule. As a guideline, the robots of the offending team should clear the ball within 10 seconds.
+
+\subsubsection{Penalty Box, during Free-kick}
+
+If a robot that enters the relevant penalty box during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
+
+\subsection{Motion in Set}
+\label{sec:motion_in_set}
+
+Robots may not exit the Set state until either the referee's whistle is detected or a GameController Playing signal has been received.
+The head referee will call ``Motion in Set \textless robot\textgreater''.
+The offending robot is penalized \textit{in-place} on the field.  They will then be unable to move until they receive the GameController Playing signal.  Motion in Set penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+
+\subsection{Fallen or Inactive Robots}
+\label{sec:fallenrobots}
+
+If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be penalized and removed for 45 seconds.
+A robot which is unable to autonomously stand up within 20 seconds after a fall will be penalized and removed for 45 seconds.
+In both cases, the head referee will call ``Fallen Robot  \textless robot\textgreater''.
+The goal keeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. In all other cases, the robot should be programmed to attempt to remain upright -- that is, supported by its feet.
+
+A robot that has ceased activity for 10 seconds or has turned off will be removed and penalized for 45 seconds.
+The head referee will call ``Inactive Robot  \textless robot\textgreater''.
+A robot is active if it performs at least one of the following:
+\begin{enumerate}
+  \item The robot walks in any direction, or turns.
+  \item The robot searches for the ball, or is looking at the ball.
+\end{enumerate}
+
+Fallen/Inactive Robot penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+
+\paragraph{Note:} The intention of this rule is not to penalize robots simply for being stationary -- provided they are not `asleep' and have not `crashed'.
+
+\subsection{Local Game Stuck}
+\label{sec:pen_local_game_stuck}
+
+When Local Game Stuck is called, the nearest robot to the ball will be penalized and removed for 45 seconds. Local Game Stuck penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+
+
+\subsection{Ball Holding}
+\label{sec:ball_holding}
+
+The goal keeper is allowed to hold the ball for up to 10 seconds as long as it has one foot inside in its own penalty area.  In all other cases (except those noted in Section~\ref{sec:situations_no_ball_holding}), robots are allowed to hold the ball for up to 3 seconds. Holding the ball for longer than this is not allowed.
+The head referee will call ``Ball Holding \textless robot\textgreater'', and the robot removed under the standard removal penalty.
+The ball should be removed from the possession of the robot and placed where the penalty occurred.
+If the robot that held the ball has moved the ball before the robot can be removed, the ball shall be replaced where the penalty occurred.
+This applies to accidental goals.
+
+\textbf{Example.} A robot holds the ball, and before the referees can remove the robot, it shoots the ball into the goal. The goal will not be counted and the ball will be replaced where the penalty occurred,
+
+%A robot which does not leave enough open space around the ball will be penalized as ``Ball Holding'' if that situation continues more than 3 seconds.
+A robot must leave enough open space around the ball.
+The occupation of the ball is judged using the convex hull of the projection of the robot's body onto the ground. ``Enough open space'' means that at least the half of the ball is not covered by the convex hull. It is not important whether the robot actually touches the ball.
+
+\begin{figure}[t]
+\centerline{\begin{tabular}{ll}
+a) & b) \\
+\includegraphics[scale=0.7]{figs/holding1} &
+\includegraphics[scale=0.7]{figs/holding4}
+\end{tabular}}
+
+\caption{Examples for ``Ball Holding''. The black circle is the ball, the blue polygon visualizes the convex hull of the robot's projection onto the ground and the red area shows the occupied portion of the ball. Situations a) is legal, whereas b) violates the rule.}
+\label{fig:holding}
+\end{figure}
+
+Intentional continual holding is prohibited even if each individual holding time does not continue for up to the time limit. In general, robots should release the ball for approximately as long as they were holding it to reset the clock. Without a sufficient release, the continual holding is regarded as a continuous hold from the very beginning and the holding rule is strictly applied.
+%The violation of this rule will result in the standard removal penalty (see Section~\ref{sec:removal_penalty} for details).
+
+
+\subsubsection{Exceptions to the Ball Holding Rules}
+\label{sec:situations_no_ball_holding}
+
+The following define situations where ball holding does not apply:
+
+\begin{enumerate}
+\item Ball holding may not occur when the ball becomes stuck between a robot's legs.  In such a situation, the head referee should call `clear ball' and an assistant referee should remove the ball and place the ball approximately where it was before it became stuck.
+\item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule.
+\end{enumerate}
+
+\subsection{Player Stance}
+\label{sec:player_stance}
+
+Robots are not allowed to stay in a stance that is wider than the width of the robot's shoulders for more than 5 seconds. The robot is allowed to go into a wide stance as long as it comes back to a normal stance within 5 seconds. Staying in a wide stance for longer than 5 seconds will result in the standard removal penalty. If the robot has fallen down, it must start getting up within 5 seconds.
+
+\subsection{Player Pushing}
+\label{sec:player_pushing}
+
+% basic definition of pushing
+\emph{Pushing} is a forceful contact with another robot\footnote{This includes robots that are getting up or lie on the field.}, \ie, enough to destabilize it, and is not allowed. In the following, exceptions to this rule are specified in more detail.
+The head referee will call ``Pushing \textless robot\textgreater''.
+
+If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infraction.
+
+A Pushing Free Kick is awarded against the robot penalized for pushing if the robot is near the ball (approximately within 0.5m of the ball).
+
+\subsubsection{Exceptions to the Pushing Rules}
+\label{sec:situations_no_pushing}
+
+The following define situations where pushing does not apply:
+
+\begin{enumerate}
+  \item Pushing may occur \textbf{only} between players of different teams.
+  \item A stationary robot cannot be penalized for pushing, including a robot that is kicking, provided that the ball was close enough where a kick could have succeeded at the start of the kick motion.
+  \item A robot currently getting up cannot be penalized for pushing.
+  \item The goal keeper cannot be penalized for pushing while looking at or chasing the ball in it's own penalty area.
+  \item Front to front contact between robots with the ball between them does not constitute pushing.
+  \item Any robot proceeding to the ball whose side (\ie arm, shoulder etc.) makes contact with another robot cannot be called for pushing, Even if the second robot is not proceeding to the ball.
+  \item A robot pushed by another robot can not simultaneously be called for pushing itself.
+\end{enumerate}
+
+\subsection{Playing with Arms/Hands}
+\label{sec:hand_ball}
+
+Playing with arms/hands occurs when a field player (including a defender) or a goal keeper outside its own penalty box moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
+
+Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (\cf Section~\ref{sec:kick_in}). However, goals (except for own goals) resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a Goal Kick (\cf Section~\ref{sec:free_kick}) as if the ball went over the goal line next to the goal.
+
+\subsection{Leaving the Field}
+\label{sec:leaving_field}
+
+A robot that intends to leave the \TotalWidth $\times$ \TotalLength carpeted area will be subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty}).
+The head referee will call ``Leaving the Field \textless robot\textgreater''.
+
+Additionally, a robot will also be subject to the standard removal penalty where:
+\begin{itemize}
+\item the robot walks into the goal posts or goal net for more than 5 seconds, this includes robots that are stuck on the goal posts and unable to free themselves
+\item the robot's finger become entangled in the net (without any time constraint).
+\end{itemize}
+
+
+\subsection{Jamming}
+\label{sec:jamming}
+During the match, any robot shall never jam the communication and the sensor systems of the opponents:
+
+\begin{description}
+
+\item[Wireless communication.] Each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format (\cf Section~\ref{sec:wireless}). If a robot uses a different protocol or sends too many messages over a couple of seconds in a game, it will be disqualified for that game. If a team violates this rule in multiple games, disqualification from the tournament (including technical challenges as well as the drop-in competition) as well as an entry in the penalty list will be the consequence. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using 2.4~GHz radio equipment (including cellular phones and/or Bluetooth devices).
+
+\item[Whistle interference.] Both the teams and the audience shall avoid intentionally confusing the robots by producing similar sounds to the game whistle.
+
+\item[Acoustic communication.] If acoustic communication is used by both teams, they shall negotiate before the match how they can reduce interference. If only one team uses acoustic communication, the robots of the other team shall avoid producing any sound. In addition, both the teams and the audience shall avoid intentionally confusing the robots by producing similar sounds to those used for communication.
+
+\item[Infrared communication.] If infrared communication is used by both teams, they shall negotiate before the match how they can reduce interference (if at all). Both the teams and the audience shall avoid confusing the robots by producing similar infrared signals to those used for communication.
+
+\item[Visual perception.] The use of flashlights is not allowed during the games.  However, flash photography from the audience is allowable as long as the head referee believes the purpose of the flash is not to jam any of the robots.
+
+\end{description}
