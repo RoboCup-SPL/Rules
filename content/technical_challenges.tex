@@ -1,51 +1,87 @@
 \section{Technical Challenges}
 
+\subsection{7 vs. 7}
+    This competition extends the ideas from the mixed team competition, and 1 vs. 1 remote challenge from RoboCup 2021 to a standardized 7 vs. 7 on-site competition. Another goal is to enforce more collaborative game play.
+
+    \subsubsection{Condition for participation} % PG
+        \begin{itemize}
+            \item number of own robots
+            \item number of pool robots
+            \item V6
+            \item calibration in given time
+        \end{itemize}
+
+    \subsubsection{Rules}
+        This challenge bases on all rules from the 5 vs. 5 competition (Sections~\ref{sec:setup_environment} — \ref{sec:judgment}). The following list contains extended and changed rules for this challenge:
+
+        \begin{itemize}
+            \item Goali dive % AM
+            \item Own pushing % AM
+            \item Hardware related penalty % AM
+            \item More field players + numbers, starting positions, own and pool robots, v6 % AM
+            \item setup procedure % PG
+            \item robot pool (3, more if more robots are available) and evaluation % AM
+            \item Modus % PG
+        \end{itemize}
+
+
+\subsection{Visual Referee}
+
+
 \subsection{Dynamic Ball handling}
 
-This challenge extends the idea of RoboCup 2021's Passing Challenge. The purpose of this challenge is to enhance skills in ball passing and handling, and in robot's movement estimation.
+    This challenge extends the idea of RoboCup 2021's Passing Challenge. The purpose of this challenge is to enhance skills in ball passing and handling, and in robot's movement estimation.
 
-\subsubsection{Challenge Goal}
+    \subsubsection{Challenge Goal}
 
-Score as attacking team a goal after a double pass without letting the opponents players touch the ball.
+    Score as attacking team a goal after a double pass without letting the opponents players touch the ball.
 
-\subsubsection{Challenge Setup}
+    \subsubsection{Challenge Setup}
 
-This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots provided with a provided common image from another team. A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image. The image will be tested if they match the requirements. If more than one exists, than multiple images will be provided and for each run a new one will be randomly selected.
+    This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating with a provided common image from another team. A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements. \todo{Was wird getestet} If more than one exists, than multiple images will be provided and for each run a new one will be randomly selected.
+    \todo{Criterias for images, how to setup}
 
-The robots are placed by the referees with some randomness as follows:
-\begin{itemize}
-    \item[Attacker:] 1st goal box front line; 2nd next to center line left of center circle; 3rd next to center line right of center circle
-    \item[Defender:] 1st within center circle; 2nd front line penalty box; 3rd goalkeeper in the middle between the two goal posts.
-    \item[Ball:] On penalty spot of the attacking team's side 
-\end{itemize}
+    \todo{Drawing of setup and variance}
 
-Each team has three attempts to run this challenge.
+    The robots are placed by the referees with some randomness as follows:
+    \begin{itemize}
+        \item \textbf{Attacker:} 1st goal box front line; 2nd next to center line left of center circle; 3rd next to center line right of center circle
+        \item \textbf{Defender:} 1st within center circle; 2nd front line penalty box; 3rd goalkeeper in the middle between the two goal posts.
+        \item \textbf{Ball:} On penalty spot of the attacking team's side 
+    \end{itemize}
 
-\subsubsection{Challenge Execution}
+    Each team has three attempts to run this challenge.
 
-All six robots have to be in the Wifi. In initial the robots get placed at their randomized starting positions. GC goes from ready directly into set. The ball gets placed and the head referee starts the challenge execution with one whistle, like at kick-off. If a robot does not listen to the whistle, it will get the delayed playing signal from the GC.
+    \subsubsection{Challenge Execution}
 
-In playing the following happens: The 1st attacker plays the ball towards the 2nd or 3rd attacker will he is under attack by the 1st defender. A pass counts as a valid pass if the ball in front of the receiving robot towards the opponent's goal, i. e., the receiver does not have to walk in the direction of its own goal to play the ball. The ball has to stop in the vicinity of the receiving robot (at max \qty{1}{\metre} distance between receiver and ball).
-The 1st defender does not walk back in its own half. The objective of the defending team is to intercept the passes, see stopping criteria.
+    All six robots have to be in the Wi-Fi. In initial the robots get placed at their randomized starting positions. GC goes from ready directly into set. The ball gets placed, and the head referee starts the challenge execution with one whistle, like at kick-off. If a robot does not listen to the whistle, it will get the delayed playing signal from the GC.
 
-After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. The task of the 2nd or 3rd attacker is now to pass towards the 3rd or 2nd attacking robot, which than shots onto the goal.
+    In playing the following happens: The 1st attacker plays the ball towards the 2nd or 3rd attacker will he is under attack by the 1st defender. A pass counts as a valid pass if the ball stops in front of the receiving robot towards the opponent's goal. The ball has to stop in the vicinity of the receiving robot (at max \qty{1}{\metre} distance between receiver and ball). \todo{Visualization}
+    The 1st defender does not walk back in its own half. The objective of the defending team is to intercept the passes, see stopping criteria.
+    \todo{3rd defender, remains within goal box}
+    \todo{Make clear, attacking defending robot, defending defing robot, goalie}
+    \todo{Limit max speed of Defenders}
 
-\subsubsection{Challenge Scoring}
+    After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. The task of the 2nd or 3rd attacker is now to pass towards the 3rd or 2nd attacking robot, which than shots onto the goal.
 
-The challenge execution will be stopped, when one of the following events occur:
+    \subsubsection{Challenge Scoring}
 
-\begin{itemize}
-    \item A defender touches the ball.
-    \item Ball leaves the field.
-    \item An attacker pushes.
-    \item The execution duration exceeds \qty{3}{\minute}.
-    \item A goal scored with less than two passes.
-\end{itemize}
+    The challenge execution will be stopped, when one of the following events occur:
 
-A score for the run will be calculated based on the following rules:
+    \begin{itemize}
+        \item A defender touches the ball.
+        \item Ball leaves the field.
+        \item An attacker pushes.
+        \item The execution duration exceeds \qty{3}{\minute}.
+        \item A goal scored with zero or one pass.
+    \end{itemize}
 
-The time in seconds in playing counts. Passing a ball in the back of a receiver adds 10 extra seconds each time. Scoring a goal after two passes adds -30 seconds.
-If the ball left within the goal box the field, or it got intercepted by goalkeeper (both after 2 passes) the time counts.
-If the execution gets stopped, the for the run a time of 180 seconds is taken.
+    A score for the run will be calculated based on the following rules:
 
-The final result is the mean time out of three runs.
+    The time in seconds in playing counts. Passing a ball in the back of a receiver adds 10 extra seconds each time. Scoring a goal after two passes subtracts 30 seconds.
+    If the ball left within the goal box the field, or it got intercepted by goalkeeper (both after 2 passes) the time counts.
+    If the execution gets stopped, the for the run a time of 180 seconds is taken.
+
+    The final result is the mean time out of three runs.
+
+\subsection{Video analysis / statistics}
