@@ -4,6 +4,7 @@
     This competition extends the ideas from the mixed team competition, and 1 vs. 1 remote challenge from RoboCup 2021 to a standardized 7 vs. 7 on-site competition. Another goal is to enforce more collaborative game play.
 
     \subsubsection{Condition for participation} % PG
+    \label{sec:7vs7:condition_for_participation}
         \begin{itemize}
             \item number of own robots
             \item number of pool robots
@@ -12,15 +13,49 @@
         \end{itemize}
 
     \subsubsection{Rules}
-        This challenge bases on all rules from the 5 vs. 5 competition (Sections~\ref{sec:setup_environment} — \ref{sec:judgment}). The following list contains extended and changed rules for this challenge:
+        This challenge bases on all rules from the 5 vs. 5 competition (Sections~\ref{sec:setup_environment} — \ref{sec:judgment}). The following list contains extended and changed rules for this challenge in order to ensure, among other things, the safety of pool robots:
+
+        \paragraph{Players}
+            In total each team consists of 7 players without a substitution robot. The 7 robots consist of 4 own and 3 pool robots. Whereby the pool robots are only V6s. Each jersey shirt has therefore now player numbers between 1 and 7 printed on it (\cf Section~\ref{sec:team_markers}). Also the new positions of the initial kick-off (\cf Section~\ref{sec:initial-kick-off}) for 7 robots can be seen in Figure~\ref{fig:initial_positions_7vs7}.
+            \begin{figure}[t!]
+            	\begin{center}
+            		\leavevmode
+            		\includegraphics[width=1\columnwidth]{figs/initial_positions_7vs7.pdf}
+            		\caption{Positions, player numbers and distances from the centre of the goal line for the initial kick-off of the 7 vs. 7 robots.}
+            		\label{fig:initial_positions_7vs7}
+            	\end{center}
+            \end{figure}
+
+        \paragraph{Referees}
+            \label{sec:7vs7:referee}
+            All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently. Additionally the head referee decides whether a robot excessively damages itself and should remove it from the field via a forced “Request for Pick-up”, \cf Section~\ref{sec:request_for_pickup}.
+
+        \paragraph{Robot Pool}
+            Each team has to contribute at least 3 robots to the robot pool, \cf Section~\ref{sec:7vs7:condition_for_participation}. If a team cannot provide enough own robots and there are still functional robots in the robot pool, then this team can get more than the 3 robots from the pool to restock up to 7 robots. However, the final decision is still up to the head referee. \\
+            The robot pool exists only virtually, so that there is no central location where all pool robots are stored. Each team is also allowed to use their own pool robots when they are not in use. However, each pool robot gets a unique ID and in order to be able to recognize the pool robots visually, a sticker is attached to the outer sides of the upper arms and on the back of the head. 
+
+        \paragraph{Robot Pool Evaluation}
+            In order to guarantee that the pool robots are functional and all parts are working within their limits each team has to provide a prove of functionality one hour before a specific pool robot is planned for a game. Also the team has to ensure that this robot had at least a cooldown period of 15 minutes and is charged to at least 80\%. 
+            A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within a given time \todo{time} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the \todo{deadline}, as well as additional tests which should be included in such an evaluation image.            
+
+        \paragraph{Hardware Related Penalties}
+            \label{sec:7vs7:hardware_related_penalties}
+            Since teams are partially playing with robots from other teams, there is a maximum of two hardware related penalties for each robot in the first half and one more in the second half. 
+            Hardware related penalties are:
+            \begin{itemize}
+                \item fallen robot or inactive robot, \cf Section~\ref{sec:fallenrobots}
+                \item request for pick-up in the playing or ready state - either by the team or forced by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:7vs7:referee}. 
+            \end{itemize}
+            These penalties are counted by the GameController operator and after that a robot with additional hardware related penalties is excluded for the rest of the game (they are transitioned into the unstiffed state by the assistant referees, \cf Section~\ref{sec:robot_states})!
+
+        \paragraph{Own Pushing}
+            In addition to the normal pushing rules, \cf Section~\ref{sec:player_pushing}, pushing may now occur between any robots, i.e. also between team mates.
+
+        \paragraph{Limited Diving}
+            Pool robots are not allowed to dive for the ball on purpose, \cf Section~\ref{sec:fallenrobots}, except for penalty kicks! In case of violation, the infringing robot will be taken out according to the forced ``Request for Pick-up'' rule, \cf Section~\ref{sec:7vs7:referee}, and therefore counts as a hardware related penalty, \cf Section~\ref{sec:7vs7:hardware_related_penalties}. However, this restriction does not apply to the team's own robots. 
 
         \begin{itemize}
-            \item Goali dive % AM
-            \item Own pushing % AM
-            \item Hardware related penalty % AM
-            \item More field players + numbers, starting positions, own and pool robots, v6 % AM
             \item setup procedure % PG
-            \item robot pool (3, more if more robots are available) and evaluation % AM
             \item Modus % PG
         \end{itemize}
 
