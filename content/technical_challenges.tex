@@ -1,7 +1,7 @@
 \section{Technical Challenges}
 
 \subsection{7 vs. 7}
-    This competition extends the ideas from the mixed team competition, and 1 vs. 1 remote challenge from RoboCup 2021 to a standardized 7 vs. 7 on-site competition. Another goal is to enforce more collaborative game play.
+    This competition extends the ideas from the mixed team competition, and 1 vs. 1 remote challenge from RoboCup 2021 to a standardized 7 vs. 7 on-site competition. Another goal is to enforce more collaborative game play. This challenge will only be executed if at least four teams participate.
 
     \subsubsection{Condition for participation} % PG
     \label{sec:7vs7:condition_for_participation}
@@ -34,7 +34,7 @@
             The robot pool exists only virtually, so that there is no central location where all pool robots are stored. Each team is also allowed to use their own pool robots when they are not in use. However, each pool robot gets a unique ID and in order to be able to recognize the pool robots visually, a sticker is attached to the outer sides of the upper arms and on the back of the head. 
 
         \paragraph{Robot Pool Evaluation}
-            In order to guarantee that the pool robots are functional and all parts are working within their limits each team has to provide a prove of functionality one hour before a specific pool robot is planned for a game. Also the team has to ensure that this robot had at least a cooldown period of 15 minutes and is charged to at least 80\%. 
+            In order to guarantee that the pool robots are functional and all parts are working within their limits each team has to provide a prove of functionality one hour before a specific pool robot is planned for a game. Also the team has to ensure that this robot had at least a cooldown period of \qty{15}{\minute} and is charged to at least \qty{80}{\percent} 
             A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within a given time \todo{time} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the \todo{deadline}, as well as additional tests which should be included in such an evaluation image.            
 
         \paragraph{Hardware Related Penalties}
@@ -43,12 +43,12 @@
             Hardware related penalties are:
             \begin{itemize}
                 \item fallen robot or inactive robot, \cf Section~\ref{sec:fallenrobots}
-                \item request for pick-up in the playing or ready state - either by the team or forced by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:7vs7:referee}. 
+                \item request for pick-up in the playing or ready state — either by the team or forced by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:7vs7:referee}. 
             \end{itemize}
             These penalties are counted by the GameController operator and after that a robot with additional hardware related penalties is excluded for the rest of the game (they are transitioned into the unstiffed state by the assistant referees, \cf Section~\ref{sec:robot_states})!
 
         \paragraph{Own Pushing}
-            In addition to the normal pushing rules, \cf Section~\ref{sec:player_pushing}, pushing may now occur between any robots, i.e. also between team mates.
+            In addition to the normal pushing rules, \cf Section~\ref{sec:player_pushing}, pushing may now occur between any robots, i.e., also between teammates.
 
         \paragraph{Limited Diving}
             Pool robots are not allowed to dive for the ball on purpose, \cf Section~\ref{sec:fallenrobots}, except for penalty kicks! In case of violation, the infringing robot will be taken out according to the forced ``Request for Pick-up'' rule, \cf Section~\ref{sec:7vs7:referee}, and therefore counts as a hardware related penalty, \cf Section~\ref{sec:7vs7:hardware_related_penalties}. However, this restriction does not apply to the team's own robots. 
@@ -59,9 +59,7 @@
         \end{itemize}
 
 
-\subsection{Visual Referee}
-
-    Just an idea for starting with this challenge.
+\subsection{Visual Referee Challenge}
     
     \subsubsection{Challenge Goal}
 
@@ -106,7 +104,7 @@
 
     \subsubsection{Challenge Setup}
 
-    This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating with a provided common image from another team. A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements. \todo{Was wird getestet} If more than one exists, than multiple images will be provided and for each run a new one will be randomly selected.
+    This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating with a provided common image from another team.\todo{Attacking team's robots will be defender next round} A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements. \todo{Was wird getestet} If more than one exists, than multiple images will be provided and for each run a new one will be randomly selected.
     \todo{Criterias for images, how to setup}
 
     \todo{Drawing of setup and variance}
@@ -130,9 +128,9 @@
     \todo{Make clear, attacking defending robot, defending defing robot, goalie}
     \todo{Limit max speed of Defenders}
 
-    After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. The task of the 2nd or 3rd attacker is now to pass towards the 3rd or 2nd attacking robot, which than shots onto the goal.
+    After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. The task of the 2nd or 3rd attacker is now to pass towards the 3rd or 2nd attacking robot, which than shots onto the goal. \todo{Goalkeeper disallow dive; Where to move; only on the line}
 
-    \subsubsection{Challenge Scoring}
+    \subsubsection{Challenge Scoring}\todo{Rephrase this}
 
     The challenge execution will be stopped, when one of the following events occur:
 
