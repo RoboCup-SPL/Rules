@@ -120,3 +120,39 @@
     The final result is the mean time out of three runs.
 
 \subsection{Video analysis / statistics}
+\begin{itemize}
+    \item Statistics needed to evaluate the progress of the league.
+    \item Only GameController statistics are not sufficient for this.
+    \item Create video statistics like in real soccer games.
+\end{itemize}
+
+    \subsubsection{Challenge Goal}
+    \begin{itemize}
+        \item Long Term: Create Online/Offline Game Statistics from a go-pro type camera viewpoint. E.g. time under control, shots on goal, passes, ... .
+        \item Short Term: Calculate the extrinsic camera parameters (camera matrix) and locate/track all moving objects (ball, robots) on the field.
+        \item Designed as open challenge: Teams show a small presentation/poster of their approach, with the team leaders then voting afterwards to determine the winners.
+    \end{itemize}
+
+    \subsubsection{Condition for participation}
+        \begin{itemize}
+            \item Express the interest to participate in this challenge by 2021-12-31.
+            \item Label an assigned video, from the RC2019, until 2022-02-01 \todo{date} in order to form a shared ground truth database.
+            \item Implementation of the own approach in order to achieve the short term or the long term goal, or only parts of it.
+            \item Prepare a poster and a short 5-10 minutes presentation for the RC2022 showing the results of your approach.
+        \end{itemize}
+    
+    \subsubsection{Labeling}
+        Input data:
+        \begin{itemize}
+            \item Get the assigned go-pro videos from a game of the RC2019.
+            \item Additionally you get the GC data, TeamCom logs and the intrinsic calibration of the go-pro.
+        \end{itemize}
+
+        Output data:
+        \begin{itemize}
+            \item Calculate the extrinsic camera parameters (camera matrix). Preferably for each frame, although this is mainly necessary when the camera was moved/wobbled. However, it should be checked at least once for each minute whether the camera matrix is still appropriate.
+            \item Label all robots and the (main) ball: These objects should be labeled using bounding boxes. Special attention should be paid to the bottom edge as this will be used to determine the position of the object.
+            \item In addition, the robots must be labeled with their jersey color and number.
+            \item Send the ground truth data in a common format \todo{which one?} to the TC until 2022-02-01.
+            \item The TC will then publicly upload this data to form a shared ground truth database. 
+        \end{itemize}
