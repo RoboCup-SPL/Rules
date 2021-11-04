@@ -94,27 +94,31 @@
         The ranking is based on the sum of points. Higher number of points leads to a higher ranking. For teams with equal points the sum of the runs will be used. Less time used leads to a higher ranking.
         
 
-\subsection{Dynamic Ball handling}
+\subsection{Dynamic Ball handling Challenge}
 
     This challenge extends the idea of RoboCup 2021's Passing Challenge. The purpose of this challenge is to enhance skills in ball passing and handling, and in robot's movement estimation.
 
     \subsubsection{Challenge Goal}
 
-    Score as attacking team a goal after a double pass without letting the opponents players touch the ball.
+        Score as attacking team a goal after a double pass without letting the defending players touch the ball.
 
     \subsubsection{Challenge Setup}
 
-    This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating with a provided common image from another team.\todo{Attacking team's robots will be defender next round} A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements. \todo{Was wird getestet} If more than one exists, than multiple images will be provided and for each run a new one will be randomly selected.
-    \todo{Criterias for images, how to setup}
+        This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating a provided common image (see Section~\ref{sec:Challenge_image}) from another team. If more than one image exists, than multiple images will be provided and for each run a new one will be randomly selected.
+        
+        Attacking teams have to have their robots ready \qty{40}{\minute} before a run starts. Attacking robots are not allowed to be changed afterwards. Then the defending teams receive which randomly selected common image will be used. In that time the defending robots have to be flashed and calibrated.
+
+        Since the challenge has three runs for each team, each team will be teamed with another team for a run. Both teams have to provide the same three robots (except one robot breaks) as attacking as well as defending team. Following from this each run is divided into two parts. Executed after each other.
 
     \todo{Drawing of setup and variance}
 
     The robots are placed by the referees with some randomness as follows:
-    \begin{itemize}
-        \item \textbf{Attacker:} 1st goal box front line; 2nd next to center line left of center circle; 3rd next to center line right of center circle
-        \item \textbf{Defender:} 1st within center circle; 2nd front line penalty box; 3rd goalkeeper in the middle between the two goal posts.
-        \item \textbf{Ball:} On penalty spot of the attacking team's side 
-    \end{itemize}
+    
+    \begin{description}
+        \item[Attacker:] 1st goal box front line; 2nd next to center line left of center circle; 3rd next to center line right of center circle
+        \item[Defender:] 1st within center circle; 2nd front line penalty box; 3rd goalkeeper in the middle between the two goal posts.
+        \item[Ball:] On penalty spot of the attacking team's side 
+    \end{description}
 
     Each team has three attempts to run this challenge.
 
@@ -149,6 +153,12 @@
     If the execution gets stopped, the for the run a time of 180 seconds is taken.
 
     The final result is the mean time out of three runs.
+
+    \subsubsection{Challenge image}
+        \label{sec:Challenge_image}
+        \todo{Deadline for submission}
+        A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements. \todo{Was wird getestet} 
+        \todo{Criterias for images, how to setup}
 
 \subsection{Video analysis / statistics}
 \begin{itemize}
