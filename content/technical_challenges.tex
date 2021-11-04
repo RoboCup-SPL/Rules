@@ -27,6 +27,40 @@
 
 \subsection{Visual Referee}
 
+    Just an idea for starting with this challenge.
+    
+    \subsubsection{Challenge Goal}
+
+        For the moment robots receive the decision made by the head referee either from a short whistle or a GC message. To improve the perception of the robot and to listen more to the head referee this challenge introduces visual referee signs.
+
+    \subsubsection{Challenge setup}
+
+        One robot of the challenged team is placed in the center circle facing the head referee standing on the opposite T-junction to the GC. The referee wears red glows. The robot is listing and watching the referee. The general procedure is as follows:
+
+        \begin{itemize}
+            \item The referee blows the whistle.
+            \item The referee shows his decision for \qty{15}{\second}.
+            \item During that time or in the additional \qty{10}{\second} the robot has time to phrase the referee's decision, e.g., ```Kick-off left team'''. \todo{Or we use a TCP message}
+        \end{itemize}
+
+        This procedure will be continued for in total four times. Each time, the referee chooses a new decision.
+
+    \subsubsection{Available Decisions}
+        
+        For each decision (not all, because some decisions have to be shown on place, e.g., throw in) will be described and pictured.
+
+        \begin{itemize}
+            \item \textbf{Kick-Off} 
+            \begin{figure}
+                \includegraphics{figs/kick-off_referee.jpg}
+            \end{figure}
+        \end{itemize}
+
+    \subsubsection{Challenge evaluation}
+        The time from the whistle until the robots starts messaging will be counted for each run.
+        For each decision two points can be awarded: One for the right decision itself and one for the right team awarded to or against.
+        The ranking is based on the sum of points. Higher number of points leads to a higher ranking. For teams with equal points the sum of the runs will be used. Less time used leads to a higher ranking.
+        
 
 \subsection{Dynamic Ball handling}
 
