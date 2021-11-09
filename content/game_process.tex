@@ -187,7 +187,7 @@ If the ball goes over an end-line then the assistant referee will replace the ba
 
 In these examples, ``red half of the field'' refers to the half the red team is defending.
 
-  \textbf{Example 1:} The red goal keeper kicks the ball out the end of the field to the right of the goal. The referee calls ``Corner Kick blue'', the ball is placed on the corner to the right of the goal and a free kick is started.
+  \textbf{Example 1:} The red goalkeeper kicks the ball out the end of the field to the right of the goal. The referee calls ``Corner Kick blue'', the ball is placed on the corner to the right of the goal and a free kick is started.
 
   \textbf{Example 2:} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Kick red'' and the ball is placed on the right corner of the goalbox.
 
@@ -384,7 +384,7 @@ A team that has scored the most goals at the conclusion of these will be declare
 
 No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. \todo{No change of code allowed?}
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goal keeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalie robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 \subsubsection{Penalty Kick}
 \label{sec:penalty_kick}
@@ -393,7 +393,7 @@ A penalty kick is carried out with one striker robot and one opposing goalkeeper
 The penalty kick commences with the \textit{set} game state activated.
 The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
 
-Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty box, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goal keeper is placed with its feet on the goal line and in the center of the goal.
+Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty box, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goalkeeper is placed with its feet on the goal line and in the center of the goal.
 Neither robot is permitted to locomote (move their legs) during the \textit{set} state. Movement of the robot's head and arms is allowed.
 
 If a robot is not responding to GameController it must be in the \emph{penalized} state when waiting for the penalty kick to start.
@@ -412,7 +412,7 @@ Otherwise, the score is unchanged.
 
 The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the goal box, and must remain on its feet until the striker robot touches the ball.
 The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
-Furthermore, the goal keeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area).
+Furthermore, the goalkeeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area).
 If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
 
 All rules such as ``Ball Holding'', ``Pushing'' and others are applied during the penalty kick.
