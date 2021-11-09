@@ -121,8 +121,8 @@
         The robots are placed by the referees with some randomness to left or right as follows:
 
         \begin{description}
-            \item[Attacker:] 1st: goal box front line; 2nd: next to center line left of center circle; 3rd: next to center line right of center circle
-            \item[Defender:] 1st: within center circle; 2nd: front line penalty box; 3rd: goalkeeper in the middle between the two goal posts. Defending robots are limited to a maximum speed of \qty{20}{\cm \per \second}.
+            \item[Attacker:] 1st: goal area front line; 2nd: next to center line left of center circle; 3rd: next to center line right of center circle
+            \item[Defender:] 1st: within center circle; 2nd: front line penalty area; 3rd: goalkeeper in the middle between the two goal posts. Defending robots are limited to a maximum speed of \qty{20}{\cm \per \second}.
             \item[Ball:] On penalty spot of the attacking team's side
         \end{description}
 
@@ -169,7 +169,7 @@
             \item If a goal has been scored after two passes, subtract \qty{30}{\second}.
             \item If a ball has been passed wrongly, add \qty{10}{\second} for each incorrect pass.
             \item If the ball got touched by the 1st or 2nd defender, execution time will be \qty{240}{\second}.
-            \item If the ball leaves the field not from inside the defending goal box, execution time will be \qty{240}{\second}.
+            \item If the ball leaves the field not from inside the defending goal area, execution time will be \qty{240}{\second}.
             \item If an attacking robot has pushed, execution time will be \qty{240}{\second}.
         \end{enumerate}
 
