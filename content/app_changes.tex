@@ -151,3 +151,53 @@ This is a brief list of rule changes from 2019 to 2022.
 \begin{itemize}
   \item Move position of the penalty spot subject to testing at the 2022 regional workshops and competitions.
 \end{itemize}
+
+\section{Alternative Section~\ref{sec:wireless}}
+The following is an alternative suggestion for introducing limits to robot-to-robot communication.
+
+Advantages:
+\begin{itemize}
+  \item More flexible with penalty for violating network limits
+  \item More confidence that packages counted to network limits are correct
+\end{itemize}
+
+Disadvantages:
+\begin{itemize}
+  \item More work for teams to implement
+  \item Test setups without GameController become harder for teams to set up
+\end{itemize}
+
+The TC is looking for feedback whether this alternative is preferrable to the new limits introduced in section \ref{sec:wireless}. Please send your feedback to \url{rc-spl-tc@lists.robocup.org}.
+
+The only wireless hardware allowed to be used by the teams are the wireless network cards built into the NAOs, and the access points provided by the event organizers. All other wireless hardware must be deactivated. A team may be disqualified if one of the team members violates this rule.
+
+Each team will get a range of IP addresses that can be used both for their robots and their computers. The network configuration (\eg IP addresses, channels, SSIDs, and required encryption) of the fields will be announced at the competition site.
+
+Robots are only allowed to use wireless communications to connect to the access points provided by the event organizers, using a static IP address from a range provided by the organizers. Robots may only communicate on fields that are not running an official game or fields which they are playing on.
+
+Robots may use the wireless network only for the following three purposes in exactly the ways described here:
+\begin{enumerate}
+  \item Communication with the GameController:
+  The GameController periodically broadcasts the structure \texttt{RoboCupGameControlData} (representing the current game state) via UDP on the port \texttt{GAMECONTROLLER\_DATA\_PORT}. \texttt{RoboCupGameControlData} and \texttt{GAMECONTROLLER\_DATA\_PORT} are defined in the C header file \texttt{RoboCupGameControlData.h} which is included in the source distribution of the GameController. Robots must periodically indicate their status by sending the structure \texttt{RoboCupGameControlReturnData} on port \texttt{GAMECONTROLLER\_RETURN\_PORT} (also defined in \texttt{RoboCupGameControlData.h}). These packets must be addressed directly to the GameController host; the GameController does not accept broadcast packets.
+
+  \item Communication within the team:
+  Team messages are sent as UDP packets on a team-specific port directly to the GameController host. The GameController host will then re-broadcasts packages via UDP on the same port to the other robots of the same team. They can have a payload size (\ie size excluding UDP, IP and link layer headers) of up to \qty{\TeamMessageSize}{\byte} and contain arbitrary data. Conventionally, the team-specific port is 10000 plus the team's number in the GameController. Robots are not allowed to broadcast team messages or address them to any other host than the one running the GameController.
+
+  The number of messages that a team may send during a game is limited to \TeamMessageLimit. The GameController tracks the number of messages that have already been sent and includes the counters per team in \texttt{RoboCupGameControlData}. After a team has reached its limit, the GameController does not forward any messages of that team for the remainder of the game.
+
+\item Debug Communications:
+  In order to monitor and visualize the status of the robots on an external computer, robots may send debug messages. Debug messages are UDP packets on a team-specific port conforming to the \texttt{SPLStandardMessage} structure (which also defines their maximum size) from the C header file \texttt{SPLStandardMessage.h}. They must not be sent more often than once per second. Conventionally, the team-specific port is 11000 plus the team's number in the GameController.\todo{Would it be better to use 10000 for this and 11000 for team messages instead for compatibility reasons? Should we enforce unicast?}
+
+  Debug messages must not be received by any other robot, and neither must an external computer send any messages to the robots.
+\end{enumerate}
+
+In summary, the following is an exhaustive list of the ways robots may use the wireless network during games:
+\begin{itemize}
+  \item receive UDP packets on \texttt{GAMECONTROLLER\_DATA\_PORT}
+  \item send UDP packets conforming to the \texttt{RoboCupGameControlReturnData} structure on \texttt{GAMECONTROLLER\_RETURN\_PORT} to the GameController host (\ie the one from which they are receiving GameController messages)
+  \item receive UDP packets on their own team-specific team communication port
+  \item send UDP packets of up to \qty{\TeamMessageSize}{\byte} payload size on their own team-specific team communication port to the GameController host
+  \item send UDP packets conforming to the \texttt{SPLStandardMessage} structure on their own team-specific debug communication port up to once every second
+\end{itemize}
+
+The use of remote processing/sensing is prohibited.
