@@ -92,17 +92,23 @@ The only wireless hardware allowed to be used by the teams are the wireless netw
 
 Each team will get a range of IP addresses that can be used both for their robots and their computers. The network configuration (\eg IP addresses, channels, SSIDs, and required encryption) of the fields will be announced at the competition site.
 
-Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP broadcast, and the SPL standard message packet is used. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release \todo{Provide a link at the beginning to Github repo}.
+Wireless robot-to-robot communication among the robot players is allowed, as long as it uses the access points provided by the event organizers (using the so-called ad-hoc mode is prohibited), messages are sent via UDP broadcast, and the SPL standard message packet is used. The SPL standard message packet is specified in the header \emph{SPLStandardMessage.h} that is distributed with the latest GameController release at \url{https://github.com/RoboCup-SPL/GameController}.
 
 Each team will be assigned a range of IP-addresses that can be used for robot-to-robot communication. Each team will also be allocated a single UDP port for network broadcasts. Specifically, a team's port will be 10000 plus that team's GameController number. All robot-to-robot communication during matches must be sent via UDP broadcast. Unicast communication between robots is prohibited.
 
-The amount of data transmitted by a team in a single game is limited. The limit is measured as the total number of bytes sent by any robots of a team. A team may not exceed 31337 bytes per game. This limit will be lowered in future competitions to encourage smart event-based communication. If a team exceeds their limit the game is scored with 0 goals for the offending team.
+The amount of data transmitted by a team in a single game is limited. The limit is measured as the total number of UDP packets sent by any robots of a team. A team may not exceed \TeamMessageLimit packets per game. This limit will be lowered in future competitions to encourage smart event-based communication. If a team exceeds their limit the game is scored with 0 goals for the offending team.
 
-Official status packages that are sent to the GameController can be sent in addition to robot-to-robot communication. These packages do not count towards the team's data limit.
+In addition to robot-to-robot communication, robots may send:
+\begin{itemize}
+ \item Official status packages that are sent to the GameController.
+ \item Team specific debug information may be sent to an external computer owned by the team. A robot may send debug information at most once every 2 seconds in a single UDP packet.
+\end{itemize}
+These additional packages do not count towards the team's data limit and may not be used for robot-to-robot communication.
 
 Teams and their robots must not listen into another team's communication.
 
 Robots are not allowed to be connected to access points of fields that are currently running official games of other teams.
+Robots may only communicate on fields that are not running an official game or fields which they are playing on.
 
 The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
 
