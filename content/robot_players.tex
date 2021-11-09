@@ -98,6 +98,8 @@ Each team will be assigned a range of IP-addresses that can be used for robot-to
 
 The amount of data transmitted by a team in a single game is limited. The limit is measured as the total number of UDP packets sent by any robots of a team. A team may not exceed \TeamMessageLimit packets per game. This limit will be lowered in future competitions to encourage smart event-based communication. If a team exceeds their limit the game is scored with 0 goals for the offending team.
 
+The GameController tracks the number of messages that have already been sent and includes the counters per team in \texttt{RoboCupGameControlData}.
+
 In addition to robot-to-robot communication, robots may send:
 \begin{itemize}
  \item Official status packages that are sent to the GameController.
