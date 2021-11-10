@@ -36,7 +36,7 @@
 
         \paragraph{Robot Pool Evaluation}
             In order to guarantee that the pool robots are functional, and all parts are working within their limits each team has to provide a proof of functionality one hour before a specific pool robot is planned for a game. Also, the team has to ensure that this robot had at least a cooldown period of \qty{15}{\minute} and is charged to at least \qty{80}{\percent}.
-            A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within a given time \todo{time} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the \todo{deadline}, as well as additional tests which should be included in such an evaluation image.
+            A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within a given time \todo{set time} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the 2022-06-01\todo{set deadline}, as well as additional tests which should be included in such an evaluation image. A manual how to use the custom image should also be included.
 
         \paragraph{Hardware Related Penalties}
             \label{sec:7vs7:hardware_related_penalties}
@@ -161,40 +161,37 @@
         A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements. \todo{Was wird getestet}
         \todo{Criterias for images, how to setup}
 
-\subsection{Video analysis / statistics}
-\begin{itemize}
-    \item Statistics needed to evaluate the progress of the league.
-    \item Only GameController statistics are not sufficient for this.
-    \item Create video statistics like in real soccer games.
-\end{itemize}
+\subsection{Open Research Challenge - Video analysis / statistics}
+In order to evaluate the progress of the league, regardless of the annual rule changes, we need statistics similar to human soccer. Therefore only GameController/TeamCom statistics are not sufficient for this. That's why there is an Open Research Challenge, as already known from the year 2019 (and previously until RoboCup 2014), which will focus on the generation of statistics from external video data from a go-pro type camera viewpoint.
 
     \subsubsection{Challenge Goal}
-    \begin{itemize}
-        \item Long Term: Create Online/Offline Game Statistics from a go-pro type camera viewpoint. E.g. time under control, shots on goal, passes, ... .
-        \item Short Term: Calculate the extrinsic camera parameters (camera matrix) and locate/track all moving objects (ball, robots) on the field.
-        \item Designed as open challenge: Teams show a small presentation/poster of their approach, with the team leaders then voting afterwards to determine the winners.
-    \end{itemize}
+    For this Open Research Challenge two major goals exist. The more short-term goal is to calculate extrinsic camera parameters (camera matrix) from the camera feed and to locate/track all moving objects (ball, robots) on the field. In addition to this, the more long-term goal involves the creation of game statistics based on the located objects and positions from the short-term goal. Here, the following statistics, among others, might be of interest, such as time under control, shots on goal (successful/unsuccessful), passes and so on. Since this is an open challenge, the decision of what to show (short-term, long-term, parts of it) is, within the scope of the goals aforementioned here, entirely up to the teams. In addition, the execution time for this challenge is also not relevant for the time being whether you process it online or offline to the video stream.    
 
     \subsubsection{Condition for participation}
-        \begin{itemize}
-            \item Express the interest to participate in this challenge by 2021-12-31.
-            \item Label an assigned video, from the RC2019, until 2022-02-01 \todo{date} in order to form a shared ground truth database.
-            \item Implementation of the own approach in order to achieve the short term or the long term goal, or only parts of it.
-            \item Prepare a poster and a short 5-10 minutes presentation for the RC2022 showing the results of your approach.
-        \end{itemize}
+    \begin{itemize}
+    \item In order to compete in this Challenge, teams must notify the TC (\url{rc-spl-tc@lists.robocup.org}) of their interest in participating by 2021-12-31, at the latest.
+    \item Subsequently, all participating teams will receive a pre-processed video from the RoboCup2019 (i.e. a sequence of images) and have to label it according to the enclosed instructions. Annotating must be completed by 2022-02-01 to in order to form a shared ground truth data set. However, the final format in which the teams have to submit their annotations has not yet been determined, but the TC is happy to accept suggestions. Also the exact details are given to the teams together with the to be labelled data set.
+    \item With this shared ground truth data set, teams can then implement their own approach/ideas. Also any failures in the annotations can be corrected by the community/teams since the data will be shared on the SPL Github\footnote{https://github.com/RoboCup-SPL}.
+    \item The teams have to create a poster (A3/A2/A1 size\todo{decide the size}) for the RoboCup 2022 showing their results and prepare a short 3 minutes oral presentation which additionally explains and shows the idea and results of this approach.
+    \item All teams are requested to publish the code for their approach to enable a fast progress of the league in this area. However, only the top 3\todo{decide the number} ranked teams are required to publish their code within one month after the RoboCup 2022. 
+    \end{itemize}
 
-    \subsubsection{Labeling}
-        Input data:
-        \begin{itemize}
-            \item Get the assigned go-pro videos from a game of the RC2019.
-            \item Additionally you get the GC data, TeamCom logs and the intrinsic calibration of the go-pro.
-        \end{itemize}
+    \subsubsection{Scoring}
+    The winner will be decided by a vote among the SPL teams using the Borda count mechanism (\url{http://en.wikipedia.org/wiki/Borda_count}). Each participating SPL team will vote for their top 5/10\todo{decide the number} teams in order (excluding themselves). Teams are encouraged to evaluate the performance based on the following criteria: achievement of the long/short-term goal, execution time, accuracy/precision/recall, technical strength, novelty. At a time decided by the designated referee, within one hour of the last demonstration if not otherwise specified, the captain of each team will submit the team's rankings by filling out an online form. Any points awarded by a team to itself will be disregarded. The points awarded by the teams will be summed and thus form the score of this challenge which is then converted according to the formula described in the beginning of this section.
 
-        Output data:
-        \begin{itemize}
-            \item Calculate the extrinsic camera parameters (camera matrix). Preferably for each frame, although this is mainly necessary when the camera was moved/wobbled. However, it should be checked at least once for each minute whether the camera matrix is still appropriate.
-            \item Label all robots and the (main) ball: These objects should be labeled using bounding boxes. Special attention should be paid to the bottom edge as this will be used to determine the position of the object.
-            \item In addition, the robots must be labeled with their jersey color and number.
-            \item Send the ground truth data in a common format \todo{which one?} to the TC until 2022-02-01.
-            \item The TC will then publicly upload this data to form a shared ground truth database.
-        \end{itemize}
+    \subsubsection{Labelling}
+    This section gives a brief overview of the labelling task.\\
+
+    Input data (given):
+    \begin{itemize}
+        \item The assigned, pre-processed, go-pro videos/sequences from a game of the RC2019.
+        \item Additionally the GC data, TeamCom logs and the intrinsic calibration of the go-pro.
+    \end{itemize}
+
+    Output data (to be annotated):
+    \begin{itemize}
+        \item Calculation of the extrinsic camera parameters (camera matrix). Preferably for each frame, although this is mainly necessary when the camera was moved/wobbled. However, it should be checked at least once for each minute whether the camera matrix is still appropriate.
+        \item Labelling of all robots and the (main) ball: These objects should be labeled using bounding boxes. Special attention should be paid to the bottom edge as this will be used to determine the position of the object.
+        \item In addition, the robots must be labelled with their jersey colour and number.
+    \end{itemize}
+    Also not everything is fixed yet so that the TC is happy to accept suggestions at \url{rc-spl-tc@lists.robocup.org}.
