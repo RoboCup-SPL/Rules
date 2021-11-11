@@ -15,10 +15,10 @@
         \end{itemize}
 
     \subsubsection{Rules}
-        This challenge bases on all rules from the 5 vs. 5 competition (Sections~\ref{sec:setup_environment} — \ref{sec:judgment}). The following list contains extended and changed rules for this challenge in order to ensure, among other things, the safety of pool robots:
+        This challenge bases on all rules from the 5 vs. 5 competition (\crefrange{sec:setup_environment}{sec:judgment}). The following list contains extended and changed rules for this challenge in order to ensure, among other things, the safety of pool robots:
 
         \paragraph{Players}
-            In total each team consists of 7 players without a substitution robot. The 7 robots consist of 4 own and 3 pool robots. Whereby the pool robots are only V6s. Each jersey shirt has therefore now player numbers between 1 and 7 printed on it (\cf Section~\ref{sec:team_markers}). Also the new positions of the initial kick-off (\cf Section~\ref{sec:initial-kick-off}) for 7 robots can be seen in Figure~\ref{fig:initial_positions_7vs7}.
+            In total each team consists of 7 players without a substitution robot. The 7 robots consist of 4 own and 3 pool robots. Whereby the pool robots are only V6s. Each jersey shirt has therefore now player numbers between 1 and 7 printed on it (\cf \cref{sec:team_markers}). Also the new positions of the initial kick-off (\cf \cref{sec:initial-kick-off}) for 7 robots can be seen in \cref{fig:initial_positions_7vs7}.
             \begin{figure}[t!]
             	\begin{center}
             		\leavevmode
@@ -30,10 +30,10 @@
 
         \paragraph{Referees}
             \label{sec:7vs7:referee}
-            All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently. Additionally the head referee decides whether a robot excessively damages itself and should remove it from the field via a forced “Request for Pick-up”, \cf Section~\ref{sec:request_for_pickup}.
+            All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently. Additionally the head referee decides whether a robot excessively damages itself and should remove it from the field via a forced “Request for Pick-up”, \cf \cref{sec:request_for_pickup}.
 
         \paragraph{Robot Pool}
-            Each team has to contribute at least 3 robots to the robot pool, \cf Section~\ref{sec:7vs7:condition_for_participation}. If a team cannot provide enough own robots and there are still functional robots in the robot pool, then this team can get more than the 3 robots from the pool to restock up to 7 robots. However, the final decision is still up to the head referee. \\
+            Each team has to contribute at least 3 robots to the robot pool, \cf \cref{sec:7vs7:condition_for_participation}. If a team cannot provide enough own robots and there are still functional robots in the robot pool, then this team can get more than the 3 robots from the pool to restock up to 7 robots. However, the final decision is still up to the head referee. \\
             The robot pool exists only virtually, so that there is no central location where all pool robots are stored. Each team is also allowed to use their own pool robots when they are not in use. However, each pool robot gets a unique ID and in order to be able to recognize the pool robots visually, a sticker is attached to the outer sides of the upper arms and on the back of the head.
 
         \paragraph{Robot Pool Evaluation}
@@ -46,20 +46,20 @@
             Since teams are partially playing with robots from other teams, there is a maximum of two hardware related penalties for each robot in the first half and one more in the second half.
             Hardware related penalties are:
             \begin{itemize}
-                \item fallen robot or inactive robot, \cf Section~\ref{sec:fallenrobots}
-                \item request for pick-up in the playing or ready state — either by the team or forced by the head referee, \cf Section~\ref{sec:request_for_pickup} and Section~\ref{sec:7vs7:referee}.
+                \item fallen robot or inactive robot, \cf \cref{sec:fallenrobots}
+                \item request for pick-up in the playing or ready state — either by the team or forced by the head referee, \cf \cref{sec:request_for_pickup} and \cref{sec:7vs7:referee}.
             \end{itemize}
-            These penalties are counted by the GameController operator and after that a robot with additional hardware related penalties is excluded for the rest of the game (they are transitioned into the unstiffed state by the assistant referees, \cf Section~\ref{sec:robot_states})!
+            These penalties are counted by the GameController operator and after that a robot with additional hardware related penalties is excluded for the rest of the game (they are transitioned into the unstiffed state by the assistant referees, \cf \cref{sec:robot_states})!
 
         \paragraph{Own Pushing}
-            In addition to the normal pushing rules, \cf Section~\ref{sec:player_pushing}, pushing may now occur between any robots, i.e., also between teammates.
+            In addition to the normal pushing rules, \cf \cref{sec:player_pushing}, pushing may now occur between any robots, i.e., also between teammates.
 
         \paragraph{Limited Diving}
-            Pool robots are not allowed to dive for the ball on purpose, \cf Section~\ref{sec:fallenrobots}, except for penalty kicks! In case of violation, the infringing robot will be taken out according to the forced ``Request for Pick-up'' rule, \cf Section~\ref{sec:7vs7:referee}, and therefore counts as a hardware related penalty, \cf Section~\ref{sec:7vs7:hardware_related_penalties}. However, this restriction does not apply to the team's own robots.
+            Pool robots are not allowed to dive for the ball on purpose, \cf \cref{sec:fallenrobots}, except for penalty kicks! In case of violation, the infringing robot will be taken out according to the forced ``Request for Pick-up'' rule, \cf \cref{sec:7vs7:referee}, and therefore counts as a hardware related penalty, \cf \cref{sec:7vs7:hardware_related_penalties}. However, this restriction does not apply to the team's own robots.
 
         \paragraph{Match Phases}
             Each match consists out of the following phases:
-            \paragraph{Robot check} Each team marks and checks its robots sent to the robot pool as described in Section~\ref{sec:robot_pool_evaluation} and reports its availability (1.5 hours before a match starts).
+            \paragraph{Robot check} Each team marks and checks its robots sent to the robot pool as described in \cref{sec:robot_pool_evaluation} and reports its availability (1.5 hours before a match starts).
             \paragraph{Setup} One hour before the match starts, the teams receive their randomly selected robots. They have now time for set-up and calibration. For calibration only one half of the field is available for a team. The area within the center circle is not allowed to be entered by the robots until the match starts.
             \paragraph{Game} During a match additional rules apply for the pool robots. Referees are asked to try to save the robots' hardware by catching them before they crash onto the ground.
             \paragraph{After game} Teams have time of \qty{15}{\minute} to return the pool robots to the pool.
@@ -112,7 +112,7 @@
 
     \subsubsection{Challenge Setup}
 
-        This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating a provided common image (see Section~\ref{sec:Challenge_image}) from another team. If more than one image exists, than multiple images will be provided and for each run a new one will be randomly selected.
+        This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating a provided common image (see \cref{sec:Challenge_image}) from another team. If more than one image exists, than multiple images will be provided and for each run a new one will be randomly selected.
 
         Attacking teams have to have their robots ready \qty{40}{\minute} before a run starts. Attacking robots are not allowed to be changed afterwards. Then the defending teams receive which randomly selected common image will be used. In that time the defending robots have to be flashed and calibrated.
 
@@ -142,7 +142,7 @@
         All six robots have to be in the Wi-Fi. In \texttt{initial} the robots get placed at their randomized starting positions. GC goes from \texttt{ready} directly into \texttt{set}. The ball gets placed, and the head referee starts the challenge execution with one whistle, like at kick-off. If a robot does not listen to the whistle, it will get the delayed \texttt{playing} signal from the GC.
 
         In \texttt{playing} the following happens: The 1st attacker plays the ball towards the 2nd or 3rd attacker while he is under attack by the 1st defender.
-        A pass counts as a valid pass if the ball stops in front of the receiving robot towards the opponent's goal. The ball has to stop in the vicinity of the receiving robot (at max \qty{1}{\metre} distance between receiver and ball, see~Figure~\ref{fig:ball_handling_positions}).
+        A pass counts as a valid pass if the ball stops in front of the receiving robot towards the opponent's goal. The ball has to stop in the vicinity of the receiving robot (at max \qty{1}{\metre} distance between receiver and ball, see~\cref{fig:ball_handling_positions}).
         The 1st defender does not walk back in its own half and the goalkeeper remains on the goal line and is not allowed to dive. The objective of the defending team is to intercept the passes, see stopping criteria.
 
         After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. The task of the 2nd or 3rd attacker is now to pass towards the 3rd or 2nd attacking robot, which than shots onto the goal.
