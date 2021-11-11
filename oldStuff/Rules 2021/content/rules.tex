@@ -454,9 +454,9 @@ When the head referee indicates \cbw{an infraction} has been committed that resu
 
 The GameController will send the appropriate penalty signal to the robot indicating the infraction committed. After a penalty is signalled to the robot, it is not allowed to move in any fashion. The removed robot will be placed outside of the field facing away from the field of play.
 
-The initial duration of the standard removal penalty time is \StandardPenaltyTime.
+The initial duration of the standard removal penalty time is \qty{\StandardPenaltyTime}{\second}.
 Unless otherwise specified, the penalty time increases by \StandardPenaltyIncrease each time a team commits any infraction.
-That is, the first infraction will result in a penalty time of \StandardPenaltyTime, the second infraction (of any type) results in a penalty time of 55 seconds, the third infraction is 65 seconds, etc.
+That is, the first infraction will result in a penalty time of \qty{\StandardPenaltyTime}{\second}, the second infraction (of any type) results in a penalty time of 55 seconds, the third infraction is 65 seconds, etc.
 
 During the \emph{set} state the penalty time counter will not decrease.
 
@@ -520,8 +520,8 @@ The offending robot is penalized \textit{in-place} on the field. It will then be
 \subsubsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}
 
-If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be penalized and removed for \StandardPenaltyTime.
-A robot which is unable to autonomously stand up within 20 seconds after a fall \cbw{and be at least 10 seconds upright} will be penalized and removed for \StandardPenaltyTime. 
+If a robot falls during the game, it should start executing a getup action within 5 seconds. If it does not commence a get up action within 5 seconds, it will be penalized and removed for \qty{\StandardPenaltyTime}{\second}.
+A robot which is unable to autonomously stand up within 20 seconds after a fall \cbw{and be at least 10 seconds upright} will be penalized and removed for \qty{\StandardPenaltyTime}{\second}. 
 In both cases, the head referee will call ``Fallen Robot  \textless robot\textgreater''.
 
 \cbw{\textbf{No robot}} is permitted to `dive' (that is deliberately fall in a way that might cause its torso, arms or hands) to intercept the ball. The robots should be programmed to attempt to remain upright -- that is, supported by its feet.

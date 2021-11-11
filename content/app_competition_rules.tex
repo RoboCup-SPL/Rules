@@ -1,0 +1,152 @@
+\section{The Official RoboCup Competition Rules}
+\label{sec:comRules}
+This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international RoboCup competition.
+
+\subsection{Qualification Procedure and Code Usage}
+\label{sec:qualification_procedure_codeuse}
+
+The qualification procedure as well as the corresponding deadlines will be announced by the Technical Committee before qualification applications are accepted.
+
+The RoboCup Standard Platform League offers unique possibilities to use code from other teams. In spirit of the RoboCup every team is generally allowed to use code from other teams to push the league further with their own research.
+This use must be cited.
+However, every participant of RoboCup \textbf{\textit{has a duty}} to contribute to the league.
+
+To qualify, every team must make at least \textit{novel contribution} within their soccer software.
+A team must have made at least one contribution within the last \NovelContributionTime.
+Contributions outside of this period are no longer considered sufficiently novel and a team must make at least one \textit{new} contribution.
+It is also \textit{mandatory} for a team to use their novel contribution in all competition games.
+A novel contribution is:
+\begin{itemize}
+  \item Research publishable contribution to a \textit{game critical module}
+  \item Complete replacement of a \textit{game critical module}, with original software. This may not necessarily be necessarily research publishable, but must be of equivalent scale and quality to research publishable work.
+\end{itemize}
+
+It is not a novel contribution to replace a module with code copied from another source, or to simply train a machine-learning model released by another team using new data.
+
+As of the 2022 competition, the following are recognized as game critical modules:
+Ball detection, Robot detection, Robot vision (not otherwise listed), Localization, Walk/Kick engine, Dynamic stabilization, Behavior Architecture, \& Distribution computation, Whistle detection.
+
+As of the 2022 competition, the following are \textit{not} recognized as sufficiently game critical (even if the ability to play soccer depends on these):
+Hand-written Soccer Behaviors, Natural Language detection, \& Robot and GC Communication.
+
+In their qualification application, teams may petition the technical committee to recognize other novel contributions not listed here.
+Additionally, a team that has participated at RoboCup for at least \NovelContributionTime consecutively may petition the technical committee to recognize contributions to non-game critical modules, such as developing infrastructure for the league\footnote{However, the technical committee should balance whether a team is continuing to use their own software in games.}.
+A team may also petition for the technical committee to reconsider the list of game critical and non-game critical modules.
+Successful petitions will be public ally announced to the league for transparency.
+%For example, a team may petition and provide evidence that their work on the whistle detection is substantial and game critical, thus satisfying the requirements of a novel contribution.
+
+If a team that is otherwise eligible for qualification cannot provide sufficient evidence of the required contributions by the deadline for applications, then that team may be qualified for RoboCup \textit{on probation}.
+In this case, the team must provide evidence of the required contributions to become \textit{fully} qualified by the registration deadline of the RoboCup event.
+If no suitable evidence is provided, the team's probationary qualification will lapse.
+
+Every applicant must also bring a poster containing the team's contribution, focused on the current year, to the RoboCup event to share their contributions with the other teams.
+
+Failure to meet any of these requirements will result in a qualification penalty for subsequent years.
+
+\subsection{Game Structure}
+
+The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
+
+\subsection{Winner and Rankings}
+\label{sec:rankings}
+
+The team which scored more goals than the other is the winner of the match. If the two teams scored the same number of goals, the game will be a draw. The draw will follow the same system defined in Section~\ref{sec:game_struct}. Total (and final) standings will be decided on points as follows (the points will be given based on the result of each game):
+
+\makebox[\columnwidth]{ \hfill Win = 3 pts\hfill Draw = 1 pt \hfill
+Lose = 0 pts\hfill }
+
+If a team's obtained points is the same as another team's after a round of pool play is complete, the following evaluations will be applied in order to qualify the finalists.
+
+\begin{enumerate}
+
+\item The points obtained
+
+\item The difference between goals for and goals against per game
+
+\item The average goals for per game
+
+\item Game result between the teams directly
+
+\end{enumerate}
+
+\subsection{Champions Cup and Challenge Shield}
+\label{sec:twoCompetitions}
+In order to provide better matched games for teams of all abilities the RoboCup Standard Platform League shall be divided into two separate competitions: the Champions Cup for the strongest teams and the Challenge Shield for all other teams. Final assignment of teams to each competition occurs at RoboCup based on initial game performance.
+
+There are 24 qualified teams.
+
+All teams who qualify for participation in the RoboCup SPL are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.) The top 12 teams (by rank) will be Champions Cup candidates and the remaining teams will be Challenge Shield candidates.
+
+All Champions Cup candidates play a single qualifier round-robin stage comprising 4 groups of 3 teams each. All Challenge Shield candidates play a similar qualifier round-robin stage also consisting of 4 groups of 3 teams each. Each Champions Cup qualifier group will consist of one team ranked 1-4, one team ranked 5-8, and one team ranked 9-12. Each of the teams ranked 13-16 will be placed in a different Challenge Shield group. Remaining Challenge Shield qualifier group places will be filled by random selection from teams ranked 17-24.
+
+The top 2 teams in each Champions Cup qualifier group proceed automatically to the Champions Cup proper. Similarly, the lower 2 teams in each Challenge Shield qualifier group proceed automatically to the Challenge Shield. The 4 remaining Champions Cup candidates (losers in each group) play the remaining Challenge Shield candidates (winners in each group) in the so-called promotion round and the winners of these games go to the Champions Cup while the losers go to the Challenge Shield. Thereafter, the Champions Cup and Challenge Shield competitions shall proceed independently of each other and each will normally consist of a round-robin stage, followed by an intermediate round and a knockout competition. In the intermediate round the second and third placed team of each group coming from the second round-robin will play against a team from another group for a spot in the quarter-final.
+
+\subsection{Referee Selection and Requirements}
+\label{sec:refSelection}
+During pool play, the games will be refereed by members of teams from a different pool.
+
+Each team has to referee a number of games. A schedule will be released specifying the games for which each team is required to provide two referees. Referees should report to the appropriate field at least five minutes before the game is scheduled to start.
+
+If a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee and recorded as a \textbf{qualification penalty} (Section~\ref{sec:qualificationPenalties}).
+
+For each of the games, a team will be required either to provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill. Note, however, that the head referee and the GameController should always be from the same team.
+
+A team may swap their scheduled refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
+
+The requirement to referee may be an extreme hardship for extremely small teams.  If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.  The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
+
+Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+
+In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
+
+
+\subsection{Subsequent Year Pre-Qualification Procedure}
+\label{sec:preQual}
+Up to 11 teams may become pre-qualified for the subsequent year's team competition by fulfilling one of the following criteria:
+\begin{itemize}
+    \item Reaching the quarter-finals of the Champions Cup
+    \item Reaching the final of the Challenge Shield
+    \item Being the team with the best overall result in the technical challenges that is not pre-qualified by other means, and finishing at worst 5th in the technical challenges.
+\end{itemize}
+
+However, pre-qualified teams must do all the following in order to remain pre-qualified:
+\begin{itemize}
+\item Post in a publicly available location a team research report describing their work for the 2019 competition
+\item Publicly release code from that year's codebase, either in the form of a complete release (perhaps without behavior) or limited libraries.  This release must be documented and coded in a way where it can be used by others.
+\item Submit a shortened application as required by the call for participation for the subsequent year's competition.
+\end{itemize}
+
+\subsection{Qualification Penalties}
+\label{sec:qualificationPenalties}
+
+There are a number of offenses which lead to qualification penalties being recorded against a team. These are as follows:
+\begin{itemize}
+    \item Withdrawing from RoboCup after the final commitment deadline
+    \item Failing to referee when assigned (Section~\ref{sec:refSelection})
+    \item Forfeiting a game (Section~\ref{sec:forfeit})
+\end{itemize}
+
+A team cannot be pre-qualified for RoboCup in the year following a qualification penalty. Furthermore, a qualification penalty is considered by the Technical Committee when reviewing applications and will negatively affect the assessment of a team's application. Multiple penalties accumulate and will result in an even more negative assessment of a team's application. Qualification penalties are considered for a period of three years following the offense.
+
+Whenever a qualification penalty is recorded, all relevant details including any possible mitigating circumstances are also recorded and these will also inform the assessment of a team's application.
+
+\subsection{Disqualification during Competition}
+\label{sec:disqualification_during_comp}
+
+A team may be disqualified during the RoboCup competition for:
+\begin{itemize}
+  \item A serious violation of the terms of a team's qualification
+  \item Gaining a Qualification Penalty during the course of the competition~(\cf Section~\ref{sec:qualificationPenalties})
+  \item A serious breach of ethics, or serious behavior unbecoming of participants of RoboCup.
+\end{itemize}
+
+\textbf{Example.} A team promises to use their novel contribution in RoboCup games, but fails to do so.
+Alternatively, a team deliberately misleads the technical committee about the novelty of their work and/or their contribution to the league, such that they are deemed to have copied another team.
+
+A team can \textit{only} be disqualified by a decision of the \textit{Board of Trustees of the RoboCup Federation}.
+The RoboCup Soccer SPL executive must petition the board in writing at their soonest possible availability.
+The executive must simultaneously inform the relevant team of the petition in writing.
+
+A disqualified team automatically forfeits all games~(\cf Section~\ref{sec:forfeit}).
+For practicality, the disqualification should not apply \textit{retroactively}.
+However, by majority vote of the team leaders, provisions for retroactive disqualification may be made in the fairness of the affected teams.

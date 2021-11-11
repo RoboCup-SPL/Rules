@@ -19,3 +19,7 @@
 *-eps-converted-to.pdf
 *.fdb_latexmk
 *.fls
+
+.vscode/
+
+SPL-Rules.pdf
