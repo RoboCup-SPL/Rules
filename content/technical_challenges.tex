@@ -3,7 +3,7 @@
 \subsection{7 vs. 7}
     This competition extends the ideas from the mixed team competition, and 1 vs. 1 remote challenge from RoboCup 2021 to a standardized 7 vs. 7 on-site competition. Another goal is to enforce more collaborative game play. This challenge will only be executed if at least four teams participate.
 
-    \subsubsection{Condition for participation} % PG
+    \subsubsection{Condition for participation}
     \label{sec:7vs7:condition_for_participation}
         \begin{itemize}
             \item A 7 vs. 7 team can be build from a single team but also from multiple teams.
@@ -35,6 +35,7 @@
             The robot pool exists only virtually, so that there is no central location where all pool robots are stored. Each team is also allowed to use their own pool robots when they are not in use. However, each pool robot gets a unique ID and in order to be able to recognize the pool robots visually, a sticker is attached to the outer sides of the upper arms and on the back of the head.
 
         \paragraph{Robot Pool Evaluation}
+            \label{sec:robot_pool_evaluation}
             In order to guarantee that the pool robots are functional, and all parts are working within their limits each team has to provide a proof of functionality one hour before a specific pool robot is planned for a game. Also, the team has to ensure that this robot had at least a cooldown period of \qty{15}{\minute} and is charged to at least \qty{80}{\percent}.
             A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within a given time \todo{set time} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the 2022-06-01\todo{set deadline}, as well as additional tests which should be included in such an evaluation image. A manual how to use the custom image should also be included.
 
@@ -54,11 +55,15 @@
         \paragraph{Limited Diving}
             Pool robots are not allowed to dive for the ball on purpose, \cf Section~\ref{sec:fallenrobots}, except for penalty kicks! In case of violation, the infringing robot will be taken out according to the forced ``Request for Pick-up'' rule, \cf Section~\ref{sec:7vs7:referee}, and therefore counts as a hardware related penalty, \cf Section~\ref{sec:7vs7:hardware_related_penalties}. However, this restriction does not apply to the team's own robots.
 
-        \paragraph{Setup}
-            
+        \paragraph{Match Phases}
+            Each match consists out of the following phases:
+            \paragraph{Robot check} Each team marks and checks its robots sent to the robot pool as described in Section~\ref{sec:robot_pool_evaluation} and reports its availability (1.5 hours before a match starts). 
+            \paragraph{Setup} One hour before the match starts, the teams receive their randomly selected robots. They have now time for set-up and calibration. For calibration only one half of the field is available for a team. The area within the center circle is not allowed to be entered by the robots until the match starts.
+            \paragraph{Game} During a match additional rules apply for the pool robots. Referees are asked to try to save the robots' hardware by catching them before they crash onto the ground.
+            \paragraph{After game} Teams have time of \qty{15}{\minute} to return the pool robots to the pool.            
 
         \paragraph{Mode}
-            The mode will be determined after teams have registered. At least 4 teams should register, before the challenge will be executed. The selected mode (group phase, double elimination, Swiss system tournament) will be determined after teams have registered. 
+            The mode will be determined after teams have registered. At least 4 teams should register, before the challenge will be executed. The selected mode (e.g., group phase, double elimination, Swiss system tournament) will be determined after teams have registered. 
 
 \subsection{Visual Referee Challenge}
 
