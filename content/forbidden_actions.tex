@@ -26,7 +26,7 @@ Unless otherwise specified, the penalty time increases by \qty{\StandardPenaltyI
 
 During the \emph{set} state the penalty time counter will not decrease.
 
-The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is \qty{10}{\second} from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in Figure~\ref{fig:penalty_re-entry_points}.
+The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is \qty{10}{\second} from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in \cref{fig:penalty_re-entry_points}.
 
 If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline. When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
 
@@ -65,7 +65,7 @@ A robot that damages the field, or poses a threat to spectator safety, will be r
 \subsection{Illegal Positioning}
 \label{sec:illegal_positioning}
 
-A robot penalized under illegal position has the ``Illegal Position'' penalty applied. Illegally positioned robots are subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty}).
+A robot penalized under illegal position has the ``Illegal Position'' penalty applied. Illegally positioned robots are subject to the standard removal penalty (\cf \cref{sec:removal_penalty}).
 The head referee will call ``Illegal Position  \textless robot\textgreater''.
 Referees may interchange ``Illegal Position'' with ``Illegal Defender'' or ``Illegal Attacker'' to help with clarity.
 
@@ -73,7 +73,7 @@ Illegal positions are descried below.
 
 For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty kick) do not count towards the incremental penalty count.
 
-Refer to Section~\ref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
+Refer to \cref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
 
 \subsubsection{Position for Kick-off}
 If a robot is not inside its own half at the time the Set state starts, it will be penalized and removed for \qty{15}{\second}. The center line does not count as part of the own half for this penalty, although the area inside the goal does.
@@ -88,11 +88,11 @@ If an illegal defender kicks an own goal, the goal is scored for the opponent. I
 
 \subsubsection{Center Circle, during Kick-off}
 
-The penalty is applied to defensive players that enter the center circle after a kick-off before the ball is in play (\cf Section~\ref{sec:kick-off}).
+The penalty is applied to defensive players that enter the center circle after a kick-off before the ball is in play (\cf \cref{sec:kick-off}).
 
 \subsubsection{Defender Encroachment, during Free-kick}
 
-If a robot of the offending team does enter or not attempt to leave the \FreeKickRadius area around the ball after a Free Kick (\cf Section~\ref{sec:free_kick}) was called, ``Illegal Position'' is called. This rule does not apply for the goalkeeper robot within its own goal area. Note that the referee should not look for exact distances and rather penalize only those robots who clearly violate this rule. As a guideline, the robots of the offending team should clear the ball within \qty{10}{\second}.
+If a robot of the offending team does enter or not attempt to leave the \FreeKickRadius area around the ball after a Free Kick (\cf \cref{sec:free_kick}) was called, ``Illegal Position'' is called. This rule does not apply for the goalkeeper robot within its own goal area. Note that the referee should not look for exact distances and rather penalize only those robots who clearly violate this rule. As a guideline, the robots of the offending team should clear the ball within \qty{10}{\second}.
 
 \subsubsection{Penalty Area, during Penalty Kick}
 
@@ -133,7 +133,7 @@ When Local Game Stuck is called, the nearest robot to the ball will be penalized
 \subsection{Ball Holding}
 \label{sec:ball_holding}
 
-The goalkeeper is allowed to hold the ball for up to \qty{10}{\second} as long as it has one foot inside in its own penalty area.  In all other cases (except those noted in Section~\ref{sec:situations_no_ball_holding}), robots are allowed to hold the ball for up to \qty{3}{\second}. Holding the ball for longer than this is not allowed.
+The goalkeeper is allowed to hold the ball for up to \qty{10}{\second} as long as it has one foot inside in its own penalty area.  In all other cases (except those noted in \cref{sec:situations_no_ball_holding}), robots are allowed to hold the ball for up to \qty{3}{\second}. Holding the ball for longer than this is not allowed.
 The head referee will call ``Ball Holding \textless robot\textgreater'', and the robot removed under the standard removal penalty.
 The ball should be removed from the possession of the robot and placed where the penalty occurred.
 If the robot that held the ball has moved the ball before the robot can be removed, the ball shall be replaced where the penalty occurred.
@@ -182,13 +182,13 @@ The head referee will call ``Pushing \textless robot\textgreater''.
 
 If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infraction.
 
-A \textbf{Pushing Free Kick}, see~Section~\ref{sec:free_kick}, is awarded against the robot penalized for pushing
+A \textbf{Pushing Free Kick}, see~\cref{sec:free_kick}, is awarded against the robot penalized for pushing
 \begin{itemize}
   \item[1.] if the robot are in an approximately \qty{0.5}{\metre} radius around the ball and
   \item[2.] if the pushed robot was \textbf{not} inside the penalty area of the pushing robot.
 \end{itemize}
 
-A \textbf{Penalty Kick}, see~Section~\ref{sec:penalty_free_kick}, is awarded against the robot penalized for pushing
+A \textbf{Penalty Kick}, see~\cref{sec:penalty_free_kick}, is awarded against the robot penalized for pushing
 \begin{itemize}
   \item[1.] if the robot are in an approximately \qty{0.5}{\metre} radius around the ball and
   \item[2.] if the pushed robot was inside the penalty area of the pushing robot.
@@ -211,12 +211,12 @@ The following exceptions define situations where pushing does not apply:
 
 Playing with arms/hands occurs when a field player (including a defender) or a goalkeeper outside its own goal area moves its arms/hands to touch the ball (except during a fall or get-up). A robot playing with arms/hands will be subject to the standard removal penalty and the ball will be replaced at the point where it contacted the arms/hands of the offending robot.  If an own goal is scored as a result, the goal should count and the player should not be penalized.
 
-Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (\cf Section~\ref{sec:kick_in}). However, goals (except for own goals) resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a Goal Kick (\cf Section~\ref{sec:free_kick}) as if the ball went over the goal line next to the goal.
+Accidental playing with arms/hands when a robot falls or executes a get-up routine will not be penalized. If the ball goes out of play in this case, normal kick-in rules will apply (\cf \cref{sec:kick_in}). However, goals (except for own goals) resulting from a ball contact with the arms/hands during a fall or get-up do not count and result in a Goal Kick (\cf \cref{sec:free_kick}) as if the ball went over the goal line next to the goal.
 
 \subsection{Leaving the Field}
 \label{sec:leaving_field}
 
-A robot that intends to leave the \qty{\TotalWidth}{\metre} $\times$ \qty{\TotalLength}{\metre} carpeted area will be subject to the standard removal penalty (\cf Section~\ref{sec:removal_penalty}).
+A robot that intends to leave the \qty{\TotalWidth}{\metre} $\times$ \qty{\TotalLength}{\metre} carpeted area will be subject to the standard removal penalty (\cf \cref{sec:removal_penalty}).
 The head referee will call ``Leaving the Field \textless robot\textgreater''.
 
 Additionally, a robot will also be subject to the standard removal penalty, when:
@@ -233,7 +233,7 @@ During a match, any robot shall never jam the communication and the sensor syste
 
 \begin{description}
 
-  \item[Wireless communication.] Each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format (\cf Section~\ref{sec:wireless}). If a robot uses a different protocol or sends too much data in a game, penalties will apply. If a team violates this rule in multiple games, disqualification from the tournament (including all technical challenges and side competitions) as well as an entry in the penalty list will be the consequence. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using \qty{2.4}{\giga\hertz} or \qty{5}{\giga\hertz} radio equipment (including cellular phones and/or Bluetooth devices).
+  \item[Wireless communication.] Each robot is only allowed to send a limited number of UDP messages that have to comply with a predefined format (\cf \cref{sec:wireless}). If a robot uses a different protocol or sends too much data in a game, penalties will apply. If a team violates this rule in multiple games, disqualification from the tournament (including all technical challenges and side competitions) as well as an entry in the penalty list will be the consequence. Except for the wireless cards and the access points provided by the organizers of the competition, nobody close to the field is allowed using \qty{2.4}{\giga\hertz} or \qty{5}{\giga\hertz} radio equipment (including cellular phones and/or Bluetooth devices).
 
   \item[Whistle interference.] Both the teams and the audience shall avoid intentionally confusing the robots by producing similar sounds to the game whistle.
 

@@ -32,7 +32,7 @@ Each of the four field players has a jersey number from the set $\{2, 3, 4, 5, 6
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots use colored jersey shirts as team markers. Each jersey shirt has a player number (1-6) printed on it.  The team markers are worn as shown in Figure~\ref{fig:nao_markers}.
+Robots use colored jersey shirts as team markers. Each jersey shirt has a player number (1-6) printed on it.  The team markers are worn as shown in \cref{fig:nao_markers}.
 
 \begin{figure}
   \centerline{\begin{tabular}{lll}
@@ -48,7 +48,7 @@ Teams may use any jersey that was approved for a RoboCup SPL competition in the 
 
 Teams may design and manufacture their own jerseys in any color (multi and many color jerseys are acceptable), but must follow these guidelines:
 \begin{itemize}
-\item Jerseys should be the \textbf{tank top} style used at RoboCup 2013/2014 and should cover approximately the same areas of the robot as shown in Figure~\ref{fig:nao_markers}. The torso LED must be clearly visible. Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required. Jerseys may not cover the shoulders of the robots.
+\item Jerseys should be the \textbf{tank top} style used at RoboCup 2013/2014 and should cover approximately the same areas of the robot as shown in \cref{fig:nao_markers}. The torso LED must be clearly visible. Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required. Jerseys may not cover the shoulders of the robots.
 \item Jerseys must have a primary color that comprises at least \qty{70}{\percent} of the jersey.
 \item Jerseys should not contain distractors, such as large pictures of SPL balls or white stripes on green jerseys.
 \item All players on a team must wear identical jerseys, including the goalkeeper.
@@ -66,7 +66,7 @@ Some teams wish to include additional information or logos on their robots. The 
 \begin{itemize}
   \item Attaching player numbers to the heads and/or legs of the robots. These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
 
-  \item Adding sponsor or team logos to the upper legs of the robots (\cf Figure~\ref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a \qty{25}{\square\centi\metre} area. At most one logo may be attached per leg - if you wish to attach more than one logo per leg, email the Technical Committee at least two weeks before the competition. Depending on the size and design of the logos, this may be allowable.
+  \item Adding sponsor or team logos to the upper legs of the robots (\cf \cref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a \qty{25}{\square\centi\metre} area. At most one logo may be attached per leg - if you wish to attach more than one logo per leg, email the Technical Committee at least two weeks before the competition. Depending on the size and design of the logos, this may be allowable.
 
   \item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
 \end{itemize}
@@ -114,7 +114,7 @@ Teams and their robots must not listen into another team's communication.
 Robots are not allowed to be connected to access points of fields that are currently running official games of other teams.
 Robots may only communicate on fields that are not running an official game or fields which they are playing on.
 
-The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in Section~\ref{sec:robot_states}.
+The GameController will use UDP to connect to the robots. The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots. They correspond to the \emph{robot states} described in \cref{sec:robot_states}.
 
 Robots send status updates (defined in \emph{RoboCupGameControlData.h}) to the GameController. These return packets must be addressed directly to the GameController PC (\ie not broadcast) and sent on the GameController return UDP port specified by the symbol \verb!GAMECONTROLLER_RETURN_PORT! in \emph{RoboCupGameControlData.h}.
 
