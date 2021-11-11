@@ -96,16 +96,16 @@ Wireless robot-to-robot communication among the robot players is allowed, as lon
 
 Each team will be assigned a range of IP-addresses that can be used for robot-to-robot communication. Each team will also be allocated a single UDP port for network broadcasts. Specifically, a team's port will be 10000 plus that team's GameController number. All robot-to-robot communication during matches must be sent via UDP broadcast. Unicast communication between robots is prohibited.
 
-The amount of data transmitted by a team in a single game is limited. The limit is measured as the total number of UDP packets sent by any robots of a team. A team may not exceed \TeamMessageLimit packets per game. This limit will be lowered in future competitions to encourage smart event-based communication. If a team exceeds their limit the game is scored with 0 goals for the offending team.
+The amount of data transmitted by a team in a single game is limited. The limit is measured as the total number of UDP packets sent by any robots of a team. A team may not exceed \TeamMessageLimit packets per game. This limit will be lowered in future competitions to encourage smart event-based communication. If a team exceeds their limit the game is scored with 0 goals for the offending team. Robot-to-robot communication that violates the SPL rules result in a game scored with 0 goals for the offending team (even when discovered after the game was finished).
 
 The GameController tracks the number of messages that have already been sent and includes the counters per team in \texttt{RoboCupGameControlData}.
 
 In addition to robot-to-robot communication, robots may send:
 \begin{itemize}
- \item Official status packages that are sent to the GameController.
+ \item Additional status update packages that are sent to the GameController.
  \item Team specific debug information may be sent to an external computer owned by the team. A robot may send debug information at most once every 2 seconds in a single UDP packet.
 \end{itemize}
-These additional packages do not count towards the team's data limit and may not be used for robot-to-robot communication.
+These additional packages do not count towards the team's data limit and may not be used for robot-to-robot communication. They must be sent as unicast and may not be sent as broadcast.
 
 Teams and their robots must not listen into another team's communication.
 
