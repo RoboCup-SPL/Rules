@@ -63,7 +63,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
 \end{figure}
 
 The referee will announce the start of the \textit{Playing} state with a single whistle blow.
-The GameController Playing signal will be delayed by \PlayingDelayTime.
+The GameController Playing signal will be delayed by \PlayingDelayTime seconds.
 This delay applies to both kick-off and penalty shots.
 Robots that begin moving their legs or move in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf Section~\ref{sec:motion_in_set}) GameController signal until the GameController transmits the \emph{playing signal}. A robot will be moved back to its original position if it has moved significantly before becoming penalized.
 Note that responding to a whistle on another field will result in this penalty.
