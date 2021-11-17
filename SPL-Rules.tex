@@ -26,7 +26,7 @@
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
-\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 
 % comment 'disable' in to disable all the todo notes :)
@@ -38,7 +38,8 @@
 \sloppy
 \newcommand{\ie}{\mbox{i.\,e.}\xspace}
 \newcommand{\eg}{\mbox{e.\,g.}\xspace}
-\newcommand{\cf}{\mbox{cf.}\xspace}
+%\newcommand{\cf}{\mbox{cf.}\xspace}
+\newcommand{\cf}{see\xspace}
 \newcommand{\comment}[1]{\marginpar{\pdfannot width 4in height .5in depth 8pt {/Subtype /Text /Contents (#1)}}}
 \newcommand{\inparagraph}[1]{\paragraph{#1\hspace{-1em} }}
 
@@ -117,13 +118,16 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 
 The soccer field consists of 8mm artificial turf mounted on a flat wooden base with a total area of length \TotalLength and width \TotalWidth.  Care should be taken to ensure the field is as flat and level as possible.  Additionally, the wooden base should be well supported and should not give when humans stand or walk on it.
 
-The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. Note that the penalty cross is a cross and there is a dash at center field. White field lines can be made of the same 8mm artificial turf, but in white (\ie, made of white artificial turf), spray painted or taped. Regardless of the solution, the field lines must be durable throughout the competition.
+The dimensions of the soccer field are shown in Figure~\ref{fig:field_dim}. 
+A more detailed technical drawing is provided in Appendix~\ref{apx:technical-drawing} to this document.
+Note that the penalty cross is a cross and there is a dash at center field. White field lines can be made of the same 8mm artificial turf, but in white (\ie, made of white artificial turf), spray painted or taped. Regardless of the solution, the field lines must be durable throughout the competition.
 
 The construction and placement of the goals is depicted in Figure~\ref{fig:goal_dimensions} and Figure~\ref{fig:goal_appearance}. The support structure for the net shall be made with small black, white, or gray bars or cylinders.  The support structure shall be constructed exactly as shown in Figure \ref{fig:goal_appearance}.
 
 
 \begin{figure}[b!]
 \centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2015.pdf}}
+%\centerline{\includegraphics[width=\columnwidth]{figs/fieldDimensions2020.pdf}}
 \vspace{1ex}
 \begin{tabular}{| l | l | l |}
 ID & Description & Length (in mm) \\
@@ -361,8 +365,7 @@ The head referee signals the commencement of each half with a single whistle blo
 The head referee signals the end of the first half with two short whistle blows, and the end of the second half with two short plus one long whistle blow.
 The head referee should make \textit{all} of these whistle sounds from the T-junction of the half-way line.
 
-The teams will change the goal defended during the half-time break.
-\change{Would change it to: To teams of robots will change ...\newline\newline The reason would be to it previous and later sections "teams" are referenced as the humans who program but we want the robots to change the sides}
+The teams/robots will change the goal defended during the half-time break.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=0.9\columnwidth]{figs/states.pdf}}
@@ -437,13 +440,13 @@ The GameController signal (to the robots) of a goal being scored, will be delaye
 
 \subsubsection{Indirect Kick}
 
-The attacking team may only score a goal from any restart in play (Kick-off, Kick-in, Free-Kick) except for a Penalty Free-Kick, by an indirect kick.
+From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick, the attacking team may only score a goal via an indirect kick
 
 An indirect kick requires the ball is touched by \textit{two} different robots from the attacking team. The ball must also travel at least 0.75m from the point of restart in play for the second touch to satisfy the indirect kick.
 \textit{(proposed TW) If a robot from the defending team deliberately plays at the ball, an indirect kick is no longer required.}
 
 The attacking team must also have at least two robots, that are not the goalkeeper on the field, for an indirect kick to be required.
-\change{I would suggest to write it in a different way, since it is allowed to use the goaly to play on the entire field. My suggestion:
+\change{I would suggest to write it in a different way, since it is allowed to use the goalie to play on the entire field. My suggestion:
 An indirect kick requires the ball is touched by \textit{two} different robots. The ball must also travel at least 0.75m from the point of restart in play for the second touch of a different robot of the same team to satisfy the indirect kick. If a team has only one robot left, it is required that a robot of the opponents team touches the ball before a goal can be scored.}
 
 %    \item If the ball is touched by a legally positioned defending robot after the restart in play, the indirect kick is satisfied.
@@ -479,7 +482,7 @@ Once the robots receive the \emph{ready} signal from the GameController, they ar
 \subsection{Kick-off}
 \label{sec:kick-off}
 For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}. 
-Robots that do not listen to the GameController will be placed manually \change{(see Figure\,\ref{fig:ko})}, if positioned legally.
+Robots that do not listen to the GameController will be placed manually~(see Figure~\ref{fig:ko}), if positioned legally.
 Until the game is (re)started, they are in the \emph{penalized} state.
 %It is to a team's advantage to have their robots listen to the GameController.
 
@@ -493,16 +496,18 @@ The green carpet border, except for the area the goal, is not part of either tea
 
 In the \emph{set} state, the robots must not locomote~(\cf Section~\ref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during Set it is replaced by one of the referees.
 
-During the \textit{set} state, the team leader may request manual placement \change{for} all robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties.
+During the \textit{set} state, the team leader may request manual placement for all robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties.
 Note that the, ``Motion in Set'' penalty persists for those players after manual placement. All robots that are penalized for other infractions will stay at the sideline until their penalty time is over.
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/manual-placement-2015.pdf}}
-\caption{Manual setup for kick-off.  The attacking team is on the right. **IMAGE OUT-OF-DATE}
+\centerline{\includegraphics[width=\columnwidth]{figs/manual-placement-2020.png}}
+\caption{Manual setup for kick-off.  The attacking team is on the right.}
 \label{fig:ko}
 \end{figure}
 
-The legal positions for manually positioned robots are shown in Figure~\ref{fig:ko}. The kicking-off robot is placed such that its feet touch the center circle (but are not inside it), right in front of the penalty mark. The goal keepers for each team are placed at the center of the penalty box, with their feet immediately in front of the end-line.
+The positions for manually positioned robots are shown in Figure~\ref{fig:ko}. The kicking-off robot is placed such that its feet touch the center circle (but are not inside it), right in front of the penalty mark. The goal keepers for each team are placed at the center of the goal, with their feet immediately in front of the end-line.
+The other robots are positioned relative to the penalty spot, with one robot on the spot, and others outside of the penalty box.
+
 To assist the referees in placing the robots manually when needed or requested, small Xs will be marked on the field using a black felt-tip pen in the spots where manually placed robots should go.  These marks should be small, such that they are visible to humans but invisible to robots.
 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
@@ -573,18 +578,12 @@ When necessary, the referee may need to place the ball.
 For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see Section~\ref{sec:player_pushing}).
 If the ball left the field, the ball will be positioned as described in Section~\ref{sec:kick_in}.
 
-During the Free Kick:
-\begin{itemize}
-    \item Only the attacking may approach within \FreeKickRadius to the ball. The robots of the defensive team must move away from the ball (\cf Section~\ref{sec:illegal_positioning}).
-    \item Only the defensive Goal Keeper may remain within the \FreeKickRadius radius, provided that the Goal Keeper is within the Penalty Box, and does not touch the ball.
-    \item Defensive robots that violate (a) or (b) are penalized with the ``Illegal Position'' penalty (see Section~\ref{sec:illegal_positioning} for details) which results in a standard removal penalty (see Section~\ref{sec:removal_penalty}).
-    \item Additional penalties against any further robots, including Pushing, do not result in an additional Free
-    Kick, but still use the appropriate removal penalty.
-\end{itemize}
+During the Free Kick, only the attacking may approach within \FreeKickRadius to the ball, with the exception of the defensive goalkeeper. All other robots of the defensive team must move away from the ball. The defensive goalkeeper may be within the \FreeKickRadius radius, provided that it is within the Penalty Box and does not touch the ball. Defensive robots that violate these restrictions are penalised with the ``Illegal Positioning'' penalty (see Section~\ref{sec:illegal_positioning}) which results in a standard removal penalty~(see Section~\ref{sec:removal_penalty}). 
+Additional penalties against any further robots during the free kick, including Pushing, do not result in an additional Free Kick, but still use the appropriate removal penalty.
 
 A Free Kick is deemed completed and play returns to normal if:
 \begin{itemize}
-    \item The attacking team touches the ball. A robot getting up is exempt from this rule.
+    \item The attacking team touches the ball, except for a robot getting up which is exempt from this rule.
     \item The \FreeKickTime time period expires (or the game time expires).
 \end{itemize}
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController
@@ -602,7 +601,8 @@ Robots have \PenaltyFreeKickSetupTime to get into position for the Penalty Free 
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Free Kick to commence.
 Standard penalties apply.
 Additionally, only the goalkeeper robot from the defending team may be within the penalty box. The goalkeeper robot must also be touching the goal line. 
-Only one robot from the attacking team may be within the penalty box, and it may not block the penalty spot. 
+Only one robot from the attacking team may be within the penalty box, and it may not block the penalty spot.
+Blocking the penalty spot is considered to be an illegal position.
 All robots that do not reach legal positions will be penalized with the ``Illegal Positioning'' penalty~(\cf Section~\ref{sec:illegal_positioning}).
 
 Where a team uses the push-button interface, or the wireless is unavailable, then at the beginning of the ready state, the referees will use the button interface to manually penalise all robots in-place.
@@ -632,8 +632,7 @@ The Penalty Free Kick is deemed completed if:
 \end{itemize}
 
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController
-resumes the game state \emph{playing}. Note that the substate will be automatically left after the \PenaltyFreeKickTime time period expires.
-\change{Should we note that after the Penalty free Kick is complet all normal rules apply, just as a note?}
+resumes the game state \emph{playing}. Note that the substate will be automatically left (returning to the \textit{playing} state) after the \PenaltyFreeKickTime time period expires.
 
 \subsection{Game Stuck}
 \label{sec:game_stuck}
@@ -837,8 +836,8 @@ If there is another robot already in this position, the robot should be replaced
 With approximately 5 seconds left before the penalty ends, the robot should be turned to face towards the opposite sideline.
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points.pdf}}
-\caption{For robots coming back from a standard removal penalty, re-entry points lie in their own half, on the sideline on the side away from the ball.}
+\centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points_2020.png}}
+\caption{For robots coming back from a standard removal penalty, re-entry points  are inline with the penalty spot in their own half, on the sideline on the side away from the ball.}
 \label{fig:penalty_re-entry_points}
 \end{figure}
 
@@ -874,8 +873,7 @@ A robot penalised under illegal position has the ``Illegal Position'' penalty ap
 The head referee will call ``Illegal Position  \textless robot\textgreater''\footnote{Referees may intechange ``Illegal Position'' with ``Illegal Defender'' or ``Illegal Attacker'' to help with clarity.}.
 Illegal positions are descried below.
 
-For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty free kick) do not count towards the incremental penalty count\footnote{Historically, the Illegal Positioning penalty only occurred during a kick-off, and other illegal actions were termed Illegal Defender. These have been combined, but the penalty count left unchanged.}.
-%do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty free kick) do not count towards the incremental penalty count\footnote{Historically, the Illegal Positioning penalty only occurred during a kick-off, and other illegal actions were termed Illegal Defender. Illegal Positioning \& Defender have been merged, but the penalty count left unchanged.}.
 
 \subsubsection{Position for Kick-off}
 If a robot is not inside its own half at the time the Set state starts, it will be penalized and removed for 15 seconds. The center line does not count as part of the own half for this penalty, although the goal box does (that is, the area inside the goal). 
@@ -971,7 +969,8 @@ The following define situations where ball holding does not apply:
 
 \begin{enumerate}
 \item Ball holding may not occur when the ball becomes stuck between a robot's legs.  In such a situation, the head referee should call `clear ball' and an assistant referee should remove the ball and place the ball approximately where it was before it became stuck.
-\item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule. \change{At this point we do not say what happens if the ball was moved or scored a goal. I think it should be handled like in the Example of this subsection.}
+\item Ball holding may not occur when a robot falls on a ball.  The robot will either get-up and hence free the ball, or the robot should be removed under the Fallen Robot rule. \change{PG: At this point we do not say what happens if the ball was moved or scored a goal. I think it should be handled like in the Example of this subsection.}
+\info{TW: It's already covered under rules for accidental playing with hands.}
 \end{enumerate}
 
 \subsection{Player Stance}
@@ -986,7 +985,8 @@ Robots are not allowed to stay in a stance that is wider than the width of the r
 \emph{Pushing} is a forceful contact with another robot\footnote{This includes robots that are getting up or lie on the field.}, \ie, enough to destabilize it, and is not allowed. In the following, exceptions to this rule are specified in more detail.
 The head referee will call ``Pushing \textless robot\textgreater''.
 
-If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infraction. \change{Also at this point we do not say what happens if a goal gets accidently scored.}
+If the ball moves significantly as the result of pushing, then it should be replaced to where it was at the time of the infraction. \change{PG: Also at this point we do not say what happens if a goal gets accidental scored.}
+\info{TW: As above.}
 
 A Pushing Free Kick is awarded against the robot penalized for pushing if the robot is near the ball (approximately within 0.5m of the ball).
 
@@ -997,7 +997,7 @@ The following define situations where pushing does not apply:
 
 \begin{enumerate}
   \item Pushing may occur \textbf{only} between players of different teams.
-  \item A stationary robot cannot be penalized for pushing, including a robot that is kicking, provided that the ball was close enough where a kick could have succeeded at the start of the kick motion. \change{It should only apply to the kick of the robot. So if the kick of the kicking robot destabilizes the other robots, than we do not have oushing. Otherwise if the robot falls after or during kicking and than pushes it should be called for pushing.}
+  \item A stationary robot cannot be penalized for pushing, including a robot that is kicking, provided that the ball was close enough where a kick could have succeeded at the start of the kick motion. \change{It should only apply to the kick of the robot. So if the kick of the kicking robot destabilizes the other robots, than we do not have pushing. Otherwise if the robot falls after or during kicking and than pushes it should be called for pushing.}
   \item A robot currently getting up cannot be penalized for pushing.
   \item The goal keeper cannot be penalized for pushing while looking at or chasing the ball in it's own penalty area.
   \item Front to front contact between robots with the ball between them does not constitute pushing.
@@ -1130,7 +1130,7 @@ A novel contribution is:
   \item Complete replacement of a \textit{game critical module}, with original software. This may not necessarily be necessarily research publishable, but must be of equivalent scale and quality to research publishable work.
 \end{itemize}
 
-Is is not a novel contribution to replace a module with code copied from another source, or to training a new machine learnt model from data sets using software from another team.
+It is not a novel contribution to replace a module with code copied from another source, or to simply train a machine-learning model released by another team using new data.
 
 As of the 2020 competition, the following are recognised as game critical modules:
 Ball detection, Robot detection, Robot vision (not otherwise listed), Localisation, Walk/Kick engine, Dynamic stabilisation, Behaviour Architecture, \& Distribution computation.
@@ -1244,7 +1244,7 @@ Whenever a qualification penalty is recorded, all relevant details including any
 A team may be disqualified during the RoboCup competition for:
 \begin{itemize}
   \item A serious violation of the terms of a team's qualification
-  \item Accruing a Qualification Penalty~(\cf Section~\ref{sec:qualificationPenalties})
+  \item Gaining a Qualification Penalty during the course of the competition~(\cf Section~\ref{sec:qualificationPenalties})
   \item A serious breach of ethics, or serious behaviour unbecoming of participants of RoboCup.
 \end{itemize}
 
@@ -1399,7 +1399,7 @@ This is a brief list of rule changes from 2019 to 2020.
 \subsection*{Official Rules - Qualification Procedure}
 \begin{itemize}
   \item Revised qualification requirements for novel contributions and reuse of existing software~(\cf Section~\ref{sec:qualification_procedure_codeuse})
-  \item \textbf{ALL TEAMS}: Note novel contribution requirementlls now apply to all teams.
+  \item \textbf{ALL TEAMS}: Note novel contribution requirements now apply to all teams.
 \end{itemize}
 
 
@@ -1413,6 +1413,12 @@ This is a brief list of rule changes from 2019 to 2020.
   \item Removed
 \end{itemize}
 
+\subsection*{Field Technical Drawing}
+\begin{itemize}
+  \item Added.
+  \item Contains explicit dimensions accounting for the width of the tape.
+\end{itemize}
+
 \section{Potential 2020 Changes}
 \begin{itemize}
   \item Move position of the penalty spot subject to testing at the 2019/2020 regional workshops and competitions.
@@ -1424,6 +1430,10 @@ This is a brief list of rule changes from 2019 to 2020.
   \item Use spoken referee commands during gameplay.
   \item Use of the whistle for fouls in general.
 \end{itemize}
+
+\section{Field Technical Drawing}
+\label{apx:technical-drawing}
+\centerline{\includegraphics[angle=90,origin=c,width=\columnwidth]{figs/fieldDimensions2020_technical.pdf}}
 
 \end{document}
 
