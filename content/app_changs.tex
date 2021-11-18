@@ -1,0 +1,148 @@
+\section{Changes From 2019}
+This is a brief list of rule changes from 2019 to 2020.
+
+\begin{itemize}
+  \item General housekeeping and tidy-up of rules.
+  \item Remove some duplicated items
+\end{itemize}
+
+\subsection*{Field Layout}
+\begin{itemize}
+  \item Increased size of the penalty box (\cf Section~\ref{sec:field_dim})
+  \item Added Goalbox - as same size of the old penalty box (\cf Section~\ref{sec:field_dim})
+\end{itemize}
+
+\subsection*{Field Colors}
+\begin{itemize}
+  \item Removed redundant figure (\cf Section~\ref{sec:field_colors})
+\end{itemize}
+
+\subsection*{Robot Players: Hardware}
+\begin{itemize}
+  \item Added black Nao plating as permitted color~(\cf Section~\ref{sec:hardware})
+  \item Permit tape on the battery pack~(\cf Section~\ref{sec:hardware})
+\end{itemize}
+
+\subsection*{Robot Players: Team Markers}
+\begin{itemize}
+  \item Teams must specify which front and back halves of jerseys are combined.~(\cf Section~\ref{sec:hardware})
+\end{itemize}
+
+\subsection*{Structure of the Game}
+\begin{itemize}
+  \item Specify whistle sounds for commencing and ending each half (\cf Section~\ref{sec:game_struct})
+\end{itemize}
+
+\subsection*{Robot States}
+\begin{itemize}
+  \item Updated states for penalty kick (\cf Section~\ref{sec:robot_states})
+\end{itemize}
+
+\subsection*{Goal}
+\begin{itemize}
+  \item Referee signals a goal being scored by a whistle sound~(\cf Section~\ref{sec:goal})
+  \item GameController transmission of a goal being scored is delayed by \GoalScoredDelay~(\cf Section~\ref{sec:goal})
+\end{itemize}
+
+\subsection*{Indirect Kick}
+\begin{itemize}
+  \item Rule introduced (\cf Section~\ref{sec:goal})
+\end{itemize}
+
+\subsection*{Kick-off}
+\begin{itemize}
+  \item Specify location of referee whistle
+\end{itemize}
+
+\subsubsection*{Kick-off Shot}
+\begin{itemize}
+  \item Kick-off shot penalty removed.
+  \item Kick-off Rule subsumed by the Indirect Kick Rule (\cf Section~\ref{sec:goal}), \& Invalid Goal Rule (\cf Section~\ref{sec:goal})
+\end{itemize}
+
+\subsection*{Free Kick}
+\begin{itemize}
+  \item Change referee phrase for ending the free kick to ``Ball Free'' for consistency with kick-off and for less confusion on  head referees during the game.(\cf Section~\ref{sec:free_kick})
+\end{itemize}
+
+\subsubsection*{Goal Kick}
+\begin{itemize}
+  \item Position of goal kick adjusted to the corner of the goalbox (\cf Section~\ref{sec:kick_in})
+\end{itemize}
+
+\subsubsection*{Penalty Kick}
+\begin{itemize}
+  \item Rule introduced~(\cf Section~\ref{sec:free_kick}).
+  \item Penalty Kick procedure introduced~(\cf Section~\ref{sec:penalty_free_kick}).
+\end{itemize}
+
+\subsection*{Penalty Kick Shoot-out}
+\begin{itemize}
+  \item Time for Penalty Kick reduced to \PenaltyKickTime.
+  \item Striker robot is placed on the edge of the penalty box~(\cf Section~\ref{sec:penalty_kick})
+  \item Goalkeeper robot must remain on the goal line and on its feet~(\cf Section~\ref{sec:penalty_kick})
+  \item Removed requirement for timing sudden-death penalty shots as this is no-longer used as a tie-breaker
+  \item General Rules housekeeping~(\cf Section~\ref{sec:penalty_shoot-out} \& Section~\ref{sec:sudden_death_shoot_out})
+\end{itemize}
+
+\subsection*{Illegal Defender \& Position}
+\begin{itemize}
+  \item Illegal Defender subsumed into to Illegal Position (\cf Section~\ref{sec:illegal_positioning})
+  \item Illegal Position penalties now \textit{follow} the standard removal penalty and increase in penalty time per-robot. The only exception are illegally positioned robots during the set state.
+  \item Penalty box illegal positioning applies to robots from both teams (\cf Section~\ref{sec:illegal_positioning})
+  \item Number of robots permitted inside the penalty box increased to 3 (\cf Section~\ref{sec:illegal_positioning})
+  \item Illegal Defender subsumed into to Illegal Position (\cf Section~\ref{sec:illegal_positioning})
+  \item Penalty box illegal positioning applies to robots from both teams (\cf Section~\ref{sec:illegal_positioning})
+\end{itemize}
+
+\subsection*{Leaving the Field Penalty}
+\begin{itemize}
+  \item Clarified leaving the field also applies to walking into the goal posts~(\cf Section~\ref{sec:leaving_field})
+\end{itemize}
+
+\subsection*{Jamming}
+\begin{itemize}
+  \item Explicitly define interference of whistle sounds~(\cf Section~\ref{sec:jamming})
+\end{itemize}
+
+\subsection*{Judgement - Head Referee}
+\begin{itemize}
+  \item Modified head referee's use of the whistle as it is now important for robots to detect the whistle during gameplay. Whistle's are only used for kick-off, end-of-half and goals.
+  \item Removed whistle sound for game stuck.
+  \item Added requirement to use calls as defined in the rules.
+  \item Clarified head referee's role in handling robots and the ball.
+  \item Removed requirement for timing sudden-death penalty shots as this is no-longer used as a tie-breaker
+\end{itemize}
+
+\subsection*{Official Rules - Qualification Procedure}
+\begin{itemize}
+  \item Revised qualification requirements for novel contributions and reuse of existing software~(\cf Section~\ref{sec:qualification_procedure_codeuse})
+  \item \textbf{ALL TEAMS}: Note novel contribution requirements now apply to all teams.
+\end{itemize}
+
+
+\subsection*{Official Rules - Disqualification during competition}
+\begin{itemize}
+  \item Added possibility to disqualify a team during competition for serious ethical breaches, or violation of the terms of their qualification~(\cf Section~\ref{sec:disqualification_during_comp})
+\end{itemize}
+
+\subsection*{Mixed Team Tournament}
+\begin{itemize}
+  \item Removed
+\end{itemize}
+
+\subsection*{Technical Challenges}
+\begin{itemize}
+  \item Penalty Shoot Out Challenge added, as per 2018 rules.
+\end{itemize}
+
+\subsection*{Field Technical Drawing}
+\begin{itemize}
+  \item Added.
+  \item Contains explicit dimensions accounting for the width of the tape.
+\end{itemize}
+
+\section{Potential 2020 Changes}
+\begin{itemize}
+  \item Move position of the penalty spot subject to testing at the 2019/2020 regional workshops and competitions.
+\end{itemize}
