@@ -51,13 +51,12 @@ The clock stops during stoppages of play (such as ready and set state after goal
 
 \subsection{Champions Cup and Challenge Shield}
 \label{sec:twoCompetitions}
-\emph{This section describes the competition setup for the Annual International RoboCup.}
 
 To provide better matched games for teams of all abilities the RoboCup Standard Platform League shall be divided into two separate competitions: the Champions Cup for the strongest teams and the Challenge Shield for all other teams. Championship Cup and Challenge Shield teams compete separately in each tournament. Teams are promoted to (or relegated from) the Championship Cup during the tournament. 
 \todo{TW: I would really prefer to call these Division 1 and Division 2.}
 %Final assignment of teams to each competition occurs at RoboCup based on initial game performance.
 
-There are 24 qualified teams. 12 Teams are placed in the Championship Cup. 12 teams are placed in the Challenge Shield. Teams retain their placing in the Championship Cup or Challenge Shield between each year, unless otherwise promoted or relegated as described below. \todo{TW: This is a big change, teams are fixed to each 'division' and must essentially qualify to be in the Championship Cup}
+There are 24 qualified teams. 12 teams are placed in the Championship Cup. 12 teams are placed in the Challenge Shield. Teams retain their placing in the Championship Cup or Challenge Shield between each year, unless otherwise promoted or relegated as described below. \todo{TW: This is a big change, teams are fixed to each 'division' and must essentially qualify to be in the Championship Cup}
 All qualified teams are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.)
 
 \subsubsection{Tournament Structure}
@@ -65,7 +64,7 @@ All qualified teams are ranked using the Glicko system\footnote{\url{http://www.
 
 The Championship Cup and Challenge Shield follow the same structure as independent competitions. They are referred to as ``divisions'' below for clarity.
 
-Each division will have a round-robin stage, and a knockout competition. The round-robin stage consists of 2 groups of 6 teams. Glicko rankings shall be used to seed teams into the round-robin groups. The top four teams of each round-robin groups proceeds to the the knockout competition. \todo{This could be also be a 12-team knockout} The knockout-competition will therefore feature 8 teams.
+Each division will have a round-robin stage, and a knockout competition. The round-robin stage consists of 2 groups of 6 teams.\todo{Without the intermediate rounds/2nd round, there is more time for round-robin games}. Glicko rankings shall be used to seed teams into the round-robin groups. The top four teams of each groups at the conclusion of the round-robin proceed to the the knockout competition. \todo{This could be also be a 12-team knockout} The knockout-competition will therefore feature 8 teams, consisting of quarter-finals, semi-finals, 3rd place match, and the final.
 
 \subsubsection{Round-Robin Rankings}
 \label{sec:round-robin-rankings}
@@ -90,14 +89,14 @@ If a team's obtained points is the same as another team's after a round of pool 
 
 \subsubsection{Promotion Games}
 
-The bottom 2 teams of each round-robin group of the Championship Cup, along with the semi-finalist teams of the Challenge Shield knock-out competition proceed to the promotion games.
+The bottom 2 teams of each group of the Championship Cup after the round-robin, along with all semi-finalist teams of the Challenge Shield knock-out competition proceed to the promotion games.
 
-There will be 4 promotion games. By random draw, each game will have one team from the Championship Cup and one team from the Challenge Shield. The winner of the promotion game will be guaranteed a spot in the Championship Cup in the next RoboCup tournament.
+There will be 4 promotion games. By random draw, each game will have one team from the Championship Cup and one team from the Challenge Shield. The winning team of the promotion game will be guaranteed a spot in the Championship Cup in the next RoboCup tournament. The loosing team of the promotion game, may still be placed in the Championship Cup in the next RoboCup tournament subject to available places and their Glicko ranking.
 
 
 \subsubsection{Championship Cup selection}
 
-Teams selected for the Championship Cup by the following order, until all 12 places of the Championship Cup are filled:
+Teams are selected for the Championship Cup as follows until all places are filled:
 \begin{enumerate}
     \item All qualified teams that made the knockout stage of the previous year SPL RoboCup Championship Cup.
     \item All qualified teams that won the promotion game  of the previous year SPL RoboCup Championship Cup.
@@ -110,10 +109,10 @@ All remaining qualified teams are then selected for the Challenge Shield.
 \subsection{Challenge Shield Rule Changes}
 \label{sec:cs-rule-changes}
 
-To encourage new teams to join the SPL, the Challenge Shield will play under a modified rule-set to the competition rules (Sections \ref{sec:game_process} and \ref{sec:forbidden_act}). The intent of these rule modifications is to phrase a distinguishing factor between the Championship Cup and Challenge Shield as a higher level of refinement of a team's autonomous robot software through:
+To encourage new teams to join the SPL and reduce the bar to entry, the Challenge Shield will play under a modified rule-set to the competition rules (Sections \ref{sec:game_process} and \ref{sec:forbidden_act}). The intent of these rule modifications is to phrase a distinguishing factor between the Championship Cup and Challenge Shield as a higher level of refinement of a team's autonomous robot software through:
 \begin{itemize}
     \item Reducing the harshness of penalties to allow robots to be on the field for a greater portion of the game time.
-    \item Slowing down aspects of the game to give robots more time to react to different game circumstances.
+    \item Give robots more time to react to different game circumstances.
     \item Keeping consistency with the Championship Cup rules for teams that are promoted.
 \end{itemize}
 
@@ -130,8 +129,90 @@ Note that, the penalty persists for those players penalized for ``Motion in Set'
 \label{fig:ko-manual}
 \end{figure}
 
+%\subsubsection{Indirect Kick (Section \ref{sec:indirect_kick})}
+%
+%The indirect kick rule applies to \emph{all} restarts in play, including a Penalty Kick.
 
 \subsubsection{Kick-In (Section \ref{sec:kick_in})}
+
+The position the ball is placed for a kick-in is modified as follows:
+\begin{itemize}
+    \item If the ball goes over a sideline, the ball is placed approximately 2-ball-widths in from the sideline perpendicular to the point where the ball went out.
+    \item If the ball goes over a sideline, closer to an end-line than the corresponding penalty spot, the ball is placed 2-ball-widths in from the sideline and in-line with the penalty spot.
+    \item For a corner kick, the ball is also placed 2-ball-widths in from the sideline and in-line with the penalty spot.
+    \item If a player would interfere with the placement of the ball, the ball should be positioned closest to the desired spot, such that:
+%    \begin{itemize}
+%        \item The ball it at least one ball-width away from any player.
+%        \item The attacking team is not disadvantaged. That is the ball is \emph{no closer} to the attacking team's end-line.
+%        \item The ball is no closer to either team's end-line than the corresponding penalty spot.
+%    \end{itemize}
+\end{itemize}
+
+\subsubsection{Free-Kick Procedure (Section \ref{sec:free_kick})}
+
+The procedure for a \emph{Free Kick} is replaced with a procedure similar to the Penalty Free Kick.
+\todo{TW: I expect this to be contentious. The intent here is to give robots more time and structure. That is, a less "quick" resumption.}
+
+When a Free Kick is initiated the head referee will announce a Free Kick, calling one of:
+\begin{enumerate}
+  \item For a \textit{Pushing Free Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot.
+  \item For all other free kicks: ``Kick-in/Goal Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
+\end{enumerate}
+
+The GameController will then activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ``Foul''.
+The game changes to the \textit{Ready} state.
+This denotes that the robot's are given time to setup and prepare for the free kick.
+The game clock is \textit{paused} during finals games only.
+
+The head referees \emph{immediately} places the ball on the spot for the Free Kick.
+Players have \qty{\SCFreeKickSetupTime}{\second} to get into position for the Free Kick.
+At the end of \qty{\SCFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state.
+Similar to a kick-off, during the Set state the robots are waiting for the Free Kick to commence.
+Standard penalties apply.
+Additionally, no player may touch the ball and defending players may not be within \FreeKickRadius of the ball.
+Defensive players that violate this restrictions are penalised with the ``Illegal Positioning'' penalty (see Section~\ref{sec:illegal_positioning}) which results in a standard removal penalty~(see Section~\ref{sec:removal_penalty}).
+
+During Set, the team leader of the attacking team may call ``Manual Free Kick Placement''.
+If this is called, the referee should move the attacking robot that is closest to the ball, to be placed \SCFreeKickDistance behind the ball, on a line between the ball and the centre of the goal.
+\todo{TW: This is intended to ensure challenge shield teams have a proper restart from a Free Kick}
+
+The referee signals the Free Kick commences by blowing the whistle once, and calling ``Playing''.
+The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
+Note that the GameContoller signal is \emph{not} delayed for this procedure in the Challenge Shield.
+The attacking team has \qty{\SCFreeKickTime}{\second} to complete the Free Kick.
+During the Free Kick, all players may move freely, however, defensive robots may not enter within \FreeKickRadius of the ball Defensive players that violate this restrictions are penalised with the ``Illegal Positioning'' penalty (see Section~\ref{sec:illegal_positioning}).
+Note that in all Free Kicks the Indirect Kick rule applies.
+
+The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the substate will be automatically left after the \qty{\SCFreeKickTime}{\second} time period expires.
+
+\subsubsection{Free-Kick: Penalty Kick (Section \ref{sec:free_kick})}
+
+The \emph{Penalty Kick} rule (and associated procedure) is removed, and replaced by a \emph{Pushing Free Kick}.
+
+The ball is still placed on the penalty spot for a \emph{Pushing Free Kick} awarded against the defending team within their own penalty box for the \emph{Pushing Free Kick}.
+
+\subsubsection{Penalty Kick Procedure (Section \ref{sec:penalty_free_kick})}
+
+Removed for the Challenge Shield, and replaced by a standard \emph{Pushing Free Kick}.
+
+\subsubsection{Request for Pickup (Section \ref{sec:request_for_pickup})}
+
+During the \emph{Ready} and \emph{Playing} states, a team may call a request for pick-up for \textbf{software related failures}, provided that:
+\begin{itemize}
+    \item The player is at least \qty{1}{\meter} away from the ball.
+    \item The head referee determines that team requesting pickup would not gain an advantage by removing the robot.
+\end{itemize}
+
+Note that, during the \emph{Set} state of a \emph{Free Kick} under the Challenge Shield procedure, a team may call a request for pick-up on any robot for any reason.
+\todo{TW: Remove this is not using the CS free kick procedure above}
+
+\subsubsection{Standard Removal Penalty (Section \ref{sec:removal_penalty})}
+
+The duration of the standard-removal-penalty-time is reduced to \qty{\CSStandardPenaltyTime}{\second}.
+\todo{TW: This is possible. The goal is to have the CS robots on the field more, but i've no strong opinion to keep at 45s.}
+
+The penalty time \emph{does not} increase each time a team commits an infraction. All penalty result in a fixed duration of \qty{\CSStandardPenaltyTime}{\second}.
+\todo{TW: This is key part. CS teams suffer too much from increasing penalties.}
 
 \subsection{Referee Selection and Requirements}
 \label{sec:refSelection}
