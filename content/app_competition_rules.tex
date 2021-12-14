@@ -47,18 +47,35 @@ Failure to meet any of these requirements will result in a qualification penalty
 
 \subsection{Game Structure}
 
-The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see \cref{sec:penalty_shoot-out}).
+The clock stops during stoppages of play (such as ready and set state after goals) from the knock-out competition onwards.  In round-robin pool play, a game may finish in a draw and there will be no penalty shoot-out. Where a game cannot finish in a draw, including the knockout-competition (quarter finals, semi finals, 3rd place or final) and the promotion games, a game that ends in a draw will be followed by a penalty shoot-out (see Section~\ref{sec:penalty_shoot-out}).
 
-\subsection{Winner and Rankings}
-\label{sec:rankings}
+\subsection{Champions Cup and Challenge Shield}
+\label{sec:twoCompetitions}
+\emph{This section describes the competition setup for the Annual International RoboCup.}
 
-The team which scored more goals than the other is the winner of the match. If the two teams scored the same number of goals, the game will be a draw. The draw will follow the same system defined in \cref{sec:game_struct}. Total (and final) standings will be decided on points as follows (the points will be given based on the result of each game):
+To provide better matched games for teams of all abilities the RoboCup Standard Platform League shall be divided into two separate competitions: the Champions Cup for the strongest teams and the Challenge Shield for all other teams. Championship Cup and Challenge Shield teams compete separately in each tournament. Teams are promoted to (or relegated from) the Championship Cup during the tournament. 
+\todo{TW: I would really prefer to call these Division 1 and Division 2.}
+%Final assignment of teams to each competition occurs at RoboCup based on initial game performance.
+
+There are 24 qualified teams. 12 Teams are placed in the Championship Cup. 12 teams are placed in the Challenge Shield. Teams retain their placing in the Championship Cup or Challenge Shield between each year, unless otherwise promoted or relegated as described below. \todo{TW: This is a big change, teams are fixed to each 'division' and must essentially qualify to be in the Championship Cup}
+All qualified teams are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.)
+
+\subsubsection{Tournament Structure}
+\emph{This structure may be revised by the TC/OC based on game scheduling constraints.} \todo{TW: I'm not sure if this works for spacing, but the exact structure can be revised later}
+
+The Championship Cup and Challenge Shield follow the same structure as independent competitions. They are referred to as ``divisions'' below for clarity.
+
+Each division will have a round-robin stage, and a knockout competition. The round-robin stage consists of 2 groups of 6 teams. Glicko rankings shall be used to seed teams into the round-robin groups. The top four teams of each round-robin groups proceeds to the the knockout competition. \todo{This could be also be a 12-team knockout} The knockout-competition will therefore feature 8 teams.
+
+\subsubsection{Round-Robin Rankings}
+\label{sec:round-robin-rankings}
+
+Standings of teams in each round-robin group will be decided on points as follows (the points will be given based on the result of each game):
 
 \makebox[\columnwidth]{ \hfill Win = 3 pts\hfill Draw = 1 pt \hfill
 Lose = 0 pts\hfill }
 
 If a team's obtained points is the same as another team's after a round of pool play is complete, the following evaluations will be applied in order to qualify the finalists.
-
 \begin{enumerate}
 
 \item The points obtained
@@ -71,17 +88,50 @@ If a team's obtained points is the same as another team's after a round of pool 
 
 \end{enumerate}
 
-\subsection{Champions Cup and Challenge Shield}
-\label{sec:twoCompetitions}
-In order to provide better matched games for teams of all abilities the RoboCup Standard Platform League shall be divided into two separate competitions: the Champions Cup for the strongest teams and the Challenge Shield for all other teams. Final assignment of teams to each competition occurs at RoboCup based on initial game performance.
+\subsubsection{Promotion Games}
 
-There are 24 qualified teams.
+The bottom 2 teams of each round-robin group of the Championship Cup, along with the semi-finalist teams of the Challenge Shield knock-out competition proceed to the promotion games.
 
-All teams who qualify for participation in the RoboCup SPL are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.) The top 12 teams (by rank) will be Champions Cup candidates and the remaining teams will be Challenge Shield candidates.
+There will be 4 promotion games. By random draw, each game will have one team from the Championship Cup and one team from the Challenge Shield. The winner of the promotion game will be guaranteed a spot in the Championship Cup in the next RoboCup tournament.
 
-All Champions Cup candidates play a single qualifier round-robin stage comprising 4 groups of 3 teams each. All Challenge Shield candidates play a similar qualifier round-robin stage also consisting of 4 groups of 3 teams each. Each Champions Cup qualifier group will consist of one team ranked 1-4, one team ranked 5-8, and one team ranked 9-12. Each of the teams ranked 13-16 will be placed in a different Challenge Shield group. Remaining Challenge Shield qualifier group places will be filled by random selection from teams ranked 17-24.
 
-The top 2 teams in each Champions Cup qualifier group proceed automatically to the Champions Cup proper. Similarly, the lower 2 teams in each Challenge Shield qualifier group proceed automatically to the Challenge Shield. The 4 remaining Champions Cup candidates (losers in each group) play the remaining Challenge Shield candidates (winners in each group) in the so-called promotion round and the winners of these games go to the Champions Cup while the losers go to the Challenge Shield. Thereafter, the Champions Cup and Challenge Shield competitions shall proceed independently of each other and each will normally consist of a round-robin stage, followed by an intermediate round and a knockout competition. In the intermediate round the second and third placed team of each group coming from the second round-robin will play against a team from another group for a spot in the quarter-final.
+\subsubsection{Championship Cup selection}
+
+Teams selected for the Championship Cup by the following order, until all 12 places of the Championship Cup are filled:
+\begin{enumerate}
+    \item All qualified teams that made the knockout stage of the previous year SPL RoboCup Championship Cup.
+    \item All qualified teams that won the promotion game  of the previous year SPL RoboCup Championship Cup.
+    \item The highest Glicko ranked qualified team, until all remaining places are filled.
+\end{enumerate}
+
+All remaining qualified teams are then selected for the Challenge Shield.
+
+
+\subsection{Challenge Shield Rule Changes}
+\label{sec:cs-rule-changes}
+
+To encourage new teams to join the SPL, the Challenge Shield will play under a modified rule-set to the competition rules (Sections \ref{sec:game_process} and \ref{sec:forbidden_act}). The intent of these rule modifications is to phrase a distinguishing factor between the Championship Cup and Challenge Shield as a higher level of refinement of a team's autonomous robot software through:
+\begin{itemize}
+    \item Reducing the harshness of penalties to allow robots to be on the field for a greater portion of the game time.
+    \item Slowing down aspects of the game to give robots more time to react to different game circumstances.
+    \item Keeping consistency with the Championship Cup rules for teams that are promoted.
+\end{itemize}
+
+Rule modifications are presented in the order as of the rule book.
+
+\subsubsection{Initial Kick-Off (Section \ref{sec:initial-kick-off})}
+Manual Placement of the \emph{entire} team is possible. The team leader may request manual placement of \emph{all} robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties. The manual placement position is shown in Figure~\ref{fig:ko-manual}. If a manual placement is called, all players are replaced. It is not possible to manually place a individual player.
+
+Note that, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infractions will stay at the sideline until their penalty time is over.
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=\columnwidth]{figs/manual-placement-cs.pdf}}
+\caption{Challenger Shield manual setup for kick-off.  The attacking team is on the right.}
+\label{fig:ko-manual}
+\end{figure}
+
+
+\subsubsection{Kick-In (Section \ref{sec:kick_in})}
 
 \subsection{Referee Selection and Requirements}
 \label{sec:refSelection}
