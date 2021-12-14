@@ -71,7 +71,7 @@
 
     \subsubsection{Challenge Goal}
 
-        In the current SPL rules, the only time that a robot is required to listen directly to the human referees is for the kick-off whistle. Otherwise, all human referee decisions are communicated to the robots via electronics. GameController messages. In moving towards the 2050 RoboCup goal, robots will need to directly interpret referee calls and signals (such as whistles, spoken calls and hand signals), rather than receive information from an external electronic source.
+        In the current SPL rules, the only time that a robot is required to listen directly to the human referees is for the kick-off whistle. Otherwise, all human referee decisions are communicated to the robots via electronic GameController messages. In moving towards the 2050 RoboCup goal, robots will need to directly interpret referee calls and signals (such as whistles, spoken calls and hand signals), rather than receive information from an external electronic source.
         
         This technical challenge tests a robot's ability to identify three categories of hand signals:
         \begin{enumerate}
@@ -80,7 +80,7 @@
             \item Dynamic (motion) hand signals with a one or two hands.
         \end{enumerate}
         
-        The intent of this challenge is to choose a \emph{subset} of potential referee calls in SPL games and test ability of a robot to recognise different types of hand signals in preparation for adoption in RoboCup games, rather than compile a complete set of all possible referee signals.
+        The intent of this challenge is to choose a \emph{subset} of potential referee calls in SPL games and test ability of a robot to recognise different types of hand signals in preparation for adoption in RoboCup games, rather than compile a complete set of all referee signals.
 
     \subsubsection{Challenge setup}
 
@@ -90,21 +90,21 @@
         \todo{TW: Multiple robots could be used for this challenge, and the angle of the robot to the referee could make the challenge more difficult.}
         The head referee must stand on the T-junction of the center field line, opposite to the GC. The referee must wear a ``black-and-white'' stripped referee jersey (if available) and must  wear red gloves. The purpose of this clothing is to clearly distinguish the referee and their hands from background people. 
         
-        The description of the challenge (and referee signals) is described based on the viewpoint of the head referee. In these descriptions the ``red team'' is defines as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colours for identifying teams is used to give equivalence to the head referee calls during SPL games.
+        The description of this challenge (and hand-signals) is described based on the viewpoint of the head referee. In these descriptions the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colours for identifying teams is used to give equivalence to the head referee calls during SPL games.
         
         The general procedure is as follows:
 
         \begin{enumerate}
             \item The referee blows the whistle once. The referee may use one hand to hold (and blow) the whistle. The referee may instead leave the whistle held in their mouth without their hands.
-            \item The referee selects and indicated a hand-signal. The referee must indicate this signal for \qty{10}{\second}. \todo{reduced this time as 15s is unnecessarily long.}
-            \item During that time or in the additional \qty{10}{\second}, the robot must indicate the hand-signal that it has identified by:
+            \item The referee selects and indicates a hand-signal. The referee must indicate this signal for \qty{10}{\second}. \todo{reduced this time as 15s is unnecessarily long.}
+            \item During that time or within an additional \qty{10}{\second}, the robot must indicate the hand-signal that it has identified by:
             \begin{enumerate}
                 \item Using its hand(s) to \emph{mirror} the referee's signal. That is, if the referee given a signals for a decision for the ``red team'' using their right hand, the robot should \emph{mirror} this signal using the robot's \emph{left hand}, as the robot is facing the referee.
                 \item Providing an audio phrase the referee's decision, e.g., ```Goal Red Team'''.  The exact wording is up to the team, but should clearly identify the referee's signal.
                 \item (Optional), At the discretion of the GC/TCM developers, TCP messages may also be sent and interpreted to display the outcome of the robot's decision, however, this is not a requirement for the execution of the challenge. \todo{TW: Allowing this to be optional for now}
             \end{enumerate}
             \item The length of time taken for the robot to indicate it's interpretation from the referee blowing the whistle is measured (rounded-up to the nearest second).
-            \item If the robot cannot idetnfity the signal, it should remain motionless and provide no audio output. A robot may continue to pose in the same position as the last signal it identified.
+            \item If the robot cannot identify the signal, it should remain motionless and provide no audio output. A robot may continue to pose in the same position as the last signal it identified.
             \item While not providing a hand-signal or using the whistle, the head referee must keep both hands flat and motionless by their side.
         \end{enumerate}
 
@@ -112,11 +112,12 @@
 
     \subsubsection{Available Hand-Signals}
 
-        Each hand-signal for the challenge is described and pictured, and the robot-equivalent gesture. Note that for the purpose of clarity, these do not necessarily correspond to human soccer hand-signals.
+        Each hand-signal for the challenge is described and pictured. Note that for the purpose of clarity, these do not necessarily correspond to human soccer hand-signals.
 
         \begin{itemize}
-            \item \textbf{Goal \textlangle{}colour\textrangle{} Team.}
-            One-handed signal. One arm, extended horizontally in the \emph{playing} direction of the team that scored the goal. That is, right arm extended for the ``Red team'', and left arm extended for the ``Blue team''.
+            \item \textbf{Kick-in \textlangle{}colour\textrangle{} Team.}
+            One-handed signal. One arm, extended horizontally in the direction of the half of the field corresponding to the team that receives the Kick-in Free Kick. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
+            \todo{I'm not sure if this is consistent with human soccer, this could be inverted}.
 %            \begin{figure}[ht!]
 %                \includegraphics{figs/kick-off_referee.jpg}
 %            \end{figure}
@@ -125,64 +126,62 @@
                 \begin{subfigure}{.33\textwidth}
                   \includegraphics{figs/kick-off_referee.jpg}
                 \end{subfigure}%
-                \begin{subfigure}{.33\textwidth}
-                  \includegraphics{figs/kick-off_referee.jpg}
-                \end{subfigure}
+%                \begin{subfigure}{.33\textwidth}
+%                  \includegraphics{figs/kick-off_referee.jpg}
+%                \end{subfigure}
             \end{figure}
             
             
             \item \textbf{Goal Kick \textlangle{}colour\textrangle{} Team.}
-            One-handed signal. One arm, extended 45-degree \emph{up} in the direction of the team that has been given the goal kick. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
+            One-handed signal. One arm, extended 45-degree \emph{up} in the direction of the end of the field where the goal kick will occur. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
             \begin{figure}[ht!]
                 \centering
                 \begin{subfigure}{.33\textwidth}
                   \includegraphics{figs/kick-off_referee.jpg}
                 \end{subfigure}%
-                \begin{subfigure}{.33\textwidth}
-                  \includegraphics{figs/kick-off_referee.jpg}
-                \end{subfigure}
+%                \begin{subfigure}{.33\textwidth}
+%                  \includegraphics{figs/kick-off_referee.jpg}
+%                \end{subfigure}
             \end{figure}
 
 
             \item \textbf{Corner Kick \textlangle{}colour\textrangle{} Team.}
-            One-handed signal. One arm, extended 45-degree \emph{down} in the direction of the team that has been given the corner kick. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
+            One-handed signal. One arm, extended 45-degree \emph{down} in the direction of the end of the field where the corner kick will occur. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
             \begin{figure}[ht!]
                 \centering
                 \begin{subfigure}{.33\textwidth}
                   \includegraphics{figs/kick-off_referee.jpg}
                 \end{subfigure}%
-                \begin{subfigure}{.33\textwidth}
-                  \includegraphics{figs/kick-off_referee.jpg}
-                \end{subfigure}
+%                \begin{subfigure}{.33\textwidth}
+%                  \includegraphics{figs/kick-off_referee.jpg}
+%                \end{subfigure}
             \end{figure}
             
 
-            \item \textbf{Kick-Off \textlangle{}colour\textrangle{}  Team.}
-            Two-handed signal. One arm, extended pointing at the center circle. One arm, extended horizontally in the \emph{playing} direction of the team that has the kick-off. That is, right arm extended for the ``Red team'', and left arm extended for the ``Blue team''.
+            \item \textbf{Goal \textlangle{}colour\textrangle{}  Team.}
+            Two-handed signal. One arm, extended pointing at the center circle. One arm, extended horizontally in the direction of the half of the field corresponding to the team that scored the goal. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
             \begin{figure}[ht!]
                 \centering
                 \begin{subfigure}{.33\textwidth}
                   \includegraphics{figs/kick-off_referee.jpg}
                 \end{subfigure}%
-                \begin{subfigure}{.33\textwidth}
-                  \includegraphics{figs/kick-off_referee.jpg}
-                \end{subfigure}
+%                \begin{subfigure}{.33\textwidth}
+%                  \includegraphics{figs/kick-off_referee.jpg}
+%                \end{subfigure}
             \end{figure}
 
 
             \item \textbf{Pushing Free-kick \textlangle{}colour\textrangle{}  Team.}
-            Two-handed signal. One arm, vertical with bent below and palm facing in the direction of the extended arm. One arm, extended horizontally in the \emph{playing} direction of the team that has been \emph{given} the penalty. That is, right arm extended for the ``Red team'', and left arm extended for the ``Blue team''.
+            Two-handed signal. One arm, vertical with bent elbow and palm facing in the direction of the extended arm. One arm, extended horizontally in the in the direction of the half of the field corresponding to the team that is \emph{given} the penalty. That is, right arm extended for the ``Blue team'', and left arm extended for the ``Red team''.
             \begin{figure}[ht!]
                 \centering
                 \begin{subfigure}{.33\textwidth}
                   \includegraphics{figs/kick-off_referee.jpg}
                 \end{subfigure}%
-                \begin{subfigure}{.33\textwidth}
-                  \includegraphics{figs/kick-off_referee.jpg}
-                \end{subfigure}
+%                \begin{subfigure}{.33\textwidth}
+%                  \includegraphics{figs/kick-off_referee.jpg}
+%                \end{subfigure}
             \end{figure}
-
-
 
             \item \textbf{Full-Time.}
             Dynamic two-handed signal. Both arms slowly move symmetrically inward and outwards on a horizontal plane, bending at the elbows. Note, for the purpose of this challenge, the whistle associated with this signal should be a \textit{single} blow, unlike in normal SPL games.
@@ -191,9 +190,9 @@
                 \begin{subfigure}{.33\textwidth}
                   \includegraphics{figs/kick-off_referee.jpg}
                 \end{subfigure}%
-                \begin{subfigure}{.33\textwidth}
-                  \includegraphics{figs/kick-off_referee.jpg}
-                \end{subfigure}
+%                \begin{subfigure}{.33\textwidth}
+%                  \includegraphics{figs/kick-off_referee.jpg}
+%                \end{subfigure}
             \end{figure}
 
         \end{itemize}
@@ -201,7 +200,7 @@
     \subsubsection{Challenge evaluation}
         A team scores 1 point for every hand-signal that is correctly identified. A team score an additional 1 point for correctly identifying the team corresponding to the signal (where appropriate). A team looses 1 point for incorrectly identifying a hand-signal (note a team may have a negative final score). The total time for the robot to identify each hand-signal is summed (If a robot fails to identify a hand-signal the time for the hand-signal is \qty{10}{\second}. If a robot incorrectly identifies a hand-signal, the time is how long the robot took to provide the incorrect identification).
     
-        Teams are ranked by their total points. In the even of tie-breaks, the team with the fastest total time to identify all hand-signals is ranked higher. The team with the highest total points, and lowest total time (for tie-breaks), wins the challenge. 
+        Teams are ranked by their total points. In the event of tie-breaks, the team with the fastest total time to identify all hand-signals is ranked higher. The team with the highest total points, and lowest total time (for tie-breaks), wins the challenge. 
 
 \subsection{Dynamic Ball handling Challenge}
 
