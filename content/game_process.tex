@@ -131,9 +131,8 @@ Note that an own-goal may always be scored without requiring an indirect kick.
 \subsection{Initial Kick-off}
 \label{sec:initial-kick-off}
 
-The first kick-off at the start of each half is the initial kick-off.
-Before the initial kick-off, \ie before the start of each half, all robots must be in the \textit{unstiff} state and must be placed on the sidelines in their own half of the field, by the referees according to \cref{fig:initial_positions}.
-Once the robots receive the \emph{ready} signal from the GameController, they are to proceed as described in \cref{sec:kick-off}.
+The first kick-off at the start of each half or after a timeout is an initial kick-off.
+Robots have to be handed over at latest \qty{3}{\min} before an initial kick-off. All robots must be in the \textit{unstiff} state and must be placed on the sidelines facing the other sideline in their own half of the field, by the referees according to \cref{fig:initial_positions}. Robots are brought into the \textit{initial} state after they are placed. Once the robots receive the \emph{ready} signal from the GameController, they proceed as described in \cref{sec:kick-off}.
 
 \begin{figure}[t!]
 	\begin{center}
@@ -144,7 +143,7 @@ Once the robots receive the \emph{ready} signal from the GameController, they ar
 	\end{center}
 \end{figure}
 
-A team may choose to place their robots themselves for initial kick-off, if they are present in person at the competition site. This allows the team to vary the spacing of the robot positions along the sidelines. Robots must be placed on the team's own halves of the sidelines and may not interfere with the opponent as judged by the referee.
+A team may choose to place their robots themselves for initial kick-off, if they are present in person at the competition site. This allows the team to vary the spacing of the robot positions along the sidelines. Robots must be placed on the team's own halves of the sidelines and may not interfere with the opponent as judged by the referee. Robots are brought into the \textit{initial} state by their team at latest \qty{1}{\min} before \textit{ready} gets called.
 
 \subsection{Kick-off}
 \label{sec:kick-off}
