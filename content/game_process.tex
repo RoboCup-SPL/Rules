@@ -243,7 +243,7 @@ The referees should pick up the ball.
 Robots have \qty{\PenaltyFreeKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state.
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
 Standard penalties apply.
-Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot must also be touching the goal line.
+Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot either be touching the goal line or stay outside its own penalty area.
 Only one robot from the attacking team may be within the penalty area, and it may not block the penalty spot.
 Blocking the penalty spot is considered to be an illegal position.
 All robots that do not reach legal positions will be penalized with the ``Illegal Positioning'' penalty~(\cf \cref{sec:illegal_positioning}).
@@ -256,7 +256,7 @@ The attacking team has \qty{\PenaltyFreeKickTime}{\second} to complete the Penal
 
 During the Penalty Kick:
 \begin{enumerate}
-    \item The defensive goalkeeper robot must always be in contact with the goal line, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
+    \item The defensive goalkeeper robot must always be in contact with the goal line if it is inside the penalty area, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
     \item The attacking robot may move freely.
     \item All robots must be within the field-of-play. That is, robots may not be outside the field lines, but within the field border.
     \item No other robots may enter the penalty area (\cf \cref{sec:illegal_positioning}).
@@ -393,12 +393,9 @@ A penalty kick is carried out with one striker robot and one opposing goalkeeper
 The penalty kick commences with the \textit{set} game state activated.
 The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
 
-Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty area, facing the ball and the goal. (This striker position is denoted by a small dot made with a felt-tip pen.) The goalkeeper is placed with its feet on the goal line and in the center of the goal.
-Neither robot is permitted to locomote (move their legs) during the \textit{set} state. Movement of the robot's head and arms is allowed.
+Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty area, facing the ball and the goal. The goalkeeper is placed with its feet on the goal line and in the center of the goal. Neither robot is permitted to locomote (move their legs) during the \textit{set} state. Movement of the robot's head and arms is allowed.
 
-If a robot is not responding to GameController it must be in the \emph{penalized} state when waiting for the penalty kick to start.
-The referees will use the button interface to switch the robot between playing and penalized.
-Only the referees may operate the button interface and no non-standard or extra button sequences are permitted.
+\textbf{The usage of a button interface is not permitted.}
 
 The head referee commences the penalty kick by blowing the whistle \textit{once}, and calling ``Playing''.
 The GameController activates the penalty kick, switching to the \emph{playing} game state.
@@ -410,10 +407,8 @@ A penalty shot is over when the ball has come to a full stop after the first con
 A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line).
 Otherwise, the score is unchanged.
 
-The goalkeeper robot must always be in contact with the goal line, is not permitted to leave the goal area, and must remain on its feet until the striker robot touches the ball.
-The goalkeeper is only permitted to ``dive'', and be off it's feet after the attacking robot has touched the ball.
-Furthermore, the goalkeeper is not allowed to touch a ball that is completely outside the penalty area (the line is part of the penalty area).
-If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
+The goalkeeper robot must always be in contact with the goal line and must remain on its feet until the striker robot touches the ball.
+The goalkeeper is only permitted to ``dive'', and be off its feet after the attacking robot has touched the ball.
 
 All rules such as ``Ball Holding'', ``Pushing'' and others are applied during the penalty kick.
 A goalkeeper will not be penalized for inactivity during a penalty kick, provided its stiffness is on.
@@ -427,6 +422,6 @@ Teams take one additional penalty kick each, and the game decision will be made 
 \begin{enumerate}
   \item If only one team scores a goal, that team wins.
   \item If both teams score a goal, the sudden death shoot-out is repeated.
-  \item If neither team score a goal, then a shot blocked by the goalkeeper beats a shot blocked by the goalpost which beats a wide shot. For example, if the shot of one team gets stopped by the goalkeeper and the other executes a wide shot, the first team wins. If both shots are wide, the shoot-out is repeated.
+  \item If neither team score a goal, then a shot blocked by the goalkeeper beats a shot blocked by the goalpost which beats a wide shot. For example, if the shot of one team gets stopped by the goalkeeper and the other executes a wide shot, the first team wins. If both shots fall in the same category, e.g.\, wide, the shoot-out is repeated.
   \item If after 3 sudden death penalty shots there is still no winner, the referee will toss a coin to decide the game.
 \end{enumerate}
