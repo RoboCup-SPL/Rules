@@ -121,8 +121,8 @@
         The robots are placed by the referees with some randomness to left or right as follows:
 
         \begin{description}
-            \item[Attacker:] 1st: goal area front line; 2nd: next to center line left of center circle; 3rd: next to center line right of center circle
-            \item[Defender:] 1st: within center circle; 2nd: front line penalty area; 3rd: goalkeeper in the middle between the two goal posts. Defending robots are limited to a maximum speed of \qty{20}{\cm \per \second}.
+            \item[Attacker:] 1st: goal area front line (Player No 1); 2nd: next to center line left of center circle (Player No 2); 3rd: next to center line right of center circle (Player No 3).
+            \item[Defender:] 1st: within center circle (Player No 3); 2nd: front line penalty area (Player No 2); 3rd: goalkeeper in the middle between the two goal posts (Player No 1). Defending robots are limited to a maximum speed of \qty{20}{\cm \per \second}.
             \item[Ball:] On penalty spot of the attacking team's side
         \end{description}
 
@@ -177,9 +177,15 @@
 
     \subsubsection{Challenge image}
         \label{sec:Challenge_image}
-        \todo{Deadline for submission}
-        A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements.
-        \todo{Criterias for images, how to setup}
+        A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image until 2022-03-15. The image will be tested until 2022-03-31 if they match the requirements and afterwards published if not the team gets feedback and has the opportunity to hand in a revised image.
+
+        \begin{enumerate}
+            \item One image applying to the standard button interface, using autonomous calibration and receives it player number through a text file on USB-stick.
+            \item Existence of documentation on how to flash, how to operate a robot, how to handle issues.
+            \item Does it apply to the rules?
+            \item Does it operate robustly?
+            \item Does it attack according to the rules?
+        \end{enumerate}
 
 \subsection{Open Research Challenge -- Video analysis / statistics}
 In order to evaluate the progress of the league, regardless of the annual rule changes, we need statistics similar to human soccer. Therefore, only GameController/TeamCom statistics are not sufficient for this. That's why there is an Open Research Challenge, as already known from the year 2019 (and previously until RoboCup 2014), which will focus on the generation of statistics from external video data from a go-pro type camera viewpoint.
