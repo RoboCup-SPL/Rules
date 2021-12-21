@@ -117,6 +117,7 @@ To encourage new teams to join the SPL and reduce the bar to entry, the Challeng
 Rule modifications are presented in the order as of the rule book.
 
 \subsubsection{Initial Kick-Off (Section \ref{sec:initial-kick-off})}
+\label{sub:cc-initial-kick-off}
 Manual Placement of the \emph{entire} team is possible. The team leader may request manual placement of \emph{all} robots on that team --- including those penalized in place for ``Motion in Set'' but not those with other penalties. The manual placement position is shown in Figure~\ref{fig:ko-manual}. If a manual placement is called, all players are replaced. It is not possible to manually place an individual player.
 Note that, the penalty persists for those players penalized for ``Motion in Set''. All robots that are still penalized for other infractions will stay at the sideline until their penalty time is over.
 
@@ -127,6 +128,7 @@ Note that, the penalty persists for those players penalized for ``Motion in Set'
 \end{figure}
 
 \subsubsection{Kick-In (Section \ref{sec:kick_in})}
+\label{sub:cc-kick-in}
 
 The position the ball is placed for a kick-in is modified as follows:
 \begin{itemize}
@@ -136,6 +138,7 @@ The position the ball is placed for a kick-in is modified as follows:
 \end{itemize}
 
 \subsubsection{Free-Kick Procedure (Section \ref{sec:free_kick})}
+\label{sub:cc-free-kick-procedure}
 
 The procedure for a \emph{Free Kick} is replaced with a procedure similar to the Penalty Free Kick.
 
@@ -171,16 +174,19 @@ Note that in all Free Kicks the Indirect Kick rule applies.
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the substate will be automatically left after the \qty{\SCFreeKickTime}{\second} time period expires.
 
 \subsubsection{Free-Kick: Penalty Kick (Section \ref{sec:free_kick})}
+\label{sub:cc-fk-penalty-kick}
 
 The \emph{Penalty Kick} rule (and associated procedure) is removed, and replaced by a \emph{Pushing Free Kick}.
 
 The ball is still placed on the penalty spot for a \emph{Pushing Free Kick} awarded against the defending team within their own penalty box for the \emph{Pushing Free Kick}.
 
 \subsubsection{Penalty Kick Procedure (Section \ref{sec:penalty_free_kick})}
+\label{sub:cc-penalty-kick-procedure}
 
 Removed for the Challenge Shield, and replaced by a standard \emph{Pushing Free Kick}.
 
 \subsubsection{Request for Pickup (Section \ref{sec:request_for_pickup})}
+\label{sub:cc-request-for-pickup}
 
 During the \emph{Ready} and \emph{Playing} states, a team may call a request for pick-up for \textbf{software related failures}, provided that:
 \begin{itemize}
@@ -191,6 +197,7 @@ During the \emph{Ready} and \emph{Playing} states, a team may call a request for
 Note that, during the \emph{Set} state of a \emph{Free Kick} under the Challenge Shield procedure, a team may call a request for pick-up on any robot for any reason.
 
 \subsubsection{Standard Removal Penalty (Section \ref{sec:removal_penalty})}
+\label{sub:cc-standard-removal-penalty}
 
 The duration of the standard-removal-penalty-time is reduced to \qty{\CSStandardPenaltyTime}{\second}.
 
