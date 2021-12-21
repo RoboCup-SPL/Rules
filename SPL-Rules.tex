@@ -22,6 +22,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{xargs}
+\usepackage{enumitem}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \usepackage{siunitx}
 \usepackage[capitalize,noabbrev]{cleveref}
@@ -51,16 +52,80 @@
 \newcommand{\comment}[1]{\marginpar{\pdfannot width 4in height .5in depth 8pt {/Subtype /Text /Contents (#1)}}}
 \newcommand{\inparagraph}[1]{\paragraph{#1\hspace{-1em} }}
 
-
 % some colors
 \definecolor{orange}{rgb}{1,0.5,0}
 \definecolor{red}{rgb}{1,0,0}
 \definecolor{green}{rgb}{0,1,0}
 
+\usepackage{listings}
+\usepackage{xcolor}
 
-\title{\leaguename Rule Book}
-\author{RoboCup Technical Committee}
-\date{(DRAFT 2022 rules, as of \today)}
+\definecolor{eclipseStrings}{RGB}{42,0.0,255}
+\definecolor{eclipseKeywords}{RGB}{127,0,85}
+\colorlet{numb}{magenta!60!black}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{punct}{red!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    commentstyle=\color{eclipseStrings}, % style of comment
+    stringstyle=\color{eclipseKeywords}, % style of strings
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    % backgroundcolor=\color{gray}, %only if you like
+    string=[s]{"}{"},
+    comment=[l]{:\ "},
+    morecomment=[l]{:"},
+    literate=
+        *{0}{{{\color{numb}0}}}{1}
+         {1}{{{\color{numb}1}}}{1}
+         {2}{{{\color{numb}2}}}{1}
+         {3}{{{\color{numb}3}}}{1}
+         {4}{{{\color{numb}4}}}{1}
+         {5}{{{\color{numb}5}}}{1}
+         {6}{{{\color{numb}6}}}{1}
+         {7}{{{\color{numb}7}}}{1}
+         {8}{{{\color{numb}8}}}{1}
+         {9}{{{\color{numb}9}}}{1}
+         {:}{{{\color{punct}{:}}}}{1}
+        {,}{{{\color{punct}{,}}}}{1}
+        {\{}{{{\color{delim}{\{}}}}{1}
+        {\}}{{{\color{delim}{\}}}}}{1}
+        {[}{{{\color{delim}{[}}}}{1}
+        {]}{{{\color{delim}{]}}}}{1}
+}
+
+\usepackage[edges]{forest}
+\definecolor{foldercolor}{RGB}{124,166,198}
+
+\tikzset{pics/folder/.style={code={%
+    \node[inner sep=0pt, minimum size=#1](-foldericon){};
+    \node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.5*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+    \node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+    },
+    pics/folder/.default={16pt},
+    folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+}
+
+\forestset{is file/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
+        inner sep=1pt},
+    this folder size/.style={edge path'/.expanded={%
+        ([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner xsep=0.6*#1},
+    folder tree indent/.style={before computing xy={l=#1}},
+    folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
+    folder icons/.default={10pt},
+}
+
+
+\title{GORE 2.0 for SPL\\ Execution \& Rule Book}
+\author{GORE 2.0 Organisational Committee\\ Arne Moos and Patrick Göttsch}
+\date{(DRAFT GORE 2022 rules, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -87,13 +152,14 @@
 \maketitle
 
 \begin{center}
-Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.robocup.org}.
+Questions or comments on these rules should be mailed to \\\url{gore.organisation@gmail.com}.
 \end{center}
 
 \newpage
 
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 \tableofcontents
-\setcounter{tocdepth}{3}
 
 \thispagestyle{fancy}
 
@@ -102,6 +168,12 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 \cfoot{\thepage}
 \setcounter{page}{1}
 
+\newpage
+
+\include{content/intro}
+\newpage
+
+\include{content/remote}
 \newpage
 
 \include{content/setup_environment}
@@ -125,11 +197,11 @@ Questions or comments on these rules should be mailed to \url{rc-spl-tc@lists.ro
 \include{content/app_competition_rules}
 \newpage
 
-\include{content/technical_challenges}
-\newpage
+%\include{content/technical_challenges}
+%\newpage
 
-\include{content/app_changes}
-\newpage
+%\include{content/app_changes}
+%\newpage
 
 \section{Field Technical Drawings}
 \label{apx:technical-drawing}
