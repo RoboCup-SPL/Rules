@@ -28,9 +28,12 @@
             	\end{center}
             \end{figure}
 
+        \paragraph{WiFi}
+            The available Wifi package budget defined in \cref{sec:wireless} will be increase by \qty{40}{\percent} both for the initial budget and for the budget for playing time extensions.  
+
         \paragraph{Referees}
             \label{sec:7vs7:referee}
-            All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently. Additionally the head referee decides whether a robot excessively damages itself and should remove it from the field via a forced ``Request for Pick-up'', \cf \cref{sec:request_for_pickup}.
+            All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently. Additionally, the head referee decides whether a robot excessively damages itself and should remove it from the field via a forced ``Request for Pick-up'', \cf \cref{sec:request_for_pickup}.
 
         \paragraph{Robot Pool}
             Each team has to contribute at least 3 robots to the robot pool, \cf \cref{sec:7vs7:condition_for_participation}. If a team cannot provide enough own robots and there are still functional robots in the robot pool, then this team can get more than the 3 robots from the pool to restock up to 7 robots. However, the final decision is still up to the head referee. \\
@@ -39,7 +42,7 @@
         \paragraph{Robot Pool Evaluation}
             \label{sec:robot_pool_evaluation}
             In order to guarantee that the pool robots are functional, and all parts are working within their limits each team has to provide a proof of functionality one hour before a specific pool robot is planned for a game. Also, the team has to ensure that this robot had at least a cooldown period of \qty{15}{\minute} and is charged to at least \qty{80}{\percent}.
-            A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within a given time \todo{set time} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the 2022-06-01\todo{set deadline}, as well as additional tests which should be included in such an evaluation image. A manual how to use the custom image should also be included.
+            A common robot evaluation image will be provided by the community with a standardized setup procedure (custom image) and with automatic calibration. Afterwards the robot should walk towards a ball and shoot it. If this evaluation is completed without any problems within \qty{2}{\minute} and the robot falls down less than 2 times, the evaluation is to be rated as functional. Otherwise, this robot is considered to be non-functional for the time being. Every team can propose such an image up to the 2022-06-01, as well as additional tests which should be included in such an evaluation image. A manual how to use the custom image should also be included.
 
         \paragraph{Hardware Related Penalties}
             \label{sec:7vs7:hardware_related_penalties}
@@ -121,8 +124,8 @@
         The robots are placed by the referees with some randomness to left or right as follows:
 
         \begin{description}
-            \item[Attacker:] 1st: goal area front line; 2nd: next to center line left of center circle; 3rd: next to center line right of center circle
-            \item[Defender:] 1st: within center circle; 2nd: front line penalty area; 3rd: goalkeeper in the middle between the two goal posts. Defending robots are limited to a maximum speed of \qty{20}{\cm \per \second}.
+            \item[Attacker:] 1st: goal area front line (Player No 1); 2nd: next to center line left of center circle (Player No 2); 3rd: next to center line right of center circle (Player No 3).
+            \item[Defender:] 1st: within center circle (Player No 3); 2nd: front line penalty area (Player No 2); 3rd: goalkeeper in the middle between the two goal posts (Player No 1). Defending robots are limited to a maximum speed of \qty{20}{\cm \per \second}.
             \item[Ball:] On penalty spot of the attacking team's side
         \end{description}
 
@@ -177,9 +180,15 @@
 
     \subsubsection{Challenge image}
         \label{sec:Challenge_image}
-        \todo{Deadline for submission}
-        A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image \todo{deadline}. The image will be tested if they match the requirements.
-        \todo{Criterias for images, how to setup}
+        A common image will be provided by the community with the standardized setup procedure and with automatic calibration. Every team can propose such an image until 2022-03-15. The image will be tested until 2022-03-31 if they match the requirements and afterwards published if not the team gets feedback and has the opportunity to hand in a revised image.
+
+        \begin{enumerate}
+            \item One image applying to the standard button interface, using autonomous calibration and receives it player number through a text file on USB-stick.
+            \item Existence of documentation on how to flash, how to operate a robot, how to handle issues.
+            \item Does it apply to the rules?
+            \item Does it operate robustly?
+            \item Does it attack according to the rules?
+        \end{enumerate}
 
 \subsection{Open Research Challenge -- Video analysis / statistics}
 In order to evaluate the progress of the league, regardless of the annual rule changes, we need statistics similar to human soccer. Therefore, only GameController/TeamCom statistics are not sufficient for this. That's why there is an Open Research Challenge, as already known from the year 2019 (and previously until RoboCup 2014), which will focus on the generation of statistics from external video data from a go-pro type camera viewpoint.
