@@ -53,18 +53,16 @@ The clock stops during stoppages of play (such as ready and set state after goal
 \label{sec:twoCompetitions}
 
 To provide better matched games for teams of all abilities the RoboCup Standard Platform League shall be divided into two separate competitions: the Champions Cup for the strongest teams and the Challenge Shield for all other teams. Champions Cup and Challenge Shield teams compete separately in each tournament. Teams are promoted to (or relegated from) the Champions Cup during the tournament. 
-\todo{TW: I would really prefer to call these Division 1 and Division 2.}
-%Final assignment of teams to each competition occurs at RoboCup based on initial game performance.
 
-There are 24 qualified teams. 12 teams are placed in the Champions Cup. 12 teams are placed in the Challenge Shield. Teams retain their placing in the Champions Cup or Challenge Shield between each year, unless otherwise promoted or relegated as described below. \todo{TW: This is a big change, teams are fixed to each 'division' and must essentially qualify to be in the Champions Cup}
+There are 24 qualified teams. 12 teams are placed in the Champions Cup. 12 teams are placed in the Challenge Shield. Teams retain their placing in the Champions Cup or Challenge Shield between each year, unless otherwise promoted or relegated as described below.
 All qualified teams are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.)
 
 \subsubsection{Tournament Structure}
-\emph{This structure may be revised by the TC/OC based on game scheduling constraints.} \todo{TW: I'm not sure if this works for spacing, but the exact structure can be revised later}
+\emph{This structure may be revised by the TC/OC based on game scheduling constraints.}
 
 The Champions Cup and Challenge Shield follow the same structure as independent competitions. They are referred to as ``divisions'' below for clarity.
 
-Each division will have a round-robin stage, and a knockout competition. The round-robin stage consists of 2 groups of 6 teams.\todo{Without the intermediate rounds/2nd round, there is more time for round-robin games}. Glicko rankings shall be used to seed teams into the round-robin groups. The top four teams of each groups at the conclusion of the round-robin proceed to the the knockout competition. \todo{This could be also be a 12-team knockout} The knockout-competition will therefore feature 8 teams, consisting of quarter-finals, semi-finals, 3rd place match, and the final.
+Each division will have a round-robin stage, and a knockout competition. The round-robin stage consists of 2 groups of 6 teams. Glicko rankings shall be used to seed teams into the round-robin groups. The top four teams of each groups at the conclusion of the round-robin proceed to the the knockout competition. The knockout-competition will therefore feature 8 teams, consisting of quarter-finals, semi-finals, 3rd place match, and the final.
 
 \subsubsection{Round-Robin Rankings}
 \label{sec:round-robin-rankings}
@@ -151,7 +149,6 @@ The position the ball is placed for a kick-in is modified as follows:
 \subsubsection{Free-Kick Procedure (Section \ref{sec:free_kick})}
 
 The procedure for a \emph{Free Kick} is replaced with a procedure similar to the Penalty Free Kick.
-\todo{TW: I expect this to be contentious. The intent here is to give robots more time and structure. That is, a less "quick" resumption.}
 
 When a Free Kick is initiated the head referee will announce a Free Kick, calling one of:
 \begin{enumerate}
@@ -174,7 +171,6 @@ Defensive players that violate this restrictions are penalised with the ``Illega
 
 During Set, the team leader of the attacking team may call ``Manual Free Kick Placement''.
 If this is called, the referee should move the attacking robot that is closest to the ball, to be placed \SCFreeKickDistance behind the ball, on a line between the ball and the centre of the goal.
-\todo{TW: This is intended to ensure challenge shield teams have a proper restart from a Free Kick}
 
 The referee signals the Free Kick commences by blowing the whistle once, and calling ``Playing''.
 The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
@@ -204,15 +200,12 @@ During the \emph{Ready} and \emph{Playing} states, a team may call a request for
 \end{itemize}
 
 Note that, during the \emph{Set} state of a \emph{Free Kick} under the Challenge Shield procedure, a team may call a request for pick-up on any robot for any reason.
-\todo{TW: Remove this is not using the CS free kick procedure above}
 
 \subsubsection{Standard Removal Penalty (Section \ref{sec:removal_penalty})}
 
 The duration of the standard-removal-penalty-time is reduced to \qty{\CSStandardPenaltyTime}{\second}.
-\todo{TW: This is possible. The goal is to have the CS robots on the field more, but i've no strong opinion to keep at 45s.}
 
 The penalty time \emph{does not} increase each time a team commits an infraction. All penalty result in a fixed duration of \qty{\CSStandardPenaltyTime}{\second}.
-\todo{TW: This is key part. CS teams suffer too much from increasing penalties.}
 
 \subsection{Referee Selection and Requirements}
 \label{sec:refSelection}
