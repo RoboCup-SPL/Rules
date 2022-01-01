@@ -199,28 +199,62 @@ In order to evaluate the progress of the league, regardless of the annual rule c
     \subsubsection{Condition for participation}
     \begin{itemize}
     \item In order to compete in this Challenge, teams must notify the TC (\url{rc-spl-tc@lists.robocup.org}) of their interest in participating by 2021-12-31, at the latest.
-    \item Subsequently, all participating teams will receive a pre-processed video from the RoboCup2019 (i.e. a sequence of images) and have to label it according to the enclosed instructions. Annotating must be completed by 2022-02-01 to in order to form a shared ground truth data set. However, the final format in which the teams have to submit their annotations has not yet been determined, but the TC is happy to accept suggestions. Also the exact details are given to the teams together with the to be labelled data set.
+    \item Subsequently, all participating teams will receive a pre-processed video from the RoboCup2019 (i.e. a sequence of images) and have to label it according to the enclosed instructions. Annotating must be completed by 2022-02-01 in order to form a shared ground truth data set. The exact details are given to the teams together with the to be labeled data set.
+    \item The annotations should be saved and uploaded as a single file per image sequence (so only one file per participating team) in the CSV format where the columns must be as follows:    
+
+    \hfill{}%
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline 
+        \textbf{filename} & \textbf{label} & \textbf{x\textsubscript{min}} & \textbf{y\textsubscript{min}} & \textbf{x\textsubscript{max}} & \textbf{y\textsubscript{max}} & \textbf{jersey color} & \textbf{jersey number}\tabularnewline
+        \hline 
+        \hline 
+        test.jpg & 0 & 0 & 0 & 1919 & 1079 & 0 & 100\tabularnewline
+        \hline 
+        test.jpg & 1 & 300 & 300 & 400 & 400 & -1 & -1\tabularnewline
+        \hline 
+        $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$\tabularnewline
+        \hline 
+        \end{tabular}
+    \hfill{}
+    \vspace{0.25cm}\\
+    Thus this CSV file would look like that:\\
+    \hspace*{0.8cm}\texttt{test.jpg,0,0,0,1919,1079,0,100}\\
+    \hspace*{0.8cm}\texttt{test.jpg,1,300,300,400,400,-1,-1}
     \item With this shared ground truth data set, teams can then implement their own approach/ideas. Also any failures in the annotations can be corrected by the community/teams since the data will be shared on the SPL Github\footnote{https://github.com/RoboCup-SPL}.
-    \item The teams have to create a poster (A3/A2/A1 size\todo{decide the size}) for the RoboCup 2022 showing their results and prepare a short 3 minutes oral presentation which additionally explains and shows the idea and results of this approach.
-    \item All teams are requested to publish the code for their approach to enable a fast progress of the league in this area. However, only the top 3\todo{decide the number} ranked teams are required to publish their code within one month after the RoboCup 2022.
+    \item The teams have to create a poster (A3 or A2 size) for the RoboCup 2022 showing their results and prepare a short 3 minutes oral presentation which additionally explains and shows the idea and results of this approach. If there is a GameState monitor on site, it can be used for a presentation. However, this depends on the location and the teams should be prepared to give their presentation only with their poster if necessary.
+    \item All teams are requested to publish the code for their approach to enable a fast progress of the league in this area. However, only the top 3 ranked teams are required to publish their code with instructions within one month after the RoboCup 2022.
     \end{itemize}
 
     \subsubsection{Scoring}
-    The winner will be decided by a vote among the SPL teams using the Borda count mechanism (\url{http://en.wikipedia.org/wiki/Borda_count}). Each participating SPL team will vote for their top 5/10\todo{decide the number} teams in order (excluding themselves). Teams are encouraged to evaluate the performance based on the following criteria: achievement of the long/short-term goal, execution time, accuracy/precision/recall, technical strength, novelty. At a time decided by the designated referee, within one hour of the last demonstration if not otherwise specified, the captain of each team will submit the team's rankings by filling out an online form. Any points awarded by a team to itself will be disregarded. The points awarded by the teams will be summed and thus form the score of this challenge which is then converted according to the formula described in the beginning of this section.
+    The winner will be decided by a vote among the SPL teams using the Borda count mechanism (\url{http://en.wikipedia.org/wiki/Borda_count}). Each participating SPL team will vote for their top 5 teams in order (excluding themselves).\\ 
+    Teams are encouraged to evaluate the performance based on the following criteria: 
+    \begin{itemize}
+        \item Achievement of the long/short-term goal,
+        \item execution time (and hardware requirements),
+        \item metrics (accuracy/precision/recall),
+        \item technical strength and
+        \item novelty.
+    \end{itemize}
+    At a time decided by the designated referee, within one hour of the last demonstration if not otherwise specified, the captain of each team will submit the team's rankings by filling out an online form. Any points awarded by a team to itself will be disregarded. The points awarded by the teams will be summed and thus form the score of this challenge which is then converted according to the formula described in the beginning of this section.
 
     \subsubsection{Labelling}
     This section gives a brief overview of the labelling task.\\
 
     Input data (given):
     \begin{itemize}
-        \item The assigned, pre-processed, go-pro videos/sequences from a game of the RC2019.
-        \item Additionally the GC data, TeamCom logs and the intrinsic calibration of the go-pro.
+        \item The assigned, pre-processed, go-pro videos/sequences from a game of the RC2019. These are not whole halftimes but only an excerpt of 5000 frames (at 30FPS this means about 2:42 min of continuous playing time). 
+        \item Additionally the GameController data, TeamCom logs and the intrinsic parameters of the go-pro are given.
     \end{itemize}
+
+\urldef\colortable\url{https://github.com/RoboCup-SPL/GameController/blob/RoboCup2021/include/RoboCupGameControlData.h#L15}
 
     Output data (to be annotated):
     \begin{itemize}
-        \item Calculation of the extrinsic camera parameters (camera matrix). Preferably for each frame, although this is mainly necessary when the camera was moved/wobbled. However, it should be checked at least once for each minute whether the camera matrix is still appropriate.
-        \item Labelling of all robots and the (main) ball: These objects should be labeled using bounding boxes. Special attention should be paid to the bottom edge as this will be used to determine the position of the object.
-        \item In addition, the robots must be labelled with their jersey colour and number.
+        \item Labelling of all robots participating in the game and the (main) ball: These objects should be labeled using bounding boxes, characterized by the top-left and bottom-right corner. Special attention should be paid to the bottom edge as this will be used to determine the position of the object.
+        \item In addition, the robots must be labeled with their jersey color (as number based on the GC assignment\footnote{\colortable}) and jersey number. However if the jersey number is not identifiable an ID starting with the number 100 and upwards should be used instead to clearly identify this robot in the sequence. \\
+        \textit{Note:} It could happen that you can't identify a robot and therefore give it an unique ID $\geq$100 and later you see its player number. Then this robot should also get its jersey number retroactively for all previous frames instead of the ID $\geq$100.
     \end{itemize}
+    The calculation of the extrinsic camera parameters (camera matrix) is optional.
+%Preferably for each frame, although this is mainly necessary when the camera was moved/wobbled. However, it should be checked at least once for each minute whether the camera matrix is still appropriate.
+
     Also not everything is fixed yet so that the TC is happy to accept suggestions at \url{rc-spl-tc@lists.robocup.org}.
