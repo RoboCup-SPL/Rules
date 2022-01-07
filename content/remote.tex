@@ -316,3 +316,25 @@ To give volunteers an interface to command autonomous acting robot, new game sta
     }
 }
 \end{lstlisting}
+
+\subsection{Common rules}
+\label{sec:Common_rules}
+The 5 vs. 5 games played at the GORE 2.0 in 2022 are designed to use the rules of RoboCup SPL as published at the end of 2021. However, to facilitate the remote participation of all teams and the common robot pool, various changes are required.
+
+Therefore, the following re-produces the current draft of rules for the RoboCup SPL 2022, with various details that have been modified, added and/or omitted. All changes are marked with a \cbw{colourbox} and a list of major rule changes can be found in Section~\ref{sec:major_rule_changes}.
+
+\subsubsection{Major Rule Changes}
+\label{sec:major_rule_changes}
+\begin{itemize}
+\item Only NAO V6 is allowed, \cf Section~\ref{sec:hardware}.
+\item Requiring of a streaming setup for a host arena, \cf Section~\ref{sec:streaming_setup}.
+\item Each team obtains 5 robots from a robot pool but there will be no replacement of robots, \cf Section~\ref{sec:field_players} and Section~\ref{sec:game_struct}! 
+\item Each robot in a robot pool gets a unique ID and for this purpose stickers can be placed on the upper arms and the back of the head, \cf Section~\ref{sec:robot_pool_markers}.
+\item Since the teams are not on site, the assistant referees take over tasks as if they were a member of the corresponding team, \cf Section~\ref{sec:request_for_pickup}, Section~\ref{sec:request_for_timeout}, Section~\ref{sec:penalty_shoot-out} and Section~\ref{sec:assist_referee}.
+\item Goalkeepers are only allowed to dive during a penalty kick, \cf Section~\ref{sec:forbidden_act}, Section~\ref{sec:penalty_free_kick} and Section~\ref{sec:penalty_kick}.
+\item Since teams are playing with robots from other teams, there is a maximum of two hardware related penalties for each robot in the first half and one more in the second half, \cf Section~\ref{sec:forbidden_act}.
+\item The head referee decides whether a robot excessively damages itself and removes it from the field via ``Request for Pick-up'', \cf Section~\ref{sec:damage_robot}.
+\item All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently, \cf Section~\ref{sec:damage_robot} and Section~\ref{sec:judgment}.
+\item Fallen robot penalty: A robot has a maximum number of two attempts (or in exceptional cases 3) to get up and has to be at least 10 seconds upright, \cf Section~\ref{sec:fallenrobots}.
+\item Pushing may occur between any robots, \ie also between team mates, \cf Section~\ref{sec:player_pushing}.
+\end{itemize}

@@ -57,6 +57,17 @@
 \definecolor{red}{rgb}{1,0,0}
 \definecolor{green}{rgb}{0,1,0}
 
+\newlength\colorboxwidth
+\setlength{\colorboxwidth}{\dimexpr\textwidth-2\fboxsep}
+\newlength\colorboxwidthdefinition
+\setlength{\colorboxwidthdefinition}{\dimexpr\textwidth-11\fboxsep}
+\newlength\colorboxwidthfigure
+\setlength{\colorboxwidthfigure}{\dimexpr\textwidth-17\fboxsep}
+\newcommand{\cbp}[1]{\colorbox{blue!25}{\parbox{\colorboxwidth}{#1}}}
+\newcommand{\cbd}[1]{\colorbox{blue!25}{\parbox{\colorboxwidthdefinition}{#1}}}
+\newcommand{\cbf}[1]{\colorbox{blue!25}{\parbox{\colorboxwidthfigure}{#1}}}
+\newcommand{\cbw}[1]{\colorbox{blue!25}{#1}}
+
 \usepackage{listings}
 \usepackage{xcolor}
 
@@ -194,8 +205,8 @@ Questions or comments on these rules should be mailed to \\\url{gore.organisatio
 
 \appendix
 
-\include{content/app_competition_rules}
-\newpage
+%\include{content/app_competition_rules}
+%\newpage
 
 %\include{content/technical_challenges}
 %\newpage

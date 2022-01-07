@@ -7,7 +7,7 @@
 \label{sec:game_struct}
 
 A game consists of three parts, the first half, a half-time break, and the second half. Each half is \qty{10}{\minute} counted from the initial kick-off.
-The half-time break is \qty{10}{\minute}, and during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted.
+The half-time break is \qty{10}{\minute}, and during this time both teams may \cbw{change programs}, or do anything else that can be done within the time allotted. \cbw{But there will be no replacement of robots!}
 
 The head referee signals the commencement of each half with a single whistle blow (that is, the Initial kick-off, \cf \cref{sec:initial-kick-off}).
 The head referee signals the end of the first half with two short whistle blows, and the end of the second half with two short plus one long whistle blow.
@@ -30,9 +30,8 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
 
-  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick.
+  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \qty{\PenaltyFreeKickSetupTime}{\second} for a Penalty Kick.
   The GameController can activate substates for kick-off and penalty kicks.
-  This state is not available if only the button interface is implemented.
 
   \item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})).
   Illegally positioned robots are penalized and placed on the side of the field.
@@ -41,7 +40,6 @@ If fewer robots do not respond to the GameController then they are, at the begin
   The penalty time counter is frozen during this state.
   Note that all penalised robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
   The GameController can activate substates for kick-off and penalty kicks.
-  This state is not available if only the button interface is implemented.
 
   \item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state. During the \emph{playing} state, the GameController can activate the substates for free kicks (\cf \cref{sec:free_kick}).
 
@@ -49,7 +47,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Finished.] This state is reached when a half is finished. The robots then have to sit down.
 
-  \item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from \textit{Initial} by first pressing the \textit{front} head button concluded by the chest button, for at least one second by the referees.
+  \item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from \textit{initial} by first pressing the \textit{front} head button concluded by the chest button, for at least one second by the referees.
 
 
 \end{description}
@@ -115,8 +113,7 @@ From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick,
 A robot may not score a goal from a direct kick, including via deflections.
 The ball must be deliberately played-at a second time (by either another robot, or the same robot) before a goal may be scored.
 A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands.
-If a robot plays the ball to itself, this means that the ball must leave a circular area of at least \qty{0.75}{\metre} the robot before the ball is played a second time and to be considered as an indirect
-kick.
+If a robot plays the ball to itself, this means that the ball must leave a circular area of at least \qty{0.75}{\metre} radius around the robot before the ball is played a second time and to be considered as an indirect kick.
 
 \textbf{Example 1:} Player 2 (of the red team) kicks the ball to Player~3, who then kicks the ball into the goal. This is a successful indirect kick, and the goal counts.
 
@@ -310,7 +307,8 @@ In all other states, players may be picked up for any reason.
 Every change (hardware or software) is allowed during a request for pick-up. In particular,
 it is permitted to change batteries, fix mechanical problems, reboot the robots, and change configuration files.
 It is also allowed to replace a broken robot by a substitute robot.
-It is discouraged to change the robot's control program, \textbf{but not forbidden}.
+It is discouraged to change the robot's control program, \textbf{but not forbidden}.\\
+\cbp{Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team.}
 
 Any strategic ``Request for Pick-up'' is not allowed.
 That is, gaining an advantage by removing the robot from the game.
@@ -327,7 +325,10 @@ Note here, that the returning robot or the substitute robot will have to wait ou
 \subsection{Request for Timeout}
 \label{sec:request_for_timeout}
 
-Each team can call a \textbf{maximum of 1 timeout per game} with a total time of no more than \textbf{5 minutes}. During this time, both teams may change robots, change programs, or anything else that can be done within the time allotted.  During normal game time, a team may call a timeout at any stoppage of play (after a goal, stuck game, before a half, etc.). Alternatively, a team may call a timeout before a penalty shootout if they have not used their timeout yet (\cf \cref{sec:penalty_shoot-out}).
+Each team can call a \textbf{maximum of 1 timeout per game} with a total time of no more than \textbf{5 minutes}. During this time, both teams may \cbw{change robot programs}, or anything else that can be done within the time allotted. \cbw{But there will be no replacement of robots!}\\
+\cbp{Since the teams are not on site, the assistant referees take over these tasks as if they were a member of the corresponding team.}
+
+During normal game time, a team may call a timeout at any stoppage of play (after a goal, stuck game, before a half, etc.). Alternatively, a team may call a timeout before a penalty shootout if they have not used their timeout yet (\cf \cref{sec:penalty_shoot-out}).
 
 The timeout ends when the team that called the timeout says they are finished, at which time they must be ready to play. The other team must be ready to play at the time the timeout runs out, or \textbf{2 minutes} after a prematurely called end of the timeout, whichever is earlier. If the other team is not ready to play in time, it has to call a timeout of its own.
 
@@ -341,7 +342,7 @@ If a team is not ready to play at the assigned time for a game, the referee will
 \label{sec:referee_timeout}
 The head official may call a timeout at any stoppage of play if he or she deems it necessary.  A referee timeout should only be called in dire circumstances --- one example might be when the power to the wireless router is down or no robot listens to the GameController.  However, when and whether to call a referee timeout is left up to the head referee.
 
-Referees may call multiple timeouts during a game if needed.  Teams may do anything during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout.  The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
+Referees may call multiple timeouts during a game if needed.  Teams may do anything during these timeouts, but they must be ready to play \textbf{2 minutes} after the referee ends a timeout.  The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.  In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the \cbw{organizers of the GORE} should be consulted regarding when/if play should continue.
 
 The team who would have kicked off if the timeout had not been called shall kick-off when the game resumes.
 
@@ -358,16 +359,16 @@ A game will conclude once the game score shows a goal difference of 10.  Ending 
 
 Teams who do not make a good faith effort to participate in a scheduled game are considered to forfeit the game.
 
-If a team notifies the technical committee that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
+If a team notifies the \cbw{organizers of the GORE} that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
 
-If a team notifies the technical committee that they wish to forfeit at least two hours before their schedule game time, the following procedure will be followed.
+If a team notifies the \cbw{organizers of the GORE} that they wish to forfeit at least two hours before their schedule game time, the following procedure will be followed.
 
 \begin{itemize}
   \item If a team chooses to forfeit a match in the round robin games the other team plays the match against an empty field.  However, any own goals will not be scored.
   \item If a team chooses to forfeit in a knock-out game it gets replaced by the next best qualified team, \ie the team it kicked out or left behind in the round robins.
 \end{itemize}
 
-Note that there are a few unlikely cases that are not covered by these rules.  If a situation is not covered by these rules, the technical committee and the organizing committee will work together to make a decision.
+Note that there are a few unlikely cases that are not covered by these rules.  If a situation is not covered by these rules, the \cbw{organizers of the GORE} and the organizing committee will work together to make a decision.
 
 Any forfeit will result in a qualification penalty being recorded (\cf \cref{sec:qualificationPenalties}) but the circumstances of the forfeit will affect the severity of the offense and the impact on future qualification.
 
@@ -384,7 +385,7 @@ A team that has scored the most goals at the conclusion of these will be declare
 
 The penalty kick shoot-out starts immediately without changing any code after the second half ended. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. During timeout code changes are allowed.
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the Wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the Wifi network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick. The team leader communicates the selection to the \cbw{their designated assistant referee privately}. After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 \subsubsection{Penalty Kick}
 \label{sec:penalty_kick}

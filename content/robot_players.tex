@@ -6,7 +6,7 @@ A match is played by two teams, each consisting of not more than \textbf{5} play
 
 \subsection{Hardware}
 \label{sec:hardware}
-All teams must use black, gray, red, blue, or orange plated NAO humanoid robots manufactured by SoftBank Robotics.
+All teams must use black, gray, red, blue, or orange plated NAO humanoid robots \cbw{in version 6} manufactured by SoftBank Robotics.
 
 Absolutely no modifications or additions to the robot hardware are allowed. No additional hardware is permitted including off-board sensing or processing systems. Additional sensors besides those originally installed on the robots are likewise not allowed. The only exceptions are:
 
@@ -27,7 +27,9 @@ The goalkeeper is allowed to touch the ball with its arms/hands only while it is
 
 \subsection{Field Players}
 \label{sec:field_players}
-Each of the four field players has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, the number ``6'' should only be used for a substitute that enters the game later.
+Each of the four field players has a jersey number from the set $\{2, 3, 4, 5\}$. %, 6\}$.
+%However, by default, the number ``6'' should only be used for a substitute that enters the game later.
+\\\cbw{There will be no 6th replacement robot}.
 
 \subsection{Team Markers}
 \label{sec:team_markers}
@@ -59,14 +61,18 @@ Teams may design and manufacture their own jerseys in any color (multi and many 
 \item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by \DTMdate{\JerseyApproveSubmissionDate}. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey -- these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  If submissions show separated front and back halves of jerseys then the team must specify which halves are matched to form home and away jerseys.  All images and designs should be submitted in pdf or jpg format.
 \end{itemize}
 
-Each team must designate a ``home'' color and an ``away'' color when asked about one month before RoboCup. Teams must wear their `home' jerseys when they are ```home'' (the first team listed on the schedule). Teams will wear their ``home'' jersey when they are ``away'' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the ``away'' team will then wear their ``away'' jersey.
+\cbp{If a participating team wants to use their own jerseys (\eg because of sponsors logos) and has sent them to the hosting team all efforts should be made so that these jerseys can be used complying the followed guidelines.}
+
+%Each team must designate a ``home'' color and an ``away'' color when asked about one month before RoboCup. 
+\cbp{Hosting teams/arenas must designate a ``home'' color and an ``away'' color when applying for GORE 2.0 in 2022. The team leaders can discuss the jersey assignment before the game. If no consensus is reached then the following applies:} 
+Teams must wear their ``home'' jerseys when they are ``home'' (the first team listed on the schedule). Teams will wear their ``home'' jersey when they are ``away'' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the ``away'' team will then wear their ``away'' jersey.
 
 Some teams wish to include additional information or logos on their robots. The following are allowable:
 
 \begin{itemize}
   \item Attaching player numbers to the heads and/or legs of the robots. These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
 
-  \item Adding sponsor or team logos to the upper legs of the robots (\cf \cref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a \qty{25}{\square\centi\metre} area. At most one logo may be attached per leg - if you wish to attach more than one logo per leg, email the Technical Committee at least two weeks before the competition. Depending on the size and design of the logos, this may be allowable.
+  \item Adding sponsor or team logos to the upper legs of the robots (\cf \cref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a \qty{25}{\square\centi\metre} area. At most one logo may be attached per leg - if you wish to attach more than one logo per leg, email the \cbw{organizers of the GORE} at least two weeks before the competition. Depending on the size and design of the logos, this may be allowable.
 
   \item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
 \end{itemize}
@@ -79,6 +85,10 @@ Some teams wish to include additional information or logos on their robots. The 
   \caption{Example Sponsor/Team Logo placement on legs.}
   \label{fig:sponsor}
 \end{figure}
+
+\subsubsection{Robot Pool Markers}
+\label{sec:robot_pool_markers}
+\cbp{Because each robot in the robot pool is given a unique ID (\cf Section~\ref{sec:robot_table}), that can be used to visually identify the robots, the hosting team is allowed to stick stickers/adhesive tape with the ID on it onto both upper arms of the robots and on the backside of the head.}
 
 \subsection{Communications}
 
