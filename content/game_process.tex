@@ -26,28 +26,28 @@ Should, on both teams, at least two robots have problems with the Wifi/GameContr
 If fewer robots do not respond to the GameController then they are, at the beginning, not included in the game (via a `Request for Pick-up', see \cref{sec:request_for_pickup}), and the game starts without the offending robot.
 
 \begin{description}
-  \item [Unstiff.] It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and \textit{unstiffen} all joints. So while in the \textit{unstiff} state the robot is not allowed to move in any fashion! Pressing the chest button once while in the \textit{unstiffen} state, permits the robot to \textit{stiffen} its joints and return to the initial state, or a state as indicated by GameController.
+  \item [Unstiff.] It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and \texttt{unstiffen} all joints. So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state. Pressing the chest button once while in the \texttt{unstiffen} state, permits the robot to stiffen its joints and return to the \texttt{initial} state, or a state as indicated by GameController.
 
-  \item[Initial.] After booting, the robots are in their \emph{initial} state. The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \emph{penalized} state.
+  \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
   \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \qty{\PenaltyFreeKickSetupTime}{\second} for a Penalty Kick.
   The GameController can activate substates for kick-off and penalty kicks.
 
   \item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})).
-  Illegally positioned robots are penalized and placed on the side of the field.
+  Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
   Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
   The penalty time counter is frozen during this state.
   Note that all penalised robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
   The GameController can activate substates for kick-off and penalty kicks.
 
-  \item[Playing.] In the \emph{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \emph{penalized} state. During the \emph{playing} state, the GameController can activate the substates for free kicks (\cf \cref{sec:free_kick}).
+  \item[Playing.] In the \texttt{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. During the \texttt{playing} state, the GameController can activate the substates for free kicks (\cf \cref{sec:free_kick}).
 
-  \item[Penalized.] A robot is in this state when it has been penalized. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \emph{playing} state.
+  \item[Penalized.] A robot is in this state when it has been \texttt{penalized}. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \texttt{playing} state.
 
   \item[Finished.] This state is reached when a half is finished. The robots then have to sit down.
 
-  \item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from \textit{initial} by first pressing the \textit{front} head button concluded by the chest button, for at least one second by the referees.
+  \item[Calibration.] This state denotes the robot is acting with automatic calibration. This state may only be entered from \texttt{initial} by first pressing the front head button concluded by the chest button, for at least one second by the referees.
 
 
 \end{description}
@@ -58,27 +58,27 @@ If fewer robots do not respond to the GameController then they are, at the begin
     \\\textbf{Chest button} transitions are shown as gray arrows. However, any transition possible should be sent by the GameController.
     \\\textbf{GameController} transitions are shown as black arrows.
     \\Calibration transitions are shown as purple arrows which mean pressing the \textbf{front head button + the chest button}.
-    \\From any state it can be transitioned to the \textit{unstiff} state, shown as a blue arrow, via pressing all \textbf{three head buttons}. Pressing the \textbf{chest button} in the \textit{unstiff} state allows a transition to the initial state, or a state as indicated by the GameController.}
+    \\From any state it can be transitioned to the \texttt{unstiff} state, shown as a blue arrow, via pressing all \textbf{three head buttons}. Pressing the \textbf{chest button} in the \texttt{unstiff} state allows a transition to the \texttt{initial} state, or a state as indicated by the GameController.}
 	\label{fig:robot_states}
 \end{figure}
 
-The referee will announce the start of the \textit{Playing} state with a single whistle blow.
-The GameController Playing signal will be delayed by \PlayingDelayTime seconds.
+The referee will announce the start of the \texttt{playing} state with a single whistle blow.
+The GameController \texttt{playing} signal will be delayed by \PlayingDelayTime seconds.
 This delay applies to both kick-off and penalty shots.
-Robots that begin moving their legs or move in any fashion during \emph{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf \cref{sec:motion_in_set}) GameController signal until the GameController transmits the \emph{playing signal}. A robot will be moved back to its original position if it has moved significantly before becoming penalized.
+Robots that begin moving their legs or move in any fashion during \texttt{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf \cref{sec:motion_in_set}) GameController signal until the GameController transmits the \texttt{playing} signal. A robot will be moved back to its original position if it has moved significantly before becoming penalized.
 Note that responding to a whistle on another field will result in this penalty.
 
 The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
 
 \begin{itemize}
-  \item Unstiff: Blue-Blinking
-  \item Initial: Off
-  \item Ready: Blue
-  \item Set: Yellow
-  \item Playing: Green
-  \item Penalized: Red
-  \item Finished: Off
-  \item Calibration: Purple
+  \item \texttt{Unstiff}: Blue-Blinking
+  \item \texttt{Initial}: Off
+  \item \texttt{Ready}: Blue
+  \item \texttt{Set}: Yellow
+  \item \texttt{Playing}: Green
+  \item \texttt{Penalized}: Red
+  \item \texttt{Finished}: Off
+  \item \texttt{Calibration}: Purple
 \end{itemize}
 
 The current GameController requires robots to know both their team number and their robot number within the team. It is each team's responsibility to make sure this is correctly configured. It is recommended that the robot indicates its number within the team on boot up so that this can be easily checked at the start of the game.
