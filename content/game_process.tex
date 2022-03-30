@@ -39,7 +39,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
   Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
   The penalty time counter is frozen during this state.
-  Note that all penalised robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
+  Note that all penalized robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
   The GameController can activate substates for kick-off and penalty kicks.
   This state is not available if only the button interface is implemented.
 
@@ -222,7 +222,7 @@ When necessary, the referee may need to place the ball.
 For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see \cref{sec:player_pushing}).
 If the ball left the field, the ball will be positioned as described in \cref{sec:kick_in}.
 
-During the Free Kick, only the attacking team may approach within \FreeKickRadius to the ball, with the exception of the defensive goalkeeper. All other robots of the defensive team must move away from the ball. The defensive goalkeeper may be within the \FreeKickRadius radius, provided that it is within the penalty area and does not touch the ball. Defensive robots that violate these restrictions are penalised with the ``Illegal Positioning'' penalty (see \cref{sec:illegal_positioning}) which results in a standard removal penalty~(see \cref{sec:removal_penalty}).
+During the Free Kick, only the attacking team may approach within \FreeKickRadius to the ball, except for the defensive goalkeeper. All other robots of the defensive team must move away from the ball. The defensive goalkeeper may be within the \FreeKickRadius radius, provided that it is within the goal area and does not touch the ball. Defensive robots that violate these restrictions are penalized with the ``Illegal Positioning'' penalty (see \cref{sec:illegal_positioning}) which results in a standard removal penalty~(see \cref{sec:removal_penalty}).
 Additional penalties against any further robots during the free kick, including Pushing, do not result in an additional Free Kick, but still use the appropriate removal penalty.
 
 A Free Kick is deemed completed and play returns to normal if:
