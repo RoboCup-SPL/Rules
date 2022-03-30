@@ -243,7 +243,7 @@ The referees should pick up the ball.
 Robots have \qty{\PenaltyFreeKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state.
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
 Standard penalties apply.
-Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot either be touching the goal line or stay outside its own penalty area.
+Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot must either be touching the goal line or stay outside its own penalty area.
 Only one robot from the attacking team may be within the penalty area, and it may not block the penalty spot.
 Blocking the penalty spot is considered to be an illegal position.
 All robots that do not reach legal positions will be penalized with the ``Illegal Positioning'' penalty~(\cf \cref{sec:illegal_positioning}).
@@ -409,6 +409,7 @@ Otherwise, the score is unchanged.
 
 The goalkeeper robot must always be in contact with the goal line and must remain on its feet until the striker robot touches the ball.
 The goalkeeper is only permitted to ``dive'', and be off its feet after the attacking robot has touched the ball.
+If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
 
 All rules such as ``Ball Holding'', ``Pushing'' and others are applied during the penalty kick.
 A goalkeeper will not be penalized for inactivity during a penalty kick, provided its stiffness is on.
