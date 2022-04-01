@@ -31,19 +31,19 @@ If fewer robots do not respond to the GameController then they are, at the begin
   \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
   \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick.
-  The GameController can activate substates for kick-off and penalty kicks.
+  The GameController can activate sub-states for kick-off and penalty kicks.
   This state is not available if only the button interface is implemented.
 
   \item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})).
   Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
-  Robots are allowed to move their heads or get up if fallen before the game (re)starts but they are not otherwise allowed to move their legs or locomote in any fashion.
+  Robots are allowed to move their heads or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
   The penalty time counter is frozen during this state.
   Note that all penalized robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
-  The GameController can activate substates for kick-off and penalty kicks.
+  The GameController can activate sub-states for kick-off and penalty kicks.
   This state is not available if only the button interface is implemented.
 
-  \item[Playing.] In the \texttt{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. During the \texttt{playing} state, the GameController can activate the substates for free kicks (\cf \cref{sec:free_kick}).
+  \item[Playing.] In the \texttt{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. During the \texttt{playing} state, the GameController can activate the sub-states for free kicks (\cf \cref{sec:free_kick}).
 
   \item[Penalized.] A robot is in this state when it has been \texttt{penalized}. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \texttt{playing} state.
 
@@ -214,7 +214,7 @@ The head referee will announce a Free Kick, calling one of:
   \item For a \textit{Penalty Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot, followed by ``Penalty Kick \textless team\textgreater''.
 \end{enumerate}
 
-The GameController will then activate the substate for the respective free kick. Note that in the case of the Pushing Free Kick the substate is activated automatically through the ``Foul''.
+The GameController will then activate the sub-state for the respective free kick. Note that in the case of the Pushing Free Kick the sub-state is activated automatically through the ``Foul''.
 The team who is awarded the Free Kick (termed the attacking team) has \qty{\FreeKickTime}{\second} to complete the kick.
 For a ``Penalty Kick'', the game instead proceeds as described in \cref{sec:penalty_free_kick}.
 
@@ -230,13 +230,13 @@ A Free Kick is deemed completed and play returns to normal if:
     \item The attacking team touches the ball, except for a robot getting up which is exempt from this rule.
     \item The \qty{\FreeKickTime}{\second} time period expires (or the game time expires).
 \end{itemize}
-The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the substate will be automatically left after the \qty{\FreeKickTime}{\second} time period expires.
+The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the sub-state will be automatically left after the \qty{\FreeKickTime}{\second} time period expires.
 
 \subsubsection{Penalty Kick Procedure}
 \label{sec:penalty_free_kick}
 
 When the GameController activates the Penalty Kick, the game changes to the \textit{Ready} state.
-This denotes that the robot's are given time to setup and prepare for the penalty kick.
+This denotes that the robots are given time to set up and prepare for the penalty kick.
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
 
@@ -275,7 +275,7 @@ The Penalty Kick is deemed completed if:
 \end{itemize}
 
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController
-resumes the game state \emph{playing}. Note that the substate will be automatically left (returning to the \textit{playing} state) after the \qty{\PenaltyFreeKickTime}{\second} time period expires.
+resumes the game state \emph{playing}. Note that the sub-state will be automatically left (returning to the \textit{playing} state) after the \qty{\PenaltyFreeKickTime}{\second} time period expires.
 
 Note that the restrictions on the attacking robot still apply after the penalty kick is complete.
 
