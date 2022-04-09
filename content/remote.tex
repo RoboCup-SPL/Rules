@@ -3,7 +3,7 @@
 
 \subsection{Idea of the competition}
 % Patrick
-The aim of this competition is to explore and demonstrate  competitive remote gameplay given the current situation.
+The additional aim of this competition is to explore and demonstrate competitive remote gameplay given the current situation.
 
 Two teams of each five robots (no substitute) play against each other on a full-sized (\cf section \ref{sec:field_dim}) standard robot soccer according to sligtly modified SPL 2022 rules in a remote arena (\cf section \ref{sec:Common_rules}). 
 
@@ -21,32 +21,7 @@ This competition differs from the standard RoboCup procedure in the following as
 
 \subsubsection{Basic requirements for teams}
 
-Requirements to participate in GORE are, being able to
-\begin{itemize}
-    \item send at least \textbf{four V6} NAOs equipped with a tiny USB stick (\cf section \ref{sec:c3_USB_Drive}) to a hosting arena,
-    \item label each single part with your team's name, as it will also be labeled by the hosting team, see \ref{sec:robot_pool_markers}.
-	\item deploy your robot's software remotely or fully autonomous setup
-	\item (optional) host an arena, see \ref{sec:c3_BasicRequirementsForArenas}
-\end{itemize}
-
-\subsubsection{Basic requirements for arenas}
-\label{sec:c3_BasicRequirementsForArenas}
-Teams have to fulfill the following items to be able to host an arena.
-
-\begin{itemize}
-    \item A full-size or at least 3/4 SPL field corresponding to the standard SPL field size (\cf section \ref{sec:field_dim}).
-	\item Wi-Fi with standard SPL\textunderscore A SSID, standard password (as communicated before the competition via e-mail) and standard IP \texttt{10.0.0.2} address and DHCP turned off.
-    \item Remote network access via VPN connection.
-    \item Camera, tablet or laptop for on field online calibration with remote team using Discord
-    \item Streaming setup, see~\ref{sec:streaming_setup}.
-	\item The latest Game Controller running.
-    \item All robots (own and send in) assigned for the whole competition are numbered from \textbf{1} to the maximum number with integers.
-    \item At least \textbf{two} standard balls.
-    \item Assistants for remote setup and autonomous setup.
-    \item Referees (1 Head, 1 Game Controller Operator, $>= 2$ Assistants (Who are also volunteers for the teams in setup phases. They are also in the following game local representative for the teams.)
-\end{itemize}
-
-If you cannot fulfil all requirements (equipment or number of people in the field room, etc.) but you would like to host an arena, please contact the us.
+Requirements to remotely participate in GORE 2022 are, being able to deploy your robot's software remotely or in a fully autonomous setup.
 
 \subsection{Arena and organizational setup}
 \label{sec:arean-org-setup}
@@ -72,15 +47,15 @@ After \textit{Flashing} a robot, they will be equipped with a storage USB drive 
 
 \subsubsection{Data Exchange}
 \label{sec:data_exchange}
-Teams exchange data before and during GORE 2022 using a Nextcloud/Owncloud drive. An access link and password will be sent to the team leaders and have to be used with care. The network drive will contain a folder for every team according to their team number. Team folders will be used for sharing data. Example file structures are give in \ref{sec:file_structure}. 
+Teams exchange data before and during GORE 2022 using a Nextcloud/Owncloud drive. An access link and password will be sent to the team leaders and have to be used with care. The network drive will contain a folder for every remote team according to their team number. Team folders will be used for sharing data. Example file structures are give in \ref{sec:file_structure}. 
 
 \begin{itemize}
-    \item In folder \textbf{field dimensions} each team has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file you find in section~\ref{sec:fielddimensionsjson}. This file has to be uploaded by the hosting teams until the \textbf{3rd of February 2022}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field description will be copied in to the root folder of the USB drive, after flashing, as \texttt{field\_dimensions.json}. This allows the usage of the same image at different arenas.
+    \item In folder \textbf{field dimensions} the hosting arena has to provide a json file (template will be in the root folder of the drive) describing the field dimensions according to the rules (see \ref{sec:field_dim}). The file has to be named \texttt{field\_dimensions.json}. An example of this file you find in section~\ref{sec:fielddimensionsjson}. The file will be used for autonomous setup and game play. To configure the arena the corresponding field description will be copied in to the root folder of the USB drive, after flashing, as \texttt{field\_dimensions.json}. This allows the usage of the same image at different arenas.
     \item In \textbf{Robot Setup} the arena team finds a binary image for a particular game. Each game has an identifier \textit{Game\_ID} and this identifier has to be used as folder name. The binary image has to be uploaded \textbf{one hour} before the game starts. Next to the image you can define multiple configuration folders for each player. The containing files will be copied in the root on the USB drive. The USB drive will be plugged into the robot after flashing. Within this configuration folders you can also place files to configure your image. There is one mandatory file: \texttt{field\_dimensions.json}. This file has to be used by the robot's software.
     \item To allow an autonomous robot setup to identify the robot, both teams can upload after robot assignment (see \ref{sec:setup_two_hours}) a \texttt{robot\_id.json} into the corresponding folder of the team for the game. The \texttt{robot\_id.json} should have a structure to match \textbf{MAC-Address}, \textbf{IP} and \textbf{Robot ID}. An example is shown in Section~\ref{sec:robotidjson}.
-    \item In the folder \textbf{field images} each hosting team has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions get uploaded until the \textbf{3rd of February 2022}.
-    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each team must provide team specific credentials and share them with the responsible person in each team until the \textbf{24th of January 2022}. Every hosting team has to announce a responsible person for credentials and remote setup until the \textbf{24th of January 2022}. The list of responsible people can be found in the root folder of the Nextcloud/Owncloud drive.
-    \item In the hosting team's root folder you find a \texttt{streaming.md} file where every hosting team has to publish a link that can be used by public to watch a game. Further details for streaming, see~\ref{sec:streaming_setup}.
+    \item In the folder \textbf{field images} each hosting arena has a folder where photos from the arena from different angles and at different day \& night-times with focus on the lighting conditions are located.
+    \item In \textbf{Arena Access} remote teams find an instruction how to access the arena. Each arena must provide team specific credentials and share them with the responsible person in each team. Every hosting team announces a responsible person for credentials and remote setup. The list of responsible people can be found in the root folder of the Nextcloud/Owncloud drive.
+    \item In the hosting arena's root folder you find a \texttt{streaming.md} file where every hosting team has to publish a link that can be used by public to watch a game. Further details for streaming, see~\ref{sec:streaming_setup}.
 	\item Logs and images will be uploaded from the hosts into the folder \texttt{<Team>/<Game\_ID>/Logs}, where \textit{Game\_ID} is replaced by the game identifier, after the game when bandwidth is available. It is assumed that logs and images are stored on the USB drive attached to the NAO in the folder \texttt{logs}. Other files will be ignored. For each robot a separate folder will be created to distinguish logs files from each robot. 
 \end{itemize}
 
@@ -192,8 +167,8 @@ The following section defines network requirements for hosting remote games. The
     \end{itemize}
     \item Automated assignment of IP address to robots after being flashed.
     \begin{itemize}
-        \item \label{sec:robot_table} The hosting arenas prepare a file \texttt{robot\_network\_identification.csv} with the following columns: [Robot ID (1-16) Arena Bremen, (17-32) Arena Dortmund, Team, Team Identifier (Name written on the robot), Head ID, Body ID, MAC address of LAN, IP-Lan address] 
-        \item Each team will fill in the data (Except IP Addresses) into the table for its robots until \textbf{24th of January 2022}.
+        \item \label{sec:robot_table} The hosting arenas prepare a file \texttt{robot\_network\_identification.csv} with the following columns: [Robot ID, Team, Team Identifier (Name written on the robot), Head ID, Body ID, MAC address of LAN, IP-Lan address]
+        \item Each team will fill in the data (Except IP Addresses) into the table for its robots.
         \item Each hosting team verifies this data when robots arrive.
         \item Each hosting team assigns static IP addresses to the robots based on the data in the table and lists the IP address there.
         \item This address can than be used by the teams to take over the robot after flashing. The Address has to be changed during configuration.
@@ -329,13 +304,13 @@ Therefore, the following re-produces the current draft of rules for the RoboCup 
 \begin{itemize}
 \item Only NAO V6 is allowed, \cf Section~\ref{sec:hardware}.
 \item Requiring of a streaming setup for a host arena, \cf Section~\ref{sec:streaming_setup}.
-\item Each team obtains 5 robots from a robot pool but there will be no replacement of robots, \cf Section~\ref{sec:field_players} and Section~\ref{sec:game_struct}! 
+\item Each team obtains 5 robots from a robot pool but there will be no replacement of robots, \cf Section~\ref{sec:field_players} and Section~\ref{sec:game_struct}! \cbw{(Maybe relaxed in the first teamleader meeting)}
 \item Each robot in a robot pool gets a unique ID and for this purpose stickers can be placed on the upper arms and the back of the head, \cf Section~\ref{sec:robot_pool_markers}.
-\item Since the teams are not on site, the assistant referees take over tasks as if they were a member of the corresponding team, \cf Section~\ref{sec:request_for_pickup}, Section~\ref{sec:request_for_timeout}, Section~\ref{sec:penalty_shoot-out} and Section~\ref{sec:assist_referee}.
-\item Goalkeepers are only allowed to dive during a penalty kick, \cf Section~\ref{sec:forbidden_act}, Section~\ref{sec:penalty_free_kick} and Section~\ref{sec:penalty_kick}.
-\item Since teams are playing with robots from other teams, there is a maximum of two hardware related penalties for each robot in the first half and one more in the second half, \cf Section~\ref{sec:forbidden_act}.
+\item For teams that are not on site, the assistant referees take over tasks as if they were a member of the corresponding team, \cf Section~\ref{sec:request_for_pickup}, Section~\ref{sec:request_for_timeout}, Section~\ref{sec:penalty_shoot-out} and Section~\ref{sec:assist_referee}.
+\item Goalkeepers are only allowed to dive during a penalty kick, \cf Section~\ref{sec:forbidden_act}, Section~\ref{sec:penalty_free_kick} and Section~\ref{sec:penalty_kick}. \cbw{(Maybe relaxed in the first teamleader meeting)}
+\item For teams that are playing with robots from other teams, there is a maximum of two hardware related penalties for each robot in the first half and one more in the second half, \cf Section~\ref{sec:forbidden_act}. \cbw{(Maybe relaxed in the first teamleader meeting)}
 \item The head referee decides whether a robot excessively damages itself and removes it from the field via ``Request for Pick-up'', \cf Section~\ref{sec:damage_robot}.
-\item All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently, \cf Section~\ref{sec:damage_robot} and Section~\ref{sec:judgment}.
+\item All referees are allowed to prevent robots from crashing to the ground by catching them beforehand and then laying them down gently, \cf Section~\ref{sec:damage_robot} and Section~\ref{sec:judgment}. \cbw{(Maybe relaxed in the first teamleader meeting)}
 \item Fallen robot penalty: A robot has a maximum number of two attempts (or in exceptional cases 3) to get up and has to be at least 10 seconds upright, \cf Section~\ref{sec:fallenrobots}.
-\item Pushing may occur between any robots, \ie also between team mates, \cf Section~\ref{sec:player_pushing}.
+\item Pushing may occur between any robots, \ie also between team mates, \cf Section~\ref{sec:player_pushing}. \cbw{(Maybe relaxed in the first teamleader meeting)}
 \end{itemize}
