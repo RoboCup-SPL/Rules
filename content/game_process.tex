@@ -235,12 +235,13 @@ The head referee will announce a Free Kick is completed, by ``Ball Free'', and t
 \subsubsection{Penalty Kick Procedure}
 \label{sec:penalty_free_kick}
 
-When the GameController activates the Penalty Kick, the game changes to the \textit{Ready} state.
+When the GameController activates the Penalty Kick, the game changes to the \textit{Ready} state with \textit{free kick} sub-state active.
+
 This denotes that the robots are given time to set up and prepare for the penalty kick.
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
 
-Robots have \qty{\PenaltyFreeKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state.
+Robots have \qty{\PenaltyFreeKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state with \textit{free kick} sub-state active.
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
 Standard penalties apply.
 Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot either be touching the goal line or stay outside its own penalty area.
