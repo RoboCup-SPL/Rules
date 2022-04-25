@@ -1,149 +1,42 @@
 % !TeX root = ../SPL-Rules.tex
 % !TeX spellcheck = en_US
 \section{Changes From 2019}
-This is a brief list of rule changes from 2019 to 2022.
+This is a brief non-normative list of rule changes from 2019 to 2022.
 
 \begin{itemize}
-  \item General housekeeping and tidy-up of rules.
-  \item Remove some duplicated items
-\end{itemize}
-
-\subsection*{Field Layout}
-\begin{itemize}
-  \item Increased size of the penalty area (\cf \cref{sec:field_dim})
-  \item Added goal area - as same size of the old penalty area (\cf \cref{sec:field_dim})
-\end{itemize}
-
-\subsection*{Field Colors}
-\begin{itemize}
-  \item Removed redundant figure (\cf \cref{sec:field_colors})
-\end{itemize}
-
-\subsection*{Robot Players: Hardware}
-\begin{itemize}
-  \item Added black Nao plating as permitted color~(\cf \cref{sec:hardware})
-  \item Permit tape on the battery pack~(\cf \cref{sec:hardware})
-\end{itemize}
-
-\subsection*{Robot Players: Team Markers}
-\begin{itemize}
-  \item Teams must specify which front and back halves of jerseys are combined.~(\cf \cref{sec:hardware})
-\end{itemize}
-
-\subsection*{Structure of the Game}
-\begin{itemize}
-  \item Specify whistle sounds for commencing and ending each half (\cf \cref{sec:game_struct})
-\end{itemize}
-
-\subsection*{Robot States}
-\begin{itemize}
-  \item Updated states for penalty kick (\cf \cref{sec:robot_states})
-\end{itemize}
-
-\subsection*{Goal}
-\begin{itemize}
-  \item Referee signals a goal being scored by a whistle sound~(\cf \cref{sec:goal})
-  \item GameController transmission of a goal being scored is delayed by \GoalScoredDelay~(\cf \cref{sec:goal})
-\end{itemize}
-
-\subsection*{Indirect Kick}
-\begin{itemize}
-  \item Rule introduced (\cf \cref{sec:goal})
-\end{itemize}
-
-\subsection*{Kick-off}
-\begin{itemize}
-  \item Specify location of referee whistle
-\end{itemize}
-
-\subsubsection*{Kick-off Shot}
-\begin{itemize}
-  \item Kick-off shot penalty removed.
-  \item Kick-off Rule subsumed by the Indirect Kick Rule (\cf \cref{sec:goal}), \& Invalid Goal Rule (\cf \cref{sec:goal})
-\end{itemize}
-
-\subsection*{Free Kick}
-\begin{itemize}
-  \item Change referee phrase for ending the free kick to ``Ball Free'' for consistency with kick-off and for less confusion on  head referees during the game.(\cf \cref{sec:free_kick})
-\end{itemize}
-
-\subsubsection*{Goal Kick}
-\begin{itemize}
-  \item Position of goal kick adjusted to the corner of the goal area (\cf \cref{sec:kick_in})
-\end{itemize}
-
-\subsubsection*{Penalty Kick}
-\begin{itemize}
-  \item Rule introduced~(\cf \cref{sec:free_kick}).
-  \item Penalty Kick procedure introduced~(\cf \cref{sec:penalty_free_kick}).
-\end{itemize}
-
-\subsection*{Penalty Kick Shoot-out}
-\begin{itemize}
-  \item Time for Penalty Kick reduced to \PenaltyKickTime.
-  \item Striker robot is placed on the edge of the penalty area~(\cf \cref{sec:penalty_kick})
-  \item Goalkeeper robot must remain on the goal line and on its feet~(\cf \cref{sec:penalty_kick})
-  \item Removed requirement for timing sudden-death penalty shots as this is no-longer used as a tie-breaker
-  \item General Rules housekeeping~(\cf \cref{sec:penalty_shoot-out} \& \cref{sec:sudden_death_shoot_out})
-\end{itemize}
-
-\subsection*{Illegal Defender \& Position}
-\begin{itemize}
-  \item Illegal Defender subsumed into to Illegal Position (\cf \cref{sec:illegal_positioning})
-  \item Illegal Position penalties now \textit{follow} the standard removal penalty and increase in penalty time per-robot. The only exception are illegally positioned robots during the set state.
-  \item Penalty area illegal positioning applies to robots from both teams (\cf \cref{sec:illegal_positioning})
-  \item Number of robots permitted inside the penalty area increased to 3 (\cf \cref{sec:illegal_positioning})
-\end{itemize}
-
-\subsection*{Leaving the Field Penalty}
-\begin{itemize}
-  \item Clarified leaving the field also applies to walking into the goal posts~(\cf \cref{sec:leaving_field})
-\end{itemize}
-
-\subsection*{Jamming}
-\begin{itemize}
-  \item Explicitly define interference of whistle sounds~(\cf \cref{sec:jamming})
-\end{itemize}
-
-\subsection*{Judgement - Head Referee}
-\begin{itemize}
-  \item Modified head referee's use of the whistle as it is now important for robots to detect the whistle during gameplay. Whistle's are only used for kick-off, end-of-half and goals.
-  \item Removed whistle sound for game stuck.
-  \item Added requirement to use calls as defined in the rules.
-  \item Clarified head referee's role in handling robots and the ball.
-  \item Removed requirement for timing sudden-death penalty shots as this is no-longer used as a tie-breaker
-\end{itemize}
-
-\subsection*{Official Rules - Qualification Procedure}
-\begin{itemize}
-  \item Revised qualification requirements for novel contributions and reuse of existing software~(\cf \cref{sec:qualification_procedure_codeuse})
-  \item \textbf{ALL TEAMS}: Note novel contribution requirements now apply to all teams.
-\end{itemize}
-
-
-\subsection*{Official Rules - Disqualification during competition}
-\begin{itemize}
-  \item Added possibility to disqualify a team during competition for serious ethical breaches, or violation of the terms of their qualification~(\cf \cref{sec:disqualification_during_comp})
-\end{itemize}
-
-\subsection*{Mixed Team Tournament}
-\begin{itemize}
-  \item Removed
-\end{itemize}
-
-\subsection*{Technical Challenges}
-\begin{itemize}
-  \item Penalty Shoot Out Challenge added, as per 2018 rules.
-  \item Visual Referee Challenge Added.
-\end{itemize}
-
-\subsection*{Field Technical Drawing}
-\begin{itemize}
-  \item Added.
-  \item Contains explicit dimensions accounting for the width of the tape.
-\end{itemize}
-
-\subsection*{Wireless Communications}
-\begin{itemize}
-  \item Introduced limits to the ammount of data sent during robot-to-robot communication.
+    \item Increased penalty area size and replaced old penalty area with goal area~(\cref{fig:field_dim})
+    \begin{itemize}
+        \item Moved goal kick position to corner of goal area~(\cref{sec:kick_in})
+        \item Moved striker position in penalty shoot-out to edge of penalty area~(\cref{sec:penalty_kick})
+        \item Removed exception for goalkeeper approaching the ball in a free kick~(\cref{sec:free_kick,sec:illegal_positioning})
+        \item Goalkeeper pushing~(\cref{sec:player_pushing}), diving~(\cref{sec:fallenrobots}), and playing with hands~(\cref{sec:hand_ball}) is still only allowed in its own \emph{goal area}
+    \end{itemize}
+    \item Limited number of team messages per team per game~(\cref{sec:wireless})
+    \item Dysfunctional wireless results in referee timeout, button interface cannot be used~(\cref{sec:robot_states})
+    \item Added robot states \emph{Unstiff} and \emph{Calibration}~(\cref{sec:robot_states})
+    \item Robots have to sit down in \emph{Finished}~(\cref{sec:robot_states})
+    \item Added Invalid Goal / Indirect Kick Rule (replacing and extending kick-off shot penalty)~(\cref{sec:invalid_goal,sec:indirect_kick})
+    \item Added Penalty Kick as consequence for a foul by a player in its penalty area~(\cref{sec:penalty_free_kick})
+    \item Specified all referee calls and whistle signals and locations
+    \begin{itemize}
+        \item GC signal is delayed by \qty{\PlayingDelayTime}{\second} after a goal~(\cref{sec:goal}) and in penalty kick shoot-out~(\cref{sec:penalty_kick})
+        \item Whistle interference is jamming~(\cref{sec:jamming})
+    \end{itemize}
+    \item Changed kick-off rules
+    \begin{itemize}
+        \item Standard poses for initial kick-offs~(\cref{sec:initial-kick-off})
+        \item Kick-off taker may be in opponent half's part of center circle~(\cref{sec:kick-off})
+        \item Legal kick-off area may not be left before ball is in play~(\cref{sec:kick-off})
+    \end{itemize}
+    \item Removed manual placement~(\cref{sec:kick-off})
+    \item No break before penalty shoot-out (and therefore no software changes) unless a timeout is taken~(\cref{sec:penalty_shoot-out})
+    \item Penalty goalkeeper must always be in contact with the goal line and may not dive before striker touched the ball~(\cref{sec:penalty_kick})
+    \item Illegal Positioning penalty supersedes and extends Illegal Defender~(\cref{sec:illegal_positioning})
+    \begin{itemize}
+        \item Limited number of players per team per penalty area to 3, applies to both penalty areas
+    \end{itemize}
+    \item Fallen Robot is defined in terms of number of get-up attempts instead of time~(\cref{sec:fallenrobots})
+    \item Leaving the Field includes walking into the goalposts~(\cref{sec:leaving_field})
+    \item Changed qualification procedure and code usage rules~(\cref{sec:qualification_procedure_codeuse})
+    \item Added possibility of disqualification during competition~(\cref{sec:disqualification_during_comp})
 \end{itemize}
