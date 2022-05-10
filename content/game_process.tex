@@ -105,28 +105,27 @@ A goal is invalid (that is, it can never be awarded) in the following circumstan
     \item When a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in \cref{sec:fallenrobots}).
 \end{enumerate}
 
-In these cases a goal is not scored (that is, the goal is ruled invalid), and the game will proceed with a Goal Kick (\cf \cref{sec:free_kick}). The head referee should also advice why the goal is invalid, such as by calling ``Not indirect'', ``Played with hands'' or ``No own goal''.
+In these cases a goal is not scored (that is, the goal is ruled invalid), and the game will proceed with a Goal Kick (\cf \cref{sec:free_kick}). The head referee should also advise why the goal is invalid, such as by calling ``Not indirect'', ``Played with hands'' or ``No own goal''.
 
 \subsubsection{Indirect Kick}
 \label{sec:indirect_kick}
 
-From any restart in play (Kick-off, Kick-in, Free kick) except for Penalty kick, the attacking team may only score a goal via an indirect kick.
-%, providing they have at least 3 active robots on the field at the time the restart occurs (or is awarded in the case of a free kick).
-A robot may not score a goal from a direct kick, including via deflections.
-The ball must be deliberately played-at a second time (by either another robot, or the same robot) before a goal may be scored.
-A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands.
-If a robot plays the ball to itself, this means that the ball must leave a circular area of at least \qty{0.75}{\metre} the robot before the ball is played a second time and to be considered as an indirect
-kick.
+The attacking team may only score a goal via indirect kick from any restart into \textit{playing} from a Free kick except for a Penalty kick. This rule applies also for the defending team in case of unexecuted Kick-off and the ball is free. 
 
-\textbf{Example 1:} Player 2 (of the red team) kicks the ball to Player~3, who then kicks the ball into the goal. This is a successful indirect kick, and the goal counts.
+\begin{itemize}
+  \item A robot may not score a goal from a direct kick, including via deflections.
+  \item The ball must be deliberately played-at a second time (by either another robot, or the same robot) before a goal may be scored. A deliberate play at the ball includes successfully kicking the ball, dribbling the ball (and subsequently leaving possession of the ball), or the goalkeeper playing at the ball with its hands.
+  \item If a robot plays the ball to itself, this means that the ball must leave a circular area of at least \qty{0.75}{\metre} around the robot before the ball is played a second time and to be considered as an indirect kick.
+  \item Note that an own-goal may always be scored without requiring an indirect kick.
+\end{itemize}
 
-\textbf{Example 2:} Player 2 (of the red team), kicks the ball at the goal, and it is deflected of the side of the foot of a blue-team robot into the goal. This is \textit{not} and indirect kick, and the goal does not count.
-
-\textbf{Example 3:} Player 2 (of the red team), kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
-
-\textbf{Example 4:} Player 2 (of the red team), walks up to and dribbles the ball. To be an indirect kick, Player~2 must then stop, and visibly back-away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. This is a successful indirect kick.
-
-Note that an own-goal may always be scored without requiring an indirect kick.
+\begin{description}
+  \item[Example 1:] Player 2 (of the red team) kicks the ball to Player~3, who then kicks the ball into the goal. This is a successful indirect kick, and the goal counts.
+  \item[Example 2:] Player 2 (of the red team) kicks the ball at the goal, and it is deflected of the side of the foot of a blue-team robot into the goal. This is \textit{not} an indirect kick, and the goal does not count.
+  \item[Example 3:] Player 2 (of the red team) kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
+  \item[Example 4:] Player 2 (of the red team), walks up to and dribbles the ball. To be an indirect kick, Player~2 must then stop, and visibly back-away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. This is a successful indirect kick.
+  \item[Example 5:] Players of the red team misses it to proceed of Kick off. After the ball is free the defending team kicks the ball direct into the goal. This is \textit{not} an indirect kick, and the goal does not count.
+\end{description}
 
 \subsection{Initial Kick-off}
 \label{sec:initial-kick-off}
