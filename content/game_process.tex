@@ -223,7 +223,7 @@ For a Pushing Free Kick, the ball will be left in place, and only repositioned i
 If the ball left the field, the ball will be positioned as described in \cref{sec:kick_in}.
 
 During the Free Kick, only the attacking team may approach within \FreeKickRadius to the ball. All robots of the defensive team must immediately move away from the ball. Defensive robots that violate these restrictions are penalized with the ``Illegal Positioning'' penalty (see \cref{sec:illegal_positioning}) which results in a standard removal penalty~(see \cref{sec:removal_penalty}).
-Additional penalties against any further robots during the free kick, including Pushing, do not result in an additional Free Kick, but still use the appropriate removal penalty.
+Additional penalties against any further robots of the same team during a Free kick, including Pushing, do not result in an additional Free Kick, but still use the appropriate removal penalty. If a robot of the other team causes a Free Kick by its behavior during the execution of the Free Kick, then a Free Kick is awarded against this team and the new Free Kick supersedes the previous Free Kick.
 
 A Free Kick is deemed completed and play returns to normal if:
 \begin{itemize}
