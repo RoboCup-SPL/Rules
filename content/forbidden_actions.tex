@@ -75,8 +75,9 @@ For simplicity, Illegal Positioning penalties during the \textit{Set} state (for
 
 Refer to \cref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
 
-\subsubsection{Position for Kick-off}
-If a robot is not inside its own half at the time the Set state starts, it will be penalized and removed for \qty{15}{\second}. The center line does not count as part of the own half for this penalty, although the area inside the goal does.
+\subsubsection{Before and during Kick-off}
+If a robot violates the positioning restrictions made in \cref{sec:kick-off} at the time the Set state starts, it will be penalized and removed for \qty{15}{\second}.
+If a robot enters the areas of the other team before the ball in \textit{play}, it will be penalized and removed according to the standard removal penalty.
 
 \subsubsection{Penalty Area, at all times}
 
@@ -86,9 +87,6 @@ A robot is within the penalty area if any part of its body is touching the groun
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (\eg the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
-\subsubsection{Center Circle, during Kick-off}
-
-The penalty is applied to defensive players that enter the center circle after a kick-off before the ball is in play (\cf \cref{sec:kick-off}).
 
 \subsubsection{Defender Encroachment, during Free-kick}
 

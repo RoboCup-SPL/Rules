@@ -147,26 +147,26 @@ A team may choose to place their robots themselves for initial kick-off, if they
 
 \subsection{Kick-off}
 \label{sec:kick-off}
-For kick-off, the robots listening to the wireless GameController run through three states: \emph{ready}, \emph{set}, and \emph{playing}.
+For kick-off, the robots listening wirelessly to the GameController, run through three states: \emph{ready}, \emph{set}, and \emph{playing}.
 It is to a team's responsibility to have their robots listening to the GameController!
 
-In the ready state, the robots should walk to their legal kick-off positions.
-The attacking team can be positioned anywhere within their own half and one robot is allowed to be positioned inside the whole center circle without blocking its center.
+In the ready state, the robots must walk to a legal kick-off positions for their team.
+The attacking team can be positioned anywhere within their own half including center circle. The robot executing the kick-off is also allowed to be positioned inside the whole center circle without blocking its center.
 The defending team can be positioned within their own half, except for inside the center circle including its line.
-No player is allowed to touch the halfway line except for the player within the center circle.
+No player is allowed to touch the halfway line except for the kick-off player within the center circle (\cf \cref{sec:illegal_positioning}). Robots are allowed to be positioned inside the area of their own goal.
 Both teams are also subject to restrictions on the penalty area~(\cf \cref{sec:illegal_positioning}).
 The green carpet border, except for the area of the goal, is not part of either teams own half. All robots that do not reach legal positions will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
 
-In the \emph{Set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \textit{Set} it is moved back by one of the referees.
+In the \emph{Set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \textit{Set}, it is moved back by one of the referees.
 
 \textbf{There is no manual placement of any robot.}
 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
 
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} by the GameController.
-The defensive team must stay outside of the center circle until the ball is in play. The ball is in play once it is touched by the attacking team or once \emph{\KickOffBallFreeTime} have elapsed in the playing state. Before the ball is in play, robots are not allowed to leave their own halves. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
+The defensive team must stay outside the center circle until the ball is in play. The ball is in play once it is touched by the attacking team or once \emph{\KickOffBallFreeTime} have elapsed in the playing state. Before the ball is in play, robots are not allowed to leave their own halves. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
 
-The GameController and head referee will indicate this by the call `` Ball Free''.
+The GameController and head referee will indicate this by the call ``Ball Free''.
 If a defensive player enters the center circle before the ball is in play, the ``Illegal Position'' penalty is applied (\cf \cref{sec:illegal_positioning}).
 
 Note a goal may not be scored from within the center circle on kick-off~(\cf \cref{sec:invalid_goal}), and that indirect kick rules apply~(\cf \cref{sec:indirect_kick}).
