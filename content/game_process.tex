@@ -210,7 +210,7 @@ The head referee will announce a Free Kick, calling one of:
 \begin{enumerate}
   \item For a \textit{Kick-in/Goal Kick/Corner Kick}: ``Kick-in/Goal Kick/Corner Kick \textless team\textgreater'' for the team that did not last touch the ball.
   \item For a \textit{Pushing Free Kick}: ``Foul \textless color\textgreater \textless number\textgreater'' for the pushing robot.
-  \item For a \textit{Penalty Kick}:  ``Penalty Kick \textless team\textgreater'' for the fouled team, followed by ``Foul \textless color\textgreater \textless number\textgreater'' to penalize the pushing robot.
+  \item For a \textit{Penalty Kick}:  ``Penalty Kick \textless team\textgreater \textless number\textgreater'' for the pushing robot.
 \end{enumerate}
 
 The GameController will then activate the sub-state for the respective free kick. Note that in the case of the Pushing Free Kick the sub-state is activated automatically through the ``Foul''.
