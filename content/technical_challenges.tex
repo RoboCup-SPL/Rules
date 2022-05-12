@@ -241,11 +241,13 @@
 
         This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating a provided common image (see \cref{sec:Challenge_image}) from another team. If more than one image exists, than multiple images will be provided and for each run a new one will be randomly selected.
 
-        Attacking teams have to have their robots ready \qty{40}{\minute} before a run starts. Attacking robots are not allowed to be changed afterwards. Then the defending teams receive which randomly selected common image will be used. In that time the defending robots have to be flashed and calibrated.
+        Attacking teams have to have their robots ready \qty{40}{\minute} before the challenge starts. Attacking robots are not allowed to be changed afterwards (except a robot breaks, but even than the code should remain the same except for some necessary parameters) and are stored on a designated place switched off until the challenge starts. Then each team receives  which randomly selected common image they have to set up for their defending robots. In the remaining time the defending robots have to be flashed and calibrated. Teams have to practice setting up defending robots.
 
-        Since the challenge has three runs for each team, each team will be teamed with another team for a run. Both teams have to provide the same three robots (except one robot breaks) as attacking as well as defending team. Following from this each run is divided into two parts. Executed after each other.
+        Since the challenge has three runs for each team, each team will be teamed with another team for a run. Following from this each run is divided into two phases. Executed after each other. For the first phase of a run the first mentioned team brings their three attacking robots and the other team provides the defending team. During the second phase teams switch their robots respectively.
 
-        The robots are placed by the referees with some randomness to left or right as follows:
+        After the first and second run, attacking robots must be stored at the designated place switched off.
+
+        The robots are placed by the referees with some randomness to left or right facing the opponent's half as follows:
 
         \begin{description}
             \item[Attacker:] 1st: goal area front line (Player No 1); 2nd: next to center line left of center circle (Player No 2); 3rd: next to center line right of center circle (Player No 3).
@@ -262,45 +264,55 @@
             \end{center}
         \end{figure}
 
-    Each team has three attempts to run this challenge.
+    Each team has three runs during this challenge.
+
+    \subsubsection{GameController}
+        All robots have to communicate with the GameController. There is a special mode in the GameController for this challenge.
 
     \subsubsection{Challenge Execution}
 
-        All six robots have to be in the Wi-Fi. In \texttt{initial} the robots get placed at their randomized starting positions. GC goes from \texttt{ready} directly into \texttt{set}. The ball gets placed, and the head referee starts the challenge execution with one whistle, like at kick-off. If a robot does not listen to the whistle, it will get the delayed \texttt{playing} signal from the GC.
+        In \texttt{Initial} the robots get placed at their randomized starting positions. GameController goes from \texttt{Ready} directly into \texttt{Set}. The ball gets placed, and the head referee starts the run with one whistle, like at kick-off. If a robot does not listen to the whistle, it will get the delayed \texttt{Playing} signal from the GameController.
 
-        In \texttt{playing} the following happens: The 1st attacker plays the ball towards the 2nd or 3rd attacker while he is under attack by the 1st defender.
-        A pass counts as a valid pass if the ball stops in front of the receiving robot towards the opponent's goal. The ball has to stop in the vicinity of the receiving robot (at max \qty{1}{\metre} distance between receiver and ball, see~\cref{fig:ball_handling_positions}).
+        In \texttt{Playing} the following happens: The 1st attacker plays the ball towards the 2nd or 3rd attacker while he is under attack by the 1st defender.
+        A pass counts as a valid pass if the ball stops in front of the receiving robot towards the next target either 2nd receiver or opponent's goal. The receiving robot should not have to move backwards, to play the ball. When the ball stops, it has to be in the vicinity of the receiving robot (at max approx. \qty{1}{\metre} distance between receiver and ball, see~\cref{fig:ball_handling_positions}).
         The 1st defender does not walk back in its own half and the goalkeeper remains on the goal line and is not allowed to dive. The objective of the defending team is to intercept the passes, see stopping criteria.
 
         After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. The task of the 2nd or 3rd attacker is now to pass towards the 3rd or 2nd attacking robot, which than shots onto the goal.
 
         If a defender pushes an attacking robot, the attacking team gets a time bonus of \qty{15}{\second} and the pushing robot will be removed from this run.
 
+        Fall and inactive robots get the standard removal penalties. In this case the remaining robots have to take over the task of the penalized robot. They have to operate in the intention of the challenge to perform two passes.
+
     \subsubsection{Challenge Scoring}
 
-        For each run the referee measures the execution time from initial whistle until the run is stopped by one of the following criteria:
+        In each phase of a run the GameController measures the execution time from initial whistle until the run is stopped by one of the following criteria:
 
         \begin{itemize}
             \item A defender touches the ball.
-            \item Ball leaves the field.
+            \item An attacking robot leaves the field.
+            \item Ball leaves the field outside the defending goal area.
             \item An attacker pushes.
             \item A run exceeds \qty{4}{\minute} execution time.
-            \item A goal is scored.
+            \item A goal is scored after three robots have played the ball.
+            \item Attacking team is not communicating with the GameController.
         \end{itemize}
 
-        A score for the run will be calculated based on the following rules:
+        In the case that a goal gets scored before three robots played the ball, or the ball leaves the field within the defending goal area, the ball gets placed on the closest goal kick spot.
+
+        The score for the attacking team in a run will be calculated based on the following rules:
 
         \begin{enumerate}
             \item The time measured counts.
             \item If an attacking robot has been pushed by a defender, subtract \qty{15}{\second}.
             \item If a goal has been scored after two passes, subtract \qty{30}{\second}.
-            \item If a ball has been passed wrongly, add \qty{10}{\second} for each incorrect pass.
+            \item If a ball has been passed wrongly, add \qty{40}{\second} for each incorrect pass.
             \item If the ball got touched by the 1st or 2nd defender, execution time will be \qty{240}{\second}.
-            \item If the ball leaves the field not from inside the defending goal area, execution time will be \qty{240}{\second}.
+            \item If the ball leaves the field outside the defending goal area, execution time will be \qty{240}{\second}.
             \item If an attacking robot has pushed, execution time will be \qty{240}{\second}.
+            \item If a team is not communicating with the GameContoller, execution time will be \qty{240}{\second}.
         \end{enumerate}
 
-        The final result is the mean time out of three runs.
+        The final score is the mean time out of three runs.
 
     \subsubsection{Challenge image}
         \label{sec:Challenge_image}
@@ -316,7 +328,7 @@
 
 \newpage
 
-\subsection{Open Research Challenge -- Video analysis / statistics}
+\subsection{Open Research Challenge — Video analysis / statistics}
 In order to evaluate the progress of the league, regardless of the annual rule changes, we need statistics similar to human soccer. Therefore, only GameController/TeamCom statistics are not sufficient for this. That's why there is an Open Research Challenge, as already known from the year 2019 (and previously until RoboCup 2014), which will focus on the generation of statistics from external video data from a go-pro type camera viewpoint.
 
     \subsubsection{Challenge Goal}
