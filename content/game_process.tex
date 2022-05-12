@@ -130,8 +130,11 @@ The attacking team may only score a goal via indirect kick from any restart into
 \subsection{Initial Kick-off}
 \label{sec:initial-kick-off}
 
-The first kick-off at the start of each half or after a timeout is an initial kick-off.
-Robots have to be handed over at latest \qty{2}{\min} before an initial kick-off. All robots must be in the \textit{unstiff} state and must be placed on the sidelines facing the other sideline in their own half of the field, by the referees according to \cref{fig:initial_positions}. Robots are brought into the \textit{initial} state after they are placed. Once the robots receive the \emph{ready} signal from the GameController, they proceed as described in \cref{sec:kick-off}.
+The first kick-off at the start of each half or after a timeout is an initial kick-off. Robots have to be ready next to the field at latest \qty{2}{\min} before an initial kick-off. All robots must be in the \textit{unstiff} state.
+
+Latest \qty{1}{\min} before the game starts all robots must be placed on the sidelines facing the other sideline in their own half by their team (if present in person at the competition site) or their responsible referee according to \cref{fig:initial_positions}. If a team places robots themselves for initial kick-off, it is allowed for the team to vary the spacing and orientation of the robot positions along legal positions on their half's sidelines~(see also~\cref{sec:inside_outside}).
+
+Robots are brought into the \textit{initial} state after they are placed. Once the robots receive the \emph{ready} signal from the GameController, they proceed as described in \cref{sec:kick-off}.
 
 \begin{figure}[t!]
 	\begin{center}
@@ -141,8 +144,6 @@ Robots have to be handed over at latest \qty{2}{\min} before an initial kick-off
 		\label{fig:initial_positions}
 	\end{center}
 \end{figure}
-
-A team may choose to place their robots themselves for initial kick-off, if they are present in person at the competition site. This allows the team to vary the spacing of the robot positions along the sidelines. Robots must be placed on the team's own halves of the sidelines and may not interfere with the opponent as judged by the referee. All robots are brought into the \textit{initial} state by their team or referee at latest \qty{1}{\min} before \textit{ready} gets called.
 
 \subsection{Kick-off}
 \label{sec:kick-off}
