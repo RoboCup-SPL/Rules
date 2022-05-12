@@ -30,7 +30,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
-  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \KickOffAutoTime for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick.
+  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick.
   The GameController can activate sub-states for kick-off and penalty kicks.
   This state is not available if only the button interface is implemented.
 
@@ -93,7 +93,7 @@ The head referee signals a goal by a single whistle blow, followed by the call `
 The head referee should point with one arm towards the center of the field.
 To assist robots listening for whistles, the referee should blow the whistle from on the carpet at the end of the fields where the goal was scored.
 
-The GameController signal (to the robots) of a goal being scored, will be delayed by \GoalScoredDelay.
+The GameController signal (to the robots) of a goal being scored, will be delayed by \qty{\GoalScoredDelay}{\second}.
 
 \subsubsection{Invalid Goal}
 \label{sec:invalid_goal}
@@ -173,7 +173,7 @@ In the \emph{Set} state, the robots must not move~(\cf \cref{sec:robot_states}).
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the half-way line.
 
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} by the GameController.
-The defensive team must stay outside the center circle until the ball is in play. The ball is in play once it is touched by the attacking team or once \emph{\KickOffBallFreeTime} have elapsed in the playing state. Before the ball is in play, robots are not allowed to leave their own halves. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
+The defensive team must stay outside the center circle until the ball is in play. The ball is in play once it is touched by the attacking team or once \qty{\KickOffBallFreeTime}{\second} have elapsed in the playing state. Before the ball is in play, robots are not allowed to leave their own halves. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
 
 The GameController and head referee will indicate this by the call ``Ball Free''.
 If a defensive player enters the center circle before the ball is in play, the ``Illegal Position'' penalty is applied (\cf \cref{sec:illegal_positioning}).
@@ -231,7 +231,7 @@ When necessary, the referee may need to place the ball.
 For a Pushing Free Kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see \cref{sec:player_pushing}).
 If the ball left the field, the ball will be positioned as described in \cref{sec:kick_in}.
 
-During the Free Kick, only the attacking team may approach within \FreeKickRadius to the ball. All robots of the defensive team must immediately move away from the ball. Defensive robots that violate these restrictions are penalized with the ``Illegal Positioning'' penalty (see \cref{sec:illegal_positioning}) which results in a standard removal penalty~(see \cref{sec:removal_penalty}).
+During the Free Kick, only the attacking team may approach within \qty{\FreeKickRadius}{\metre} to the ball. All robots of the defensive team must immediately move away from the ball. Defensive robots that violate these restrictions are penalized with the ``Illegal Positioning'' penalty (see \cref{sec:illegal_positioning}) which results in a standard removal penalty~(see \cref{sec:removal_penalty}).
 Additional penalties against any further robots during the free kick, including Pushing, do not result in an additional Free Kick, but still use the appropriate removal penalty.
 
 A Free Kick is deemed completed and play returns to normal if:
@@ -412,7 +412,7 @@ The GameController activates the penalty kick, switching to the \emph{playing} g
 Note, the playing signal is delayed~(\cf \cref{sec:robot_states}).
 
 The striker robot is only allowed to contact the ball once.
-The time limit for the striker is \PenaltyKickTime after the penalty kick starts.
+The time limit for the striker is \qty{\PenaltyKickTime}{\second} after the penalty kick starts.
 A penalty shot is over when the ball has come to a full stop after the first contact by the striker robot.
 A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line).
 Otherwise, the score is unchanged.
