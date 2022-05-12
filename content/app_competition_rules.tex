@@ -49,45 +49,33 @@ Failure to meet any of these requirements will result in a qualification penalty
 
 The clock stops during stoppages of play (such as ready and set state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see \cref{sec:penalty_shoot-out}).
 
-\subsection{Winner and Rankings}
-\label{sec:rankings}
+\subsection{Competition mode}
 
-The team which scored more goals than the other is the winner of the match. If the two teams scored the same number of goals, the game will be a draw. The draw will follow the same system defined in \cref{sec:game_struct}. Total (and final) standings will be decided on points as follows (the points will be given based on the result of each game):
+Depending on the number of participating teams, the OC and TC create a competition table. The following modes can be selected:
 
-\makebox[\columnwidth]{ \hfill Win = 3 pts\hfill Draw = 1 pt \hfill
-Lose = 0 pts\hfill }
+\begin{itemize}
+  \item Group games, with or without intermediate rounds, with concluding knock-out phase
+  \item Double elimination system
+  \item Swiss tournament system
+  \item Swiss tournament system with concluding knock-out phase.
+\end{itemize}
 
-If a team's obtained points is the same as another team's after a round of pool play is complete, the following evaluations will be applied in order to qualify the finalists.
+All teams participating in the competition are initially ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.)
 
-\begin{enumerate}
+The OC will announce two weeks before a competition:
 
-\item The points obtained
-
-\item The difference between goals for and goals against per game
-
-\item The average goals for per game
-
-\item Game result between the teams directly
-
-\end{enumerate}
-
-\subsection{Champions Cup and Challenge Shield}
-\label{sec:twoCompetitions}
-In order to provide better matched games for teams of all abilities the RoboCup Standard Platform League shall be divided into two separate competitions: the Champions Cup for the strongest teams and the Challenge Shield for all other teams. Final assignment of teams to each competition occurs at RoboCup based on initial game performance.
-
-There are 24 qualified teams.
-
-All teams who qualify for participation in the RoboCup SPL are ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.) The top 12 teams (by rank) will be Champions Cup candidates and the remaining teams will be Challenge Shield candidates.
-
-All Champions Cup candidates play a single qualifier round-robin stage comprising 4 groups of 3 teams each. All Challenge Shield candidates play a similar qualifier round-robin stage also consisting of 4 groups of 3 teams each. Each Champions Cup qualifier group will consist of one team ranked 1-4, one team ranked 5-8, and one team ranked 9-12. Each of the teams ranked 13-16 will be placed in a different Challenge Shield group. Remaining Challenge Shield qualifier group places will be filled by random selection from teams ranked 17-24.
-
-The top 2 teams in each Champions Cup qualifier group proceed automatically to the Champions Cup proper. Similarly, the lower 2 teams in each Challenge Shield qualifier group proceed automatically to the Challenge Shield. The 4 remaining Champions Cup candidates (losers in each group) play the remaining Challenge Shield candidates (winners in each group) in the so-called promotion round and the winners of these games go to the Champions Cup while the losers go to the Challenge Shield. Thereafter, the Champions Cup and Challenge Shield competitions shall proceed independently of each other and each will normally consist of a round-robin stage, followed by an intermediate round and a knockout competition. In the intermediate round the second and third placed team of each group coming from the second round-robin will play against a team from another group for a spot in the quarter-final.
+\begin{itemize}
+  \item Competition mode and which competition rules will be applied
+  \item Initial ranking of participating teams
+  \item How to determine the overall winner and the ranking of the technical challenges
+  \item Pre-qualification rules.
+\end{itemize}
 
 \subsection{Referee Selection and Requirements}
 \label{sec:refSelection}
 During pool play, the games will be refereed by members of teams from a different pool.
 
-Each team has to referee a number of games. A schedule will be released specifying the games for which each team is required to provide two referees. Referees should report to the appropriate field at least five minutes before the game is scheduled to start.
+Each team has to referee a number of games. A schedule will be released specifying the games for which each team is required to provide two referees. Referees should report to the appropriate field at least ten minutes before the game is scheduled to start.
 
 If a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee and recorded as a \textbf{qualification penalty} (\cref{sec:qualificationPenalties}).
 
@@ -106,8 +94,7 @@ In each game, each of the teams playing shall be able to veto one and only one e
 \label{sec:preQual}
 Up to 11 teams may become pre-qualified for the subsequent year's team competition by fulfilling one of the following criteria:
 \begin{itemize}
-    \item Reaching the quarter-finals of the Champions Cup
-    \item Reaching the final of the Challenge Shield
+    \item Reaching the given pre-qualification criteria.
     \item Being the team with the best overall result in the technical challenges that is not pre-qualified by other means, and finishing at worst 5th in the technical challenges.
 \end{itemize}
 
