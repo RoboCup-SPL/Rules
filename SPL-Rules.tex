@@ -41,6 +41,10 @@
 %disable
 ]{todonotes}
 
+\usepackage[theorems]{tcolorbox}
+\newtcbtheorem[number within=section]{hintbox}{}%
+{colback=red!10,colframe=red!45!black,fonttitle=\bfseries}{th}
+
 \include{content/spl_variables}
 \include{content/spl_dates}
 
@@ -49,7 +53,7 @@
 \newcommand{\eg}{\mbox{e.\,g.}\xspace}
 %\newcommand{\cf}{\mbox{cf.}\xspace}
 \newcommand{\cf}{see\xspace}
-\newcommand{\comment}[1]{\marginpar{\pdfannot width 4in height .5in depth 8pt {/Subtype /Text /Contents (#1)}}}
+% \newcommand{\comment}[1]{\marginpar{\pdfannot width 4in height .5in depth 8pt {/Subtype /Text /Contents (#1)}}}
 \newcommand{\inparagraph}[1]{\paragraph{#1\hspace{-1em} }}
 
 
