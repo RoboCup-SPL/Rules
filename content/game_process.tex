@@ -149,12 +149,22 @@ A team may choose to place their robots themselves for initial kick-off, if they
 For kick-off, the robots listening wirelessly to the GameController, run through three states: \emph{ready}, \emph{set}, and \emph{playing}.
 It is to a team's responsibility to have their robots listening to the GameController!
 
-In the ready state, the robots must walk to a legal kick-off positions for their team.
-The attacking team can be positioned anywhere within their own half including center circle. The robot executing the kick-off is also allowed to be positioned inside the whole center circle without blocking its center.
-The defending team can be positioned within their own half, except for inside the center circle including its line.
-No player is allowed to touch the halfway line except for the kick-off player within the center circle (\cf \cref{sec:illegal_positioning}). Robots are allowed to be positioned inside the area of their own goal.
+In the \textit{Ready} state, the robots must walk to a legal kick-off positions for their team.
+
+When reaching the \textit{Set} state, the kick-off team can be positioned anywhere within their own half and the center circle.
+Only one robot of the kick-off team is allowed to stay within the whole center circle.
+All robots in the center circle, except the closest to the center point of the center circle, get penalized by ``Illegal Positioning''~(\cf \cref{sec:illegal_positioning}).
+If the kick-off team has a robot positioned in the opponent's half of the center circle, only this robot, called kick-off player, is allowed to execute the kick-off.
+If a different robot of the kick-off team is executing the kick-off, this robot gets penalized with ``Illegal Positioning'' and a moved ball gets moved back.
+
+When reaching the \textit{Set} state, the defending team can be positioned within their own half, except for inside the center circle including its line.
+
+Beginning with \textit{Set} no player is allowed to touch the halfway line except for the kick-off player within the center circle (\cf \cref{sec:illegal_positioning}).
+Robots are allowed to be positioned inside the area of their own goal.
 Both teams are also subject to restrictions on the penalty area~(\cf \cref{sec:illegal_positioning}).
-The green carpet border, except for the area of the goal, is not part of either teams own half. All robots that do not reach legal positions will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
+The limitations on kick-off positions end for both teams as soon as the ball is free.
+The green carpet border, except for the area of the goal, is not part of either teams own half.
+All robots that do not reach legal positions or enter illegal positions before the ball is free will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
 
 In the \emph{Set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \textit{Set}, it is moved back by one of the referees.
 
