@@ -235,17 +235,17 @@
 
     \subsubsection{Challenge Goal}
 
-        Score as attacking team a goal after a double pass without letting the defending players touch the ball. To achieve a faster attack, robots receive the ball in a place that allows the robot to pass the ball towards the next target without walking backwards or too much. This is the intention of the challenge. 
+        Score a goal as the attacking team after a double pass without letting the defending players touch the ball. To allow a fast attack, robots are given the ball in a way that allows the robots to pass the ball towards the next target without walking backwards or turning. 
 
     \subsubsection{Challenge Setup}
 
         This challenge uses a standard SPL field, with GameController and 3 attacking robots provided by the challenged team and three defending robots operating a provided common image (see \cref{sec:Challenge_image}) from another team. If more than one image exists, than multiple images will be provided and for each run a new one will be randomly selected.
 
-        Attacking teams have to have their robots ready \qty{40}{\minute} before the challenge starts. Attacking robots are not allowed to be changed afterwards (except a robot breaks, but even than the code should remain the same except for some necessary parameters) and are stored switched off at a designated place until the challenge starts. Then each team receives  which randomly selected common image they have to set up for their defending robots. In the remaining time the defending robots have to be flashed and calibrated. Teams have to practice setting up defending robots.
+        Attacking teams have to have their robots ready \qty{40}{\minute} before the challenge starts. Attacking robots are not allowed to be modified afterwards (except a robot breaks, but even than the code should remain the same except for some necessary parameters). Attacking robots are stored switched off at a designated place until the challenge starts. A randomly selected common defender image is assigned to each team. They have to set up the image for their defending robots. In the remaining time the defending robots have to be flashed and calibrated. Teams have to practice setting up defending robots.
 
         Since the challenge has three runs for each team, each team will be teamed with another team for a run. Following from this each run is divided into two phases. Executed after each other. For the first phase of a run the first mentioned team brings their three attacking robots and the other team provides the defending team. During the second phase teams switch their robots respectively.
 
-        After the first and second run, attacking robots must be stored at the designated place and switched off.
+        After the first and second run, attacking robots must be switched off and stored at the designated place.
 
         The robots are placed by the referees with some randomness to left or right facing the opponent's half as follows:
 
@@ -271,7 +271,7 @@
 
     \subsubsection{Challenge Execution}
 
-        In \texttt{Initial} the robots get placed at their randomized starting positions, \cf~\cref{fig:ball_handling_inital_positions}. The GameController switches from \texttt{Ready} directly into \texttt{Set}. The ball gets placed, and the head referee starts the run with one whistle, like at kick-off. If a robot does not listen to the whistle, it will get the \texttt{Playing} signal delayed from the GameController.
+        In \texttt{Initial} the robots get placed at their randomized starting positions, \cf~\cref{fig:ball_handling_inital_positions}. The GameController switches from \texttt{Ready} directly into \texttt{Set}. The ball gets placed, and the head referee starts the run with one whistle blow, like at kick-off. If a robot does not listen to the whistle, it will receive the \texttt{Playing} signal from the GameController after a delay.
 
         In \texttt{Playing} the following happens: The 1st attacker passes the ball towards the 2nd or 3rd attacker while he is under attack by the 1st defender. After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. Next, the 2nd or 3rd attacker passes towards another robot, which tries to score a goal.
         The 1st defender does not walk back in its own half and the goalkeeper remains on the goal line and is not allowed to dive. The objective of the defending team is to intercept the passes, see stopping criteria.
