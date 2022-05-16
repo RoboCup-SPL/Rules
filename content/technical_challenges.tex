@@ -146,7 +146,7 @@
             \begin{enumerate}
                 \item Using its arm(s) to \emph{mirror} the referee's signal. That is, if the referee gives a signal for a decision for the ``red team'' using their left arm, the robot should \emph{mirror} this signal using the robot's \emph{right arm}, as the robot is facing the referee.
                 \item Providing an audio phrase the referee's decision, e.g., ```Goal Red Team'''.  The exact wording is up to the team, but should clearly identify the referee's signal.
-                \item The robots output should be repeated as long as, it gets a signal by the referee pressing a button to indicate the time for the next signal. This should give the referee time to understand the robot's audio output clearly.
+                \item The robots output should be repeated as long as, its front head button gets pressed for at least \qty{1}{\second} to indicate that the next signal will come. This should give the referee time to understand the robot's audio output clearly.
             \end{enumerate}
             \item The length of time taken for the robot to indicate its interpretation from the referee blowing the whistle is measured (rounded-up to the nearest second).
             \item If the robot cannot identify the signal, it should remain motionless and provide no audio output. A robot may continue to pose in the same position as the identified last signal.
