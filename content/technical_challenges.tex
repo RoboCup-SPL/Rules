@@ -107,7 +107,7 @@
 
     \subsubsection{Challenge Goal}
 
-        In the current SPL rules, the only time that a robot is required to listen directly to the human referees is for the kick-off whistle. Otherwise, all human referee decisions are communicated to the robots via electronic GameController messages. In moving towards the 2050 RoboCup goal, robots will need to directly interpret referee calls and signals (such as whistles, spoken calls and hand signals), rather than receive information from an external electronic source.
+        In the current SPL rules, the only time that a robot is required to listen directly to the human referees is for the kick-off and goal whistle. Otherwise, all human referee decisions are communicated to the robots via electronic GameController messages. In moving towards the 2050 RoboCup goal, robots will need to directly interpret referee calls and signals (such as whistles, spoken calls and hand signals), rather than receive information from an external electronic source.
         
         This technical challenge tests a robot's ability to identify three categories of hand signals:
         \begin{enumerate}
@@ -116,15 +116,24 @@
             \item Dynamic (motion) hand signals with one or two hands.
         \end{enumerate}
         
-        The intent of this challenge is to choose a \emph{subset} of potential referee calls in SPL games and test ability of a robot to recognise different types of hand signals in preparation for adoption in RoboCup games, rather than compile a complete set of all referee signals.
+        The intent of this challenge is to choose a \emph{subset} of potential referee calls in SPL games and test ability of a robot to recognize different types of hand signals in preparation for adoption in RoboCup games, rather than compile a complete set of all referee signals.
 
     \subsubsection{Challenge setup}
 
         One robot of the challenged team is placed in the center circle facing the head referee, standing upright (stiffened) with both hands by its side. The robot should be running in the challenge mode at the start of the challenge. The team is free to choose how the software is started.
         
-        The head referee must stand on the T-junction of the center field line, opposite to the GC. The referee must wear a ``black-and-white'' stripped referee jersey (if available) and must  wear red gloves. The purpose of this clothing is to clearly distinguish the referee and their hands from background people. 
+        The head referee must stand on the T-junction of the center field line, opposite to the GC. The referee must wear a ``black-and-white'' stripped referee jersey (if available otherwise fully black clothes) and must wear red gloves. The purpose of this clothing is to clearly distinguish the referee and their hands from background people. 
         
-        The description of this challenge (and hand-signals) is described based on the viewpoint of the head referee. In these descriptions the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during SPL games.
+        The description of this challenge (and hand-signals) is described based on the viewpoint of the head referee. In these descriptions from the perspective of the head referee the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during SPL games \cf~\cref{fig:visual_referee_inital_positions}.
+
+        \begin{figure}[ht!]
+            \begin{center}
+                \leavevmode
+                \includegraphics[width=1\columnwidth]{figs/referee-signals/vrc_initial.png}
+                \caption{Definition of positions of {\color{red}red}, {\color{blue}blue} team's sides, challenged robot and head referee.}
+                \label{fig:visual_referee_inital_positions}
+            \end{center}
+        \end{figure}
         
         The general procedure is as follows:
 
