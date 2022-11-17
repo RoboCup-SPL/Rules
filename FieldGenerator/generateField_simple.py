@@ -21,8 +21,8 @@ penalty_cross_size = o['penalty_cross_size']
 penalty_area_length = o['penalty_area_length']
 penalty_area_width = o['penalty_area_width']
 penalty_cross_distance = o['penalty_cross_distance']
-goalbox_area_length = o['goalbox_area_length']
-goalbox_area_width = o['goalbox_area_width']
+goal_area_length = o['goal_area_length']
+goal_area_width = o['goal_area_width']
 center_circle_diameter = o['center_circle_diameter']
 border_strip_width = o['border_strip_width']
 goal_depth = o['goal_depth']
@@ -38,8 +38,8 @@ y_sideline = field_width * 0.5
 x_penalty_area = field_length * 0.5 - penalty_area_length
 y_penalty_area = penalty_area_width * 0.5
 x_penalty_cross = field_length * 0.5 - penalty_cross_distance
-x_goalbox_area = field_length * 0.5 - goalbox_area_length
-y_goalbox_area = goalbox_area_width * 0.5
+x_goal_area = field_length * 0.5 - goal_area_length
+y_goal_area = goal_area_width * 0.5
 line_width_2 = line_width * 0.5
 penalty_cross_size_2 = penalty_cross_size * 0.5
 center_circle_radius = center_circle_diameter * 0.5
@@ -80,11 +80,11 @@ def draw_inner_penalty_area(context, sign):
     context.line_to(sign * (x_penalty_area), -(y_penalty_area))
     context.close_path()
 
-def draw_inner_goalbox_area(context, sign):
-    context.move_to(sign * (x_groundline), -(y_goalbox_area))
-    context.line_to(sign * (x_groundline), (y_goalbox_area))
-    context.line_to(sign * (x_goalbox_area), (y_goalbox_area))
-    context.line_to(sign * (x_goalbox_area), -(y_goalbox_area))
+def draw_inner_goal_area(context, sign):
+    context.move_to(sign * (x_groundline), -(y_goal_area))
+    context.line_to(sign * (x_groundline), (y_goal_area))
+    context.line_to(sign * (x_goal_area), (y_goal_area))
+    context.line_to(sign * (x_goal_area), -(y_goal_area))
     context.close_path()
 
 # inner part of the center circle, including the center dash
@@ -214,8 +214,8 @@ draw_outer_lines(context)
 #draw_inner_lines(context, -1)
 draw_inner_penalty_area(context, 1)
 draw_inner_penalty_area(context, -1)
-draw_inner_goalbox_area(context, 1)
-draw_inner_goalbox_area(context, -1)
+draw_inner_goal_area(context, 1)
+draw_inner_goal_area(context, -1)
 draw_inner_center_circle(context, 1)
 draw_inner_center_circle(context, -1)
 draw_penalty_cross(context, 1)
@@ -260,8 +260,8 @@ draw_dimension_vertical(context, -(y_sideline), (y_sideline), -(x_groundline + l
 # dimension for outer penalty area length / width
 draw_dimension_horizontal(context, -(x_groundline), -(x_penalty_area), -(y_penalty_area + 0.1), 0.2, label="G")
 draw_dimension_vertical(context, -(y_penalty_area), (y_penalty_area), -(x_penalty_area - 0.1), 0.2, across_offset=0.3, label="H")
-draw_dimension_horizontal(context, -(x_groundline), -(x_goalbox_area), -(y_goalbox_area + 0.1), 0.2, label="E")
-draw_dimension_vertical(context, -(y_goalbox_area), (y_goalbox_area), -(x_goalbox_area - 0.1), 0.2, across_offset=0.3, label="F")
+draw_dimension_horizontal(context, -(x_groundline), -(x_goal_area), -(y_goal_area + 0.1), 0.2, label="E")
+draw_dimension_vertical(context, -(y_goal_area), (y_goal_area), -(x_goal_area - 0.1), 0.2, across_offset=0.3, label="F")
 
 # penalty area width from center
 #draw_dimension_vertical(context, 0, (y_penalty_area - line_width_2), -(x_penalty_area + line_width_2 + 0.1), 0.2, bar=False)

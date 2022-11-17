@@ -27,8 +27,8 @@ try:
 except KeyError:
     has_penalty_arc = False
 try:
-    goalbox_area_length = o['goalbox_area_length']
-    goalbox_area_width = o['goalbox_area_width']
+    goal_area_length = o['goal_area_length']
+    goal_area_width = o['goal_area_width']
     has_goal_area = True
 except KeyError:
     has_goal_area = False
@@ -47,8 +47,8 @@ y_sideline = field_width * 0.5
 x_penalty_area = field_length * 0.5 - penalty_area_length
 y_penalty_area = penalty_area_width * 0.5
 if has_goal_area:
-    x_goal_area = field_length * 0.5 - goalbox_area_length
-    y_goal_area = goalbox_area_width * 0.5
+    x_goal_area = field_length * 0.5 - goal_area_length
+    y_goal_area = goal_area_width * 0.5
 x_penalty_cross = field_length * 0.5 - penalty_cross_distance
 line_width_2 = line_width * 0.5
 penalty_cross_size_2 = penalty_cross_size * 0.5
