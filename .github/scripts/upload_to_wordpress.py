@@ -12,10 +12,10 @@ def create_headers(authorization):
     return headers
 
 
-def get_media(base_url, authorization):
+def get_media(base_url, authorization, query=None):
     headers = create_headers(authorization)
 
-    r = requests.get(f"https://{base_url}/wp-json/wp/v2/media", headers=headers)
+    r = requests.get(f"https://{base_url}/wp-json/wp/v2/media", headers=headers, params={"search": query} if query else None)
     return r.json()
 
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     authorization = os.environ["AUTHORIZATION"]
 
-    media = get_media(base_url, authorization)
+    media = get_media(base_url, authorization, query=remote_name)
     its_id = [_["id"] for _ in media if _["source_url"] == f"https://{base_url}/wp-content/uploads/{remote_name}"]
     if its_id:
         delete_media(base_url, authorization, its_id[0])
