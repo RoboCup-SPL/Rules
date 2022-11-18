@@ -14,30 +14,30 @@ assert len(sys.argv) == 2
 with open(sys.argv[1]) as f:
     o = json.load(f)
 
-field_length = o['field_length']
-field_width = o['field_width']
-line_width = o['line_width']
-penalty_cross_size = o['penalty_cross_size']
-penalty_area_length = o['penalty_area_length']
-penalty_area_width = o['penalty_area_width']
-penalty_cross_distance = o['penalty_cross_distance']
+field_length = o['field']['length']
+field_width = o['field']['width']
+line_width = o['field']['lineWidth']
+penalty_cross_size = o['field']['penaltyCrossSize']
 try:
-    penalty_arc_radius = o['penalty_arc_radius']
-    has_penalty_arc = True
-except KeyError:
-    has_penalty_arc = False
-try:
-    goal_area_length = o['goal_area_length']
-    goal_area_width = o['goal_area_width']
+    goal_area_length = o['field']['goalAreaLength']
+    goal_area_width = o['field']['goalAreaWidth']
     has_goal_area = True
 except KeyError:
     has_goal_area = False
-center_circle_diameter = o['center_circle_diameter']
-border_strip_width = o['border_strip_width']
-goal_depth = o['goal_depth']
-goal_inner_width = o['goal_inner_width']
-goal_post_diameter = o['goal_post_diameter']
-goal_height = o['goal_height']
+penalty_area_length = o['field']['penaltyAreaLength']
+penalty_area_width = o['field']['penaltyAreaWidth']
+penalty_cross_distance = o['field']['penaltyCrossDistance']
+try:
+    penalty_arc_radius = o['field']['penaltyArcRadius']
+    has_penalty_arc = True
+except KeyError:
+    has_penalty_arc = False
+center_circle_diameter = o['field']['centerCircleDiameter']
+border_strip_width = o['field']['borderStripWidth']
+goal_post_diameter = o['goal']['postDiameter']
+goal_height = o['goal']['height']
+goal_inner_width = o['goal']['innerWidth']
+goal_depth = o['goal']['depth']
 
 # derive some often used constants from the field dimensions
 x_border = field_length * 0.5 + border_strip_width
