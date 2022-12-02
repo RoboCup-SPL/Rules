@@ -132,7 +132,7 @@ The attacking team may only score a goal via indirect kick from any restart into
 
 The first kick-off at the start of each half or after a timeout is an initial kick-off. Robots have to be ready next to the field at latest \qty{2}{\min} before an initial kick-off. All robots must be in the \textit{unstiff} state.
 
-Latest \qty{1}{\min} before the game starts all robots must be placed on the sidelines facing the other sideline in their own half by their team (if present in person at the competition site) or their responsible referee according to \cref{fig:initial_positions}. If a team places robots themselves for initial kick-off, it is allowed for the team to vary the spacing and orientation of the robot positions along legal positions on their half's sidelines~(see also~\cref{sec:inside_outside}).
+Latest \qty{1}{\min} before the game starts all robots must be placed on the touchlines facing the other touchline in their own half by their team (if present in person at the competition site) or their responsible referee according to \cref{fig:initial_positions}. If a team places robots themselves for initial kick-off, it is allowed for the team to vary the spacing and orientation of the robot positions along legal positions on their half's touchlines~(see also~\cref{sec:inside_outside}).
 
 Robots are brought into the \textit{initial} state after they are placed. Once the robots receive the \emph{ready} signal from the GameController, they proceed as described in \cref{sec:kick-off}.
 
@@ -186,7 +186,7 @@ Note a goal may not be scored from within the center circle on kick-off~(\cf \cr
 
 A ball is considered to have left the field when there is no part of the ball over the outside of the boundary line (\ie the line itself is in). If the ball leaves the field it will be replaced on the field by an assistant referee. Balls are deemed to be out based on the team that last touched the ball, irrespective of who actually kicked the ball.
 
-If the ball goes over a sideline then the assistant referee will replace the ball back on the point of that sideline where it went out. A free kick (\cf \cref{sec:free_kick}) is awarded to the team that did \emph{not} last touch the ball by the referee calling ``Kick-in \textless color\textgreater''.
+If the ball goes over a touchline then the assistant referee will replace the ball back on the point of that touchline where it went out. A free kick (\cf \cref{sec:free_kick}) is awarded to the team that did \emph{not} last touch the ball by the referee calling ``Kick-in \textless color\textgreater''.
 
 If the ball goes over a goal line then the assistant referee will replace the ball back on the field, depending on which team last touched the ball.
 
@@ -201,16 +201,16 @@ In these examples, ``red half of the field'' refers to the half the red team is 
 
   \textbf{Example 2:} A blue robot kicks the ball out the end of the field to the right of the goal the red team is defending. The referee calls ``Goal Kick red'' and the ball is placed on the right corner of the goal area.
 
-  \textbf{Example 3:} A blue robot at midfield kicks the ball over the left sideline \qty{2}{\metre} into the red half of the field. The referee calls ``Kick-in red'' and the ball is replaced on the left sideline where it went out.
+  \textbf{Example 3:} A blue robot at midfield kicks the ball over the left touchline \qty{2}{\metre} into the red half of the field. The referee calls ``Kick-in red'' and the ball is replaced on the left touchline where it went out.
 
-  \textbf{Example 4:} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the halfway line. The ball is regarded as out by red, the referee calls ``Kick-in blue'' and the ball is replaced on the kick-in line where it went out.
+  \textbf{Example 4:} A blue robot kicks the ball but the ball touches a red robot at midfield before leaving the field near the halfway line. The ball is regarded as out by red, the referee calls ``Kick-in blue'' and the ball is replaced on the touchline where it went out.
 
 \subsection{Free Kick}
 \label{sec:free_kick}
 
 A Free Kick is initiated:
 \begin{itemize}
-  \item When the ball goes over the sidelines, termed \emph{Kick-in}.
+  \item When the ball goes over the touchlines, termed \emph{Kick-in}.
   \item When the ball goes over the goal lines initiated by the defensive team, termed \emph{Corner Kick}.
   \item In place of a goal line Kick-in initiated by the offensive team, also termed a \emph{Goal Kick}.
   \item A pushing penalty (see \cref{sec:player_pushing}) awarded near the ball, termed a \emph{Pushing Free Kick}.

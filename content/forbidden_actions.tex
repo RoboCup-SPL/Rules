@@ -26,15 +26,15 @@ Unless otherwise specified, the penalty time increases by \qty{\StandardPenaltyI
 
 During the \emph{set} state the penalty time counter will not decrease.
 
-The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is \qty{10}{\second} from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the sideline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the sideline. This is illustrated in \cref{fig:penalty_re-entry_points}.
+The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is \qty{10}{\second} from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the touchline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the touchline. This is illustrated in \cref{fig:penalty_re-entry_points}.
 
-If there is another robot already in this position, the robot should be replaced at a nearby location along the sideline. When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
+If there is another robot already in this position, the robot should be replaced at a nearby location along the touchline. When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
 
-With approximately \qty{5}{\second} left before the penalty ends, the robot should be turned to face towards the opposite sideline.
+With approximately \qty{5}{\second} left before the penalty ends, the robot should be turned to face towards the opposite touchline.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points_2020.png}}
-\caption{For robots coming back from a standard removal penalty, re-entry points  are inline with the penalty spot in their own half, on the sideline on the side away from the ball.}
+\caption{For robots coming back from a standard removal penalty, re-entry points are in line with the penalty spot in their own half, on the touchline on the side away from the ball.}
 \label{fig:penalty_re-entry_points}
 \end{figure}
 
