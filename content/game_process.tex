@@ -30,7 +30,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
-  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a Kick-off and \PenaltyFreeKickSetupTime for a Penalty Kick.
+  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a Kick-off and \qty{\PenaltyKickSetupTime}{\second} for a Penalty Kick.
   The GameController can activate sub-states for kick-off and penalty kicks.
   This state is not available if only the button interface is implemented.
 
@@ -65,7 +65,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
 \end{figure}
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
-The GameController \texttt{playing} signal will be delayed by \PlayingDelayTime seconds.
+The GameController \texttt{playing} signal will be delayed by \qty{\PlayingDelayTime}{\second}.
 This delay applies to both kick-off and penalty shots.
 Robots that begin moving their legs or move in any fashion during \texttt{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf \cref{sec:motion_in_set}) GameController signal until the GameController transmits the \texttt{playing} signal. A robot will be moved back to its original position if it has moved significantly before becoming penalized.
 Note that responding to a whistle on another field will result in this penalty.
@@ -251,7 +251,7 @@ This denotes that the robots are given time to set up and prepare for the penalt
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
 
-Robots have \qty{\PenaltyFreeKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyFreeKickSetupTime}{\second}, the game changes to the \textit{Set} state with \textit{free kick} sub-state active.
+Robots have \qty{\PenaltyKickSetupTime}{\second} to get into position for the Penalty Kick. At the end of \qty{\PenaltyKickSetupTime}{\second}, the game changes to the \textit{Set} state with \textit{free kick} sub-state active.
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
 Standard penalties apply.
 Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot must either be touching the goal line or stay outside its own penalty area. If the goalkeeper positioned itself inside the goal area but ahead of the goal line it is placed back by the referee during \textit{Set} state, so the center of its feet touches the center of the goal line. The placement should happen perpendicular to the goal line without rotating the robot. If this manual placement would lead to a position the robot collides with a goal post, it is placed inside or outside the goal post on the goal line, depending on which position is closer.
@@ -263,7 +263,7 @@ The referee should also place the ball on the penalty spot during \textit{Set}.
 The referee signals the Penalty Kick commences by blowing the whistle once, and calling ``Playing''.
 The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
 (Note that the GameContoller signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \textit{Set} to \textit{free kick} sub-state).
-The attacking team has \qty{\PenaltyFreeKickTime}{\second} to complete the Penalty Kick.
+The attacking team has \qty{\PenaltyKickTime}{\second} to complete the Penalty Kick.
 
 During the Penalty Kick:
 \begin{enumerate}
@@ -282,11 +282,11 @@ If this robot ``scores'', it results in a Goal kick~(\cf \cref{sec:invalid_goal}
 The Penalty Kick is deemed completed if:
 \begin{itemize}
 \item The attacking team touches the ball, even if the robot has fallen.
-\item The \qty{\PenaltyFreeKickTime}{\second} time period expires (or the game time expires).
+\item The \qty{\PenaltyKickTime}{\second} time period expires (or the game time expires).
 \end{itemize}
 
 The head referee will announce a Free Kick is completed, by ``Ball Free'', and the GameController
-resumes the game state \emph{playing}. Note that the sub-state will be automatically left (returning to the \textit{playing} state) after the \qty{\PenaltyFreeKickTime}{\second} time period expires.
+resumes the game state \emph{playing}. Note that the sub-state will be automatically left (returning to the \textit{playing} state) after the \qty{\PenaltyKickTime}{\second} time period expires.
 
 Note that the restrictions on the attacking robot still apply after the penalty kick is complete.
 
@@ -413,7 +413,7 @@ The GameController activates the penalty kick, switching to the \emph{playing} g
 Note, the playing signal is delayed~(\cf \cref{sec:robot_states}).
 
 The striker robot is only allowed to contact the ball once.
-The time limit for the striker is \qty{\PenaltyKickTime}{\second} after the penalty kick starts.
+The time limit for the striker is \qty{\PenaltyShootoutKickTime}{\second} after the penalty kick starts.
 A penalty shot is over when the ball has come to a full stop after the first contact by the striker robot.
 A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line).
 Otherwise, the score is unchanged.
