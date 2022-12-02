@@ -55,13 +55,13 @@ If fewer robots do not respond to the GameController then they are, at the begin
 \end{description}
 
 \begin{figure}[t]
-	\centerline{\includegraphics[width=0.9\columnwidth]{figs/states_new.pdf}}
-	\caption{Diagram of the robot states.
+  \centerline{\includegraphics[width=0.9\columnwidth]{figs/states_new.pdf}}
+  \caption{Diagram of the robot states.
     \\\textbf{Chest button} transitions are shown as gray arrows. However, any transition possible should be sent by the GameController.
     \\\textbf{GameController} transitions are shown as black arrows.
     \\Calibration transitions are shown as purple arrows which mean pressing the \textbf{front head button + the chest button}.
     \\From any state it can be transitioned to the \texttt{unstiff} state, shown as a blue arrow, via pressing all \textbf{three head buttons}. Pressing the \textbf{chest button} in the \texttt{unstiff} state allows a transition to the \texttt{initial} state, or a state as indicated by the GameController.}
-	\label{fig:robot_states}
+  \label{fig:robot_states}
 \end{figure}
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
@@ -110,7 +110,7 @@ In these cases a goal is not scored (that is, the goal is ruled invalid), and th
 \subsubsection{Indirect Kick}
 \label{sec:indirect_kick}
 
-The attacking team may only score a goal via indirect kick from any restart into \textit{playing} from a Free kick except for a Penalty kick. This rule applies also for the defending team in case of unexecuted Kick-off and the ball is free. 
+The attacking team may only score a goal via indirect kick from any restart into \textit{playing} from a Free kick except for a Penalty kick. This rule applies also for the defending team in case of unexecuted Kick-off and the ball is free.
 
 \begin{itemize}
   \item A robot may not score a goal from a direct kick, including via deflections.
@@ -137,12 +137,12 @@ Latest \qty{1}{\min} before the game starts all robots must be placed on the sid
 Robots are brought into the \textit{initial} state after they are placed. Once the robots receive the \emph{ready} signal from the GameController, they proceed as described in \cref{sec:kick-off}.
 
 \begin{figure}[t!]
-	\begin{center}
-		\leavevmode
-		\includegraphics[width=1\columnwidth]{figs/initial_positions.pdf}
-		\caption{Positions, player numbers and distances from the center of the goal line for the initial kick-off of the robots.}
-		\label{fig:initial_positions}
-	\end{center}
+  \begin{center}
+    \leavevmode
+    \includegraphics[width=1\columnwidth]{figs/initial_positions.pdf}
+    \caption{Positions, player numbers and distances from the center of the goal line for the initial kick-off of the robots.}
+    \label{fig:initial_positions}
+  \end{center}
 \end{figure}
 
 \subsection{Kick-off}
