@@ -33,8 +33,8 @@ goal_depth = o['goal']['depth']
 # derive some often used constants from the field dimensions
 x_border = field_length * 0.5 + border_strip_width
 y_border = field_width * 0.5 + border_strip_width
-x_groundline = field_length * 0.5
-y_sideline = field_width * 0.5
+x_goal_line = field_length * 0.5
+y_touchline = field_width * 0.5
 x_penalty_area = field_length * 0.5 - penalty_area_length
 y_penalty_area = penalty_area_width * 0.5
 x_penalty_cross = field_length * 0.5 - penalty_cross_distance
@@ -62,27 +62,27 @@ def draw_carpet_border(context):
 
 # outer lines
 def draw_outer_lines(context):
-    context.move_to(-(x_groundline), -(y_sideline))
-    context.line_to((x_groundline), -(y_sideline))
-    context.line_to((x_groundline), (y_sideline))
-    context.line_to(-(x_groundline), (y_sideline))
-    context.line_to(-(x_groundline), (y_sideline))
+    context.move_to(-(x_goal_line), -(y_touchline))
+    context.line_to((x_goal_line), -(y_touchline))
+    context.line_to((x_goal_line), (y_touchline))
+    context.line_to(-(x_goal_line), (y_touchline))
+    context.line_to(-(x_goal_line), (y_touchline))
     context.close_path()
-    context.move_to(0, -(y_sideline))
-    context.line_to(0, (y_sideline))
+    context.move_to(0, -(y_touchline))
+    context.line_to(0, (y_touchline))
     context.close_path()
 
 # inner part of the penalty area (just a rectangle)
 def draw_inner_penalty_area(context, sign):
-    context.move_to(sign * (x_groundline), -(y_penalty_area))
-    context.line_to(sign * (x_groundline), (y_penalty_area))
+    context.move_to(sign * (x_goal_line), -(y_penalty_area))
+    context.line_to(sign * (x_goal_line), (y_penalty_area))
     context.line_to(sign * (x_penalty_area), (y_penalty_area))
     context.line_to(sign * (x_penalty_area), -(y_penalty_area))
     context.close_path()
 
 def draw_inner_goal_area(context, sign):
-    context.move_to(sign * (x_groundline), -(y_goal_area))
-    context.line_to(sign * (x_groundline), (y_goal_area))
+    context.move_to(sign * (x_goal_line), -(y_goal_area))
+    context.line_to(sign * (x_goal_line), (y_goal_area))
     context.line_to(sign * (x_goal_area), (y_goal_area))
     context.line_to(sign * (x_goal_area), -(y_goal_area))
     context.close_path()
@@ -240,38 +240,38 @@ context.set_line_width(svg_dimensionline_width)
 # dimensions for field boundary
 #draw_dimension_horizontal(context, -x_border, x_border, -(y_border + 0.1), 0.2)
 #draw_dimension_vertical(context, -y_border, y_border, -(x_border + 0.1), 0.2)
-draw_dimension_horizontal(context, x_groundline, x_border, (y_sideline - 0.3), 0.2, label="K")
-draw_dimension_vertical(context, y_sideline, y_border, (x_groundline - 0.3), 0.2, label="K")
+draw_dimension_horizontal(context, x_goal_line, x_border, (y_touchline - 0.3), 0.2, label="K")
+draw_dimension_vertical(context, y_touchline, y_border, (x_goal_line - 0.3), 0.2, label="K")
 
 # dimensions for outer field lines
-#draw_dimension_horizontal(context, -(x_groundline + line_width_2), (x_groundline + line_width_2), -(y_sideline + line_width_2 + 0.1), 0.2)
-#draw_dimension_vertical(context, -(y_sideline + line_width_2), (y_sideline + line_width_2), -(x_groundline + line_width_2 + 0.1), 0.2)
-draw_dimension_horizontal(context, -(x_groundline), (x_groundline), -(y_sideline + line_width_2 + 0.125), 0.2, label="A")
-draw_dimension_vertical(context, -(y_sideline), (y_sideline), -(x_groundline + line_width_2 + 0.125), 0.2, label="B")
+#draw_dimension_horizontal(context, -(x_goal_line + line_width_2), (x_goal_line + line_width_2), -(y_touchline + line_width_2 + 0.1), 0.2)
+#draw_dimension_vertical(context, -(y_touchline + line_width_2), (y_touchline + line_width_2), -(x_goal_line + line_width_2 + 0.1), 0.2)
+draw_dimension_horizontal(context, -(x_goal_line), (x_goal_line), -(y_touchline + line_width_2 + 0.125), 0.2, label="A")
+draw_dimension_vertical(context, -(y_touchline), (y_touchline), -(x_goal_line + line_width_2 + 0.125), 0.2, label="B")
 
 # dimension for inner half field size
-#draw_dimension_horizontal(context, -(x_groundline - line_width_2), -line_width_2, -(y_sideline - line_width_2 - 0.1), 0.2, bar=False)
-#draw_dimension_vertical(context, -(y_sideline - line_width_2), (y_sideline - line_width_2), center_circle_radius + 0.5, 0.2, bar=False)
+#draw_dimension_horizontal(context, -(x_goal_line - line_width_2), -line_width_2, -(y_touchline - line_width_2 - 0.1), 0.2, bar=False)
+#draw_dimension_vertical(context, -(y_touchline - line_width_2), (y_touchline - line_width_2), center_circle_radius + 0.5, 0.2, bar=False)
 
 # dimension for inner penalty area length / width
-#draw_dimension_horizontal(context, -(x_groundline - line_width_2), -(x_penalty_area + line_width_2), -(y_penalty_area - line_width_2 - 0.1), 0.2, bar=False)
-#draw_dimension_vertical(context, -(y_penalty_area - line_width_2), (y_penalty_area - line_width_2), -(x_groundline + line_width_2 - 0.2), 0.2, bar=False)
+#draw_dimension_horizontal(context, -(x_goal_line - line_width_2), -(x_penalty_area + line_width_2), -(y_penalty_area - line_width_2 - 0.1), 0.2, bar=False)
+#draw_dimension_vertical(context, -(y_penalty_area - line_width_2), (y_penalty_area - line_width_2), -(x_goal_line + line_width_2 - 0.2), 0.2, bar=False)
 
 # dimension for outer penalty area length / width
-draw_dimension_horizontal(context, -(x_groundline), -(x_penalty_area), -(y_penalty_area + 0.1), 0.2, label="G")
+draw_dimension_horizontal(context, -(x_goal_line), -(x_penalty_area), -(y_penalty_area + 0.1), 0.2, label="G")
 draw_dimension_vertical(context, -(y_penalty_area), (y_penalty_area), -(x_penalty_area - 0.1), 0.2, across_offset=0.3, label="H")
-draw_dimension_horizontal(context, -(x_groundline), -(x_goal_area), -(y_goal_area + 0.1), 0.2, label="E")
+draw_dimension_horizontal(context, -(x_goal_line), -(x_goal_area), -(y_goal_area + 0.1), 0.2, label="E")
 draw_dimension_vertical(context, -(y_goal_area), (y_goal_area), -(x_goal_area - 0.1), 0.2, across_offset=0.3, label="F")
 
 # penalty area width from center
 #draw_dimension_vertical(context, 0, (y_penalty_area - line_width_2), -(x_penalty_area + line_width_2 + 0.1), 0.2, bar=False)
 #draw_dimension_vertical(context, 0, (y_penalty_area + line_width_2), -(x_penalty_area - line_width_2 - 0.3), 0.2)
 
-# dimension for the length between inner sideline and outer penalty area
-#draw_dimension_vertical(context, (y_penalty_area + line_width_2), (y_sideline - line_width_2), -(x_groundline - line_width_2 - 0.1), 0.2, bar=False)
+# dimension for the length between inner touchline and outer penalty area
+#draw_dimension_vertical(context, (y_penalty_area + line_width_2), (y_touchline - line_width_2), -(x_goal_line - line_width_2 - 0.1), 0.2, bar=False)
 
 # dimension penalty mark
-draw_dimension_horizontal(context, (x_penalty_cross), x_groundline, penalty_cross_size*2, 0.2, label="I")
+draw_dimension_horizontal(context, (x_penalty_cross), x_goal_line, penalty_cross_size*2, 0.2, label="I")
 draw_dimension_horizontal(context, (x_penalty_cross - penalty_cross_size_2), (x_penalty_cross + penalty_cross_size_2), 0, 0.2, along_offset=0, bar=True, label="D")
 
 # center circle dimensions
@@ -280,11 +280,11 @@ draw_dimension_horizontal(context, -(center_circle_radius), (center_circle_radiu
 #draw_dimension_vertical(context, -(center_circle_radius + line_width_2), (center_circle_radius + line_width_2), -0.05, 0.1, along_offset=-0.2)
 #draw_dimension_vertical(context, -(center_circle_radius - line_width_2), (center_circle_radius - line_width_2), 0.125, 0.1, along_offset=-0.2)
 
-# distance between inner sideline and outer center circle
-#draw_dimension_vertical(context, (center_circle_radius + line_width_2), (y_sideline - line_width_2), -(line_width_2 + 0.05), 0.1, bar=False)
+# distance between inner touchline and outer center circle
+#draw_dimension_vertical(context, (center_circle_radius + line_width_2), (y_touchline - line_width_2), -(line_width_2 + 0.05), 0.1, bar=False)
 
 # line width
-draw_dimension_horizontal(context, -svg_fieldline_width/2, svg_fieldline_width/2, -(y_sideline - 1), 0.2, along_offset=0, bar=False, label="C")
+draw_dimension_horizontal(context, -svg_fieldline_width/2, svg_fieldline_width/2, -(y_touchline - 1), 0.2, along_offset=0, bar=False, label="C")
 
 if svg_addnotes:
     context.move_to(0, y_border + 0.2)
