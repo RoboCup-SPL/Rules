@@ -255,11 +255,11 @@ Robots have \qty{\PenaltyKickSetupTime}{\second} to get into position for the Pe
 Similar to a kick-off, during the Set state the robots are waiting for the Penalty Kick to commence.
 Standard penalties apply.
 Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot must either be touching the goal line or stay outside its own penalty area. If the goalkeeper positioned itself inside the goal area but ahead of the goal line it is placed back by the referee during \textit{Set} state, so the center of its feet touches the center of the goal line. The placement should happen perpendicular to the goal line without rotating the robot. If this manual placement would lead to a position the robot collides with a goal post, it is placed inside or outside the goal post on the goal line, depending on which position is closer.
-Only one robot from the attacking team may be within the penalty area, and it may not block the penalty spot.
-Blocking the penalty spot is considered to be an illegal position.
+Only one robot from the attacking team may be within the penalty area, and it may not block the penalty mark.
+Blocking the penalty mark is considered to be an illegal position.
 All robots that do not reach legal positions will be penalized with the ``Illegal Positioning'' penalty~(\cf \cref{sec:illegal_positioning}).
 
-The referee should also place the ball on the penalty spot during \textit{Set}.
+The referee should also place the ball on the penalty mark during \textit{Set}.
 The referee signals the Penalty Kick commences by blowing the whistle once, and calling ``Playing''.
 The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
 (Note that the GameContoller signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \textit{Set} to \textit{free kick} sub-state).
@@ -386,7 +386,7 @@ A penalty kick is carried out with one striker robot and one opposing goalkeeper
 The penalty kick commences with the \textit{set} game state activated.
 The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
 
-Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty spot closest to the goal being defended. The striker robot is positioned on the edge of the penalty area, facing the ball and the goal. The goalkeeper is placed with its feet on the goal line and in the center of the goal. Neither robot is permitted to locomote (move their legs) during the \textit{set} state. Movement of the robot's head and arms is allowed.
+Referees place the ball, the striker, and goalkeeper robots. The ball is placed on the penalty mark closest to the goal being defended. The striker robot is positioned on the edge of the penalty area, facing the ball and the goal. The goalkeeper is placed with its feet on the goal line and in the center of the goal. Neither robot is permitted to locomote (move their legs) during the \textit{set} state. Movement of the robot's head and arms is allowed.
 
 \textbf{The usage of a button interface is not permitted.}
 
