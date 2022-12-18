@@ -17,7 +17,7 @@ with open(sys.argv[1]) as f:
 field_length = o['field']['length']
 field_width = o['field']['width']
 line_width = o['field']['lineWidth']
-penalty_cross_size = o['field']['penaltyCrossSize']
+penalty_mark_size = o['field']['penaltyCrossSize']
 try:
     goal_area_length = o['field']['goalAreaLength']
     goal_area_width = o['field']['goalAreaWidth']
@@ -26,7 +26,7 @@ except KeyError:
     has_goal_area = False
 penalty_area_length = o['field']['penaltyAreaLength']
 penalty_area_width = o['field']['penaltyAreaWidth']
-penalty_cross_distance = o['field']['penaltyCrossDistance']
+penalty_mark_distance = o['field']['penaltyCrossDistance']
 try:
     penalty_arc_radius = o['field']['penaltyArcRadius']
     has_penalty_arc = True
@@ -49,9 +49,9 @@ y_penalty_area = penalty_area_width * 0.5
 if has_goal_area:
     x_goal_area = field_length * 0.5 - goal_area_length
     y_goal_area = goal_area_width * 0.5
-x_penalty_cross = field_length * 0.5 - penalty_cross_distance
+x_penalty_mark = field_length * 0.5 - penalty_mark_distance
 line_width_2 = line_width * 0.5
-penalty_cross_size_2 = penalty_cross_size * 0.5
+penalty_mark_size_2 = penalty_mark_size * 0.5
 center_circle_radius = center_circle_diameter * 0.5
 pi_2 = math.pi * 0.5
 
@@ -81,12 +81,12 @@ def draw_inner_lines(context, sign, only_center_circle=False):
         context.line_to(sign * (x_goal_line - line_width_2), -(y_penalty_area + line_width_2))
         context.line_to(sign * (x_penalty_area - line_width_2), -(y_penalty_area + line_width_2))
         if has_penalty_arc:
-            angle_offset = math.asin((x_penalty_area - line_width_2 - x_penalty_cross) / (penalty_arc_radius + line_width_2))
-            context.line_to(sign * (x_penalty_area - line_width_2), -(x_penalty_area - line_width_2 - x_penalty_cross) / math.tan(angle_offset))
+            angle_offset = math.asin((x_penalty_area - line_width_2 - x_penalty_mark) / (penalty_arc_radius + line_width_2))
+            context.line_to(sign * (x_penalty_area - line_width_2), -(x_penalty_area - line_width_2 - x_penalty_mark) / math.tan(angle_offset))
             if sign > 0:
-                context.arc_negative(sign * x_penalty_cross, 0, penalty_arc_radius + line_width_2, -pi_2 + angle_offset, pi_2 - angle_offset)
+                context.arc_negative(sign * x_penalty_mark, 0, penalty_arc_radius + line_width_2, -pi_2 + angle_offset, pi_2 - angle_offset)
             else:
-                context.arc(sign * x_penalty_cross, 0, penalty_arc_radius + line_width_2, -pi_2 - angle_offset, pi_2 + angle_offset)
+                context.arc(sign * x_penalty_mark, 0, penalty_arc_radius + line_width_2, -pi_2 - angle_offset, pi_2 + angle_offset)
         context.line_to(sign * (x_penalty_area - line_width_2), (y_penalty_area + line_width_2))
         context.line_to(sign * (x_goal_line - line_width_2), (y_penalty_area + line_width_2))
         context.line_to(sign * (x_goal_line - line_width_2), (y_touchline - line_width_2))
@@ -123,7 +123,7 @@ def draw_inner_goal_area(context, sign):
     context.line_to(sign * (x_goal_area + line_width_2), -(y_goal_area - line_width_2))
     context.close_path()
 
-# inner part of the center circle, including the center dash
+# inner part of the center circle, including the center mark
 def draw_inner_center_circle(context, sign):
     context.move_to(sign * line_width_2, line_width_2)
     angle_offset = math.asin(line_width_2 / (center_circle_radius - line_width_2))
@@ -133,36 +133,36 @@ def draw_inner_center_circle(context, sign):
     else:
         context.arc(0, 0, center_circle_radius - line_width_2, pi_2 + angle_offset, -pi_2 - angle_offset)
     context.line_to(sign * line_width_2, -line_width_2)
-    context.line_to(sign * penalty_cross_size_2, -line_width_2)
-    context.line_to(sign * penalty_cross_size_2, line_width_2)
+    context.line_to(sign * penalty_mark_size_2, -line_width_2)
+    context.line_to(sign * penalty_mark_size_2, line_width_2)
     context.close_path()
 
 # inner part of the penalty arc
 def draw_inner_penalty_arc(context, sign):
-    angle_offset = math.asin((x_penalty_area - line_width_2 - x_penalty_cross) / (penalty_arc_radius - line_width_2))
-    context.move_to(sign * (x_penalty_area - line_width_2), -(x_penalty_area - line_width_2 - x_penalty_cross) / math.tan(angle_offset))
+    angle_offset = math.asin((x_penalty_area - line_width_2 - x_penalty_mark) / (penalty_arc_radius - line_width_2))
+    context.move_to(sign * (x_penalty_area - line_width_2), -(x_penalty_area - line_width_2 - x_penalty_mark) / math.tan(angle_offset))
     if sign > 0:
-        context.arc_negative(sign * x_penalty_cross, 0, penalty_arc_radius - line_width_2, -pi_2 + angle_offset, pi_2 - angle_offset)
+        context.arc_negative(sign * x_penalty_mark, 0, penalty_arc_radius - line_width_2, -pi_2 + angle_offset, pi_2 - angle_offset)
     else:
-        context.arc(sign * x_penalty_cross, 0, penalty_arc_radius - line_width_2, -pi_2 - angle_offset, pi_2 + angle_offset)
+        context.arc(sign * x_penalty_mark, 0, penalty_arc_radius - line_width_2, -pi_2 - angle_offset, pi_2 + angle_offset)
     context.close_path()
 
 # penalty mark
-def draw_penalty_cross(context, sign):
-    x_base = x_penalty_cross if sign else 0
+def draw_penalty_mark(context, sign):
+    x_base = x_penalty_mark if sign else 0
     sign = sign if sign else 1
     context.move_to(sign * (x_base - line_width_2), line_width_2)
-    context.line_to(sign * (x_base - line_width_2), penalty_cross_size_2)
-    context.line_to(sign * (x_base + line_width_2), penalty_cross_size_2)
+    context.line_to(sign * (x_base - line_width_2), penalty_mark_size_2)
+    context.line_to(sign * (x_base + line_width_2), penalty_mark_size_2)
     context.line_to(sign * (x_base + line_width_2), line_width_2)
-    context.line_to(sign * (x_base + penalty_cross_size_2), line_width_2)
-    context.line_to(sign * (x_base + penalty_cross_size_2), -line_width_2)
+    context.line_to(sign * (x_base + penalty_mark_size_2), line_width_2)
+    context.line_to(sign * (x_base + penalty_mark_size_2), -line_width_2)
     context.line_to(sign * (x_base + line_width_2), -line_width_2)
-    context.line_to(sign * (x_base + line_width_2), -penalty_cross_size_2)
-    context.line_to(sign * (x_base - line_width_2), -penalty_cross_size_2)
+    context.line_to(sign * (x_base + line_width_2), -penalty_mark_size_2)
+    context.line_to(sign * (x_base - line_width_2), -penalty_mark_size_2)
     context.line_to(sign * (x_base - line_width_2), -line_width_2)
-    context.line_to(sign * (x_base - penalty_cross_size_2), -line_width_2)
-    context.line_to(sign * (x_base - penalty_cross_size_2), line_width_2)
+    context.line_to(sign * (x_base - penalty_mark_size_2), -line_width_2)
+    context.line_to(sign * (x_base - penalty_mark_size_2), line_width_2)
     context.close_path()
 
 def draw_dimension_horizontal(context, x1, x2, y, height, bar=True, arrow=True, along_offset=0, across_offset=-0.01):
@@ -230,7 +230,7 @@ height_in_m = field_width + 2 * border_strip_width + 2 * padding
 
 width, height = 72 * 10 * (width_in_m / height_in_m), 72 * 10
 
-surface = cairo.SVGSurface('field.svg', width, height)
+surface = cairo.PDFSurface('field_technical.pdf', width, height)
 context = cairo.Context(surface)
 
 # fill the background with white
@@ -258,8 +258,8 @@ if has_goal_area:
     draw_inner_goal_area(context, -1)
 draw_inner_center_circle(context, 1)
 draw_inner_center_circle(context, -1)
-draw_penalty_cross(context, 1)
-draw_penalty_cross(context, -1)
+draw_penalty_mark(context, 1)
+draw_penalty_mark(context, -1)
 context.stroke()
 
 # draw symmetry axes in blue
@@ -302,7 +302,7 @@ draw_dimension_vertical(context, 0, (y_penalty_area + line_width_2), -(x_penalty
 draw_dimension_vertical(context, (y_penalty_area + line_width_2), (y_touchline - line_width_2), -(x_goal_line - line_width_2 - 0.1), 0.2, bar=False)
 
 # dimension between back of penalty area and penalty mark
-draw_dimension_horizontal(context, (x_penalty_area + line_width_2), (x_penalty_cross - penalty_cross_size_2), 0.1, 0.2)
+draw_dimension_horizontal(context, (x_penalty_area + line_width_2), (x_penalty_mark - penalty_mark_size_2), 0.1, 0.2)
 
 if has_goal_area:
     # dimension for outer goal area length / width
@@ -331,7 +331,7 @@ draw_dimension_horizontal(context, -line_width_2, line_width_2, -(y_touchline - 
 context.move_to(0, y_border + 0.2)
 context.show_text("Dimensions are in millimeters. The field is symmetric about both axes (shown in blue).")
 context.move_to(0, y_border + 0.3)
-context.show_text("The penalty marks MUST be crosses and the center dash a rectangular line segment and NOT a circle.")
+context.show_text("The penalty marks MUST be crosses and the center mark a rectangular line segment and NOT a circle.")
 
 context.stroke()
 
@@ -342,12 +342,12 @@ context.stroke()
 # additional padding to all four sides (in meters)
 padding = 0.2
 
-width_in_m = penalty_cross_size + 2 * padding
-height_in_m = penalty_cross_size + 2 * padding
+width_in_m = penalty_mark_size + 2 * padding
+height_in_m = penalty_mark_size + 2 * padding
 
 width, height = 72 * 10, 72 * 10
 
-surface = cairo.SVGSurface('penalty_cross.svg', width, height)
+surface = cairo.PDFSurface('field_technical_pm.pdf', width, height)
 context = cairo.Context(surface)
 
 # fill the background with white
@@ -361,7 +361,7 @@ context.set_line_width(0.005)
 
 # draw the contours of lines in black
 context.set_source_rgb(0, 0, 0)
-draw_penalty_cross(context, 0)
+draw_penalty_mark(context, 0)
 context.stroke()
 
 # draw symmetry axes in blue
@@ -376,24 +376,24 @@ context.stroke()
 context.set_source_rgb(1, 0, 0)
 context.set_font_size(0.025)
 
-# penalty cross dimensions
-draw_dimension_vertical(context, -penalty_cross_size_2, penalty_cross_size_2, -penalty_cross_size_2 - 0.0125, 0.025)
-draw_dimension_vertical(context, -line_width_2, line_width_2, -penalty_cross_size_2 - 0.0375, 0.025)
-draw_dimension_horizontal(context, -penalty_cross_size_2, penalty_cross_size_2, -(penalty_cross_size_2 + 0.025), 0.025)
-draw_dimension_horizontal(context, -line_width_2, line_width_2, -(penalty_cross_size_2 + 0.05), 0.025)
-draw_dimension_horizontal(context, line_width_2, penalty_cross_size_2, penalty_cross_size_2 + 0.0125, 0.025)
+# penalty mark dimensions
+draw_dimension_vertical(context, -penalty_mark_size_2, penalty_mark_size_2, -penalty_mark_size_2 - 0.0125, 0.025)
+draw_dimension_vertical(context, -line_width_2, line_width_2, -penalty_mark_size_2 - 0.0375, 0.025)
+draw_dimension_horizontal(context, -penalty_mark_size_2, penalty_mark_size_2, -(penalty_mark_size_2 + 0.025), 0.025)
+draw_dimension_horizontal(context, -line_width_2, line_width_2, -(penalty_mark_size_2 + 0.05), 0.025)
+draw_dimension_horizontal(context, line_width_2, penalty_mark_size_2, penalty_mark_size_2 + 0.0125, 0.025)
 
-context.move_to(0.01, penalty_cross_size_2 + 0.05)
+context.move_to(0.01, penalty_mark_size_2 + 0.05)
 context.show_text("Dimensions are")
-context.move_to(0.01, penalty_cross_size_2 + 0.075)
+context.move_to(0.01, penalty_mark_size_2 + 0.075)
 context.show_text("in millimeters. The")
-context.move_to(0.01, penalty_cross_size_2 + 0.1)
-context.show_text("penalty cross is")
-context.move_to(0.01, penalty_cross_size_2 + 0.125)
+context.move_to(0.01, penalty_mark_size_2 + 0.1)
+context.show_text("penalty mark is")
+context.move_to(0.01, penalty_mark_size_2 + 0.125)
 context.show_text("symmetric about")
-context.move_to(0.01, penalty_cross_size_2 + 0.15)
+context.move_to(0.01, penalty_mark_size_2 + 0.15)
 context.show_text("both axes (shown")
-context.move_to(0.01, penalty_cross_size_2 + 0.175)
+context.move_to(0.01, penalty_mark_size_2 + 0.175)
 context.show_text("in blue).")
 
 context.stroke()
@@ -410,7 +410,7 @@ height_in_m = center_circle_diameter + 2 * padding
 
 width, height = 72 * 10, 72 * 10
 
-surface = cairo.SVGSurface('center_circle.svg', width, height)
+surface = cairo.PDFSurface('field_technical_cc.pdf', width, height)
 context = cairo.Context(surface)
 
 # fill the background with white
@@ -442,9 +442,9 @@ context.stroke()
 context.set_source_rgb(1, 0, 0)
 context.set_font_size(0.05)
 
-# center dash
-draw_dimension_vertical(context, -line_width_2, line_width_2, -(penalty_cross_size_2 + 0.05), 0.1)
-draw_dimension_horizontal(context, -penalty_cross_size_2, penalty_cross_size_2, line_width_2 + 0.1, 0.1)
+# center mark
+draw_dimension_vertical(context, -line_width_2, line_width_2, -(penalty_mark_size_2 + 0.05), 0.1)
+draw_dimension_horizontal(context, -penalty_mark_size_2, penalty_mark_size_2, line_width_2 + 0.1, 0.1)
 draw_dimension_horizontal(context, -line_width_2, line_width_2, 0.5, 0.1, bar=False)
 
 draw_dimension_horizontal(context, -(center_circle_radius + line_width_2), -(center_circle_radius - line_width_2), 0, 0.1, bar=False)
