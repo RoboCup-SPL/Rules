@@ -17,7 +17,7 @@ with open(sys.argv[1]) as f:
 field_length = o['field']['length']
 field_width = o['field']['width']
 line_width = o['field']['lineWidth']
-penalty_mark_size = o['field']['penaltyCrossSize']
+penalty_mark_size = o['field']['penaltyMarkSize']
 try:
     goal_area_length = o['field']['goalAreaLength']
     goal_area_width = o['field']['goalAreaWidth']
@@ -26,7 +26,7 @@ except KeyError:
     has_goal_area = False
 penalty_area_length = o['field']['penaltyAreaLength']
 penalty_area_width = o['field']['penaltyAreaWidth']
-penalty_mark_distance = o['field']['penaltyCrossDistance']
+penalty_mark_distance = o['field']['penaltyMarkDistance']
 try:
     penalty_arc_radius = o['field']['penaltyArcRadius']
     has_penalty_arc = True
