@@ -30,11 +30,11 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
-  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a Kick-off and \qty{\PenaltyKickSetupTime}{\second} for a Penalty Kick.
+  \item[Ready.] In this state, the robots walk to their legal positions for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a Penalty Kick.
   The GameController can activate sub-states for kick-off and penalty kicks.
   This state is not available if only the button interface is implemented.
 
-  \item[Set.] In this state, the robots stop and wait for Kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})).
+  \item[Set.] In this state, the robots stop and wait for kick-Off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})).
   Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
   Robots are allowed to move their heads or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
@@ -124,7 +124,7 @@ The attacking team may only score a goal via indirect kick from any restart into
   \item[Example 2:] Player 2 (of the red team) kicks the ball at the goal, and it is deflected of the side of the foot of a blue-team robot into the goal. This is \textit{not} an indirect kick, and the goal does not count.
   \item[Example 3:] Player 2 (of the red team) kicks the ball ``upfield''. A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the goal. This is a successful indirect kick, and the goal counts.
   \item[Example 4:] Player 2 (of the red team), walks up to and dribbles the ball. To be an indirect kick, Player~2 must then stop, and visibly back-away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. This is a successful indirect kick.
-  \item[Example 5:] Players of the red team fail to execute a Kick off. After the ball is free the defending team kicks the ball directly into the goal. This is \textit{not} an indirect kick, and the goal does not count.
+  \item[Example 5:] Players of the red team fail to execute a kick-off. After the ball is free the defending team kicks the ball directly into the goal. This is \textit{not} an indirect kick, and the goal does not count.
 \end{description}
 
 \subsection{Initial Kick-off}
@@ -152,8 +152,8 @@ For kick-off, the robots listening wirelessly to the GameController, run through
 In the \textit{Ready} state, the robots must walk to a legal kick-off positions for their team.
 
 When reaching the \textit{Set} state, the kick-off team can be positioned anywhere within their own half and the center circle.
-Only one robot of the kick-off team is allowed to stay within the whole center circle.
-All robots in the center circle, except the closest to the center point of the center circle, get penalized by ``Illegal Positioning''~(\cf \cref{sec:illegal_positioning}).
+Only one robot of the kick-off team is allowed to stay in the opponent's half of the center circle and the halfway line inside the center circle.
+All robots in the opponent's half of the center circle, except the closest to the center point of the center circle, get penalized by ``Illegal Positioning''~(\cf \cref{sec:illegal_positioning}).
 If the kick-off team has a robot positioned in the opponent's half of the center circle, only this robot, called kick-off player, is allowed to execute the kick-off.
 If a different robot of the kick-off team is executing the kick-off, this robot gets penalized with ``Illegal Positioning'' and a moved ball gets moved back.
 
@@ -163,7 +163,7 @@ Beginning with \textit{Set} no player is allowed to touch the halfway line excep
 Robots are allowed to be positioned inside the area of their own goal.
 Both teams are also subject to restrictions on the penalty area~(\cf \cref{sec:illegal_positioning}).
 The limitations on kick-off positions end for both teams as soon as the ball is free.
-The green carpet border, except for the area of the goal, is not part of either teams own half.
+The green carpet border, except for the area of the goal, is not part of either teams' own half.
 All robots that do not reach legal positions or enter illegal positions before the ball is free will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
 
 In the \emph{Set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \textit{Set}, it is moved back by one of the referees.
