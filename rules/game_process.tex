@@ -28,10 +28,10 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
-  \item[Ready.] In this state, the robots walk to their legal positions for kick-off  (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_free_kick})). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
+  \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_free_kick}). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
   The GameController can activate sub-states for kick-off and penalty kicks.
 
-  \item[Set.] In this state, the robots stop and wait for kick-off  (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick})).
+  \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick}).
   Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
   Robots are allowed to move their heads or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
