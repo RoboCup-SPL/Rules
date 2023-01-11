@@ -47,8 +47,8 @@
 \newtcbtheorem[number within=section]{hintbox}{}%
 {colback=red!10,colframe=red!45!black,fonttitle=\bfseries}{th}
 
-\include{content/spl_variables}
-\include{content/spl_dates}
+\include{common/spl_variables}
+\include{common/spl_dates}
 
 \sloppy
 \newcommand{\ie}{\mbox{i.\,e.}\xspace}
@@ -93,7 +93,7 @@
 
 \maketitle
 
-At RoboCup \RCYear, the Standard Platform League will hold two different technical challenges, which are described in this document.
+At RoboCup \RCYear, the Standard Platform League will hold three different technical challenges, which are described in this document.
 
 The scores earned in each challenge will vary in magnitude. Hence, they must be scaled before calculating the overall technical challenge rankings. Teams who do not participate in a challenge will receive 0 points for that challenge. The team with the highest total score for a challenge will get 25 points for that challenge, while the team with the lowest total score for a challenge will get 5 points for that challenge. A linear equation will then be fit to these two points, and each other participating team in that challenge will gain points for that challenge based on this equation.
 
@@ -107,8 +107,10 @@ Questions or comments on the technical challenge rules should be mailed to \url{
 \cfoot{\thepage}
 \setcounter{page}{1}
 
-\section{Challenge 1}
+\include{challenges/visual_referee_challenge}
 
-\section{Challenge 2}
+\include{challenges/dynamic_ball_handling_challenge}
+
+\include{challenges/data_minimization_challenge}
 
 \end{document}
