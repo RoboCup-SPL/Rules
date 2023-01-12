@@ -169,10 +169,18 @@ In the \emph{Set} state, the robots must not move~(\cf \cref{sec:robot_states}).
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the halfway line.
 
 After the head referee has signaled the kick-off, the robot's state is switched to \emph{playing} by the GameController.
-The defensive team must stay outside the center circle until the ball is in play. The ball is in play once it is touched by the attacking team or once \qty{\KickOffBallFreeTime}{\second} have elapsed in the playing state. Before the ball is in play, robots are not allowed to leave their own halves. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
+The defensive team must stay outside the center circle until the ball is free. Before the ball is free, robots are not allowed to leave their own halves and additionally defensive players are not allowed to enter the center circle. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
+
+A goal may be scored directly from a kick-off against the opposing team. If the ball goes directly into the goal of the player taking the kick-off, a corner kick is awarded to the opposing team.
+
+\subsubsection{Ball free}
+The ball is free and kick-off ends once 
+\begin{itemize}
+  \item it is touched by the attacking team and moved clearly or
+  \item \qty{\KickOffBallFreeTime}{\second} have elapsed in the playing state. 
+\end{itemize}
 
 The GameController and head referee will indicate this by the call ``Ball Free''.
-If a defensive player enters the center circle before the ball is in play, the ``Illegal Position'' penalty is applied (\cf \cref{sec:illegal_positioning}).
 
 \subsection{Kick-in}
 \label{sec:kick_in}
