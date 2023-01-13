@@ -2,7 +2,11 @@
 % !TeX spellcheck = en_US
 \section{Robot Players}
 \label{sec:robot_players}
-A match is played by two teams, each consisting of not more than \textbf{5} players. At most one player may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
+A match is played by two teams.  At most one player per team may be designated as \emph{goalkeeper}, the others are all \emph{field players}.
+
+In addition, each team may prepare one \emph{substitute player}. The \emph{substitute player} may be swapped in to become a \emph{field player}.
+
+Each of the players has an unique jersey number from the set $\{1, 2, 3, \ldots, \MaxJerseyNumber\}$.
 
 \subsection{Hardware}
 \label{sec:hardware}
@@ -20,19 +24,10 @@ Absolutely no modifications or additions to the robot hardware are allowed. No a
 A computer with two monitors (one for GC and one for TCM) will be provided by the event organizers for the purpose of sending GameController messages to the robots and observing if no robot violates the rules for wireless network usage.
 Additionally, there should be at least one monitor mirroring the second screen of the GC PC showing the GameState Visualizer.
 
-\subsection{Goalkeeper}
-\label{sec:goalkeeper}
-
-The goalkeeper is allowed to touch the ball with its arms/hands only while it is within its own goal area. It always has the jersey number ``1''.
-
-\subsection{Field Players}
-\label{sec:field_players}
-Each of the four field players has a jersey number from the set $\{2, 3, 4, 5, 6\}$. However, by default, the number ``6'' should only be used for a substitute that enters the game later.
-
 \subsection{Team Markers}
 \label{sec:team_markers}
 
-Robots use colored jersey shirts as team markers. Each jersey shirt has a player number (1-6) printed on it.  The team markers are worn as shown in \cref{fig:nao_markers}.
+Robots use colored jersey shirts as team markers. Each jersey shirt has a player number (1-\MaxJerseyNumber) printed on it.  The team markers are worn as shown in \cref{fig:nao_markers}.
 
 \begin{figure}
   \centerline{\begin{tabular}{lll}
@@ -49,24 +44,24 @@ Teams may use any jersey that was approved for a RoboCup SPL competition in the 
 Teams may design and manufacture their own jerseys in any color (multi and many color jerseys are acceptable), but must follow these guidelines:
 \begin{itemize}
 \item Jerseys should be the \textbf{tank top} style used at RoboCup 2013/2014 and should cover approximately the same areas of the robot as shown in \cref{fig:nao_markers}. The torso LED must be clearly visible. Jerseys may include the sonar panel used in the 2013/2014 jerseys, although this is not required. Jerseys may not cover the shoulders of the robots.
-\item Jerseys must have a primary color that comprises at least \qty{70}{\percent} of the jersey.
+\item Jerseys must have a primary color that comprises more than half of the jersey.  The primary color must be recognizable from the front and back.
 \item Jerseys should not contain distractors, such as large pictures of SPL balls or white stripes on green jerseys.
-\item All players on a team must wear identical jerseys, including the goalkeeper.
 \item A team must wear the jerseys that it starts a game in for the entire game.
-\item Jersey material must be non-reflecting, non-shiny, and non-textured.  Material that is glittery is also not appropriate.
-\item Jerseys should be numbered 1-6 on both sides.  The numbers must be large and {\bf easily} recognized by humans.
-\item Teams must have two sets of jerseys that are significantly different in terms of their primary color.
+\item Jersey material must be non-reflecting and non-shiny.  Material that is glittery is also not appropriate.  Jerseys may be manufactured from fabric and fine mesh.
+\item Jerseys should be numbered 1-{\MaxJerseyNumber} on both sides.  The numbers must be large and {\bf easily} recognized by humans.
+\item Teams must have two sets of jerseys for \emph{field players} that are significantly different in terms of their primary color.
+\item Teams must have two jerseys for their \emph{goalkeeper} that are significantly different in terms of their primary color.  One of the primary colors must be different from both primary colors used for \emph{field players}.
 \item Designs must be submitted to \url{rc-spl-tc@lists.robocup.org} for approval by \DTMdate{\JerseyApproveSubmissionDate}. If the team has jersey prototypes, they should submit close-up images of a robot wearing the jersey -- these images should be taken from front, back, and side angles.  If the team has no prototypes, then designs depicting the expected jersey should be submitted.  If submissions show separated front and back halves of jerseys then the team must specify which halves are matched to form home and away jerseys.  All images and designs should be submitted in pdf or jpg format.
 \end{itemize}
 
-Each team must designate a ``home'' color and an ``away'' color when asked about one month before RoboCup. Teams must wear their ``home'' jerseys when they are ``home'' (the first team listed on the schedule). Teams will wear their ``home'' jersey when they are ``away'' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the ``away'' team will then wear their ``away'' jersey.
+Each team must designate a ``home'' color and an ``away'' color for their \emph{field players} when asked about one month before RoboCup. Teams must wear their ``home'' jerseys when they are ``home'' (the first team listed on the schedule). Teams will wear their ``home'' jersey when they are ``away'' (the second team listed on the schedule) as well, unless either the head referee or the GameController program believes the jerseys of two competing teams are too similar.  In this case, the ``away'' team will then wear their ``away'' jersey.
 
 Some teams wish to include additional information or logos on their robots. The following are allowable:
 
 \begin{itemize}
   \item Attaching player numbers to the heads and/or legs of the robots. These numbers should be black with a white background, and should correspond to the number on the robot's jersey.
 
-  \item Adding sponsor or team logos to the upper legs of the robots (\cf \cref{fig:sponsor}). A box drawn around the non-white area of these logos must not cover more than a \qty{25}{\square\centi\metre} area. At most one logo may be attached per leg - if you wish to attach more than one logo per leg, email the Technical Committee at least two weeks before the competition. Depending on the size and design of the logos, this may be allowable.
+  \item Adding sponsor or team logos to the upper legs of the robots (\cf \cref{fig:sponsor}). A box drawn around the non-white area of any logos must not cover more than a \qty{25}{\square\centi\metre} area.
 
   \item Adding small black and white stickers to the torso of the robots stating the name of the robot, the name of the team, or similar information. These stickers must be small and mostly white.
 \end{itemize}
@@ -79,6 +74,11 @@ Some teams wish to include additional information or logos on their robots. The 
   \caption{Example Sponsor/Team Logo placement on legs.}
   \label{fig:sponsor}
 \end{figure}
+
+\subsection{Goalkeeper}
+\label{sec:goalkeeper}
+
+The \emph{goalkeeper} may use any of the allowed jersey numbers and must use the same jersey number for the whole game. The \emph{goalkeeper} must wear a jersey with a primary color different from the primary colors used by the \emph{field players} of both teams.
 
 \subsection{Communications}
 
