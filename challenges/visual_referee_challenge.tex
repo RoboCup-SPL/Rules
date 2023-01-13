@@ -24,9 +24,9 @@ During \textit{Set} and anytime during \textit{Playing} when the head referee wh
 
 The challenge assistant must wear referee cloth and red gloves. The purpose of this clothing is to clearly distinguish the challenge assistant and its hands from the other referees and from the background people. 
 
-The description of this challenge and hand-signals are described based on the viewpoint of the challenge assistant. In these descriptions from the perspective of the head referee the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during the match \cf~\cref{fig:visual_referee_inital_positions}. Blue and red have to be replaced by the actual colors of that particular game.
+The description of this challenge and hand-signals are described based on the viewpoint of the challenge assistant. In these descriptions from the perspective of the head referee the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during the match. Blue and red have to be replaced by the actual colors of that particular match.
 
-The challenged team represented by the robot with the lowest number reports its evaluation of the particular hand-signal and direction using very loud sound output, repeating the result four times and sends a message with the decision over Wifi. \textbf{Details about this will come.} Only Messages with audio output and message sent within \qty{15}{second} after the signalling started will be accepted.
+The challenged team represented by the robot with the lowest number reports its evaluation of the particular hand-signal and direction using very loud sound output, repeating the result four times and sends a message with the decision over Wifi. \textbf{Details about this will come.} Only Messages with audio output and message sent within \qty{15}{second} after the signalling started, will be accepted.
 
 The challenge assistant has to decide before the match starts a suitable number of hand-signal and direction pairs and note them down. An assistant supports the challenge assistant by showing the signal and direction, taking the timing and is also listing to the answer of the robot.
 
@@ -128,9 +128,11 @@ Each hand-signal for the challenge is \textbf{described from the perspective of 
     \centering
     \begin{subfigure}{.33\textwidth}
         \centering
-        \includegraphics[height=120px]{figs/technical_challenges/player_exchange.png}
+        \includegraphics[height=105px]{figs/technical_challenges/player_exchange.png}
+        \vspace*{0.5em}
         \caption{Rotation around virtual axis to indicate player exchange}
     \end{subfigure}
+    \hspace*{0.5em}
     \begin{subfigure}{.6\textwidth}
         \centering
         \includegraphics[height=120px]{figs/technical_challenges/kick-in.png}
@@ -139,6 +141,9 @@ Each hand-signal for the challenge is \textbf{described from the perspective of 
     \end{subfigure}
     \caption{\textbf{Player exchange.} Dynamic two-handed signal. Both arms slowly rotate symmetrically around a virtual horizontal axis parallel to the sideline. After three rotations the referee indicates with the kick-in signal the team, which is exchanging player.}
 \end{figure}
+
+\clearpage
+\newpage
 
 \subsection{Challenge evaluation}
 
