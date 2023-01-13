@@ -1,3 +1,39 @@
 % !TeX root = ../SPL-Challenges.tex
 % !TeX spellcheck = en_US
-\section{Data Minimization Challenge} % TODO: I hope there is a better name for this challenge
+\section{Network Usage Challenge} % TODO: I hope there is a better name for this challenge
+This challenge will take place throughout regular games and the score will be based on the quantity of bytes exchanged by active robots during matches. 
+
+
+\subsection{Challenge Goal}
+The purpose of this challenge is to reward good network data usage strategies that minimize the number of bytes sent by each active robot. Both the quantity of exchanged bytes and the uptime of active robots will be taken into consideration when computing the score.
+
+\subsection{Challenge Scoring}
+Network data usage will be evaluated by keeping track of the average number of sent bytes-per-robot $A_{bpr}$ for SPL match $m$:
+
+$$ A_{bpr}^\text{match} = \frac{1}{n} \left( \sum_{i=1}^n \frac{b_i}{t_i} \right) $$
+
+where:
+\begin{itemize}
+    \item $b_i$ is the number of bytes sent by robot $i$
+    \item $t_i$ is the uptime of robot $i$
+    \item $n$ is the maximum number of robots active in the team (therefore if, for example, a team decides to play in the 7vs7 competition with 6 robots, the metric will actually cover the performance of that formation with $n=6$)
+\end{itemize}
+
+An average is computed for each match while the final score $A_{bpr}^\text{team}$ will simply be the global average over all matches disputed by that team:
+
+$$ A_{bpr}^\text{team} = \frac{1}{M} \left( \sum_{m=1}^M A_{bpr}^\text{m} \right) $$
+
+where:
+\begin{itemize}
+    \item $M$ is the number of matches held by team $t$
+\end{itemize}
+%Bytes sent will weigh differently towards the final score, depending on the game phase in which they are sent. Bytes sent when they're not expected like in ready phase or in set phase. In this case, the score would be the weighted sum of several averages $A^{\text{phase}}_{bpr}$, each one computed for each phase, each phase average weighted with a penalizing factor (a coefficient between 1 and 2), as in:
+
+$$ A_{bpr} = \sum_{p \in \text{P}} c_p A^p_{bpr} $$
+
+%where:
+
+%- $P$ is the set of game phases $P = \\{ready, set, playing, ...\\}$
+%- $c_p$ is a penalizing coefficient for that specific game phase (for example, we might penalize additional traffic in the ready phase by using a coefficient of $c_{\text{ready}} = 1.5)$
+
+The final objective of each team is to minimize the $A_{bpr}$ average.
