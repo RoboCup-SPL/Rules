@@ -1,11 +1,11 @@
 % !TeX root = ../SPL-Challenges.tex
 % !TeX spellcheck = en_US
-\section{Ingame Visual Referee Challenge}
+\section{In-game Visual Referee Challenge}
 
 \subsection{Challenge Goal}
 
 In the current SPL rules, the only time that a robot is required to listen directly to the human referees is for the kick-off and goal whistle. Otherwise, all human referee decisions are communicated to the robots via electronic GameController messages. In moving towards the 2050 RoboCup goal, robots will need to directly interpret referee calls and signals (such as whistles, spoken calls and hand signals), rather than receive information from an external electronic source.
-Building on the Visual Referee Challenge from 2022, this year's Ingame Visual Referee Challenge asks the robots to detect visual referee signs during a regular match when a whistle has been blown. The normal game play is not influenced by this challenge.
+Building on the Visual Referee Challenge from 2022, this year's In-game Visual Referee Challenge asks the robots to detect visual referee signs during a regular match when a whistle has been blown. The normal game play is not influenced by this challenge.
 
 This technical challenge tests a robot's ability to identify three categories of hand signals during a match:
 \begin{enumerate}
@@ -18,7 +18,7 @@ The intent of this challenge is to choose a \emph{subset} of potential referee c
 
 \subsection{Challenge setup}
 
-As this is ingame challenge, the challenge is executed during all preliminary matches of the main competition. All usual rules apply and teams are free to participate or not.
+As this is in-game challenge, the challenge is executed during all preliminary matches of the main competition. All usual rules apply and teams are free to participate or not.
 
 During \textit{Set} and anytime during \textit{Playing} when the head referee whistles (Kick-off, goal, half ends), the challenged team (can be both teams) have to look to the T-junction opposite to the GameController operator. At the T-junction of the center field line a challenge assistant will show within \qty{5}{\second} after the whistle a random hand-signal and direction according to the list below for \qty{10}{\second}. The hand-signals and directions are randomly chosen but within the first four whistles there have to be hand-signals from all three classes. The same hand-signal may be chosen twice (with different directions). The challenge assistant is wearing red gloves to distinguish him from the other referees. In case the head referee has to stand on the T-junction, he will stand close to the challenge assistant and do his referee job from that close by position.
 
@@ -160,4 +160,4 @@ As the head referee only whistles in three different match situations (kick-off,
 
 These two vales will be determined for each match. After the preliminary matches have been finished, the minimum number of matches each team has played will be evaluated overall teams with $N$. For each team the total number of points and the total time is calculated as the sum of the $N - 1$ best ranked matches according to the number of points.
 
-Teams are ranked by their total number of points. In the case of a tie, the team with the fastest total time to identify the hand-signals is ranked higher. The team with the highest total number of points, and lowest total time (for tie-breakers), wins this ingame challenge.
+Teams are ranked by their total number of points. In the case of a tie, the team with the fastest total time to identify the hand-signals is ranked higher. The team with the highest total number of points, and lowest total time (for tie-breakers), wins this in-game challenge.
