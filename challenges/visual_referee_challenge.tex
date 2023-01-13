@@ -147,8 +147,17 @@ Each hand-signal for the challenge is \textbf{described from the perspective of 
 
 \subsection{Challenge evaluation}
 
-A team scores 1 point for every hand-signal that is correctly identified. A team scores an additional 1 point for correctly identifying the team corresponding to the signal (where appropriate: For a correct recognized \textit{Full-Time} signal without announcing a team, the team gets also 1 point for the team color). A team looses 1 point for incorrectly identifying a hand-signal (note a team may have a negative final score). The total time for the robot to identify each hand-signal is summed (If a robot fails to identify a hand-signal the time for the hand-signal is \qty{15}{\second}. If a robot incorrectly identifies a hand-signal, the time is how long the robot took to provide the incorrect identification).
+A team scores 1 point for every hand-signal that is correctly identified. A team scores an additional 1 point for correctly identifying the team corresponding to the signal (where appropriate: For a correct recognized \textit{Full-Time} signal without announcing a team, the team gets also 1 point for the team color). A team looses 1 point for not or incorrectly identifying a hand-signal (note a team may have a negative final score). The time for the robot to identify a hand-signal is timed (If a robot fails to identify a hand-signal the time for the hand-signal is \qty{15}{\second}. If a robot incorrectly identifies a hand-signal, the time is how long the robot took to provide the incorrect identification).
 
-TODO: How to handle no goal, many goal, time out. remove best/worst, mean
+As the head referee only whistles in three different match situations (kick-off, goal, end of half), the signals are categorized accordingly. The average points and time per category will be calculated. The average points $\bar{P}_{\mathrm{XXX}}$ are summed with weighting factors as well as the average time $\bar{T}_{\mathrm{XXX}}$:
 
-Teams are ranked by their total points. In the event of tie-breaks, the team with the fastest total time to identify all hand-signals is ranked higher. The team with the highest total points, and lowest total time (for tie-breaks), wins the challenge.
+\begin{equation*}
+    \Sigma_\mathrm{Points} = \bar{\mathrm{P}}_{\mathrm{kick\_off}} + 3 \times \bar{\mathrm{P}}_{\mathrm{goal}} + 2 \times \bar{\mathrm{P}}_{\mathrm{end\_of\_half}}
+\end{equation*}
+\begin{equation*}
+    \Sigma_\mathrm{Time} = 3 \times \bar{\mathrm{T}}_{\mathrm{kick\_off}} + \bar{\mathrm{P}}_{\mathrm{goal}} + 2 \times \bar{\mathrm{P}}_{\mathrm{end\_of\_half}}
+\end{equation*}
+
+These two vales will be determined for each match. After the preliminary matches have been finished, the minimum number of matches each team has played will be evaluated overall teams with $N$. For each team the total number of points and the total time is calculated as the sum of the $N - 1$ best ranked matches according to the number of points.
+
+Teams are ranked by their total number of points. In the case of a tie, the team with the fastest total time to identify the hand-signals is ranked higher. The team with the highest total number of points, and lowest total time (for tie-breakers), wins this ingame challenge.
