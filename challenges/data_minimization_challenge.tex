@@ -27,9 +27,11 @@ where:
 \begin{itemize}
     \item $M$ is the number of matches held by team $t$
 \end{itemize}
+
+%This section was removed according to the discussion in issue #75 (https://github.com/RoboCup-SPL/Rules/issues/75#issuecomment-1381653772)
 %Bytes sent will weigh differently towards the final score, depending on the game phase in which they are sent. Bytes sent when they're not expected like in ready phase or in set phase. In this case, the score would be the weighted sum of several averages $A^{\text{phase}}_{bpr}$, each one computed for each phase, each phase average weighted with a penalizing factor (a coefficient between 1 and 2), as in:
 
-$$ A_{bpr} = \sum_{p \in \text{P}} c_p A^p_{bpr} $$
+%$$ A_{bpr} = \sum_{p \in \text{P}} c_p A^p_{bpr} $$
 
 %where:
 
