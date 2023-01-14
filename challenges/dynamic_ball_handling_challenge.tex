@@ -43,7 +43,7 @@ In \texttt{Initial} the robots get placed by the referees at their randomized st
 
 In \texttt{Playing} the teams have now \qty{240}{\second} time and the following happens: All robots are allowed to move and dribble. The 1st attacker passes the ball towards the 2nd or 3rd attacker while he is under attack by the 1st defender. After the 2nd or 3rd attacker received the ball, and the ball is in the defender's half, it gets attacked by the 2nd defender. Next, the 2nd or 3rd attacker passes towards the other robot, which can pass again or tries to score a goal.
 
-Defending robots are limited to a maximum speed of \qty{200}{\mm \per \second}. Also the defenders are not allowed to listen to the whistle and only get the \qty{15}{\second} delayed \texttt{Playing} signal from the GameController. The 1st defender has to walk immediately into the attackers half and does not walk back in its own half, so it only defends in the attacker's half. The 2nd defender is only allowed to stay in its own half and the goalkeeper remains on the goal line and is not allowed to dive. The objective of the defending team is to intercept the passes, see~\cref{sec:Challenge_scoring}.
+Defending robots are limited to a maximum speed of \qty{200}{\mm \per \second}. Also the defenders are not allowed to listen/react to the whistle and only get the \qty{15}{\second} delayed \texttt{Playing} signal from the GameController! The 1st defender has to walk immediately into the attackers half and does not walk back in its own half, so it only defends in the attacker's half. The 2nd defender is only allowed to stay in its own half and the goalkeeper remains on the goal line and is not allowed to dive. The objective of the defending team is to intercept the passes, see~\cref{sec:Challenge_scoring}.
 
 When the ball has been kicked by a robot who has a minimum distance to the receiving robot of \qty{2.0}{\metre} it is called a pass and then differentiated into the following categories:
 \begin{enumerate}
@@ -70,23 +70,23 @@ All rules from the normal game play (including penalties) still apply. Only the 
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1\columnwidth]{figs/dbhc_arcs.pdf}
-		\caption{Possible challenge situation with {\color{red} attacking robots} already oriented towards their targets. The arcs for a valid pass are indicated with dashed line style. Please note the possible difference between robot orientation and valid arcs.}
+		\caption{Possible challenge situation with {\color{red} attacking (red)} robots already oriented towards their targets. The arcs for a valid pass are indicated with dashed line style. Please note the possible difference between robot orientation and valid arcs.}
 		\label{fig:ball_handling_arc_positions}
 	\end{center}
 \end{figure}
 
 \subsection{Challenge Scoring}
 \label{sec:Challenge_scoring}
-In each phase of a run the GameController measures the execution time from initial whistle until the run is stopped by one of the following criteria:
+In each run the GameController measures the execution time from initial whistle until the run is stopped by one of the following criteria:
 
 \begin{itemize}
-	\item A goal is scored after at least two passes out of this list have been executed:
+	\item A goal is scored after at least two passes, out of the following list, have been executed:
 	\begin{itemize}
 		\item valid pass,
 		\item semi-valid pass,
 		\item substantial pass attempt.
 	\end{itemize}
-	\item A defender touches the ball.
+	\item A defender (except the goalkeeper) touches the ball.
 	\item Ball leaves the field outside the defending goal area.
 	\item An attacker pushes.
 	\item There is only one attacker left on the field.
@@ -134,5 +134,5 @@ Common defender images can be provided by the community with a standardized setu
 	\item Existence of documentation on how to flash, how to operate a robot, how to handle issues.
 	\item Does it apply to the rules?
 	\item Does it operate robustly?
-	\item Does it attack according to the rules?
+	\item Does it defend according to the rules?
 \end{enumerate}
