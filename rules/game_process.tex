@@ -6,7 +6,7 @@
 \subsection{Structure of the Game}
 \label{sec:game_struct}
 
-A game consists of four parts, pregame meeting (see~\cref{sec:referee_team_communiation}), the first half, a half-time break, and the second half. Each half is \qty{10}{\minute} counted from the initial kick-off.
+A game consists of four parts, pre-game meeting (see~\cref{sec:referee_team_communiation}), the first half, a half-time break, and the second half. Each half is \qty{10}{\minute} counted from the initial kick-off.
 The half-time break is \qty{10}{\minute}, and during this time both teams may change robots, change programs, or do anything else that can be done within the time allotted.
 
 The head referee signals the commencement of each half with a single whistle blow (that is, the Initial kick-off, \cf \cref{sec:initial-kick-off}).
@@ -31,7 +31,7 @@ If fewer robots do not respond to the GameController then they are, at the begin
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_free_kick}). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
   The GameController can activate sub-states for kick-off and penalty kicks.
 
-  \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a Penalty Kick (\cf \cref{sec:penalty_free_kick}).
+  \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_free_kick}).
   Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
   Robots are allowed to move their heads or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
@@ -97,7 +97,7 @@ The GameController signal (to the robots) of a goal being scored, will be delaye
 
 A goal is invalid (that is, it can never be awarded) in the following circumstances:
 \begin{enumerate}
-    \item When an Indirect Kick is required but has not occurred (see~\cref{sec:indirect_kick}).
+    \item When an indirect kick is required but has not occurred (see~\cref{sec:indirect_kick}).
     \item When the last contact of the ball was with an attacking robot that played the ball with the arms/hands as defined in \cref{sec:hand_ball}. However, an own goal may be scored by any defending robot playing with arms/hands.
     \item When a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in \cref{sec:fallenrobots}).
 \end{enumerate}
@@ -107,7 +107,7 @@ In these cases a goal is not scored (that is, the goal is ruled invalid), and th
 \subsubsection{Indirect Kick}
 \label{sec:indirect_kick}
 
-The attacking team may only score a goal via indirect kick from any restart into \textit{playing} from a Free kick except for a Penalty kick.
+The attacking team may only score a goal via indirect kick from any restart into \textit{playing} from a free kick except for a penalty kick.
 
 \begin{itemize}
   \item A robot may not score a goal from a direct kick, including via deflections.
@@ -255,14 +255,14 @@ The head referee will announce a free kick is completed, by ``Ball Free'', and t
 \subsubsection{Penalty Kick Procedure}
 \label{sec:penalty_free_kick}
 
-When the GameController activates the penalty Kick, the game changes to the \textit{Ready} state with \textit{free kick} sub-state active.
+When the GameController activates the penalty kick, the game changes to the \textit{Ready} state with \textit{free kick} sub-state active.
 
 This denotes that the robots are given time to set up and prepare for the penalty kick.
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
 
-Robots have \qty{\PenaltyKickSetupTime}{\second} to get into position for the penalty Kick. At the end of \qty{\PenaltyKickSetupTime}{\second}, the game changes to the \textit{Set} state with \textit{free kick} sub-state active.
-Similar to a kick-off, during the Set state the robots are waiting for the penalty Kick to commence.
+Robots have \qty{\PenaltyKickSetupTime}{\second} to get into position for the penalty kick. At the end of \qty{\PenaltyKickSetupTime}{\second}, the game changes to the \textit{Set} state with \textit{free kick} sub-state active.
+Similar to a kick-off, during the Set state the robots are waiting for the penalty kick to commence.
 Standard penalties apply.
 Additionally, only the goalkeeper robot from the defending team may be within the penalty area. The goalkeeper robot must either be touching the goal line or stay outside its own penalty area. If the goalkeeper positioned itself inside the goal area but ahead of the goal line it is placed back by the referee during \textit{Set} state, so the center of its feet touches the center of the goal line. The placement should happen perpendicular to the goal line without rotating the robot. If this manual placement would lead to a position the robot collides with a goalpost, it is placed inside or outside the goalpost on the goal line, depending on which position is closer.
 Only one robot from the attacking team may be within the penalty area, and it may not block the penalty mark.
@@ -273,9 +273,9 @@ The referee should also place the ball on the penalty mark during \textit{Set}.
 The referee signals the penalty kick commences by blowing the whistle once, and calling ``Playing''.
 The game switches to the \textit{free kick} sub-state of the \textit{Playing} game state, and the game clock is resumed.
 (Note that the GameContoller signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \textit{Set} to \textit{free kick} sub-state).
-The attacking team has \qty{\PenaltyKickTime}{\second} to complete the penalty Kick.
+The attacking team has \qty{\PenaltyKickTime}{\second} to complete the penalty kick.
 
-During the Penalty Kick:
+During the penalty kick:
 \begin{enumerate}
     \item The defensive goalkeeper robot must always be in contact with the goal line if it is inside the penalty area, and must remain on its feet. The goalkeeper is only permitted to ``dive'', and be off its feet after the attacking robot has touched the ball.
     \item The attacking robot may move freely.
@@ -287,7 +287,7 @@ During the Penalty Kick:
 
 The attacking robot (taking the penalty kick) may only score a goal if it touches the ball once. Once the attacking robot has touched the ball, it may not score a goal until another robot (from either team) touches the ball. If this robot ``scores'', it results in a goal kick~(\cf \cref{sec:invalid_goal}).
 
-The Penalty Kick is deemed completed if:
+The penalty kick is deemed completed if:
 \begin{itemize}
 \item The attacking team touches the ball, even if the robot has fallen.
 \item The \qty{\PenaltyKickTime}{\second} time period expires (or the game time expires).

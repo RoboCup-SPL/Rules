@@ -71,7 +71,7 @@ Refer to \cref{sec:inside_outside} for the definition of \textit{inside/outside}
 
 \subsubsection{Before and during Kick-off}
 If a robot violates the positioning restrictions made in \cref{sec:kick-off} at the time the Set state starts, it will be penalized and removed for \qty{15}{\second}.
-If a robot enters the areas of the other team before the ball in \textit{play}, it will be penalized and removed according to the standard removal penalty.
+If a robot enters the areas of the other team before the ball is in play, it will be penalized and removed according to the standard removal penalty.
 
 \subsubsection{Own Goal Area}
 
@@ -83,11 +83,11 @@ If an illegal defender kicks an own goal, the goal is scored for the opponent. I
 
 \subsubsection{Defender Encroachment during Free Kick}
 
-If a robot of the offending team does enter or not attempt to leave the circular area with \qty{\FreeKickRadius}{\metre} diameter around the ball after a Free Kick (\cf \cref{sec:free_kick}) was called, ``Illegal Position'' is called. Note that the referee should not look for exact distances and rather penalize only those robots who clearly violate this rule. As a guideline, the robots of the offending team should clear the ball within \qty{10}{\second}.
+If a robot of the offending team does enter or not attempt to leave the circular area with \qty{\FreeKickRadius}{\metre} diameter around the ball after a free kick (\cf \cref{sec:free_kick}) was called, ``Illegal Position'' is called. Note that the referee should not look for exact distances and rather penalize only those robots who clearly violate this rule. As a guideline, the robots of the offending team should clear the ball within \qty{10}{\second}.
 
 \subsubsection{Penalty Area, during Penalty Kick}
 
-If a robot that enters the relevant penalty area during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
+If a robot enters the relevant penalty area during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
 
 \subsection{Motion in Set}
 \label{sec:motion_in_set}
@@ -101,7 +101,7 @@ The offending robot is penalized \textit{in-place} on the field.  They will then
 
 A fallen robot which is unable to autonomously stand up within 2 attempts, or 3 if disturbed externally during the first stand-up attempt, will be penalized and removed for \qty{45}{\second}.
 In both cases, the head referee will call ``Fallen Robot  \textless robot\textgreater''.
-The goalkeeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately falling in a way that might cause its torso, arms, or hands) to intercept the ball. In all other cases, the robot remain upright---that is, supported by its feet.
+The goalkeeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately falling in a way that might cause its torso, arms, or hands) to intercept the ball. In all other cases, the robot should remain upright---that is, supported by its feet.
 
 A robot that has ceased activity for \qty{10}{\second} or has turned off will be removed and penalized for \qty{45}{\second}.
 The head referee will call ``Inactive Robot  \textless robot\textgreater''.
@@ -130,7 +130,7 @@ The ball should be removed from the possession of the robot and placed where the
 If the robot that held the ball has moved the ball before the robot can be removed, the ball shall be replaced where the penalty occurred.
 This applies to accidental goals.
 
-\textbf{Example.} A robot holds the ball, and before the referees can remove the robot, it shoots the ball into the goal. The goal will not be counted, and the ball will be replaced where the penalty occurred,
+\textbf{Example.} A robot holds the ball, and before the referees can remove the robot, it shoots the ball into the goal. The goal will not be counted, and the ball will be replaced where the penalty occurred.
 
 A robot must leave enough open space around the ball.
 The occupation of the ball is judged using the convex hull of the projection of the robot's body onto the ground. ``Enough open space'' means that at least the half of the ball is not covered by the convex hull. It is not important whether the robot actually touches the ball.
