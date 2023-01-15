@@ -61,7 +61,7 @@ A robot that damages the field, or poses a threat to spectator safety, will be r
 
 A robot penalized under illegal position has the ``Illegal Position'' penalty applied. Illegally positioned robots are subject to the standard removal penalty (\cf \cref{sec:removal_penalty}).
 The head referee will call ``Illegal Position  \textless robot\textgreater''.
-Referees may interchange ``Illegal Position'' with ``Illegal Defender'' or ``Illegal Attacker'' to help with clarity.
+Referees may interchange ``Illegal Position'' with ``Illegal Defender'' to help with clarity.
 
 Illegal positions are descried below.
 
@@ -73,14 +73,13 @@ Refer to \cref{sec:inside_outside} for the definition of \textit{inside/outside}
 If a robot violates the positioning restrictions made in \cref{sec:kick-off} at the time the Set state starts, it will be penalized and removed for \qty{15}{\second}.
 If a robot enters the areas of the other team before the ball in \textit{play}, it will be penalized and removed according to the standard removal penalty.
 
-\subsubsection{Penalty Area, at all times}
+\subsubsection{Own Goal Area}
 
-During the \textbf{whole} game only \textit{three} players (including goalkeeper) from the \textit{same} team can be the \textit{same} penalty area at the same time. This means a total of 6 robots may in the same penalty area at the same time.
+During the \textit{set} and \textit{playing} states, at most \textit{three} players can be within their own goal area at the same time.
 
-A robot is within the penalty area if any part of its body is touching the ground inside the penalty area or touching one of its lines. The penalty is applied when any additional players (whether field player or goalkeeper) enter the area. Note that if a player is pushed into the penalty area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within \qty{5}{\second} (or \qty{5}{\second} after getting up if the pushing led to falling).
+A robot is within the goal area if any part of its body is touching the ground inside the goal area or touching one of its lines. The penalty is applied when any additional players enter the area. Note that if a player is pushed into the goal area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within \qty{5}{\second} (or \qty{5}{\second} after getting up if the pushing led to falling).
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (\eg the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
-
 
 \subsubsection{Defender Encroachment during Free Kick}
 
