@@ -139,18 +139,18 @@ The attacking team may only score a goal via indirect kick from any restart into
 
 The first kick-off at the start of each half or after a timeout is an initial kick-off. Robots have to be ready next to the field at latest \qty{2}{\min} before an initial kick-off. All robots must be in the \textit{unstiff} state.
 
-Latest \qty{1}{\min} before the game starts all robots must be placed on the touchlines facing the other touchline in their own half by their team (if present in person at the competition site) or their responsible referee according to \cref{fig:initial_positions}. If a team places robots themselves for initial kick-off, it is allowed for the team to vary the spacing and orientation of the robot positions along legal positions on their half's touchlines~(see also~\cref{sec:inside_outside}).
+Latest \qty{1}{\min} before the game starts all robots must be placed on the touchlines facing the other touchline in their own half by their team. % (if present in person at the competition site) or their responsible referee according to \cref{fig:initial_positions}. If a team places robots themselves for initial kick-off, it is allowed for the team to vary the spacing and orientation of the robot positions along legal positions on their half's touchlines~(see also~\cref{sec:inside_outside}).
 
 Robots are brought into the \textit{initial} state after they are placed. Once the robots receive the \emph{ready} signal from the GameController, they proceed as described in \cref{sec:kick-off}.
 
-\begin{figure}[t!]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=1\columnwidth]{figs/initial_positions.pdf}
-    \caption{Positions, player numbers and distances from the center of the goal line for the initial kick-off of the robots.}
-    \label{fig:initial_positions}
-  \end{center}
-\end{figure}
+% \begin{figure}[t!]
+%   \begin{center}
+%     \leavevmode
+%     \includegraphics[width=1\columnwidth]{figs/initial_positions.pdf}
+%     \caption{Positions, player numbers and distances from the center of the goal line for the initial kick-off of the robots.}
+%     \label{fig:initial_positions}
+%   \end{center}
+% \end{figure}
 
 \subsection{Kick-off}
 \label{sec:kick-off}
@@ -385,7 +385,7 @@ A team that has scored the most goals at the conclusion of these will be declare
 
 The penalty kick shoot-out starts immediately without changing any code after the second half ended. No timeouts may be called during the penalty shootout. However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game. During timeout code changes are allowed.
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wireless network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player (1-6) and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wireless network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 \subsubsection{Penalty Kick}
 \label{sec:penalty_kick}
