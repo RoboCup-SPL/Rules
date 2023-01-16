@@ -1,7 +1,7 @@
 % !TeX root = ../SPL-Challenges.tex
 % !TeX spellcheck = en_US
-\section{Network Usage Challenge} % TODO: I hope there is a better name for this challenge
-This challenge will take place throughout regular games and the score will be based on the quantity of bytes exchanged by active robots during matches. 
+\section{Data Minimization Challenge} % TODO: I hope there is a better name for this challenge
+This challenge will take place throughout all matches of the main competition and the score will be based on the quantity of bytes exchanged by active robots during matches. 
 
 
 \subsection{Challenge Goal}
@@ -15,7 +15,7 @@ $$ R^\text{m} = \frac{\sum_{i}^n b_i}{\sum_{i}^n t_i} $$
 where:
 \begin{itemize}
     \item $b_i$ is the number of bytes sent by robot $i$
-    \item $t_i$ is the uptime of robot $i$
+    \item $t_i$ is the uptime of robot $i$, defined as the time during which robot $i$ is playing and is not penalized.
 \end{itemize}
 The sum takes into account all robots that were at some point active during the match, therefore also correctly taking into account substitutions and penalizations.
 
