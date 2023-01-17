@@ -99,7 +99,9 @@ The offending robot is penalized \textit{in-place} on the field.  They will then
 \subsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}
 
-A fallen robot which is unable to autonomously stand up within 2 attempts, or 3 if disturbed externally during the first stand-up attempt, will be penalized and removed for \qty{45}{\second}.
+If a robot falls during the game, it should start executing a get-up action within \qty{5}{\second}.
+If it does not commence a get-up action within \qty{5}{\second}, it will be penalized and removed for \qty{45}{\second}.
+A fallen robot which is unable to autonomously stand up within 2 attempts, or 3 if disturbed externally during the first two attempts, will be penalized and removed for \qty{45}{\second}.
 In both cases, the head referee will call ``Fallen Robot  \textless robot\textgreater''.
 The goalkeeper, inside its own penalty area, is the only robot permitted to `dive' (that is deliberately falling in a way that might cause its torso, arms, or hands) to intercept the ball. In all other cases, the robot should remain upright---that is, supported by its feet.
 
