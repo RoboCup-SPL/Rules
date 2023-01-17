@@ -28,10 +28,10 @@ If fewer robots do not respond to the GameController then they are, at the begin
 
   \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
-  \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_free_kick}). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
+  \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}). They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
   The GameController can activate sub-states for kick-off and penalty kicks.
 
-  \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_free_kick}).
+  \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
   Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
   Robots are allowed to move their heads or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
   If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
@@ -250,7 +250,7 @@ A free kick is deemed completed and play returns to normal if:
 The head referee will announce a free kick is completed, by ``Ball Free'', and the GameController resumes the game state \emph{playing}. Note that the sub-state will be automatically left after the \qty{\FreeKickTime}{\second} time period expires.
 
 \subsection{Penalty Kick}
-\label{sec:penalty_free_kick}
+\label{sec:penalty_kick}
 
 A penalty kick is initiated when a pushing penalty (see \cref{sec:player_pushing}) is awarded near the ball against the defending team within their own penalty area.
 The head referee will announce a penalty kick by calling ``Penalty Kick \textless offending color\textgreater \textless offending number\textgreater'' for the pushing robot.
@@ -387,7 +387,6 @@ The penalty kick shoot-out starts immediately without changing any code after th
 Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout. No robots may be added once the penalty shootout starts. Robots that will not participate in the shootout must not be on the wireless network and must stay outside of the field. All participating robots must be wearing the correct jersey for their player and no duplicate numbers are permitted. Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick. The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number. After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
 
 \subsubsection{Penalty Kick}
-\label{sec:penalty_kick}
 
 A penalty kick is carried out with one striker robot and one opposing goalkeeper.
 The penalty kick commences with the \textit{set} game state activated.
