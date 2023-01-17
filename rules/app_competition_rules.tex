@@ -113,21 +113,24 @@ Note that there are a few unlikely cases that are not covered by these rules.  I
 
 Any forfeit will result in a qualification penalty being recorded (\cf \cref{sec:qualificationPenalties}) but the circumstances of the forfeit will affect the severity of the offense and the impact on future qualification.
 
+\subsection{Source Code Releases}
+\label{sec:source_code_releases}
+
+All teams that have participated in RoboCup must subsequently release code from that year's codebase.
+The code must be licensed such that other RoboCup participants can use it, although the license may place conditions on its use.
+The preferred type of release is the full source code of the software that was running in the team's last game at RoboCup.
+In case this is not possible (\eg due to legal reasons), it is required that at least the source code related to the novel contributions (as given during the qualification process) is published.
+Participation in technical challenges may come with additional requirements on the amount of components to be released.
+
+The source code must be published and its availability announced on the SPL mailing list (\url{robocup-nao@lists.robocup.org}) by \DTMdate{\CodeReleaseAnnouncementDate}.
+Failing to publish source code by the deadline will result in a qualification penalty being recorded (\cf~\cref{sec:qualificationPenalties}).
 
 \subsection{Subsequent Year Pre-Qualification Procedure}
 \label{sec:preQual}
-Up to 11 teams may become pre-qualified for the subsequent year's team competition by fulfilling one of the following criteria:
-\begin{itemize}
-    \item Reaching the given pre-qualification criteria.
-    \item Being the team with the best overall result in the technical challenges that is not pre-qualified by other means, and finishing at worst 5th in the technical challenges.
-\end{itemize}
 
-However, pre-qualified teams must do all the following in order to remain pre-qualified:
-\begin{itemize}
-\item Post in a publicly available location a team research report describing their work for the \RCYear competition
-\item Publicly release code from that year's codebase, either in the form of a complete release (perhaps without behavior) or limited libraries.  This release must be documented and coded in a way where it can be used by others.
-\item Submit a shortened application as required by the call for participation for the subsequent year's competition.
-\end{itemize}
+Teams may become pre-qualified for the subsequent year's competition by fulfilling criteria set two weeks before the competition.
+Pre-qualified teams do not compete with other teams' applications during the qualification process.
+However, the call for participation for the subsequent year's competition may set additional formal requirements that must be fulfilled in order to remain pre-qualified.
 
 \subsection{Qualification Penalties}
 \label{sec:qualificationPenalties}
@@ -137,6 +140,7 @@ There are a number of offenses which lead to qualification penalties being recor
     \item Withdrawing from RoboCup after the final commitment deadline
     \item Failing to referee when assigned (\cref{sec:refSelection})
     \item Forfeiting a game (\cref{sec:forfeit})
+    \item Failing to publish source code by the deadline (\cref{sec:source_code_releases})
 \end{itemize}
 
 A team cannot be pre-qualified for RoboCup in the year following a qualification penalty. Furthermore, a qualification penalty is considered by the Technical Committee when reviewing applications and will negatively affect the assessment of a team's application. Multiple penalties accumulate and will result in an even more negative assessment of a team's application. Qualification penalties are considered for a period of three years following the offense.
