@@ -24,7 +24,7 @@ The GameController will send the appropriate penalty signal to the robot indicat
 The initial duration of the standard-removal-penalty-time is \qty{\StandardPenaltyTime}{\second}.
 Unless otherwise specified, the penalty time increases by \qty{\StandardPenaltyIncrease}{\second} each time a team commits any infraction.
 
-During the \emph{set} state the penalty time counter will not decrease.
+During the \texttt{set} state the penalty time counter will not decrease.
 
 The GameController will keep track of the time of the penalty. The operator of the GameController will signal the assistant referees when the penalty is \qty{10}{\second} from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the touchline that is farther from the ball. The robot should be placed close to the position where the penalty point projects on the touchline. This is illustrated in \cref{fig:penalty_re-entry_points}.
 
@@ -38,7 +38,7 @@ With approximately \qty{5}{\second} left before the penalty ends, the robot shou
 \label{fig:penalty_re-entry_points}
 \end{figure}
 
-When the robot is on the field again, the operator of the GameController will send the \emph{playing} signal to it.
+When the robot is on the field again, the operator of the GameController will send the \texttt{playing} signal to it.
 
 
 \subsection{Forbidden Actions}
@@ -65,17 +65,17 @@ Referees may interchange ``Illegal Position'' with ``Illegal Defender'' to help 
 
 Illegal positions are descried below.
 
-For simplicity, Illegal Positioning penalties during the \textit{Set} state (for kick-off or a penalty kick) do not count towards the incremental penalty count.
+For simplicity, Illegal Positioning penalties during the \texttt{set} state (for kick-off or a penalty kick) do not count towards the incremental penalty count.
 
 Refer to \cref{sec:inside_outside} for the definition of \textit{inside/outside} of a region of the field.
 
 \subsubsection{Before and During Kick-off}
-If a robot violates the positioning restrictions made in \cref{sec:kick-off} at the time the Set state starts, it will be penalized and removed for \qty{15}{\second}.
+If a robot violates the positioning restrictions made in \cref{sec:kick-off} at the time the \texttt{set} state starts, it will be penalized and removed for \qty{15}{\second}.
 If a robot enters the areas of the other team before the ball is in play, it will be penalized and removed according to the standard removal penalty.
 
 \subsubsection{Own Goal Area}
 
-During the \textit{set} and \textit{playing} states, at most \textit{three} players can be within their own goal area at the same time.
+During the \texttt{set} and \texttt{playing} states, at most \textit{three} players can be within their own goal area at the same time.
 
 A robot is within the goal area if any part of its body is touching the ground inside the goal area or touching one of its lines. The penalty is applied when any additional players enter the area. Note that if a player is pushed into the goal area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within \qty{5}{\second} (or \qty{5}{\second} after getting up if the pushing led to falling).
 
@@ -92,9 +92,9 @@ If a robot enters the relevant penalty area during a penalty kick, except for th
 \subsection{Motion in Set}
 \label{sec:motion_in_set}
 
-Robots may not exit the Set state until either the referee's whistle is detected or a GameController Playing signal has been received.
+Robots may not exit the \texttt{set} state until either the referee's whistle is detected or a GameController \texttt{playing} signal has been received.
 The head referee will call ``Motion in Set \textless robot\textgreater''.
-The offending robot is penalized \textit{in-place} on the field.  They will then be unable to move until they receive the GameController Playing signal.  Motion in Set penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+The offending robot is penalized \textit{in-place} on the field.  They will then be unable to move until they receive the GameController \texttt{playing} signal.  Motion in Set penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 
 \subsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}
