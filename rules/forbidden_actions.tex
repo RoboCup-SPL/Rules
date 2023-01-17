@@ -77,7 +77,7 @@ If a robot enters the areas of the other team before the ball is in play, it wil
 
 During the \texttt{set} and \texttt{playing} states, at most \textit{three} players can be within their own goal area at the same time.
 
-A robot is within the goal area if any part of its body is touching the ground inside the goal area or touching one of its lines. The penalty is applied when any additional players enter the area. Note that if a player is pushed into the goal area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within \qty{5}{\second} (or \qty{5}{\second} after getting up if the pushing led to falling).
+A robot is within the goal area if any part of its body is touching the ground inside the goal area or touching one of its lines. The penalty is applied when any additional players enter the area in \texttt{playing}, or to the excessive players closest to the border of the goal area in \texttt{set}. Note that if a player is pushed into the goal area by an opponent, this robot will not be subject to removal, unless it fails to exit the area within \qty{5}{\second} (or \qty{5}{\second} after getting up if the pushing led to falling).
 
 If an illegal defender kicks an own goal, the goal is scored for the opponent. If there is any doubt about whether a goal should count (\eg the illegal defender infraction is called, but the robot scores the own goal immediately afterwards, before it is removed) then the decision shall be against the infringing robot.
 
