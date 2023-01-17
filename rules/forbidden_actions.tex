@@ -162,7 +162,11 @@ The following define situations where ball holding does not apply:
 \subsection{Player Stance}
 \label{sec:player_stance}
 
-In order to intercept kicked balls the robots are allowed to go into a wide stance as long as it comes back to a normal stance within \qty{5}{\second}. Staying in a wide stance for longer than \qty{5}{\second} will result in the standard removal penalty.
+Robots are not allowed to stay in a stance that is significantly wider than the width of the robot's shoulders for more than \qty{5}{\second}.
+Staying in a wide stance for longer than \qty{5}{\second} will result in the standard removal penalty.
+
+This rule applies to upright robots only, \ie robots that are supported by their feet.
+Other cases are handled by the fallen robot rule (\cf~\cref{sec:fallenrobots}).
 
 \subsection{Player Pushing}
 \label{sec:player_pushing}
