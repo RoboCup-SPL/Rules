@@ -23,6 +23,7 @@ Robots can be in \textit{eight} different \emph{primary} states (see~\cref{fig:r
 Should, on both teams, at least two robots have problems with the wireless network or GameController connection the head referee should issue a referee timeout (see \cref{sec:referee_timeout}).
 If fewer robots do not respond to the GameController then they are, at the beginning, not included in the game (via a `Request for Pick-up', see \cref{sec:request_for_pickup}), and the game starts without the offending robot.
 
+The primary states are:
 \begin{description}
   \item [Unstiff.] It helps to facilitate a consistent and safe handling of the robots for remote competition. During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and unstiffen all joints. So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state. Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{initial} state, or a state as indicated by GameController.
 
