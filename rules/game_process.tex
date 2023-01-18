@@ -42,7 +42,7 @@ The primary states are:
 
   \item[Playing.] In the \texttt{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. During the \texttt{playing} state, the GameController can activate the sub-states for free kicks (\cf \cref{sec:free_kick}).
 
-  \item[Penalized.] A robot is in this state when it has been \texttt{penalized}. It is not allowed to move in any fashion,  this includes stopping the head turning. Shortly pressing the chest button will switch the robot back to the \texttt{playing} state.
+  \item[Penalized.] A robot is in this state when it has been \texttt{penalized}. The only allowed movement is standing up after falling. Any other movement (including turning the head) is disallowed. Shortly pressing the chest button will switch the robot back to the \texttt{playing} state.
 
   \item[Finished.] This state is reached when a half is finished. The robots then have to sit down.
 
