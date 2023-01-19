@@ -93,11 +93,19 @@
 
 \maketitle
 
-\vfill
+\begin{center}
+Questions or comments on the technical challenge rules should be submitted via \url{https://github.com/RoboCup-SPL/Rules/issues}, to the \texttt{\#rule-book} channel on the SPL Discord server, or by mail to \url{rc-spl-tc@lists.robocup.org}.
+\end{center}
+
+\newpage
+
 \tableofcontents
 \setcounter{tocdepth}{3}
+
 \thispagestyle{fancy}
+
 \clearpage
+
 \cfoot{\thepage}
 \setcounter{page}{1}
 
@@ -112,9 +120,6 @@ Every team participating in a challenge must publish the corresponding code used
 
 \subsection{Scoring}
 The scores earned in each challenge will vary in magnitude. Hence, they must be scaled before calculating the overall technical challenge rankings. Teams who do not participate in a challenge will receive 0 points for that challenge. The team with the highest total score for a challenge will get 25 points for that challenge, while the team with the lowest total score for a challenge will get 5 points for that challenge. A linear equation will then be fit to these two points, and each other participating team in that challenge will gain points for that challenge based on this equation.
-
-Questions or comments on the technical challenge rules should be mailed to \url{rc-spl-tc@lists.robocup.org}.
-
 
 \include{challenges/visual_referee_challenge}
 
