@@ -19,7 +19,7 @@ Unless otherwise stated, all infractions result in the removal of the infringing
 
 When the head referee indicates an infraction has been committed that results in the standard removal penalty, the assistant referee closest to the robot will remove the robot immediately from the field of play. The robot should be removed in such a way as to minimize the movement of the other robots and the ball. If the ball is inadvertently moved when removing the robot, the ball should be replaced to the position it was in when the robot was removed.
 
-The GameController will send the appropriate penalty signal to the robot indicating the infraction committed. After a penalty is signaled to the robot, it is not allowed to move in any fashion. The removed robot will be placed outside the field facing away from the field of play.
+The GameController will send the appropriate penalty signal to the robot indicating the infraction committed. After a penalty is signaled to the robot, it is not allowed to move in any fashion (except for standing up). The removed robot will be placed outside the field facing away from the field of play.
 
 The initial duration of the standard-removal-penalty-time is \qty{\StandardPenaltyTime}{\second}.
 Unless otherwise specified, the penalty time increases by \qty{\StandardPenaltyIncrease}{\second} each time a team commits any infraction.
