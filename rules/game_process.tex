@@ -39,7 +39,6 @@ The primary states are:
   The penalty time counter is frozen during this state.
   Note that all penalized robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
   The GameController can activate sub-states for kick-off and penalty kicks.
-  This state is not available if only the button interface is implemented.
 
   \item[Playing.] In the \texttt{playing} state, the robots are playing soccer. Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. During the \texttt{playing} state, the GameController can activate the sub-states for free kicks (\cf \cref{sec:free_kick}).
 
