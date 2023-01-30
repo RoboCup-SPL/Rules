@@ -125,13 +125,17 @@ A line is always part of a region of the field.
 This means, that \emph{inside/outside \textless region\textgreater} refers to the green area as well as the surrounding line.
 Specifically:
 \begin{itemize}
-    \item The field boundary lines are part of the field
-    \item The penalty area lines (and the adjacent part of the goal line) are part of the penalty area
-    \item The center circle lines are part of the center circle
+    \item The goal lines and touchlines are part of the field.
+    \item The goal area lines (and the adjacent part of the goal line) are part of the goal area.
+    \item The penalty area lines (and the adjacent part of the goal line) are part of the penalty area.
+    \item The center circle lines are part of the center circle.
 \end{itemize}
 
-The only \textit{exception} to this rule is the halfway line, which does not form part of any half.
-That is, a robot is \textit{outside} a half of the field if it is touching the halfway line.
+Notable exceptions to this rule are:
+\begin{itemize}
+    \item The halfway line does not form part of any half. That is, a robot is \textit{outside} a half of the field if it is touching the halfway line.
+    \item The goal line is not part of the goal.
+\end{itemize}
 
 \subsection{Technical Area}
 \label{sec:technical_area}
