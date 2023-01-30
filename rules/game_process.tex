@@ -159,13 +159,13 @@ For kick-off, the robots run through three states: \texttt{ready}, \texttt{set},
 In the \texttt{ready} state, the robots must walk to legal kick-off positions for their team.
 
 When reaching the \texttt{set} state, the kick-off team can be positioned within their own half and the center circle.
-No robot may block ball placement by standing at the center point of the center circle.
-Only one robot of the kick-off team is allowed to stay in the opponent's half of the center circle and on the halfway line inside the center circle.
-All robots in the opponent's half of the center circle, except the closest to the center point of the center circle, get penalized by ``Illegal Positioning''~(\cf \cref{sec:illegal_positioning}).
-If the kick-off team has a robot positioned in the opponent's half of the center circle, only this robot, called kick-off player, is allowed to execute the kick-off.
+No robot may block ball placement by standing on the center mark.
+Only one robot of the kick-off team is allowed to stay outside the own half.
+All robots outside the own half, except the closest to the center mark, get penalized by ``Illegal Positioning''~(\cf \cref{sec:illegal_positioning}).
+If the kick-off team has a robot positioned outside the own half, only this robot, called kick-off player, is allowed to execute the kick-off.
 If a different robot of the kick-off team is executing the kick-off, this robot gets penalized with ``Illegal Positioning'' and a moved ball gets moved back.
 
-When reaching the \texttt{set} state, the defending team can be positioned within their own half, except for inside the center circle including its line.
+When reaching the \texttt{set} state, the defending team can be positioned within their own half excluding the center circle.
 
 Beginning with \texttt{set} no player is allowed to touch the halfway line except for the kick-off player within the center circle (\cf \cref{sec:illegal_positioning}).
 Robots are allowed to be positioned inside the area of their own goal.
@@ -174,7 +174,7 @@ The limitations on kick-off positions end for both teams as soon as the ball is 
 The green carpet border, except for the area of the goal, is not part of either team's own half.
 All robots that do not reach legal positions or enter illegal positions before the ball is free will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
 
-In the \texttt{set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center point of the center circle. If the ball is moved by one of the robots during \texttt{set}, it is moved back by one of the referees.
+In the \texttt{set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center mark. If the ball is moved by one of the robots during \texttt{set}, it is moved back by one of the referees.
 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the halfway line.
 
