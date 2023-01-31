@@ -157,37 +157,34 @@ Robots are brought into the \texttt{initial} state after they are placed. Once t
 For kick-off, the robots run through three states: \texttt{ready}, \texttt{set}, and \texttt{playing}.
 
 In the \texttt{ready} state, the robots must walk to legal kick-off positions for their team.
-
-When reaching the \texttt{set} state, the kick-off team can be positioned within their own half and the center circle.
+Upon reaching the \texttt{set} state, the robots must not move until the kick-off is signaled by the referee (\cf~\cref{sec:robot_states,sec:motion_in_set}).
+The following restrictions apply during the \texttt{set} state until the ball becomes free:
+\begin{itemize}
+  \item The kick-off team can be positioned within their own half and the center circle.
 No robot may block ball placement by standing on the center mark.
 Only one robot of the kick-off team is allowed to stay outside the own half.
-All robots outside the own half, except the closest to the center mark, get penalized by ``Illegal Positioning''~(\cf \cref{sec:illegal_positioning}).
+All robots outside the own half, except the closest to the center mark, are illegally positioned.
 If the kick-off team has a robot positioned outside the own half, only this robot, called kick-off player, is allowed to execute the kick-off.
-If a different robot of the kick-off team is executing the kick-off, this robot gets penalized with ``Illegal Positioning'' and a moved ball gets moved back.
+If a different robot of the kick-off team is executing the kick-off, this robot is considered to be illegally positioned and a moved ball gets moved back.
+  \item The defending team can be positioned within their own half excluding the center circle.
+  \item Robots are allowed to be positioned inside their own goal. All other positions that are fully on the border strip are illegal for both teams.
+  \item Both teams are also subject to restrictions on the goal area (\cf~\cref{sec:ip_own_goal_area}).
+\end{itemize}
+All robots that do not reach legal positions or enter illegal positions before the ball is in play will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:ip_kick_off}).
 
-When reaching the \texttt{set} state, the defending team can be positioned within their own half excluding the center circle.
+A referee places the ball on the center mark. If the ball is moved by one of the robots during \texttt{set}, it is moved back by one of the referees.
 
-Beginning with \texttt{set} no player is allowed to touch the halfway line except for the kick-off player within the center circle (\cf \cref{sec:illegal_positioning}).
-Robots are allowed to be positioned inside the area of their own goal.
-Both teams are also subject to restrictions on the goal area~(\cf \cref{sec:illegal_positioning}).
-The limitations on kick-off positions end for both teams as soon as the ball is free.
-The green carpet border, except for the area of the goal, is not part of either team's own half.
-All robots that do not reach legal positions or enter illegal positions before the ball is free will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
-
-In the \texttt{set} state, the robots must not move~(\cf \cref{sec:robot_states}). A referee places the ball on the center mark. If the ball is moved by one of the robots during \texttt{set}, it is moved back by one of the referees.
-
-The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''. The head referee must signal this from the T-junction of the halfway line.
-
-After the head referee has signaled the kick-off, the robot's state is switched to \texttt{playing} by the GameController.
-The defensive team must stay outside the center circle until the ball is free. Before the ball is free, robots are not allowed to leave their own halves and additionally defensive players are not allowed to enter the center circle. Otherwise, a robot will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:illegal_positioning}).
+The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''.
+The head referee must signal this from the T-junction of the halfway line.
+\qty{\PlayingDelayTime}{\second} after the head referee has signaled the kick-off, the robots' state is switched to \texttt{playing} by the GameController (regardless of when the ball becomes free).
 
 A goal may be scored directly from a kick-off.
 
 \subsubsection{Ball Free}
-The ball is free and kick-off ends once 
+The ball is free and kick-off ends once
 \begin{itemize}
   \item it is touched by the attacking team and moved clearly or
-  \item \qty{\KickOffBallFreeTime}{\second} have elapsed in the \texttt{playing} state. 
+  \item \qty{\KickOffBallFreeTime}{\second} have elapsed in the \texttt{playing} state.
 \end{itemize}
 
 The GameController and head referee will indicate this by the call ``Ball Free''.
