@@ -203,7 +203,7 @@ If the ball goes over a goal line then the assistant referee will replace the ba
 
 \begin{itemize}
   \item If the ball was last touched by the defensive team, a \emph{Corner Kick} (\cf \cref{sec:free_kick}) is awarded to the attacking team. The referee calls ``Corner Kick \textless color\textgreater'' and the ball is placed on the corner on the same side of the field that the ball was kicked-out.
-  \item If the ball was last touched by the offensive team, a \emph{Goal Kick} (\cf \cref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the goal area on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the t-junction where the goal area meets the goal line.
+  \item If the ball was last touched by the offensive team, a \emph{Goal Kick} (\cf \cref{sec:free_kick}) is awarded to the defensive team. The referee calls ``Goal Kick \textless color\textgreater'', and the ball is placed on the corner of the goal area on the same side of the field that the ball was kicked-out. That is, the corner inside the field, not the T-junction where the goal area meets the goal line.
 \end{itemize}
 
 In these examples, ``red half of the field'' refers to the half the red team is defending.
@@ -248,7 +248,7 @@ A free kick is deemed completed and play returns to normal if:
     \item The attacking team moves the ball clearly, except for a robot getting up which is exempt from this rule.
     \item The \qty{\FreeKickTime}{\second} time period expires (or the game time expires).
 \end{itemize}
-The head referee will announce a free kick is completed, by ``Ball Free'', and the GameController resumes the game state \texttt{playing}. Note that the sub-state will be automatically left after the \qty{\FreeKickTime}{\second} time period expires.
+The head referee will announce a free kick is completed by calling ``Ball Free'', and the GameController resumes the game state \texttt{playing}. Note that the sub-state will be automatically left after the \qty{\FreeKickTime}{\second} time period expires.
 
 \subsection{Penalty Kick}
 \label{sec:penalty_kick}
