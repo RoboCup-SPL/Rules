@@ -418,9 +418,17 @@ Other penalties are applied as usual.
 
 Teams take one additional penalty kick each, and the game decision will be made as follows:
 
-\begin{enumerate}
-  \item If only one team scores a goal, that team wins.
-  \item If both teams score a goal, the sudden death shoot-out is repeated.
-  \item If neither team score a goal, then a shot blocked by the goalkeeper beats a shot blocked by the goalpost which beats a wide shot. For example, if the shot of one team gets stopped by the goalkeeper and the other executes a wide shot, the first team wins. If both shots fall in the same category, \eg~wide, the shoot-out is repeated.
+\begin{itemize}
+  \item Each kick is ranked in one of the following categories:
+  \begin{enumerate}
+    \item goal
+    \item kick at the goal that is blocked by the goalkeeper
+    \item kick that hits a goalpost
+    \item kick that crosses the goal line next to the goalposts
+    \item any other kick
+    \item no kick
+  \end{enumerate}
+  \item If both teams' kicks rank in different categories, the team with the higher ranked kick wins.
+  \item Otherwise, the sudden death is repeated.
   \item If after 3 sudden death penalty shots there is still no winner, the referee will toss a coin to decide the game.
-\end{enumerate}
+\end{itemize}
