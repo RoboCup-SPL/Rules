@@ -158,30 +158,31 @@ For kick-off, the robots run through three states: \texttt{ready}, \texttt{set},
 
 In the \texttt{ready} state, the robots must walk to legal kick-off positions for their team.
 Upon reaching the \texttt{set} state, the robots must not move until the kick-off is signaled by the referee (\cf~\cref{sec:robot_states,sec:motion_in_set}).
-The following restrictions apply during the \texttt{set} state until the ball becomes free:
+The following restrictions apply from the beginning of the \texttt{set} state until the ball comes into play:
 \begin{itemize}
   \item The kick-off team can be positioned within their own half and the center circle.
-No robot may block ball placement by standing on the center mark.
-Only one robot of the kick-off team is allowed to stay outside the own half.
-All robots outside the own half, except the closest to the center mark, are illegally positioned.
-If the kick-off team has a robot positioned outside the own half, only this robot, called kick-off player, is allowed to execute the kick-off.
-If a different robot of the kick-off team is executing the kick-off, this robot is considered to be illegally positioned and a moved ball gets moved back.
+No robot may block the center mark.
+Up to one robot of the kick-off team is allowed to be outside the own half, provided it is inside the center circle.
+If more than one robot is outside the own half, only the one closest to the center mark is legal.
+This robot is then called \emph{kick-off} player and must execute the kick-off.
+If any other robot of the kick-off team executes the kick-off, the robot wrongly taking the kick-off is considered to be illegally positioned and a moved ball is placed back.
   \item The defending team can be positioned within their own half excluding the center circle.
   \item Robots are allowed to be positioned inside their own goal. All other positions that are fully on the border strip are illegal for both teams.
   \item Both teams are also subject to restrictions on the goal area (\cf~\cref{sec:ip_own_goal_area}).
 \end{itemize}
-All robots that do not reach legal positions or enter illegal positions before the ball is in play will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:ip_kick_off}).
+All robots that do not reach legal positions before the \texttt{set} state begins or enter illegal positions before the ball is in play will be penalized with the ``Illegal Position'' penalty~(\cf \cref{sec:ip_kick_off}).
 
-A referee places the ball on the center mark. If the ball is moved by one of the robots during \texttt{set}, it is moved back by one of the referees.
+A referee places the ball on the center mark.
+If the ball is moved by one of the robots during the \texttt{set} state, it is placed back by one of the referees.
 
 The head referee signals the kick-off by a single whistle blow, followed by the call ``Playing''.
 The head referee must signal this from the T-junction of the halfway line.
-\qty{\PlayingDelayTime}{\second} after the head referee has signaled the kick-off, the robots' state is switched to \texttt{playing} by the GameController (regardless of when the ball becomes free).
+\qty{\PlayingDelayTime}{\second} after the head referee has signaled the kick-off, the robots' state is switched to \texttt{playing} by the GameController (regardless of when the ball comes into play).
 
 A goal may be scored directly from a kick-off.
 
-\subsubsection{Ball Free}
-The ball is free and kick-off ends once
+\subsubsection{Ball in Play}
+The ball is in play and kick-off ends once
 \begin{itemize}
   \item it is touched by the attacking team and moved clearly or
   \item \qty{\KickOffBallFreeTime}{\second} have elapsed in the \texttt{playing} state.
