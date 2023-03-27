@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Usage: ./generateField.py standard_field.json
+# Usage: ./generateField_simple.py field_2020.json
 
 import json
 import math
