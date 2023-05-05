@@ -96,9 +96,10 @@ If a robot enters the relevant penalty area during a penalty kick, except for th
 \subsection{Motion in Set}
 \label{sec:motion_in_set}
 
-Robots may not exit the \texttt{set} state until either the referee's whistle is detected or a GameController \texttt{playing} signal has been received.
-The head referee will call ``Motion in Set \textless robot\textgreater''.
-The offending robot is penalized \textit{in-place} on the field.  They will then be unable to move until they receive the GameController \texttt{playing} signal.  Motion in Set penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+Robots that begin moving their legs or move in any fashion during \texttt{set} (\ie before the head referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set \textless robot\textgreater'' GameController signal until the GameController transmits the \texttt{playing} signal.
+The offending robot is penalized \textit{in-place} on the field. It will then be unable to move until it receives the GameController \texttt{playing} signal.  ``Motion in Set'' penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+A robot will be moved back to its original position if it has moved significantly before becoming penalized.
+Note that responding to a whistle on another field will result in this penalty.
 
 \subsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}

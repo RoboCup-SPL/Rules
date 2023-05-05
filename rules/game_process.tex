@@ -63,9 +63,7 @@ The primary states are:
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
 The GameController \texttt{playing} signal will be delayed by \qty{\PlayingDelayTime}{\second}.
-This delay applies to both kick-off and penalty shots.
-Robots that begin moving their legs or move in any fashion during \texttt{set} (\ie before the referee blows the whistle) will be penalized \textit{in place} on the field via the ``Motion in Set'' (\cf \cref{sec:motion_in_set}) GameController signal until the GameController transmits the \texttt{playing} signal. A robot will be moved back to its original position if it has moved significantly before becoming penalized.
-Note that responding to a whistle on another field will result in this penalty.
+This delay applies to both kick-off and penalty kicks.
 
 The current game state should be displayed on the LED in the torso. The colors corresponding to the game states are:
 
