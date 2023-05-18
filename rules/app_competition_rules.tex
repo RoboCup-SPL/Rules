@@ -2,14 +2,17 @@
 % !TeX spellcheck = en_US
 \section{The Official RoboCup Competition Rules}
 \label{sec:comRules}
-This section contains rules that are not directly relevant for games and that may not apply at local opens.  However, these rules will be upheld at the yearly international RoboCup competition.
+
+This section contains rules that are not directly relevant for games and that may not apply at local opens.
+However, these rules will be upheld at the yearly international RoboCup competition.
 
 \subsection{Qualification Procedure and Code Usage}
 \label{sec:qualification_procedure_codeuse}
 
 The qualification procedure as well as the corresponding deadlines will be announced by the Technical Committee before qualification applications are accepted.
 
-The RoboCup Standard Platform League offers unique possibilities to use code from other teams. In spirit of the RoboCup every team is generally allowed to use code from other teams to push the league further with their own research.
+The RoboCup Standard Platform League offers unique possibilities to use code from other teams.
+In spirit of the RoboCup every team is generally allowed to use code from other teams to push the league further with their own research.
 This use must be cited.
 However, every participant of RoboCup \textbf{\textit{has a duty}} to contribute to the league.
 
@@ -19,7 +22,8 @@ It is also \textit{mandatory} for a team to use their novel contribution in all 
 A novel contribution is:
 \begin{itemize}
   \item Research publishable contribution to a \textit{game critical module}
-  \item Complete replacement of a \textit{game critical module}, with original software. This may not necessarily be research publishable, but must be of equivalent scale and quality to research publishable work.
+  \item Complete replacement of a \textit{game critical module}, with original software.
+    This may not necessarily be research publishable, but must be of equivalent scale and quality to research publishable work.
 \end{itemize}
 
 It is not a novel contribution to replace a module with code copied from another source, or to simply train a machine-learning model released by another team using new data.
@@ -31,7 +35,9 @@ As of the \RCYear competition, the following are \textit{not} recognized as suff
 Hand-written Soccer Behaviors, Natural Language detection, \& Robot and GC Communication.
 
 In their qualification application, teams may petition the technical committee to recognize other novel contributions not listed here.
-Additionally, a team that has participated at RoboCup for at least \NovelContributionTime consecutively may petition the technical committee to recognize contributions to non-game critical modules, such as developing infrastructure for the league.\footnote{However, the technical committee should balance whether a team is continuing to use their own software in games.}
+Additionally, a team that has participated at RoboCup for at least \NovelContributionTime consecutively may petition the technical committee to recognize contributions to non-game critical modules, such as developing infrastructure for the league.\footnote{
+  However, the technical committee should balance whether a team is continuing to use their own software in games.
+}
 A team may also petition for the technical committee to reconsider the list of game critical and non-game critical modules.
 Successful petitions will be publicly announced to the league for transparency.
 %For example, a team may petition and provide evidence that their work on the whistle detection is substantial and game critical, thus satisfying the requirements of a novel contribution.
@@ -53,12 +59,14 @@ Matches in the champions cup are played with 7 players on each team, while the c
 
 \subsection{Game Structure}
 
-The clock stops during stoppages of play (such as \texttt{ready} and \texttt{set} state after goals) from the quarter-finals onward.  In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow. In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see \cref{sec:penalty_shoot-out}).
+The clock stops during stoppages of play (such as \texttt{ready} and \texttt{set} state after goals) from the quarter-finals onward.
+In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow.
+In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see \cref{sec:penalty_shoot-out}).
 
 \subsection{Competition Mode}
 
-Depending on the number of participating teams, the OC and TC create a competition table. The following modes can be selected:
-
+Depending on the number of participating teams, the OC and TC create a competition table.
+The following modes can be selected:
 \begin{itemize}
   \item Group games, with or without intermediate rounds, with concluding knock-out phase
   \item Double elimination system
@@ -66,10 +74,11 @@ Depending on the number of participating teams, the OC and TC create a competiti
   \item Swiss tournament system with concluding knock-out phase.
 \end{itemize}
 
-All teams participating in the competition are initially ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments. (New teams will be ranked equally below all previously competing teams. Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.)
+All teams participating in the competition are initially ranked using the Glicko system\footnote{\url{http://www.glicko.net/glicko/glicko.pdf}} based on all available results from previous official RoboCup tournaments.
+(New teams will be ranked equally below all previously competing teams.
+Teams that participated previously but did not participate in the previous year will be ranked above new teams but below teams that competed in the previous year.)
 
 The OC will announce two weeks before a competition:
-
 \begin{itemize}
   \item Competition mode and which competition rules will be applied
   \item Initial ranking of participating teams
@@ -79,37 +88,51 @@ The OC will announce two weeks before a competition:
 
 \subsection{Referee Selection and Requirements}
 \label{sec:refSelection}
+
 During pool play, the games will be refereed by members of teams from a different pool.
 
-Each team has to referee a number of games. A schedule will be released specifying the games for which each team is required to provide two referees. Referees should report to the appropriate field at least ten minutes before the game is scheduled to start.
+Each team has to referee a number of games.
+A schedule will be released specifying the games for which each team is required to provide two referees.
+Referees should report to the appropriate field at least ten minutes before the game is scheduled to start.
 
 If a team fails to provide two referees for a game in which they are scheduled to provide referees, it will be noted by the organizing committee and recorded as a \textbf{qualification penalty} (\cref{sec:qualificationPenalties}).
 
-For each of the games, a team will be required either to provide the head referee and the operator of the GameController, or the two assistant referees.  The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill. Note, however, that the head referee and the GameController should always be from the same team.
+For each of the games, a team will be required either to provide the head referee and the operator of the GameController, or the two assistant referees.
+The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.
+Note, however, that the head referee and the GameController should always be from the same team.
 
 A team may swap their scheduled refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
 
-The requirement to referee may be an extreme hardship for extremely small teams.  If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.  The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
+The requirement to referee may be an extreme hardship for extremely small teams.
+If a team believes providing two referees for games will be an extreme hardship, they must send an email explaining their situation to the Organizing Committee and Technical Committee at least two weeks before the first set up day of the competition.
+The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
 
-Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software. Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software.
+Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
-In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required. The veto must be delivered before the start of the \texttt{ready} phase or during a stoppage of play.
+In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
+The veto must be delivered before the start of the \texttt{ready} phase or during a stoppage of play.
 
 \subsection{Rules for Forfeiting}
 \label{sec:forfeit}
 
 Teams who do not make a good faith effort to participate in a scheduled game are considered to forfeit the game.
 
-If a team notifies the technical committee that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.  However, any own goals will not be scored.  Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.  Teams may choose to forfeit at any stoppage of play.  However, once a forfeit is announced, they may not reverse this decision.
+If a team notifies the technical committee that they wish to forfeit less than two hours before their scheduled game time, simply fails to show up for their game, or decides during their game that they wish to forfeit, then the opposing team will play the match against an empty field.
+However, any own goals will not be scored.
+Hence, after an opponent forfeits, the team playing against an empty field cannot do worse than they were doing at the time the opponent decided to forfeit.
+Teams may choose to forfeit at any stoppage of play.
+However, once a forfeit is announced, they may not reverse this decision.
 
 If a team notifies the technical committee that they wish to forfeit at least two hours before their schedule game time, the following procedure will be followed.
-
 \begin{itemize}
-  \item If a team chooses to forfeit a match in the round robin games the other team plays the match against an empty field.  However, any own goals will not be scored.
+  \item If a team chooses to forfeit a match in the round robin games the other team plays the match against an empty field.
+    However, any own goals will not be scored.
   \item If a team chooses to forfeit in a knock-out game it gets replaced by the next best qualified team, \ie the team it kicked out or left behind in the round robins.
 \end{itemize}
 
-Note that there are a few unlikely cases that are not covered by these rules.  If a situation is not covered by these rules, the technical committee and the organizing committee will work together to make a decision.
+Note that there are a few unlikely cases that are not covered by these rules.
+If a situation is not covered by these rules, the technical committee and the organizing committee will work together to make a decision.
 
 Any forfeit will result in a qualification penalty being recorded (\cf \cref{sec:qualificationPenalties}) but the circumstances of the forfeit will affect the severity of the offense and the impact on future qualification.
 
@@ -135,7 +158,8 @@ However, the call for participation for the subsequent year's competition may se
 \subsection{Qualification Penalties}
 \label{sec:qualificationPenalties}
 
-There are a number of offenses which lead to qualification penalties being recorded against a team. These are as follows:
+There are a number of offenses which lead to qualification penalties being recorded against a team.
+These are as follows:
 \begin{itemize}
     \item Withdrawing from RoboCup after the final commitment deadline
     \item Failing to referee when assigned (\cref{sec:refSelection})
@@ -143,7 +167,10 @@ There are a number of offenses which lead to qualification penalties being recor
     \item Failing to publish source code by the deadline (\cref{sec:source_code_releases})
 \end{itemize}
 
-A team cannot be pre-qualified for RoboCup in the year following a qualification penalty. Furthermore, a qualification penalty is considered by the Technical Committee when reviewing applications and will negatively affect the assessment of a team's application. Multiple penalties accumulate and will result in an even more negative assessment of a team's application. Qualification penalties are considered for a period of three years following the offense.
+A team cannot be pre-qualified for RoboCup in the year following a qualification penalty.
+Furthermore, a qualification penalty is considered by the Technical Committee when reviewing applications and will negatively affect the assessment of a team's application.
+Multiple penalties accumulate and will result in an even more negative assessment of a team's application.
+Qualification penalties are considered for a period of three years following the offense.
 
 Whenever a qualification penalty is recorded, all relevant details including any possible mitigating circumstances are also recorded and these will also inform the assessment of a team's application.
 
