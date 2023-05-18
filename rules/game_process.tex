@@ -42,7 +42,7 @@ The primary states are:
 
   \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
-    Robots are allowed to move their heads or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
+    Robots are allowed to move their heads and arms or get up if fallen before the game (re)starts, but they are not otherwise allowed to move their legs or locomote in any fashion.
     If a robot cannot get up, fallen robot is called~(\cf \cref{sec:fallenrobots}).
     The penalty time counter is frozen during this state.
     Note that all penalized robots are left in place (on the side of the field, or in-place for motion in set) and must wait to get unpenalized.
@@ -191,7 +191,7 @@ Once the robots receive the \texttt{ready} signal from the GameController, they 
 For kick-off, the robots run through three states: \texttt{ready}, \texttt{set}, and \texttt{playing}.
 
 In the \texttt{ready} state, the robots must walk to legal kick-off positions for their team.
-Upon reaching the \texttt{set} state, the robots must not move until the kick-off is signaled by the referee (\cf~\cref{sec:robot_states,sec:motion_in_set}).
+Upon reaching the \texttt{set} state, the robots must stop and remain stationary until the kick-off is signaled by the referee (\cf~\cref{sec:motion_in_set}).
 The following restrictions apply from the beginning of the \texttt{set} state until the ball comes into play:
 \begin{itemize}
   \item The kick-off team can be positioned within their own half and the center circle.
