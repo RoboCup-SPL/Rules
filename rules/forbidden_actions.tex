@@ -103,9 +103,9 @@ If there is any doubt about whether a goal should count (\eg the illegal defende
 \subsubsection{Defender Encroachment During Free Kick}
 \label{sec:ip_free_kick}
 
-If a robot of the offending team does enter or not attempt to leave the circular area with \qty{\FreeKickRadius}{\metre} diameter around the ball after a free kick (\cf \cref{sec:free_kick}) was called, ``Illegal Position'' is called.
+If a robot of the defensive team enters or does not attempt to leave the circular area with \qty{\FreeKickRadius}{\metre} radius around the ball after a free kick (\cf \cref{sec:free_kick}) was called, ``Illegal Position'' is called.
 Note that the referee should not look for exact distances and rather penalize only those robots who clearly violate this rule.
-As a guideline, the robots of the offending team should clear the ball within \qty{10}{\second}.
+As a guideline, the robots of the defensive team should clear the ball within \qty{10}{\second}.
 
 \subsubsection{Penalty Area During Penalty Kick}
 \label{sec:ip_penalty_kick}
@@ -131,7 +131,7 @@ The goalkeeper, inside its own penalty area, is the only robot permitted to `div
 In all other cases, the robot should remain upright---that is, supported by its feet.
 
 A robot that has ceased activity for \qty{10}{\second} or has turned off will be removed and penalized for \qty{45}{\second}.
-The head referee will call ``Inactive Robot  \textless robot\textgreater''.
+The head referee will call ``Inactive Robot \textless robot\textgreater''.
 A robot is active if it performs at least one of the following:
 \begin{enumerate}
   \item The robot walks in any direction, or turns.
