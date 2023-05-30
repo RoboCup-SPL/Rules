@@ -460,33 +460,38 @@ Ending the game is mandatory once a goal difference of 10 is reached.
 
 A penalty kick shoot-out is used to determine the outcome of a tied game when an outcome is required (for example, when team progression is tied on all tie-break factors, during the promotion round, intermediate round, quarterfinals, semifinals, third place or final).
 
-All penalty shots are taken against the same goal.\footnote{
-  Which goal to take for the shoot-out is decided by in accordance with the teams, or otherwise by a coin toss.
+All penalty kicks are taken against the same goal.\footnote{
+  Which goal to take for the shoot-out is decided in accordance with the teams, or otherwise by a coin toss.
 }
+The team listed first on the competition schedule will have the striker robot for the first penalty kick.
+Subsequently, both teams take kicks alternately.
 At all stages of the competition, the penalty kick shoot-out will consist of three penalty kicks per team.
-The first (left) team in the GameController will have the striker robot for the first penalty kick.
 A team that has scored the most goals at the conclusion of these will be declared the winner.
 A winner can also be declared before the conclusion of the penalty shoot-out if a team can no longer win.
 If the two teams remain tied after three penalty kicks, then a sudden death shoot-out will follow until a definite winner is found.
 
 The penalty kick shoot-out starts immediately without changing any code after the second half ended.
-No timeouts may be called during the penalty shootout.
-However, a team may request a timeout before the penalty shootout starts if they have a timeout remaining for this game.
+No timeouts may be called during the penalty shoot-out.
+However, a team may request a timeout before the penalty shoot-out starts if they have a timeout remaining for this game.
 During the timeout code changes are allowed.
 
-Before the penalty shootout begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shootout.
-No robots may be added once the penalty shootout starts.
-Robots that will not participate in the shootout must not be on the wireless network and must stay outside of the field.
+Before the penalty shoot-out begins, each team must hand over to referees up to 6 prepared robots that may participate in the penalty shoot-out.
+No robots may be added once the penalty shoot-out starts.
+Robots that will not participate in the shoot-out must not be on the wireless network and must stay outside of the field.
 All participating robots must be wearing the correct jersey for their player and no duplicate numbers are permitted.
-Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick.
-The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number.
-After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+
+During the entire penalty kick shoot-out, the robots are controlled by the GameController and the referee's whistle.
+A team cannot request the referees to press buttons on their robots, except for initially leaving the \texttt{unstiff} state.
 
 \subsubsection{Penalty Kick}
+\label{sec:pso_kick}
 
 A penalty kick is carried out with one striker robot and one opposing goalkeeper.
 The penalty kick commences with the \texttt{set} game state activated.
-The striker (attacking) robot will be indicated by the GameController, by a suitable flag.
+Before each penalty kick, both teams must select the robot to participate (as goalkeeper or striker) in the penalty kick.
+The team leader communicates the selection to the head referee by privately handing the referee a card with their chosen number.
+After both teams have selected their player, the GameController operator selects the requested striker and goalkeeper robots from the opposing teams and the GameController communicates that all non-selected robots are substitutes and should remain inactive.
+The GameController indicates which team has the striker robot in the current penalty kick.
 
 Referees place the ball, the striker, and goalkeeper robots.
 The ball is placed on the penalty mark closest to the goal being defended.
@@ -495,21 +500,19 @@ The goalkeeper is placed with its feet on the goal line and in the center of the
 Neither robot is permitted to locomote (move their legs) during the \texttt{set} state.
 Movement of the robot's head and arms is allowed.
 
-\textbf{The usage of a button interface is not permitted.}
-
 The head referee commences the penalty kick by blowing the whistle \textit{once}, and calling ``Playing''.
 The GameController activates the penalty kick, switching to the \texttt{playing} game state.
-Note, the \texttt{playing} signal is delayed~(\cf \cref{sec:robot_states}).
+Note that the \texttt{playing} signal is delayed~(\cf \cref{sec:robot_states}).
 
-The striker robot is only allowed to contact the ball once.
 The time limit for the striker is \qty{\PenaltyShootoutKickTime}{\second} after the penalty kick starts.
-A penalty shot is over when the ball has come to a full stop after the first contact by the striker robot.
-A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line).
+A penalty kick is over when the ball has come to a full stop after the first contact by the striker robot.
+The striker robot is not allowed to play the ball a second time after the ball has clearly moved, otherwise the penalty kick ends immediately as well.
+A goal is awarded to the attacking team if a goal has been scored (\ie the ball has completely crossed the goal line) before the penalty kick is over.
 Otherwise, the score is unchanged.
 
 The goalkeeper robot must always be in contact with the goal line and must remain on its feet until the striker robot touches the ball.
-The goalkeeper is only permitted to ``dive'', and be off its feet after the attacking robot has touched the ball.
-If the goalkeeper violates these rules, then a goal will be awarded to the attacking team.
+The goalkeeper is only permitted to ``dive'' and be off its feet after the attacking robot has touched the ball.
+If the goalkeeper violates these rules, then the penalty kick ends immediately and a goal will be awarded to the attacking team.
 
 All rules such as ``Ball Holding'', ``Pushing'' and others are applied during the penalty kick.
 A goalkeeper will not be penalized for inactivity during a penalty kick, provided its stiffness is on.
@@ -531,5 +534,5 @@ Teams take one additional penalty kick each, and the game decision will be made 
   \end{enumerate}
   \item If both teams' kicks rank in different categories, the team with the higher ranked kick wins.
   \item Otherwise, the sudden death is repeated.
-  \item If after 3 sudden death penalty shots there is still no winner, the referee will toss a coin to decide the game.
+  \item If after 3 sudden death penalty kicks there is still no winner, the referee will toss a coin to decide the game.
 \end{itemize}
