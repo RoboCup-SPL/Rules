@@ -20,15 +20,22 @@ The intent of this challenge is to choose a \emph{subset} of potential referee c
 
 As this is an in-game challenge, the challenge is executed during all preliminary matches of the main competition. All usual rules apply and teams are free to participate or not.
 
-During \texttt{set} and anytime during \texttt{playing} when the head referee whistles (Kick-off, goal, half ends) except for penalty kick, the challenged team (can be both teams) has to look to the T-junction opposite to the GameController operator. At the T-junction of the center field line a challenge assistant will show within \qty{5}{\second} after the whistle a random hand-signal and direction according to the list below for \qty{10}{\second}. The hand-signals and directions are randomly chosen but within the first four whistles there have to be hand-signals from all three classes. The same hand-signal may be chosen twice (with different directions). The challenge assistant is wearing red gloves to distinguish him from the other referees. In case the head referee has to stand on the T-junction, he will stand close to the challenge assistant and do his referee job from that close by position.
+Two additional assistants are needed for this challenge:
+One of them is standing on the border strip at the T-junction of the halfway line with the touchline opposite the technical area, wearing referee clothes and red gloves.
+The purpose of this clothing is to clearly distinguish the challenge assistant and its hands from the other referees and from people in the background.
+The other assistant is sitting in the technical area and has a list with a sequence of hand-signals (including directions, if applicable) that is obtained from the organizers before the match starts.
+These lists are mostly random, but it is guaranteed that hand-signals from all three categories appear within the first four items of the list.
+The same hand-signal may be chosen twice (with different directions). % TODO: what exactly does this mean? can the same signal not appear with the same side?
 
-The challenge assistant must wear referee clothes and red gloves. The purpose of this clothing is to clearly distinguish the challenge assistant and its hands from the other referees and from the background people. 
+During \texttt{set} and anytime during \texttt{playing} when the head referee whistles (kick-off, goal, end of half) except for penalty kicks, the challenge assistant in the technical area will communicate the next hand-signal and direction from the list to the challenge assistant on the field.
+Starting \qty{5}{\second} after the whistle, the challenge assistant on the field will perform that hand-signal with the given direction for \qty{10}{\second}.
+In case the head referee has to stand on the T-junction, he will stand close to the challenge assistant and do his referee job from that close by position.
 
-The description of this challenge and hand-signals are described based on the viewpoint of the challenge assistant. In these descriptions from the perspective of the head referee the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during the match. Blue and red have to be replaced by the actual colors of that particular match.
+The description of this challenge and hand-signals are described based on the viewpoint of the challenge assistant. In these descriptions from the perspective of the head referee the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during the match. Blue and red have to be replaced by the actual colors of that particular match. % not sure what this last sentence means - there is no place where anything can be replaced once the colors in a match are determined
 
-The challenged team reports its evaluation of the particular hand-signal and direction using a gamcontroller return message with the decision (Signal, direction, timestamp of whistle) over Wifi. Only Messages within \qty{15}{second} after the signalling started, will be accepted. If multiple messages arrive only the first one will be counted.
-
-The challenge assistant has to select before the match starts a suitable number of hand-signal and direction pairs and note them down. An assistant supports the challenge assistant by showing the signal and direction.
+The challenged team reports its evaluation of the particular hand-signal and direction to the GameController using the protocol described at \url{https://github.com/RoboCup-SPL/GameController3/blob/master/game_controller_msgs/headers/VisualRefereeChallenge.h}.
+Only reports within \qty{15}{\second} after the signaling started (\ie \qty{20}{\second} after the whistle) will be accepted.
+If multiple reports arrive, only the first one will be counted.
 
 Any whistle within \qty{30}{\second} after another whistle has to be ignored.
 
@@ -139,9 +146,9 @@ Each hand-signal for the challenge is \textbf{described from the perspective of 
         \centering
         \includegraphics[height=120px]{figs/technical_challenges/kick-in.png}
         \includegraphics[height=120px]{figs/technical_challenges/kick-in-flipped.png}
-        \caption{Kick-in signal to indicate the team, which is exchanging player. Two possible directions.}
+        \caption{Kick-in signal to indicate the team which is substituting a player. Two possible directions.}
     \end{subfigure}
-    \caption{\textbf{Player exchange.} Dynamic two-handed signal. Both arms slowly rotate symmetrically around a virtual horizontal axis parallel to the touchline. After three rotations the referee indicates with the kick-in signal the team, which is exchanging player.}
+    \caption{\textbf{Substitution.} Dynamic two-handed signal. Both arms slowly rotate symmetrically around a virtual horizontal axis parallel to the touchline. After three rotations the referee indicates the team which is substituting a player with the kick-in signal.}
 \end{figure}
 
 \clearpage
@@ -161,6 +168,6 @@ As the head referee only whistles in three different match situations (kick-off,
     \Sigma_\mathrm{Time} = 3 \times \bar{\mathrm{T}}_{\mathrm{kick\_off}} + \bar{\mathrm{T}}_{\mathrm{goal}} + 2 \times \bar{\mathrm{T}}_{\mathrm{end\_of\_half}}
 \end{equation*}
 
-These two values will be determined for each match. After the preliminary matches have been finished, the minimum number of matches each team has played will be evaluated overall teams refereced as $N$. For each team the total number of points and the total time is calculated as the sum of the $N - 1$ best ranked matches according to the number of points.
+These two values will be determined for each match. After the preliminary matches have been finished, the minimum number of matches each team has played will be evaluated over all teams referenced as $N$. For each team the total number of points and the total time is calculated as the sum of the $N - 1$ best ranked matches according to the number of points.
 
 Teams are ranked by their total number of points. In the case of a tie, the team with the fastest total time to identify the hand-signals is ranked higher. The team with the highest total number of points, and lowest total time (for tie-breakers), wins this in-game challenge.
