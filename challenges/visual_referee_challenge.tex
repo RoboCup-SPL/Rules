@@ -23,23 +23,24 @@ As this is an in-game challenge, the challenge is executed during all preliminar
 Two additional assistants are needed for this challenge:
 One of them is standing on the border strip at the T-junction of the halfway line with the touchline opposite the technical area, wearing referee clothes and red gloves.
 The purpose of this clothing is to clearly distinguish the challenge assistant and its hands from the other referees and from people in the background.
-The other assistant is sitting in the technical area and has a list with a sequence of hand-signals (including directions, if applicable) that is obtained from the organizers before the match starts.
-These lists are mostly random, but it is guaranteed that hand-signals from all three categories appear within the first four items of the list.
-The same hand-signal may be chosen twice (with different directions). % TODO: what exactly does this mean? can the same signal not appear with the same side?
+The other assistant is sitting in the technical area and has an ordered list of hand-signals (\cf~\cref{sec:hand-signals}) that is obtained from the organizers before the match starts.
+Each list contains two random permutations of the 13 hand-signals (\ie 26 items in total, all hand-signals appear once within the first 13 items and a second time in the other 13 items).
+It is guaranteed that hand-signals from all three categories appear within the first four items of the list.
 
-During \texttt{set} and anytime during \texttt{playing} when the head referee whistles (kick-off, goal, end of half) except for penalty kicks, the challenge assistant in the technical area will communicate the next hand-signal and direction from the list to the challenge assistant on the field.
-Starting \qty{5}{\second} after the whistle, the challenge assistant on the field will perform that hand-signal with the given direction for \qty{10}{\second}.
+During \texttt{set} and anytime during \texttt{playing} when the head referee whistles (kick-off, goal, end of half) except for penalty kicks, the challenge assistant in the technical area will communicate the next hand-signal from the list to the challenge assistant on the field.
+Starting \qty{5}{\second} after the whistle, the challenge assistant on the field will perform that hand-signal for \qty{10}{\second}.
 In case the head referee has to stand on the T-junction, he will stand close to the challenge assistant and do his referee job from that close by position.
 
 The description of this challenge and hand-signals are described based on the viewpoint of the challenge assistant. In these descriptions from the perspective of the head referee the ``red team'' is defined as playing from left-to-right, and the ``blue team'' as playing from right-to-left. The use of colors for identifying teams is used to give equivalence to the head referee calls during the match.
 
-The challenged team reports its evaluation of the particular hand-signal and direction to the GameController using the protocol described at \url{https://github.com/RoboCup-SPL/GameController3/blob/master/game_controller_msgs/headers/VisualRefereeChallenge.h}.
+The challenged team reports its evaluation of the particular hand-signal to the GameController using the protocol described at \url{https://github.com/RoboCup-SPL/GameController3/blob/master/game_controller_msgs/headers/VisualRefereeChallenge.h}.
 Only reports within \qty{15}{\second} after the signaling started (\ie \qty{20}{\second} after the whistle) will be accepted.
 If multiple reports arrive, only the first one will be counted.
 
 Any whistle within \qty{30}{\second} after another whistle has to be ignored.
 
 \subsection{Available Hand-Signals}
+\label{sec:hand-signals}
 
 Each hand-signal for the challenge is \textbf{described from the perspective of the head referee} and \textbf{pictured from the perspective of the robots}. Note that for the purpose of clarity, these do not necessarily correspond to human soccer hand-signals.
 
@@ -139,7 +140,7 @@ Each hand-signal for the challenge is \textbf{described from the perspective of 
         \centering
         \includegraphics[height=105px]{figs/technical_challenges/substitution.png}
         \vspace*{0.5em}
-        \caption{Rotation around virtual axis to indicate substitution}
+        \caption{Rotation around virtual axis to indicate substitution.}
     \end{subfigure}
     \hspace*{0.5em}
     \begin{subfigure}{.6\textwidth}
@@ -156,8 +157,10 @@ Each hand-signal for the challenge is \textbf{described from the perspective of 
 
 \subsection{Challenge Evaluation}
 
-A team scores 1 point for every hand-signal and 1 point for every direction (team blue, team red or none) correctly identified.
-The time for the robot to identify a hand-signal is timed (If a robot fails to identify a hand-signal the time for the hand-signal is \qty{15}{\second}. If a robot incorrectly identifies a hand-signal, the time is how long the robot took to provide the incorrect identification).
+A team scores 1 point for every direction (team blue, team red or none) and 1 point for every hand-signal (ignoring the direction) correctly identified.
+The time it takes a team to report a hand-signal (relative to the when signaling started, as calculated by the GameController) is recorded.
+If a team does not report any hand-signal within the time limit, the time for the hand-signal is \qty{15}{\second}.
+For incorrect reports, the time is how long that incorrect report took.
 
 As the head referee only whistles in three different match situations (kick-off, goal, end of half), the signals are categorized accordingly. The average points and time per category will be calculated. The average points $\bar{P}_{\mathrm{XXX}}$ are summed with weighting factors as well as the average time $\bar{T}_{\mathrm{XXX}}$:
 
