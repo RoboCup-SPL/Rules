@@ -59,9 +59,11 @@ Matches in the champions cup are played with 7 players on each team, while the c
 
 \subsection{Game Structure}
 
-The clock stops during stoppages of play (such as \texttt{ready} and \texttt{set} state after goals) from the quarter-finals onward.
 In round robin pool play, a game can finish in a draw as no penalty shoot-out will follow.
 In the promotion round, intermediate round, quarter finals, semi finals, 3rd place or final, a game that ends in a draw will be followed by a penalty shoot-out (see \cref{sec:penalty_shoot-out}).
+
+In the competition stages before the quarter finals, the game clock counts down during the \texttt{ready} and \texttt{set} states except for the first kick-off in each half (\cf~\cref{sec:game_states}).
+From the quarter finals onward, the clock stops during all stoppages of play.
 
 \subsection{Competition Mode}
 
@@ -99,7 +101,7 @@ If a team fails to provide two referees for a game in which they are scheduled t
 
 For each of the games, a team will be required either to provide the head referee and the operator of the GameController, or the two assistant referees.
 The two teams assigned to referee a game shall decide among themselves which roles each team will fulfill.
-Note, however, that the head referee and the GameController should always be from the same team.
+Note, however, that the head referee and the GameController operator should always be from the same team.
 
 A team may swap their scheduled refereeing duties with another team, but the team listed on the referee schedule will be held accountable if referees fail to appear for a game they are scheduled to referee.
 
@@ -108,7 +110,7 @@ If a team believes providing two referees for games will be an extreme hardship,
 The Organizing and Technical Committees will then consider the request and attempt to find an acceptable solution.
 
 Referees must have good knowledge of the rules as applied in the tournament, and the operator of the GameController must be experienced in using that software.
-Referees and the GameController should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
+Referees and GameController operators should be selected among the more senior members of a team, and preferably have prior experience with games in the RoboCup Standard Platform league.
 
 In each game, each of the teams playing shall be able to veto one and only one eligible referee with no reason required.
 The veto must be delivered before the start of the \texttt{ready} phase or during a stoppage of play.

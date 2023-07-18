@@ -12,7 +12,7 @@ In general, when a penalty applies, the robot shall be replaced, not the ball.
 When a robot commits an infraction, the head referee shall call out the \textbf{infraction} committed, the \textbf{primary jersey color} of the robot, and the \textbf{jersey number} of the robot.
 The penalty for the infraction will be applied immediately by an assistant referee.
 The assistant referees should perform the actual movement of the robots for the penalty so that the head referee can continue focusing on the game.
-The operator of the GameController will send the appropriate signal to the robots indicating the infraction committed.
+The operator of the GameController enters the referee call into the program, which will send the appropriate signal to the robots indicating the infraction committed.
 
 For penalties that are timed, the penalty time is considered to be over at the end of each half.
 
@@ -51,7 +51,7 @@ With approximately \qty{5}{\second} left before the penalty ends, the robot shou
   \label{fig:penalty_re-entry_points}
 \end{figure}
 
-When the robot is on the field again, the operator of the GameController will send the \texttt{playing} signal to it.
+When the robot is on the field again, the operator of the GameController removes the penalty from the robot. % this was "will send the \texttt{playing} signal to it."
 
 \subsection{Forbidden Actions}
 
@@ -155,9 +155,9 @@ Local Game Stuck penalties do not follow the standard removal procedure, and hen
 The goalkeeper is allowed to hold the ball for up to \qty{10}{\second} as long as it has one foot inside in its own penalty area.
 In all other cases (except those noted in \cref{sec:situations_no_ball_holding}), robots are allowed to hold the ball for up to \qty{3}{\second}.
 Holding the ball for longer than this is not allowed.
-The head referee will call ``Ball Holding \textless robot\textgreater'', and the robot removed under the standard removal penalty.
+The head referee will call ``Ball Holding \textless robot\textgreater'', and the robot will be removed under the standard removal penalty.
 The ball should be removed from the possession of the robot and placed where the penalty occurred.
-If the robot that held the ball has moved the ball before the robot can be removed, the ball shall be replaced where the penalty occurred.
+If the robot that held the ball has moved the ball before the robot can be removed, the ball shall be replaced where the penalty occurred, too.
 This applies to accidental goals.
 
 \textbf{Example.} A robot holds the ball, and before the referees can remove the robot, it shoots the ball into the goal.

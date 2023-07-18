@@ -171,7 +171,7 @@ Robots may only communicate on fields that are not running an official game or f
 
 The GameController will use UDP to connect to the robots.
 The source distribution of the GameController provides the header file \emph{RoboCupGameControlData.h} that defines all messages sent by the GameController to the robots.
-They correspond to the \emph{robot states} described in \cref{sec:robot_states}.
+They correspond to the \emph{game states} described in \cref{sec:game_states}.
 
 Robots send status updates (defined in \emph{RoboCupGameControlData.h}) to the GameController.
 These return packets must be addressed directly to the GameController PC (\ie not broadcast) and sent on the GameController return UDP port specified by the symbol \verb!GAMECONTROLLER_RETURN_PORT! in \emph{RoboCupGameControlData.h}.
