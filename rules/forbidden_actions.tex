@@ -28,7 +28,7 @@ If the ball is inadvertently moved when removing the robot, the ball should be r
 
 The GameController will send the appropriate penalty signal to the robot indicating the infraction committed.
 After a penalty is signaled to the robot, it is not allowed to move in any fashion (except for standing up).
-The removed robot will be placed outside the field facing away from the field of play.
+The removed robot will be placed outside the field facing towards the field of play.
 
 The initial duration of the standard-removal-penalty-time is \qty{\StandardPenaltyTime}{\second}.
 Unless otherwise specified, the penalty time increases by \qty{\StandardPenaltyIncrease}{\second} each time a team commits any infraction.
@@ -43,15 +43,13 @@ This is illustrated in \cref{fig:penalty_re-entry_points}.
 If there is another robot already in this position, the robot should be replaced at a nearby location along the touchline.
 When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
 
-With approximately \qty{5}{\second} left before the penalty ends, the robot should be turned to face towards the opposite touchline.
-
 \begin{figure}[t]
   \centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points_2020.png}}
   \caption{For robots coming back from a standard removal penalty, re-entry points are in line with the penalty mark in their own half, on the touchline on the side away from the ball.}
   \label{fig:penalty_re-entry_points}
 \end{figure}
 
-When the robot is on the field again, the operator of the GameController will send the \texttt{playing} signal to it.
+Once the penalty time has run out, the operator of the GameController will send the \texttt{playing} signal to it.
 
 \subsection{Forbidden Actions}
 
