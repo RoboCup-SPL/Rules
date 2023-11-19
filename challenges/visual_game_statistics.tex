@@ -1,0 +1,71 @@
+% !TeX root = ../SPL-Challenges.tex
+% !TeX spellcheck = en_US
+\section{Visual Game Statistics Challenge}
+
+\subsection{Challenge Goal}
+
+The primary goal of this challenge is to collect game statistics by utilizing computer vision algorithms on recorded game footage captured by GoPro cameras. Through post-game analysis of these videos, the objective is to automatically extract valuable statistics. These extracted statistics will then be used to evaluate and rank participating teams. The ultimate objective is to generate comprehensive statistics for each team and the league as a whole, offering insights into performance, strengths, and areas for improvements.
+
+Furthermore, this challenge serves as a pivotal first step towards the potential integration of such systems as referee aids or video referees in the future.
+
+\subsection{Challenge Setup}
+
+For the participation in this challenge, teams initially don't need to take any action, as the statistics will be calculated based on the video data directly following a game (or, if technically and organizationally not otherwise possible, always in the evening). Subsequently, teams will receive a printed analysis of the game. The selected metrics for this year will be used to evaluate the teams in this challenge, as outlined in \cref{sec:vgs_evaluation}.
+
+In addition to \textit{B-Human's Video Analysis App}\footnote{\url{https://github.com/bhuman/VideoAnalysis}}, which is supported by the RCF, teams can present their own preliminary software frameworks to the TC (\url{rc-spl-tc@lists.robocup.org}) until December 31, 2023 (the final version is then needed shortly before the RoboCup). Subsequently, these frameworks will be evaluated, and if available, statistics from multiple frameworks may be combined. 
+All frameworks must be developed open source, allowing any team to continuously review them beforehand and potentially raise issues or submit pull requests.
+
+The software framework(s) will be frozen to a version that was announced shortly before RoboCup. Any changes/modifications must be discussed in a team leader meeting and can then be deployed on the following day.
+
+Technically, the video data is analyzed only every 10 frames to save computational and processing time. However, if a team desires a frame-accurate calculation, each team has \textbf{once} the option to request a recalculation. 
+
+%\clearpage
+%\newpage
+
+\subsection{Challenge Evaluation}
+\label{sec:vgs_evaluation}
+
+For the evaluation of the teams, the \textbf{four} best games are used. In this process, the following two metrics are considered for each game:
+\begin{itemize}
+    \item Ball Possession Time 
+    \begin{itemize}
+        \item Total sum of how many seconds a player of the team was the nearest to the ball (and closer than 60 cm).
+    \end{itemize}
+    \item Controlled Area 
+    \begin{itemize}
+        \item A position on the field is assumed to be controlled by a team if it is closer to a player of that team than to any player of the other team. The sum of all these positions is the area controlled by the team. These areas are computed by constructing the Voronoi diagram from the positions of all players on the field.
+    \end{itemize}
+\end{itemize}
+
+The score for each metric and team is calculated as the average over the \textbf{four} best games. Following this, the metric placement is determined based on the scores of all teams, and the final ranking is established using the sum of the metric placements, where a lower score indicates a better placement. Subsequently, the challenge points are computed according to the description provided in \cref{sec:scoring}.
+
+\textbf{FOR REFERENCE: }The possible team metrics of the \textit{B-Human's Video Analysis App} are: 
+\begin{itemize}
+    \item Passes
+%    \begin{itemize}
+%        \item 
+%    \end{itemize}
+    \item Ball Possession Time 
+    \begin{itemize}
+        \item how many seconds a player of the team was the nearest and has been closer than 60 cm to the ball (total sum)
+    \end{itemize}
+    \item Distance Walked
+    \begin{itemize}
+        \item meters all players of each team traveled
+        \item dependent on the number of active robots
+    \end{itemize}
+    \item Distance to own Goal
+    \begin{itemize}
+        \item Average distance between ball and own goal per team
+        \item maybe dependent on the winning
+    \end{itemize}
+    \item Controlled Area 
+    \begin{itemize}
+        \item A position on the field is assumed to be controlled by a team if it is closer to a player
+        of that team than to any player of the other team. The sum of all these positions is the
+        area controlled by the team. These areas are computed by constructing the Voronoi diagram
+        from the positions of all players on the field.
+        \item may penalize defensive teams
+    \end{itemize}
+\end{itemize}
+
