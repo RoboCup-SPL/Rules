@@ -34,21 +34,28 @@ Each participating team will set up one fully autonomous robot and provide one o
 
 \subsubsection{Limitations for Autonomy in the Human-Operated Robot}
 
-For the human-operated robot, teams are encouraged to automate parts of control that would be difficult for human control. For example, the human operator may provide walk velocity commands that the robot then implements with a walk engine or the operator may request a kick and a kick engine generates the kick on the robot. The human operator may also set higher level controls such as desired location to walk to. However, in the spirit of a mixed human-robot team, the human-operated robot must implement some form of command from the human operator. That is, it is not permissible to participate in the challenge with two fully autonomous robots or to only have the human operator augmenting the robot's perception and localization. 
+For the human-operated robot, teams are encouraged to automate parts of control that would be difficult for human control. For example, the human operator may provide walk velocity commands that the robot then implements with a walk engine or the operator may request a kick and a kick engine generates the kick on the robot. The human operator may also set higher level controls such as desired location to walk to. However, in the spirit of a mixed human-robot team, the human-operated robot must implement some form of command from the human operator. That is, it is not permissible to participate in the challenge with two fully autonomous robots or to \textit{only} have the human operator augmenting the robot's perception and localization. 
 
 \subsubsection{Number and duration of attempts}
 Each match will give each team one attempt to play offense while the other team defends. An attempt will last 90 seconds or until the attacking team scores. The defending team is not permitted to score. It is illegal to score directly off of kick off. Matches end in wins, losses, or draws depending on games scored.
 
+\subsubsection{Scoring matches}
+Points will be awarded during matches on the basis of scoring goals and team coordination. To emphasize scoring on attempts, the attacking team receives two points for each successful goal scored. Teams may also receive additional points for passing where a qualifying pass consists of one robot on a team kicking the ball a distance of more than one (1) meter and then the teammate of the kicking robot making contact with the ball before a robot on the other team kicks the ball. Here, a kick is taken to be any contact between a robot's foot while lifted off the ground with the ball. For each qualifying pass, a team receives an additional point.
+
 \subsubsection{Attempt Set-up}
-All robots will be manually placed in their SET location to speed up the time between attempts.  Attacking robots will be placed on one side of the field and the defending robots will be on the other side. The attacking team will try to score on the side where the defense starts. For defense, one robot will be designated as the goal keeper and one as a field player. The goal keeper must be the autonomous robot. The human-operated field player must be touching the penalty area line to start.
+All robots will be manually placed in their SET location to speed up the time between attempts.  Attacking robots will be placed on one side of the field and the defending robots will be on the other side. The attacking team will try to score on the side where the defense starts. For defense, one robot will be designated as the goal keeper and one as a field player. The goal keeper must be the autonomous robot. The human-operated field player must be within the penalty area line to start.
 
 
 \subsubsection{GameController and Penalties}
 All robots have to communicate with the GameController. All rules from the normal game play (including penalties) still apply. The game controller operator will communicate the attempt time verbally at 30 second intervals to human operators.
 
 
-\subsubsection{Code Release}
-All participating teams must release the code they develop for the human-operated robot (both robot code and interface code).
+\subsubsection{Code Release and Research Dissemination}
+To foster sharing of novel research and enable future development, all participating teams must:
+\begin{enumerate}
+	\item Prior to the first day of the challenge, submit up to two (2) Google slides presenting the team's approach to the competition. At a minimum, the slides should describe 1) the interface for the human operator, 2) the type of command the operator provides to the robot, and 3) the strategy for coordinating the human-operated and autonomous robot.
+	\item  Release the code they develop for the human-operated robot (both robot code and interface code).
+\end{enumerate}
 
 \subsection{Miscellaneous Notes}
 
