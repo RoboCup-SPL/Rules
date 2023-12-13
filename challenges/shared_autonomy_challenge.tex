@@ -2,7 +2,7 @@
 % !TeX spellcheck = en_US
 \section{Shared Autonomy Challenge}
 
-This technical challenge will challenge participants to develop a mixed team that consists of one human-operated Nao robot and one fully autonomous Nao. This challenge will consist of matches of two vs two robots on the standard SPL field. The exact tournament structure will be subject to the number of available fields and the main competition schedule. Here we describe the rules for each match. The rules for determining the challenge winners will be set by the SPL TC and announced on the first set-up day of the competition.
+This technical challenge will challenge participants to develop a mixed team that consists of one human-operated Nao robot and one fully autonomous Nao. This challenge will consist of matches of two vs two robots on the standard SPL field. The exact number of matches will be subject to the number of available fields and the main competition schedule, however, teams should expect to participate in at least three matches.
 
 \subsection{Challenge Goal}
 
@@ -10,7 +10,7 @@ This challenge takes a step towards the goal of enabling robots to play on the s
 
 \subsection{Challenge Rules}
 
-This section details the complete rules to determine play and the winner of each match within the shared autonomy challenge.
+This section details the complete rules to determine play and the winner of each match within the shared autonomy challenge. If not otherwise stated, the Champions Cup rules will be in effect.
 
 \subsubsection{Team Composition}
 Each participating team will set up one fully autonomous robot and provide one other robot that is programmed so that it can be operated by a human operator with restricted direct observation of the field, and one team member as the human operator.
@@ -40,20 +40,30 @@ For the human-operated robot, teams are encouraged to automate parts of control 
 Each match will give each team one attempt to play offense while the other team defends. An attempt will last 90 seconds or until the attacking team scores. The defending team is not permitted to score. It is illegal to score directly off of kick off. Matches end in wins, losses, or draws depending on games scored.
 
 \subsubsection{Scoring matches}
-Points will be awarded during matches on the basis of scoring goals and team coordination. To emphasize scoring on attempts, the attacking team receives two points for each successful goal scored. Teams may also receive additional points for passing where a qualifying pass consists of one robot on a team kicking the ball a distance of more than one (1) meter and then the teammate of the kicking robot making contact with the ball before a robot on the other team kicks the ball. Here, a kick is taken to be any contact between a robot's foot while lifted off the ground with the ball. For each qualifying pass, a team receives an additional point.
+Points will be awarded during matches on the basis of scoring goals and team coordination. To emphasize scoring on attempts, the attacking team receives two points for each successful goal scored. Teams may also receive additional points for passing where a qualifying pass consists of one robot on a team kicking the ball a distance of more than one (1) meter and then the teammate of the kicking robot making contact with the ball before a robot on the other team kicks or dribbles the ball. Here, a kick (or dribble) is taken to be any contact between a robot's foot while lifted off the ground with the ball. The intention is that  incidental contact from the opponent does not disqualify a pass but that intentional contact does. For each qualifying pass, a team receives an additional point. The defending team may also score points via passes.
 
 \subsubsection{Attempt Set-up}
-All robots will be manually placed in their SET location to speed up the time between attempts.  Attacking robots will be placed on one side of the field and the defending robots will be on the other side. The attacking team will try to score on the side where the defense starts. For defense, one robot will be designated as the goal keeper and one as a field player. The goal keeper must be the autonomous robot. The human-operated field player must be within the penalty area line to start.
+All robots will be manually placed in their \textit{set} location to speed up the time between attempts.  Attacking robots will be placed on one side of the field and the defending robots will be on the other side. The attacking team will try to score on the side where the defense starts. For defense, one robot will be designated as the goal keeper and one as a field player. The goal keeper must be the autonomous robot. The human-operated field player must be within the penalty area line to start.
 
 
 \subsubsection{GameController and Penalties}
 All robots have to communicate with the GameController. All rules from the normal game play (including penalties) still apply. The game controller operator will communicate the attempt time verbally at 30 second intervals to human operators.
 
 
+\subsubsection{Overal Challenge Scoring}
+All participating teams will complete at least three matches and additional matches may be held as the main competition schedules allows. For purposes of deciding an overall challenge winner, ranking will be based on the following in this order:
+\begin{enumerate}
+	\item Overall matches won.
+	\item Highest score.
+	\item Total successful passes.
+	\item Goals scored.
+\end{enumerate}
+If a tie remains after all of these metrics are considered then the winner will be determined by additional matches between the teams tied for top rank.
+
 \subsubsection{Code Release and Research Dissemination}
 To foster sharing of novel research and enable future development, all participating teams must:
 \begin{enumerate}
-	\item Prior to the first day of the challenge, submit up to two (2) Google slides presenting the team's approach to the competition. At a minimum, the slides should describe 1) the interface for the human operator, 2) the type of command the operator provides to the robot, and 3) the strategy for coordinating the human-operated and autonomous robot.
+	\item Prior to the first day of the challenge, submit up to two (2) .pdf slides presenting the team's approach to the competition. At a minimum, the slides should describe 1) the interface for the human operator, 2) the type of command the operator provides to the robot, and 3) the strategy for coordinating the human-operated and autonomous robot.
 	\item  Release the code they develop for the human-operated robot (both robot code and interface code).
 \end{enumerate}
 
