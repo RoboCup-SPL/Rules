@@ -75,9 +75,9 @@ The primary states are:
   \label{fig:robot_states}
 \end{figure}
 
-The referee will announce the start of the \texttt{ready} state for both halves by raising both hands covered with red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in the a following years.}.
-The GameController \texttt{ready} signal will be delayed by \qty{\SetDelayTimeChampion}{\second} for champion cup and by \qty{\SetDelayTimeChallenger}{\second} for challenger shield. 
-The referee must stand on the side of the field at halfway line level. 
+The referee will announce the transition from the \texttt{initial} to \texttt{ready} state for both halves by raising both hands, covered with red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following years.}, straight over its head.
+The GameController signal for the transition from \texttt{initial} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for champions cup and by \qty{\SetDelayTimeChallenge}{\second} for challenge shield. 
+The referee must stand on the opposite side of the game controller behind the touchline and at the height of the halfway line. 
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
 The GameController \texttt{playing} signal will be delayed by \qty{\PlayingDelayTime}{\second}.
