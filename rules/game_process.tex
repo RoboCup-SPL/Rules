@@ -119,7 +119,7 @@ The GameController signal (to the robots) of a goal being scored, will be delaye
 
 A goal is invalid (that is, it can never be awarded) in the following circumstances:
 \begin{enumerate}
-    \item When an indirect kick is required but has not occurred (see~\cref{sec:indirect_kick}).
+    \item When an indirect kick is required but has not occurred (see~\cref{sec:indirect_kick_champions}).
     \item When the last contact of the ball was with an attacking robot that played the ball with the arms/hands as defined in \cref{sec:hand_ball}.
       However, an own goal may be scored by any defending robot playing with arms/hands.
     \item When a team scores on themselves and there are no opponent robots on the field that are active (a definition of \emph{active} is given in \cref{sec:fallenrobots}).
@@ -131,16 +131,16 @@ The head referee should also advise why the goal is invalid, such as by calling 
 \subsubsection{Indirect Kick - Champions Cup}
 \label{sec:indirect_kick_champions}
 
-A team may only score a goal by making a second contact with the ball within is own team from any affected start or restart into \texttt{playing}: 
+Both teams may only score a goal by making a second contact with the ball within is own team from any affected start or restart into \texttt{playing}, never mind who initiate the kick: 
 
 \begin{itemize}
   \item A robot may not score a goal from a direct kick, including via deflections.
-  \item Set plays considered to be indirect are \texttt{Kick-off}, \texttt{Kick-in}, \texttt{Pushing free kick}, \texttt{Corner kick} and \texttt{Goal kick}.
+  \item Set plays considered to be indirect are \texttt{Kick-off}, \texttt{Kick-in}, \texttt{Pushing free kick}, \texttt{Corner kick} and \texttt{Goal kick} or after an unsuccessful \texttt{Penalty kick}.
   \item The ball must be deliberately played-at a second time by another robot of its own team before a goal may be scored.
     A deliberate play at the ball includes successfully kicking the ball, dribbling the ball or the goalkeeper playing at the ball with its hands.
-  \item If an indirect free kick is kicked directly into the opponent's goal, the goal does not count and a and a \texttt{Goal kick} is awarded.
+  \item If an indirect free kick is kicked directly into the opponent's goal, the goal does not count and a \texttt{Goal kick} is awarded.
   \item Note that an own-goal may always be scored without requiring an indirect kick.
-  \item Direct kick is allowed for the duration of the penalty kick, but this rule still applied after this kick. Contact in the penalty kick count among this rule.  
+  \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick. A contact in the penalty kick count among this rule.  
 \end{itemize}
 
 \begin{description}
@@ -152,15 +152,17 @@ A team may only score a goal by making a second contact with the ball within is 
     A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the blue team's goal.
     This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 4:] Player 2 (of the red team), walks up to and dribbles the ball.
-    Player~2 then stop, and visibly back away from the ball, before approaching to dribble a \textit{second} time.
-    The robot then scores. This is \textit{not} a successful indirect kick and a \texttt{Goal kick} is awarded.
+    Player~2 then stop, and visibly back away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. 
+    This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 5:] Player 2 (of the red team) kicks the ball ``upfield''.
   A blue-team robot kicks the ball again into the red team's goal.
-  In this case, the blue teams does not need a indirect kick and the goal is counts.
-  \item[Example 6:] A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick. A contact in the penalty kick count among this rule.
+  This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the red team.
+  \item[Example 6:] Player 2 (of the red team) is awarded a \texttt{Penalty kick} and kicks the ball towards the blue-team's goal. The goalkeeper blocks the ball. The referee then calls ``Ball Free``. 
+  Player 2 (of the red team) kicks the ball again and score. 
+  This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
 \end{description}
 
-\subsubsection{Indirect Kick - Challenger Shield}
+\subsubsection{Indirect Kick - Challenge Shield}
 \label{sec:indirect_kick_challenger}
 
 The attacking team may only score a goal via indirect kick from any restart into \texttt{playing} from a free kick.
