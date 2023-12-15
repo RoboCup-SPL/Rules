@@ -1,0 +1,79 @@
+% !TeX root = ../SPL-Challenges.tex
+% !TeX spellcheck = en_US
+\section{Shared Autonomy Challenge}
+
+This technical challenge will challenge participants to develop a mixed team that consists of one human-operated Nao robot and one fully autonomous Nao. This challenge will consist of matches of two vs two robots on the standard SPL field. The exact number of matches will be subject to the number of available fields and the main competition schedule, however, teams should expect to participate in at least three matches.
+
+\subsection{Challenge Goal}
+
+This challenge takes a step towards the goal of enabling robots to play on the same field as agents with human level intelligence. To level the playing field in terms of physical embodiment, all players will be Nao robots. However, each team will have one of their robots be remotely operated by a human to provide human-level intelligence for robot control. The other robot will be fully autonomous in accordance with the main SPL competition rules.
+
+\subsection{Challenge Rules}
+
+This section details the complete rules to determine play and the winner of each match within the shared autonomy challenge. If not otherwise stated, the Champions Cup rules will be in effect.
+
+\subsubsection{Team Composition}
+Each participating team will set up one fully autonomous robot and provide one other robot that is programmed so that it can be operated by a human operator with restricted direct observation of the field, and one team member as the human operator.
+
+\subsubsection{Limitations for Human Operation}
+\begin{itemize}
+	\item Each participating team will select the operator for their human-operated NAO from their registered team members.
+	%
+	\item Participating teams will design the appropriate interface for receiving field information from and sending controls to their human-operated robot.
+	%
+	\item The human operator will sit with their back to the field but close enough to hear referee whistles. The intention is that the operator cannot directly perceive the field but must do so through the controlled robot’s sensors.
+	%
+	\item The human-operated robot will be penalized if the operator turns and looks at the field.
+	%
+	\item The human operator may not receive other forms of game perception beyond what the operated robot can stream to it. This limitation includes 1) the human operator watching the challenge live feed on YouTube and 2) other team members with a view of the field communicating game information. However, due to the difficulty of prevention, teams will not be penalized if third-party spectators are overheard remarking on the game and then the human operator bases decisions on those remarks.
+	%
+	\item Teams are free to determine the operator interface subject to (1) the operator may not look at the field, (2) no teammate  is allowed to communicate game information to the operator. The intention is that the operator may only have game information streamed from the human-operated robot and game controller. The referee has discretion to bar unanticipated modes of communication that go against the spirit of this intention. 
+	%
+	\item The human-operated robot is not permitted to directly score goals on offense and may not take the goal keeper role on defense.
+\end{itemize}
+
+\subsubsection{Limitations for Autonomy in the Human-Operated Robot}
+
+For the human-operated robot, teams are encouraged to automate parts of control that would be difficult for human control. For example, the human operator may provide walk velocity commands that the robot then implements with a walk engine or the operator may request a kick and a kick engine generates the kick on the robot. The human operator may also set higher level controls such as desired location to walk to. However, in the spirit of a mixed human-robot team, the human-operated robot must implement some form of command from the human operator. That is, it is not permissible to participate in the challenge with two fully autonomous robots or to \textit{only} have the human operator augmenting the robot's perception and localization. 
+
+\subsubsection{Number and duration of attempts}
+Each match will give each team one attempt to play offense while the other team defends. An attempt will last 90 seconds or until the attacking team scores. The defending team is not permitted to score. It is illegal to score directly off of kick off. Matches end in wins, losses, or draws depending on games scored.
+
+\subsubsection{Scoring matches}
+Points will be awarded during matches on the basis of scoring goals and team coordination. To emphasize scoring on attempts, the attacking team receives two points for each successful goal scored. Teams may also receive additional points for passing where a qualifying pass consists of one robot on a team kicking the ball a distance of more than one (1) meter and then the teammate of the kicking robot making contact with the ball before a robot on the other team kicks or dribbles the ball. Here, a kick (or dribble) is taken to be any contact between a robot's foot while lifted off the ground with the ball. The intention is that  incidental contact from the opponent does not disqualify a pass but that intentional contact does. For each qualifying pass, a team receives an additional point. The defending team may also score points via passes.
+
+\subsubsection{Attempt Set-up}
+All robots will be manually placed in their \textit{set} location by their team in order to speed up the time between attempts.  Attacking robots will be placed on one side of the field and the defending robots will be on the other side. The attacking team will try to score on the side where the defense starts. For defense, one robot will be designated as the goal keeper and one as a field player. The goal keeper must be the autonomous robot. The human-operated field player must be within the penalty area line to start.
+
+
+\subsubsection{GameController and Penalties}
+All robots have to communicate with the GameController. All rules from normal game play in the Champions Cup (including penalties) still apply unless explicitly changed here. The game controller operator will communicate the attempt time verbally at 30 second intervals to human operators.
+
+
+\subsubsection{Overal Challenge Scoring}
+All participating teams will complete at least three matches and additional matches may be held as the main competition schedules allows. For purposes of deciding an overall challenge winner, ranking will be based on the following in this order:
+\begin{enumerate}
+	\item Overall matches won.
+	\item Highest score.
+	\item Total successful passes.
+	\item Goals scored.
+\end{enumerate}
+If a tie remains after all of these metrics are considered then the winner will be determined by additional matches between the teams tied for top rank.
+
+\subsubsection{Code Release and Research Dissemination}
+To foster sharing of novel research and enable future development, all participating teams must:
+\begin{enumerate}
+	\item Prior to the first day of the challenge, submit up to two (2) .pdf slides presenting the team's approach to the competition. At a minimum, the slides should describe 1) the interface for the human operator, 2) the type of command the operator provides to the robot, and 3) the strategy for coordinating the human-operated and autonomous robot.
+	\item  Release the code they develop for the human-operated robot (both robot code and interface code).
+\end{enumerate}
+
+\subsection{Miscellaneous Notes}
+
+\begin{itemize}
+\item Teams are given wide flexibility in interface implementation with the goal to inspire innovation in how the challenge is addressed. For instance, a team could stream images from the human-operated robot but may face low bandwidth at the venue  (Note, the rules do not specify that any special effort will be made to provide stronger bandwidth for the challenge). Due to bandwidth constraints, teams may prefer to process images on board robot and send high level state info back to operator. However, this forces the operator to work with the robots imprecise state estimation. The choice is left as a research challenge for teams.
+\item Similarly, no specification is given on what control interface can be presented to the human operator. Teams may choose to directly command walk directions and kicks or to use a mixed autonomy mode where the operator gives high level directives that the human-operated robot implements. The only limitation is that the input from the operator must be some sort of command, i.e., it is not sufficient to only augment the robot's perception or localization.
+\item Finally, the hardware of the interface (e.g., keyboard, joystick, virtual reality headset) is left up to the discretion of teams.
+\item The defending team is not permitted to score because doing so may be too easy to counterattack with long kicks due to the field size and the limited size of teams.
+\item Total expected time per match: 5 minutes (3 minutes playing and 2 minutes set up). 
+\end{itemize}
+
