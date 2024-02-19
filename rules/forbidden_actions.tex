@@ -197,8 +197,7 @@ The following define situations where ball holding does not apply:
 \subsection{Player Stance}
 \label{sec:player_stance}
 
-Robots are not allowed to stay in a stance that is significantly wider than the width of the robot's shoulders for more than \qty{5}{\second}.
-Staying in a wide stance for longer than \qty{5}{\second} will result in the standard removal penalty.
+Robots must not maintain a stance wider than the width of their shoulders by more than one robot hand width on each side for longer than \qty{10}{\second}. This duration should be adequate for a robot gesture. Staying in a wide stance for longer than \qty{10}{\second} will result in the standard removal penalty.
 
 This rule applies to upright robots only, \ie robots that are supported by their feet.
 Other cases are handled by the fallen robot rule (\cf~\cref{sec:fallenrobots}).
