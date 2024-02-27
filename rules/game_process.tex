@@ -76,9 +76,9 @@ The primary states are:
 \end{figure}
 
 The referee will announce the transition from the \texttt{initial} to \texttt{ready} state by raising both hands over its head. The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
-The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line. 
-The signal must be held for \qty{\VisualSignalTime}{\second}. 
-The GameController signal for the transition from \texttt{initial} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield. 
+The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line.
+The signal must be held for \qty{\VisualSignalTime}{\second}.
+The GameController signal for the transition from \texttt{initial} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield.
 
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
@@ -142,7 +142,7 @@ Both teams may only score a goal through two distinct ball contacts involving di
     A deliberate play at the ball includes successfully kicking the ball, dribbling the ball or the goalkeeper playing at the ball with its hands.
   \item If an indirect free kick is kicked directly into the opponent's goal, the goal does not count and a \texttt{Goal kick} is awarded.
   \item Note that an own-goal may always be scored without requiring an indirect kick.
-  \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick. A contact in the penalty kick counts among this rule.  
+  \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick. A contact in the penalty kick counts among this rule.
 \end{itemize}
 
 \begin{description}
@@ -154,13 +154,13 @@ Both teams may only score a goal through two distinct ball contacts involving di
     A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the blue team's goal.
     This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 4:] Player 2 (of the red team), walks up to and dribbles the ball.
-    Player~2 then stop, and visibly back away from the ball, before approaching to dribble a \textit{second} time. The robot then scores. 
+    Player~2 then stop, and visibly back away from the ball, before approaching to dribble a \textit{second} time. The robot then scores.
     This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 5:] Player 2 (of the red team) kicks the ball ``upfield''.
   A blue-team robot kicks the ball again into the red team's goal.
   This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the red team.
-  \item[Example 6:] Player 2 (of the red team) is awarded a \texttt{Penalty kick} and kicks the ball towards the blue-team's goal. The goalkeeper blocks the ball. The referee then calls ``Ball Free``. 
-  Player 2 (of the red team) kicks the ball again and score. 
+  \item[Example 6:] Player 2 (of the red team) is awarded a \texttt{Penalty kick} and kicks the ball towards the blue-team's goal. The goalkeeper blocks the ball. The referee then calls ``Ball Free``.
+  Player 2 (of the red team) kicks the ball again and score.
   This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
 \end{description}
 
