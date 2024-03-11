@@ -105,8 +105,8 @@ As a guideline, the robots of the defensive team should clear the ball within \q
 If a robot enters the relevant penalty area during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
 
 \subsection{Forbidden Motion}
-Robots that begin moving their legs or locomote in any fashion before the specified state in the subsections
- will be penalized \textit{in place} on the field until the penalty is over for \qty{15}{\second} in the \textit{playing} state.
+Robots that begin moving their legs or locomote in any fashion before reaching the specified state in the subsections
+will be penalized \textit{in place} on the field for \qty{15}{\second} in \textit{playing}. It's important to note that the penalty duration only counts down during the playing state.
 ``Forbidden Motion'' penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
 A robot will be moved back to its original position if it has moved significantly before becoming penalized.
 
