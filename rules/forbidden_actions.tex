@@ -28,30 +28,22 @@ If the ball is inadvertently moved when removing the robot, the ball should be r
 
 The GameController will send the appropriate penalty signal to the robot indicating the infraction committed.
 After a penalty is signaled to the robot, it is not allowed to move in any fashion (except for standing up).
-The removed robot will be placed outside the field facing away from the field of play.
+
+The removed robot will be placed outside the field at a distance of approximately 50 cm away from the nearest touchline, facing \textbf{towards} the field of play. It should be placed close to the position where the penalty point projects on the touchline. This is illustrated in \cref{fig:penalty_re-entry_points}. If there is another robot already in this position, the robot should be placed at a nearby location along the touchline.
+When finding a nearby location it \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
+
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points_2024.png}}
+    \caption{For robots coming back from a standard removal penalty, re-entry points are in line with or around the penalty mark in their own half, but always where the robots were placed at the beginning of the penalty.}
+    \label{fig:penalty_re-entry_points}
+\end{figure}
 
 The initial duration of the standard-removal-penalty-time is \qty{\StandardPenaltyTime}{\second}.
 Unless otherwise specified, the penalty time increases by \qty{\StandardPenaltyIncrease}{\second} each time a team commits any infraction.
 
-During the \texttt{set} state the penalty time counter will not decrease.
+During the \texttt{set} state the penalty time counter will not decrease. The GameController will keep track of the time of the penalty.
 
-The GameController will keep track of the time of the penalty.
-The operator of the GameController will signal the assistant referees when the penalty is \qty{10}{\second} from being over, so that one of them can place the robot in the half of the field which this robot's team is defending on the touchline that is farther from the ball.
-The robot should be placed close to the position where the penalty point projects on the touchline.
-This is illustrated in \cref{fig:penalty_re-entry_points}.
-
-If there is another robot already in this position, the robot should be replaced at a nearby location along the touchline.
-When finding a nearby location, locations away from the ball should be preferred, but they \textbf{must} still be in the robot's own half, so that the symmetry of the field can be resolved by the robot's localization system.
-
-With approximately \qty{5}{\second} left before the penalty ends, the robot should be turned to face towards the opposite touchline.
-
-\begin{figure}[t]
-  \centerline{\includegraphics[width=\columnwidth]{figs/penalty_re-entry_points_2020.png}}
-  \caption{For robots coming back from a standard removal penalty, re-entry points are in line with the penalty mark in their own half, on the touchline on the side away from the ball.}
-  \label{fig:penalty_re-entry_points}
-\end{figure}
-
-When the robot is on the field again, the operator of the GameController will send the \texttt{playing} signal to it.
+Once the penalty time has run out, the operator of the GameController will send the \texttt{playing} signal to it.
 
 \subsection{Forbidden Actions}
 
@@ -112,13 +104,24 @@ As a guideline, the robots of the defensive team should clear the ball within \q
 
 If a robot enters the relevant penalty area during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
 
-\subsection{Motion in Set}
+\subsection{Forbidden Motion}
+Robots that begin moving their legs or locomote in any fashion before the specified state in the subsections
+ will be penalized \textit{in place} on the field for \qty{15}{\second} in \textit{playing}.
+``Forbidden Motion'' penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
+A robot will be moved back to its original position if it has moved significantly before becoming penalized.
+
+\subsubsection{Motion in Initial}
+\label{sec:motion_in_initial}
+
+Robots that begin moving before the transition from \texttt{initial} to \texttt{ready} (\ie before the head referee does the visual signal).
+The head referee will call ``Forbidden Motion in Initial\textless robot\textgreater''.
+Note that responding to any false signal of any fashion will result in this penalty. This rule does apply when the head referee believes that both teams are ready. 
+
+\subsubsection{Motion in Set}
 \label{sec:motion_in_set}
 
-Robots that begin moving their legs or locomote in any fashion during \texttt{set} (\ie before the head referee blows the whistle) will be penalized \textit{in place} on the field for \qty{15}{\second}.
-The head referee will call ``Motion in Set \textless robot\textgreater''.
-``Motion in Set'' penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
-A robot will be moved back to its original position if it has moved significantly before becoming penalized.
+Robots that begin moving during \texttt{set} (\ie before the head referee blows the whistle).
+The head referee will call ``Forbidden Motion in Set \textless robot\textgreater''.
 Note that responding to a whistle on another field will result in this penalty.
 
 \subsection{Fallen or Inactive Robots}
