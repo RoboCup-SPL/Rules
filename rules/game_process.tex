@@ -33,12 +33,15 @@ The primary states are:
     So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state.
     Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{initial} state, or a state as indicated by GameController.
 
-  \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up.
-    Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
+    \item[Setup.] The robots are not allowed to be moving in any fashion besides initially standing up.
+    Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. 
+
+    \item[Initial.] Similar to \texttt{Setup}, but the robot is preparing to receive a visual signal from the referee. 
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
     The GameController can activate sub-states for kick-off and penalty kicks.
+    The robot can only enter this state by either receiving a message from the GameController or detecting the visual signal or by receiving a message from a teammates who did.
 
   \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
@@ -75,6 +78,8 @@ The primary states are:
   \label{fig:robot_states}
 \end{figure}
 
+The referee must tell the GameController operator to switch to \texttt{initial} state once everyone is in place or that teams are falling under forfeit rule (see \cref{sec:forfeit}).
+The referee should wait between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
 The referee will announce the transition from the \texttt{initial} to \texttt{ready} state by raising both hands over its head. The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
 The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line.
 The signal must be held for \qty{\VisualSignalTime}{\second}.
@@ -89,6 +94,7 @@ The current game state should be displayed on the LED in the torso.
 The colors corresponding to the game states are:
 \begin{itemize}
   \item \texttt{Unstiff}: Blue-Blinking
+  \item \texttt{Setup}: Off
   \item \texttt{Initial}: Off
   \item \texttt{Ready}: Blue
   \item \texttt{Set}: Yellow
@@ -367,7 +373,7 @@ All robots that do not reach legal positions will be penalized with the ``Illega
 The referee should also place the ball on the penalty mark during \texttt{set}.
 The referee signals the penalty kick commences by blowing the whistle once, and calling ``Playing''.
 The game switches to the \texttt{penalty kick} sub-state of the \texttt{playing} game state, and the game clock is resumed.
-(Note that the GameContoller signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \texttt{set} to \texttt{penalty kick} sub-state).
+(Note that the GameController signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \texttt{set} to \texttt{penalty kick} sub-state).
 The attacking team has \qty{\PenaltyKickTime}{\second} to complete the penalty kick.
 
 During the penalty kick:
