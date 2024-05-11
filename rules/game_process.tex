@@ -17,7 +17,7 @@ The head referee should make \textit{all} of these whistle sounds from the T-jun
 \subsection{Robot States}
 \label{sec:robot_states}
 
-Robots can be in \textit{eight} different \emph{primary} states (see~\cref{fig:robot_states}).
+Robots can be in \textit{nine} different \emph{primary} states (see~\cref{fig:robot_states}).
 Wireless connection must be available, so these states will be set by the GameController.
 Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
@@ -31,12 +31,15 @@ The primary states are:
   \item[Unstiff.] It helps to facilitate a consistent and safe handling of the robots for remote competition.
     During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and unstiffen all joints.
     So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state.
-    Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{initial} state, or a state as indicated by GameController.
+    Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the state indicated by GameController.
 
-    \item[Setup.] The robots are not allowed to be moving in any fashion besides initially standing up.
-    Shortly pressing the chest button will switch the robot to the \texttt{penalized} state. 
+    \item[Setup.] The robots are free of any movement at teams convenience.
+    This state is not limited in time and teams have access to the field.
+    The GameController will activate this state before \texttt{initial} (i.e at the beginning of a half and during a timeout).
 
-    \item[Initial.] Similar to \texttt{Setup}, but the robot is preparing to receive a visual signal from the referee. 
+    \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up.
+    Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
+    The robots are preparing to receive a visual signal from the referee.  
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
@@ -78,8 +81,14 @@ The primary states are:
   \label{fig:robot_states}
 \end{figure}
 
-The referee must tell the GameController operator to switch to \texttt{initial} state once everyone is in place or that teams are falling under forfeit rule (see \cref{sec:forfeit}).
-The referee should wait between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
+At the scheduled time, the referee will announce that the transition from the \texttt{setup} to \texttt{initial} will be executed 60 seconds later.
+The referee shall call ``Initial in 60 seconds''. 
+The GameController will execute this transition automatically once the time has passed. 
+If both teams have left the field, the head referee can announce the transition earlier by calling ``Initial''.
+
+
+The referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
+Teams should expect a different time for every time they have to effectuate the transition from the \texttt{initial} to \texttt{ready}.
 The referee will announce the transition from the \texttt{initial} to \texttt{ready} state by raising both hands over its head. The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
 The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line.
 The signal must be held for \qty{\VisualSignalTime}{\second}.
