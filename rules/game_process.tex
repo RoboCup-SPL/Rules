@@ -31,20 +31,20 @@ The primary states are:
   \item[Unstiff.] It helps to facilitate a consistent and safe handling of the robots for remote competition.
     During any state, if all head buttons are pressed at least one second, the robot should move to a safe seated/crouched position and unstiffen all joints.
     So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state.
-    Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the state indicated by GameController.
+    Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{setup} state, or a state as indicated by GameController.
 
-    \item[Setup.] The robots are free of any movement at teams convenience.
+    \item[Setup.] The robots are free to move at teams convenience and human are allowed to interact with the robots. 
     This state is not limited in time and teams have access to the field.
     The GameController will activate this state before \texttt{initial} (i.e at the beginning of a half and during a timeout).
-
-    \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up.
     Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
-    The robots are preparing to receive a visual signal from the referee.  
+
+    \item[Initial.] The robots are not allowed to move in any fashion besides initially standing up.
+    In \texttt{iniitial}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}.  
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
     The GameController can activate sub-states for kick-off and penalty kicks.
-    The robot can only enter this state by either receiving a message from the GameController or detecting the visual signal or by receiving a message from a teammates who did.
+    The robot can only enter this state by receiving a message from the GameController or detecting the visual signal or by receiving a message from a teammates who did.
 
   \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
@@ -66,7 +66,7 @@ The primary states are:
   \item[Finished.] This state is reached when a half is finished.
 
   \item[Calibration.] This state denotes the robot is acting with automatic calibration.
-    This state may only be entered from \texttt{initial} by first pressing the front head button concluded by the chest button, for at least one second by the referees.
+    This state may only be entered from \texttt{setup} by first pressing the front head button concluded by the chest button, for at least one second.
 \end{description}
 
 \begin{figure}[t]
@@ -84,12 +84,13 @@ The primary states are:
 At the scheduled time, the referee will announce that the transition from the \texttt{setup} to \texttt{initial} will be executed 60 seconds later.
 The referee shall call ``Initial in 60 seconds''. 
 The GameController will execute this transition automatically once the time has passed. 
-If both teams have left the field, the head referee can announce the transition earlier by calling ``Initial''.
+If all humans from playing teams have left the field, the head referee can announce the transition earlier by calling ``Initial''.
 
 
 The referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
 Teams should expect a different time for every time they have to effectuate the transition from the \texttt{initial} to \texttt{ready}.
-The referee will announce the transition from the \texttt{initial} to \texttt{ready} state by raising both hands over its head. The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
+The referee will announce the transition from the \texttt{initial} to \texttt{ready} state by raising both hands over their head.
+The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
 The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line.
 The signal must be held for \qty{\VisualSignalTime}{\second}.
 The GameController signal for the transition from \texttt{initial} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield.
