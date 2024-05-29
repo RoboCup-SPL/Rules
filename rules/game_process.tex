@@ -33,18 +33,18 @@ The primary states are:
     So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state.
     Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{setup} state, or a state as indicated by GameController.
 
-    \item[Setup.] The robots are free to move at teams convenience and human are allowed to interact with the robots. 
+    \item[Setup.] The robots are free to move at teams convenience and humans are allowed to interact with the robots. 
     This state is not limited in time and teams have access to the field.
     The GameController will activate this state before \texttt{initial} (i.e at the beginning of a half and during a timeout).
     Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
     \item[Initial.] The robots are not allowed to move in any fashion besides initially standing up.
-    In \texttt{iniitial}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}.  
+    In \texttt{initial}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}.  
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
     The GameController can activate sub-states for kick-off and penalty kicks.
-    The robot can only enter this state by receiving a message from the GameController or detecting the visual signal or by receiving a message from a teammates who did.
+    The robot can only enter this state by receiving a message from the GameController or detecting the visual signal or by receiving a message from teammates who did.
 
   \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
@@ -87,11 +87,11 @@ The GameController will execute this transition automatically once the time has 
 If all humans from playing teams have left the field, the head referee can announce the transition earlier by calling ``Initial''.
 
 
-The referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
-Teams should expect a different time for every time they have to effectuate the transition from the \texttt{initial} to \texttt{ready}.
+Once the game controller operator has confirmed the initial state, the referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
+Teams should expect that the delay before the referee signals the transition from \texttt{initial} to \texttt{ready} will be different every time.
 The referee will announce the transition from \texttt{initial} to \texttt{ready} state by raising both hands over their head.
 The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
-The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line.
+The referee must stand on the opposite side of the technical area behind the touchline and in line with the halfway line.
 The signal must be held for \qty{\VisualSignalTime}{\second}.
 The GameController signal for the transition from \texttt{initial} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield.
 
@@ -105,7 +105,7 @@ The colors corresponding to the game states are:
 \begin{itemize}
   \item \texttt{Unstiff}: Blue-Blinking
   \item \texttt{Setup}: Off
-  \item \texttt{Initial}: Cyan or Off
+  \item \texttt{Initial}: Cyan
   \item \texttt{Ready}: Blue
   \item \texttt{Set}: Yellow
   \item \texttt{Playing}: Green
