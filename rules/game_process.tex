@@ -83,8 +83,9 @@ The primary states are:
 
 At the scheduled time, the referee will announce that the transition from the \texttt{setup} to \texttt{initial} will be executed 60 seconds later.
 The referee shall call ``Initial in 60 seconds''. 
-The GameController will execute this transition automatically once the time has passed. 
-If all humans from playing teams have left the field, the head referee can announce the transition earlier by calling ``Initial''.
+The GameController operator shall start the countdown through the GameController.
+The GameController operator will announce the transition from \texttt{setup} to \texttt{initial} when the head referee is calling ``Initial''.
+If all humans from playing teams have left the field, the head referee can announce the transition earlier.
 
 
 Once the game controller operator has confirmed the initial state, the referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
