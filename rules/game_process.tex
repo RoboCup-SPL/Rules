@@ -44,13 +44,6 @@ The primary states are:
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
     The GameController can activate sub-states for kick-off and penalty kicks.
-    The robot can only enter this state by : 
-    \begin{itemize}
-      \item Receiving a message from the GameController. 
-      \item Detecting the whistle after a goal. 
-      \item Detecting the visual signal.
-      \item Receiving a message from teammates who detected the visual signal.
-    \end{itemize}
 
   \item[Set.] In this state, the robots stop and wait for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     Illegally positioned robots are \texttt{penalized} and placed on the side of the field.
