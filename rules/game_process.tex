@@ -39,7 +39,8 @@ The primary states are:
     Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
     \item[Visual.] The robots are not allowed to move in any fashion besides initially standing up and moving their heads.
-    In \texttt{visual}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}.  
+    In \texttt{visual}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}. 
+    This state is used for Champions Cup matches only. Reference to \texttt{visual} in a Challenge Shield matches refer to \texttt{ready}. 
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
