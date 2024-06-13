@@ -17,7 +17,7 @@ The head referee should make \textit{all} of these whistle sounds from the T-jun
 \subsection{Robot States}
 \label{sec:robot_states}
 
-Robots can be in \textit{eight} different \emph{primary} states (see~\cref{fig:robot_states}).
+Robots can be in \textit{nine} different \emph{primary} states (see~\cref{fig:robot_states}).
 Wireless connection must be available, so these states will be set by the GameController.
 Teams must implement code to receive and correctly respond to wireless GameController packets, and also give a visual indication of the game state.
 
@@ -33,8 +33,14 @@ The primary states are:
     So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state.
     Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{initial} state, or a state as indicated by GameController.
 
-  \item[Initial.] The robots are not allowed to be moving in any fashion besides initially standing up.
+    \item[Initial.] The robots are free to move at teams convenience and humans are allowed to interact with the robots. 
+    This state is not limited in time and teams have access to the field.
+    The GameController will activate this state before \texttt{standby} (i.e at the beginning of a half and during a timeout).
     Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
+
+    \item[Standby.] The robots are not allowed to move in any fashion besides initially standing up and moving their heads.
+    In \texttt{standby}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}. 
+    This state is used for Champions Cup matches only. For Challenge Shield matches, this state is skipped, and it is transitioned directly to \texttt{ready}. 
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
@@ -60,7 +66,7 @@ The primary states are:
   \item[Finished.] This state is reached when a half is finished.
 
   \item[Calibration.] This state denotes the robot is acting with automatic calibration.
-    This state may only be entered from \texttt{initial} by first pressing the front head button concluded by the chest button, for at least one second by the referees.
+    This state may only be entered from \texttt{initial} by first pressing the front head button concluded by the chest button, for at least one second.
 \end{description}
 
 \begin{figure}[t]
@@ -75,10 +81,19 @@ The primary states are:
   \label{fig:robot_states}
 \end{figure}
 
-The referee will announce the transition from the \texttt{initial} to \texttt{ready} state by raising both hands over its head. The referee will wear red gloves \footnote{Teams are encouraged to not rely on the red gloves as they could be removed in a following year.}.
-The referee must stand on the opposite side of the technical area behind the touchline and at the height of the halfway line.
+At the scheduled time, the referee will announce that the transition from the \texttt{initial} to \texttt{standby} will be executed 60 seconds later.
+The referee shall call ``Standby in 60 seconds''
+The GameController operator will announce the transition from \texttt{initial} to \texttt{standby} when the head referee is calling ``Standby''.
+If all humans from playing teams have left the field, the head referee can announce the transition earlier.
+
+
+Once the game controller operator has confirmed the \texttt{standby} state, the referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
+Teams should expect that the delay before the referee signals the transition from \texttt{standby} to \texttt{ready} will be different every time.
+To announce the transition from \texttt{standby} to \texttt{ready} state, the referee will raise both hands over their head.
+Red gloves will be worn by the referee, though teams are encouraged not to rely on this visual cue as the gloves could be removed in a following year.
+The referee must stand on the opposite side of the technical area behind the touchline and in line with the halfway line.
 The signal must be held for \qty{\VisualSignalTime}{\second}.
-The GameController signal for the transition from \texttt{initial} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield.
+The GameController signal for the transition from \texttt{standby} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield.
 
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
@@ -90,6 +105,7 @@ The colors corresponding to the game states are:
 \begin{itemize}
   \item \texttt{Unstiff}: Blue-Blinking
   \item \texttt{Initial}: Off
+  \item \texttt{Standby}: Cyan
   \item \texttt{Ready}: Blue
   \item \texttt{Set}: Yellow
   \item \texttt{Playing}: Green
@@ -367,7 +383,7 @@ All robots that do not reach legal positions will be penalized with the ``Illega
 The referee should also place the ball on the penalty mark during \texttt{set}.
 The referee signals the penalty kick commences by blowing the whistle once, and calling ``Playing''.
 The game switches to the \texttt{penalty kick} sub-state of the \texttt{playing} game state, and the game clock is resumed.
-(Note that the GameContoller signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \texttt{set} to \texttt{penalty kick} sub-state).
+(Note that the GameController signal is delayed by \qty{\PlayingDelayTime}{\second} when switching from \texttt{set} to \texttt{penalty kick} sub-state).
 The attacking team has \qty{\PenaltyKickTime}{\second} to complete the penalty kick.
 
 During the penalty kick:
