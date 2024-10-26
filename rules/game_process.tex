@@ -39,8 +39,7 @@ The primary states are:
     Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
 
     \item[Standby.] The robots are not allowed to move in any fashion besides initially standing up and moving their heads.
-    In \texttt{standby}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}. 
-    This state is used for Champions Cup matches only. For Challenge Shield matches, this state is skipped, and it is transitioned directly to \texttt{ready}. 
+    In \texttt{standby}, the robots are awaiting a visual indication from the referee which signals the transition to \texttt{ready}.
 
   \item[Ready.] In this state, the robots walk to their legal positions for kick-off (\cf \cref{sec:kick-off}) or a penalty kick (\cf \cref{sec:penalty_kick}).
     They remain in this state, until the head referee decides that there is no significant progress, up to a maximum of \qty{\KickOffAutoTime}{\second} for a kick-off and \qty{\PenaltyKickSetupTime}{\second} for a penalty kick.
@@ -90,10 +89,12 @@ If all humans from playing teams have left the field, the head referee can annou
 Once the game controller operator has confirmed the \texttt{standby} state, the referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready}. 
 Teams should expect that the delay before the referee signals the transition from \texttt{standby} to \texttt{ready} will be different every time.
 To announce the transition from \texttt{standby} to \texttt{ready} state, the referee will raise both hands over their head.
-Red gloves will be worn by the referee, though teams are encouraged not to rely on this visual cue as the gloves could be removed in a following year.
+For Challenge Shield matches only, the referee will wear red gloves to increase visibility; however, teams are advised not to rely solely on this visual cue, as gloves may be omitted in future years.
+No other objects or products covering the hands are allowed; any exception must be approved by the Technical Committee.
 The referee must stand on the opposite side of the technical area behind the touchline and in line with the halfway line.
 The signal must be held for \qty{\VisualSignalTime}{\second}.
-The GameController signal for the transition from \texttt{standby} to \texttt{ready} will be delayed by \qty{\SetDelayTimeChampion}{\second} for Champions Cup and by \qty{\SetDelayTimeChallenge}{\second} for Challenge Shield.
+% Value for Challenge Shield isn't final but should be around 35-40. 
+The GameController signal for the transition from \texttt{standby} to \texttt{ready} will be delayed by \qty{\ReadyDelayTimeChampion}{\second} for Champions Cup and by \qty{\ReadyDelayTimeChallenge}{\second} for Challenge Shield.
 
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.

@@ -103,24 +103,24 @@ As a guideline, the robots of the defensive team should clear the ball within \q
 If a robot enters the relevant penalty area during a penalty kick, except for the goalkeeper (defending team) and one robot of the attacking team, ``Illegal Position'' is called.
 
 \subsection{Forbidden Motion}
-Robots that begin moving their legs or locomote in any fashion before reaching the specified state in the subsections
-will be penalized \textit{in place} on the field for \qty{15}{\second} in \textit{playing}. It's important to note that the penalty duration only counts down during the playing state.
+Robots that begin moving their legs or locomote in any fashion before reaching the specified state in the following subsections
+will be penalized \textit{in place} on the field.
 ``Forbidden Motion'' penalties do not follow the standard removal procedure, and hence do not count towards the incremental penalty count.
-A robot will be moved back to its original position if it has moved significantly before becoming penalized.
+A robot will be moved back to its original position if it has moved significantly before being penalized.
 
 \subsubsection{Motion in Standby}
 \label{sec:motion_in_standby}
 
-Robots that begin to move during \texttt{standby} (\ie before the head referee does the visual signal).
-The head referee will call ``Forbidden Motion in Standby\textless robot\textgreater''.
-Note that responding to any false signal of any fashion will result in this penalty.
+If a robot begins to move during \texttt{standby} (\ie before the head referee does the visual signal), all robots from that team will be penalized until the end of the \textit{ready} state.
+The head referee will call ``Forbidden Motion in Standby\textless team\textgreater''.
+Any response to a false signal of any kind will also result in this penalty.
 
 \subsubsection{Motion in Set}
 \label{sec:motion_in_set}
 
-Robots that begin moving during \texttt{set} (\ie before the head referee blows the whistle).
+If a robot begins moving during \texttt{set} (\ie before the head referee blows the whistle), it will be penalized for \qty{15}{\second} in the \textit{playing} state.
 The head referee will call ``Forbidden Motion in Set \textless robot\textgreater''.
-Note that responding to a whistle on another field will result in this penalty.
+Any response to a whistle from another field will also result in this penalty.
 
 \subsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}
