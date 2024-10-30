@@ -364,14 +364,16 @@ The GameController will then activate the sub-state for the respective free kick
 Note that in the case of the Pushing free kick the sub-state is activated automatically through the ``Foul''.
 The team who is awarded the free kick (termed the attacking team) has \qty{\FreeKickTime}{\second} to complete the kick.
 
-In Champions Cup, the referee communicates which team is to take the free kick via a visual gesture made from \textcolor{red}{\textbf{[a specified position, or anywhere along the field border]}}.
-The GameController packet will tell the robots which free kick sub-state is active, but not who is to kick the ball.
+For most of the free kicks in Champions Cup, the referee communicates which team is to take the free kick via a visual gesture.
+In this case, the GameController packet will tell the robots which free kick sub-state is active, but not who is to kick the ball.
 \unsure{This gesture is entirely tentative and just my (Francesco's) proposal, pending discussion with the TC. The intent is to mirror the FIFA gestures in a simplified way.}
 The gesture consists of raising one arm horizontally and sideways, parallel to the field line, while the other arm remains at rest.
 The raised arm is the one pointing towards the defending team's goal, i.e. the goal of the team that is \textit{not} taking the free kick.
-This gesture is held for \textcolor{red}{\textbf{[no less than 2 seconds, and possibly more]}}.
+This gesture is made from \textcolor{red}{\textbf{[a specified position, or anywhere along the field border]}} and held for \textcolor{red}{\textbf{[no less than 2 seconds, and possibly more]}}.
 
-In Challenge Shield, this visual signal is not performed and everything is communicated by the GameController.
+The above rule applies to the following free kicks: \textcolor{red}{\textbf{[list of set plays this applies to]}}.
+
+For all other free kicks, and for all free kicks in Challenge Shield, this visual signal is not performed and the kicking team is communicated by the GameController.
 
 When necessary, the referee may need to place the ball.
 For a pushing free kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see \cref{sec:player_pushing}).
