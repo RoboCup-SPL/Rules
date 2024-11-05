@@ -517,6 +517,16 @@ The GameController operator should execute this addition of time using the GameC
 A game will conclude once the game score shows a goal difference of 10.
 Ending the game is mandatory once a goal difference of 10 is reached.
 
+\subsection{Drop-Ball Rule}
+\label{sec:drop_ball_rule}
+
+In the rare event that there has been a referee error or a pause in game, [WIP] .
+
+\subsection{Early Stopping of Match}
+\label{sec:early_stopping}
+
+A game will conclude early if the ball comes to a complete stop outside of the penalty area, nearing the end of the game.
+
 \subsection{Penalty Kick Shoot-Out}
 \label{sec:penalty_shoot-out}
 
@@ -598,3 +608,15 @@ Teams take one additional penalty kick each, and the game decision will be made 
   \item Otherwise, the sudden death is repeated.
   \item If after 3 sudden death penalty kicks there is still no winner, the referee will toss a coin to decide the game.
 \end{itemize}
+
+\subsection{Aborting A Penalty}
+\label{sec:aborting_penalty}
+
+If a penalty was incorrectly applied to a robot and acknowledged by the referee to be incorrect, the penalty must be aborted and a signal must be sent from the GameController, with the affected robot being unable to move, with the same process used for a Standard Removal Penalty.
+
+The robot should then be removed and placed outside the field, following the same process for the Standard Removal Penalty. Once placed, the robot should be allowed to continue play immediately after being placed.
+
+\subsection{GameController Audio Output}
+\label{sec:gc_audio_output}
+
+After each decision being made by the head referee, the GameController must reflect that decision and should output the decision via audio.
