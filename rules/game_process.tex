@@ -520,12 +520,12 @@ Ending the game is mandatory once a goal difference of 10 is reached.
 \subsection{Drop-Ball Rule}
 \label{sec:drop_ball_rule}
 
-In the rare event that there has been a referee error or a pause in game, [WIP] .
+In the event that there has been a referee error or a pause in game, and if a goal has not been scored by either team, the drop-ball rule shall apply. The head referee shall note the last location of the ball beforehand and will place it at that location before playing resumes. The only main example currently where the drop-ball rule would be required is when a referee timeout has been called with no goal being scored.
 
-\subsection{Early Stopping of Match}
+\subsection{Ball Stop Rule}
 \label{sec:early_stopping}
 
-A game will conclude early if the ball comes to a complete stop outside of the penalty area, nearing the end of the game.
+If a game half were to extend longer than the allotted time, due to an attack situation by a team, the half should end if the ball comes to a complete stop or when the ball leaves the field, with no immediate play by other robots.
 
 \subsection{Penalty Kick Shoot-Out}
 \label{sec:penalty_shoot-out}
@@ -612,11 +612,4 @@ Teams take one additional penalty kick each, and the game decision will be made 
 \subsection{Aborting A Penalty}
 \label{sec:aborting_penalty}
 
-If a penalty was incorrectly applied to a robot and acknowledged by the referee to be incorrect, the penalty must be aborted and a signal must be sent from the GameController, with the affected robot being unable to move, with the same process used for a Standard Removal Penalty.
-
-The robot should then be removed and placed outside the field, following the same process for the Standard Removal Penalty. Once placed, the robot should be allowed to continue play immediately after being placed.
-
-\subsection{GameController Audio Output}
-\label{sec:gc_audio_output}
-
-After each decision being made by the head referee, the GameController must reflect that decision and should output the decision via audio.
+If a penalty was incorrectly applied to a robot and acknowledged by the referee to be incorrect, the robot should first be removed and placed outside the field, following the same process for the Standard Removal Penalty. Once placed, the robot should then be allowed to continue play immediately after being placed and the GameController removes its penalty.
