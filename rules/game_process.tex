@@ -167,10 +167,10 @@ There are two exceptions to this rule:
   \item If a team is awarded a free kick but fails to execute it within the allotted time, the other team may score directly as long as the second team plays the ball first.
 \end{itemize}
 
-In both cases, the direct goal is only allowed if the kicking robot only touched the ball once.
-\unsure{Discuss what to do with accidental deflections}
-If any robot (whether the same or a different one) plays the ball again, then the indirect kick rule returns into effect.
-In this case, the contact made by the kicking robot counts towards the indirect kick rule.
+In both cases, the direct goal is only allowed if the kicking robot played the ball once.
+\unsure{Updated after discussion, but not closed yet}
+The indirect kick rule returns into effect when the ball comes to a full stop after the kick, or if the same robot plays the ball again before then.
+In this case, any contacts made by the kicking robot, or any other robot, during the direct kick count towards the indirect kick rule.
 
 \begin{description}
   \item[Example 1:] Player 2 (of the red team) kicks the ball to Player~3 (of the red team), who then kicks the ball into the blue team's goal.
@@ -364,17 +364,18 @@ The GameController will then activate the sub-state for the respective free kick
 Note that in the case of the Pushing free kick the sub-state is activated automatically through the ``Foul''.
 The team who is awarded the free kick (termed the attacking team) has \qty{\FreeKickTime}{\second} to complete the kick.
 
-For most of the free kicks in Champions Cup, the referee communicates which team is to take the free kick via a visual gesture.
-In this case, the GameController packet will tell the robots which free kick sub-state is active, but not who is to kick the ball.
+In Champions Cup, the referee communicates which team is to take the free kick via a visual gesture.
+The GameController packet will tell the robots which free kick sub-state is active, but not who is to kick the ball.
 \unsure{This gesture is entirely tentative and just my (Francesco's) proposal, pending discussion with the TC. The intent is to mirror the FIFA gestures in a simplified way.}
 The gesture consists of raising one arm horizontally and sideways, parallel to the field line, while the other arm remains at rest.
 The raised arm is the one pointing towards the defending team's goal, i.e. the goal of the team that is \textit{not} taking the free kick.
 \textit{(For reference, the gesture is the same as the "Kick-in" gesture from the 2023 Visual Referee Challenge, but the opposite arm is raised with respect to back then.)}
-This gesture is made from \textcolor{red}{\textbf{[a specified position, or anywhere along the field border]}} and held for \textcolor{red}{\textbf{[no less than 2 seconds, and possibly more]}}.
+This gesture is made by the head referee and held for at least 5 seconds after the GameController signal is sent.
+\textit{(The referee may look at the GameStateVisualizer monitor to check that the GC signal is sent and when the time allotted for the gesture has passed.)}
+The referee sends the signal standing as close as possible to the T-junction, but their actual positioning along the sideline may deviate from this standard position, even significantly,
+e.g. if the referee needs to better observe a specific situation during the game.
 
-The above rule applies to the following free kicks: \textcolor{red}{\textbf{[list of set plays this applies to]}}.
-
-For all other free kicks, and for all free kicks in Challenge Shield, this visual signal is not performed and the kicking team is communicated by the GameController.
+In Challenge Shield, this visual signal is not performed and the kicking team is communicated by the GameController.
 
 When necessary, the referee may need to place the ball.
 For a pushing free kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see \cref{sec:player_pushing}).
@@ -404,6 +405,9 @@ When the GameController activates the penalty kick, the game changes to the \tex
 This denotes that the robots are given time to set up and prepare for the penalty kick.
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
+
+In Champions Cup only, the GameController does not communicate the identities of the attacking and defending team.
+Instead, this information is communicated via the same visual gesture described in \cref{sec:free_kick} for free kicks.
 
 Robots have \qty{\PenaltyKickSetupTime}{\second} to get into position for the penalty kick.
 At the end of \qty{\PenaltyKickSetupTime}{\second}, the game changes to the \texttt{set} state with \texttt{penalty kick} sub-state active.
