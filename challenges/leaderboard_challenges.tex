@@ -90,6 +90,37 @@ The sum of the smallest distance from each target will be recorded in the leader
 Distances are rounded to the closest centimetre.
 
 \subsection{Most Passes Leaderboard}
+This leaderboard measures the highest number of successful passes a team can
+complete in a given timeframe, emphasizing passing accuracy, speed, and coordination.
+
+\subsubsection{Setup}
+This leaderboard challenge will take place on a standard SPL field and requires 2 competing robots
+and 1 standard SPL soccer ball.
+
+Competing robots will be placed on the touchlines on opposite sides of the same half of the field,
+in line with the penalty mark. The ball will be placed on the corner of the penalty area.
+
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/passing_leaderboard.pdf}}
+    \caption{Passing Kick Leaderboard: Robots completing the attempt are shown in blue, target area is shown in green, exclusion area is shown in magents and ball placement is shown in red}
+    \label{fig:passing_leaderboard}
+\end{figure}
+\subsubsection{Challenge Execution}
+During each run, teams will have \qty{\MaxTimePassingLeaderboard}{\sec} to move the ball from the starting
+position to the target area while completing as many passes as possible. The centre
+1.5 metres of the field (Centre Cricle Diameter) is an exclusion zone, no robots are allowed within this area,
+if a robot enters this area, or the ball comes to a complete stop
+within this area, the run is ended immediately. Each run is considered complete
+once a robot has posession of the ball within the target area.
+
+\subsubsection{Scoring}
+1 point is awarded every time the ball crosses the exlusion zone, with an additional point
+awarded if the ball touches the recieving robot before it stops rolling.
+
+No points are counted if the time runs out before a robot has posession of the ball
+within the target area, or if the run ends prematurely as per the above rules.
+
+The highest score of the three runs will be recorded in the leaderboard.
 
 \subsection{Glicko Rating Leaderboard}
 
