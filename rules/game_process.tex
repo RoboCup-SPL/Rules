@@ -93,6 +93,13 @@ The referee must stand on the opposite side of the technical area behind the tou
 The signal must be held for \qty{\VisualSignalTime}{\second}.
 The GameController signal for the transition from \texttt{standby} to \texttt{ready} will be delayed by \qty{\ReadyDelayTimeChampion}{\second} for Champions Cup and by \qty{\ReadyDelayTimeChallenge}{\second} for Challenge Shield.
 
+\begin{figure}
+  \centerline{
+      \includegraphics[height=0.35\columnwidth]{figs/visual-signal/Ready.png}
+  }
+  \caption{Example of referee executing \texttt{ready} signal.}
+  \label{fig:ready-signal}
+\end{figure}
 
 The referee will announce the start of the \texttt{playing} state with a single whistle blow.
 The GameController \texttt{playing} signal will be delayed by \qty{\PlayingDelayTime}{\second}.
