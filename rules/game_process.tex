@@ -164,7 +164,8 @@ There are two exceptions to this rule:
 
 \begin{itemize}
   \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick.
-  \item If a team is awarded a free kick but fails to execute it within the allotted time, the other team may score directly as long as the latter team plays the ball first. ("Execute" is intended as "kick and move tha ball clearly", as per section \cref{sec:free_kick})
+  \item If a team is awarded a free kick but fails to execute it within the allotted time, the other team may score directly as long as the latter team plays the ball first.
+    ("Execute" is intended as "kick and move the ball clearly", as per section \cref{sec:free_kick})
 \end{itemize}
 
 In both cases, the direct goal is only allowed if the kicking robot played the ball once.
@@ -372,10 +373,12 @@ The raised arm is the one pointing towards the defending team's goal, i.e. the g
 \textit{(For reference, the gesture is the same as the "Kick-in" gesture from the 2023 Visual Referee Challenge, but the opposite arm is raised with respect to back then.)}
 This gesture is made by the head referee and held for at least 5 seconds after the GameController signal is sent.
 \textit{(The referee may look at the GameStateVisualizer monitor to check that the GC signal is sent and when the time allotted for the gesture has passed.)}
-The referee sends the signal standing as close as possible to the T-junction, but their actual positioning along the sideline may deviate from this standard position, even significantly,
-e.g. if the referee needs to better observe a specific situation during the game.
+The referee makes an effort to sends the signal standing as close as possible to the T-junction.
+However, their actual positioning along the sideline may deviate from this standard position, based on the current game situation and the timing of the gesture.
+\info{Remind the refs that the GC operator will take a few moments to click the button, giving them a little time to make a couple steps if needed.}
 
-In Challenge Shield, this visual signal is not performed and the kicking team is communicated by the GameController.
+In Challenge Shield, this visual signal does not need to be performed and the kicking team is communicated by the GameController.
+\textit{(In accordance with the teams, the referee may still perform the gesture if e.g. a team wants to experiment with recognition, without changing the GC behavior.)}
 
 When necessary, the referee may need to place the ball.
 For a pushing free kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see \cref{sec:player_pushing}).
