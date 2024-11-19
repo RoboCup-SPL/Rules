@@ -1,0 +1,160 @@
+% !TeX root = ../SPL-Leaderboards.tex
+% !TeX spellcheck = en_US
+
+\section{Leaderboard Challenges}
+
+
+
+\subsection{Fastest Walk Leaderboard}
+This leaderboard will measure how fast a NAO will be able to navigate along a both a straight path and one with obstructions.
+
+\subsubsection{Setup}
+This leaderboard challenge will take place on one half of a standard SPL field, and requires 1 active robot and 4 inactive robots.
+Inactive robots will act as obstacles for half of the attempt and will be placed as follows (illustrated in \cref{fig:walk_leaderboard}):
+\begin{itemize}
+    \item On the penalty mark
+    \item On both corners of the goal area that are not touching the field boundary
+    \item On the corner of the goal area closest to the competing robot
+\end{itemize}
+
+The competing robot will be placed on the touchline, in line with the penalty mark.
+The end goal is the touchline on the other side of the field.
+
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/walk_leaderboard.pdf}}
+    \caption{Fastest Walk Leaderboard: Robot completing the attempt is shown in blue, target is shown in green, obstacles are shown in red. An example path is shown in magenta}
+    \label{fig:walk_leaderboard}
+\end{figure}
+
+\subsubsection{Challenge Execution}
+Two types of runs will be completed, with three attempts per run allowed.
+
+One run will be with the obstacles in place, where the active robot will need walk from it's
+starting position to the target touchline, while weaving around the obstacle robots. (see \cref{fig:walk_leaderboard} for an example)
+
+The other run will be with no obstacles, where the active robot will just need to walk 
+to the target touchline.
+
+Participating teams can choose which order they wish to complete these runs. Code changes are not allowed during a run,
+but are allowed between runs.
+
+Participating teams must start the robot behaviour of their competing robot via a single chest button
+press (this mimics the chest button behaviour of switching between playing and penalized state).
+The participating robot must navigate autonomously and cannot be remote controlled during the challenge
+
+\subsubsection{Scoring}
+Time starts from when the chest button is pressed, to when to robot entirely crosses the target touchline.
+
+Teams will take 3 attempts at navigating both runs, with the sum of the lowest time for each
+run being recorded in the leaderboard. Times will be rounded to the nearest second.
+
+\subsection{Best Kick Leaderboard}
+This leaderboard will measure how far and how accurate a NAO will be able to kick a standard
+SPL soccer ball.
+
+\subsubsection{Setup}
+This leaderboard challenge will take place on a standard SPL field, and requires 1 active robot and 1 ball.
+The ball will be placed on the centre of the edge of the goal area, in line with the penalty mark.
+The competing robot will be placed in the centre of the goaline facing the ball
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/kick_leaderboard.pdf}}
+    \caption{Best Kick Leaderboard: Robot completing the attempt is shown in blue, targets are shown in green, ball placement is shown in red}
+    \label{fig:kick_leaderboard}
+\end{figure}
+\subsubsection{Challenge Execution}
+Teams will be given 3 attempts at kicking to each of the 3 target postitions (illustrated in \cref{fig:kick_leaderboard}):
+\begin{itemize}
+    \item The centre mark in the centre circle
+    \item The penalty mark on the opposite side of the field
+    \item A corner on the opposite side of the field
+\end{itemize}
+In each attempt, participating teams must start the robot behaviour of their competing robot via a single chest button
+press. The robot then has \qty{\PenaltyShootoutKickTime}{\second} to kick the ball towards the current target.
+The competing robot must not touch the ball a second time after the ball has clearly moved,
+otherwise the attempt ends immediately without scoring.
+Once the ball has come to a complete stop, the distance from the ball to the target is measured.
+
+Code changes are only allowed when changing targets.
+\subsubsection{Scoring}
+The sum of the smallest distance from each target will be recorded in the leaderboard.
+Distances are rounded to the closest centimetre.
+
+\subsection{Most Passes Leaderboard}
+This leaderboard measures the highest number of successful passes a team can
+complete in a given timeframe, emphasizing passing accuracy, speed, and coordination.
+
+\subsubsection{Setup}
+This leaderboard challenge will take place on a standard SPL field and requires 2 competing robots
+and 1 standard SPL soccer ball.
+
+Competing robots will be placed on the touchlines on opposite sides of the same half of the field,
+in line with the penalty mark. The ball will be placed on the corner of the penalty area.
+
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/passing_leaderboard.pdf}}
+    \caption{Passing Kick Leaderboard: Robots completing the attempt are shown in blue, target area is shown in green, exclusion area is shown in magents and ball placement is shown in red}
+    \label{fig:passing_leaderboard}
+\end{figure}
+\subsubsection{Challenge Execution}
+In each attempt, participating teams must start the robot behaviour of their competing robot via a single chest button
+press. Teams will then have \qty{\MaxTimePassingLeaderboard}{\sec} to move the ball from the starting
+position to the target area while completing as many passes as possible. The centre
+1.5 metres of the field (Centre Cricle Diameter) is an exclusion zone, no robots are allowed within this area,
+if a robot enters this area, or the ball comes to a complete stop
+within this area, the run is ended immediately. If the ball is kicked off the field,
+it is placed back on the touchline where it crossed. Each run is considered complete
+once a robot has posession of the ball within the target area.
+
+\subsubsection{Scoring}
+1 point is awarded every time the ball crosses the exlusion zone, with an additional point
+awarded if the ball touches the recieving robot before it stops rolling.
+
+No points are counted if the time runs out before a robot has posession of the ball
+within the target area, or if the run ends prematurely as per the above rules.
+
+The highest score of the three runs will be recorded in the leaderboard.
+
+\subsection{Ball Control Leaderboard}
+This leaderboard will measure how well a NAO can keep control of a ball, while moving it
+to a target.
+
+\subsubsection{Setup}
+This leaderboard challenge will take place on one half of a standard SPL field, and requires 1 active robot, 4 inactive robots and 1 SPL Soccer Ball.
+Inactive robots will act as obstacles for the attempt and will be placed as follows (illustrated in \cref{fig:walk_leaderboard}):
+\begin{itemize}
+    \item On the penalty mark
+    \item On both corners of the goal area that are not touching the field boundary
+    \item On the corner of the goal area closest to the competing robot
+\end{itemize}
+The ball is placed on the touchline in line with the penalty mark, with the competing
+robot placed around 50cm behind it.
+The end goal is the touchline on the other side of the field.
+
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/control_leaderboard.pdf}}
+    \caption{Ball Control Leaderboard: Robot completing the attempt is shown in blue, target is shown in green, obstacles are shown in red and the ball is shown in yellow. An example path is shown in magenta}
+    \label{fig:ball_control_leaderboard}
+\end{figure}
+
+\subsubsection{Challenge Execution}
+In each attempt, participating teams must start the robot behaviour of their competing robot via a single chest button
+press. Participating teams will be given 3 attempts to dribble the ball around the obstacles and across
+the goal touchline in as fast a time as possible.
+
+Anytime the ball moves more than 75cm away from the competing robot or the ball comes in contact with
+and obstacle, a 30 second penalty we be added to the teams score.
+
+\subsubsection{Scoring}
+Time starts from when the chest button is pressed, to when to robot and ball entirely crosses the target touchline.
+
+Teams will make 3 attempts, with the sum of all 3 attempts being recorded in the leaderboard.
+Times will be rounded to the nearest second.
+
+\subsection{Glicko Rating Leaderboard}
+In addition to skill-specific leaderboards, the Glicko rating system will be updated to rank teams based on
+performance consistency and competitiveness across various challenges and games.
+The Glicko system will provide a dynamic rating that adjusts based on team performance
+year-over-year, offering a comprehensive view of each team's standing in the league.
+
+\subsubsection{Calculation}
+...
