@@ -518,6 +518,16 @@ The GameController operator should execute this addition of time using the GameC
 A game will conclude once the game score shows a goal difference of 10.
 Ending the game is mandatory once a goal difference of 10 is reached.
 
+\subsection{Drop-Ball Rule}
+\label{sec:drop_ball_rule}
+
+In the event that there has been a referee error or a pause in game, and if a goal has not been scored by either team, the drop-ball rule shall apply. When resuming the game, the process should be the same as a normal start, however, none of the teams will be given kickoff, and no team would be allowed in the center circle until the \texttt{playing} state as there is no longer time allotted for kickoff. The only main example currently where the drop-ball rule would be required is when a referee timeout has been called with no goal being scored.
+
+\subsection{Ball Stop Rule}
+\label{sec:early_stopping}
+
+If a game half were to extend longer than the allotted time, due to an attack situation by a team, the half should end if the ball comes to a complete stop or when the ball leaves the field, with no immediate play by other robots.
+
 \subsection{Penalty Kick Shoot-Out}
 \label{sec:penalty_shoot-out}
 
@@ -599,3 +609,8 @@ Teams take one additional penalty kick each, and the game decision will be made 
   \item Otherwise, the sudden death is repeated.
   \item If after 3 sudden death penalty kicks there is still no winner, the referee will toss a coin to decide the game.
 \end{itemize}
+
+\subsection{Aborting A Penalty}
+\label{sec:aborting_penalty}
+
+If a penalty was incorrectly applied to a robot and acknowledged by the referee to be incorrect, the robot should first be removed and placed outside the field, following the same process for the Standard Removal Penalty. Once placed, the robot should then be allowed to continue play immediately after being placed and the GameController removes its penalty.
