@@ -381,6 +381,7 @@ If this manual placement would lead to a position the robot collides with a goal
 Only one robot from the attacking team may be within the penalty area, and it may not block the penalty mark.
 Blocking the penalty mark is considered to be an illegal position.
 All robots that do not reach legal positions will be penalized with the ``Illegal Positioning'' penalty~(\cf \cref{sec:illegal_positioning}).
+If multiple robots from the attacking team are in the penalty area in the \texttt{set} state, the one robot not to be penalized will be the one that is closest to the penalty mark without blocking it.
 
 The referee should also place the ball on the penalty mark during \texttt{set}.
 The referee signals the penalty kick commences by blowing the whistle once, and calling ``Playing''.
