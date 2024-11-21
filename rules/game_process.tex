@@ -164,8 +164,8 @@ There are two exceptions to this rule:
 
 \begin{itemize}
   \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick.
-  \item If a team is awarded a free kick but fails to execute it within the allotted time, the other team may score directly as long as the latter team plays the ball first.
-    ("Execute" is intended as "kick and move the ball clearly", as per section \cref{sec:free_kick})
+  \item If a team is awarded a free kick but fails to execute it within the allotted time, the opposing team may attempt to score directly if they play the ball before the team who was originally awarded the free kick does.
+    ("Execute" is intended as "kick and move the ball clearly", as per section \cref{sec:free_kick_execution})
 \end{itemize}
 
 In both cases, the direct goal is only allowed if the kicking robot played the ball once.
@@ -365,20 +365,29 @@ The GameController will then activate the sub-state for the respective free kick
 Note that in the case of the Pushing free kick the sub-state is activated automatically through the ``Foul''.
 The team who is awarded the free kick (termed the attacking team) has \qty{\FreeKickTime}{\second} to complete the kick.
 
-In Champions Cup, the referee communicates which team is to take the free kick via a visual gesture.
+\subsubsection{Visual gesture}
+\label{sec:free_kick_gesture}
+
+\textbf{In Champions Cup only}, the referee communicates which team is to take the free kick via a visual gesture.
 The GameController packet will tell the robots which free kick sub-state is active, but not who is to kick the ball.
-\unsure{This gesture is entirely tentative and just my (Francesco's) proposal, pending discussion with the TC. The intent is to mirror the FIFA gestures in a simplified way.}
+
+\unsure[inline]{This gesture is entirely tentative and just my (Francesco's) proposal, pending discussion with the TC. The intent is to mirror the FIFA gestures in a simplified way.}
 The gesture consists of raising one arm horizontally and sideways, parallel to the field line, while the other arm remains at rest.
 The raised arm is the one pointing towards the defending team's goal, i.e. the goal of the team that is \textit{not} taking the free kick.
-\textit{(For reference, the gesture is the same as the "Kick-in" gesture from the 2023 Visual Referee Challenge, but the opposite arm is raised with respect to back then.)}
-This gesture is made by the head referee and held for at least 5 seconds after the GameController signal is sent.
-\textit{(The referee may look at the GameStateVisualizer monitor to check that the GC signal is sent and when the time allotted for the gesture has passed.)}
-The referee makes an effort to sends the signal standing as close as possible to the T-junction.
-However, their actual positioning along the sideline may deviate from this standard position, based on the current game situation and the timing of the gesture.
-\info{Remind the refs that the GC operator will take a few moments to click the button, giving them a little time to make a couple steps if needed.}
+\info[inline]{For reference, the gesture is the same as the "Kick-in" gesture from the 2023 Visual Referee Challenge, but the opposite arm is raised with respect to back then.}
 
-In Challenge Shield, this visual signal does not need to be performed and the kicking team is communicated by the GameController.
-\textit{(In accordance with the teams, the referee may still perform the gesture if e.g. a team wants to experiment with recognition, without changing the GC behavior.)}
+This gesture is made by the head referee and held for at least 5 seconds after the GameController signal is sent.
+The head referee is encouraged to seek the acknowledgement of the GameController operator and/or look at the field-facing monitor in order to determine the timing.
+
+The referee makes an effort to sends the signal standing as close as possible to the T-junction joining the half-way line to the side line opposite to the GameController.
+However, their actual positioning along the sideline may deviate slightly from this standard position, based on the current game situation and the timing of the gesture.
+\info[inline]{Remind the refs that the GC operator will take a few moments to click the button, giving them a little time to make a couple steps if needed.}
+
+\textbf{In Challenge Shield}, this visual signal does not need to be performed and the kicking team is communicated by the GameController.
+\info[inline]{In accordance with the teams, the referee may still perform the gesture if e.g. a team wants to experiment with recognition, without changing the GC behavior.}
+
+\subsubsection{Execution}
+\label{sec:free_kick_execution}
 
 When necessary, the referee may need to place the ball.
 For a pushing free kick, the ball will be left in place, and only repositioned in accordance with the pushing rules (see \cref{sec:player_pushing}).
@@ -409,8 +418,8 @@ This denotes that the robots are given time to set up and prepare for the penalt
 Similar to kick-off, the game clock is \textit{paused} during finals games only.
 The referees should pick up the ball.
 
-In Champions Cup only, the GameController does not communicate the identities of the attacking and defending team.
-Instead, this information is communicated via the same visual gesture described in \cref{sec:free_kick} for free kicks.
+\textbf{In Champions Cup only}, the GameController does not communicate the identities of the attacking and defending team.
+Instead, this information is communicated via the same visual gesture described in \cref{sec:free_kick_gesture} for free kicks.
 
 Robots have \qty{\PenaltyKickSetupTime}{\second} to get into position for the penalty kick.
 At the end of \qty{\PenaltyKickSetupTime}{\second}, the game changes to the \texttt{set} state with \texttt{penalty kick} sub-state active.
