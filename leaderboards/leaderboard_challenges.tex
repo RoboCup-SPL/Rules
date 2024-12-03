@@ -98,15 +98,16 @@ if a robot enters this area, or the ball comes to a complete stop
 within this area, the run is ended immediately. If the ball is kicked off the field,
 it is placed back on the touchline where it crossed.
 
-Once a robot has posession of the ball within the target area, the finish signal will be sent
-from the game controller and the timer will stop.
+The ref will announce each time the ball crosses the exlusion zone, and whether this will
+count as a successful pass. This is then captured by the Game Controller.
+
+Once a robot has posession of the ball within the target area, the ref will announce that the
+attempt has finished, then the finish signal will be sent from the game controller and the timer will stop.
 
 
 \subsection{Scoring}
 1 point is awarded every time the ball crosses the exlusion zone,
-with an additional point awarded for a "successful pass" as definied below.
-
-A "successful pass" is defined as when the
+with an additional point awarded for a "successful pass". A "successful pass" is defined as when the
 The ball stops in an 180◦ arc with radius 75cm in front of the receiving robot.
 
 No points are counted if the time runs out before a robot has posession of the ball
@@ -152,11 +153,13 @@ Time starts from when the chest button is pressed, to when to robot and ball ent
 
 The lowest time across all attempts will be recorded in the leaderboard, times will be rounded to the nearest second.
 
-\section{Glicko Rating Leaderboard}
-In addition to skill-specific leaderboards, the Glicko rating system will be updated to rank teams based on
-performance consistency and competitiveness across various challenges and games.
-The Glicko system will provide a dynamic rating that adjusts based on team performance
-year-over-year, offering a comprehensive view of each team's standing in the league.
+\section{Global Performance Factor}
+In addition to skill-specific leaderboards, a Global Performance factor will be published,
+this will be used to rank teams based on performance consistency and competitiveness across
+various challenges and games. The Global Performance Factor will be calculated using the 
+Glicko ratings in combination with other performance indicators and  will provide a dynamic
+rating that adjusts based on team performance year-over-year
+offering a comprehensive view of each team's standing in the league.
 
 \subsection{Calculation}
-...
+TBD
