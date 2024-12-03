@@ -149,7 +149,7 @@ The GameController tracks the number of messages that have already been sent and
 
 If a team exceeds their limit the game is scored with 0 goals for the offending team.
 Robot-to-robot communication that violates the SPL rules result in a game scored with 0 goals for the offending team (even when discovered after the game was finished).
-Messages are counted towards the limit during the \texttt{ready}, \texttt{set} and \texttt{playing} states.
+Messages are counted towards the limit during the \texttt{standby}, \texttt{ready}, \texttt{set} and \texttt{playing} states.
 Limits do not apply during penalty kick shoot-out.
 If a knock-out game results in a draw and both teams exceeded their message limit, the team last exceeding their limit wins the game.
 
