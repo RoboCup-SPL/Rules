@@ -3,14 +3,17 @@
 \section{KICKin\textquotesingle \& Rollin\textquotesingle Challenge}
 
 The objective of this challenge is for a robot to successfully kick a rolling ball from a ramp into a designated goal area. 
-Each team participating will record three attempts spread accross three days of the competition.
-An attempt consist of three kick attempts. 
+Each participating team will record three attempt sets, with a significant time between them.
+A more specific schedule will be communicated closer to the competition.
+An attempt sets consist of three kick attempts. 
 
 \subsection{Field Setup}
 
 The challenge will take place on a standard SPL field with its official marking. 
-The ramp will be positioned perpendicularly adjacent to the halfway line, aligned with a virtual line extending from the extremity of the center circle on the opponent's side.
+The ramp will be positioned perpendicularly adjacent to the halfway line, and aligned with a virtual line extending from the extremity of the center circle on the opponent's side.
+The general idea is to position the Nao facing the goal, with the ball moving from its left to its right, or vice versa.
 The ramp can be positioned at varying distances from the robots to modify the difficulty.
+However, a minimum distance of 30 cm between the ramp and the virtual line must be maintained to ensure the ball rolls directly onto the field.
 The participating robot can be positioned at the team’s discretion along the virtual line between the center circle and the penalty mark.
 The robot must have one foot on each side of this virtual line.
 
@@ -33,13 +36,19 @@ Each kick will receive a score based on the location of the ball.
 These points are non-cumulative: 
 
 \begin{itemize}
-	\item 0 point for a missed kick or deflected ball.
-	\item 1 point for kicking the ball.
+	\item 0 points for a missed kick.
+	\item 1 point for a deflected ball.
+	A ball is considered deflected if it changes direction due to contact with the robot's feet.
+	\item 2 points for kicking the ball.
+	A ball is considered kicked if it makes contact with the front sensor of the robot's feet.
 	\item 3 points for the ball entering the penalty area during the attempt. 
-	If the ball leaves the area before coming to a complete stop, without qualifying for subsequent points, this will still count. 
+	If the ball leaves the area before coming to a complete stop, without qualifying for subsequent points, this still counts. 
 	\item 5 points for the ball entering the goal. 
 	\item 100 points for the ball going over the goal between the virtual planes of the two goalposts. 
   \end{itemize}
+
+  A ball can only be considered kicked or deflected if it result from a direct action by the robot.
+  Contact resulting from a stationary feet or a backward step will result in 0 points.
 
   \subsection{Ranking}
 
