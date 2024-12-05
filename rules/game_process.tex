@@ -205,41 +205,43 @@ In this case, any contacts made by the kicking robot, or any other robot, during
   The exception does \textit{not} apply for the red team because a blue-team robot played the ball first. The goal does not count and a \texttt{Goal kick} is awarded to the blue team.
 \end{description}
 
-\subsection{Indirect Kick Variant - Challenge Shield only}
-\label{sec:indirect_kick_old}
+\subsubsection{Fallback mode for Challenge Shield}
 
-This rule aims to allow \textbf{Challenge Shield} teams to play games even in the unfortunate case where
-severe circumstances make them unable to field enough robots to play by the
-default indirect kick rules.
+This rule aims to allow \textbf{Challenge Shield} teams to play games
+even in the unfortunate case where severe circumstances make them unable to
+field enough robots to play by the default indirect kick rules.
 
-Before the beginning of each half during a Challege Shield game, teams declare whether
-they are going to play normally or play in "reduced mode" (temporary name).
-If at least one team plays in "reduced mode", the whole game follows different,
-more lenient rules for indirect kicks.
+Each Challenge Shield team participating in a game shall declare their operational
+capacity for that game by choosing to play either in \textbf{normal mode} or in \textbf{fallback mode}.
+If at least one team plays in \textit{fallback mode}, the whole game follows different,
+more lenient rules for indirect kicks, detailed in \cref{sec:indirect_kick_old}.
 
-\subsubsection{"Reduced Mode" rules}
-If a team plays in "reduced mode", they are only allowed to field at most two robots.
-The other robots must be removed from the field via "Request for Pickup".
+If a team plays in \textit{fallback mode}, they are only allowed to field at most two robots.
+The other robots must be removed from the field via \texttt{Request for Pickup}.
 
-Teams decide which "mode" to play in before the beginning of each half.
-Furthermore, during any team's timeout or referee timeout,
-each team may choose to switch from "normal mode" to "reduced mode", but not vice versa.
-In both cases, teams are encouraged to make this decision as early as possible.
+Teams decide which operational mode to play in before the beginning of each half.
+Furthermore, during any timeout (regardless of who initiated it), each team
+may choose to switch from \textit{normal mode} to \textit{fallback mode}, but not vice versa.
+In both cases, teams must inform the head referee and the GameController operator
+of their choice, and they are encouraged to make this decision as early as possible.
+% TODO maybe "2 minutes before the scheduled start/resume of the game"?
 
-Changing "modes" during normal gameplay is not allowed.
+Changing operational modes during normal gameplay is not allowed.
 
 \info[inline]{
-  Besides preventing strategic abuses of the rule, having so few opportunities to change "mode"
+  Besides preventing strategic abuses of the rule, having so few opportunities to change operational mode
   is also intended to help referees, ensuring that the indirect kick rules don't
   suddenly change during normal gameplay.
 }
 
-The GameController communicates to the robots the "mode" each team plays in,
+The GameController communicates to the robots the operational mode each team plays in,
 while the TeamCommunicationMonitor and the GameStateVisualizer display this
 same information for the convenience of the referees.
 
-\subsubsection{Indirect Kick in "Reduced Mode"}
-As long as at least one team plays in "reduced mode", \textbf{both teams}
+\subsubsection{Indirect Kick in fallback mode}
+\label{sec:indirect_kick_old}
+
+As long as at least one team plays in \textit{fallback mode}, \textbf{both teams}
 play by the following rules instead of the default ones for indirect kicks.
 \todo[linecolor=gray,backgroundcolor=gray!25,bordercolor=gray]{
   Remove the footnote after RC2025 has passed
@@ -252,7 +254,7 @@ Set plays considered to be indirect are \texttt{Kick-in}, \texttt{Pushing free k
 \texttt{Corner kick} and \texttt{Goal kick} or after an unsuccessful \texttt{Penalty kick}.
 
 The conditions for an indirect kick to be valid while at least one team
-plays in "reduced mode" are as follows:
+plays in \textit{fallback mode} are as follows:
 
 \begin{itemize}
   \item A robot may not score a goal from a direct kick, including via deflections.
@@ -446,11 +448,14 @@ The raised arm is the one pointing towards the defending team's goal, i.e. the g
 }
 
 This gesture is made by the head referee and held for at least 5 seconds after the GameController signal is sent.
-The head referee is encouraged to seek the acknowledgement of the GameController operator and/or look at the field-facing monitor in order to determine the timing.
+The head referee is encouraged to seek the acknowledgement of the GameController operator and/or look at the field-facing monitor (if available) in order to determine the timing.
 
-The referee makes an effort to send the signal standing as close as possible to the T-junction joining the half-way line to the side line opposite to the GameController.
-However, their actual positioning along the sideline may deviate slightly from this standard position, based on the current game situation and the timing of the gesture.
+The referee makes an effort to send the signal standing as close as possible to the T-junction joining the half-way line to the touchline opposite to the technical area.
+However, their actual positioning along the touchline may deviate slightly from this standard position, based on the current game situation and the timing of the gesture.
 \info[inline]{Remind the refs that the GC operator will take a few moments to click the button, giving them a little time to make a couple steps if needed.}
+
+Teams are encouraged to make an effort to familiarize with looking at the referee and interpreting the visual signal even in cases where such an action may not seem strictly necessary,
+as more information may be communicated in this way rather than via GameController packets in future years.
 
 \textbf{In Challenge Shield}, this visual signal does not need to be performed and the kicking team is communicated by the GameController.
 \info[inline]{In accordance with the teams, the referee may still perform the gesture if e.g. a team wants to experiment with recognition, without changing the GC behavior.}
