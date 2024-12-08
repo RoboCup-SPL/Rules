@@ -45,6 +45,20 @@ penalty_mark_size_2 = penalty_mark_size * 0.5
 center_circle_radius = center_circle_diameter * 0.5
 pi_2 = math.pi * 0.5
 
+arrow_angle_circle = math.radians(0)  # Angle of the arrow in radians (easily adjustable)
+circle_radius = 0.1  # Radius of the red circle
+arrow_length = 0.2  # Length of the arrow
+arrow_width = 0.02  # Width of the arrow
+circle_position = (0.3, 0)  # Position of the circle (x, y)
+
+# Rectangle and arrow parameters
+rect_width = 0.15  # Width of the rectangle
+rect_height = 0.8  # Height of the rectangle
+rect_position = (0.80,1)  # Position of the rectangle (x, y)
+rect_arrow_angle = math.radians(270)  # Angle of the rectangle's arrow
+rect_arrow_length = 0.5  # Length of the rectangle's arrow
+rect_arrow_width = 0.02  # Width of the rectangle's arrow
+
 # SVG generation parameters
 svg_fieldline_width = 0.05
 svg_dimensionline_width = 0.025
@@ -143,6 +157,81 @@ def draw_dimension_vertical(context, y1, y2, x, width, bar=True, arrow=True, alo
     context.show_text(label)
     context.restore()
 
+def draw_filled_red_circle_with_black_arrow(context, position, angle, radius, arrow_len, arrow_w):
+    # Move to circle position
+    x_pos, y_pos = position
+    context.save()
+    context.translate(x_pos, y_pos)
+
+    # Draw the filled red circle
+    context.set_source_rgb(1, 0, 0)  # Red color
+    context.arc(0, 0, radius, 0, 2 * math.pi)
+    context.fill()
+
+    # Draw the black arrow starting from the exterior of the circle
+    context.set_source_rgb(0, 0, 0)  # Black color
+    context.set_line_width(arrow_w)
+    arrow_start_x = radius * math.cos(angle)
+    arrow_start_y = radius * math.sin(angle)
+    arrow_end_x = arrow_start_x + arrow_len * math.cos(angle)
+    arrow_end_y = arrow_start_y + arrow_len * math.sin(angle)
+
+    context.move_to(arrow_start_x, arrow_start_y)
+    context.line_to(arrow_end_x, arrow_end_y)
+
+    # Arrowhead
+    head_angle1 = angle + math.radians(150)  # Angle for one side of the arrowhead
+    head_angle2 = angle - math.radians(150)  # Angle for the other side of the arrowhead
+    head_len = 0.2 * arrow_len  # Proportion of the arrow length
+    context.line_to(
+        arrow_end_x + head_len * math.cos(head_angle1),
+        arrow_end_y + head_len * math.sin(head_angle1),
+    )
+    context.move_to(arrow_end_x, arrow_end_y)
+    context.line_to(
+        arrow_end_x + head_len * math.cos(head_angle2),
+        arrow_end_y + head_len * math.sin(head_angle2),
+    )
+    context.stroke()
+    context.restore()
+
+def draw_filled_grey_rectangle_with_black_arrow(context, position, angle, rect_w, rect_h, arrow_len, arrow_w):
+    x_pos, y_pos = position
+    context.save()
+    context.translate(x_pos, y_pos)
+
+    # Draw the filled grey rectangle
+    context.set_source_rgb(0.5, 0.5, 0.5)  # Grey
+    context.rectangle(-rect_w / 2, -rect_h / 2, rect_w, rect_h)
+    context.fill()
+
+    # Draw the black arrow
+    context.set_source_rgb(0, 0, 0)  # Black
+    context.set_line_width(arrow_w)
+    arrow_start_x = rect_w / 2 * math.cos(angle)
+    arrow_start_y = rect_h / 2 * math.sin(angle)
+    arrow_end_x = arrow_start_x + arrow_len * math.cos(angle)
+    arrow_end_y = arrow_start_y + arrow_len * math.sin(angle)
+
+    context.move_to(arrow_start_x, arrow_start_y)
+    context.line_to(arrow_end_x, arrow_end_y)
+
+    # Arrowhead
+    head_angle1 = angle + math.radians(150)
+    head_angle2 = angle - math.radians(150)
+    head_len = 0.2 * arrow_len
+    context.line_to(
+        arrow_end_x + head_len * math.cos(head_angle1),
+        arrow_end_y + head_len * math.sin(head_angle1),
+    )
+    context.move_to(arrow_end_x, arrow_end_y)
+    context.line_to(
+        arrow_end_x + head_len * math.cos(head_angle2),
+        arrow_end_y + head_len * math.sin(head_angle2),
+    )
+    context.stroke()
+    context.restore()
+
 ###############################
 ## DRAW ENTIRE FIELD DRAWING ##
 ###############################
@@ -215,6 +304,11 @@ draw_dimension_horizontal(context, -(center_circle_radius), (center_circle_radiu
 
 # line width
 draw_dimension_horizontal(context, -svg_fieldline_width/2, svg_fieldline_width/2, -(y_touchline - 1), 0.2, along_offset=0, bar=False, label="C")
+
+# Draw filled red circle with black arrow
+#draw_filled_red_circle_with_black_arrow(context, circle_position, arrow_angle_circle, circle_radius, arrow_length, arrow_width)
+
+#draw_filled_grey_rectangle_with_black_arrow(context, rect_position, rect_arrow_angle, rect_width, rect_height, rect_arrow_length, rect_arrow_width)
 
 if svg_addnotes:
     context.move_to(0, y_border + 0.2)
