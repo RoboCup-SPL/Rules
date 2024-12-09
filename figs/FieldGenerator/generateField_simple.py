@@ -7,6 +7,9 @@ import math
 import cairo
 import sys
 
+# This script generates an image of the field for the Venue Setup section of the rules. 
+# Two commented-out functions are included to illustrate robot placement on the field. 
+# These functions may be useful for creating visuals for challenge scenarios.
 # read the field dimensions from the rules from a JSON file
 
 assert len(sys.argv) == 2
