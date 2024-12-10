@@ -231,6 +231,9 @@ Latest \qty{1}{\min} before the game starts all robots must be placed on the tou
 % If a team places robots themselves for initial kick-off, it is allowed for the team to vary the spacing and orientation of the robot positions along legal positions on their half's touchlines~(see also~\cref{sec:inside_outside}).
 
 Robots are brought into the \texttt{initial} state after they are placed.
+Once all robots have been placed and all human team members have left the field, the head referee officially starts or resumes the game by calling the beginning of the \texttt{standby} state.
+No further human intervention is allowed by the teams after this point.
+
 Once the robots receive the \texttt{ready} visual signal from the referee or the signal from the GameController, whichever happens first, they proceed as described in \cref{sec:kick-off}.
 
 % \begin{figure}[t!]
