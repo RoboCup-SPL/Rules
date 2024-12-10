@@ -211,17 +211,22 @@ In this case, any contacts made by the kicking robot, or any other robot, during
 This rule aims to allow \textbf{Challenge Shield} teams to play games
 even in the unfortunate case where severe circumstances make them unable to
 field enough robots to play by the default indirect kick rules
-by relaxing the requirements to score a goal if they cannot play with more than \MaxRobotsInFallback robots.
+by relaxing the requirements to score a goal if they cannot play with more than \MaxRobotsInFallback{} robots.
 
 Each Challenge Shield team participating in a game shall declare their operational
 capacity for that game by choosing to play either in \textbf{normal mode} or in \textbf{fallback mode}.
 If at least one team plays in \textit{fallback mode}, the whole game follows different,
 more lenient rules for indirect kicks, detailed in \cref{sec:indirect_kick_old}.
 
-If a team plays in \textit{fallback mode}, they are only allowed to field at most \textbf{\MaxRobotsInFallback} robots.
-The other robots must be removed from the field via \texttt{Request for Pickup}.
+If a team plays in \textit{fallback mode}, their maximum team size is \textbf{\MaxRobotsInFallback} robots.
+The other robots do not participate in the game, unless substituted
+as allowed by the rules (see \cref{sec:request_for_pickup}).
 Note that one team's choice of operational mode does \textbf{not} limit
 the number of robots the opposing team is allowed to play with.
+
+\info[inline]{Memo for the GC implementation: the excess robots are \textbf{not}
+picked up, they are ``outside the game'', or ``disabled'', or w/e.
+Substitution via pick-up should transfer the 45-second timer as usual.}
 
 Teams decide which operational mode to play in before the beginning of each half.
 Furthermore, during any timeout (regardless of who initiated it), each team
