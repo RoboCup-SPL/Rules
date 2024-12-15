@@ -2,7 +2,7 @@
 % !TeX spellcheck = en_US
 
 \section{Fastest Walk Leaderboard}
-This leaderboard will measure how fast a NAO will be able to navigate along a both a straight path and one with obstructions.
+This leaderboard will measure how fast a NAO will be able to navigate along both a straight path and one with obstructions.
 
 \subsection{Setup}
 This leaderboard challenge will take place on one half of a standard SPL field, and requires 1 active robot and 4 inactive robots.
@@ -10,10 +10,10 @@ Inactive robots will act as obstacles for half of the attempt and will be placed
 \begin{itemize}
     \item On the penalty mark
     \item On both corners of the goal area that are not touching the field boundary
-    \item On the corner of the goal area closest to the competing robot
+    \item On the corner of the goal area closest to the competing robot's starting position
 \end{itemize}
 
-The competing robot will be placed 50cm behind the touchline, in line with the penalty mark.
+The competing robot will be placed 50cm behind the touchline\footnote {Measured from the centre of the touchline to the front of the robots foot}, in line with the penalty mark.
 The end goal is the touchline on the other side of the field.
 
 \begin{figure}[t]
@@ -40,6 +40,41 @@ The head referee will start the timer once the robot touches the starting touchl
 
 After all attempts, the shortest time to complete each type of run will be added together and recorded
 on the leaderboard, times will be rounded to the nearest second.
+
+\section{Ball Control Leaderboard}
+This leaderboard will measure how well a NAO can keep control of a ball, while moving it
+to a target.
+
+\subsection{Setup}
+This leaderboard challenge will take place on one half of a standard SPL field, and requires 1 active robot, 4 inactive robots and 1 SPL Soccer Ball.
+Inactive robots will act as obstacles for the attempt and will be placed as follows (illustrated in \cref{fig:walk_leaderboard}):
+\begin{itemize}
+    \item On the penalty mark
+    \item On both corners of the goal area that are not touching the field boundary
+    \item On the corner of the goal area closest to the competing robot
+\end{itemize}
+The ball is placed on the touchline in line with the penalty mark, with the competing
+robot placed 50cm behind it.\footnote {Measured from the centre of the touchline to the front of the robots foot}.
+The end goal is the touchline on the other side of the field.
+
+\begin{figure}[t]
+    \centerline{\includegraphics[width=\columnwidth]{figs/leaderboards/control_leaderboard.pdf}}
+    \caption{Ball Control Leaderboard: Robot completing the attempt is shown in blue, target is shown in green, obstacles are shown in red and the ball is shown in yellow. An example path is shown in magenta}
+    \label{fig:ball_control_leaderboard}
+\end{figure}
+
+\subsection{Challenge Execution}
+In each attempt, participating teams must start the robot behaviour of their competing robot via a single chest button
+press. Participating robots will need to dribble the ball around the obstacles and across
+the goal touchline in as fast a time as possible.
+
+Anytime the ball moves more than 75cm away from the competing robot or the ball comes in contact with
+an obstacle,  ``Penalty'' is called, and a 30 second penalty we be added to the teams score.
+
+\subsection{Scoring}
+Time starts from when the chest button is pressed, to when to robot and ball entirely crosses the target touchline.
+
+The lowest time across all attempts will be recorded in the leaderboard, times will be rounded to the nearest second.
 
 \section{Best Kick Leaderboard}
 This leaderboard will measure how far and how accurate a NAO will be able to kick a standard
@@ -70,7 +105,7 @@ Once the ball has come to a complete stop, the distance from the ball to the tar
 Code changes are allowed when changing targets.
 \subsection{Scoring}
 After all attempts, the best score for each target will be added together and recorded in the leaderboard.
-Distances are rounded to the closest centimetre.
+Distances are rounded to the closest half-centimetre.
 
 \section{Most Passes Leaderboard}
 This leaderboard measures the highest number of successful passes a team can
@@ -85,7 +120,7 @@ in line with the penalty mark. The ball will be placed on either corner of the p
 
 \begin{figure}[t]
     \centerline{\includegraphics[width=\columnwidth]{figs/leaderboards/passing_leaderboard.pdf}}
-    \caption{Passing Kick Leaderboard: Robots completing the attempt are shown in blue, target area is shown in green, exclusion area is shown in magents and ball placement is shown in red}
+    \caption{Most Passes Leaderboard: Robots completing the attempt are shown in blue, target area is shown in green, exclusion area is shown in magents and ball placement is shown in red}
     \label{fig:passing_leaderboard}
 \end{figure}
 \subsection{Challenge Execution}
@@ -101,7 +136,7 @@ it is placed back on the touchline where it crossed.
 The ref will announce each time the ball crosses the exlusion zone, and whether this will
 count as a successful pass. This is then captured by the Game Controller.
 
-Once a robot has posession of the ball within the target area, the ref will announce that the
+Once a robot has made contact with the ball within the target area, the ref will announce that the
 attempt has finished, then the finish signal will be sent from the game controller and the timer will stop.
 
 
@@ -117,49 +152,3 @@ or if the run ends prematurely as per the above rules.
 The score is then multiplied by the number of seconds remaining on the game controller timer.
 
 The highest score of all attempts will be recorded in the leaderboard.
-
-\section{Ball Control Leaderboard}
-This leaderboard will measure how well a NAO can keep control of a ball, while moving it
-to a target.
-
-\subsection{Setup}
-This leaderboard challenge will take place on one half of a standard SPL field, and requires 1 active robot, 4 inactive robots and 1 SPL Soccer Ball.
-Inactive robots will act as obstacles for the attempt and will be placed as follows (illustrated in \cref{fig:walk_leaderboard}):
-\begin{itemize}
-    \item On the penalty mark
-    \item On both corners of the goal area that are not touching the field boundary
-    \item On the corner of the goal area closest to the competing robot
-\end{itemize}
-The ball is placed on the touchline in line with the penalty mark, with the competing
-robot placed around 50cm behind it.
-The end goal is the touchline on the other side of the field.
-
-\begin{figure}[t]
-    \centerline{\includegraphics[width=\columnwidth]{figs/leaderboards/control_leaderboard.pdf}}
-    \caption{Ball Control Leaderboard: Robot completing the attempt is shown in blue, target is shown in green, obstacles are shown in red and the ball is shown in yellow. An example path is shown in magenta}
-    \label{fig:ball_control_leaderboard}
-\end{figure}
-
-\subsection{Challenge Execution}
-In each attempt, participating teams must start the robot behaviour of their competing robot via a single chest button
-press. Participating robots will need to dribble the ball around the obstacles and across
-the goal touchline in as fast a time as possible.
-
-Anytime the ball moves more than 75cm away from the competing robot or the ball comes in contact with
-an obstacle,  ``Penalty'' is called, and a 30 second penalty we be added to the teams score.
-
-\subsection{Scoring}
-Time starts from when the chest button is pressed, to when to robot and ball entirely crosses the target touchline.
-
-The lowest time across all attempts will be recorded in the leaderboard, times will be rounded to the nearest second.
-
-\section{Global Performance Factor}
-In addition to skill-specific leaderboards, a Global Performance factor will be published,
-this will be used to rank teams based on performance consistency and competitiveness across
-various challenges and games. The Global Performance Factor will be calculated using the 
-Glicko ratings in combination with other performance indicators and  will provide a dynamic
-rating that adjusts based on team performance year-over-year
-offering a comprehensive view of each team's standing in the league.
-
-\subsection{Calculation}
-TBD
