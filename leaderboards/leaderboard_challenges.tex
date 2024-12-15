@@ -149,6 +149,10 @@ No points are counted if the time runs out before a robot has posession of the b
 within the target area, the ball hasn't crossed the exclusion zone at least once
 or if the run ends prematurely as per the above rules.
 
-The score is then multiplied by the number of seconds remaining on the game controller timer.
+A time bonus is calculated based on the points scored by passing and the percentage of time remaining, once the
+challenge has ended. This is calculated using the following formula:
+\[
+\text{Time Bonus Points} = \text{Base Points for Passes} \times \frac{\text{Remaining Time (seconds)}}{\text{Total Time (seconds)}}
+\]
 
-The highest score of all attempts will be recorded in the leaderboard.
+The final score is the base points plus the time bonus points, rounded to 2 decimal places. The highest score of all attempts will be recorded in the leaderboard.
