@@ -209,7 +209,7 @@ In this case, any contacts made by the kicking robot, or any other robot, during
 
 This rule aims to allow \textbf{Challenge Shield} teams to play games
 even in the unfortunate case where severe circumstances make them unable to
-field enough robots to play by the default indirect kick rules
+field enough robots to play by the default indirect kick rules,
 by relaxing the requirements to score a goal if they cannot play with more than \MaxRobotsInFallback{} robots.
 
 Each Challenge Shield team participating in a game shall declare their operational
@@ -443,9 +443,10 @@ The GameController packet will tell the robots which free kick sub-state is acti
       \caption{Pointing to the right goal}
   \end{subfigure}
   \caption{Visual signals for set plays.}
+  \label{fig:signal_setplay}
 \end{figure*}
 
-The gesture consists of raising one arm horizontally and sideways, parallel to the field line, while the other arm remains at rest.
+The gesture consists of raising one arm horizontally and sideways, parallel to the field line, while the other arm remains at rest (see \cref{fig:signal_setplay}).
 The raised arm is the one pointing towards the defending team's goal, i.e. the goal of the team that is \textit{not} taking the free kick.
 \todo[linecolor=gray,backgroundcolor=gray!25,bordercolor=gray]{
   Remove the footnote after RC2025 has passed
