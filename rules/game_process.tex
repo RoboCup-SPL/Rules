@@ -165,11 +165,10 @@ There are two exceptions to this rule:
 \begin{itemize}
   \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick.
   \item If a team is awarded a free kick but fails to execute it within the allotted time, the opposing team may attempt to score directly if they play the ball before the team who was originally awarded the free kick does.
-    ("Execute" is intended as "kick and move the ball clearly", as per section \cref{sec:free_kick_execution})
+    (``Execute'' is intended as "kick and move the ball clearly", as per section \cref{sec:free_kick_execution})
 \end{itemize}
 
 In both cases, the direct goal is only allowed if the kicking robot played the ball once.
-\unsure{Updated after discussion, but not closed yet}
 The indirect kick rule returns into effect when the ball comes to a full stop after the kick, or if the same robot plays the ball again before then.
 In this case, any contacts made by the kicking robot, or any other robot, during the direct kick count towards the indirect kick rule.
 
@@ -226,9 +225,9 @@ the number of robots the opposing team is allowed to play with.
 
 \info[inline]{Memo for the GC implementation: the excess robots are \textbf{not}
 picked up, they are ``outside the game'', or ``disabled'', or w/e.
-Substitution via pick-up should transfer the 45-second timer as usual.}
+Substitution via pick-up should transfer the pickup/penalty timer as usual.}
 
-Teams decide which operational mode to play in before the beginning of each half.
+Teams decide which operational mode they play in before the beginning of each half.
 Furthermore, during any timeout (regardless of who initiated it), each team
 may choose to switch from \textit{normal mode} to \textit{fallback mode}, but not vice versa.
 In both cases, teams must inform the head referee and the GameController operator
@@ -461,8 +460,8 @@ The head referee is encouraged to seek the acknowledgement of the GameController
 
 The referee makes an effort to send the signal standing as close as possible to the T-junction joining the half-way line to the touchline opposite to the technical area.
 However, their actual positioning along the touchline may deviate slightly from this standard position, based on the current game situation and the timing of the gesture.
-\unsure{tentative} Teams are not required to scan the entire touchline:
-in broad terms, a robot standing about \textcolor{red}{\textbf{(three? four?)}} meters away from the T-junction should be able to find the referee in its camera field with no or minimal head motion.
+Teams are not required to scan the entire touchline:
+in broad terms, a robot standing a few meters away from the T-junction should be able to find the referee in its camera field with no or minimal head motion.
 \info[inline]{Remind the refs that the GC operator will take a few moments to click the button, giving them a little time to make a couple steps if needed.}
 
 Teams are encouraged to make an effort to familiarize with looking at the referee and interpreting the visual signal even in cases where such an action may not seem strictly necessary,
