@@ -5,33 +5,30 @@
 This is a brief non-normative list of rule changes from \LastRCYear to \RCYear:
 \begin{itemize}
   \item The \texttt{ready} visual signal and the corresponding delay
-        also apply to Challenge Shield as well as Champions Cup.
-        (\cref{sec:robot_states})
+        also apply to Challenge Shield as well as Champions Cup
+        (\cf~\cref{sec:robot_states}).
   \item The \texttt{ready} signal delay is increased to
         \qty{\ReadyDelayTimeChampion}{\second} for Champions Cup and to
-        \qty{\ReadyDelayTimeChallenge}{\second} for Challenge Shield.
-        (\cref{sec:robot_states})
+        \qty{\ReadyDelayTimeChallenge}{\second} for Challenge Shield
+        (\cf~\cref{sec:robot_states}).
   \item The \texttt{Motion in Standby} penalty for falsely detecting the
         \texttt{ready} visual signal now results in a team wide penalty,
-        but for a shorter duration. (\cref{sec:motion_in_standby})
+        but for a shorter duration (\cf~\cref{sec:motion_in_standby}).
   \item Team communication packets sent during \texttt{standby} now count
-        against the team's message budget for the game. (\cref{sec:wireless})
-
+        down the team's message budget for the game (\cf~\cref{sec:wireless}).
   \item The kicking team for free kicks in Champions Cup matches is communicated
         via visual referee signal. The GameController no longer shares this
-        information in those games. (\cref{sec:free_kick_gesture})
+        information in those games (\cf~\cref{sec:free_kick_gesture}).
   \item If a team fails to execute a free kick, the opposing team
-        may attempt to score directly. (\cref{sec:indirect_kick_default})
-
-  \item 2024 Champion Cup Indirect Kick rules now apply to Challenge Shield as well.
-        Challenge Shield teams have a fallback option available to them if they
-        are unable to field enough robots. (\cref{sec:indirect_kick_default})
-
-  \item Drop ball rule: in special situations where it can't be determined
-        which team should have kickoff, neither team gets any special right
-        to play the ball first. (\cref{sec:drop_ball_rule})
-  \item Penalty abortion: penalties can now be aborted early in case they were
-        erroneously assigned by the referee. (\cref{sec:aborting_penalty})
-  \item Ball stop rule: each half of the game can be allowed to last
-        a little longer to let the attack situation finish. (\cref{sec:early_stopping})
+        may attempt to score directly (\cf~\cref{sec:indirect_kick_default}).
+  \item The indirect kick rules from Champions Cup \LastRCYear~ now applies to Challenge Shield as well.
+        Challenge Shield teams have a fallback option available, if they
+        are unable to field enough robots (\cf~\cref{sec:indirect_kick_default}).
+  \item In special situations where it can't be determined
+        which team should have kickoff, neither team gets to play the ball first,
+        instead the drop ball rule applies (\cf~\cref{sec:drop_ball_rule}).
+  \item Penalties can now be aborted early in case they were
+        erroneously assigned by the referee (\cf~\cref{sec:aborting_penalty}).
+  \item With the ball stop rule each half of the game can be allowed to last
+        a little longer to let the attack situation finish (\cf~\cref{sec:early_stopping}).
 \end{itemize}

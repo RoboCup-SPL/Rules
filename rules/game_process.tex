@@ -33,7 +33,7 @@ The primary states are:
     So while in the \texttt{unstiff} state the robot is not allowed to move in any fashion! After booting, the robots are in their \texttt{unstiff} state.
     Pressing the chest button once while in the \texttt{unstiff} state, permits the robot to stiffen its joints and return to the \texttt{initial} state, or a state as indicated by GameController.
 
-    \item[Initial.] The robots are free to move at teams convenience and humans are allowed to interact with the robots. 
+    \item[Initial.] The robots are free to move at teams convenience and humans are allowed to interact with the robots.
     This state is not limited in time and teams have access to the field.
     The GameController will activate this state before \texttt{standby} (i.e at the beginning of a half and during a timeout).
     Shortly pressing the chest button will switch the robot to the \texttt{penalized} state.
@@ -86,7 +86,7 @@ The GameController operator will announce the transition from \texttt{initial} t
 If all humans from playing teams have left the field, the head referee can announce the transition earlier.
 
 
-Once the game controller operator has confirmed the \texttt{standby} state, the referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready} (\cf~\cref{sec:visual-signal}). 
+Once the game controller operator has confirmed the \texttt{standby} state, the referee should wait a random time between 10 to 120 seconds before announcing the transition to \texttt{ready} (\cf~\cref{sec:visual-signal}).
 Teams should expect that the delay before the referee signals the transition from \texttt{standby} to \texttt{ready} will be different every time.
 To announce the transition from \texttt{standby} to \texttt{ready} state, the referee will raise both hands over their head (\cf~\cref{fig:ready-signal}).
 The referee must stand on the opposite side of the technical area behind the touchline and in line with the halfway line.
@@ -170,29 +170,29 @@ There are two exceptions to this rule:
 \begin{itemize}
   \item A direct kick is allowed for the duration of the penalty kick, but this rule still applies after this kick.
   \item If a team is awarded a free kick but fails to execute it within the allotted time, the opposing team may attempt to score directly if they play the ball before the team who was originally awarded the free kick does.
-    (``Execute'' is intended as ``kick and move the ball clearly'', as per section \cref{sec:free_kick_execution})
+    ``Execute'' is intended as ``kick or move the ball clearly'', as per section \cref{sec:free_kick_execution}.
 \end{itemize}
 
-In both cases, the direct goal is only allowed if the kicking robot played the ball once.
+In both cases, the direct goal is only counted if the kicking robot played the ball once.
 The indirect kick rule returns into effect when the ball comes to a full stop after the kick, or if the same robot plays the ball again before then.
 In this case, any contacts made by the kicking robot, or any other robot, during the direct kick count towards the indirect kick rule.
 
 \begin{description}
   \item[Example 1:] Player 2 (of the red team) kicks the ball to Player~3 (of the red team), who then kicks the ball into the blue team's goal.
   This is a successful indirect kick, and the goal counts.
-  \item[Example 2:] Player 2 (of the red team) kicks the ball at the goal, and it is deflected off the side of the foot of a blue-team robot into the goal.
+  \item[Example 2:] Player 2 (of the red team) kicks the ball at the goal, and it is deflected off the side of the foot of a blue team robot into the goal.
     This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 3:] Player 2 (of the red team) kicks the ball ``upfield''.
-    A blue-team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the blue team's goal.
+    A blue team robot kicks the ball a short distance, after which Player~2 kicks the ball again into the blue team's goal.
     This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
-  \item[Example 4:] Player 2 (of the red team), walks up to and dribbles the ball.
-    Player~2 then stop, and visibly back away from the ball, before approaching to dribble a \textit{second} time. The robot then scores.
+  \item[Example 4:] Player 2 (of the red team), walks up and dribbles the ball.
+    Player~2 then stops, and visibly backs away from the ball, before approaching to dribble a \textit{second} time. The robot then scores.
     This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 5:] Player 2 (of the red team) kicks the ball ``upfield''.
   A blue-team robot kicks the ball again into the red team's goal.
   This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the red team.
-  \item[Example 6:] Player 2 (of the red team) is awarded a \texttt{Penalty kick} and kicks the ball towards the blue-team's goal. The goalkeeper blocks the ball. The referee then calls ``Ball Free''.
-  Player 2 (of the red team) kicks the ball again and score.
+  \item[Example 6:] Player 2 (of the red team) is awarded a \texttt{Penalty kick} and kicks the ball towards the blue team's goal. The goalkeeper blocks the ball. The referee then calls ``Ball Free''.
+  Player 2 (of the red team) kicks the ball again and scores.
   This is \textit{not} an indirect kick, the goal does not count and a \texttt{Goal kick} is awarded to the blue team.
   \item[Example 7:] The blue team is awarded a free kick, but doesn't play the ball. The timer expires, and Player 2 (of the red team) kicks directly into the blue goal.
   The failed-free-kick exception applies, and the goal counts.
@@ -209,7 +209,7 @@ In this case, any contacts made by the kicking robot, or any other robot, during
   The exception does \textit{not} apply for the red team because a blue-team robot played the ball first. The goal does not count and a \texttt{Goal kick} is awarded to the blue team.
 \end{description}
 
-\subsubsection{Fallback mode for Challenge Shield}
+\subsubsection{Fallback Mode for Challenge Shield}
 \label{sec:fallback_mode}
 
 This rule aims to allow \textbf{Challenge Shield} teams to play games
@@ -241,7 +241,7 @@ The GameController communicates to the robots the operational mode each team pla
 while the TeamCommunicationMonitor and the GameStateVisualizer display this
 same information for the convenience of the referees.
 
-\subsubsection{Indirect Kick in fallback mode}
+\subsubsection{Indirect Kick in Fallback Mode}
 \label{sec:indirect_kick_old}
 
 As long as at least one team plays in \textit{fallback mode}, \textbf{both teams}
@@ -453,7 +453,7 @@ The raised arm is the one pointing towards the defending team's goal, i.e. the g
 This gesture is made by the head referee and held for at least 5 seconds after the GameController signal is sent.
 The head referee is encouraged to seek the acknowledgement of the GameController operator and/or look at the field-facing monitor (if available) in order to determine the timing.
 
-The referee makes an effort to send the signal standing as close as possible to the T-junction joining the half-way line to the touchline opposite to the technical area.
+The referee makes an effort to gesture the signal standing as close as possible to the T-junction joining the half-way line to the touchline opposite to the technical area.
 However, their actual positioning along the touchline may deviate slightly from this standard position, based on the current game situation and the timing of the gesture.
 Teams are not required to scan the entire touchline:
 in broad terms, a robot standing a few meters away from the T-junction should be able to find the referee in its camera field with no or minimal head motion.
@@ -566,10 +566,7 @@ The head referee calls ``Local Game Stuck \textless robot\textgreater'' for this
 If no robots have made progress towards the ball or began to explore the field in \qty{\GameStuckTime}{\second} Global Game Stuck may be called.
 The referee calls ``Global Game Stuck'' to announce the decision.
 
-Once the referee calls Global Game Stuck, players enter the \texttt{ready} state, and a new kick-off is awarded.
-For the first Global Game Stuck of a half, the kick-off is awarded to the team that did not have the initial kick-off of the half.
-For any further Global Game Stuck calls of a half, kick-off is awarded to the team that did not receive kick-off in the previous Global Game Stuck call.
-The GameController will display which team should be awarded kick-off following a Global Game Stuck call.
+Once the referee calls Global Game Stuck, players enter the \texttt{ready} state, and a new kick-off is awarded. Since no team has now kick-off the drop-ball rule should apply, \cf~\cref{sec:drop_ball_rule}.
 
 A global game stuck can only be called if at least one robot has touched the ball since the previous kick-off.
 
@@ -650,12 +647,13 @@ Ending the game is mandatory once a goal difference of 10 is reached.
 \subsection{Drop-Ball Rule}
 \label{sec:drop_ball_rule}
 
-In the event that there has been a referee error or a pause in game during the \texttt{playing} state and has been acknowledged by the head referee, the drop-ball rule shall apply.
+In the event that there has been a referee error or a pause in game during the \texttt{playing} state and it has been acknowledged by the head referee, the drop-ball rule shall apply.
 The game must stop and will start again when the arising issue has been resolved.
+This rule also applies for the Global Game Stuck, \cf~\cref{sec:game_stuck:global}.
 
 When resuming the game, the process should be the same as an initial kickoff as specified in \cref{sec:initial-kick-off}, placing the robots on the sidelines.
-However, none of the teams will be given kickoff, and no team would be allowed in the center circle until the \texttt{playing} state as there is no longer time allotted for kick-off.
-The ball will be placed on the center marker as standard for a kick-off.
+However, none of the teams will be given kickoff, and no team will be allowed in the center circle until the \texttt{playing} state, as there is no longer time allotted for kick-off. With the transition into \texttt{playing} the ball is directly in play.
+
 The only current situations where the drop-ball rule would be required is when a referee timeout or a global game stuck has been called.
 
 \subsection{Ball Stop Rule}
