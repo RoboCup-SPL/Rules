@@ -15,7 +15,7 @@
 \pdfcompresslevel=9
 \newcommand{\leaguename}{RoboCup Standard Platform League (NAO) }
 \hypersetup{
- pdftitle={\leaguename Technical Challenges},
+ pdftitle={\leaguename Challenge Leaderboards},
  pdfauthor={Technical Committee SPL},
 }
 \usepackage{microtype}
@@ -65,9 +65,9 @@
 \definecolor{green}{rgb}{0,1,0}
 
 
-\title{\leaguename\\Technical Challenges}
+\title{\leaguename\\ Hall of Fame Leaderboards}
 \author{RoboCup Technical Committee}
-\date{(\RCYear technical challenges, as of \today)}
+\date{(\RCYear leaderboard challenges, as of \today)}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 6pt minus 3 pt}
@@ -94,7 +94,7 @@
 \maketitle
 
 \begin{center}
-Questions or comments on the technical challenge rules should be submitted via \url{https://github.com/RoboCup-SPL/Rules/issues}, to the \texttt{\#rule-book} channel on the SPL Discord server, or by mail to \url{rc-spl-tc@lists.robocup.org}.
+Questions or comments on the leaderboard rules should be submitted via \url{https://github.com/RoboCup-SPL/Rules/issues}, to the \texttt{\#rule-book} channel on the SPL Discord server, or by mail to \url{rc-spl-tc@lists.robocup.org}.
 \end{center}
 
 \newpage
@@ -110,15 +110,22 @@ Questions or comments on the technical challenge rules should be submitted via \
 \setcounter{page}{1}
 
 \section{Introduction}
-At RoboCup \RCYear, the Standard Platform League will hold one technical challenge, which is described in this document.
-RoboCup \RCYear awards a trophy for winning this challenge and the option for pre-qualification if a team is not pre-qualified by other means.
-
-Technical challenges are used in the SPL to develop technical capabilities which will be used in upcoming RoboCups in the main competition. The purpose is to give teams time to develop solutions and exchange ideas before they will be introduced into the main competition. Challenges are designed to move the league in a direction of further improvement of soccer skills and towards the overall goal of 2050. Each team is strongly encouraged to participate in these challenges to contribute to the league's advancement.
+Starting in 2025, several leaderboards will be introduced to track and compare team performances across key skills
+over multiple years. These leaderboards aim to motivate teams to improve in specific areas deemed valuable by the
+league and to compile a record of the top-performing components and skills. By highlighting these individual skills,
+the league encourages focused development in areas that contribute to overall team performance, and creates a showcase
+of the best technical abilities in the league.
 
 \subsection{Code Publication}
 Every team participating in a challenge must publish the corresponding code used in that competition according to Appendix A.7 of the SPL rule book, unless a specific challenge states otherwise.
 
-\include{challenges/KICKin-Rollin-Challenge}
-\include{challenges/open_research_challenge}
+\subsection{Challenge Rules}
+Each year, teams can choose to make an attempt at specific leaderboard challenges. The Technical Committee and Organizing
+Committee will coordinate dedicated time slots at RoboCup for teams to complete three attempts at each leaderboard challenge.
+Metrics from each attempt will be recorded and added to the appropriate leaderboard. Each leaderboard will be based
+on unique metrics and procedures, detailed below. Teams should indicate their intention for a leaderboard attempt 2 weeks before
+the first competition day. Scheduling attempts after this deadline may not be possible.
+
+\include{leaderboards/leaderboard_challenges}
 
 \end{document}
