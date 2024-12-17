@@ -112,16 +112,16 @@ A robot will be moved back to its original position if it has moved significantl
 \label{sec:motion_in_standby}
 
 If a robot begins to move during \texttt{standby} (\ie before the head referee does the visual signal), all robots from that team will be penalized until the end of the \textit{ready} state.
-However, movement of the head is permitted and does not result in a penalty.
+However, movement of the head and is permitted and initially standing up does not result in a penalty.
 The head referee will call ``Forbidden Motion in Standby\textless team\textgreater''.
-Any response to a false signal of any kind will also result in this penalty.
+Any response to a false signal of any kind will result in this penalty.
 
 \subsubsection{Motion in Set}
 \label{sec:motion_in_set}
 
 If a robot begins moving during \texttt{set} (\ie before the head referee blows the whistle), it will be penalized for \qty{15}{\second} in the \textit{playing} state.
 The head referee will call ``Forbidden Motion in Set \textless robot\textgreater''.
-Any response to a whistle from another field will also result in this penalty.
+Note that falsely responding to a whistle on another field will result in this penalty.
 
 \subsection{Fallen or Inactive Robots}
 \label{sec:fallenrobots}
