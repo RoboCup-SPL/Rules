@@ -228,10 +228,6 @@ as allowed by the rules (see \cref{sec:request_for_pickup}).
 Note that one team's choice of operational mode does \textbf{not} limit
 the number of robots the opposing team is allowed to play with.
 
-\info[inline]{Memo for the GC implementation: the excess robots are \textbf{not}
-picked up, they are ``outside the game'', or ``disabled'', or w/e.
-Substitution via pick-up should transfer the pickup/penalty timer as usual.}
-
 Teams decide which operational mode they play in before the beginning of each half.
 Furthermore, during any timeout (regardless of who initiated it), each team
 may choose to switch from \textit{normal mode} to \textit{fallback mode}, but not vice versa.
@@ -240,12 +236,6 @@ of their choice, and they are encouraged to make this decision as early as possi
 % TODO maybe "2 minutes before the scheduled start/resume of the game"?
 
 Changing operational modes during normal gameplay is not allowed.
-
-\info[inline]{
-  Besides preventing strategic abuses of the rule, having so few opportunities to change operational mode
-  is also intended to help referees, ensuring that the indirect kick rules don't
-  suddenly change during normal gameplay.
-}
 
 The GameController communicates to the robots the operational mode each team plays in,
 while the TeamCommunicationMonitor and the GameStateVisualizer display this
@@ -256,9 +246,7 @@ same information for the convenience of the referees.
 
 As long as at least one team plays in \textit{fallback mode}, \textbf{both teams}
 play by the following rules instead of the default ones for indirect kicks.
-\todo[linecolor=gray,backgroundcolor=gray!25,bordercolor=gray]{
-  Remove the footnote after RC2025 has passed
-}
+% TODO Remove this footnote after RC2025 has passed
 \footnote{For reference, teams who participated in Challenge Shield in 2024 may notice that these are the same indirect kick rules used that year. They have been slightly rephrased to fit their new role, but they are functionally unchanged.}
 
 Under these variant rules, after any restart into \texttt{playing} from a free kick,
@@ -456,9 +444,7 @@ The GameController packet will tell the robots which free kick sub-state is acti
 
 The gesture consists of raising one arm horizontally and sideways, parallel to the field line, while the other arm remains at rest (see \cref{fig:signal_setplay}).
 The raised arm is the one pointing towards the defending team's goal, i.e. the goal of the team that is \textit{not} taking the free kick.
-\todo[linecolor=gray,backgroundcolor=gray!25,bordercolor=gray]{
-  Remove the footnote after RC2025 has passed
-}
+% TODO Remove this footnote after RC2025 has passed
 \footnote{For reference, teams who participated in the 2023 Visual Referee Challenge
   may notice that this the same as the ``Kick-in'' gesture from back then,
   but with the opposite arm raised.
@@ -471,13 +457,11 @@ The referee makes an effort to send the signal standing as close as possible to 
 However, their actual positioning along the touchline may deviate slightly from this standard position, based on the current game situation and the timing of the gesture.
 Teams are not required to scan the entire touchline:
 in broad terms, a robot standing a few meters away from the T-junction should be able to find the referee in its camera field with no or minimal head motion.
-\info[inline]{Remind the refs that the GC operator will take a few moments to click the button, giving them a little time to make a couple steps if needed.}
 
 Teams are encouraged to make an effort to familiarize with looking at the referee and interpreting the visual signal even in cases where such an action may not seem strictly necessary,
 as more information may be communicated in this way rather than via GameController packets in future years.
 
 \textbf{In Challenge Shield}, this visual signal does not need to be performed and the kicking team is communicated by the GameController.
-\info[inline]{In accordance with the teams, the referee may still perform the gesture if e.g. a team wants to experiment with recognition, without changing the GC behavior.}
 
 \subsubsection{Execution}
 \label{sec:free_kick_execution}
