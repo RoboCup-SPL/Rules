@@ -620,7 +620,7 @@ This ``double timeout'' expires after 10 minutes.
 \subsection{Referee Timeout}
 \label{sec:referee_timeout}
 
-The head official may call a timeout at any stoppage of play if he or she deems it necessary.
+The head official may call a timeout at any time if he or she deems it necessary.
 A referee timeout should only be called in dire circumstances---one example might be when the power to the wireless router is down or no robot listens to the GameController.
 However, when and whether to call a referee timeout is left up to the head referee.
 
@@ -629,7 +629,9 @@ Teams may do anything during these timeouts, but they must be ready to play \tex
 The referee should end the timeout once he or she believes the circumstance for which the timeout was called has been resolved.
 In cases where the circumstance for which the timeout was called is not resolved within 10 minutes, the chair of the technical committee should be consulted regarding when/if play should continue.
 
-The team who would have kicked off if the timeout had not been called shall kick-off when the game resumes.
+If a team was going to have kick-off at the time the referee timeout was called
+(e.g. during most stoppages of play), that team shall kick-off when the game resumes.
+Otherwise, the drop-ball rule (\cref{sec:drop_ball_rule}) applies instead.
 
 \subsection{Extra Time}
 \label{sec:extra_time}
@@ -647,14 +649,23 @@ Ending the game is mandatory once a goal difference of 10 is reached.
 \subsection{Drop-Ball Rule}
 \label{sec:drop_ball_rule}
 
-In the event that there has been a referee error or a pause in game during the \texttt{playing} state and it has been acknowledged by the head referee, the drop-ball rule shall apply.
-The game must stop and will start again when the arising issue has been resolved.
-This rule also applies for the Global Game Stuck, \cf~\cref{sec:game_stuck:global}.
+In the event that play needs to resume after a stoppage of play in which neither
+team has a particular right to kick off the ball, the drop-ball rule shall apply.
+For example, this may happen if there has been a referee error or a pause in game
+during the \texttt{playing} state and it has been acknowledged by the head referee,
+or in the case of a Global Game Stuck, \cf~\cref{sec:game_stuck:global}.
 
-When resuming the game, the process should be the same as an initial kickoff as specified in \cref{sec:initial-kick-off}, placing the robots on the sidelines.
-However, none of the teams will be given kickoff, and no team will be allowed in the center circle until the \texttt{playing} state, as there is no longer time allotted for kick-off. With the transition into \texttt{playing} the ball is directly in play.
+A drop-ball plays like a kick-off variant. As in an ordinary kick-off, it is
+preceded by a \texttt{ready} phase to allow the robots to reach their kick-off
+positions and a \texttt{set} phase where the referee places the ball in the
+middle of the field.
+The main difference is that none of the teams will be given kick-off,
+and no team will be allowed in the center circle until the \texttt{playing} state,
+as there is no longer time allotted for kick-off.
+With the transition into \texttt{playing} the ball is directly in play.
 
-The only current situations where the drop-ball rule would be required is when a referee timeout or a global game stuck has been called.
+Note that a drop-ball may be an initial kick-off (e.g. after a referee timeout)
+or not (e.g. after a global game stuck).
 
 \subsection{Ball Stop Rule}
 \label{sec:early_stopping}
