@@ -26,7 +26,7 @@ Where a whistle is required, the head referee first whistles and then announces 
 The head referee may choose to use any normal sports whistle.
 Each whistle sound should be short and not too loud as to interfere with other fields and simultaneous games.
 The head referee must \textit{only} sound the whistle in circumstances described in these rules.
-There are three circumstances when the whistle is sounded, kick-off~(\cf \cref{sec:kick-off}), a goal~(\cf \cref{sec:goal}), and ending a half of gameplay~(\cf \cref{sec:game_struct}).
+There are three circumstances when the whistle is sounded: kick-off~(\cf \cref{sec:kick-off}), a goal~(\cf \cref{sec:goal}), and ending a half of gameplay~(\cf \cref{sec:game_struct}).
 
 The head referee should avoid handling the ball (except for placing a ball for kick-off), and avoid handling the robots.
 Their duty is to monitor and adjudicate the game.
@@ -39,19 +39,36 @@ The head referee may decide at any point before or during a game to relocate any
 \subsection{Assistant Referees}
 \label{sec:assist_referee}
 
-The two assistant referees handle the robots and the ball.
+The assistant referees handle the robots and the ball.
 They take the robots out when they are penalized, and they put the robots in again.
 If a team requests to pick up a robot, an assistant referee will pick it up and give it to one of the team members once the head referee approves.
 An assistant referee will also put the robot back on the field.
 An assistant referee will also replace the ball when it goes off the field or becomes stuck between a players feet.
-
-The head referee should talk to the assistant referees before the game starts to determine what tasks or lesser decisions they wish to delegate to them, however the final calls must come from the head referee.
-Examples of delegated assistance to referee decisions include keeping track of indirect-kick rule compliance to help confirm if a valid goal has been scored and indicating possible rules violations requiring a penalty (such as leaving the field, or motion in set).
+At the discretion of the head referee, more tasks can be delegated to the assistants (\cref{sec:referee_delegation}).
 
 Assistant referees should only enter the field to execute a decision made by the main referee.
 They should not prevent robots from falling during the game.
 
+A game has at least two assistant referees. If agreed upon by the referee teams
+or under certain circumstances, additional assistants may be present,
+up to a total maximum of four. See \cref{sec:refSelection}.
+
 The assistant referees should be equipped with a suitable referee jersey, and black or dark-blue socks.
+
+\subsubsection{The Stationary Assistant}
+
+Up to one assistant referee may be designated as the \textit{stationary assistant}.
+This is especially encouraged if the game includes additional assistants
+beyond the standard two.
+
+If a \textit{stationary assistant} is present, they are tasked with standing
+on the T-junction opposite to the technical area at all times and perform
+the gestures for the beginning of the \texttt{ready} phase and for set plays
+instead of the head referee.
+
+They may be delegated other tasks by the head referee: in particular, it is strongly
+encouraged that they keep track of the indirect kick rule, given its relation
+to set plays.
 
 \subsection{GameController Operator}
 \label{sec:gameControllerOp}
@@ -65,6 +82,64 @@ They should announce events that occur automatically in the GameController due t
 They are also responsible for keeping the time of each half.
 They should count aloud the remaining seconds in a half once the time remaining is \qty{5}{\second} or less.
 Finally, they should repeat the calls of the head referee to make sure it was heard correctly.
+
+\subsection{Pre-game referee meeting and task delegation}
+\label{sec:referee_delegation}
+
+Before the game starts, the people scheduled to serve as referees meet up to discuss the
+upcoming game. At least, they must decide which team is going to provide the head
+referee and the GameController operator and which is going to provide the assistants,
+and whether the head referee is going to delegate any duties to the assistants.
+Other topics that ensure a smooth cooperation among the referees can also be discussed.
+
+The head referee should talk to the assistants to determine
+what tasks or lesser decisions, if any, they wish to delegate to them
+to ensure that the game is arbitrated as smoothly as possible.
+This is left to the discretion of the head referee, based on their expertise in the role
+and their ability to focus on multiple events happening in the game at the same time
+and apply the corresponding rules.
+
+The head referee must clearly communicate what tasks are delegated
+to which person, so that everyone understands their duties during the game.
+
+If no agreement can be found, the default is that the responsibility for most
+calls and decisions falls upon the head referee, as determined by the rules.
+
+Common examples of tasks that can be delegated are:
+
+\begin{itemize}
+  \item Keeping track of the number of robots from the same team that deliberately played the ball
+        since the last free kick for the purposes of the indirect kick rule (\cref{sec:indirect_kick_default})
+        and communicating to the head referee whether a goal is valid or not.
+        The final call is still made by the head referee.
+  \item Determining which team is to be given a free kick when the ball goes
+        out of the field (\cref{sec:kick_in}) and communicating this to the head referee.
+        The final call is still made by the latter.
+  \item Physically executing the gestures for the beginning of the \texttt{ready}
+        phase and/or for set plays at the T-junction opposite to the technical area
+        (\cref{sec:free_kick_gesture}) instead of the head referee.
+  \item Providing help for ``Leaving the Field'' penalties (\cref{sec:leaving_field}). In a lesser form,
+        this could mean that assistants are allowed to pick up a robot that is
+        clearly intending to leave the carpeted area or going to get damaged
+        even if the head referee has not called ``Leaving the Field'' on it,
+        holding it until they get the attention of the head referee
+        and the call is made.
+        Alternatively, the assitant referees may be given full power to make
+        ``Leaving the Field'' calls in place of the head referee, but this solution
+        also requires the approval of the GameController operator since that means
+        they will have multiple people to pay attention to.
+  \item Indicating other violations requiring a penalty, with the final call still
+        being made by the head referee.
+\end{itemize}
+
+The above list is not prescriptive: the head referee can always choose to delegate
+zero, one, some, or all of these tasks. It is also not exhaustive: through
+discussion among the head referee, the assistants, and the GameController operator,
+other tasks not listed here may be identified and delegated.
+
+Care should be taken to not overburden any one person and not to blur the roles
+of head and assistant referees. Conflicts in the authority of the referees should
+be avoided, but if any do occur, the head referee's decision is final.
 
 \subsection{Referee--Team Communication}
 \label{sec:referee_team_communication}
