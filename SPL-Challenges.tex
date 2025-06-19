@@ -118,6 +118,12 @@ Technical challenges are used in the SPL to develop technical capabilities which
 \subsection{Code Publication}
 Every team participating in a challenge must publish the corresponding code used in that competition according to Appendix A.7 of the SPL rule book, unless a specific challenge states otherwise.
 
+\subsection{Overall Ranking}
+The scores earned in each challenge may vary significantly in magnitude, so they must be scaled before computing the overall Technical Challenge ranking.
+Teams that do not participate in a challenge will receive 0 points for that challenge.
+For each challenge, the team with the highest raw score will receive 25 points, and the team with the lowest non-zero raw score will receive 5 points.
+A linear scaling function is then defined between these two points, and all other participating teams will receive a scaled score based on their raw performance according to this function.
+
 \include{challenges/KICKin-Rollin-Challenge}
 \include{challenges/open_research_challenge}
 
